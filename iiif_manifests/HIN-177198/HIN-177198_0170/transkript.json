@@ -1,0 +1,18 @@
+{
+	"resources": {
+		"resource": {
+			"format": "text/plain",
+			"language": "de",
+			"@type": "cnt:ContentAsText",
+			"chars": "Das vertr\u00e4gt[?] kein Zeitungleser"
+		},
+		"@context": "https://iiif.io/api/presentation/2/context.json",
+		"motivation": "sc:painting",
+		"@type": "oa:Annotation",
+		"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0170/transkript.json#line_1563793987737_550",
+		"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0170#xywh=930,1045,1007,353"
+	},
+	"@context": "https://iiif.io/api/presentation/2/context.json",
+	"@type": "sc:AnnotationList",
+	"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0170/transkript.json"
+}

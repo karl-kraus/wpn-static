@@ -1,0 +1,18 @@
+{
+	"resources": {
+		"resource": {
+			"format": "text/plain",
+			"language": "de",
+			"@type": "cnt:ContentAsText",
+			"chars": "Vatikan kriecht vorm Kreuze"
+		},
+		"@context": "https://iiif.io/api/presentation/2/context.json",
+		"motivation": "sc:painting",
+		"@type": "oa:Annotation",
+		"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0162/transkript.json#line_1563741295782_1171",
+		"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0162#xywh=1062,1279,940,213"
+	},
+	"@context": "https://iiif.io/api/presentation/2/context.json",
+	"@type": "sc:AnnotationList",
+	"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0162/transkript.json"
+}

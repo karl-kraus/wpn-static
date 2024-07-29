@@ -1,0 +1,591 @@
+<!DOCTYPE HTML>
+<html id="edition-view">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="mobile-web-app-capable" content="yes">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-capable" content="yes">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-title" content="">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileColor" content="#ffffff">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileImage" content="images/logo.png">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://use.typekit.net/ckc0oka.css">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/svg+xml" href="images/logo.png" sizes="any">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="profile" href="http://gmpg.org/xfn/11">
+      <title xmlns="http://www.w3.org/1999/xhtml"></title>
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="css/style.css" type="text/css">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="css/micro-editor.css" type="text/css">
+   </head>
+   <body id="main_grid">
+      <header xmlns="http://www.w3.org/1999/xhtml" is="wpn-header" class="fixed-top bg-white pe-0">
+         <nav id="primary_nav" class="navbar border-bottom pt-05">
+            <div class="container-fluid"><a class="navbar-brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 123.47 106.97" width="90">
+                     <defs>
+                        <style>.cls-1{fill:#4a4a49;}.cls-2{fill:#a21a17;}</style>
+                     </defs>
+                     <g id="Ebene_2" data-name="Ebene 2">
+                        <g id="KARLKRAUS1933-EXPORT">
+                           <g id="LOGO-Karl-Kraus-1933_FARBE">
+                              <path class="cls-1" d="M21.24,49v9.32h2.18L29.17,49h6.6L28.42,60.93l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V49Z"></path>
+                              <path class="cls-1" d="M49.09,49a10.73,10.73,0,0,1,5.79,1.32c1.6,1,2.71,2.68,2.71,5.71,0,3.4-1.36,6-4.64,6.82,3.1.58,4,3.61,4.78,10.79H51.66c-.89-6.64-1.39-8.36-3.61-8.36H44.81v8.36H39V49ZM44.81,60.43h2.6c2.75,0,4.18-.61,4.18-3.72a2.88,2.88,0,0,0-.68-2.28,3,3,0,0,0-2.14-.5h-4Z"></path>
+                              <path class="cls-1" d="M76.19,73.64,74.87,69H67.05l-1.32,4.68H59.84L67.59,49h6.93l7.74,24.64ZM71,54.82,68.3,64.35h5.36Z"></path>
+                              <path class="cls-1" d="M89.69,49V64.85c0,2.65.22,4.22,3.89,4.22,3.5,0,3.82-1.43,3.82-4.22V49h5.79V64.78c0,2.32-.32,4.5-1.64,6.18s-4.07,3.11-8.18,3.11S87,72.89,85.66,71.32c-1.47-1.75-1.75-4.07-1.75-6.36V49Z"></path>
+                              <path class="cls-1" d="M120.22,54.89A9.87,9.87,0,0,0,115,53.46c-1.75,0-2.89.47-2.89,2.4,0,3.75,11.32,1.53,11.32,10.46a7,7,0,0,1-3.11,6A11.58,11.58,0,0,1,114,74.07c-2.61,0-6.14-.65-8.14-2.47l2.85-4.25a9.85,9.85,0,0,0,5.86,1.82c1.68,0,3.07-.42,3.07-2.57,0-4.25-11.32-1.82-11.32-10.6a6.4,6.4,0,0,1,2.79-5.5,10.53,10.53,0,0,1,6.42-1.93c2.36,0,5.54.57,7.43,2.14Z"></path>
+                              <path class="cls-1" d="M21.24,18.79v9.32h2.18l5.75-9.32h6.6L28.42,30.72l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V18.79Z"></path>
+                              <path class="cls-1" d="M54.16,43.43l-1.32-4.68H45L43.7,43.43H37.8l7.75-24.64h6.93l7.75,24.64ZM49,24.61l-2.68,9.54h5.35Z"></path>
+                              <path class="cls-1" d="M72.87,18.79a10.63,10.63,0,0,1,5.78,1.33c1.61,1,2.72,2.67,2.72,5.71,0,3.39-1.36,6-4.64,6.82,3.1.57,4,3.6,4.78,10.78H75.44c-.89-6.64-1.39-8.35-3.61-8.35H68.59v8.35H62.8V18.79ZM68.59,30.22h2.6c2.75,0,4.18-.61,4.18-3.71a2.94,2.94,0,0,0-.68-2.29,3.07,3.07,0,0,0-2.14-.5h-4Z"></path>
+                              <path class="cls-1" d="M91,18.79v19.5h8.46v5.14H85.24V18.79Z"></path>
+                              <path class="cls-2" d="M111,33.6h-6.1v-10.1h6.1v1.2h-4.7v3.1h4v1.2h-4v3.5h4.7v1.2ZM117.1,33.6h-1.5l-3.7-9.7,1.3-.5,3.2,8.7,3.2-8.7,1.2.5-3.7,9.7ZM95.2,33.6v-10c.5,0,.9,0,1.3-.1.2,0,.4,0,.6,0,.3,0,.6,0,.9,0,.4,0,.7,0,1.1,0,.4,0,.7.1,1,.3,0,0,0,0,.1,0,.4.2.7.4,1.1.6.2.1.4.3.5.5.4.5.7,1,.9,1.6.2.5.3,1,.3,1.6,0,.1,0,.3,0,.4,0,.6,0,1.1-.2,1.7,0,.1,0,.2,0,.3-.2.6-.5,1.2-.9,1.6-.4.5-1,.9-1.6,1.1-.6.3-1.3.4-2.1.4,0,0-.1,0-.2,0-.2,0-.4,0-.6,0-.2,0-.4,0-.5,0,0,0-.2,0-.3,0-.4,0-.8,0-1.2-.1ZM96.5,24.7v7.8c.2,0,.4,0,.6,0,.2,0,.3,0,.5,0,0,0,.1,0,.2,0,.3,0,.6,0,.9,0,.5,0,.9-.2,1.2-.4.5-.3,1-.8,1.2-1.4.2-.4.3-.8.3-1.2,0-.3,0-.6,0-.9,0-.7-.1-1.3-.4-1.9-.3-.6-.7-1.1-1.2-1.5-.3-.2-.7-.4-1-.4-.3,0-.6-.1-.9-.1,0,0-.1,0-.2,0-.3,0-.5,0-.8,0-.2,0-.4,0-.6,0Z" vector-effect="non-scaling-stroke"></path>
+                              <path class="cls-2" d="M19.28,86.21v19.44H17.72v-18H15.37V86.21Z"></path>
+                              <path class="cls-2" d="M24.52,92.21A6.24,6.24,0,0,1,31,85.89a6.2,6.2,0,0,1,6.39,6.45c0,4.48-4.67,10.69-8.17,13.31H26.9a27.53,27.53,0,0,0,7.56-8.5,5.2,5.2,0,0,1-3.59,1.35A6.2,6.2,0,0,1,24.52,92.21Zm1.57,0A4.86,4.86,0,1,0,31,87.29,4.73,4.73,0,0,0,26.09,92.21Z"></path>
+                              <path class="cls-2" d="M44.53,87.32a9.53,9.53,0,0,0-4.24,1.11V86.86a10.53,10.53,0,0,1,4.32-1c3.48,0,5.78,2,5.78,5a5,5,0,0,1-3.76,4.67,5.21,5.21,0,0,1,4.08,5.13c0,3-2.46,5.23-6.1,5.23a9.34,9.34,0,0,1-4.7-1.1V103.3a8.72,8.72,0,0,0,4.65,1.24c2.72,0,4.53-1.67,4.53-3.86,0-2.75-2.11-4.37-5.64-4.37H43V95h.73c2.86,0,5.08-1.62,5.08-4S47,87.32,44.53,87.32Z"></path>
+                              <path class="cls-2" d="M58.43,87.32a9.53,9.53,0,0,0-4.23,1.11V86.86a10.48,10.48,0,0,1,4.31-1c3.49,0,5.78,2,5.78,5a5,5,0,0,1-3.75,4.67,5.21,5.21,0,0,1,4.07,5.13c0,3-2.45,5.23-6.1,5.23a9.3,9.3,0,0,1-4.69-1.1V103.3a8.68,8.68,0,0,0,4.64,1.24c2.73,0,4.53-1.67,4.53-3.86,0-2.75-2.1-4.37-5.64-4.37h-.48V95h.73c2.86,0,5.07-1.62,5.07-4S60.94,87.32,58.43,87.32Z"></path>
+                              <path class="cls-2" d="M4,18.79H0v-14A4.84,4.84,0,0,1,4.83,0H15.45V4H4.83A.83.83,0,0,0,4,4.83Z"></path>
+                           </g>
+                        </g>
+                     </g></svg></a><span class="d-flex align-items-center"><a class="nav-link project-link pe-4 link-dark-grey link-hover-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a><button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12">
+                        <defs>
+                           <style>.a{fill:none}</style>
+                        </defs>
+                        <g transform="translate(0 0.5)">
+                           <line class="a" x2="20"></line>
+                           <line class="a" x2="20" transform="translate(0 5)"></line>
+                           <line class="a" x2="20" transform="translate(0 10)"></line>
+                        </g></svg></button></span><div class="navbar position-fixed start-0 bg-black-grey w-100 opacity-97" id="navbarSupportedContent">
+                  <div class="container d-block">
+                     <div class="row">
+                        <div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="projekt.html">Über das Projekt<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="nutzungsbedingungen.html">Nutzungsbedingungen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="impressum.html">Impressum<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                           </ul>
+                        </div>
+                        <div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Dritte Walpurgisnacht</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="notizen.html">Notizen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="annotierte_lesefassung.html">Annotierte Lesefassung<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="register.html">Register<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                           </ul>
+                        </div>
+                        <div class="col-md-4"><span class="d-block navbar-title text-dark-grey border-bottom border-light-grey pb-1">Kommentar</span></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </nav>
+         <nav aria-label="breadcrumb" class="my-1">
+            <div class="container-fluid">
+               <ol class="breadcrumb">
+                  <li class="breadcrumb-item active" aria-current="page">Karl Kraus 1933: Dritte Walpurgisnacht</li>
+               </ol>
+            </div>
+         </nav>
+      </header>
+      <main class="flex-shrink-0 mt-18">
+         <div class="container-fluid px-0">
+            <div class="row">
+               <div class="col-md-2 col-lg-2 col-sm-12"></div>
+               <div class="col-md-2 col-lg-2 col-sm-12" style="text-align:right"></div>
+            </div>
+            <div is="wpn-text-view" annotation-selectors=".entity" id="sub_grid">
+               <div>
+                  <div class="p-0 d-flex flex-column align-items-center position-fixed">
+                     <div xmlns="http://www.w3.org/1999/xhtml" class="dropdown ff-ubuntu"><button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">Absatz 16</button><ul class="dropdown-menu z-3 rounded-0">
+                           <li><a class="dropdown-item fs-9_38 py-0" href="motti.html">[Motti]</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_1.html">Absatz 1</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_2.html">Absatz 2</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_3.html">Absatz 3</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_4.html">Absatz 4</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_5.html">Absatz 5</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_6.html">Absatz 6</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_7.html">Absatz 7</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_8.html">Absatz 8</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_9.html">Absatz 9</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_10.html">Absatz 10</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_11.html">Absatz 11</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_12.html">Absatz 12</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_13.html">Absatz 13</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_14.html">Absatz 14</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_15.html">Absatz 15</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_16.html">Absatz 16</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_17.html">Absatz 17</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_18.html">Absatz 18</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_19.html">Absatz 19</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_20.html">Absatz 20</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_21.html">Absatz 21</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_22.html">Absatz 22</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_23.html">Absatz 23</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_24.html">Absatz 24</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_25.html">Absatz 25</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_26.html">Absatz 26</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_27.html">Absatz 27</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_28.html">Absatz 28</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_29.html">Absatz 29</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_30.html">Absatz 30</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_31.html">Absatz 31</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_32.html">Absatz 32</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_33.html">Absatz 33</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_34.html">Absatz 34</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_35.html">Absatz 35</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_36.html">Absatz 36</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_37.html">Absatz 37</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_38.html">Absatz 38</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_39.html">Absatz 39</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_40.html">Absatz 40</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_41.html">Absatz 41</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_42.html">Absatz 42</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_43.html">Absatz 43</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_44.html">Absatz 44</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_45.html">Absatz 45</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_46.html">Absatz 46</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_47.html">Absatz 47</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_48.html">Absatz 48</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_49.html">Absatz 49</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_50.html">Absatz 50</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_51.html">Absatz 51</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_52.html">Absatz 52</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_53.html">Absatz 53</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_54.html">Absatz 54</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_55.html">Absatz 55</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_56.html">Absatz 56</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_57.html">Absatz 57</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_58.html">Absatz 58</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_59.html">Absatz 59</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_60.html">Absatz 60</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_61.html">Absatz 61</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_62.html">Absatz 62</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_63.html">Absatz 63</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_64.html">Absatz 64</a></li>
+                        </ul>
+                     </div>
+                     <div id="editor-widget">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                           <div id="aot-navBarNavDropdown" class="navBarNavDropdown dropstart d-md-none"><a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button"><i class="bi bi-gear" title="Menü zur Anpassung der Anzeige"></i></a><ul class="dropdown-menu d-block border-0 z-2">
+                                 <li class="dropdown-item">
+                                    <annotation-slider opt="prs" class="text-wpn-person fs-7"></annotation-slider>
+                                 </li>
+                                 <li class="dropdown-item">
+                                    <annotation-slider opt="quts" class="text-wpn-quote fs-7"></annotation-slider>
+                                 </li>
+                                 <li class="dropdown-item">
+                                    <annotation-slider opt="pbs" class="text-black-grey fs-7"></annotation-slider>
+                                 </li>
+                                 <li class="dropdown-item">
+                                    <annotation-slider opt="cmts" class="text-comment fs-7"></annotation-slider>
+                                 </li>
+                              </ul>
+                           </div>
+                           <div class="d-none d-md-block">
+                              <ul class="border-0 z-2 list-unstyled">
+                                 <li>
+                                    <annotation-slider opt="prs" class="text-wpn-person fs-7 mx-auto"></annotation-slider>
+                                 </li>
+                                 <li>
+                                    <annotation-slider opt="quts" class="text-wpn-quote fs-7 mx-auto"></annotation-slider>
+                                 </li>
+                                 <li>
+                                    <annotation-slider opt="pbs" class="text-black-grey fs-7 mx-auto"></annotation-slider>
+                                 </li>
+                                 <li>
+                                    <annotation-slider opt="cmts" class="text-wpn-comment fs-7 mx-auto"></annotation-slider>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div id="textcolumn" class="mx-auto ff-century-old-style"><span class="d-block runningText1"><span class="inline-text">
+                        Was den literarischen Ausdruck der Zeitstimmung
+                        betrifft, der in so vehementen Kundgebungen wie
+                        jener gegen Flucht und Verbleib der Juden vorliegt,
+                        so ist gewiß nicht zu leugnen, daß ein wenig über die Galgenstränge geschlagen wurde. Gleichwohl hat das Wort
+                        nicht geringern Anspruch als die Tat, mit der Nachsicht beurteilt zu werden, die den Sturm und Drang
+                        einer jungen Bewegung von deren Wertgehalt
+                        unterscheidet. Man darf dem, was man ihr zugutehalten muß, nicht das Gute übersehen
+                        und muß auch hier den Standpunkt einer Führung
+                        anerkennen, von der man ja immer wieder die ausdrückliche <span is="wpn-entity" class="quotes entity " id="DWquote0297">Mißbilligung von Übergriffen</span> vernommen
+                        hat, die sie gutheißt. Denn man könnte doch im
+                        Ernst nicht annehmen, daß Worte, die so brüsk
+                        
+                        
+                        <span class="pagebreaks entity" id="pb0047" style="display:none;">||</span>
+                        
+                        den Tatendrang bejahen, dem Geschmack eines
+                        Mannes gemäß seien, von dem <span is="wpn-entity" class="persons entity " id="DWrsPers0173">Kube</span>, selbst ein
+                        Ästhet, gesagt hat:<span is="wpn-entity" class="quotes entity " id="DWquote0298">
+                           <span class="d-block longQuoteIndent"><span class="inline-text">
+                                 Es ist der Wille <span is="wpn-entity" class="persons entity " id="DWrsPers0174">Adolf Hitlers</span>, daß der politische Kampf .&nbsp;. 
+                                 <span class="spacing">geadelt</span> sei durch die Pflege deutscher Kunst. Wir engeren Mitarbeiter wissen, daß er <span class="spacing">der feinsinnigste Kunstkenner
+                                    ist, der je an der Spitze einer großen Nation gestanden hat.</span> Ich <span class="spacing">erinnere mich,</span> wie er <span class="spacing">vor dem großen
+                                    Entscheidungskampf</span> um das Kabinett <span is="wpn-entity" class="persons entity " id="DWrsPers0175">Schleicher</span> sich an die
+                                 Stufen des Pergamon<span class="spacing">altars</span> begab, um an seiner gewaltigen Schönheit <span class="spacing">die eigenen inneren menschlichen Sehnsüchte
+                                    wieder aufzufrischen.</span><span class="comments entity" id="DWcomment0649"></span></span></span></span>
+                        Und nach den rauhen Kampftagen solle sich das
+                        deutsche Volk wieder auf seine Seele besinnen, denn
+                        »<span is="wpn-entity" class="quotes entity " id="DWquote0299">seelische Erneuerung tut not</span>«. Die musische
+                        Seite, die eigentlich die stärkere ist, wurde bisher
+                        viel zu wenig beachtet, und selbst der Fachmann
+                        würde staunen über die geheimen Sehnsüchte eines
+                        Tatmenschen, von dem sein eigenes Blatt, das doch
+                        gewiß informiert ist, unter dem Titel »<span is="wpn-entity" class="quotes entity " id="DWquote0300">Wenn die
+                           Künstler wüßten .&nbsp;.&nbsp;.</span>« das Bild eines <span is="wpn-entity" class="persons entity " id="DWrsPers0176">Mäcenas</span> entwirft, wie ihn der <span is="wpn-entity" class="persons entity " id="DWrsPers0177">Horaz</span> nicht geträumt hat:<span is="wpn-entity" class="quotes entity " id="DWquote0301">
+                           <span class="d-block longQuote"><span class="inline-text">
+                                 <span class="spacing">Wenn die Künstler ahnen würden,</span> wie sehr <span is="wpn-entity" class="persons entity " id="DWrsPers0178">Adolf Hitler</span>
+                                 <span class="spacing">den Inbegriff des musischen Menschen</span> verkörpert, so
+                                 hätte er unter ihnen keine Gegner — <span class="spacing">dieses Wort,</span> in den Zeiten
+                                 unserer schwersten Kämpfe <span class="spacing">von <span is="wpn-entity" class="persons entity " id="DWrsPers0179">Baldur von Schirach</span> geprägt,</span> es hat uns wie ein Stern der Verheißung selbst die dunkelsten Stunden hell und licht gemacht.</span></span></span>
+                        Also nicht erst die Erscheinung als solche, nein
+                        schon wie <span is="wpn-entity" class="persons entity " id="DWrsPers0180">Schirach</span> sie sah, <span is="wpn-entity" class="persons entity " id="DWrsPers0181">Schirachs</span> Wort war aufrichtend. Selbst wenn wir <span is="wpn-entity" class="persons entity " id="DWrsPers0182">schier ach</span> verzagen wollten —<span is="wpn-entity" class="quotes entity " id="DWquote0302">
+                           <span class="d-block longQuote"><span class="inline-text">
+                                 dieser Talis<span class="spacing">mann</span> der Hoffnung <span class="spacing">feite uns</span> gegen jedes Erlahmen:
+                                 <span class="spacing">Wenn die Künstler wüßten</span> .&nbsp;.&nbsp;.</span></span></span>
+                        <span is="wpn-entity" class="quotes entity " id="DWquote0303">Ein Stein, der die geheime Kraft hat, bei Gott und
+                           Menschen unbeliebt zu machen?</span> Nicht doch, der
+                        ‚Völkische Beobachter‘ bestätigt die Erkenntnis <span is="wpn-entity" class="persons entity " id="DWrsPers0183">jenes
+                           Sehers</span>, dessen Name schon wie eine Mischung
+                        aus <span is="wpn-entity" class="quotes entity " id="DWquote2010">Edda</span> und <span is="wpn-entity" class="quotes entity " id="DWquote2011">Pentateuch</span> klingt:
+                        
+                        
+                        <span class="pagebreaks entity" id="pb0048" style="display:none;">||</span>
+                        <span is="wpn-entity" class="quotes entity " id="DWquote0304">
+                           <span class="d-block longQuote"><span class="inline-text">
+                                 Wenn sie wüßten, <span class="spacing">was zu erleben schon früh unser
+                                    Schicksal wurde,</span> daß ein politischer Führer <span class="spacing">keineswegs
+                                    naturnotwendiger Weise amusischen Charakters sein
+                                    muß,</span> sondern <span class="spacing">sehr wohl</span> mit der Härte einer heroischen Überzeugung und der Unerbittlichkeit des Befehls <span class="spacing">Aufgeschlossenheit
+                                    für alle künstlerischen Verklärungen des Daseins
+                                    haben kann</span> — sie würden, dessen waren wir <span class="spacing">von jeher gewiß,</span>
+                                 zur <span class="spacing">Heerschar</span> derjenigen stoßen, die wie wir</span></span>
+                           »aller Differenziertheit des Intellekts entsagen lernten«,
+                           um ihn »schlechthin zu lieben«.</span><span is="wpn-entity" class="quotes entity " id="DWquote0307">
+                           <span class="d-block longQuote"><span class="inline-text">
+                                 Wenn sie wüßten — <span class="spacing">dieser Gedanke bemächtigte sich
+                                    unser mit fast quälender Gewalt.</span></span></span></span>
+                        Man kann sich denken, was die vom ‚Völkischen
+                        Beobachter‘ gelitten haben; es grenzt an Dachau<span class="comments entity" id="DWcomment0116"></span>.
+                        Aber:<span is="wpn-entity" class="quotes entity " id="DWquote0308">
+                           <span class="d-block longQuote"><span class="inline-text">
+                                 Sie <span class="spacing">sollen</span> es wissen, sie <span class="spacing">müssen</span> es wissen!</span></span></span>
+                        Zu diesem Behufe werden »<span is="wpn-entity" class="quotes entity " id="DWquote0309">die künstlerisch-schöpferischen Persönlichkeiten der Theater- und
+                           Filmwelt</span>« an den Kaiserhof, der ein Hotel ist,
+                        berufen:<span class="comments entity" id="DWcomment0650"></span><span is="wpn-entity" class="quotes entity " id="DWquote0310">
+                           <span class="fackelrefs entity " id="F890seg0021"><span class="d-block lg longQuoteVerse">
+                                 <span class="d-block l"><span class="inline-text">Jetzt so, mit ungeheurem Streben,</span></span>
+                                 <span class="d-block l"><span class="inline-text">Drang aus dem Abgrund ich herauf,</span></span>
+                                 <span class="d-block l"><span class="inline-text">Und fordre laut, zu neuem Leben,</span></span>
+                                 <span class="d-block l"><span class="inline-text">Mir fröhliche Bewohner <span class="hidden">auf</span></span></span></span></span></span>
+                        und es ergibt sich, ganz im Concordiastil,<span class="comments entity" id="DWcomment0117"></span> <span is="wpn-entity" class="quotes entity " id="DWquote0311">da man
+                           die Staatskunst mit der Muse plaudern sah, ein
+                           zwangloser, aber reger Gedankenaustausch. Mancher,
+                           dem ich Talent beigebracht habe, ist dabei und
+                           sonnt sich. Man sieht, wie <span is="wpn-entity" class="persons entity " id="DWrsPers0185">Willy Fritsch</span> beim
+                           Händedruck am Ziel ist, wie die <span is="wpn-entity" class="persons entity " id="DWrsPers0186">Paudler</span> (deren
+                           Gleichschaltung mich gleichfalls kalt läßt) ins
+                           Dritte Reich eingeht, man hört wie die <span is="wpn-entity" class="persons entity " id="DWrsPers0187">Liane Haid</span>
+                           ausruft: »Großartig hab’n S’ das g’macht, <span is="wpn-entity" class="persons entity " id="DWrsPers0188">Herr
+                              Hitler</span>, nur so weiter, toi toi toi!«<span class="comments entity" id="DWcomment0118"></span> Und immer
+                           	lachend <span is="wpn-entity" class="persons entity " id="DWrsPers0189">Goebbels</span> unter den <span is="wpn-entity" class="quotes entity " id="DWquote2142">Lamien</span>:</span><span is="wpn-entity" class="quotes entity " id="DWquote0312">
+                           <span class="fackelrefs entity " id="F890seg0022"><span class="d-block lg longQuoteVerse">
+                                 <span class="hidden"><span class="d-block l"><span class="inline-text">Wie sie dem Satyrvolk behagen;</span></span></span>
+                                 <span class="d-block l"><span class="inline-text">Ein Bocksfuß darf dort alles wagen.</span></span></span></span></span>
+                        Und nun:<span is="wpn-entity" class="quotes entity " id="DWquote0313">
+                           <span class="d-block longQuote"><span class="inline-text">
+                                 <span class="spacing">durchzuckt uns nicht mehr jenes schmerzliche:
+                                    Wenn sie wüßten, sondern beglückt uns die Gewißheit: Jetzt wissen sie!</span></span></span></span>
+                        Von da ist im Musischen nur noch ein Schritt zu der
+                        Feststellung der sogenannten »Dötz«, <span is="wpn-entity" class="quotes entity " id="DWquote0314">das Publikum
+                           
+                           
+                           <span class="pagebreaks entity" id="pb0049" style="display:none;">||</span>
+                           
+                           habe dem <span is="wpn-entity" class="persons entity " id="DWrsPers0191">Komponisten einer <span is="wpn-entity" class="quotes entity " id="DWquote2139"><span is="wpn-entity" class="persons entity " id="DWrsPers0192">Goethe</span>-Symphonie</span></span>,
+                           die dem <span is="wpn-entity" class="persons entity " id="DWrsPers0193">Führer</span> gewidmet ist, zugejubelt,<span class="comments entity" id="DWcomment0871"></span> denn es
+                           grüßte
+                           <span class="d-block longQuote"><span class="inline-text">
+                                 mit dem Meister <span class="spacing">die großen Geister,</span> denen sein Werk dient:
+                                 <span class="spacing"><span is="wpn-entity" class="persons entity " id="DWrsPers0194">Goethe</span> und <span is="wpn-entity" class="persons entity " id="DWrsPers0195">Adolf Hitler</span>.</span></span></span></span>
+                        Der Musikkritiker, der es schrieb, heißt <span is="wpn-entity" class="persons entity " id="DWrsPers0196">Damisch</span>.<span is="wpn-entity" class="quotes entity " id="DWquote0315">
+                           <span class="d-block longQuote"><span class="inline-text">
+                                 <span class="spacing">So nur</span> kann, so <span class="spacing">muß</span> es sein</span></span></span>
+                        schloß treffend der <span is="wpn-entity" class="persons entity " id="DWrsPers0931">völkische Kollege</span>, als es die
+                        Künstler endlich erfahren hatten.</span></span></div>
+               <div id="infocolumn" class="px-0 border-start border-light-grey">
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0297"><b xmlns=""><i>NFP</i></b> vom 11. 3. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0047" style="display:none"><span>Beginn Seite 47</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0173">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: DB -->
+                        						
+                        <forename>Wilhelm</forename>
+                        						
+                        <surname>Kube</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0298"><b xmlns=""><i>BT</i></b> vom 19. 6. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0174">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
+                        						
+                        <forename>Adolf</forename>
+                        						
+                        <surname>Hitler</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0175">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2007, DB-->
+                        						
+                        <forename>Kurt</forename>
+                        						
+                        <nameLink>von</nameLink>
+                        						
+                        <surname>Schleicher</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0649"><span class="fw-bold">Ereignis: Hitler in Berlin</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0299"><b xmlns=""><i>BT</i></b> vom 19. 6. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0300"><b xmlns=""><i>VB</i></b> vom 11. 5. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0176">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0">Mäcenas</persName>
+                     <persName xmlns="http://www.tei-c.org/ns/1.0" full="yes">Gaius Maecenas</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0177">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0">Horaz</persName>
+                     <persName xmlns="http://www.tei-c.org/ns/1.0" full="yes">Quintus Horatius Flaccus</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0301"><b xmlns=""><i>VB</i></b> vom 11. 5. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0178">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
+                        						
+                        <forename>Adolf</forename>
+                        						
+                        <surname>Hitler</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0179">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2007-->
+                        						
+                        <forename>Baldur</forename>
+                        						
+                        <nameLink>von</nameLink>
+                        						
+                        <surname>Schirach</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0180">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2007-->
+                        						
+                        <forename>Baldur</forename>
+                        						
+                        <nameLink>von</nameLink>
+                        						
+                        <surname>Schirach</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0181">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2007-->
+                        						
+                        <forename>Baldur</forename>
+                        						
+                        <nameLink>von</nameLink>
+                        						
+                        <surname>Schirach</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0182">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2007-->
+                        						
+                        <forename>Baldur</forename>
+                        						
+                        <nameLink>von</nameLink>
+                        						
+                        <surname>Schirach</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0302"><b xmlns=""><i>VB</i></b> vom 11. 5. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0303"><b xmlns="">Gotthold Ephraim Lessing: </b><b xmlns="">Nathan der Weise</b> (1783)</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0183">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2007-->
+                        						
+                        <forename>Baldur</forename>
+                        						
+                        <nameLink>von</nameLink>
+                        						
+                        <surname>Schirach</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2010"><b xmlns="">Edda [altisländische Textsammlungen]</b> (~1220 („Snorra-Edda“) bzw. ~1270 („Lieder-Edda“))</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2011"><b xmlns="">Tora / Fünf Bücher Mose</b> (Entst. ~350 v. Chr.)</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0048" style="display:none"><span>Beginn Seite 48</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0304"><b xmlns=""><i>VB</i></b> vom 11. 5. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0307"><b xmlns=""><i>VB</i></b> vom 11. 5. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0116"><span class="fw-bold">Glossar: Das Konzentrationslager Dachau</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0308"><b xmlns=""><i>VB</i></b> vom 11. 5. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0309"><b xmlns="">[Nicht ermittelt]</b></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0650"><span class="fw-bold">Ereignis: Goebbels vor Verteter:innen der Filmbranche</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0650"><span class="fw-bold">Ereignis: Goebbels vor Vertreter:innen des Theaters</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0310"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0117"><span class="fw-bold">Glossar: Kraus und die Concordia</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0311"><b xmlns="">[Nicht ermittelt]</b></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0185">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle:  GND, Filmportal.de, Klee 2009  -->
+                        						
+                        <forename full="abb">Willy</forename>
+                        						
+                        <forename subtype="unused">Wilhelm</forename>
+                        						
+                        <forename type="middle" subtype="unused">Egon</forename>
+                        						
+                        <surname type="taken">Fritsch</surname>
+                        						
+                        <surname subtype="unused">Fritz</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0186">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: filmportal.de -->
+                        						
+                        <forename>Maria</forename>
+                        						
+                        <surname>Paudler</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0187">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖML -->
+                        						
+                        <forename type="taken">Liane</forename>
+                        						
+                        <forename subtype="unused">Juliane</forename>
+                        						
+                        <surname>Haid</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0188">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
+                        						
+                        <forename>Adolf</forename>
+                        						
+                        <surname>Hitler</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0118"><span class="fw-bold">Glossar: Die drei ‚Lamien‘ Fritsch, Paudler und Haid</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0189">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0">
+                        						
+                        <forename>Joseph</forename>
+                        						
+                        <forename subtype="unused">Paul</forename>
+                        						
+                        <addName type="honorific">Dr.</addName>
+                        						
+                        <surname>Goebbels</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2142"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0312"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0313"><b xmlns=""><i>VB</i></b> vom 11. 5. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0314"><b xmlns=""><i>DÖTZ</i></b> vom 26. 5. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0049" style="display:none"><span>Beginn Seite 49</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0191">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Czeike, ÖBL; dort Hinweis auf genanntes Werk: Goethe-Symphonie für Soli, Chor, Orchester und Orgel, op. 168, 1931; -->
+                        						
+                        <forename>Josef</forename>
+                        						
+                        <surname>Reiter</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2139"><b xmlns="">Josef Reiter: </b><b xmlns="">Goethe-Symphonie</b> (UA 1931)</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0192">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: -->
+                        						
+                        <forename>Johann</forename>
+                        						
+                        <forename type="middle">Wolfgang</forename>
+                        						
+                        <nameLink>von</nameLink>
+                        						
+                        <surname>Goethe</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0193">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
+                        						
+                        <forename>Adolf</forename>
+                        						
+                        <surname>Hitler</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0871"><span class="fw-bold">Ereignis: NS-Aufführung einer <i>Goethe-Symphonie</i></span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0194">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: -->
+                        						
+                        <forename>Johann</forename>
+                        						
+                        <forename type="middle">Wolfgang</forename>
+                        						
+                        <nameLink>von</nameLink>
+                        						
+                        <surname>Goethe</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0195">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
+                        						
+                        <forename>Adolf</forename>
+                        						
+                        <surname>Hitler</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0196">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖML, Salzburger Volksblatt 277, 2. 12. 1932, S. 7; Wr. Kronen-Zeitung, 6. 12. 1942, S. 9; UB best.: Hoffmann 2009 -->
+                        						
+                        <forename>Heinrich</forename>
+                        						
+                        <surname>Damisch</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0315"><b xmlns=""><i>VB</i></b> vom 11. 5. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0931">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0">
+                        						
+                        <forename>Rainer</forename>
+                        						
+                        <surname>Schlösser</surname>
+                        					</persName>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+      <footer xmlns="http://www.w3.org/1999/xhtml" class="footer mt-auto py-3 border-top border-light-grey">
+         <div class="container mt-1_5">
+            <ul class="list-unstyled d-flex flex-row justify-content-end">
+               <li><a class="project-link link-dark-grey link-hover-primary-hover text-decoration-none" href="impressum.html">Impressum</a></li>
+               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="nutzungsbedingungen.html">Nutzungsbedingungen</a></li>
+               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="projekt.html">Über das Projekt</a></li>
+               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="https://github.com/karl-kraus/dritte-walpurgisnacht-static"><i class="bi bi-github"></i></a></li>
+            </ul>
+         </div>
+      </footer><script xmlns="http://www.w3.org/1999/xhtml" src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script><script xmlns="http://www.w3.org/1999/xhtml" src="js/vendor/bootstrap/bootstrap.bundle.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"></script><script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script><script type="text/javascript" src="js/init-micro-editor.js"></script><script type="text/javascript" src="js/wpn-text-view.js"></script><script type="text/javascript" src="js/wpn-entity.js"></script><script type="text/javascript" src="js/wpn-header.js"></script></body>
+</html>

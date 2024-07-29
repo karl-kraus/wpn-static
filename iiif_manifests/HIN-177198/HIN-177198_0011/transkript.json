@@ -1,0 +1,18 @@
+{
+	"resources": {
+		"resource": {
+			"format": "text/plain",
+			"language": "de",
+			"@type": "cnt:ContentAsText",
+			"chars": "J\u2019accuse"
+		},
+		"@context": "https://iiif.io/api/presentation/2/context.json",
+		"motivation": "sc:painting",
+		"@type": "oa:Annotation",
+		"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0011/transkript.json#line_1562743685237_468",
+		"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0011#xywh=1257,1406,362,263"
+	},
+	"@context": "https://iiif.io/api/presentation/2/context.json",
+	"@type": "sc:AnnotationList",
+	"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0011/transkript.json"
+}
