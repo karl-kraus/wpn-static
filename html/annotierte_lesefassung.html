@@ -1,0 +1,495 @@
+<!DOCTYPE HTML>
+<html class="h-100">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="mobile-web-app-capable" content="yes">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-capable" content="yes">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-title" content="Annotierte Lesefassung">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileColor" content="#ffffff">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileImage" content="images/logo.png">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://use.typekit.net/ckc0oka.css">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/svg+xml" href="images/logo.png" sizes="any">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="profile" href="http://gmpg.org/xfn/11">
+      <title xmlns="http://www.w3.org/1999/xhtml">Annotierte Lesefassung</title>
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="css/style.css" type="text/css">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="css/micro-editor.css" type="text/css">
+   </head>
+   <body class="d-flex flex-column h-100">
+      <header xmlns="http://www.w3.org/1999/xhtml" is="wpn-header" class="fixed-top bg-white pe-0">
+         <nav id="primary_nav" class="navbar border-bottom pt-05">
+            <div class="container"><a class="navbar-brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 123.47 106.97" width="90">
+                     <defs>
+                        <style>.cls-1{fill:#4a4a49;}.cls-2{fill:#a21a17;}</style>
+                     </defs>
+                     <g id="Ebene_2" data-name="Ebene 2">
+                        <g id="KARLKRAUS1933-EXPORT">
+                           <g id="LOGO-Karl-Kraus-1933_FARBE">
+                              <path class="cls-1" d="M21.24,49v9.32h2.18L29.17,49h6.6L28.42,60.93l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V49Z"></path>
+                              <path class="cls-1" d="M49.09,49a10.73,10.73,0,0,1,5.79,1.32c1.6,1,2.71,2.68,2.71,5.71,0,3.4-1.36,6-4.64,6.82,3.1.58,4,3.61,4.78,10.79H51.66c-.89-6.64-1.39-8.36-3.61-8.36H44.81v8.36H39V49ZM44.81,60.43h2.6c2.75,0,4.18-.61,4.18-3.72a2.88,2.88,0,0,0-.68-2.28,3,3,0,0,0-2.14-.5h-4Z"></path>
+                              <path class="cls-1" d="M76.19,73.64,74.87,69H67.05l-1.32,4.68H59.84L67.59,49h6.93l7.74,24.64ZM71,54.82,68.3,64.35h5.36Z"></path>
+                              <path class="cls-1" d="M89.69,49V64.85c0,2.65.22,4.22,3.89,4.22,3.5,0,3.82-1.43,3.82-4.22V49h5.79V64.78c0,2.32-.32,4.5-1.64,6.18s-4.07,3.11-8.18,3.11S87,72.89,85.66,71.32c-1.47-1.75-1.75-4.07-1.75-6.36V49Z"></path>
+                              <path class="cls-1" d="M120.22,54.89A9.87,9.87,0,0,0,115,53.46c-1.75,0-2.89.47-2.89,2.4,0,3.75,11.32,1.53,11.32,10.46a7,7,0,0,1-3.11,6A11.58,11.58,0,0,1,114,74.07c-2.61,0-6.14-.65-8.14-2.47l2.85-4.25a9.85,9.85,0,0,0,5.86,1.82c1.68,0,3.07-.42,3.07-2.57,0-4.25-11.32-1.82-11.32-10.6a6.4,6.4,0,0,1,2.79-5.5,10.53,10.53,0,0,1,6.42-1.93c2.36,0,5.54.57,7.43,2.14Z"></path>
+                              <path class="cls-1" d="M21.24,18.79v9.32h2.18l5.75-9.32h6.6L28.42,30.72l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V18.79Z"></path>
+                              <path class="cls-1" d="M54.16,43.43l-1.32-4.68H45L43.7,43.43H37.8l7.75-24.64h6.93l7.75,24.64ZM49,24.61l-2.68,9.54h5.35Z"></path>
+                              <path class="cls-1" d="M72.87,18.79a10.63,10.63,0,0,1,5.78,1.33c1.61,1,2.72,2.67,2.72,5.71,0,3.39-1.36,6-4.64,6.82,3.1.57,4,3.6,4.78,10.78H75.44c-.89-6.64-1.39-8.35-3.61-8.35H68.59v8.35H62.8V18.79ZM68.59,30.22h2.6c2.75,0,4.18-.61,4.18-3.71a2.94,2.94,0,0,0-.68-2.29,3.07,3.07,0,0,0-2.14-.5h-4Z"></path>
+                              <path class="cls-1" d="M91,18.79v19.5h8.46v5.14H85.24V18.79Z"></path>
+                              <path class="cls-2" d="M111,33.6h-6.1v-10.1h6.1v1.2h-4.7v3.1h4v1.2h-4v3.5h4.7v1.2ZM117.1,33.6h-1.5l-3.7-9.7,1.3-.5,3.2,8.7,3.2-8.7,1.2.5-3.7,9.7ZM95.2,33.6v-10c.5,0,.9,0,1.3-.1.2,0,.4,0,.6,0,.3,0,.6,0,.9,0,.4,0,.7,0,1.1,0,.4,0,.7.1,1,.3,0,0,0,0,.1,0,.4.2.7.4,1.1.6.2.1.4.3.5.5.4.5.7,1,.9,1.6.2.5.3,1,.3,1.6,0,.1,0,.3,0,.4,0,.6,0,1.1-.2,1.7,0,.1,0,.2,0,.3-.2.6-.5,1.2-.9,1.6-.4.5-1,.9-1.6,1.1-.6.3-1.3.4-2.1.4,0,0-.1,0-.2,0-.2,0-.4,0-.6,0-.2,0-.4,0-.5,0,0,0-.2,0-.3,0-.4,0-.8,0-1.2-.1ZM96.5,24.7v7.8c.2,0,.4,0,.6,0,.2,0,.3,0,.5,0,0,0,.1,0,.2,0,.3,0,.6,0,.9,0,.5,0,.9-.2,1.2-.4.5-.3,1-.8,1.2-1.4.2-.4.3-.8.3-1.2,0-.3,0-.6,0-.9,0-.7-.1-1.3-.4-1.9-.3-.6-.7-1.1-1.2-1.5-.3-.2-.7-.4-1-.4-.3,0-.6-.1-.9-.1,0,0-.1,0-.2,0-.3,0-.5,0-.8,0-.2,0-.4,0-.6,0Z" vector-effect="non-scaling-stroke"></path>
+                              <path class="cls-2" d="M19.28,86.21v19.44H17.72v-18H15.37V86.21Z"></path>
+                              <path class="cls-2" d="M24.52,92.21A6.24,6.24,0,0,1,31,85.89a6.2,6.2,0,0,1,6.39,6.45c0,4.48-4.67,10.69-8.17,13.31H26.9a27.53,27.53,0,0,0,7.56-8.5,5.2,5.2,0,0,1-3.59,1.35A6.2,6.2,0,0,1,24.52,92.21Zm1.57,0A4.86,4.86,0,1,0,31,87.29,4.73,4.73,0,0,0,26.09,92.21Z"></path>
+                              <path class="cls-2" d="M44.53,87.32a9.53,9.53,0,0,0-4.24,1.11V86.86a10.53,10.53,0,0,1,4.32-1c3.48,0,5.78,2,5.78,5a5,5,0,0,1-3.76,4.67,5.21,5.21,0,0,1,4.08,5.13c0,3-2.46,5.23-6.1,5.23a9.34,9.34,0,0,1-4.7-1.1V103.3a8.72,8.72,0,0,0,4.65,1.24c2.72,0,4.53-1.67,4.53-3.86,0-2.75-2.11-4.37-5.64-4.37H43V95h.73c2.86,0,5.08-1.62,5.08-4S47,87.32,44.53,87.32Z"></path>
+                              <path class="cls-2" d="M58.43,87.32a9.53,9.53,0,0,0-4.23,1.11V86.86a10.48,10.48,0,0,1,4.31-1c3.49,0,5.78,2,5.78,5a5,5,0,0,1-3.75,4.67,5.21,5.21,0,0,1,4.07,5.13c0,3-2.45,5.23-6.1,5.23a9.3,9.3,0,0,1-4.69-1.1V103.3a8.68,8.68,0,0,0,4.64,1.24c2.73,0,4.53-1.67,4.53-3.86,0-2.75-2.1-4.37-5.64-4.37h-.48V95h.73c2.86,0,5.07-1.62,5.07-4S60.94,87.32,58.43,87.32Z"></path>
+                              <path class="cls-2" d="M4,18.79H0v-14A4.84,4.84,0,0,1,4.83,0H15.45V4H4.83A.83.83,0,0,0,4,4.83Z"></path>
+                           </g>
+                        </g>
+                     </g></svg></a><span class="d-flex align-items-center"><a class="nav-link project-link pe-4 link-dark-grey link-hover-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a><button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12">
+                        <defs>
+                           <style>.a{fill:none}</style>
+                        </defs>
+                        <g transform="translate(0 0.5)">
+                           <line class="a" x2="20"></line>
+                           <line class="a" x2="20" transform="translate(0 5)"></line>
+                           <line class="a" x2="20" transform="translate(0 10)"></line>
+                        </g></svg></button></span><div class="navbar position-fixed start-0 bg-black-grey w-100 opacity-97" id="navbarSupportedContent">
+                  <div class="container d-block">
+                     <div class="row">
+                        <div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="projekt.html">Über das Projekt<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="nutzungsbedingungen.html">Nutzungsbedingungen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="impressum.html">Impressum<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                           </ul>
+                        </div>
+                        <div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Dritte Walpurgisnacht</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="notizen.html">Notizen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="annotierte_lesefassung.html">Annotierte Lesefassung<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="register.html">Register<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                           </ul>
+                        </div>
+                        <div class="col-md-4"><span class="d-block navbar-title text-dark-grey border-bottom border-light-grey pb-1">Kommentar</span></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </nav>
+         <nav aria-label="breadcrumb" class="my-1">
+            <div class="container">
+               <ol class="breadcrumb">
+                  <li class="breadcrumb-item active" aria-current="page">Karl Kraus 1933: Dritte Walpurgisnacht</li>
+               </ol>
+            </div>
+         </nav>
+      </header>
+      <main class="text-black-grey lh-1625 ls-1 mt-18">
+         <div class="container pt-1">
+            <h1>Annotierte Lesefassung</h1>
+            
+            <div class="mb-5_5 position-relative" id="wrapper0">
+               
+               <h2>Textgrundlage</h2>
+               
+               <div class="intro-text">
+                  
+                  <p id="d6e38" class="my-1 ">Textgrundlage dieser Edition der <em>Dritten Walpurgisnacht</em> ist das Fahnenkonvolut
+                     aus der Abraham-Schwadron-Collection an der National Library of Israel, Jerusalem
+                     (Sign.
+                     Schwad 01 19 290.1). Es besteht aus einem Fahnenabzug mit zahlreichen handschriftlichen
+                     Korrekturen (268 Blatt) sowie eingeschobenen Typoskriptblättern (14 Blatt) und dem
+                     ebenfalls nur in Form von Typoskriptblättern vorliegenden Schluss des Textes (11 Blatt);
+                     die Typoskripte weisen ebenfalls handschriftliche Korrekturen auf.</p>
+                  
+                  <p id="d6e43" class="my-1 ">Dieses Fahnenkonvolut wurde in mehrerlei Hinsicht ergänzt: Die Motti der <em>Dritten
+                        Walpurgisnacht</em> liegen als Fahnenabzug in der Handschriftensammlung der
+                     Wienbibliothek vor (Sign. 175.455). Ein Blatt, das im Jerusalemer Fahnenkonvolut fehlt,
+                     das Ergänzungsblatt 266a, liegt im Nachlass Sidonie Nádherný von Borutins am
+                     Brenner-Archiv. Die im letzten Absatz der <em>Dritten Walpurgisnacht</em> zitierte
+                     Antwort Jörg Lanz von Liebenfels’ auf eine Rundfrage der Zeitschrift <em>Der
+                        Brenner</em> wurde der <em>Fackel</em> Nr. 381–383 entnommen (September 1913, S.
+                     44–46).</p>
+                  <br>
+                  
+                  <p id="d6e56" class="my-1 ">Hinsichtlich der Genese und der Überlieferung des Textes sei auf die in dieser Hinsicht
+                     immer noch maßgebende Darstellung in der von Christian Wagenknecht im Suhrkamp-Verlag
+                     besorgten Ausgabe verwiesen:</p>
+                  
+                  <p id="d6e58" class="my-1 ms-2_5">Karl Kraus: Dritte Walpurgisnacht. Hg. v. Christian Wagenknecht. Frankfurt
+                     am Main 1989 (4. Aufl. 2016), S. 331–343 (= Schriften 12). </p>
+                  
+                  <p id="d6e62" class="my-1 ">Die handschriftliche Ergänzung auf der ersten Seite des Konvoluts gibt als Beginn
+                     der
+                     Entstehung „Anfang Mai 1933“ an; die <em>Fackel</em> Nr. 890–905, in die Teile der
+                     Schrift aufgenommen wurden, korrigiert dies am Textanfang auf „Anfang Mai bis September
+                     1933“ (S. 153). Fest steht, dass frühe zitierte Zeitungsmeldungen vom März 1933 stammen.
+                     Die ersten nachweisbaren wörtlichen Zeitungszitate gehen auf Februar 1933 zurück,
+                     könnten jedoch theoretisch auch einer Stilblütensammlung späteren Datums entnommen
+                     worden sein.<sup style="font-size: 60%;">1</sup> Abgebrochen wurde die Arbeit an der
+                     <em>Dritten Walpurgisnacht</em>
+                     wahrscheinlich Ende September des Jahres 1933, der letzte nachgewiesene wörtlich
+                     zitierte Zeitungsartikel stammt vom 29. des Monats.
+                     </p>
+                  
+                  <p id="d6e72" class="my-1 ">Oskar Samek, Kraus’ langjähriger Anwalt, brachte das Konvolut nach Kraus’ Tod 1936
+                     im
+                     Jahr 1937 in die Schweiz; von dort übersandte er es in die USA, wo er 1939 selbst
+                     eine
+                     Abschrift herstellte. Samek, der 1959 starb, vermachte es der Hebräischen Universität
+                     Jerusalem; an der dortigen Bibliothek (heute: National Library of Israel) geriet es
+                     in
+                     Verstoß und wurde erst 1987 durch Ruben Klingsberg wieder aufgefunden.2</p>
+                  
+                  <p id="d6e77" class="my-1 ">Über dieses Konvolut hinaus liegt die <em>Dritte Walpurgisnacht</em> in Form eines durch
+                     Kraus selbst veranlassten Duplikats (Nachlass Sidonie Nádherný, Brenner-Archiv), als
+                     Negativkopie (DLA Marbach) sowie als Durchschlag der von Samek hergestellten Abschrift
+                     (Nachlass Albert Bloch, Brenner-Archiv) vor.</p>
+                  
+                  <p id="d6e82" class="my-1 ">
+                     <p class="ms-2_5 fs-8"><sup style="font-size: 80%;">1</sup> Eckart Früh vermutet zudem als
+                        Kraus’ „unmittelbaren Anlaß […], über das Dritte Reich im Namen Goethes zu urteilen“,
+                        einen Bericht über eine Walpurgisnacht-Feier der Hitlerjugend auf dem Brocken im <a class="text-primary text-decoration-none ff-ubuntu" href="https://anno.onb.ac.at/cgi-content/anno?aid=nwb%26datum=19330408%26seite=2%26zoom=33">Neuigkeits-Welt-Blatt
+                           vom 8. 4. 1933</a>, und nennt in diesem Zusammenhang auch eine ältere Glosse der <a class="text-primary text-decoration-none ff-ubuntu" href="https://anno.onb.ac.at/cgi-content/anno?aid=aze%26datum=19311015%26seite=4">Arbeiter-Zeitung
+                           vom 15. 10. 1931</a>, in der bereits das Treffen der rechtsradikalen ‚Harzburger
+                        Front‘ (ein Bündnis von NSDAP, DNVP, Stahlhelm u. a.) vor der Folie der Goethe’schen
+                        Walpurgisnacht gelesen wird. Vgl. Eckart Frueh: Dritte Walpurgisnacht und
+                        Arbeiter-Zeitung. In: Noch mehr (1983), April, S. 1–47, hier S. [o. A.]–1.</p>
+                  </p>
+                  
+                  <p id="d6e94" class="my-1 ">
+                     <p class="ms-2_5 fs-8"><sup style="font-size: 80%;">2</sup> N. N.: Die Druckfahnen der
+                        „Dritten Walpurgisnacht“. In:
+                        Kraus-Hefte (1987), H. 42, S. 13.</p>
+                  </p>
+                  </div>
+               <a is="wpn-toggle-text-button" role="button" target-element="wrapper0" toggle-class="show-all" toggle-text="Weniger lesen" class="btn btn-link text-decoration-none text-blacker-grey border-blacker-grey border-start-0 border-end-0 border-top-0 border-bottom-1 rounded-0 px-0 pb-05 position-absolute end-n05 bottom-0 bg-white">Mehr lesen</a></div>
+            
+            <div class="mb-5_5 position-relative" id="wrapper1">
+               
+               <h2>Zur Textgestalt</h2>
+               
+               <div class="intro-text">
+                  
+                  <p id="d6e108" class="my-1 ">Die Rede von der „Dritten Walpurgisnacht“ im Rahmen dieser Edition trägt dem Usus
+                     der
+                     Forschung Rechnung; zur Zeit seiner Abfassung hatte der Text jedoch noch keinen Titel.
+                     Eine handschriftliche Korrektur auf S. 12 des Konvoluts ergänzt die Rede von „dieser
+                     Walpurgisnacht“ um das Zahlwort „dritten“; diese Überschrift wird auch ein Jahr später
+                     in der <em>Fackel</em> Nr. 890–905 (S. 77) erwähnt. Dennoch muss festgestellt werden:
+                     „Dritte Walpurgisnacht“ bezeichnet eine nie erschienene, nie fertiggestellte Schrift.
+                     </p>
+                  
+                  <p id="d6e113" class="my-1 ">Deren erste Zeile beinhaltet stattdessen eine Datumsangabe: „Anfang Mai 1933“. Diese
+                     erfuhr für den Abdruck der Passage in der <em>Fackel</em> Nr. 890–905 im Jahr 1934 eine
+                     Korrektur auf „Anfang Mai bis September 1933“, was nachträglich den Entstehungszeitraum
+                     bezeichnet; diese Ergänzung wurde hier aber nicht übernommen.</p>
+                  
+                  <p id="d6e118" class="my-1 ">Der Text besteht aus 64 Absätzen, denen Motti vorausgehen. Die Absätze wurden als
+                     Gliederungseinheit der vorliegenden Edition bestimmt. Der ursprüngliche Zeilenfall
+                     wird
+                     in der annotierten Lesefassung aufgrund der zahlreichen und umfangreichen Korrekturen
+                     und Ergänzungen nicht wiedergegeben, die Seitenumbrüche lassen sich mittels des
+                     entsprechenden Schiebereglers einblenden: Das Zeichen „||“ markiert sowohl den Beginn
+                     neuer Seiten als auch Beginn und Ende von Einschüben aus den eingelegten
+                     Typoskriptblättern.</p>
+                  <br>
+                  
+                  <div id="d6e122">
+                     
+                     <h2>Editorische Eingriffe</h2>
+                     
+                     <p id="d6e126" class="my-1 ">
+                        <span class="fw-bold">Emendiert</span> wurden in der vorliegenden Fassung Trivialversehen, d. h.
+                        offensichtliche Satzfehler und orthographische Fehler, grammatikalische Fehler (nicht
+                        zuletzt dort, wo sie im Zuge handschriftlicher Korrekturen entstanden, z. B. auf S.
+                        241:
+                        „ihn Handlungen gewährend“ &gt; „ihm Handlungen gewährend“; auf S. 99: „Umsturz die
+                        Theaterverhältnisse“ &gt; „Umsturz der Theaterverhältnisse“), sowie Textpassagen oder
+                        Satzzeichen, die im Zuge der teils umfangreichen handschriftlichen Korrekturen
+                        unorthographisch verdoppelt bzw. falsch gesetzt wurden. In zwei weiteren Fällen wurden
+                        überschüssige Kommata korrigiert: S. 194: „nimmt er, selbst, in diesem Belang zur
+                        Sklaverei geneigt“ &gt; „nimmt er, selbst in diesem Belang zur Sklaverei geneigt“; S.
+                        232:
+                        „Die natürliche Gegnerschaft […] eingeräumt, selbst, die Unverbundenheit antisozialer
+                        Maßnahmen mit der höchst sozialen Haupttendenz“ &gt; „Die natürliche Gegnerschaft […]
+                        eingeräumt, selbst die Unverbundenheit antisozialer Maßnahmen mit der höchst sozialen
+                        Haupttendenz“).
+                        </p>
+                     
+                     <p id="d6e132" class="my-1 ">
+                        <span class="fw-bold">Nicht korrigiert</span> wurden uneinheitliche und Fehlschreibungen von Orts-
+                        und Personennamen (letztere können in ihrer korrekten Schreibung der Annotation
+                        entnommen werden) sowie fehlende Kommata, und zwar aufgrund der im ganzen Konvolut
+                        uneinheitlich gehandhabten Zeichensetzung. Unterlassen wurden Konjekturen, sofern
+                        unterschiedliche Einfügungen möglich wären (z. B. auf S. 279: „Soll frommer Sinn [„in“?
+                        „an“?] zivilisiertem Mißbrauch der Gottesgaben die Zuchtrute am Himmel erkennen?“).
+                        Belassen wurden ebenso sinnentstellte, dabei grammatikalisch korrekte Passagen (z.
+                        B.
+                        auf S. 64: „Geistessitz“ [„Geistesbesitz“?], auf S. 98: „derjenigen Pleite“ [„diejenige
+                        Pleite“?]), Fehler in zitatweise übernommenen Textausschnitten sowie falsch Zitiertes
+                        (vgl. etwa S. 66: "Wirklichkeitlocker" – Gottfried Benn in der DAZ:
+                        "Wirklichkeit=locker", recte: "Wirklichkeit: locker"), faktische Fehler sowie zuletzt
+                        ein Fehler, der in bisherigen Ausgaben emendiert wurde, hinter dem sich jedoch auch
+                        eine
+                        Kraus’sche Wortschöpfung verbergen könnte (S. 251): „autodiktatisch“ [mit Bezug auf
+                        Hitlers Werdegang: „autodidaktisch“ + „Diktat(or)“?]
+                        </p>
+                     
+                     <p id="d6e138" class="my-1 ">
+                        <span class="fw-bold">Vereinheitlicht</span> wurden deutsche Anführungszeichen in hand- oder
+                        maschinenschriftlichen Passagen, sofern sie nicht zur Auszeichnung von Zeitungstiteln
+                        dienen, zu französischen Anführungszeichen, sowie Elisionen mit Apostroph (zusätzliche
+                        Leerzeichen wurden eliminiert).<br><span class="fw-bold">Belassen</span> hingegen wurde die
+                        uneinheitliche Verwendung von Anführungszeichen bei Zeitungstiteln und die von Punkten
+                        bei Abkürzungen.
+                        </p>
+                     </div>
+                  </div>
+               <a is="wpn-toggle-text-button" role="button" target-element="wrapper1" toggle-class="show-all" toggle-text="Weniger lesen" class="btn btn-link text-decoration-none text-blacker-grey border-blacker-grey border-start-0 border-end-0 border-top-0 border-bottom-1 rounded-0 px-0 pb-05 position-absolute end-n05 bottom-0 bg-white">Mehr lesen</a></div>
+            
+            <div class="mb-5_5 position-relative" id="wrapper2">
+               
+               <h2>Stellenkommentare</h2>
+               
+               <div class="intro-text">
+                  
+                  <p id="d6e157" class="my-1 ">Der entsprechende Schieberegler markiert diejenigen Stellen im Text, an denen ein
+                     
+                     Stellenkommentar hinterlegt wurde (<a class="text-primary text-decoration-none ff-ubuntu" href="Gesamt.xml?template=register_kommentare.html">zum
+                        Register der Stellenkommentare</a>).</p>
+                  
+                  <p id="d6e163" class="my-1 ">Die Stellenkommentare dienen, wo nötig, einerseits der begrifflichen Klärung (im Fall
+                     von 
+                     Fremdwörtern, Redensarten, Eigennamen von Institutionen), andererseits der Erläuterung
+                     
+                     historischer und kulturhistorischer Zusammenhänge, die sich nicht aus dem Text selbst
+                     
+                     ergeben, sondern bloß angespielt werden, dabei aber für sein Verständnis notwendig
+                     sind. 
+                     (Siehe <a class="text-primary text-decoration-none ff-ubuntu" href="kommentar.html">hier</a> für Erläuterungen zum Kommentar sowie eine 
+                     Liste der verwendeten Quellen.)</p>
+                  
+                  <p id="d6e169" class="my-1 ">Im Text genannte Ereignisse sind entweder direkt oder im entsprechenden Stellenkommentar
+                     angelegt und werden darüber hinaus in einer Zeitleiste dargestellt (<a class="text-primary text-decoration-none ff-ubuntu" href="ereignisse.html">zur Zeitleiste</a>).</p>
+                  </div>
+               <a is="wpn-toggle-text-button" role="button" target-element="wrapper2" toggle-class="show-all" toggle-text="Weniger lesen" class="btn btn-link text-decoration-none text-blacker-grey border-blacker-grey border-start-0 border-end-0 border-top-0 border-bottom-1 rounded-0 px-0 pb-05 position-absolute end-n05 bottom-0 bg-white">Mehr lesen</a></div>
+            
+            
+            
+            <div class="mb-5_5 position-relative" id="wrapper3">
+               
+               <h2>Intertexte</h2>
+               
+               <div class="intro-text">
+                  
+                  <p id="d6e185" class="my-1 ">Der entsprechende Schieberegler hinterlegt diejenigen Textpassagen farblich, die
+                     intertextuelle Bezüge aufweisen.</p>
+                  
+                  <p id="d6e187" class="my-1 ">Berücksichtigt wurden wörtliche Zitate, ob markiert oder unmarkiert, vorlagengetreu
+                     oder
+                     abgewandelt, zudem Paraphrasen sowohl kommentierender als auch berichtender
+                     Textpassagen, die häufigen Fälle von direkter Aufeinanderfolge oder Verschränkung
+                     von
+                     wörtlichem Zitat und Paraphrase, darüber hinaus die Nennung von Intertexten. Als
+                     Eingriffe in wörtliche Zitate, hinter denen aber u. E. dennoch der Intertext erkennbar
+                     bleibt, gelten Kürzungen, syntaktische Umstellungen, Änderungen in Tempus und Modus
+                     sowie kleinere lexikalische Abweichungen.</p>
+                  
+                  <p id="d6e189" class="my-1 ">Verzichtet wurde auf die Markierung von Wiederaufnahmen von Passagen aus vorangegangenen
+                     wörtlichen Zitaten. Nicht berücksichtigt wurden außerdem zitierende Passagen, die
+                     auf
+                     Sprachgebrauch, etwa des nationalsozialistischen Jargons, Bezug nehmen, ohne dabei
+                     jedoch konkrete Intertexte erkennen zu lassen – wodurch zugleich zu viele und zu wenige
+                     mögliche Texte als Beleg des Zitats dienen könnten. Zur sinnvollen Erfassung dieser
+                     Stellen bräuchte es einen anderen, erweiterten Textbegriff und/oder eine
+                     lexikographische Herangehensweise.<sup style="font-size: 80%;">1</sup></p>
+                  
+                  <p id="d6e194" class="my-1 ">Die Suche nach Intertexten ist nicht abgeschlossen (noch ist sie, nach welcher Maßgabe
+                     auch immer, abschließbar). Textpassagen, die auf nicht identifizierte Intertexte
+                     verweisen, deren Identifikation jedoch prinzipiell aussichtsreich erscheint, wurden
+                     als
+                     „nicht ermittelt“ markiert. Hinweise werden gerne unter <a class="text-primary text-decoration-none ff-ubuntu" href="mailto:ace@oeaw.ac.at">ace@oeaw.ac.at</a> entgegengenommen.</p>
+                  <br>
+                  
+                  <p id="d6e203" class="my-1 ">Durch Klick auf die Textpassage gibt die Marginalie rechts eine Kurzform der
+                     bibliographischen Angabe des Intertexts, durch Klick hierauf wiederum eine vollständige
+                     Form der bibliographischen Angabe, ggf. inklusive externer Links und Scans. In vielen
+                     Fällen stehen Intertexte dabei repräsentativ für eine größere Anzahl an möglichen
+                     Intertexten, die Beispielhaftigkeit des Verweises ist gekennzeichnet. In einigen
+                     wenigen, ebenfalls gekennzeichneten Fällen konnte kein direkter Intertext ausfindig
+                     gemacht, jedoch der berichtete Sachverhalt in anderweitiger Berichterstattung
+                     nachgewiesen werden.</p>
+                  
+                  <p id="d6e205" class="my-1 ">In Fällen, die vor allem die sogenannten ‚Klassiker‘ betreffen, wurde eine Identifikation
+                     der jeweils zitierten Ausgabe nicht angestrebt. Um dies nicht missverständlicher Weise
+                     über die bibliographische Angabe zu suggerieren, beschränkt sich die bibliographische
+                     Angabe auf Autor, Titel und Jahr (als historische Markierung, wenn nicht anders
+                     angegeben: der Uraufführung, der Erstausgabe). Der Verlagsort als Hinweis auf eine
+                     bestimmte Ausgabe entfällt. In anderen Fällen – wenn ausgabenspezifische Paratexte
+                     zitiert werden oder bei prekärer Überlieferungsgeschichte (wie im Fall von Nietzsches
+                     Nachlass) – werden Publikationsorte, Herausgeber u. ä. genannt.</p>
+                  
+                  <p id="d6e207" class="my-1 ">„Zit. in“ und „Zit. z. B. in“ markieren Texte, die von den hier angeführten Intertexten
+                     zitiert werden. Dies dient der Sichtbarmachung von Zitatverhältnissen in der
+                     Medienlandschaft unter den spezifischen Voraussetzungen des Jahres 1933.</p>
+                  <br>
+                  
+                  <p id="d6e211" class="my-1 ">Die Zurverfügungstellung von Links und Scans der zitierten Texte dient der
+                     Nachvollziehbarkeit des interpretatorischen Aktes, den die Setzung/Feststellung eines
+                     intertextuellen Verhältnisses darstellt, sowie der weiteren Auseinandersetzung mit
+                     dem
+                     Verhältnis von Text und Intertext.</p>
+                  
+                  <p id="d6e213" class="my-1 ">Die den bibliographischen Angaben beigelegten Scans geben den zitierten Text wieder;
+                     rote
+                     Rahmen markieren ggf. betreffende Textpassagen. Externe Links verweisen, wo nicht
+                     auf
+                     konkrete Zeitungsausgaben, beispielhaft auf online verfügbare Fassungen der jeweiligen
+                     Texte.</p>
+                  <br>
+                  
+                  <p id="d6e218" class="my-1 ">
+                     Über die im Projektzusammenhang angestellten Recherchen hinaus baut diese Edition
+                     der
+                     <em>Dritten Walpurgisnacht</em> auf bereits vorliegenden Forschungsergebnissen auf.
+                     Diese Arbeiten etwa Jochen Stremmels oder Eckart Frühs waren essentiell für die
+                     Entstehung der Edition.
+                     </p>
+                  
+                  <p id="d6e223" class="my-1 ">Die Identifikation zahlreicher Stellen, vor allem die der sog. ‚Klassiker-Zitate‘,
+                     entnehmen wir</p>
+                  
+                  <p id="d6e225" class="my-1 ms-2_5">Jochen Stremmel: „Dritte Walpurgisnacht“. Über einen Text von Karl Kraus.
+                     Bonn 1982.</p>
+                  
+                  <p id="d6e228" class="my-1 ">Die Identifikation zahlloser Zeitungstexte geht auf Eckart Frühs unschätzbare Arbeit
+                     im
+                     Tagblatt-Archiv und die folgenden Publikationen zurück –</p>
+                  
+                  <p id="d6e230" class="my-1 ms-2_5">Eckart Früh: Dokumente zur „Dritten Walpurgisnacht“. In: Kraus-Hefte
+                     (1984), H. 32, S. 2–15.<br>
+                     Ders.: Dokumente zur Dritten Walpurgisnacht. In: Kraus-Hefte (1984), H. 33, S.
+                     10–11.<br>
+                     Ders.: Dritte Walpurgisnacht und Arbeiter-Zeitung. In: Noch mehr (1983), April, S.
+                     1–47.<br>
+                     Ders.: Kürzel und Pseudonyme in diversen Tageszeitungen und Zeitschriften vor und
+                     nach
+                     1945. Erw. Fassung. In: Noch mehr (2004), Februar.
+                     </p>
+                  
+                  <p id="d6e240" class="my-1 ">– sowie auf die im Folgenden gelisteten Publikationen.</p>
+                  
+                  <p id="d6e242" class="my-1 ms-2_5">
+                     J. W. Brügel: Unverdientes Lob für Starhemberg? In: Kraus-Hefte (1980), H. 14, S.
+                     13–15.<br>
+                     Karl Kraus: The Third Walpurgis Night. Übers. v. Fred Bridgham und Edward Timms. M.
+                     e.
+                     Vorwort v. Marjorie Perloff. New Haven und London 2020 (s. v. a. Notes, S.
+                     237–248).<br>
+                     Karl Kraus: Troisième nuit de Walpurgis. Übers. v. Piere Deshusses. M. e. Vorwort
+                     v.
+                     Jacques Bouveresse. Marseille: Agone 2005.<br>
+                     Kurt Krolop: Die Berufung auf Schiller wird zur Gänze abgewiesen. Schiller-Bezüge
+                     der
+                     Dritten Walpurgisnacht im Lichte der Fackel. In: Ders.: Sprachsatire als Zeitsatire
+                     bei
+                     Karl Kraus. 2. Aufl. Berlin 1992, S. 231–251.<br>
+                     Ders.: Präformation als Konfrontation – „Drittes Reich“ und Dritte Walpurgisnacht.
+                     In:
+                     ebd., S. 210–230.<br>
+                     Sigurd Paul Scheichl: Zitate aus dem „Kampf“ in „Dritte Walpurgisnacht“. In: Kraus-Hefte
+                     (1980), H. 14, S. 15–16.<br>
+                     Edward Timms: Karl Kraus. Satiriker der Apokalypse. Übers. v. Max Looser und Michael
+                     Strand. Wien 1995 und ders.: Karl Kraus. Die Krise der Nachkriegszeit und der Aufstieg
+                     des Hakenkreuzes. Übers. v. Brigitte Stocker. Weitra 2016.<br>
+                     </p>
+                  
+                  <p id="d6e260" class="my-1 ">
+                     <p class="ms-2_5 fs-8"><sup style="font-size: 80%;">1</sup> Sigurd Paul Scheichl ortet für
+                        solche und ähnliche Fälle Kraus’ Quelle in der „Gesamtheit der Zeitungen einer
+                        bestimmten Epoche“ bzw. im „gesamten zeitgenössischen Diskurs“, der im Kommentar
+                        natürlich nur beispielhaft bereitgestellt, aber durchaus auch durch Texte vertreten
+                        werden könne, „die Kraus gekannt haben kann, aber nicht unbedingt gekannt haben muß“.
+                        –
+                        Vgl. Sigurd Paul Scheichl: Quellen von Satiren. Am Beispiel von Karl Kraus. In: Quelle
+                        –
+                        Text – Edition. Ergebnisse der österreichisch-deutschen Fachtagung der
+                        Arbeitsgemeinschaft für Germanistische Edition in Graz vom 28. Februar bis 3. März
+                        1996.
+                        Hg. von Anton Schwob und Erwin Streitfeld unter Mitarb. von Karin Kranich-Hofbauer.
+                        Tübingen 1997 (= Beihefte zu Editio 9), S. 277–289, hier v. a. S. 288f.</p>
+                  </p>
+                  </div>
+               <a is="wpn-toggle-text-button" role="button" target-element="wrapper3" toggle-class="show-all" toggle-text="Weniger lesen" class="btn btn-link text-decoration-none text-blacker-grey border-blacker-grey border-start-0 border-end-0 border-top-0 border-bottom-1 rounded-0 px-0 pb-05 position-absolute end-n05 bottom-0 bg-white">Mehr lesen</a></div>
+            
+            <div class="mb-5_5 position-relative" id="wrapper4">
+               
+               <h2>Personen</h2>
+               
+               <div class="intro-text">
+                  
+                  <p id="d6e275" class="my-1 ">Farblich hinterlegt werden nach Betätigung des entsprechenden Schiebereglers diejenigen
+                     Textpassagen, die direkt oder indirekt – durch Nennung des Namens, Anspielung, Pronomina
+                     – auf Personen bzw. Personengruppen verweisen. Die Identifikation bisher noch nicht
+                     lexikographisch erfasster Personen wurde dabei vielfach der zeitgenössischen
+                     Berichterstattung entnommen, dem tragen Quellenangaben zu den Personendatensätzen
+                     und zu
+                     Gruppenbezeichnungen Rechnung. Quellen für Lebensdaten erscheinen bei mouse-over über
+                     dem Quellen-Icon rechts unten (<a class="text-primary text-decoration-none ff-ubuntu" href="register.html#Siglen">zum
+                        Siglenverzeichnis</a>).</p>
+                  
+                  <p id="d6e281" class="my-1 ">Nicht identifizierte Personen, in deren Fall jedoch eine Identifikation prinzipiell
+                     aussichtsreich erscheint, sind als „nicht ermittelt“ markiert. Hinweise werden gerne
+                     unter <a class="text-primary text-decoration-none ff-ubuntu" href="mailto:ace@oeaw.ac.at">ace@oeaw.ac.at</a> entgegengenommen.</p>
+                  
+                  <p id="d6e287" class="my-1 ">Die biographischen Angaben zu den Personen haben ihren Schwerpunkt dem historischen
+                     Horizont entsprechend im Jahr 1933; Orte werden ggf. durch aktuelle Ortsnamen in
+                     Klammern ergänzt.</p>
+                  
+                  <p id="d6e289" class="my-1 ">Einige Personen werden in der <em>Dritten Walpurgisnacht</em> genannt, weil sie in
+                     nationalsozialistischen Zeitungen zum Objekt öffentlicher Bloßstellung wurden, der
+                     sie
+                     aufgrund ihrer Beziehungen zu Personen jüdischer Herkunft zum Opfer fielen bzw. weil
+                     sie
+                     als solche Beziehungen zu sogenannten „Ariern“ unterhielten. Diese Fälle sind zum
+                     größten Teil belegbar und teilweise schon historisch erforscht. Die Opfer im
+                     Zusammenhang der <em>Dritten Walpurgisnacht</em> zu identifizieren, würde die Verletzung
+                     der Privatsphäre, die in der öffentlichen Bloßstellung lag, wiederholen, weshalb in
+                     diesen Fällen auf die Identifikation verzichtet wurde.</p>
+                  </div>
+               <a is="wpn-toggle-text-button" role="button" target-element="wrapper4" toggle-class="show-all" toggle-text="Weniger lesen" class="btn btn-link text-decoration-none text-blacker-grey border-blacker-grey border-start-0 border-end-0 border-top-0 border-bottom-1 rounded-0 px-0 pb-05 position-absolute end-n05 bottom-0 bg-white">Mehr lesen</a></div>
+            </div>
+      </main>
+      <footer xmlns="http://www.w3.org/1999/xhtml" class="footer mt-auto py-3 border-top border-light-grey">
+         <div class="container mt-1_5">
+            <ul class="list-unstyled d-flex flex-row justify-content-end">
+               <li><a class="project-link link-dark-grey link-hover-primary-hover text-decoration-none" href="impressum.html">Impressum</a></li>
+               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="nutzungsbedingungen.html">Nutzungsbedingungen</a></li>
+               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="projekt.html">Über das Projekt</a></li>
+               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="https://github.com/karl-kraus/dritte-walpurgisnacht-static"><i class="bi bi-github"></i></a></li>
+            </ul>
+         </div>
+      </footer><script xmlns="http://www.w3.org/1999/xhtml" src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script><script xmlns="http://www.w3.org/1999/xhtml" src="js/vendor/bootstrap/bootstrap.bundle.min.js"></script><script type="text/javascript" src="js/wpn-toggle-text-button.js"></script><script type="text/javascript" src="js/wpn-header.js"></script></body>
+</html>

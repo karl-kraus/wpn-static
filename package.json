@@ -1,0 +1,42 @@
+{
+  "name": "wpn-static",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint:check": "eslint . --cache --ext .js,.ts --ignore-path .gitignore",
+    "format:check": "prettier . \"!./html/**\" --cache --check --ext .js,.ts --ignore-path .gitignore",
+    "compile-scss": "sass --update --style=expanded scss/style.scss:html/css/style.css scss/micro-editor.scss:html/css/micro-editor.css",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "5.3.3",
+    "de-micro-editor": "^0.4.2",
+    "glob": "^11.0.0",
+    "mirador": "3.3.0"
+  },
+  "devDependencies": {
+    "@acdh-oeaw/eslint-config": "^1.0.9",
+    "@acdh-oeaw/eslint-config-playwright": "^1.0.9",
+    "@acdh-oeaw/prettier-config": "^2.0.0",
+    "@playwright/test": "^1.45.1",
+    "@types/bootstrap": "^5.2.10",
+    "@types/node": "^20.14.10",
+    "sass": "^1.75.0",
+    "strict": "file:@acdh-oeaw/eslint-config/strict",
+    "typescript": "^5.4.5",
+    "vite": "^5.3.3"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@acdh-oeaw/eslint-config",
+      "@acdh-oeaw/eslint-config/strict",
+      "@acdh-oeaw/eslint-config-playwright"
+    ]
+  },
+  "prettier": "@acdh-oeaw/prettier-config",
+  "type": "module"
+}

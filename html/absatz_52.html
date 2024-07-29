@@ -1,0 +1,655 @@
+<!DOCTYPE HTML>
+<html id="edition-view">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="mobile-web-app-capable" content="yes">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-capable" content="yes">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-title" content="">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileColor" content="#ffffff">
+      <meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileImage" content="images/logo.png">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://use.typekit.net/ckc0oka.css">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/svg+xml" href="images/logo.png" sizes="any">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="profile" href="http://gmpg.org/xfn/11">
+      <title xmlns="http://www.w3.org/1999/xhtml"></title>
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="css/style.css" type="text/css">
+      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="css/micro-editor.css" type="text/css">
+   </head>
+   <body id="main_grid">
+      <header xmlns="http://www.w3.org/1999/xhtml" is="wpn-header" class="fixed-top bg-white pe-0">
+         <nav id="primary_nav" class="navbar border-bottom pt-05">
+            <div class="container-fluid"><a class="navbar-brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 123.47 106.97" width="90">
+                     <defs>
+                        <style>.cls-1{fill:#4a4a49;}.cls-2{fill:#a21a17;}</style>
+                     </defs>
+                     <g id="Ebene_2" data-name="Ebene 2">
+                        <g id="KARLKRAUS1933-EXPORT">
+                           <g id="LOGO-Karl-Kraus-1933_FARBE">
+                              <path class="cls-1" d="M21.24,49v9.32h2.18L29.17,49h6.6L28.42,60.93l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V49Z"></path>
+                              <path class="cls-1" d="M49.09,49a10.73,10.73,0,0,1,5.79,1.32c1.6,1,2.71,2.68,2.71,5.71,0,3.4-1.36,6-4.64,6.82,3.1.58,4,3.61,4.78,10.79H51.66c-.89-6.64-1.39-8.36-3.61-8.36H44.81v8.36H39V49ZM44.81,60.43h2.6c2.75,0,4.18-.61,4.18-3.72a2.88,2.88,0,0,0-.68-2.28,3,3,0,0,0-2.14-.5h-4Z"></path>
+                              <path class="cls-1" d="M76.19,73.64,74.87,69H67.05l-1.32,4.68H59.84L67.59,49h6.93l7.74,24.64ZM71,54.82,68.3,64.35h5.36Z"></path>
+                              <path class="cls-1" d="M89.69,49V64.85c0,2.65.22,4.22,3.89,4.22,3.5,0,3.82-1.43,3.82-4.22V49h5.79V64.78c0,2.32-.32,4.5-1.64,6.18s-4.07,3.11-8.18,3.11S87,72.89,85.66,71.32c-1.47-1.75-1.75-4.07-1.75-6.36V49Z"></path>
+                              <path class="cls-1" d="M120.22,54.89A9.87,9.87,0,0,0,115,53.46c-1.75,0-2.89.47-2.89,2.4,0,3.75,11.32,1.53,11.32,10.46a7,7,0,0,1-3.11,6A11.58,11.58,0,0,1,114,74.07c-2.61,0-6.14-.65-8.14-2.47l2.85-4.25a9.85,9.85,0,0,0,5.86,1.82c1.68,0,3.07-.42,3.07-2.57,0-4.25-11.32-1.82-11.32-10.6a6.4,6.4,0,0,1,2.79-5.5,10.53,10.53,0,0,1,6.42-1.93c2.36,0,5.54.57,7.43,2.14Z"></path>
+                              <path class="cls-1" d="M21.24,18.79v9.32h2.18l5.75-9.32h6.6L28.42,30.72l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V18.79Z"></path>
+                              <path class="cls-1" d="M54.16,43.43l-1.32-4.68H45L43.7,43.43H37.8l7.75-24.64h6.93l7.75,24.64ZM49,24.61l-2.68,9.54h5.35Z"></path>
+                              <path class="cls-1" d="M72.87,18.79a10.63,10.63,0,0,1,5.78,1.33c1.61,1,2.72,2.67,2.72,5.71,0,3.39-1.36,6-4.64,6.82,3.1.57,4,3.6,4.78,10.78H75.44c-.89-6.64-1.39-8.35-3.61-8.35H68.59v8.35H62.8V18.79ZM68.59,30.22h2.6c2.75,0,4.18-.61,4.18-3.71a2.94,2.94,0,0,0-.68-2.29,3.07,3.07,0,0,0-2.14-.5h-4Z"></path>
+                              <path class="cls-1" d="M91,18.79v19.5h8.46v5.14H85.24V18.79Z"></path>
+                              <path class="cls-2" d="M111,33.6h-6.1v-10.1h6.1v1.2h-4.7v3.1h4v1.2h-4v3.5h4.7v1.2ZM117.1,33.6h-1.5l-3.7-9.7,1.3-.5,3.2,8.7,3.2-8.7,1.2.5-3.7,9.7ZM95.2,33.6v-10c.5,0,.9,0,1.3-.1.2,0,.4,0,.6,0,.3,0,.6,0,.9,0,.4,0,.7,0,1.1,0,.4,0,.7.1,1,.3,0,0,0,0,.1,0,.4.2.7.4,1.1.6.2.1.4.3.5.5.4.5.7,1,.9,1.6.2.5.3,1,.3,1.6,0,.1,0,.3,0,.4,0,.6,0,1.1-.2,1.7,0,.1,0,.2,0,.3-.2.6-.5,1.2-.9,1.6-.4.5-1,.9-1.6,1.1-.6.3-1.3.4-2.1.4,0,0-.1,0-.2,0-.2,0-.4,0-.6,0-.2,0-.4,0-.5,0,0,0-.2,0-.3,0-.4,0-.8,0-1.2-.1ZM96.5,24.7v7.8c.2,0,.4,0,.6,0,.2,0,.3,0,.5,0,0,0,.1,0,.2,0,.3,0,.6,0,.9,0,.5,0,.9-.2,1.2-.4.5-.3,1-.8,1.2-1.4.2-.4.3-.8.3-1.2,0-.3,0-.6,0-.9,0-.7-.1-1.3-.4-1.9-.3-.6-.7-1.1-1.2-1.5-.3-.2-.7-.4-1-.4-.3,0-.6-.1-.9-.1,0,0-.1,0-.2,0-.3,0-.5,0-.8,0-.2,0-.4,0-.6,0Z" vector-effect="non-scaling-stroke"></path>
+                              <path class="cls-2" d="M19.28,86.21v19.44H17.72v-18H15.37V86.21Z"></path>
+                              <path class="cls-2" d="M24.52,92.21A6.24,6.24,0,0,1,31,85.89a6.2,6.2,0,0,1,6.39,6.45c0,4.48-4.67,10.69-8.17,13.31H26.9a27.53,27.53,0,0,0,7.56-8.5,5.2,5.2,0,0,1-3.59,1.35A6.2,6.2,0,0,1,24.52,92.21Zm1.57,0A4.86,4.86,0,1,0,31,87.29,4.73,4.73,0,0,0,26.09,92.21Z"></path>
+                              <path class="cls-2" d="M44.53,87.32a9.53,9.53,0,0,0-4.24,1.11V86.86a10.53,10.53,0,0,1,4.32-1c3.48,0,5.78,2,5.78,5a5,5,0,0,1-3.76,4.67,5.21,5.21,0,0,1,4.08,5.13c0,3-2.46,5.23-6.1,5.23a9.34,9.34,0,0,1-4.7-1.1V103.3a8.72,8.72,0,0,0,4.65,1.24c2.72,0,4.53-1.67,4.53-3.86,0-2.75-2.11-4.37-5.64-4.37H43V95h.73c2.86,0,5.08-1.62,5.08-4S47,87.32,44.53,87.32Z"></path>
+                              <path class="cls-2" d="M58.43,87.32a9.53,9.53,0,0,0-4.23,1.11V86.86a10.48,10.48,0,0,1,4.31-1c3.49,0,5.78,2,5.78,5a5,5,0,0,1-3.75,4.67,5.21,5.21,0,0,1,4.07,5.13c0,3-2.45,5.23-6.1,5.23a9.3,9.3,0,0,1-4.69-1.1V103.3a8.68,8.68,0,0,0,4.64,1.24c2.73,0,4.53-1.67,4.53-3.86,0-2.75-2.1-4.37-5.64-4.37h-.48V95h.73c2.86,0,5.07-1.62,5.07-4S60.94,87.32,58.43,87.32Z"></path>
+                              <path class="cls-2" d="M4,18.79H0v-14A4.84,4.84,0,0,1,4.83,0H15.45V4H4.83A.83.83,0,0,0,4,4.83Z"></path>
+                           </g>
+                        </g>
+                     </g></svg></a><span class="d-flex align-items-center"><a class="nav-link project-link pe-4 link-dark-grey link-hover-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a><button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12">
+                        <defs>
+                           <style>.a{fill:none}</style>
+                        </defs>
+                        <g transform="translate(0 0.5)">
+                           <line class="a" x2="20"></line>
+                           <line class="a" x2="20" transform="translate(0 5)"></line>
+                           <line class="a" x2="20" transform="translate(0 10)"></line>
+                        </g></svg></button></span><div class="navbar position-fixed start-0 bg-black-grey w-100 opacity-97" id="navbarSupportedContent">
+                  <div class="container d-block">
+                     <div class="row">
+                        <div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="projekt.html">Über das Projekt<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="nutzungsbedingungen.html">Nutzungsbedingungen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="impressum.html">Impressum<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                           </ul>
+                        </div>
+                        <div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Dritte Walpurgisnacht</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="notizen.html">Notizen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="annotierte_lesefassung.html">Annotierte Lesefassung<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                              <li class="nav-item"><a xmlns="" class="nav-link" href="register.html">Register<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
+                                       <defs>
+                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                       </defs>
+                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
+                           </ul>
+                        </div>
+                        <div class="col-md-4"><span class="d-block navbar-title text-dark-grey border-bottom border-light-grey pb-1">Kommentar</span></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </nav>
+         <nav aria-label="breadcrumb" class="my-1">
+            <div class="container-fluid">
+               <ol class="breadcrumb">
+                  <li class="breadcrumb-item active" aria-current="page">Karl Kraus 1933: Dritte Walpurgisnacht</li>
+               </ol>
+            </div>
+         </nav>
+      </header>
+      <main class="flex-shrink-0 mt-18">
+         <div class="container-fluid px-0">
+            <div class="row">
+               <div class="col-md-2 col-lg-2 col-sm-12"></div>
+               <div class="col-md-2 col-lg-2 col-sm-12" style="text-align:right"></div>
+            </div>
+            <div is="wpn-text-view" annotation-selectors=".entity" id="sub_grid">
+               <div>
+                  <div class="p-0 d-flex flex-column align-items-center position-fixed">
+                     <div xmlns="http://www.w3.org/1999/xhtml" class="dropdown ff-ubuntu"><button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">Absatz 52</button><ul class="dropdown-menu z-3 rounded-0">
+                           <li><a class="dropdown-item fs-9_38 py-0" href="motti.html">[Motti]</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_1.html">Absatz 1</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_2.html">Absatz 2</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_3.html">Absatz 3</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_4.html">Absatz 4</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_5.html">Absatz 5</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_6.html">Absatz 6</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_7.html">Absatz 7</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_8.html">Absatz 8</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_9.html">Absatz 9</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_10.html">Absatz 10</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_11.html">Absatz 11</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_12.html">Absatz 12</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_13.html">Absatz 13</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_14.html">Absatz 14</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_15.html">Absatz 15</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_16.html">Absatz 16</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_17.html">Absatz 17</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_18.html">Absatz 18</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_19.html">Absatz 19</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_20.html">Absatz 20</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_21.html">Absatz 21</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_22.html">Absatz 22</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_23.html">Absatz 23</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_24.html">Absatz 24</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_25.html">Absatz 25</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_26.html">Absatz 26</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_27.html">Absatz 27</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_28.html">Absatz 28</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_29.html">Absatz 29</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_30.html">Absatz 30</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_31.html">Absatz 31</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_32.html">Absatz 32</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_33.html">Absatz 33</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_34.html">Absatz 34</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_35.html">Absatz 35</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_36.html">Absatz 36</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_37.html">Absatz 37</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_38.html">Absatz 38</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_39.html">Absatz 39</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_40.html">Absatz 40</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_41.html">Absatz 41</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_42.html">Absatz 42</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_43.html">Absatz 43</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_44.html">Absatz 44</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_45.html">Absatz 45</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_46.html">Absatz 46</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_47.html">Absatz 47</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_48.html">Absatz 48</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_49.html">Absatz 49</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_50.html">Absatz 50</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_51.html">Absatz 51</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_52.html">Absatz 52</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_53.html">Absatz 53</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_54.html">Absatz 54</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_55.html">Absatz 55</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_56.html">Absatz 56</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_57.html">Absatz 57</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_58.html">Absatz 58</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_59.html">Absatz 59</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_60.html">Absatz 60</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_61.html">Absatz 61</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_62.html">Absatz 62</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_63.html">Absatz 63</a></li>
+                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_64.html">Absatz 64</a></li>
+                        </ul>
+                     </div>
+                     <div id="editor-widget">
+                        <div xmlns="http://www.w3.org/1999/xhtml">
+                           <div id="aot-navBarNavDropdown" class="navBarNavDropdown dropstart d-md-none"><a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button"><i class="bi bi-gear" title="Menü zur Anpassung der Anzeige"></i></a><ul class="dropdown-menu d-block border-0 z-2">
+                                 <li class="dropdown-item">
+                                    <annotation-slider opt="prs" class="text-wpn-person fs-7"></annotation-slider>
+                                 </li>
+                                 <li class="dropdown-item">
+                                    <annotation-slider opt="quts" class="text-wpn-quote fs-7"></annotation-slider>
+                                 </li>
+                                 <li class="dropdown-item">
+                                    <annotation-slider opt="pbs" class="text-black-grey fs-7"></annotation-slider>
+                                 </li>
+                                 <li class="dropdown-item">
+                                    <annotation-slider opt="cmts" class="text-comment fs-7"></annotation-slider>
+                                 </li>
+                              </ul>
+                           </div>
+                           <div class="d-none d-md-block">
+                              <ul class="border-0 z-2 list-unstyled">
+                                 <li>
+                                    <annotation-slider opt="prs" class="text-wpn-person fs-7 mx-auto"></annotation-slider>
+                                 </li>
+                                 <li>
+                                    <annotation-slider opt="quts" class="text-wpn-quote fs-7 mx-auto"></annotation-slider>
+                                 </li>
+                                 <li>
+                                    <annotation-slider opt="pbs" class="text-black-grey fs-7 mx-auto"></annotation-slider>
+                                 </li>
+                                 <li>
+                                    <annotation-slider opt="cmts" class="text-wpn-comment fs-7 mx-auto"></annotation-slider>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div id="textcolumn" class="mx-auto ff-century-old-style"><span class="d-block runningText1"><span class="inline-text">
+                        Daß man in Österreich den <span is="wpn-entity" class="persons entity " id="DWrsPers0707">leiblichen Vertreter
+                           solcher Sendung</span> unerwünscht findet,<span class="comments entity" id="DWcomment0424"></span> entspringt einem
+                        Entschluß, der Unterstützung und nicht Hemmung verdient, durch solche die ihm (<span is="wpn-entity" class="quotes entity " id="DWquote1344">letzten Endes</span>) die Rettung
+                        eines politischen Pensionistendaseins,<span class="comments entity" id="DWcomment0425"></span> im eigentlichsten
+                        Sinne, verdanken werden; die es wissen, aber
+                        <span is="wpn-entity" class="quotes entity " id="DWquote2127">Pharisäer</span> genug sind, um anders zu bekennen und
+                        die Wirksamkeit gegen ein Übel zu stören, zu
+                        
+                        
+                        <span class="pagebreaks entity" id="pb0203" style="display:none;">||</span>
+                        
+                        dessen Abwehr sie sich zu schwach wissen. Das
+                        muß — gemäß der Gradheit des begrüßten Schrittes
+                        einer Begrüßung — klipp und klar gestellt sein,
+                        und koste es auch Mut gegen eine verlogene
+                        Grundsätzlichkeit, der er fehlt. Denn hätte sie ihn,
+                        so hätte sie den »Gegebenheiten«, die sie öfter
+                        heranzieht, damit Versagen taktisch werde, längst
+                        durch Erkenntnis und Bekenntnis Rechnung getragen: daß der Manko an Macht durch den Überfluß
+                        an Phrasen kommt; daß die Kriegszeit für Manöver
+                        nicht geeignet ist; und daß man sich zum erstenmal einer politischen Wirklichkeit gegenüberbefindet, jener, die eine Politik, die vom Tun redet,
+                        beim Wort, beim Mord genommen hat. Viel von
+                        dem, was war, ist nicht geblieben. Aber es bliebe
+                        ein Wert zu sichern: die Einsicht, daß nun einmal, weil die
+                        Gelegenheit <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" class="date">1918</span><span class="comments entity" id="DWcomment0427"></span> verpfuscht ist; weil die Sozialdemokratie den Frieden verloren hat und eben darum
+                        die Niederlage verantworten muß; weil man zum
+                        Sündenbock wurde durch eigene Schuld; weil der
+                        letzte Begriff von Freiheit <span is="wpn-entity" class="quotes entity " id="DWquote1345">verklungener und vertaner</span>
+                        ist als holde Musik, und alle Quantität zu schwach,
+                        ihn wiederzugewinnen; weil »Kampf« zur Phrase
+                        wurde, mit der uns diese ewigen <span is="wpn-entity" class="persons entity " id="DWrsPers0709">Doktores des Parteiübels</span> anöden — die Einsicht: daß in solchem Fall <span is="wpn-entity" class="quotes entity " id="DWquote1346">die Anweisung,
+                           mit »Trutz« spazieren zu gehn</span>,<span class="comments entity" id="DWcomment0696"></span> Schmierenregie einer
+                        Volksbühne ist, die bessere Zeiten gesehn hat,
+                        und daß man mit dem Problem, <span is="wpn-entity" class="quotes entity " id="DWquote1347">ob die drei Pfeile<span class="comments entity" id="DWcomment0428"></span>
+                           nach außen und oben oder nach innen und unten
+                           zu tragen sind</span>, keinen Hund vom Ofen lockt! Wenn
+                        der Reichstag gebrannt hat<span class="comments entity" id="DWcomment0697"></span> und alle, die ihn nicht
+                        angezündet haben, bereits in Schutzhaft geschunden
+                        werden,<span class="comments entity" id="DWcomment0635"></span> macht selbst ein Protest mit der Unterschrift<span is="wpn-entity" class="quotes entity " id="DWquote1351">
+                           <span class="d-block longQuote"><span class="inline-text">
+                                 Es lebe die Freiheit! Das Büro der Zweiten Internationale</span></span></span>
+                        welches das Dritte Reich nicht verhindern, aber herbeiführen konnte, so wenig Eindruck wie <span is="wpn-entity" class="quotes entity " id="DWquote1352">das feierliche Gelöbnis des <span is="wpn-entity" class="persons entity " id="DWrsPers0710">Bürovorstands</span>, auf den »Anschluß«
+                           endlich, obschon mit Vorbehalt des Traumes von
+                           
+                           
+                           <span class="pagebreaks entity" id="pb0204" style="display:none;">||</span>
+                           
+                           »Großdeutschland«, zu verzichten</span><span class="comments entity" id="DWcomment0429"></span> — so glaubhaft
+                        auch, einzig unter allem glaubhaft, die Beruhigung
+                        wirken mag:<span is="wpn-entity" class="quotes entity " id="DWquote1353">
+                           <span class="d-block longQuote"><span class="inline-text">
+                                 <span class="spacing">Wir bleiben die Alten!</span></span></span></span>
+                        Auch trifft <span is="wpn-entity" class="quotes entity " id="DWquote1354">in dem populär gehaltenen Gespräch
+                           zwischen dem <span is="wpn-entity" class="quotes entity " id="DWquote1355">trutzigen Karl</span> und dem mit Recht
+                           <span is="wpn-entity" class="quotes entity " id="DWquote1356">miesmachenden Franz (der Kanaille)</span></span> dieser den
+                        Nagel auf den Kopf, wenn er beginnt:<span is="wpn-entity" class="quotes entity " id="DWquote1357">
+                           <span class="d-block longQuote"><span class="inline-text">
+                                 Gut schau’n wir aus.</span></span></span>
+                        Jener jedoch, mit der Drohung:<span is="wpn-entity" class="quotes entity " id="DWquote1358">
+                           <span class="d-block longQuote"><span class="inline-text">
+                                 Heut is es wieder ein <span class="spacing">wirklicher Kampf</span> und dabei kommt’s
+                                 auf jeden einzelnen an .&nbsp;.&nbsp;. Wenn man uns angreift, <span class="spacing">wehren</span> wir
+                                 uns .&nbsp;.&nbsp;. <span class="spacing">Einschüchtern</span> lassen wir uns <span class="spacing">nicht!</span></span></span></span>
+                        scheint eher an die noch volkstümlichere Entschlossenheit des Schneiders Zwirn zu gemahnen: »<span is="wpn-entity" class="quotes entity " id="DWquote1359">Schuster,
+                           wann i anfang, wann i anfang — i fang aber net an!</span>«
+                        Durchaus ehrenwert, denn als Pazifist und Demokrat
+                        mag er und soll er Gewaltmethoden verpönen.
+                        Aber in Versammlungen »Disziplin« verlangen für
+                        eine Entscheidung, die uns Gottseidank erspart bleibt,
+                        indem wir uns doch längst gewöhnt haben, sie »<span is="wpn-entity" class="quotes entity " id="DWquote1360">ohne
+                           uns über uns</span>« treffen zu lassen; so tun als ob, jetzt
+                        erst recht und trotz alledem, wiewohl dessenungeachtet, weil
+                        nichtsdestoweniger und wenn schon; bis zum letzten
+                        Hauch von Mann und Führer zur Redensart stehn,
+                        deren Inhalt oder einziger Sinn doch nur das Blut
+                        sein kann, das wir mit Recht nicht sehen können —
+                        das weckt auf die Dauer, diese endlose Dauer, die
+                        Vorstellung einer politischen Jammergestalt, die mit
+                        allem phraseologischen und taktischen Aufwand doch
+                        nicht der lebendigen Entschlußkraft des einen Sätzchens fähig wäre, das die politische Sachlichkeit,
+                        die psychologische Sicherheit und die formale Präcision hatte, einen Bann zu brechen. Einer,
+                        der dem kulturellen Ziel beider Gegenwelten fern,
+                        aber dem sozialen Sinn dessen, was gewollt und
+                        nicht gekonnt wurde, näher steht als dem Inhalt mancher Notverordnung<span class="comments entity" id="DWcomment0430"></span>,  nicht leugnen und <abbr xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" title="unclear"></abbr><abbr xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" title="unclear">i</abbr><abbr xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" title="unclear"></abbr>nicht
+                        
+                        
+                        <span class="pagebreaks entity" id="pb0205" style="display:none;">||</span>
+                        
+                        verleugnen: das Kaliber solcher Parteigröße reicht
+                        trotz Wut und Spott nicht an das Maß dieses <span is="wpn-entity" class="persons entity " id="DWrsPers0712">Dollfuß</span>,
+                        den eben die leibhaftige Antithese zu der Fähigkeit,
+                        den deutschen Koloß in die Tasche zu stecken, vor
+                        Europa beglaubigt. Gewiß, das Wundermotiv der
+                        Walpurgisnacht:<span is="wpn-entity" class="quotes entity " id="DWquote1361">
+                           <span class="d-block lg longQuoteVerse">
+                              <span class="d-block l"><span class="inline-text">Ein leuchtend Zwerglein! Niemals noch gesehn!</span></span></span></span>
+                        droht in Speichelleckerei
+                        ihm bloß die Deutung abgewinnen (die sich dort
+                        findet, wo sich im Taumel über Abgründe jegliche
+                        Weisheit und Warnung findet):<span is="wpn-entity" class="quotes entity " id="DWquote1362">
+                           <span class="d-block lg longQuoteVerse">
+                              <span class="d-block l"><span class="inline-text">Homunculus ist es, von Proteus verführt;</span></span>
+                              <span class="d-block l"><span class="inline-text">Es sind die Symptome des herrischen Sehnens .&nbsp;.&nbsp;.</span></span></span></span>
+                        — keineswegs besteht Gefahr, daß die stärkste Energie,
+                        die sich seit Menschengedenken in Österreich aufgerafft hat, erliegen könnte, wenn jener Proteus<span class="comments entity" id="DWcomment0863"></span> es
+                        mit der Gemütlichkeit versucht. Es war nur ein unerwünschtes Zwischenspiel, als das christlichsoziale
+                        Organ — zwischen dem Ende des Zentrums<span class="comments entity" id="DWcomment0732"></span> und
+                        der totsicheren Aussicht auf das eigene — jener
+                        unappetitlichen Lockung aufsaß; als es von dem
+                        »<span is="wpn-entity" class="quotes entity " id="DWquote1363">andern Ton</span>«, dem schamlosen Lob der Briganten
+                        für die Polizei, benommen schien und für den schon
+                        die Palme bereit hatte, <span is="wpn-entity" class="quotes entity " id="DWquote1364">der
+                           <span class="d-block longQuote"><span class="inline-text">
+                                 aus dem österreichischen Nationalsozialismus <span class="spacing">einen Faktor</span> österreichischer Politik <span class="spacing">formen hilft</span> .&nbsp;.&nbsp;. Die Führer der österreichischen
+                                 Regierung und ihre Freunde <span class="spacing">würden die letzten sein,</span> die ihre
+                                 Unterstützung versagen.</span></span></span>
+                        Aber die ersten, die im Konzentrationslager säßen.
+                        Es war natürlich Wasser auf <span is="wpn-entity" class="quotes entity " id="DWquote1365">die Papiermühle jener,
+                           die nicht müde werden, die Leistung des <span is="wpn-entity" class="persons entity " id="DWrsPers0714">Mannes</span>
+                           zu verkleinern</span>, der trotz zu häufigem Gedenken des
+                        »Bruders« nicht daran denkt, für dessen Anbrüderung den Gewinn europäischer Position preiszugeben, und gegen feindliche Komplimente so
+                        widerstandsfähig bleibt wie gegen brüderliche Bomben.
+                        Doch die andere Kraftprobe ersparte ihm schon der
+                        nächste Tag, <span is="wpn-entity" class="quotes entity " id="DWquote1366">als dank dem Prinzip autoritärer Unverantwortlichkeit der Proteus<span class="comments entity" id="DWcomment0864"></span> des andern Tons wieder der
+                           
+                           
+                           <span class="pagebreaks entity" id="pb0206" style="display:none;">||</span>
+                           
+                           andere war, das offizielle Friedensanbot als nicht
+                           offiziell widerrufen
+                           wurde</span><span class="comments entity" id="DWcomment0431"></span> und durch die offiziellere Sendung ersetzt, in der die Briganten der Polizei
+                        Mißbrauch der Gesetze vorwarfen.<span is="wpn-entity" class="quotes entity " id="DWquote1367">
+                           <span class="fackelrefs entity " id="F890seg0041"><span class="d-block lg longQuoteVerse">
+                                 <span class="d-block l"><span class="inline-text">Nötigt sie herabzusteigen!</span></span>
+                                 <span class="d-block l"><span class="inline-text">Sie verbergen in den Zweigen</span></span>
+                                 <span class="d-block l"><span class="inline-text">Ihre garstigen <span class="hidden"><span class="spacing">Habichtskrallen,</span></span></span></span>
+                                 <span class="d-block l"><span class="inline-text">Euch verderblich anzufallen,</span></span>
+                                 <span class="d-block l"><span class="inline-text">Wenn ihr <span class="hidden">euer</span> Ohr verleiht.</span></span></span></span></span>
+                        Immer von neuem es zu versagen, dem entfesselten
+                        Koller, der einem Lande das heilloseste aller Abenteuer aufdrängt, vor täglichen Attacken gewachsen zu
+                        sein, das erfordert Umsicht, Ausdauer und Tapferkeit,
+                        wie sie kaum der Vertreter eines größeren Österreich
+                        aufgeboten hätte. Wer solche Eigenschaften bewährt,
+                        dem sollten sie anerkannt sein trotz allem Drang, politische Gegensätzlichkeit zu bekunden, und trotz allem
+                        Hang, eine Kultursatire zu üben, die der Respekt vor
+                        der Tat zurückschlägt. Ich sehe ja auch nicht gern, <span is="wpn-entity" class="quotes entity " id="DWquote1368">wie
+                           sich ihr <span is="wpn-entity" class="persons entity " id="DWrsPers0716">Vollbringer</span> unter den Klängen der Bundeshymne von unserem <span is="wpn-entity" class="persons entity " id="DWrsPers0717">Penklub-Ehrenpräsidenten</span><span class="comments entity" id="DWcomment0733"></span> geleiten läßt</span> (weil doch mindestens dieser dabei ans Gotterhalte denkt).<span class="comments entity" id="DWcomment0734"></span> Seiner Erklärung wieder, <span is="wpn-entity" class="quotes entity " id="DWquote1369">es gebe nichts
+                           in der Vergangenheit noch in der Gegenwart Österreichs, dessen sich der Österreicher zu schämen hätte</span>,
+                        
+                        
+                        <span class="pagebreaks entity" id="pb0207" style="display:none;">||</span>
+                        
+                        kann ich mindestens für den Zeitraum von
+                        Vergangenheit, den ich mitgemacht habe, nicht zustimmen. Das läßt sich freilich bloß nach individuellem Empfinden beurteilen, welches, für das angebrochene Säkulum, für den Ausgang der Monarchie,
+                        für Kriegszeit und Republik niemals einer Regung
+                        von Scham sich zu entwinden vermochte über den
+                        Verrat kulturellen, menschlichen und landschaftlichen
+                        Wertbestands an eine Maffia politischer und journalistischer Freibeuter, wie sie keine Gemeinschaft
+                        je hervorgebracht und geduldet hat; und welches,
+                        soweit es überhaupt dazu neigt, dem Staat Beziehungen zum Menschentum einzuräumen, zum erstenmal sich jenem zugewendet fühlt. Es ist nicht leicht,
+                        dergleichen zu bekennen, es fällt schwer, die Werkstatt seiner Eindrucksbildung zu öffnen, und doch
+                        gelingt es einem Satiriker, der seiner Funktion sich
+                        hinreichend sicher weiß, um nicht nur alles
+                         zu bemerken, was sich am<abbr xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" title="unclear">um</abbr> das Novum österreichischer Tatkraft breit macht, sondern um auch
+                        die Witze, die der sozialdemokratischen Journalistik
+                        dazu einfallen, als sein geistiges Eigentum zu erkennen. Scherz beiseite! Denn er hat dem Anstand
+                        zu weichen, wenn nicht dem Respekt vor Bemühungen, mit denen sichtbar, unter konstanter Todesdrohung, der Sache aller gedient wird. Meine
+                        
+                        Polemik ist umfassender; und beschränkt sich, trotz Normen und Formen, derzeit auf
+                        ein Treiben, das ihrer und damit der Selbsterhaltung
+                        spottet. Daß ich gegen <span is="wpn-entity" class="persons entity " id="DWrsPers0718">Dollfuß</span> keiner satirischen
+                        Anwandlung fähig bin — <span is="wpn-entity" class="quotes entity " id="DWquote2123">während mir zu <span is="wpn-entity" class="persons entity " id="DWrsPers0719">Hitler</span>
+                           im Zuge der Betrachtung vielleicht doch etwas eingefallen ist</span> —; daß ich trotz den »<span is="wpn-entity" class="quotes entity " id="DWquote1370">Letzten Tagen der Menschheit</span>« einen Spott verschmähe, den ich jüngeren
+                        Talenten vermacht habe, damit sie ihn bei Lebensgefahr gegen den Retter verwenden: solches mag
+                        sie noch verlocken, ihn gegen mich zu kehren.
+                        Dann dürften sie ihre Wunder erleben, wie ich ihn
+                        
+                        
+                        <span class="pagebreaks entity" id="pb0208" style="display:none;">||</span>
+                        
+                        zu reklamieren vermag! Ich überschätze <span is="wpn-entity" class="persons entity " id="DWrsPers0720">Herrn Dollfuß</span>
+                        aber er unterschätzt sich, <span is="wpn-entity" class="quotes entity " id="DWquote1953">wenn er Vergleiche
+                           heutiger vaterländischer Notwendigkeit mit der von
+                           <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" class="date">1914</span> zieht</span>. Damals hätte das Vaterland besser getan,
+                        nicht aufzustehen, sondern in Lethargie zu verharren;
+                        in den »heiligen Verteidigungskrieg«, den ihm die
+                        Fibel nachrühmt, zieht es erst zwanzig Jahre später.
+                        Was ihm heute, was seiner Arbeiterschaft droht,
+                        wissen ihre Wortführer so gut wie ich, nur haben
+                        sie nicht einmal den geringen Mut, es zuzugeben.
+                        Wohl sagen sie, <span is="wpn-entity" class="quotes entity " id="DWquote1371">daß ihnen »Ehrlichkeit gegenüber
+                           den Massen als eine der wichtigsten Aufgaben« gilt</span>,
+                        aber sie unterlassen es, sie zu leisten. Daß ich die
+                        Erkämpfung der vitalen Grundlage einer »Freiheit« — selbst mit 
+                         ihrem Opfer — für
+                        nützlicher halte als die Spiegelfechterei derer, die sie
+                        verplempert haben, ist bei einem Publizisten vielleicht
+                        nicht so erstaunlich, der sein Leben lang nichts anderes getan hat, als Sachverhalte nicht zu verleugnen,
+                        und vor allem gegen solche, die es taten und deren
+                        Metier ist, es zu tun. Daß ich mich insbesondere
+                        — denn Sachverhalte der Tageswelt ändern sich leider und zeitigen
+                        »Widersprüche«, während die Dummheit prinzipiell
+                        ist und ausgesorgt hat — daß ich mich zu
+                        Österreich bekenne, wenngleich noch immer ohne
+                        den leisesten Verdacht einer Ambition, daß Österreich
+                        sich auch zu mir bekennt: es brauchte gar nicht erst
+                        mit einem Wirken verknüpft zu werden, dessen Reduzierung auf die »Negation« einen der ödesten Gemeinplätze dieser öffentlichen Meinung bildet. In
+                        Wahrheit hat es niemals bloß durch Zerstörung
+                        zerstörender Mächte, sondern auch »positiv« — konservierender und tätiger als alles Offizielle — jenen
+                        Geisteswerten gedient, deren Anschluß an ein scheinbar sprachverbundenes Barbarentum dem wahren
+                        Teufelswunsch entspricht; und es bleibt mit solcher
+                        Feststellung seiner selbst sowohl der Möglichkeit
+                        entrückt, den Erinnerungsbesitz für eine nicht vorhandene sozialistische Kunst hinzugeben, wie sich
+                        
+                        
+                        <span class="pagebreaks entity" id="pb0209" style="display:none;">||</span>
+                        
+                        den Kulturbelangen österreichischer Gegenwart zuzuneigen, die ich nach wie vor in Verdacht habe,
+                        daß sie beim christlich-germanischen Schönheitsideal
+                        hinauswollen. Um das Geistesleben ist es mir nicht
+                        zu tun — das besorge ich schon<abbr xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" title="unclear">e</abbr> selbst! Aber es geht
+                        darum, daß die Basis des Lebens gesichert wird,
+                        welche mir durch eine Beeinträchtigung der Preßfreiheit<span class="comments entity" id="DWcomment0433"></span> keineswegs alteriert erscheint. Nicht einmal
+                        durch die Reduzierung der Titel, den Griff an den
+                        Lebensnerv der Meinungstyrannis, die Bändigung
+                        der Gehirnparasiten;<span class="comments entity" id="DWcomment0434"></span> durch ein kulturbewußtes Wagnis, zu dem mehr Mut gegen die Presse gehört als
+                        der von Gleichschaltern, die, den Ausdruck eigenen
+                        Willens erpressend, der Kritik entzogen bleiben —
+                        Tat und Wohltat, für die jede Seite der ‚Fackel‘
+                        Vorwort und Dank enthält; und deren Wirkung im
+                        erstickten Marktschrei wie im knirschenden Verdruß
+                        der Händler vernehmbar wird. Jetzt müßte nur noch die
+                        Reduzierung des Textes folgen, und alles wäre in
+                        Ordnung Ich teile die fortschrittliche Meinung, daß
+                        derlei bisher weder im liberalen noch im absolutistischen Österreich möglich war: die Entschlossenheit, die ohne demokratisches Bedenken das Gesetz
+                        der Trägheit bricht und gegenüber dem Verhängnis
+                        zeigt, daß halt doch etwas zu machen ist. Was diese
+                        meine Haltung betrifft, so wird sie, weil ich bei der
+                        Sozialdemokratie untendurch bin,<span class="comments entity" id="DWcomment0636"></span> vielleicht aus dem
+                        Wunsch erklärlich, bei den Christlichsozialen obenauf zu sein; sicher aber aus dem Erlebnis, daß zum erstenmal die Kongruenz<span class="comments entity" id="DWcomment0637"></span> des Einzelinteresses, welches auf
+                        Bewahrung der Daseins- und Wirkensmöglichkeit
+                        abzielt, mit dem Staatswillen erkennbar wird, und
+                        
+                        
+                        <span class="pagebreaks entity" id="pb0210" style="display:none;">||</span>
+                        
+                        daß eine Regierung, die ihn vollzieht, sich nützlich
+                        macht — während eine Partei, die ihn mit doktrinärem Mumpitz aufhält, sich unnütz macht, wie man
+                        dort zu sagen pflegt, wohin ihre Sehnsucht so lange
+                        tendiert hat.<span class="comments entity" id="DWcomment0811"></span></span></span></div>
+               <div id="infocolumn" class="px-0 border-start border-light-grey">
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0707">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2007 -->
+                        						
+                        <forename>Hans</forename>
+                        						
+                        <addName type="honorific">Dr.</addName>
+                        						
+                        <surname>Frank</surname>
+                        						
+                        <addName>(II.)</addName>
+                        <!-- ehem. type="nick" -->
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0424"><span class="fw-bold">Ereignis: Landung unerwünschter Gäste in Aspern</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1344"><b xmlns=""><i>Die Fackel</i></b> vom Januar 1921</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0425"><span class="fw-bold">Glossar: Das ‚politische Pensionistendasein‘ der Sozialdemokratie</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2127"><b xmlns="">Die Bibel</b></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0203" style="display:none"><span>Beginn Seite 203</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0427"><span class="fw-bold">Glossar: Die „Gelegenheit 1918“</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1345"><b xmlns=""><i>Die Fackel</i></b> von Anfang Februar 1929</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0709">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: DB, GND, HistLexWien ; öbl gibt als Geburtsjahr 1882 an, GND als Sterbeort Wien-->
+                        						
+                        <forename>Otto</forename>
+                        						
+                        <addName type="honorific">Dr.</addName>
+                        						
+                        <surname>Bauer</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0709">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Czeike -->
+                        						
+                        <forename>Oscar</forename>
+                        						
+                        <surname>Pollak</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1346"><b xmlns="">[Nicht ermittelt]</b></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0696"><span class="fw-bold">Ereignis: ‚Maispaziergang‘ statt Maiaufmarsch</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1347"><b xmlns=""><i>AZ</i></b> vom 19. 12. 1932</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1347"><b xmlns=""><i>AZ</i></b> vom 2. 1. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0428"><span class="fw-bold">Glossar: drei Pfeile</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0697"><span class="fw-bold">Ereignis: Reichstagsbrand und „Reichstagsbrandverordnung“</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0635"><span class="fw-bold">Glossar: Schutzhaft 1933</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1351"><b xmlns="">[Nicht ermittelt]</b></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1352"><b xmlns=""><i>AZ</i></b> vom 31. 7. 1932</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0710">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: DB, GND, HistLexWien ; öbl gibt als Geburtsjahr 1882 an, GND als Sterbeort Wien-->
+                        						
+                        <forename>Otto</forename>
+                        						
+                        <addName type="honorific">Dr.</addName>
+                        						
+                        <surname>Bauer</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0204" style="display:none"><span>Beginn Seite 204</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0429"><span class="fw-bold">Glossar: Otto Bauer und der „Anschluss“</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1353"><b xmlns=""><i>AZ</i></b> vom 1. 4. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1354"><b xmlns=""><i>Der Sozialdemokrat</i></b> vom Juli 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1355"><b xmlns="">Friedrich von Schiller: </b><b xmlns="">Die Räuber</b> (1782)</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1356"><b xmlns="">Friedrich von Schiller: </b><b xmlns="">Die Räuber</b> (1782)</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1357"><b xmlns=""><i>Der Sozialdemokrat</i></b> vom Juli 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1358"><b xmlns=""><i>Der Sozialdemokrat</i></b> vom Mai 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1359"><b xmlns="">Johann Nepomuk Nestroy: </b><b xmlns="">Der böse Geist Lumpazivagabundus oder Das liederliche
+                        						Kleeblatt</b> (1833)</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1360"><b xmlns=""><i>AZ</i></b> vom 7. 6. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0430"><span class="fw-bold">Glossar: Notverordnungen im Dollfuß-Regime</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0205" style="display:none"><span>Beginn Seite 205</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0712">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL - affiliation: Christlichsoziale Partei Österreichs-->
+                        						
+                        <forename>Engelbert</forename>
+                        						
+                        <surname>Dollfuß</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1361"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1362"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0863"><span class="fw-bold">Glossar: Proteus</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0732"><span class="fw-bold">Glossar: Zentrum</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1363"><b xmlns=""><i>RP</i></b> vom 5. 7. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1364"><b xmlns=""><i>RP</i></b> vom 5. 7. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1365"><b xmlns=""><i>AZ</i></b> vom 6. 7. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0714">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL - affiliation: Christlichsoziale Partei Österreichs-->
+                        						
+                        <forename>Engelbert</forename>
+                        						
+                        <surname>Dollfuß</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1366"><b xmlns=""><i>RP</i></b> vom 7. 7. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0864"><span class="fw-bold">Glossar: Proteus</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0206" style="display:none"><span>Beginn Seite 206</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0431"><span class="fw-bold">Ereignis: Ein kurzlebiges „Friedensangebot“</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1367"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1368"><b xmlns=""><i>NFP</i></b> vom 17. 5. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0716">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL - affiliation: Christlichsoziale Partei Österreichs-->
+                        						
+                        <forename>Engelbert</forename>
+                        						
+                        <surname>Dollfuß</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0717">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Killy -->
+                        						
+                        <forename type="taken">Felix</forename>
+                        						
+                        <surname type="taken">Salten</surname>
+                        						
+                        <forename subtype="unused">Siegmund</forename>
+                        						
+                        <surname subtype="unused">Salzmann</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0733"><span class="fw-bold">Glossar: PEN-Club</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0734"><span class="fw-bold">Ereignis: Eine Wohltätigkeitsveranstaltung des Wiener Pen-Clubs</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1369"><b xmlns=""><i>Neues Wiener Journal</i></b> vom 20. 6. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0207" style="display:none"><span>Beginn Seite 207</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0718">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL - affiliation: Christlichsoziale Partei Österreichs-->
+                        						
+                        <forename>Engelbert</forename>
+                        						
+                        <surname>Dollfuß</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2123"><b xmlns=""><i>Die Fackel</i></b> vom Oktober 1925</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0719">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
+                        						
+                        <forename>Adolf</forename>
+                        						
+                        <surname>Hitler</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1370"><b xmlns="">Karl Kraus: </b><b xmlns="">Die letzten Tage der Menschheit</b> (1919/1922)</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0208" style="display:none"><span>Beginn Seite 208</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0720">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL - affiliation: Christlichsoziale Partei Österreichs-->
+                        						
+                        <forename>Engelbert</forename>
+                        						
+                        <surname>Dollfuß</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1953"><b xmlns="">[Nicht ermittelt]</b></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1371"><b xmlns=""><i>AZ</i></b> vom 9. 7. 1933</div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0209" style="display:none"><span>Beginn Seite 209</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0433"><span class="fw-bold">Glossar: Notverordnungen und Pressefreiheit unter Dollfuß</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0434"><span class="fw-bold">Glossar: Dollfuß’ Verordnung zu Zeitungstiteln</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0636"><span class="fw-bold">Glossar: Kraus „bei der Sozialdemokratie untendurch“</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0637"><span class="fw-bold">Glossar: Kongruenz</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0722">
+                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
+                        						
+                        <forename>Adolf</forename>
+                        						
+                        <surname>Hitler</surname>
+                        					</persName>
+                  </div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0210" style="display:none"><span>Beginn Seite 210</span></div>
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0811"><span class="fw-bold">Glossar: Otto Bauer und der „Anschluss“</span></div>
+               </div>
+            </div>
+         </div>
+      </main>
+      <footer xmlns="http://www.w3.org/1999/xhtml" class="footer mt-auto py-3 border-top border-light-grey">
+         <div class="container mt-1_5">
+            <ul class="list-unstyled d-flex flex-row justify-content-end">
+               <li><a class="project-link link-dark-grey link-hover-primary-hover text-decoration-none" href="impressum.html">Impressum</a></li>
+               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="nutzungsbedingungen.html">Nutzungsbedingungen</a></li>
+               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="projekt.html">Über das Projekt</a></li>
+               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="https://github.com/karl-kraus/dritte-walpurgisnacht-static"><i class="bi bi-github"></i></a></li>
+            </ul>
+         </div>
+      </footer><script xmlns="http://www.w3.org/1999/xhtml" src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script><script xmlns="http://www.w3.org/1999/xhtml" src="js/vendor/bootstrap/bootstrap.bundle.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"></script><script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script><script type="text/javascript" src="js/init-micro-editor.js"></script><script type="text/javascript" src="js/wpn-text-view.js"></script><script type="text/javascript" src="js/wpn-entity.js"></script><script type="text/javascript" src="js/wpn-header.js"></script></body>
+</html>

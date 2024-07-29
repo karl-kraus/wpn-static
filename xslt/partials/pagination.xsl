@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wpn="https://wpn.acdh.oeaw.ac.at" exclude-result-prefixes="xs xsl tei wpn" version="2.0">
+    <xsl:output encoding="UTF-8" media-type="text/html" method="xhtml" version="1.0" indent="yes" omit-xml-declaration="yes"/>
+<xsl:import href="./wpn_utils.xsl"/>
+<xsl:template name="pagination">
+  <xsl:param name="current-page"/>
+  <div class="dropdown ff-ubuntu">
+    <button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <xsl:value-of select="wpn:parse-page-name(replace($current-page,'absatz_',''),'label')"/>
+    </button>
+    <ul class="dropdown-menu z-3 rounded-0">
+    <xsl:for-each select="doc('../../data/editions/Gesamt.xml')//(tei:p[@n]|tei:mod[@n])">
+      <li><a class="dropdown-item fs-9_38 py-0" href="{wpn:parse-page-name(current()/@n,'')||'.html'}"><xsl:value-of select="wpn:parse-page-name(current()/@n,'label')"/></a></li>
+    </xsl:for-each>
+    </ul>
+  </div>
+</xsl:template>
+</xsl:stylesheet>

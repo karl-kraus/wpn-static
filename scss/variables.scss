@@ -1,0 +1,134 @@
+/*** colors ***/
+$wpn-red: rgba(162, 26, 23, 1);
+$wpn-light-grey: rgba(216, 216, 216, 1);
+$wpn-dark-grey: rgba(153, 153, 153, 1);
+$wpn-black-grey:rgba(102, 102, 102, 1);
+$wpn-blacker-grey:rgba(64, 64, 64, 1);
+$wpn-kwic-grey:rgba(51, 51, 51, 1);
+$wpn-quote: rgba(176, 165, 131, 1);
+$wpn-person: rgba(115, 156, 150, 1);
+$wpn-comment: rgba(126, 95, 167, 1);
+
+$theme-colors: (
+  "primary": $wpn-red,
+  "light-grey": $wpn-light-grey,
+  "dark-grey": $wpn-dark-grey,
+  "black-grey": $wpn-black-grey,
+  "blacker-grey": $wpn-blacker-grey,
+  "kwic-grey": $wpn-kwic-grey,
+  "white": rgba(255, 255, 255, 1),
+  "wpn-quote": $wpn-quote,
+  "wpn-person": $wpn-person,
+  "wpn-comment": $wpn-comment,
+);
+
+/*** spacing ***/
+$spacer: 0.625rem;
+
+$spacers: (
+  0: 0,
+  '05': $spacer * 0.5,
+  1: $spacer,
+  1_25: $spacer * 1.25, 
+  1_5: $spacer * 1.5,
+  2: $spacer * 2,
+  2_5: $spacer * 2.5,
+  3: $spacer * 3,
+  4: $spacer * 4.0,
+  5: $spacer * 5.0,
+  5_5: $spacer * 5.5,
+  10: $spacer * 10,
+  13: $spacer * 13,
+  14: $spacer * 14,
+  15: $spacer * 15,
+  25: $spacer * 25,
+
+);
+
+/*** position ***/
+$position-values: (
+  0: 0,
+  n05: $spacer * -0.5, 
+  18: $spacer * 18,
+  50: 50%,
+  100: 100%
+);
+
+
+/*** typography ***/
+$font-size-base: 1rem;
+$meta-font-family: "Ubuntu";
+$font-family-base: "Ubuntu Light";
+$h1-font-size: 1.625rem;
+$h2-font-size: 1.5rem;
+$h3-font-size: 1.125rem;
+$headings-font-family: $meta-font-family;
+$headings-font-weight: 500;
+$breadcrumb-font-size: 0.875rem;
+$btn-font-family: $meta-font-family;
+$badge-font-size: 1rem;
+
+
+$font-sizes: (
+  1: 5rem,
+  2: 4.5rem,
+  3: 4rem,
+  4: 3.5rem,
+  5: 3rem,
+  6: 0.75rem,
+  7: 0.7rem,
+  8: 0.8rem,
+  8_75: 0.875rem,
+  9_38: 0.938rem
+  
+);
+
+/*** sizes ***/
+$container-max-widths: (
+  md: 720px,
+  lg: 1024px
+);
+
+/*** grid ***/
+$enable-cssgrid: true;
+
+/*** general ***/
+$btn-border-radius: 3px;
+$link-shade-percentage: 0;
+
+/*** headings ***/
+$headings-color: $wpn-red;
+
+/*** header / navbar ***/
+$header-height: 250px;
+$navbar-brand-height: 12.5rem;
+$navbar-padding-y: 1.563rem;
+$navbar-toggler-focus-width: 0;
+$navbar-dark-color: $wpn-light-grey;
+$nav-link-padding-y: 0.2rem;
+
+/*** breadcrumbs ***/
+$breadcrumb-active-color: $wpn-red;
+
+/*** dropdowns ***/
+
+$dropdown-link-active-bg: transparent;
+$dropdown-link-hover-bg: transparent;
+$dropdown-link-active-color: inherit;
+
+/*** popovers ***/
+
+$popover-font-size: 1rem;
+$popover-border-color: $wpn-light-grey;  
+$popover-body-color: $wpn-black-grey;
+$popover-body-padding-x: 9px;
+$popover-body-padding-y: 5px;
+
+/*** footer ***/
+$footer-min-height: 100px;
+$footer-link-font-size: calc($font-size-base * 0.875);
+$footer-link-line-height: calc($font-size-base * 1.188);
+
+
+/*** edition view ***/
+$edition-view-header-height: 180px;

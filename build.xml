@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." name="tei2html">
+    <property name="index" value="./data/index.xml"/>
+    <property name="target" value="./html"/>
+    <property name="target_js_vendor" value="./html/js/vendor"/>
+    <property name="target_fonts" value="./html/css/files"/>
+    <property name="target_xml" value="./html/xml-view"/>
+    <delete>
+        <fileset dir="${target}" includes="*.html"/>
+    </delete>
+    <delete dir="${target}/static-search"/>
+    <target name="build-landing-page">
+        <xslt in="${index}" out="${target}/index.html" style="./xslt/index.xsl">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="split-edition-paragraphs">
+        <xslt style="./xslt/partials/wpn_splitter.xsl"  basedir="./data/editions" destdir="./data/editions" includes="Gesamt.xml">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="generate-bibl-index">
+        <xslt style="./xslt/generate_bibl_index.xsl"  in="./data/indices/Register.xml" out="./data/indices/biblindex_updated.xml">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="generate-person-index">
+        <xslt style="./xslt/generate_person_index.xsl"  in="./data/indices/Register.xml" out="./data/indices/personindex_updated.xml">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-edition">
+        <xslt style="./xslt/editions.xsl"  basedir="./data/editions" destdir="${target}" includes="*.xml" excludes="Gesamt.xml">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-unstyled-edition">
+        <xslt style="./xslt/editions_unstyled.xsl"  basedir="./data/editions" destdir="./data/merged" includes="*.xml" excludes="Gesamt.xml">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-meta-pages">
+        <xslt style="./xslt/meta.xsl"  basedir="./data/meta" destdir="${target}" includes="*.xml">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+         <xslt style="./xslt/register.xsl"  in="./data/register.xml" out="${target}/register.html">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-search-page">
+        <xslt in="${index}" out="${target}/search.html" style="./xslt/search.xsl">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+     <target name="build-notes">
+        <xslt in="./data/notizen.xml" out="${target}/notizen.html" style="./xslt/notizen.xsl">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+        <xslt in="./data/notizen.xml" out="${target}/notizen_konvolut_1.html" style="./xslt/notizen_konvolut.xsl">
+            <param name="manifest_id" expression="HIN-176044"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+        <xslt in="./data/notizen.xml" out="${target}/notizen_konvolut_2.html" style="./xslt/notizen_konvolut.xsl">
+            <param name="manifest_id" expression="HIN-177198"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-intertext-register">
+        <xslt in="./data/indices/biblindex_updated.xml" out="${target}/register_intertexte.html" style="./xslt/register_intertexte.xsl">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-person-register">
+        <xslt in="./data/indices/personindex_updated.xml" out="${target}/register_personen.html" style="./xslt/register_personen.xsl">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="copy-libs">
+        <!-- mirador -->
+        <copy file="node_modules/mirador/dist/mirador.min.js" todir="${target_js_vendor}/mirador/"/>
+        <!-- bootstrap -->
+        <copy file="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" todir="${target_js_vendor}/bootstrap/"/>
+        <!--<copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-wght-normal.woff2" todir="${target_fonts}"/>
+        <copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-ext-wght-normal.woff2" todir="${target_fonts}"/>-->
+    </target>
+    <target name="build-full-edition" depends="build-landing-page, split-edition-paragraphs, build-edition, build-unstyled-edition, build-meta-pages, build-notes, build-intertext-register, build-person-register, build-search-page, copy-libs"/>
+    <replace dir="${target}" value="">
+        <include name="*.html"/>
+        <replacetoken> xmlns=""</replacetoken>
+    </replace>
+    <replace dir="${target}" value="">
+        <include name="*.html"/>
+        <replacetoken>xmlns:tei="http://www.tei-c.org/ns/1.0"</replacetoken>
+    </replace>
+    <replace dir="${target}" value="">
+        <include name="*.html"/>
+        <replacetoken>&lt;br &gt;</replacetoken>
+    </replace>
+    <replace dir="${target}" value="">
+        <include name="*.html"/>
+        <replacetoken>&lt;br&gt;</replacetoken>
+    </replace>
+    <replace dir="${target}" value="&lt;br /&gt;">
+        <include name="*.html"/>
+        <replacetoken>&lt;/br&gt;</replacetoken>
+    </replace>
+    <replace dir="${target}" value="">
+        <include name="*.html"/>
+        <replacetoken>xmlns="http://www.w3.org/1999/xhtml"</replacetoken>
+    </replace>
+</project>

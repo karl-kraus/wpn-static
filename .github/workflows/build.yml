@@ -1,0 +1,29 @@
+name: Build and publish
+
+on: 
+  push:
+
+jobs:
+  build_pages:
+    name: Publish Edition as GitHub Pages Website
+    runs-on: ubuntu-latest
+    env:
+    #  ANT_OPTS: -Xmx5g
+    steps:
+    - name: Perform Checkout
+      uses: actions/checkout@v4
+    #- name: Install Saxon, Ant and Python
+    #  run: |
+    #    apt-get update && apt-get install openjdk-11-jre-headless ant -y --no-install-recommend
+    #    ./shellscripts/script.sh
+    #    pip install -r requirements.txt
+    #- name: Build
+    #  run: |
+    #    ant build-full-edition
+    #- name: Update Favicons
+    #  run: python update_favicons.py
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{secrets.GITHUB_TOKEN}}
+        publish_dir: ./html

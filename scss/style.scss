@@ -1,0 +1,298 @@
+
+@import "../node_modules/bootstrap/scss/_functions";
+
+
+@import "variables";
+
+@import "../node_modules/bootstrap/scss/_variables";
+@import "../node_modules/bootstrap/scss/_variables-dark";
+
+@import "../node_modules/bootstrap/scss/_maps";
+
+@import "../node_modules/bootstrap/scss/_mixins";
+
+@import "../node_modules/bootstrap/scss/_utilities";
+@import "utilities";
+
+@import "../node_modules/bootstrap/scss/_root";
+@import "../node_modules/bootstrap/scss/_transitions";
+@import "../node_modules/bootstrap/scss/_nav";
+@import "../node_modules/bootstrap/scss/_navbar";
+@import "../node_modules/bootstrap/scss/_badge";
+@import "../node_modules/bootstrap/scss/_breadcrumb";
+@import "../node_modules/bootstrap/scss/_button-group";
+@import "../node_modules/bootstrap/scss/_buttons";
+@import "../node_modules/bootstrap/scss/_carousel";
+@import "../node_modules/bootstrap/scss/_close";
+@import "../node_modules/bootstrap/scss/_card";
+@import "../node_modules/bootstrap/scss/_containers";
+@import "../node_modules/bootstrap/scss/_dropdown";
+@import "../node_modules/bootstrap/scss/_forms";
+@import "../node_modules/bootstrap/scss/_grid";
+@import "../node_modules/bootstrap/scss/_modal";
+@import "../node_modules/bootstrap/scss/_offcanvas";
+@import "../node_modules/bootstrap/scss/_reboot";
+@import "../node_modules/bootstrap/scss/_pagination";
+@import "../node_modules/bootstrap/scss/_popover";
+@import "../node_modules/bootstrap/scss/_type";
+@import "../node_modules/bootstrap/scss/_helpers";
+@import "../node_modules/bootstrap/scss/utilities/api";
+@import "../node_modules/bootstrap/scss/bootstrap-grid";
+
+
+
+
+/*** fonts ***/
+@font-face {
+  font-family: 'Ubuntu';
+  font-weight: '400';
+  src: url(../fonts/Ubuntu.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Ubuntu Light';
+  font-weight: '300';
+  src: url(../fonts/Ubuntu_Light.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: '400';
+  src: url(../fonts/Roboto.woff2) format('woff2');
+}
+
+
+.ff-ubuntu {
+  font-family: 'Ubuntu';
+}
+
+.ff-century-old-style {
+  font-family: "century-old-style-std", sans-serif;
+}
+
+/*** helpers ***/
+.no-transition {
+  transition: none;
+}
+
+
+/*** header / navbar ***/
+
+header {
+  height: auto;
+}
+
+#logo {
+  transition: width 0.4s;
+}
+
+@include media-breakpoint-down(sm) {
+  #logo {
+    width:50%;
+  }
+}
+
+.navbar-toggler svg {
+  stroke: $wpn-blacker-grey;
+}
+
+.navbar-toggler:focus svg,
+.navbar-toggler:hover svg {
+  stroke: $wpn-red;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY($header-height);
+  }
+}
+
+
+
+#navbarSupportedContent {
+  display: block;
+  min-height:300px;
+  transform: translateY(-100%);
+}
+
+#navbarSupportedContent.show {
+  transform: translateY($header-height);
+  animation: slide-in 1s ease;
+}
+
+.nav-link.project-link {
+  padding-top: $navbar-toggler-padding-y;
+}
+
+.navbar-title {
+    @include font-size(1.125rem);
+}
+
+.wpn-arrow-right-submenu {
+  background-image: url("../images/icon-submenu-d8d8d8.svg");
+  background-repeat: no-repeat;
+}
+
+/*** custom button ***/
+.btn-outline-black-grey {
+  --bs-btn-color: var(--bs-black-grey);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: var(--bs-black-grey);
+  --bs-btn-hover-color: var(--bs-primary);
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-border-color: var(--bs-primary);
+  --bs-btn-focus-shadow-rgb: var(--bs-primary);
+  --bs-btn-active-color: var(--bs-primary);
+  --bs-btn-active-bg: transparent;
+  --bs-btn-active-border-color: var(--bs-primary);
+}
+
+
+/*** breadcrumb ***/
+.breadcrumb {
+  font-family: $meta-font-family;
+}
+
+/*** footer ***/
+footer {
+  min-height: $footer-min-height;
+  font-size: $footer-link-font-size;
+  line-height: $footer-link-font-size;
+}
+
+/*** landing page ***/
+.card-subtitle {
+  font-family: 'Roboto';
+}
+
+.signet {
+  background-image: url(../images/icon-signet.svg);
+  background-position: 15px 25px;
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+}
+
+.intro-text {
+  height: 126px;
+  mask-image: linear-gradient(to bottom, black 15%, transparent 100%);
+  overflow:hidden;
+}
+
+.wpn-expand .intro-text {
+  height: auto;
+  mask-image:unset;
+}
+
+/*** notizen app (mirador) ***/
+
+html[data-page="notes"] .container {
+  max-width: unset !important;
+  padding-right: 1.25rem !important;
+  padding-left: 1.25rem !important;
+}
+
+
+
+/*** edition view ***/
+
+#edition-view header {
+  height: $edition-view-header-height;
+}
+
+#edition-view #sub_grid {
+  display:grid;
+  grid-template-columns: 170px calc((100% - 190px) * 0.6) calc((100% - 190px) * 0.4);
+  gap:0;
+  min-height:calc(100vh - $edition-view-header-height)
+}
+
+#controls {
+  width:170px;
+}
+
+#textcolumn {
+  width: 77ch;
+  max-width: 96%;
+  padding-right: 40px;
+}
+
+
+/*** TEI Styles Walpurgisnacht ***/
+.runningText1 {
+  font-size:20px;
+  text-align: justify;
+  text-indent: 30px;
+}
+
+.runningText2 {
+  text-indent: 0;
+  font-size:20px;
+  text-align: justify;
+}
+
+.spacing {
+  letter-spacing: 2.5px;
+}
+
+.longQuoteVerseStart, .longQuoteVerseMiddle {
+  text-align: justify;
+  font-size: 15px;
+}
+
+.longQuoteRightAlign {
+  font-size:15px;
+  text-align:right;
+}
+
+.longQuoteVerseCenter {
+  font-size: 15px;
+  display:block;
+  margin: 5px auto;
+  width:50%;
+}
+
+.longQuoteVerseEnd {
+  font-size: 15px;
+}
+
+.longQuoteIndent {
+  font-size:15px;
+  display: block;
+  text-align: justify;
+  text-indent: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/*** register related ***/
+
+
+
+/*** detail view related ***/
+
+/** pagination **/
+.dropdown-toggle::after {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 2px;
+  margin-left:1rem;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.modal-open { 
+  padding-right:0 !important;
+}
+
+.quote_signet_background {
+  background: url("../images/icon-signet-intertext.svg") 10px 10px/10px 12px no-repeat;
+}
+
+.person_signet_background {
+  background: url("../images/icon-signet-person.svg") 10px 10px/10px 12px no-repeat;
+}
+

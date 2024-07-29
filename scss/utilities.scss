@@ -1,0 +1,129 @@
+$utilities: map-merge(
+  $utilities,
+  (
+  'width': (
+    property: width,
+    class: w,
+    responsive: true,
+    values: (
+      5: 5%,
+      7_5: 7.5%,
+      25: 25%,
+      30: 30%,
+      33: 33%,
+      40: 40%,
+      50: 50%,
+      60: 60%,
+      66: 66%,
+      70: 70%,
+      75: 75%,
+      100: 100%,
+      auto: auto,
+    ),
+  )
+)
+
+);
+
+
+$utilities: map-merge(
+  $utilities,
+  (
+  "opacity": map-merge(
+    map-get($utilities, "opacity"),
+    (
+      values: map-merge(
+        map-get(map-get($utilities, "opacity"), "values"),
+        ("97": .97),
+      ),
+    ),
+  ),
+),
+
+);
+
+
+/*$utilities: map-merge(
+  $utilities,
+  (
+    ("color": (
+      property: color,
+      class: link,
+      state: hover,
+      values: $theme-colors
+    ),
+  )
+),
+);*/
+
+$utilities: map-merge(
+  $utilities,
+  (
+    ("color": (
+      property: color,
+      class: text,
+      state: hover,
+      values: $theme-colors
+    ),
+  )
+),
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    ("line-height": (
+      property: line-height,
+      class: lh,
+      values: (
+        1_4: 1.4rem,
+        1_625: 1.625rem
+      ),
+    ),
+  )
+),
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    ("font-weight": (
+      property: font-weight,
+      class: fw,
+      state:hover,
+      values: (
+        lighter: $font-weight-lighter,
+        light: $font-weight-light,
+        normal: $font-weight-normal,
+        medium: $font-weight-medium,
+        semibold: $font-weight-semibold,
+        bold: $font-weight-bold,
+        bolder: $font-weight-bolder
+      )
+    ),
+  )
+),
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "letter-spacing": (
+      property: letter-spacing,
+      class: ls,
+      values: (
+        1: 0.01rem,
+        2: 0.008rem,
+      ),
+    )
+  )
+);
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
