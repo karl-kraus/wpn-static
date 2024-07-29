@@ -2,7 +2,8 @@ name: Build and publish
 
 on: 
   push:
-
+    branches: ["main"]
+  workflow_dispatch:
 jobs:
   build_pages:
     name: Publish Edition as GitHub Pages Website
@@ -20,6 +21,12 @@ jobs:
     #    ant build-full-edition
     #- name: Update Favicons
     #  run: python update_favicons.py
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './html'
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
