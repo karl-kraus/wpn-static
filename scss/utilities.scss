@@ -119,6 +119,32 @@ $utilities: map-merge(
   )
 );
 
+$utilities: map-merge(
+  $utilities,
+  (
+    "scroll-snap-type": (
+      property: scroll-snap-type,
+      class: scroll-snap-type,
+      values: (
+        xm: x mandatory,
+      ),
+    )
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "scroll-snap-align": (
+      property: scroll-snap-align,
+      class: scroll-snap-align,
+      values: (
+        start: start,
+      ),
+    )
+  )
+);
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
