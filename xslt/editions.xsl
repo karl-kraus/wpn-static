@@ -89,7 +89,7 @@
                                 </xsl:if>
                             </div>
                         </div>
-                        <div is="wpn-text-view" annotation-selectors=".entity" id="sub_grid">
+                        <wpn-text-view annotation-selectors=".entity" id="sub_grid">
                            <div>
                                 <div class="p-0 d-flex flex-column align-items-center position-fixed">
                                     <xsl:call-template name="pagination">
@@ -109,7 +109,7 @@
                                     </xsl:for-each>
 
                             </div>
-                        </div>
+                        </wpn-text-view>
                     </div>
                     <xsl:for-each select="//tei:back">
                         <div class="tei-back">
@@ -166,14 +166,14 @@
         </span>
     </xsl:template>
     <xsl:template match="tei:quote">
-        <span is="wpn-entity" class="quotes entity {substring-after(@rendition, '#')}" id="{@xml:id}">
+        <wpn-entity class="quotes entity {substring-after(@rendition, '#')}" id="{@xml:id}">
                 <xsl:apply-templates/>
-        </span>
+        </wpn-entity>
     </xsl:template>
     <xsl:template match="tei:rs[@type=('person','personGroup')]">
-        <span is="wpn-entity" class="persons entity {substring-after(@rendition, '#')}" id="{@xml:id}">
+        <wpn-entity class="persons entity {substring-after(@rendition, '#')}" id="{@xml:id}">
             <xsl:apply-templates/>
-        </span>
+        </wpn-entity>
     </xsl:template>
     <xsl:template match="tei:rdg[@source='F890']"/>
     <xsl:template match="tei:del[ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]]]">

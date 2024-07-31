@@ -67,11 +67,11 @@
                             </div>
                         </div>
                         <div class="w-40 border-start border-light-greye">
-                            <div is="wpn-detail-view" class="position-fixed w-40">
+                            <wpn-detail-view class="position-fixed w-40">
                                 <xsl:apply-templates select="//tei:person[@xml:id]" mode="detail_view">
                                     <xsl:with-param name="detail_view" select="true()" as="xs:boolean"/>
                                 </xsl:apply-templates>
-                            </div>
+                            </wpn-detail-view>
                         </div>
                     </div>
                 </main>

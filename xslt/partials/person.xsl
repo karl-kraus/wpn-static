@@ -58,9 +58,9 @@
     </xsl:template>
     <xsl:template match="tei:person" mode="list_view">
     <div id="{@xml:id}" class="py-1_5 px-2_5 fs-8_75 border-bottom border-light-grey lh-1625">
-         <a is="wpn-reg-entry" class="text-black-grey text-decoration-none text-blacker-grey-hover fw-medium-hover" href="{'#'||@xml:id}">
+         <wpn-reg-entry class="text-black-grey text-decoration-none text-blacker-grey-hover fw-medium-hover" href="{'#'||@xml:id}">
                 <xsl:apply-templates select="." mode="short"/>
-         </a>
+         </wpn-reg-entry>
     </div>
     </xsl:template>
     <xsl:template match="tei:person">

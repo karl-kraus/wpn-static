@@ -23,4 +23,4 @@ class WPNHeader extends HTMLElement {
   }
 }
 
-customElements.define("wpn-header", WPNHeader, { extends: "header" });
+customElements.define("wpn-header", WPNHeader);

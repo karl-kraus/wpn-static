@@ -1,4 +1,4 @@
-class WPNRegEntry extends HTMLDivElement {
+class WPNRegEntry extends HTMLElement {
 
   clickHandler = () =>{ 
     this.notifyDetailView();
@@ -17,4 +17,4 @@ class WPNRegEntry extends HTMLDivElement {
   }
 }
 
-customElements.define("wpn-reg-entry", WPNRegEntry, { extends: "div" });
+customElements.define("wpn-reg-entry", WPNRegEntry);

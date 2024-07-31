@@ -1,4 +1,4 @@
-class WPNDetailView extends HTMLDivElement {
+class WPNDetailView extends HTMLElement {
   
   
   updateDetailView = () => {
@@ -30,4 +30,4 @@ class WPNDetailView extends HTMLDivElement {
 }
 
 
-customElements.define("wpn-detail-view", WPNDetailView, { extends: "div" });
+customElements.define("wpn-detail-view", WPNDetailView);

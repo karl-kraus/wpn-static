@@ -1,4 +1,4 @@
-class WPNTextView extends HTMLDivElement {
+class WPNTextView extends HTMLElement {
 	calcMargin = (element: HTMLElement, source_offset: number) => {
 		let offset = source_offset;
 		if (element.previousElementSibling)
@@ -49,4 +49,4 @@ class WPNTextView extends HTMLDivElement {
 	}
 }
 
-customElements.define("wpn-text-view", WPNTextView, { extends: "div" });
+customElements.define("wpn-text-view", WPNTextView);
