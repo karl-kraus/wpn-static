@@ -38,7 +38,7 @@
                         <div class="mt-2">
                             <xsl:apply-templates select="//tei:body//tei:p"/>
                         </div>
-                        <a role="button" class="btn btn-outline-black-grey">Über das Projekt</a>
+                        <a role="button" href="projekt.html" class="btn btn-outline-black-grey">Über das Projekt</a>
                     </section>
                     <hr class="my-3"/>
                     <section class="container p-0">
