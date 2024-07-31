@@ -1,4 +1,4 @@
-class WPNToggleTextButton extends HTMLAnchorElement {
+class WPNToggleTextButton extends HTMLElement {
 	toggleClass = "wpn-expand";
 	toggleText = "Expand Text";
 
@@ -24,4 +24,4 @@ class WPNToggleTextButton extends HTMLAnchorElement {
 		};
 	}
 }
-customElements.define("wpn-toggle-text-button", WPNToggleTextButton, { extends: "a" });
+customElements.define("wpn-toggle-text-button", WPNToggleTextButton);

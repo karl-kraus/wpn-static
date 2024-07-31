@@ -7,7 +7,7 @@
     <xsl:template match="/" name="nav_bar">
         <xsl:param name="logo_small" as="xs:boolean" select="true()"/>
         <xsl:param name="container" select="'container'"/>
-        <header is="wpn-header" class="fixed-top bg-white pe-0">
+        <wpn-header class="fixed-top bg-white pe-0">
             <nav id="primary_nav" class="navbar border-bottom {if ($logo_small = true()) then 'pt-05' else ()}">
                 <div class="{$container}">
                     <a class="navbar-brand" href="index.html">
@@ -130,6 +130,6 @@
                     </ol>
                 </div>
             </nav>
-        </header>
+        </wpn-header>
     </xsl:template>
 </xsl:stylesheet>

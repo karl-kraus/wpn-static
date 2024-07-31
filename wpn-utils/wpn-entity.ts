@@ -1,6 +1,6 @@
 import type WPNTextView from "./wpn-text-view";
 
-class WPNEntity extends HTMLSpanElement {
+class WPNEntity extends HTMLElement {
 
   clickHandler = () =>{ 
     document.querySelector(`div[data-xmlid=${this.getAttribute("id") ?? ''}]`)?.classList.toggle("d-none");
@@ -19,4 +19,4 @@ class WPNEntity extends HTMLSpanElement {
   }
 }
 
-customElements.define("wpn-entity", WPNEntity, { extends: "span" });
+customElements.define("wpn-entity", WPNEntity);

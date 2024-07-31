@@ -92,7 +92,7 @@
     <xsl:variable name="id" select="'wrapper'||count(preceding::tei:div[parent::tei:body])"/>
         <div class="mb-5_5 position-relative" id="{$id}"><xsl:apply-templates/>
         <xsl:if test="not(@rend='showall')">
-            <a is="wpn-toggle-text-button" role="button" target-element="{$id}" toggle-class="show-all" toggle-text="Weniger lesen" class="btn btn-link text-decoration-none text-blacker-grey border-blacker-grey border-start-0 border-end-0 border-top-0 border-bottom-1 rounded-0 px-0 pb-05 position-absolute end-n05 bottom-0 bg-white">Mehr lesen</a>
+            <wpn-toggle-text-button role="button" target-element="{$id}" toggle-class="show-all" toggle-text="Weniger lesen" class="btn btn-link text-decoration-none text-blacker-grey border-blacker-grey border-start-0 border-end-0 border-top-0 border-bottom-1 rounded-0 px-0 pb-05 position-absolute end-n05 bottom-0 bg-white">Mehr lesen</wpn-toggle-text-button>
         </xsl:if>
         </div>
     </xsl:template>                

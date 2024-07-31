@@ -1,4 +1,4 @@
-class WPNScrollButton extends HTMLButtonElement {
+class WPNScrollButton extends HTMLElement {
 	
 	
 	
@@ -8,18 +8,15 @@ class WPNScrollButton extends HTMLButtonElement {
 		this.onclick = () => {
 			if (scrollContainer) {
 				if (scrollDirection === "left") {
+
 					scrollContainer.scrollTo(
-						scrollContainer.scrollLeft -
-							scrollContainer.children[0].clientWidth -
-							parseInt(getComputedStyle(scrollContainer).columnGap),
-						0,
+						scrollContainer.scrollLeft -= scrollContainer.children[0].clientWidth,
+						0
 					);
 				}
 				if (scrollDirection === "right") {
 					scrollContainer.scrollTo(
-						scrollContainer.scrollLeft +
-							scrollContainer.clientWidth +
-							parseInt(getComputedStyle(scrollContainer).columnGap),
+						scrollContainer.scrollLeft += scrollContainer.children[0].clientWidth,
 						0,
 					);
 				}
@@ -28,4 +25,4 @@ class WPNScrollButton extends HTMLButtonElement {
 	}
 }
 
-customElements.define("wpn-scroll-button", WPNScrollButton, { extends: "button" });
+customElements.define("wpn-scroll-button", WPNScrollButton);
