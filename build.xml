@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." name="tei2html">
-    <property name="index" value="./data/index.xml"/>
+    <property name="index" value="./data/meta/index.xml"/>
     <property name="target" value="./html"/>
     <property name="target_js_vendor" value="./html/js/vendor"/>
     <property name="target_fonts" value="./html/css/files"/>
@@ -46,11 +46,11 @@
         </xslt>
     </target>
     <target name="build-meta-pages">
-        <xslt style="./xslt/meta.xsl"  basedir="./data/meta" destdir="${target}" includes="*.xml">
+        <xslt style="./xslt/meta.xsl"  basedir="./data/meta" destdir="${target}" includes="annotierte_lesefassung.xml,projekt.xml,nutzungsbedingungen.xml,impressum.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
-         <xslt style="./xslt/register.xsl"  in="./data/register.xml" out="${target}/register.html">
+         <xslt style="./xslt/register.xsl"  in="./data/meta/register.xml" out="${target}/register.html">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
@@ -62,16 +62,16 @@
         </xslt>
     </target>
      <target name="build-notes">
-        <xslt in="./data/notizen.xml" out="${target}/notizen.html" style="./xslt/notizen.xsl">
+        <xslt in="./data/meta/notizen.xml" out="${target}/notizen.html" style="./xslt/notizen.xsl">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
-        <xslt in="./data/notizen.xml" out="${target}/notizen_konvolut_1.html" style="./xslt/notizen_konvolut.xsl">
+        <xslt in="./data/meta/notizen.xml" out="${target}/notizen_konvolut_1.html" style="./xslt/notizen_konvolut.xsl">
             <param name="manifest_id" expression="HIN-176044"/>
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
-        <xslt in="./data/notizen.xml" out="${target}/notizen_konvolut_2.html" style="./xslt/notizen_konvolut.xsl">
+        <xslt in="./data/meta/notizen.xml" out="${target}/notizen_konvolut_2.html" style="./xslt/notizen_konvolut.xsl">
             <param name="manifest_id" expression="HIN-177198"/>
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
