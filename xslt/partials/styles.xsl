@@ -5,11 +5,14 @@
         <xsl:map>
             <xsl:map-entry key="'index.xml'" select="('style')"/>
             <xsl:map-entry key="'projekt.xml'" select="('style')"/>
-            <xsl:map-entry key="'annotierte_lesefassung.xml'" select="('style','micro-editor')"/>
+            <xsl:map-entry key="'annotierte_lesefassung.xml'" select="('style')"/>
             <xsl:map-entry key="'impressum.xml'" select="('style')"/>
             <xsl:map-entry key="'nutzungsbedingungen.xml'" select="('style')"/>
             <xsl:map-entry key="'register.xml'" select="('style')"/>
             <xsl:map-entry key="'notizen.xml'" select="('style')"/>
+            <xsl:for-each select="collection('../../data/editions?select=absatz*.xml|motti*.xml')">
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('style','micro-editor')"/>
+            </xsl:for-each>
         </xsl:map>
     </xsl:variable>
     <xsl:template name="styles">
