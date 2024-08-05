@@ -9,7 +9,8 @@
     
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
-    <xsl:import href="partials/html_footer.xsl"/>
+    <xsl:import href="./partials/html_footer.xsl"/>
+    <xsl:import href="./partials/scripts.xsl"/>
 
 
     <xsl:template match="/">
@@ -31,7 +32,7 @@
                     </div>
                 </main>
                 <xsl:call-template name="html_footer"/>
-                <script src="js/wpn-toggle-text-button.js"/>
+                <xsl:call-template name="scripts"/>
             </body>
         </html>
     </xsl:template>

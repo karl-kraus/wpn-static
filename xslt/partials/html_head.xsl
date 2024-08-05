@@ -6,6 +6,7 @@
     exclude-result-prefixes="#all"
     version="2.0">
     <xsl:include href="./params.xsl"/>
+    <xsl:include href="./styles.xsl"/>
     <xsl:template match="/" name="html_head">
         <xsl:param name="html_title" select="$project_short_title"></xsl:param>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -44,7 +45,6 @@
         <link rel="profile" href="http://gmpg.org/xfn/11"></link>
         <title><xsl:value-of select="$html_title"/></title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"></link>        
-        <link rel="stylesheet" href="css/style.css" type="text/css"></link>
-        <link rel="stylesheet" href="css/micro-editor.css" type="text/css"></link>
+        <xsl:call-template name="styles"/>
     </xsl:template>
 </xsl:stylesheet>

@@ -9,7 +9,8 @@
     
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
-    <xsl:import href="partials/html_footer.xsl"/>
+    <xsl:import href="./partials/html_footer.xsl"/>
+    <xsl:import href="./partials/scripts.xsl"/>
 
 
     <xsl:template match="/">
@@ -31,8 +32,8 @@
                     </div>
                 </main>
                 <xsl:call-template name="html_footer"/>
+                <xsl:call-template name="scripts"/>
             </body>
-            <script type="text/javascript" src="js/wpn-header.js"></script>
         </html>
     </xsl:template>
     <xsl:template match="tei:head">
