@@ -6,8 +6,8 @@
   "scripts": {
     "lint:check": "eslint . --cache --ext .js,.ts --ignore-path .gitignore",
     "format:check": "prettier . \"!./html/**\" --cache --check --ext .js,.ts --ignore-path .gitignore",
-    "compile-scss": "sass --update --style=expanded scss/style.scss:html/css/style.css scss/micro-editor.scss:html/css/micro-editor.css",
-    "build": "vite build"
+    "compile-scss": "rm -f html/css/* && sass --update --style=expanded scss:html/css",
+    "build": "npm run compile-scss && vite build -l info && mv html/js/wpn_utils/manifest.json manifest.json"
   },
   "keywords": [],
   "author": "",
