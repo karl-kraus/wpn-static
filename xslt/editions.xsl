@@ -15,6 +15,7 @@
     <xsl:import href="./partials/aot-options.xsl"/>
     <xsl:import href="./partials/short-infos.xsl"/>
     <xsl:import href="./partials/pagination.xsl"/>
+    <xsl:import href="./partials/scripts.xsl"/>
 
     <xsl:variable name="prev">
         <xsl:value-of select="replace(tokenize(data(tei:TEI/@prev), '/')[last()], '.xml', '.html')"/>
@@ -123,10 +124,7 @@
                 <!--<script src="https://unpkg.com/de-micro-editor@0.2.6/dist/de-editor.min.js"/>-->
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"/>
                 <script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script>
-                <script type="text/javascript" src="js/init-micro-editor.js"></script>
-                <script type="text/javascript" src="js/wpn-text-view.js"></script>
-                <script type="text/javascript" src="js/wpn-entity.js"></script>
-                <script type="text/javascript" src="js/wpn-header.js"></script>
+                <xsl:call-template name="scripts"/>
 
                 <!--<script type="text/javascript" src="js/osd_scroll.js"></script>-->
                 
