@@ -17,7 +17,7 @@ class WPNTextView extends HTMLElement {
 			const element = el as HTMLElement;
 			const elmId: string = el.getAttribute("id") ?? "";
 			let offset: number =
-				element.offsetTop - document.getElementsByTagName("header")[0].offsetHeight;
+				element.offsetTop - document.getElementsByTagName("wpn-header")[0].offsetHeight;
 			console.log(offset, el.getAttribute("id") ?? "");
 			offset += parseInt(getComputedStyle(el).lineHeight, 10) / 2;
 
