@@ -10,7 +10,8 @@
     
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
-    <xsl:import href="partials/html_footer.xsl"/>
+    <xsl:import href="./partials/html_footer.xsl"/>
+    <xsl:import href="./partials/scripts.xsl"/>
 
 
     <xsl:template match="/">
@@ -28,8 +29,7 @@
               <div id="mirador" data-manifest="{$manifest_id}" class="mt-18 h-100 mw-100 position-relative"/>
               <xsl:call-template name="html_footer"/>
               <script type="text/javascript" src="js/vendor/mirador/mirador.min.js"></script>
-              <script type="text/javascript" src="js/init-mirador.js"></script>
-              <script type="text/javascript" src="js/wpn-header.js"></script>
+              <xsl:call-template name="scripts"/>
             </body>
         </html>
     </xsl:template>
