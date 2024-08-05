@@ -2,7 +2,7 @@
 @import "../node_modules/bootstrap/scss/_functions";
 
 
-@import "variables";
+@import "_variables";
 
 @import "../node_modules/bootstrap/scss/_variables";
 @import "../node_modules/bootstrap/scss/_variables-dark";
@@ -12,7 +12,7 @@
 @import "../node_modules/bootstrap/scss/_mixins";
 
 @import "../node_modules/bootstrap/scss/_utilities";
-@import "utilities";
+@import "_utilities";
 
 @import "../node_modules/bootstrap/scss/_root";
 @import "../node_modules/bootstrap/scss/_transitions";
