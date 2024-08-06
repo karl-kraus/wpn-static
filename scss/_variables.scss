@@ -24,6 +24,7 @@ $theme-colors: (
 
 /*** spacing ***/
 $spacer: 0.625rem;
+$enable-negative-margins: true;
 
 $spacers: (
   0: 0,
@@ -129,6 +130,8 @@ $footer-min-height: 100px;
 $footer-link-font-size: calc($font-size-base * 0.875);
 $footer-link-line-height: calc($font-size-base * 1.188);
 
+/*** tabs ***/
+$nav-tabs-border-width: 0;
 
 /*** edition view ***/
 $edition-view-header-height: 180px;
