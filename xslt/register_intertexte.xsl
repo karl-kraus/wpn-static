@@ -8,8 +8,9 @@
     <xsl:mode on-no-match="deep-skip"/>
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
-    <xsl:import href="partials/html_footer.xsl"/>
-    <xsl:import href="partials/bibl.xsl"/>
+    <xsl:import href="./partials/html_footer.xsl"/>
+    <xsl:import href="./partials/bibl.xsl"/>
+    <xsl:import href="./partials/scripts.xsl"/>
     <!-- alphabetic index  -->
     <xsl:variable name="index_letters"
         select="sort(distinct-values(//tei:term/@key))"/>
@@ -83,7 +84,7 @@
                     </div>
                 </main>
                 <xsl:call-template name="html_footer"/>
-                <script src="js/wpn-toggle-text-button.js"/>
+                <xsl:call-template name="scripts"/>
             </body>
         </html>
     </xsl:template>
