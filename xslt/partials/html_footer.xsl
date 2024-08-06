@@ -6,8 +6,9 @@
     exclude-result-prefixes="#all"
     version="2.0">
     <xsl:template match="/" name="html_footer">
+    <xsl:param name="additional_clases"/>
     <xsl:param name="include_scroll_script" select="true()"/>
-        <footer class="footer mt-auto py-3 border-top border-light-grey">
+        <footer class="footer mt-auto py-3 border-top border-light-grey bg-white {$additional_clases}">
             <div class="container mt-1_5">
                 <ul class="list-unstyled d-flex flex-row justify-content-end">
                     <li>
