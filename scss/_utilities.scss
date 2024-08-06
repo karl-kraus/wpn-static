@@ -145,6 +145,16 @@ $utilities: map-merge(
   )
 );
 
+$utilities: map-merge(
+  $utilities,
+  (
+    "cursor": (
+      property: cursor,
+      values: auto default pointer wait text move help not-allowed
+    ),
+  )
+);
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
