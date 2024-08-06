@@ -8,7 +8,7 @@
     <xsl:template match="tei:person" mode="detail_view">
       <!--<xsl:result-document href="{@xml:id||'.html'}" method="html">-->
         <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2" id="{'details_'||@xml:id}">   
-            <div class="person_signet_background position-sticky my-0 mw-100 top-18 px-2 ps-3 pt-2">
+            <div class="person_signet_background my-0 mw-100 top-18 px-2 ps-3 pt-2">
                 <div class="border-0 d-flex flex-column">
                     <div class="d-flex justify-content-between">
                         <h2 class="fs-8_75 text-black-grey fw-normal">Registereintrag</h2>
@@ -57,10 +57,10 @@
     </div>
     </xsl:template>
     <xsl:template match="tei:person" mode="list_view">
-    <div id="{@xml:id}" class="py-1_5 px-2_5 fs-8_75 border-bottom border-light-grey lh-1625">
-         <wpn-reg-entry class="text-black-grey text-decoration-none text-blacker-grey-hover fw-medium-hover" href="{'#'||@xml:id}">
+    <div  id="{@xml:id}" class="py-1_5 px-2_5 fs-8_75 border-bottom border-light-grey lh-1625">
+         <a class="text-black-grey text-decoration-none text-blacker-grey-hover ff-ubuntu-500-hover" href="{'#'||@xml:id}">
                 <xsl:apply-templates select="." mode="short"/>
-         </wpn-reg-entry>
+         </a>
     </div>
     </xsl:template>
     <xsl:template match="tei:person">
