@@ -35,27 +35,25 @@
                     <xsl:with-param name="container" select="'container-fluid px-5'"/>
                     <xsl:with-param name="logo_small" select="true()"/>
                 </xsl:call-template>
-                <main class="text-black-grey ls-1 mt-15 mb-4">
-                    <div class="container-xxl d-flex">
-                        <div class="w-60">
+                <div class="d-flex flex-row mb-n10">
+                    <main class="text-black-grey ls-1 mt-15 mb-4 w-60">
+                        <div>
                             <div class="m-5">
                                 <h1>Register der Intertexte</h1>
-                                <nav class="d-flex flex-row flex-wrap text-center mb-1 mt-5 lh-1_4">
+                                <nav class="nav-tabs d-flex flex-row flex-wrap text-center mb-1 mt-5 lh-1_4" role="tablist">
                                     <xsl:for-each select="65 to 90">
                                         <xsl:variable name="letter"
                                             select="codepoints-to-string(current())"/>
-                                        <a
-                                            class="nav-link w-7_5 {if ($letter = $index_letters) then () else 'text-light-grey pe-none'}"
-                                            aria-disabled="true"
-                                            href="{if ($letter = $index_letters) then '#'||$letter else '#'}">
+                                        <a data-bs-toggle="tab" data-bs-target="{'#'|| $letter||'-pane'}"
+                                            class="nav-link cursor-pointer text-blacker-grey-hover ff-ubuntu-500-hover w-7_5 {if ($letter = $index_letters) then () else 'text-light-grey pe-none'} {if ($letter = 'A') then 'active' else ()}">
                                             <xsl:value-of select="$letter"/>
                                         </a>
                                     </xsl:for-each>
                                 </nav>
-                                <div>
+                                <div class="tab-content">
                                     <xsl:for-each select="$index_letters">
                                         <xsl:variable name="index-letter" select="current()"/>
-                                        <div id="{current()}">
+                                        <div class="tab-pane {if ($index-letter = 'A') then 'active' else ()}"  id="{current()||'-pane'}">
                                         <xsl:for-each select="$bibls//tei:term[@key = $index-letter]">
 
                                         <xsl:sort select="
@@ -78,11 +76,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-40 border-start border-light-grey position-relative">
-                            <xsl:apply-templates select="//tei:bibl[@xml:id]" mode="detail_view"/>
-                        </div>
-                    </div>
-                </main>
+                    </main>
+                    <aside class="w-40 border-start border-light-grey">
+                        <wpn-detail-view class="d-block position-sticky">
+                            <xsl:apply-templates select="//tei:bibl[@xml:id]" mode="detail_view">
+                                <xsl:with-param name="detail_view" select="true()" as="xs:boolean"/>
+                            </xsl:apply-templates>
+                        </wpn-detail-view>
+                    </aside>                    
+                </div>
                 <xsl:call-template name="html_footer"/>
                 <xsl:call-template name="scripts"/>
             </body>
