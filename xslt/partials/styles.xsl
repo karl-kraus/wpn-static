@@ -13,6 +13,8 @@
             <xsl:for-each select="collection('../../data/editions?select=absatz*.xml|motti*.xml')">
                 <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('style','micro-editor')"/>
             </xsl:for-each>
+            <xsl:map-entry key="'biblindex_updated.xml'" select="('style')"/>
+            <xsl:map-entry key="'personindex_updated.xml'" select="('style')"/>
         </xsl:map>
     </xsl:variable>
     <xsl:template name="styles">
