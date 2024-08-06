@@ -7,32 +7,17 @@
     <!-- templates for bibl elements and descendants -->
     <!-- template for the intertext register -->
     <xsl:template match="tei:bibl" mode="detail_view">
-        <div class="modal fade position-absolute p-1 pt-0 overflow-visible" data-bs-backdrop="false" id="{'modal_'||@xml:id}">
+        <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2" id="{'details_'||@xml:id}">
             <div
-                class="modal-dialog quote_signet_background position-sticky my-0 mw-100 top-18 px-2 pt-1">
-                <div class="modal-content border-0">
-                    <div class="modal-header border-0 p-0 justify-content-between">
-                        <h2 class="fs-8_75 text-black-grey">Registereintrag</h2>
-                        <button data-bs-dismiss="modal" class="border-0 bg-transparent">
-                            <svg part="custom-icon" class="custom-icon" width="10" height="10"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.778 7.778">
-                                <defs>
-                                    <style>
-                                        .a {
-                                            fill: none;
-                                            stroke: #d8d8d8;
-                                            stroke-width: 2px;
-                                        }</style>
-                                </defs>
-                                <g transform="translate(0.707 0.707)">
-                                    <line class="a" x2="9" transform="translate(0 0) rotate(45)"/>
-                                    <line class="a" x2="9"
-                                        transform="translate(0 6.364) rotate(-45)"/>
-                                </g>
-                            </svg>
+                class="quote_signet_background my-0 mw-100 top-18 px-2 ps-3 pt-2">
+                <div class="border-0 flex flex-column">
+                    <div class="d-flex justify-content-between">
+                        <h2 class="fs-8_75 text-black-grey fw-normal">Registereintrag</h2>
+                        <button class="border-0 bg-transparent">
+                            <svg class="align-top" width="10" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.778 7.778"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-width:2px;}</style></defs><g transform="translate(0.707 0.707)"><line class="a" x2="9" transform="translate(0 0) rotate(45)"></line><line class="a" x2="9" transform="translate(0 6.364) rotate(-45)"></line></g></svg>
                         </button>
                     </div>
-                    <div class="modal-body fs-6 text-dark-grey p-0">
+                    <div class="fs-6 text-dark-grey p-0">
                         <div class="mb-2_5">
                             <xsl:apply-templates select="."/>
                         </div>
@@ -46,40 +31,45 @@
     </xsl:template>
     <!-- template for the kwics needed in the intertext register -->
     <xsl:template match="tei:bibl" mode="kwic">
-        <div>Textstellen</div>
-        <div class="ff-century-old-style">
-            <xsl:for-each select="descendant::tei:quote">
-                <xsl:variable name="kwic_hit"
-                    select="collection('../data/merged?select=*.html')//span[@id = current()/@xml:id]"/>
-                <xsl:variable name="prev_text"
-                    select="string($kwic_hit/string-join(preceding::text()))"/>
-                <xsl:variable name="following_text"
-                    select="string($kwic_hit/string-join(following::text()))"/>
-                <xsl:variable name="kwic_left"
-                    select="substring($prev_text, string-length($prev_text) - 56)"/>
-                <xsl:variable name="kwic_right" select="substring($following_text, 1, 56)"/>
-                <xsl:if test="string-length($kwic_left) > 0">
-                    <span class="text-light-grey">
-                        <xsl:copy-of select="'...' || $kwic_left"/>
+        <div class="border-bottom border-light-grey pb-1 mt-1">
+            <a class="text-decoration-none text-dark-grey user-select-none" role="button" data-bs-toggle="collapse" data-bs-target="{'#kwics_'||@xml:id}" aria-expanded="false" aria-controls="{'kwics_'||@xml:id}">
+            Textstellen
+            </a>
+            <div id="{'kwics_'||@xml:id}" class="collapse p-1 no-transition ff-century-old-style">
+                <xsl:for-each select="descendant::tei:quote">
+                    <xsl:variable name="kwic_hit"
+                        select="collection('../data/merged?select=*.html')//span[@id = current()/@xml:id]"/>
+                    <xsl:variable name="prev_text"
+                        select="string($kwic_hit/string-join(preceding::text()))"/>
+                    <xsl:variable name="following_text"
+                        select="string($kwic_hit/string-join(following::text()))"/>
+                    <xsl:variable name="kwic_left"
+                        select="substring($prev_text, string-length($prev_text) - 56)"/>
+                    <xsl:variable name="kwic_right" select="substring($following_text, 1, 56)"/>
+                    <xsl:if test="string-length($kwic_left) > 0">
+                        <span class="text-light-grey">
+                            <xsl:copy-of select="'...' || $kwic_left"/>
+                        </span>
+                    </xsl:if>
+                    <span class="text-kwic-grey">
+                        <xsl:copy-of select="$kwic_hit"/>
                     </span>
-                </xsl:if>
-                <span class="text-kwic-grey">
-                    <xsl:copy-of select="$kwic_hit"/>
-                </span>
-                <xsl:if test="string-length($kwic_right) > 0">
-                    <span class="text-light-grey">
-                        <xsl:copy-of select="$kwic_right || '...'"/>
-                    </span>
-                </xsl:if>
-            </xsl:for-each>
+                    <xsl:if test="string-length($kwic_right) > 0">
+                        <span class="text-light-grey">
+                            <xsl:copy-of select="$kwic_right || '...'"/>
+                        </span>
+                    </xsl:if>
+                </xsl:for-each>
+            </div>
         </div>
     </xsl:template>
     <!-- template for the list view entries needed in the intertext register -->
     <xsl:template match="tei:bibl" mode="list_view">
-        <div data-bs-target="{'#modal_'||@xml:id}"
-            class="py-1_5 px-2_5 fs-8_75 border-bottom border-light-grey lh-1625"
-            data-bs-toggle="modal" data-bs-dismiss="modal">
-            <xsl:apply-templates select="."/>
+        <div 
+            class="py-1_5 px-2_5 fs-8_75 border-bottom border-light-grey lh-1625">
+            <a class="text-black-grey text-decoration-none text-blacker-grey-hover ff-ubuntu-500-hover" href="{'#'||@xml:id}">
+                <xsl:apply-templates select="."/>
+            </a>
         </div>
     </xsl:template>
     <!-- template for long citation -->
