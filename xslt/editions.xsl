@@ -207,4 +207,62 @@
             <span class="inline-text"><xsl:apply-templates/></span>
         </span>
     </xsl:template>
+    <xsl:template match="tei:c">
+        <xsl:value-of select="'&#x2060;&#x2009;&#x2060;'"/>
+    </xsl:template>
+     <xsl:template match="tei:sic"/>
+     <xsl:template match="tei:sic" mode="render">
+        <xsl:apply-templates/>
+     </xsl:template>
+     <xsl:template match="tei:add[ancestor::tei:restore[not(child::tei:seg)]]"/>
+     <xsl:template match="tei:add[ancestor::tei:restore[child::tei:seg]]">
+     <xsl:apply-templates/>
+     </xsl:template>
+     <xsl:template match="tei:corr">
+        <xsl:apply-templates/>
+     </xsl:template>
+     <xsl:template match="tei:restore">
+        <xsl:apply-templates/>
+     </xsl:template>
+     <xsl:template match="tei:subst">
+        <xsl:apply-templates/>
+     </xsl:template>
+     <xsl:template match="tei:ptr[parent::tei:transpose]">
+     <xsl:variable name="target" select="replace(@target,'#','')"/>
+        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:seg[@xml:id=$target]" mode="render"/>
+     </xsl:template>
+     <xsl:template match="tei:seg[@type=('transposition','relocation') and not(parent::tei:restore)]"/>
+     <xsl:template match="tei:seg[@type=('transposition','relocation')]" mode="render">
+       <xsl:apply-templates/>
+    </xsl:template>
+    <xsl:template match="tei:metamark[@function=('insertion','relocation') and not(matches(@target,'(note)+.*([a-z])_'))]">
+       <xsl:variable name="target" select="replace(@target,'#','')"/>
+        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//(tei:seg|tei:note)[@xml:id=$target]" mode="render"/>
+    </xsl:template>
+    <xsl:template match="tei:metamark[@function=('insertion') and matches(@target,'(note)+.*([a-z])_')]">
+       <xsl:variable name="target" select="replace(@target,'#','')"/>
+       <wpn-entity>
+       <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
+       </wpn-entity>
+    </xsl:template>
+     <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]"/>
+    <xsl:template match="tei:mod[@style=('noLetterSpacing') and not(parent::tei:restore)]">
+        <span class="ls-0"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:mod[@style=('letterSpacing') and not(parent::tei:restore)]">
+        <span class="spacing"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:mod[contains(@rendition,'Quote')]">
+        <span class="{replace(@rendition,'#','')}"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:note"/>
+    <xsl:template match="tei:note" mode="render">
+        <xsl:apply-templates/>
+    </xsl:template>
+    <xsl:template match="tei:mod[@style='italic']">
+        <span class="fst-italic"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:lb[@type='req']">
+        <br/>
+    </xsl:template>
 </xsl:stylesheet>
