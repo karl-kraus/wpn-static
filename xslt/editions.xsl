@@ -54,44 +54,8 @@
                 </xsl:call-template>
                 <main class="flex-shrink-0 mt-18">
                     <div class="container-fluid px-0">
-                        <div class="row">
-                            <div class="col-md-2 col-lg-2 col-sm-12">
-                                <xsl:if test="ends-with($prev,'.html')">
-                                    <h1>
-                                        <a>
-                                            <xsl:attribute name="href">
-                                                <xsl:value-of select="$prev"/>
-                                            </xsl:attribute>
-                                            <i class="bi bi-chevron-left" title="zurück"/>
-                                        </a>
-                                    </h1>
-                                </xsl:if>
-                            </div>
-                            <!--<div class="col-md-8 col-lg-8 col-sm-12">
-                                <h1 align="center">
-                                    <xsl:value-of select="$doc_title"/>
-                                </h1>
-                                <h3 align="center">
-                                    <a href="{$teiSource}">
-                                        <i class="bi bi-download" title="TEI/XML"/>
-                                    </a>
-                                </h3>
-                            </div>-->
-                            <div class="col-md-2 col-lg-2 col-sm-12" style="text-align:right">
-                                <xsl:if test="ends-with($next, '.html')">
-                                    <h1>
-                                        <a>
-                                            <xsl:attribute name="href">
-                                                <xsl:value-of select="$next"/>
-                                            </xsl:attribute>
-                                            <i class="bi bi-chevron-right" title="weiter"/>
-                                        </a>
-                                    </h1>
-                                </xsl:if>
-                            </div>
-                        </div>
                         <wpn-text-view annotation-selectors=".entity" id="sub_grid">
-                           <div>
+                           <div class="d-flex justify-content-center mt-2">
                                 <div class="p-0 d-flex flex-column align-items-center position-fixed">
                                     <xsl:call-template name="pagination">
                                         <xsl:with-param name="current-page" select="if (matches($id,'[0-9]+')) then $id else data(tei:TEI/tei:p/@n)"/>
@@ -104,9 +68,11 @@
                                 </div>
                                 </div>
                                 <div id="textcolumn" class="mx-auto ff-century-old-style">
-                                        <xsl:apply-templates/>
+                                        <div id="textcontent">
+                                            <xsl:apply-templates/>
+                                        </div>
                                 </div>
-                                <div id="infocolumn" class="px-0 border-start border-light-grey">
+                                <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
                                     <xsl:for-each select="//(tei:quote | tei:rs[@type=('person','personGroup')] | tei:pb | tei:ref[@type=('comment','glossary','event')])">
                                         <xsl:apply-templates select="current()" mode="short_info"/>
                                     </xsl:for-each>
@@ -167,7 +133,7 @@
     </xsl:template>
     <xsl:template match="tei:quote">
         <wpn-entity class="quotes entity {substring-after(@rendition, '#')}" id="{@xml:id}">
-                <xsl:apply-templates/>
+            <xsl:apply-templates/>
         </wpn-entity>
     </xsl:template>
     <xsl:template match="tei:rs[@type=('person','personGroup')]">
@@ -176,33 +142,31 @@
         </wpn-entity>
     </xsl:template>
     <xsl:template match="tei:rdg[@source='F890']"/>
+    <xsl:template match="tei:rdg[@source='DW']">
+        <xsl:apply-templates/>
+    </xsl:template>
     <xsl:template match="tei:del[ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]]]">
         <xsl:apply-templates/>
     </xsl:template>
-    <xsl:template match="tei:del[ancestor::tei:restore[child::seg]]"/>
-    <xsl:template match="tei:del[ancestor::tei:restore[not(child::seg)]]">
+    <xsl:template match="tei:del[ancestor::tei:restore[child::tei:seg]]"/>
+    <xsl:template match="tei:del[ancestor::tei:restore[not(child::tei:seg)]]">
         <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:del[not(ancestor::tei:restore)][not(ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]])]"/>
-    <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letter-spacing: 0.1em;']">
+    <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letterSpacing']">
         <span class="spacing"><xsl:apply-templates/></span>
     </xsl:template>
-    <xsl:template match="tei:metamark[@function='printInstruction' or @function='undefined']"/>
-    <xsl:template match="tei:note"/>
-    <xsl:template match="tei:mod[@rendition='#pencilOnProof_rightAlignSmall']">
-        <span class="longQuoteRightAlign d-block"><xsl:apply-templates/></span>
+    <xsl:template match="tei:mod[@rendition='#rightAlignSmall']">
+        <span class="longQuoteRightAlign my-05 d-block"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@rendition='#runningText1']">
         <span class="d-block runningText1"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
-        <xsl:apply-templates select="tei:sic"/>
+        <xsl:apply-templates select="tei:sic" mode="render"/>
     </xsl:template>
     <xsl:template match="tei:choice[not(child::tei:corr[@type='comment'])]">
-        <xsl:apply-templates select="tei:corr"/>
-    </xsl:template>
-    <xsl:template match="tei:seg[@type='relocation']">
-        <span><xsl:apply-templates/></span>
+        <span><xsl:apply-templates select="tei:corr"/></span>
     </xsl:template>
      <xsl:template match="tei:p[not(@n)]">
         <span class="d-block {replace(@rendition,'#','')}">
