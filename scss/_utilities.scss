@@ -112,7 +112,9 @@ $utilities: map-merge(
       property: letter-spacing,
       class: ls,
       values: (
+        0:0,
         1: 0.01rem,
+        1em:0.1em,
         2: 0.008rem,
       ),
     )
