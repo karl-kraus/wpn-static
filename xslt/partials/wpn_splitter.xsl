@@ -11,10 +11,6 @@
             <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
     </xsl:template>
-    <xsl:template match="tei:metamark[((@function='insertion') and not(matches(@target,'(note)+.*([a-z])_'))) or @function='relocation']">
-        <xsl:variable name="targetid" select="replace(@target,'#','')"/>
-        <xsl:copy-of select="root()//tei:seg[@xml:id=$targetid]"/>
-    </xsl:template>
     <xsl:template match="tei:p[@n]|tei:mod[@n]">
         <xsl:variable name="pagename" select="wpn:normalizePagename(@n,'link')||'.xml'"/>
         <xsl:variable name="prev" select="preceding::*[local-name()=('p','mod')][@n][1]"/>
