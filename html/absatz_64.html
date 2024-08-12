@@ -1,1001 +1,465 @@
 <!DOCTYPE HTML>
-<html id="edition-view">
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="mobile-web-app-capable" content="yes">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-capable" content="yes">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-title" content="">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileColor" content="#ffffff">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileImage" content="images/logo.png">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://use.typekit.net/ckc0oka.css">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/svg+xml" href="images/logo.png" sizes="any">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="profile" href="http://gmpg.org/xfn/11">
-      <title xmlns="http://www.w3.org/1999/xhtml"></title>
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/style.b3df2898.css">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/micro-editor.8e986c38.css">
-   </head>
-   <body id="main_grid">
-      <wpn-header xmlns="http://www.w3.org/1999/xhtml" class="fixed-top bg-white pe-0">
-         <nav id="primary_nav" class="navbar border-bottom pt-05">
-            <div class="container-fluid"><a class="navbar-brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 123.47 106.97" width="90">
-                     <defs>
-                        <style>.cls-1{fill:#4a4a49;}.cls-2{fill:#a21a17;}</style>
-                     </defs>
-                     <g id="Ebene_2" data-name="Ebene 2">
-                        <g id="KARLKRAUS1933-EXPORT">
-                           <g id="LOGO-Karl-Kraus-1933_FARBE">
-                              <path class="cls-1" d="M21.24,49v9.32h2.18L29.17,49h6.6L28.42,60.93l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V49Z"></path>
-                              <path class="cls-1" d="M49.09,49a10.73,10.73,0,0,1,5.79,1.32c1.6,1,2.71,2.68,2.71,5.71,0,3.4-1.36,6-4.64,6.82,3.1.58,4,3.61,4.78,10.79H51.66c-.89-6.64-1.39-8.36-3.61-8.36H44.81v8.36H39V49ZM44.81,60.43h2.6c2.75,0,4.18-.61,4.18-3.72a2.88,2.88,0,0,0-.68-2.28,3,3,0,0,0-2.14-.5h-4Z"></path>
-                              <path class="cls-1" d="M76.19,73.64,74.87,69H67.05l-1.32,4.68H59.84L67.59,49h6.93l7.74,24.64ZM71,54.82,68.3,64.35h5.36Z"></path>
-                              <path class="cls-1" d="M89.69,49V64.85c0,2.65.22,4.22,3.89,4.22,3.5,0,3.82-1.43,3.82-4.22V49h5.79V64.78c0,2.32-.32,4.5-1.64,6.18s-4.07,3.11-8.18,3.11S87,72.89,85.66,71.32c-1.47-1.75-1.75-4.07-1.75-6.36V49Z"></path>
-                              <path class="cls-1" d="M120.22,54.89A9.87,9.87,0,0,0,115,53.46c-1.75,0-2.89.47-2.89,2.4,0,3.75,11.32,1.53,11.32,10.46a7,7,0,0,1-3.11,6A11.58,11.58,0,0,1,114,74.07c-2.61,0-6.14-.65-8.14-2.47l2.85-4.25a9.85,9.85,0,0,0,5.86,1.82c1.68,0,3.07-.42,3.07-2.57,0-4.25-11.32-1.82-11.32-10.6a6.4,6.4,0,0,1,2.79-5.5,10.53,10.53,0,0,1,6.42-1.93c2.36,0,5.54.57,7.43,2.14Z"></path>
-                              <path class="cls-1" d="M21.24,18.79v9.32h2.18l5.75-9.32h6.6L28.42,30.72l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V18.79Z"></path>
-                              <path class="cls-1" d="M54.16,43.43l-1.32-4.68H45L43.7,43.43H37.8l7.75-24.64h6.93l7.75,24.64ZM49,24.61l-2.68,9.54h5.35Z"></path>
-                              <path class="cls-1" d="M72.87,18.79a10.63,10.63,0,0,1,5.78,1.33c1.61,1,2.72,2.67,2.72,5.71,0,3.39-1.36,6-4.64,6.82,3.1.57,4,3.6,4.78,10.78H75.44c-.89-6.64-1.39-8.35-3.61-8.35H68.59v8.35H62.8V18.79ZM68.59,30.22h2.6c2.75,0,4.18-.61,4.18-3.71a2.94,2.94,0,0,0-.68-2.29,3.07,3.07,0,0,0-2.14-.5h-4Z"></path>
-                              <path class="cls-1" d="M91,18.79v19.5h8.46v5.14H85.24V18.79Z"></path>
-                              <path class="cls-2" d="M111,33.6h-6.1v-10.1h6.1v1.2h-4.7v3.1h4v1.2h-4v3.5h4.7v1.2ZM117.1,33.6h-1.5l-3.7-9.7,1.3-.5,3.2,8.7,3.2-8.7,1.2.5-3.7,9.7ZM95.2,33.6v-10c.5,0,.9,0,1.3-.1.2,0,.4,0,.6,0,.3,0,.6,0,.9,0,.4,0,.7,0,1.1,0,.4,0,.7.1,1,.3,0,0,0,0,.1,0,.4.2.7.4,1.1.6.2.1.4.3.5.5.4.5.7,1,.9,1.6.2.5.3,1,.3,1.6,0,.1,0,.3,0,.4,0,.6,0,1.1-.2,1.7,0,.1,0,.2,0,.3-.2.6-.5,1.2-.9,1.6-.4.5-1,.9-1.6,1.1-.6.3-1.3.4-2.1.4,0,0-.1,0-.2,0-.2,0-.4,0-.6,0-.2,0-.4,0-.5,0,0,0-.2,0-.3,0-.4,0-.8,0-1.2-.1ZM96.5,24.7v7.8c.2,0,.4,0,.6,0,.2,0,.3,0,.5,0,0,0,.1,0,.2,0,.3,0,.6,0,.9,0,.5,0,.9-.2,1.2-.4.5-.3,1-.8,1.2-1.4.2-.4.3-.8.3-1.2,0-.3,0-.6,0-.9,0-.7-.1-1.3-.4-1.9-.3-.6-.7-1.1-1.2-1.5-.3-.2-.7-.4-1-.4-.3,0-.6-.1-.9-.1,0,0-.1,0-.2,0-.3,0-.5,0-.8,0-.2,0-.4,0-.6,0Z" vector-effect="non-scaling-stroke"></path>
-                              <path class="cls-2" d="M19.28,86.21v19.44H17.72v-18H15.37V86.21Z"></path>
-                              <path class="cls-2" d="M24.52,92.21A6.24,6.24,0,0,1,31,85.89a6.2,6.2,0,0,1,6.39,6.45c0,4.48-4.67,10.69-8.17,13.31H26.9a27.53,27.53,0,0,0,7.56-8.5,5.2,5.2,0,0,1-3.59,1.35A6.2,6.2,0,0,1,24.52,92.21Zm1.57,0A4.86,4.86,0,1,0,31,87.29,4.73,4.73,0,0,0,26.09,92.21Z"></path>
-                              <path class="cls-2" d="M44.53,87.32a9.53,9.53,0,0,0-4.24,1.11V86.86a10.53,10.53,0,0,1,4.32-1c3.48,0,5.78,2,5.78,5a5,5,0,0,1-3.76,4.67,5.21,5.21,0,0,1,4.08,5.13c0,3-2.46,5.23-6.1,5.23a9.34,9.34,0,0,1-4.7-1.1V103.3a8.72,8.72,0,0,0,4.65,1.24c2.72,0,4.53-1.67,4.53-3.86,0-2.75-2.11-4.37-5.64-4.37H43V95h.73c2.86,0,5.08-1.62,5.08-4S47,87.32,44.53,87.32Z"></path>
-                              <path class="cls-2" d="M58.43,87.32a9.53,9.53,0,0,0-4.23,1.11V86.86a10.48,10.48,0,0,1,4.31-1c3.49,0,5.78,2,5.78,5a5,5,0,0,1-3.75,4.67,5.21,5.21,0,0,1,4.07,5.13c0,3-2.45,5.23-6.1,5.23a9.3,9.3,0,0,1-4.69-1.1V103.3a8.68,8.68,0,0,0,4.64,1.24c2.73,0,4.53-1.67,4.53-3.86,0-2.75-2.1-4.37-5.64-4.37h-.48V95h.73c2.86,0,5.07-1.62,5.07-4S60.94,87.32,58.43,87.32Z"></path>
-                              <path class="cls-2" d="M4,18.79H0v-14A4.84,4.84,0,0,1,4.83,0H15.45V4H4.83A.83.83,0,0,0,4,4.83Z"></path>
-                           </g>
-                        </g>
-                     </g></svg></a><span class="d-flex align-items-center"><a class="nav-link project-link pe-4 link-dark-grey link-hover-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a><button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12">
-                        <defs>
-                           <style>.a{fill:none}</style>
-                        </defs>
-                        <g transform="translate(0 0.5)">
-                           <line class="a" x2="20"></line>
-                           <line class="a" x2="20" transform="translate(0 5)"></line>
-                           <line class="a" x2="20" transform="translate(0 10)"></line>
-                        </g></svg></button></span><div class="navbar position-fixed start-0 bg-black-grey w-100 opacity-97" id="navbarSupportedContent">
-                  <div class="container d-block">
-                     <div class="row">
-                        <div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="projekt.html">Über das Projekt<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="nutzungsbedingungen.html">Nutzungsbedingungen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="impressum.html">Impressum<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                           </ul>
-                        </div>
-                        <div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Dritte Walpurgisnacht</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="notizen.html">Notizen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="annotierte_lesefassung.html">Annotierte Lesefassung<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="register.html">Register<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                           </ul>
-                        </div>
-                        <div class="col-md-4"><span class="d-block navbar-title text-dark-grey border-bottom border-light-grey pb-1">Kommentar</span></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </nav>
-         <nav aria-label="breadcrumb" class="my-1">
-            <div class="container-fluid">
-               <ol class="breadcrumb">
-                  <li class="breadcrumb-item active" aria-current="page">Karl Kraus 1933: Dritte Walpurgisnacht</li>
-               </ol>
-            </div>
-         </nav>
-      </wpn-header>
-      <main class="flex-shrink-0 mt-18">
-         <div class="container-fluid px-0">
-            <div class="row">
-               <div class="col-md-2 col-lg-2 col-sm-12"></div>
-               <div class="col-md-2 col-lg-2 col-sm-12" style="text-align:right"></div>
-            </div>
-            <wpn-text-view annotation-selectors=".entity" id="sub_grid">
-               <div>
-                  <div class="p-0 d-flex flex-column align-items-center position-fixed">
-                     <div xmlns="http://www.w3.org/1999/xhtml" class="dropdown ff-ubuntu"><button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">Absatz 64</button><ul class="dropdown-menu z-3 rounded-0">
-                           <li><a class="dropdown-item fs-9_38 py-0" href="motti.html">[Motti]</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_1.html">Absatz 1</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_2.html">Absatz 2</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_3.html">Absatz 3</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_4.html">Absatz 4</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_5.html">Absatz 5</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_6.html">Absatz 6</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_7.html">Absatz 7</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_8.html">Absatz 8</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_9.html">Absatz 9</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_10.html">Absatz 10</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_11.html">Absatz 11</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_12.html">Absatz 12</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_13.html">Absatz 13</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_14.html">Absatz 14</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_15.html">Absatz 15</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_16.html">Absatz 16</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_17.html">Absatz 17</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_18.html">Absatz 18</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_19.html">Absatz 19</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_20.html">Absatz 20</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_21.html">Absatz 21</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_22.html">Absatz 22</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_23.html">Absatz 23</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_24.html">Absatz 24</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_25.html">Absatz 25</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_26.html">Absatz 26</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_27.html">Absatz 27</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_28.html">Absatz 28</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_29.html">Absatz 29</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_30.html">Absatz 30</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_31.html">Absatz 31</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_32.html">Absatz 32</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_33.html">Absatz 33</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_34.html">Absatz 34</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_35.html">Absatz 35</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_36.html">Absatz 36</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_37.html">Absatz 37</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_38.html">Absatz 38</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_39.html">Absatz 39</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_40.html">Absatz 40</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_41.html">Absatz 41</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_42.html">Absatz 42</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_43.html">Absatz 43</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_44.html">Absatz 44</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_45.html">Absatz 45</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_46.html">Absatz 46</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_47.html">Absatz 47</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_48.html">Absatz 48</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_49.html">Absatz 49</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_50.html">Absatz 50</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_51.html">Absatz 51</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_52.html">Absatz 52</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_53.html">Absatz 53</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_54.html">Absatz 54</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_55.html">Absatz 55</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_56.html">Absatz 56</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_57.html">Absatz 57</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_58.html">Absatz 58</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_59.html">Absatz 59</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_60.html">Absatz 60</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_61.html">Absatz 61</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_62.html">Absatz 62</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_63.html">Absatz 63</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_64.html">Absatz 64</a></li>
-                        </ul>
-                     </div>
-                     <div id="editor-widget">
-                        <div xmlns="http://www.w3.org/1999/xhtml">
-                           <div id="aot-navBarNavDropdown" class="navBarNavDropdown dropstart d-md-none"><a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button"><i class="bi bi-gear" title="Menü zur Anpassung der Anzeige"></i></a><ul class="dropdown-menu d-block border-0 z-2">
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="prs" class="text-wpn-person fs-7"></annotation-slider>
-                                 </li>
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="quts" class="text-wpn-quote fs-7"></annotation-slider>
-                                 </li>
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="pbs" class="text-black-grey fs-7"></annotation-slider>
-                                 </li>
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="cmts" class="text-comment fs-7"></annotation-slider>
-                                 </li>
-                              </ul>
-                           </div>
-                           <div class="d-none d-md-block">
-                              <ul class="border-0 z-2 list-unstyled">
-                                 <li>
-                                    <annotation-slider opt="prs" class="text-wpn-person fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                                 <li>
-                                    <annotation-slider opt="quts" class="text-wpn-quote fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                                 <li>
-                                    <annotation-slider opt="pbs" class="text-black-grey fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                                 <li>
-                                    <annotation-slider opt="cmts" class="text-wpn-comment fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div id="textcolumn" class="mx-auto ff-century-old-style"><span class="d-block typescriptRunningText1"><span class="inline-text">
-                        <span class="pagebreaks entity" id="pb0269" style="display:none;">||</span>
-                        
-                        <span class="fackelrefs entity " id="F890seg0084">
-                           <span class="hidden">Wenn</span> ich mich nun frage, wie ich das <span class="hidden">so</span> begreifliche,
-                           von <span class="hidden">mir noch</span> nachgefühlte Widerstreben überwinden konnte,
-                           in das weiträumige Abenteuer <span class="hidden">einer</span> Walpurgisnacht einzutreten, aus der, <span class="hidden">nach</span> Bewältigung der andern Parole,
-                           
-                           <wpn-entity class="quotes entity " id="DWquote1825">Deutschland erwachen wird</wpn-entity>;<span class="comments entity" id="DWcomment0584"></span> zu deren Rätseln 
-                           <wpn-entity class="quotes entity " id="DWquote1975">sein größtes
-                              Gedicht</wpn-entity> vielfachen Aufschluß gewährte; deren 
-                           <wpn-entity class="quotes entity " id="DWquote1826">Fülle der
-                              Gesichte</wpn-entity> <span class="hidden">mir seine</span> besten Seher herbeirief und <span class="hidden">
-                              <wpn-entity class="persons entity " id="DWrsPers0906">Diebold</wpn-entity>
-                              und 
-                              <wpn-entity class="persons entity " id="DWrsPers0907">Benn</wpn-entity></span> dazu; deren Grausen noch 
-                           <wpn-entity class="persons entity " id="DWrsPers0908">Shakespeares</wpn-entity> blutigste
-                           Vision <span class="hidden">einschließt:
-                              
-                              
-                              <wpn-entity class="quotes entity " id="DWquote1827"><span class="d-block lg typescriptLongQuoteVerse">
-                                    <span class="d-block l"><span class="inline-text">Die Gegenwart verführt ins Übertriebne,</span></span>
-                                    <span class="d-block l"><span class="inline-text">Ich halte mich vor allem ans Geschriebne</span></span></span></wpn-entity></span>
-                           
-                           — <span class="hidden">wenn</span> ich mich frage, wie ich <span class="hidden">eine Materie</span> durchstehen
-                           <span class="hidden">konnte,</span> die <span class="hidden">in Anlaß</span> und <span class="hidden">Hindernis</span> das Weltkriegsgetümmel<span class="comments entity" id="DWcomment0585"></span>
-                           <span class="hidden">aufwiegt; von Lesern</span> ermuntert und <span class="hidden">aufgehalten</span>,<span class="comments entity" id="DWcomment0586"></span> die mit
-                           guter Meinung und schlechter Sicht im Gebirgssturz
-                           <span class="hidden">»Stellungnahme«</span> <span class="hidden">verlangen (und nicht einmal bedenkend,
-                              daß die Antwort auf die Frage, warum sie nicht erscheint,
-                              sie verzögert)</span> — <span class="hidden">wenn</span> ich mich solches frage, so ist es
-                           zugleich die Frage nach der moralischen Berechtigung, über
-                           ein Elementarereignis abzusprechen, mit dessen Walten sich
-                           der Presse meine Tendenz gegen sie verbindet. Die moralische
-                           Berechtigung würde sich nicht bloß aus dem Umstand ergeben,
-                           daß mein Wunsch, diese Verbindung abzulehnen, brennender
-                           ist als der, den mir der Sieg des Nationalsozialismus erfüllt hat. <span class="hidden">Die</span> Vorstellung, daß ich <span class="hidden">seinen</span> Sieg als den
-                           eigenen empfinden könnte, ist so erbärmlich wie das geistige
-                           Wesen, dem sie entstammt und dessen Perhorreszierung<span class="comments entity" id="DWcomment0587"></span> mich
-                           nicht hindert, mit ihm den vermeintlichen Helfer <span class="hidden">zu verabscheuen.</span> Nur daß ich es mit größerer Verantwortung <span class="hidden">besorge</span>
-                           und vermöge einer Erkenntnis, <span class="hidden">die mit besserm Recht</span> den
-                           Zusammenhang <span class="hidden">zwischen ihm und jenem Wesen bejaht.</span> Denn der
-                           Nationalsozialismus hat die Presse nicht vernichtet, sondern
-                           die Presse hat den Nationalsozialismus erschaffen. Scheinbar
-                           nur als Reaktion, in <span class="hidden">Wahrheit auch</span> als <span class="hidden">Fortsetzung.</span> Jenseits 
-                           
-                           <span class="pagebreaks entity" id="pb0270" style="display:none;">||</span>
-                           
-                           aller Frage, mit welchem Humbug sie die Masse nähren — sie
-                           sind Journalisten. <span class="hidden">Sie sind Leitartikler,</span> die mit Blut
-                           <span class="hidden">schreiben. Ja, Feuilletonisten der Tat. Sie haben</span> die Höhle
-                           bezogen, als die das gedruckte <span class="hidden">Wort der Altvordern</span> die Phantasie der Menschheit hinterlassen <span class="hidden">hat,</span> und daß sie des Zierats
-                           entbehren oder ihn nicht nachstümpern können, <span class="hidden">ist</span> ihr kultureller Vorsprung. Die Tat hat sich einmal der Phrase entwunden und daß diese ihr weiter aufgestülpt bleibt, hat nichts
-                           mehr zu <span class="hidden">bedeuten.</span> Nimmt man aber die <span class="hidden">»Gleichschaltung« der
-                              Presse</span> als politischen Eingriff,<span class="comments entity" id="DWcomment0817"></span> so bedeutet sie nur <span class="hidden">ihre</span>
-                           eigene letzte <span class="hidden">Möglichkeit,</span> die letzte Stufe, über die sie
-                           vermöge ihrer Konstitution nicht gelangen kann, welche von
-                           Natur die Prostitution ist. Die angebliche Entehrung der
-                           deutschen Presse mag das Problem einer Journalistik sein,
-                           deren Meinung auf freiem Fuß lebt, solange politische Gewalt
-                           nicht eingreift und <span class="hidden">
-                              <wpn-entity class="quotes entity " id="DWquote1828">annoncierende Schönheitspflegerinnen</wpn-entity>
-                              keinen</span> Terror üben. Wenn <span class="hidden">Kommissare</span> in Redaktionen eindringen
-                           und »den Revolver auf den Schreibtisch legen«, so ist dies
-                           kriminalistisch insofern erheblich, als <span class="hidden">in manchen Fällen
-                              dort jetzt zwei</span> liegen. <span class="hidden">Aber</span> nur auf dem journalistischen
-                           Flachland kann die Anschauung gedeihen, daß durch <span class="hidden">dessen</span>
-                           Verwüstung die »Kultur« einen Verlust erleidet. Das <span class="hidden">existenzielle</span> Moment, in jedem Einzelfall beklagenswert, ist nach der
-                           Gemeinnützigkeit des verlornen Berufs zu <span class="hidden">bewerten,</span> und <span class="hidden">abgesehen davon, daß</span> schon die Tyrannei der Not Erwerbslose gemacht hat, dürfte das Schicksal <span class="hidden">verjagter</span> Ärzte im Vergleich
-                           zu dem <span class="hidden">der postenlosen</span> Redakteure auch <span class="hidden">außerkollegiale</span> Teilnahme ansprechen. Aber noch journalistischer ist die Idee,
-                           
-                           <wpn-entity class="quotes entity " id="DWquote1831">daß die Okkupation des <span class="hidden">Druckbilds</span> durch den Sieger meiner
-                              Abneigung gegen den Besiegten zusagen könnte</wpn-entity>; daß 
-                           <wpn-entity class="quotes entity " id="DWquote1832">dieses
-                              durch Greuel errungene Scheuel</wpn-entity> mir <span class="hidden">eine positive Empfindung
-                              weckt</span> und mir ein <span class="hidden">Wunschtraum erfüllt wird, wenn</span> der Geist
-                           der Schöpfung nun nicht mehr von der <span class="hidden">Intelligenz</span> bedrängt
-                           wird, sondern von der <span class="hidden">Dummheit,</span> die, <span class="hidden">unvermögend wie jene</span>
-                           ihr Prinzip rein zu erhalten, ihr nachkommen wird. Als ob die
-                           
-                           
-                           <span class="pagebreaks entity" id="pb0271" style="display:none;">||</span>
-                           
-                           Einsicht in die Verderblichkeit dessen, was täglich erscheint
-                           und <span class="hidden">was</span> in <span class="hidden">jeder Art und</span> Richtung der Sonne <span class="hidden">entgegenstrebt,</span>
-                           nicht im tiefsten Grund erst ihre Bestätigung erfahren
-                           hätte — bis <span class="hidden">dahin,</span> wo <span class="hidden">ihr</span> die scheinbaren Gegensätze <span class="hidden">dieser
-                              Meinungswelt ineinanderfließen.</span> Als ob es der Welt <span class="hidden">positiv</span>
-                           etwas zu bedeuten hätte, wie die politischen Faktoren sie
-                           anschauen, und ihre Meinungsverschiedenheiten <span class="hidden">aus einem
-                              geistigen Grunde wesentlich wären</span> und nicht bloß darum,
-                           weil zwischen ihnen eine Menschheit leidet. <span class="hidden">Wäre 
-                              <wpn-entity class="persons entity " id="DWrsPers0909">Herr
-                                 Goebbels</wpn-entity></span> rechtzeitig beim Berliner Tageblatt <span class="hidden">angekommen,
-                              dem</span> er nicht nur <span class="hidden">kosmisch</span> zugestrebt <span class="hidden">hat,</span><span class="comments entity" id="DWcomment0590"></span> so wäre <span class="hidden">ihr</span> mehr
-                           als dessen Gleichschaltung erspart geblieben. In meinem
-                           Werk ist sie zwischen den Gegenwelten vollzogen, weshalb ich,
-                           beiden verhaßt, von beiden reklamiert werden kann, mir zu
-                           völlig gleichwertigem <span class="hidden">Verdruß.</span> Aus den <span class="hidden">»</span><wpn-entity class="quotes entity " id="DWquote1833"><span class="hidden">Letzten</span> Tagen der
-                              <span class="hidden">Menschheit</span></wpn-entity><span class="hidden">«</span> holen sich die Nachkommen der 
-                           <wpn-entity class="quotes entity " id="DWquote1834">Wahnschaffe</wpn-entity> und
-                           <span class="hidden">
-                              <wpn-entity class="quotes entity " id="DWquote1835">Schwarz-Gelber</wpn-entity></span> was sie für <span class="hidden">ihre Zwecke</span> brauchen, <span class="hidden">die</span> in
-                           keinem Fall <span class="hidden">die meinen sind. Wahnschaffes sind augenblicklich und unmittelbar bedrohlicher, aber</span> wenn ich vor ihnen
-                           und <span class="hidden">ihren</span> Scheiterhaufen geborgen wäre, weil <span class="hidden">die abträgliche
-                              Meinung</span> wegen deutscher Sprache unverständlich <span class="hidden">bliebe,</span> so
-                           besteht doch die Möglichkeit, daß Schwarz-Gelbers für Aufklärung <span class="hidden">sorgen würden. (Und ich hätte doch noch so viel
-                              gegen beide zu tun.)</span> »
-                           <wpn-entity class="quotes entity " id="DWquote1836">In sprachzerfallnen Zeiten</wpn-entity>« (die der
-                           Tat zuneigen) »
-                           <wpn-entity class="quotes entity " id="DWquote1837">im sichern Satzbau wohnen</wpn-entity>« — was nützt es,
-                           wenn jene <span class="hidden">hineingeschlieft</span> <span class="hidden">sind?</span> Meine Stellung zu den
-                           Parteien ist insofern schwankend, als mir Marksteine nicht
-                           zur Orientierung dienen und ich 
-                           <wpn-entity class="quotes entity " id="DWquote1838">der Freiheit nicht über die
-                              Gasse traue</wpn-entity>. Daraus erklärt <span class="hidden">sich auch,</span> daß es mir gelungen
-                           ist, <span class="hidden">sie in einem</span> Mißtrauen gegen mich zu einigen, <span class="hidden">mit dem
-                              gelegentliche Päane<span class="comments entity" id="DWcomment0592"></span></span> so stark kontrastieren wie zueinander.
-                           Vergleicht man <span class="hidden">diese,</span> so möchte man glauben, daß ich mit
-                           den Vertretern sämtlicher politischen Überzeugungen die
-                           Schweine gehütet habe, während ich konsequent doch nur mir
-                           selbst <span class="hidden">diesen</span> Schutz vor <span class="hidden">Hirten und Herden</span> angedeihen ließ.
-                           
-                           
-                           <span class="pagebreaks entity" id="pb0272" style="display:none;">||</span>
-                           
-                           <span class="hidden">Man würde irren, wenn man annähme,</span> daß der Nationalsozialismus, den mit der »Journaille« versorgt zu haben sie <span class="hidden">beklagt,</span> seine Verankerung in meinem <span class="hidden">Grunde</span> verschmäht <span class="hidden">hätte.</span></span>
-                        <span class="fackelrefs entity " id="F890seg0085"><span class="hidden">Ja, er hat ihn geradezu als seinen Boden reklamiert, in
-                              der Annahme,</span> daß <span class="hidden">meine</span> Verteidigung der Menschheit, <span class="hidden">die</span>
-                           Parteinahme für Natur und Geist gegen die Zerstörermächte
-                           <span class="hidden">unbeherrschter Technik</span> und <span class="hidden">mißratener Intelligenz, einem</span>
-                           Ariogermanentum, dessen <span class="hidden">Lebensinteressen mir unbekannt
-                              sind, nicht diene,</span> sondern ausschließlich <span class="hidden">gilt. Meine
-                              moralische Kompetenz seinen</span> Ausbruch <span class="hidden">abzulesen,</span> <span class="hidden">erscheint
-                              demnach</span> von dem philosophischen Gründer der Bewegung <span class="hidden">anerkannt, jenem 
-                              <wpn-entity class="persons entity " id="DWrsPers0910">Dr. J. Lanz v. Liebenfels</wpn-entity>, der in einer Zeitschrift 
-                              <wpn-entity class="quotes entity " id="DWquote1839">‚Ostara‘</wpn-entity></span> die Züchtung des Rassemenschen angebahnt
-                           <span class="hidden">hat. An</span> einer Rundfrage <span class="hidden">des ‚Brenner‘, anläßlich einer geringfügigen Schmähung meines Wirkens, die seither weit
-                              übertroffen wurde,<span class="comments entity" id="DWcomment0771"></span> war er</span> mit einer Antwort <span class="hidden">beteiligt,</span>
-                           deren <span class="hidden">Reproduktion nach genau</span> zwanzig Jahren nicht so
-                           <span class="hidden">meine</span> Eitelkeit als <span class="hidden">meine</span> Vorliebe für Kontraste befriedigen soll:</span>
-                        
-                        
-                        
-                        <span class="pagebreaks entity" id="pb44_der_Fackel_381/382/383" style="display:none;">||</span>
-                        
-                        <span class="pagebreaks entity" id="pb0273" style="display:none;">||</span>
-                        
-                        <span class="fackelrefs entity " id="F890seg0087"><span class="hidden">Diese Apologie enthält nebst den</span> grundlegenden Irrtümern
-                           weltanschaulicher <span class="hidden">Auffassung</span> vor allem die <span class="hidden">Fehlansicht,</span> daß
-                           es <span class="hidden">mir</span> schon <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" class="date">1913</span> gelungen sei, die Presse unschädlich zu
-                           machen, <span class="hidden">die</span> gleich darauf den Weltkrieg<span class="comments entity" id="DWcomment0841"></span> bewirkte und förderte, aus ihm als <span class="hidden">der einzige</span> Sieger hervorging und es mit unaufhaltsamem Wachstum ihrer <span class="hidden">Geistesmacht bis zur Realisierung</span>
-                           des Nationalsozialismus <span class="hidden">brachte.</span> Man muß natürlich immer verstehen, daß für diese Wertung des eigentlichen journalistischen
-                           Wirkens der lächerliche Außenbegriff einer Preßfreiheit mit
-                           ihrer Genehmigung oder Einschränkung durch <span class="hidden">den</span> ohnmächtigen
-                           Staat überhaupt nicht in Betracht kommt; selbst <span class="hidden">deren volle
-                              Sistierung<span class="comments entity" id="DWcomment0596"></span></span> für den politischen Zweck vermag nichts gegen die
-                           Verderblichkeit des in die Maschine <span class="hidden">diktierten</span> wie immer gesinnten <span class="hidden">Worts,</span> und mögen hundert Staatsanwälte die Presse <span class="hidden">bedrücken,</span> so hat sie doch Freiheit, solange sie lebt und kein
-                           Kulturanwalt <span class="hidden">sie</span> daran verhindert. Die Ohnmacht einer <span class="hidden">geistigen Vertretung dieser Ansicht</span> war <span class="hidden">schon</span> <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" class="date">1913</span> dargetan. <span class="hidden">Wichtig</span>
-                           aber erscheint heute die <span class="hidden">Feststellung,</span> daß <span class="hidden">ich den Ariogermanen</span> wieder das Recht der öffentlichen Aussprache zurückgegeben <span class="hidden">habe, was ich doch,</span> wenn <span class="hidden">es</span> der Fall wäre, als große
-                           Unüberlegtheit erkennen müßte. Wenn jedoch von so maßgebender
-                           Seite behauptet wird, daß <span class="hidden">ich es getan habe,</span> so darf <span class="hidden">solche
-                              Wohltat</span> als <span class="hidden">Dank und Revanche</span> auch für <span class="hidden">mich</span> das Recht der
-                           öffentlichen Aussprache anfordern, <span class="hidden">und ohne mir erst die
-                              weitere Anerkennung zu verdienen, ich</span> sei ein Märtyrer der
-                           publizistischen Überzeugungstreue. Denn wiewohl diese schmeichelhafte Ansicht vor und nach <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" class="date">1913</span> eine Übertreibung war,
-                           indem <span class="hidden">sie</span> ja nur eine gewisse <span class="hidden">Standhaftigkeit gegenüber Preßtücken betraf,</span> so <span class="hidden">bietet</span> doch jetzt, wo wir nach sieghafter
-                           Erhebung des <span class="hidden">Rassenproblems</span> ein <span class="hidden">wahrhaft überwältigendes</span>
-                           Schauspiel erleben, <span class="hidden">eine</span> öffentliche Aussprache über das
-                           Ariogermanentum erst die rechte Gelegenheit zur <span class="hidden">Bewährung,
-                              besonders</span> wenn an <span class="hidden">mir auch heute noch ein menschlich fühlendes, bereits</span> jedes fremde Unrecht als einen <span class="hidden">persönlichen,</span>
-                           körperlichen Schmerz <span class="hidden">empfindendes Herz erkennbar wäre. Da ich</span>
-                           
-                           
-                           <span class="pagebreaks entity" id="pb0274" style="display:none;">||</span>
-                           
-                           aber keinen Ruhm in Anspruch <span class="hidden">nehme,</span> ohne <span class="hidden">die</span> Kontrastwirkung
-                           zu genießen, so <span class="hidden">muß, schon</span> aus Gründen der unbestechlichen
-                           <span class="hidden">Rechtlichkeit,</span> verzeichnet werden, daß die Aussprache, die
-                           <span class="hidden">ich dem Ariogermanentum ermöglicht habe,</span> auch die folgende
-                           <span class="hidden">Version</span> zuließ:
-                           
-                           <wpn-entity class="quotes entity " id="DWquote1841">
-                              <span class="d-block typescriptLongQuote"><span class="inline-text">
-                                    Kraus gehört zu einem <span class="spacing">teilweise</span> syphilitisch verseuchten
-                                    Kreise von jüdischen Literaten, in dem die Schändung von
-                                    Frauenspersonen an der Tagesordnung ist.</span></span></wpn-entity>
-                           
-                           Der <span class="hidden">Wortlaut</span> ist leider nicht mehr mit voller Genauigkeit
-                           <span class="hidden">feststellbar,</span> aber <span class="hidden">die gerechte</span> Einschränkung <span class="hidden">betreffs</span> der
-                           Krankheit, die von normwidrigem Umgang nicht <span class="hidden">abhält,</span> <span class="hidden">war</span> gemacht <span class="hidden">worden,</span> jedenfalls hatte der 
-                           <wpn-entity class="persons entity " id="DWrsPers0911"><span class="hidden">Theaterkritiker</span></wpn-entity> in Wahrnehmung berechtigter Interessen gehandelt, 
-                           <wpn-entity class="quotes entity " id="DWquote1842">für die <span class="hidden">er</span> auch
-                              von der Nürnberger Justiz freigesprochen <span class="hidden">wurde</span></wpn-entity><span class="hidden">.<span class="comments entity" id="DWcomment0597"></span> 
-                              <wpn-entity class="quotes entity " id="DWquote1843">Er soll mit
-                                 dem Urheber eines radikalern Judenboykotts<span class="comments entity" id="DWcomment0598"></span> identisch sein</wpn-entity>,
-                              der dann allerdings auch eingeschränkt wurde.</span> Wie <span class="hidden">man</span> nicht
-                           genug vorsichtig <span class="hidden">mit solchen</span> Hinweisen auf das Privatleben
-                           sein kann, <span class="hidden">beweist</span> das Vorgehen kommunistischer <span class="hidden">Verleumder,</span>
-                           
-                           <wpn-entity class="quotes entity " id="DWquote2076">die <span class="hidden">im Vorstrafenverzeichnis</span> der Biographie nationaler Vorkämpfer <span class="hidden">gerade diesem Mann,</span> auf den bloßen <span class="hidden">Anschein</span> seiner
-                              Lehrtätigkeit <span class="hidden">hin,</span> Kinderschändung nachsagten</wpn-entity>.<span class="comments entity" id="DWcomment0599"></span> Der <span class="hidden">publizistische Irrtum, den er selbst beging, ist auf ein Mißverständnis meines »
-                              <wpn-entity class="quotes entity " id="DWquote2077">Traumstücks</wpn-entity>« zurückzuführen, das gerade die Verschiedenartigkeit beweist, mit der nationalsozialistische
-                              Köpfe auf mein Schaffen reagieren. Dem 
-                              <wpn-entity class="persons entity " id="DWrsPers0912">Nürnberger Kritiker</wpn-entity>,
-                              
-                              <wpn-entity class="quotes entity " id="DWquote1844">der in zweiter Instanz zu einer kleinen Geldstrafe verurteilt
-                                 wurde</wpn-entity>,<span class="comments entity" id="DWcomment0600"></span> war wie dem 
-                              <wpn-entity class="persons entity " id="DWrsPers0913">Schriftleiter des ‚Völkischen Beobachter‘</wpn-entity>,
-                              
-                              <wpn-entity class="quotes entity " id="DWquote1845">der gleich eine größere bekam</wpn-entity>,<span class="comments entity" id="DWcomment0601"></span> nationale Erregung zugebilligt
-                              worden, da sie fanden, </span><wpn-entity class="quotes entity " id="DWquote1846"><span class="hidden">jenes Werk stelle die frechste</span> Verhöhnung aller für ihr Vaterland gefallenen <span class="hidden">Frontkämpfer dar,</span>
-                              die <span class="hidden">jemals</span> auf offener Bühne vor sich <span class="hidden">gegangen</span> sei</wpn-entity>. Damals
-                           konnte sich <span class="hidden">noch</span> in <span class="hidden">Deutschland</span> eine Stimme erheben, 
-                           <wpn-entity class="quotes entity " id="DWquote1847"><span class="hidden">die da</span>
-                              meinte, nichts mache die geistige Situation <span class="hidden">deutlicher als
-                                 
-                                 
-                                 <span class="pagebreaks entity" id="pb0275" style="display:none;">||</span>
-                                 
-                                 dieser Fall eines Mißverständnisses, indem</span> »ein echter und
-                              <span class="hidden">schöner ethischer</span> Fanatismus dem Gesicht vom toten, vergessenen und weggeworfenen Soldaten Wahrheit und Kraft <span class="hidden">gibt</span><span class="hidden">«</span> und
-                              am nächsten Tag die Vereinigten Vaterländischen Verbände
-                              Bayerns gegen <span class="hidden">die »</span><span class="hidden">gemeinste</span> Verhöhnung <span class="hidden">des</span> toten Frontsoldaten« <span class="hidden">protestieren; es sei,</span> wie wenn Proletarier gegen die
-                              »
-                              <wpn-entity class="quotes entity " id="DWquote2078">Weber</wpn-entity>« protestierten, »weil sie sich <span class="hidden">in der Darstellung
-                                 ihres Schicksals und</span> ihrer Leiden verhöhnt fühlten«. <span class="hidden">Statt
-                                 der Schieber, hatten sich die Geschobenen gemeldet.</span></wpn-entity> Es <span class="hidden">war</span>
-                           umso <span class="hidden">interessanter,</span> als dieselben Wortführer dort, wo ihnen
-                           das Rassenmerkmal gelegen <span class="hidden">kam,</span> die analoge Betrachtung des
-                           Frontsoldaten für ihre Zwecke <span class="hidden">benützt hatten, indem sie, natürlich ohne autorisiert zu sein, </span><wpn-entity class="quotes entity " id="DWquote1851"><span class="hidden">in einem Flugblatt jene Hyänenszene</span> der »Letzten Nacht« <span class="hidden">verbreiteten</span></wpn-entity><span class="hidden">, deren</span> Sprecher <span class="hidden">des</span>
-                           toten <span class="hidden">Frontsoldaten</span> doch exemplarisch <span class="hidden">spotten. Schon damals,
-                              gegenüber dem Mangel jeder Ahnung über eine Identität der
-                              Ansichten und der Autorschaft, 
-                              <wpn-entity class="quotes entity " id="DWquote1852">habe ich der Problematik
-                                 zwischen Wahnschaffe und Schwarz-Gelber den Ausdruck gegeben,
-                                 es sei vielleicht wirklich noch erfreulicher, von der Stupidität an die Seite der Schakale und Hyänen gerückt zu werden
-                                 als ihr Helfer gegen diese zu sein</wpn-entity>.</span> Die Schwierigkeit, die
-                           sich der nationalen <span class="hidden">Kulturkritik</span> nicht <span class="hidden">nur</span> durch die Divergenzen innerhalb <span class="hidden">meines Gesamtwerks,</span> sondern schon <span class="hidden">innerhalb</span>
-                           einer und derselben <span class="hidden">Partie ergibt,</span> macht es <span class="hidden">begreiflich, daß
-                              sie mich</span> bei <span class="hidden">der</span> Säuberung übergangen <span class="hidden">hat,</span> was <span class="hidden">mir</span> vielfach
-                           den Verdacht zugezogen hat, daß <span class="hidden">sie mich</span> rechts liegen ließ.</span>
-                        <span class="fackelrefs entity " id="F890seg0088"><span class="hidden">Aber solche Schwierigkeit wiegt nichts gegenüber der Mühsal
-                              des Versuchs,</span> die Sprache ariogermanischen Wesens zu <span class="hidden">deuten,
-                              wenn derjenige das Wagnis unternimmt,</span> der sie ihm <span class="hidden">wiedergegeben</span> hat und dem mit der Berechtigung auch der ehrliche
-                           Wille zuerkannt sein muß, <span class="hidden">sie</span> zu verstehen, wenn schon nicht
-                           zu billigen. Daß ich sie nicht billige, dürfte sich gezeigt
-                           haben; daß ich sie aber auch nicht verstehe, muß der Vorwurf
-                           bleiben, der mich an die Seite Europas rückt, dessen <span class="hidden">kulturelle</span> Erhaltung bis <span class="hidden">heute</span> nicht mein Antrieb war und dessen
-                           <span class="hidden">Untergang</span> in der gelben und schwarzen <span class="hidden">Flut</span> mir beiweitem kein
-                           
-                           
-                           <span class="pagebreaks entity" id="pb0276" style="display:none;">||</span>
-                           
-                           so grauses Gemisch vorstellt wie sein Hinfall an die braune.
-                           Ich weiß, daß diese <span class="hidden">Kultur</span> auch ohne die Möglichkeit, daß
-                           ein blutbesoffener Pöbel mit ihren Gütern schaltet, ihre
-                           <span class="hidden">Übel, ja ihre</span> Schrecken <span class="hidden">hat,</span> und symptomempfindlich wie ich 
-                           <span class="hidden">bin</span> erschließe ich Krieg und Hunger aus dem Gebrauch, den
-                           die Presse von der Sprache macht, aus der Verkehrung von
-                           Sinn und Wert, aus der Entleerung und Entehrung <span class="hidden">allen</span> Begriffs und <span class="hidden">allen</span> Inhalts. Sicherlich, wenn sie heroischem
-                           Erinnern frönt, so ersteht das Projekt als Alpdruck
-                           
-                           <wpn-entity class="quotes entity " id="DWquote1853">
-                              <span class="d-block typescriptLongQuoteRightAlign"><span class="inline-text">
-                                    eines österreichischen Denkmals für</span></span>
-                              <span class="d-block typescriptLongQuoteAdvInsert"><span class="inline-text"><span class="hidden"><span class="spacing">BERNA</span> — Käse</span></span></span>
-                              <span class="d-block typescriptLongQuote"><span class="inline-text">
-                                    den Unbekannten Soldaten <span class="hidden">.&nbsp;.&nbsp;.&nbsp;.</span></span></span></wpn-entity>
-                           
-                           Schmach ihrem Gedenken durch alle Zeit, in der sie leben
-                           wird! <span class="hidden">Wenn</span> nicht die Menschheit, die es bewußtlos erträgt,
-                           ihre letzten Tage hinter sich <span class="hidden">hat,</span> im Begriffe, von jenem
-                           Diktator geholt zu werden, <span class="hidden">der einstweilen</span> ihre Wortführer
-                           zwingt, bei allem, was sie frisch wagen und ganz verlieren,
-                           bis zum 
-                           <wpn-entity class="quotes entity " id="DWquote1970"><span class="hidden">letzten Ende</span></wpn-entity> eben dieses zu berufen. <span class="hidden">Zwangsläufig</span>
-                           haschen sie nach der Formel, die, wenn alle Phrasen gezündet
-                           haben, als letzte Motte dem Brand einer Papierwelt zufliegt.
-                           <span class="hidden">Doch selbst nicht der</span> Handel, den die <span class="hidden">Presse</span> mit dem Krieg
-                           eingeht und der nun wirklich von 
-                           <wpn-entity class="quotes entity " id="DWquote1854">jener <span class="hidden">Käseausstellung <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" class="date">1914</span><span class="comments entity" id="DWcomment0768"></span></span></wpn-entity>
-                           über alles, was den Maden anheimfiel, bis zu diesem <span class="hidden">Dokument</span>
-                           reicht; <span class="hidden">kein</span> Frevel, dessen die Zivilisation an der Schöpfung
-                           fähig <span class="hidden">ist — nichts vergleicht sich mit der 
-                              <wpn-entity class="quotes entity " id="DWquote2129">wahnschaffnen</wpn-entity></span>
-                           Tat, die solcher Wirklichkeit <span class="hidden">zuwuchs.</span></span> Mag der Weg zu ihr
-                        vom ausgehöhlten Wort geführt haben, mag die Presse auch hier
-                        der Unheilsbote sein, der es zu verantworten hat — wir müssen
-                        ihm danken, wenn er das Unheil nur meldet, das vor jeglichem
-                        Versuch, es zu deuten, bloß den Gedanken an Rettung gewährt,
-                        bloß das Gefühl, mit allem, was zu meiden ist, in Wehrlosigkeit verbunden zu sein; und bloß die Frage, wie lange es
-                        
-                        
-                        <span class="pagebreaks entity" id="pb0277" style="display:none;">||</span>
-                        
-                        noch dauern wird. Vor Augen, müde des Mords, vor Ohren,
-                        müde des Betrugs, vor allen Sinnen, die nicht mehr wollen
-                        und denen die Mixtur aus Blut und Lüge widersteht, taumeln
-                        und gellen noch diese täglichen Kommandos vorüber einer
-                        Pestgewalt, die alles Erdenkliche gegen sich selbst vorkehrt: 
-                        <wpn-entity class="quotes entity " id="DWquote1855">Vermögenseinziehung</wpn-entity>, 
-                        <wpn-entity class="quotes entity " id="DWquote1856">Aberkennung der Staatsbürgerschaft</wpn-entity>, 
-                        <wpn-entity class="quotes entity " id="DWquote1857">Verhinderung der Neubildung politischer Parteien</wpn-entity>,
-                        
-                        <wpn-entity class="quotes entity " id="DWquote1858">Zulassung von Spielbanken</wpn-entity>, 
-                        <wpn-entity class="quotes entity " id="DWquote1859">Ausschaltung von Wirtschaftskommissaren</wpn-entity>, 
-                        <wpn-entity class="quotes entity " id="DWquote1860">Zulassung von nur einem Drittel als Hospitanten</wpn-entity>, 
-                        <wpn-entity class="quotes entity " id="DWquote1861">Zwangsbeitritt zur Arbeitsfront</wpn-entity>, 
-                        <wpn-entity class="quotes entity " id="DWquote1862">Eingliederung der
-                           Studenten in den freiwilligen Arbeitsdienst</wpn-entity>, 
-                        <wpn-entity class="quotes entity " id="DWquote1863">Zusammenschließung der Musiker in die Fachschaft</wpn-entity>, 
-                        <wpn-entity class="quotes entity " id="DWquote1864">Anmeldepflicht für mit
-                           Erbkrankheit Behaftete</wpn-entity>,<span class="comments entity" id="DWcomment0764"></span> 
-                        <wpn-entity class="quotes entity " id="DWquote1865">Verhaftung von 
-                           <wpn-entity class="persons entity " id="DWrsPers0980">Verwandten 
-                              <wpn-entity class="persons entity " id="DWrsPers0979">Entflohener</wpn-entity>
-                           </wpn-entity>
-                        </wpn-entity>,<span class="comments entity" id="DWcomment0819"></span> 
-                        <wpn-entity class="quotes entity " id="DWquote1866">Anordnung zur Erhebung des rechten Armes</wpn-entity>,<span class="comments entity" id="DWcomment0818"></span> 
-                        <wpn-entity class="quotes entity " id="DWquote1867">Erschießung
-                           auf der Flucht</wpn-entity>. 
-                        <wpn-entity class="quotes entity " id="DWquote1868">Wie lange noch?</wpn-entity> <span class="fackelrefs entity " id="F890seg0101">Die Handlung <span class="hidden">rückt</span> an den
-                           <span class="hidden">Punkt,</span> 
-                           <wpn-entity class="quotes entity " id="DWquote1869">wo, wollt’ er nun im Waten stille stehn, <span class="hidden">Rückkehr</span> so
-                              schwierig <span class="hidden">wär’,</span> als durchzugehn. Seltsames <span class="hidden">glüht</span> im Kopf, es
-                              will zur Hand, und muß getan sein, eh’ <span class="hidden">noch recht erkannt</span><span class="hidden">.</span></wpn-entity></span>
-                        <span class="fackelrefs entity " id="F890seg0095">
-                           <wpn-entity class="quotes entity " id="DWquote1870">Doch ist’s gewiß, er kann den wild empörten Zustand nicht
-                              mehr schnallen in den Gurt der Ordnung. Jetzt empfindet er
-                              geheimen Mord an seinen Händen <span class="hidden">klebend;</span> jetzt straft Empörung stündlich seinen Treubruch; die er befehligt, handeln
-                              auf Befehl, aus Liebe nicht. Jetzt fühlt er seine Würde zu
-                              weit und lose, wie des Riesen Rock hängt um den <span class="hidden">dieb’schen
-                                 Zwerg.</span></wpn-entity> 
-                           <wpn-entity class="quotes entity " id="DWquote1871">Mir <span class="hidden">war,</span> als <span class="hidden">rief es: »Schlaft</span> nicht <span class="hidden">mehr.</span> Macbeth
-                              mordet den <span class="hidden">Schlaf!«</span></wpn-entity> 
-                           <wpn-entity class="quotes entity " id="DWquote1900">Und drum wird Macbeth nicht mehr <span class="hidden">schlafen.</span></wpn-entity></span> <span class="fackelrefs entity " id="F890seg0099"><span class="hidden">»</span><wpn-entity class="quotes entity " id="DWquote1872"><span class="hidden">Denn so</span> zu sein, ist <span class="hidden">nichts: doch sicher so zu</span> sein!</wpn-entity>«</span>
-                        <span class="fackelrefs entity " id="F890seg0089"><span class="hidden">Beispiele</span> gibt es, wie solcher Aufstieg, der Konsorten hat,
-                           <span class="hidden">verläuft,</span> wenn jeglicher Mitwisser, mehr als sein Teil begehrend, nach der ergriffnen Macht greift.</span> <span>
-                           Nach außen alles einig: sie wird Jahrhunderte überdauern;
-                           <span class="fackelrefs entity " id="F890seg0100">
-                              <wpn-entity class="quotes entity " id="DWquote1873"><span class="hidden">wir</span> sind keine Partei, wir sind eine <span class="hidden">Weltanschauung</span></wpn-entity><span class="hidden">.</span> Wer
-                              wagt es, den Mythos durch Hunger zu <span class="hidden">stören?
-                                 
-                                 <wpn-entity class="quotes entity " id="DWquote1874">
-                                    <span class="d-block typescriptLongQuote"><span class="inline-text">
-                                          
-                                          <wpn-entity class="quotes entity " id="DWquote1875">Wir denken in Jahrhunderten .&nbsp;.&nbsp;.&nbsp;.</wpn-entity> 
-                                          <wpn-entity class="quotes entity " id="DWquote1876">Es fangen manche an zu
-                                             meckern. In Deutschland hat keiner zu meckern .&nbsp;.&nbsp;.&nbsp;.</wpn-entity></span></span></wpn-entity></span>
-                              
-                              
-                              <span class="pagebreaks entity" id="pb0278" style="display:none;">||</span>
-                              
-                              
-                              <span class="hidden">Heilloses Wort, das</span> aus der Walhalla<span class="comments entity" id="DWcomment0782"></span> in die <span class="hidden">Hölle reißt,</span>
-                              wo <span class="hidden">sie</span> asphaltiert <span class="hidden">ist!</span></span> Verbürgt es jene Dauer? Überall
-                           Zeichen des Kleinmuts. 
-                           <wpn-entity class="quotes entity " id="DWquote1877">
-                              <wpn-entity class="persons entity " id="DWrsPers0914">Goebbels</wpn-entity> stellt fest, die nationale
-                              Presse
-                              
-                              <span class="d-block typescriptLongQuote"><span class="inline-text">
-                                    hat auf dem Gebiet des Feuilletons und damit auf dem Gebiet
-                                    der Kultur überhaupt fast hundertprozentig versagt.</span></span></wpn-entity>
-                           
-                           Es gilt, den neuen Menschen zu schaffen, es fehlt aber an
-                           einem hauptamtlichen Buchbesprecher. 
-                           <wpn-entity class="quotes entity " id="DWquote1878">
-                              <wpn-entity class="persons entity " id="DWrsPers0915">Brückner</wpn-entity> sagt, die
-                              Revolution ist nicht beendigt, sondern geht weiter.</wpn-entity> Doch
-                           man soll sich nicht festlegen. 
-                           <wpn-entity class="quotes entity " id="DWquote1879">Der Reichsführer der SS.,
-                              
-                              <wpn-entity class="persons entity " id="DWrsPers0916">Himmler</wpn-entity> heißt er, hat die Burg Schwabenberg zwecks Einrichtung der Reichsrassenschule bloß auf 99 Jahre gepachtet.<span class="comments entity" id="DWcomment0602"></span></wpn-entity>
-                           Dann kann man weiter sehn. Er, der im praktischen Leben
-                           steht und auch für die Sicherheit Münchens zu sorgen hat,
-                           kann doch schon heute, nicht ohne Einschränkung, schätzen:
-                           
-                           <wpn-entity class="quotes entity " id="DWquote1880">
-                              <span class="d-block typescriptLongQuote"><span class="inline-text">
-                                    ein neuer Geschichtsraum hat begonnen, der sich — <span class="spacing">es mag
-                                       vielleicht</span> lächerlich klingen — über 20.000 bis 30.000 Jahre
-                                    ausdehnen wird.</span></span></wpn-entity>
-                           
-                           Die SS. wird »
-                           <wpn-entity class="quotes entity " id="DWquote1881">auf der Erkenntnis vom Wert des Blutes</wpn-entity>« (
-                           <wpn-entity class="quotes entity " id="DWquote1882">ganz
-                              besondrer Saft</wpn-entity>) aufgebaut werden; dürfte, wenn die ersten
-                           Äonen<span class="comments entity" id="DWcomment0642"></span> vorbei und die Stabilisierung begonnen hat, in den
-                           Rang himmlischer Heerscharen aufsteigen. Und die SA. — mißvergnügt und der Erdennot überlassen? 
-                           <wpn-entity class="persons entity " id="DWrsPers0917">Geistliche Tröster</wpn-entity> erstehen, welche sagen, 
-                           <wpn-entity class="quotes entity " id="DWquote1883">die deutschen Christen seien die SA.
-                              Jesu Christi im Kampf zur Vernichtung der leiblichen, sozialen und geistigen Not</wpn-entity>. Wer aber hilft der SA.? Im Bürgerbräu
-                           kündet 
-                           <wpn-entity class="persons entity " id="DWrsPers0918">einer</wpn-entity>, 
-                           <wpn-entity class="quotes entity " id="DWquote1884">der 
-                              <wpn-entity class="persons entity " id="DWrsPers0919">Führer</wpn-entity> habe ihm anvertraut, daß er in der
-                              Entwicklung — sie ging von dort aus — ein Wunder sehe
-                              
-                              <span class="d-block typescriptLongQuote"><span class="inline-text">
-                                    und sich als ein von Gott berufenes Werkzeug empfinde.<span class="comments entity" id="DWcomment0877"></span></span></span></wpn-entity>
-                           
-                           
-                           <span class="pagebreaks entity" id="pb0279" style="display:none;">||</span>
-                           
-                           
-                           Doch die SA. — wie will sie nun vollbringen?<span class="comments entity" id="DWcomment0603"></span> Anders als begonnen? Nicht anders: ganz wie begonnen! Was immer sie vollbrachte, es waren ja Kommunisten. 
-                           <wpn-entity class="quotes entity " id="DWquote1885">Brandlegend, grundlegend —
-                              Kommunisten waren es.</wpn-entity> 
-                           <wpn-entity class="quotes entity " id="DWquote1886">Raub und Mord an Kommunisten</wpn-entity>: Kommunisten befleckten 
-                           <wpn-entity class="quotes entity " id="DWquote1887">die unblutigste aller Revolutionen</wpn-entity>. 
-                           <wpn-entity class="quotes entity " id="DWquote1888">Sie legten die Uniformen jener an, immer mehr, immer mehr</wpn-entity> — und nun
-                           stecken in allen nur noch Kommunisten. Furchtbare Enthüllung
-                           
-                           <wpn-entity class="quotes entity " id="DWquote1889">letzten Endes</wpn-entity>: alles war getarnt! 
-                           <wpn-entity class="quotes entity " id="DWquote1890">Der Birnamwald rückt heran.</wpn-entity>
-                           »
-                           <wpn-entity class="quotes entity " id="DWquote1891">Das Gesicht der Bewegung steht nun eindeutig da.</wpn-entity>« Immer
-                           schon; denn es war aus zwei Gestalten, die Tag für Tag sich
-                           zum Unikum verbanden, zur deutschen Doppelsage. Von 
-                           <wpn-entity class="quotes entity " id="DWquote1892">jenem
-                              
-                              <wpn-entity class="persons entity " id="DWrsPers0920">Schweppermann</wpn-entity>, dem Braven, der statt eines Ei’s deren zwei
-                              bekam</wpn-entity>, und 
-                           <wpn-entity class="quotes entity " id="DWquote1893">jenem 
-                              <wpn-entity class="persons entity " id="DWrsPers0921">Haarmann</wpn-entity>, den nach mehr Menschen noch gelüstet</wpn-entity>. Wie hat uns das Monstrum gerührt und gewürgt! Erstand
-                           es aus den Gasschwaden des Kriegs, um neue, allerstickende
-                           heraufzubringen? <span class="fackelrefs entity " id="F890seg0090">Der Giftgeist, dem die Gehirne erlagen,
-                              droht der Apokalypse zu widerstehn.</span> Soll frommer Sinn zivilisiertem Mißbrauch der Gottesgaben die Zuchtrute am Himmel erkennen? Ist, worunter die Erde gelangt ist, ein Komet, dem
-                           Kreuze gleichend, 
-                           <wpn-entity class="quotes entity " id="DWquote1894">von dem die Bücher sagen, rechtsgeflügelt
-                              bedeute es Niedergang, Vergehen, Tod</wpn-entity>? Ein armes Volk hebt
-                           beschwörend die Rechte empor zu dem Gesicht, zu der Stirn,
-                           zu der Pechsträhne: 
-                           <wpn-entity class="quotes entity " id="DWquote1895">Wie lange noch!</wpn-entity> — Nicht so lange, als
-                           das Gedenken aller währen wird, die 
-                           <wpn-entity class="quotes entity " id="DWquote1896">das Unbeschreibliche,
-                              das hier getan war</wpn-entity>, gelitten haben; jedes zertretenen Herzens,
-                           jedes zerbrochenen Willens, jeder geschändeten Ehre, aller
-                           Minuten geraubten Glücks der Schöpfung und 
-                           <wpn-entity class="quotes entity " id="DWquote1897">jedes gekrümmten
-                              Haares auf dem Haupte</wpn-entity> aller, die nichts verschuldet hatten,
-                           als geboren zu sein! Und nur so lange, bis die guten Geister
-                           einer Menschenwelt aufleben zur Tat der Vergeltung:
-                           
-                           <wpn-entity class="quotes entity " id="DWquote1898">
-                              <span class="fackelrefs entity " id="F890seg0091"><span class="d-block lg typescriptLongQuoteVerse"><span class="hidden">
-                                       <span class="d-block l"><span class="inline-text">Sei das Gespenst, das gegen uns erstanden,</span></span></span>
-                                    <span class="d-block l"><span class="inline-text">Sich Kaiser nennt und Herr von unsern Landen,</span></span>
-                                    <span class="d-block l"><span class="inline-text">Des Heeres Herzog, Lehnsherr unsrer Großen,</span></span>
-                                    <span class="d-block l"><span class="inline-text">Mit eigner Faust ins Totenreich gestoßen!</span></span></span></span></wpn-entity></span></span></span></div>
-               <div id="infocolumn" class="px-0 border-start border-light-grey">
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0269" style="display:none"><span>Beginn Seite 269</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1825"><b xmlns="">Dietrich Eckart: </b><b xmlns="">Sturmlied [Feuerjo! / Deutschland erwache!]</b> (1919/1923)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0584"><span class="fw-bold">Glossar: „Deutschland erwache!“</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1975"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1826"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0906">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: --><!-- Quelle: GND, Deutsche Biographie -->
-                        						
-                        <forename>Bernhard</forename>
-                        						
-                        <forename type="middle" subtype="unused">Ludwig</forename>
-                        						
-                        <addName type="honorific">Dr.</addName>
-                        						
-                        <surname subtype="unused">Dreifus</surname>
-                        						
-                        <surname type="taken">Diebold</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0907">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2009 -->
-                        						
-                        <forename>Gottfried</forename>
-                        						
-                        <surname>Benn</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0908">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: GND -->
-                        						
-                        <forename>William</forename>
-                        						
-                        <surname>Shakespeare</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1827"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0585"><span class="fw-bold">Ereignis: Erster Weltkrieg</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0586"><span class="fw-bold">Glossar: Die Ungeduld von Kraus’ Leserschaft</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0587"><span class="fw-bold">Glossar: Perhorreszierung</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0270" style="display:none"><span>Beginn Seite 270</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0588"><span class="fw-bold">Glossar: Die „Troglodyten“</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0817"><span class="fw-bold">Glossar: Die ‚Gleichschaltung‘ der deutschen Presselandschaft</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1828"><b xmlns=""><i>AZ</i></b> vom 15. 1. 1930</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1828"><b xmlns=""><i>Freiheit!</i></b> vom 14. 1. 1930</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1831"><b xmlns=""><i>WAZ</i></b> vom 21. 4. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1832"><b xmlns="">Die Bibel</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0271" style="display:none"><span>Beginn Seite 271</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0909">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0">
-                        						
-                        <forename>Joseph</forename>
-                        						
-                        <forename subtype="unused">Paul</forename>
-                        						
-                        <addName type="honorific">Dr.</addName>
-                        						
-                        <surname>Goebbels</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0840"><span class="fw-bold">Ereignis: Erster Weltkrieg</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0589"><span class="fw-bold">Glossar: Faiseur</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0590"><span class="fw-bold">Glossar: Goebbels’ Bewerbungen beim <i>Berliner Tageblatt</i></span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1833"><b xmlns="">Karl Kraus: </b><b xmlns="">Die letzten Tage der Menschheit</b> (1919/1922)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1834"><b xmlns="">Karl Kraus: </b><b xmlns="">Die letzten Tage der Menschheit</b> (1919/1922)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1835"><b xmlns="">Karl Kraus: </b><b xmlns="">Die letzten Tage der Menschheit</b> (1919/1922)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1836"><b xmlns=""><i>Die Fackel</i></b> von Mitte November 1916</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1837"><b xmlns=""><i>Die Fackel</i></b> von Mitte November 1916</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1838"><b xmlns="">Georg Herwegh: </b><b xmlns="">Der Freiheit eine Gasse!</b> (1841)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0592"><span class="fw-bold">Glossar: Päan</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0272" style="display:none"><span>Beginn Seite 272</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2075"><b xmlns="">Friedrich von Schiller: </b><b xmlns="">Wilhelm Tell</b> (1804)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0910">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0">
-                        						
-                        <forename type="taken">Jörg</forename>
-                        						
-                        <surname type="taken">Lanz</surname>
-                        						
-                        <nameLink type="taken">von</nameLink>
-                        						
-                        <surname type="taken">Liebenfels</surname>
-                        						
-                        <forename subtype="unused">Josef</forename>
-                        						
-                        <forename type="middle" subtype="unused">Adolf</forename>
-                        						
-                        <surname subtype="unused">Lanz</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1839"><b xmlns=""><i>Ostara</i></b>.  1905–1917</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0771"><span class="fw-bold">Ereignis: <i>Rundfrage über Karl Kraus</i></span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1840"><b xmlns=""><i>Der Brenner</i></b> vom 15. 6. 1913</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb45_(Fackel_381/382/383)" style="display:none"><span>Beginn Seite 45 (Fackel 381/382/383)</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb46_(Fackel_381/382/383)" style="display:none"><span>Beginn Seite 46 (Fackel 381/382/383)</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0273" style="display:none"><span>Beginn Seite 273</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0841"><span class="fw-bold">Ereignis: Erster Weltkrieg</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0596"><span class="fw-bold">Glossar: Sistierung</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0274" style="display:none"><span>Beginn Seite 274</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1841"><b xmlns=""><i>Fränkischer Kurier</i></b> vom 5. 3. 1928</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0911">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie}  https://www.historisches-lexikon-bayerns.de/Lexikon/M%C3%BCnchener_Zeitung {Text: syphilitisch verseuchten Kreise} [Verfasser des Artikels in Fränkischer Kurier, 5.3., S.14 - Samek-Akten 103.5, S. 122] https://www.kraus.wienbibliothek.at/content/privatanklage-und-strafantrag-von-karl-kraus-gegen-ernst-hohenstatter-wegen-beleidigung-->
-                        						
-                        <forename>Ernst</forename>
-                        						
-                        <addName type="honorific">Dr.</addName>
-                        <!-- LU: verifiziert mit https://www.historisches-lexikon-bayerns.de/Lexikon/M%C3%BCnchener_Zeitung -->
-                        						
-                        <surname>Hohenstatter</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0911">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- fehlende Daten bei Gelegenheit nachtragen -->
-                        						
-                        <forename>Oskar</forename>
-                        						
-                        <forename type="middle">Franz</forename>
-                        						
-                        <surname>Schardt</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1842"><b xmlns=""><i>Die Fackel</i></b> von Anfang Februar 1929</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0597"><span class="fw-bold">Ereignis: Erstinstanzlicher Freispruch des Redakteurs des <i>Fränkischen Kuriers</i></span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1843"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0598"><span class="fw-bold">Glossar: Der „Judenboykott“</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2076"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0599"><span class="fw-bold">Glossar: NS-Größe als Kinderschänder</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2077"><b xmlns="">Karl Kraus: </b><b xmlns="">Traumstück</b> (1922)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0912">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie}  https://www.historisches-lexikon-bayerns.de/Lexikon/M%C3%BCnchener_Zeitung {Text: syphilitisch verseuchten Kreise} [Verfasser des Artikels in Fränkischer Kurier, 5.3., S.14 - Samek-Akten 103.5, S. 122] https://www.kraus.wienbibliothek.at/content/privatanklage-und-strafantrag-von-karl-kraus-gegen-ernst-hohenstatter-wegen-beleidigung-->
-                        						
-                        <forename>Ernst</forename>
-                        						
-                        <addName type="honorific">Dr.</addName>
-                        <!-- LU: verifiziert mit https://www.historisches-lexikon-bayerns.de/Lexikon/M%C3%BCnchener_Zeitung -->
-                        						
-                        <surname>Hohenstatter</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0912">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- fehlende Daten bei Gelegenheit nachtragen -->
-                        						
-                        <forename>Oskar</forename>
-                        						
-                        <forename type="middle">Franz</forename>
-                        						
-                        <surname>Schardt</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1844"><b xmlns=""><i>Die Fackel</i></b> von Anfang Februar 1929</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0600"><span class="fw-bold">Glossar: Karl Kraus contra <i>Fränkischer Kurier</i></span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0913">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle:  {Biographie} Klee  GND https://www.historisches-lexikon-bayerns.de/Lexikon/V%C3%B6lkischer_Beobachter {Text: Schriftleiter des Völkischen Beobachters} [vgl. Prozeßakten Samek]-->
-                        						
-                        <forename>Wilhelm</forename>
-                        						
-                        <surname>Weiß</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1845"><b xmlns=""><i>Die Fackel</i></b> von Anfang Februar 1929</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0601"><span class="fw-bold">Glossar: Karl Kraus contra <i>Völkischer Beobachter</i></span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1846"><b xmlns=""><i>VB</i></b> vom 3. 3. 1928</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1847"><b xmlns=""><i>FZ</i></b> vom 13. 4. 1928</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0275" style="display:none"><span>Beginn Seite 275</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2078"><b xmlns="">Gerhart Hauptmann: </b><b xmlns="">Die Weber</b> (EA 1892)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1851"><b xmlns=""><i>Der Volkssturm</i></b> vom 20. 7. 1919</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1852"><b xmlns=""><i>Die Fackel</i></b> von Anfang Februar 1929</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0276" style="display:none"><span>Beginn Seite 276</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1853"><b xmlns=""><i>NFP</i></b> vom 16. 6. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1970"><b xmlns=""><i>Die Fackel</i></b> vom Januar 1921</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1854"><b xmlns=""><i>Die Fackel</i></b> vom Sommer 1914</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0768"><span class="fw-bold">Ereignis: Käseausstellung</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2129"><b xmlns="">Karl Kraus: </b><b xmlns="">Die letzten Tage der Menschheit</b> (1919/1922)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0277" style="display:none"><span>Beginn Seite 277</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1855"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1856"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1857"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1858"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1859"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1860"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1861"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1862"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1863"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1864"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0764"><span class="fw-bold">Ereignis: Beschluss zahlreicher neuer Gesetze im deutschen Reichstag</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1865"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0980">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0">
-                        						
-                        <forename>[Nicht ermittelt]</forename>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0979">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0">
-                        						
-                        <forename>Philipp</forename>
-                        						
-                        <forename type="middle">Heinrich</forename>
-                        						
-                        <surname>Scheidemann</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0819"><span class="fw-bold">Ereignis: Hitlergruß obligatorisch</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1866"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0818"><span class="fw-bold">Ereignis: Verhaftung von Verwandten Philipp Scheidemanns</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1867"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1868"><b xmlns="">Marcus Tullius Cicero: </b><b xmlns="">1. Rede gegen Catilina</b> (63 v. Chr.)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1869"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1870"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1871"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1900"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1872"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1873"><b xmlns=""><i>AZ</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1874"></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1875"><b xmlns=""><i>AZ</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1876"><b xmlns=""><i>AZ</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0278" style="display:none"><span>Beginn Seite 278</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0782"><span class="fw-bold">Glossar: Walhalla</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1877"><b xmlns=""><i>VB</i></b> vom 19. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0914">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0">
-                        						
-                        <forename>Wilfrid</forename>
-                        						
-                        <surname>Bade</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1878"><b xmlns=""><i>Österreichische Wehrzeitung</i></b> vom 21. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0915">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2007 GND "Friedrich Wilhelm" "Chefadjutant"-->
-                        						
-                        <forename>Wilhelm</forename>
-                        						
-                        <surname>Brückner</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1879"><b xmlns=""><i>NFP</i></b> vom 14. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0916">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2007-->
-                        						
-                        <forename>Heinrich</forename>
-                        						
-                        <surname>Himmler</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0602"><span class="fw-bold">Glossar: Verpachtung der Burg Schwalenberg an die SS</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1880"><b xmlns=""><i>NFP</i></b> vom 14. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1881"><b xmlns=""><i>NFP</i></b> vom 14. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1882"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0642"><span class="fw-bold">Glossar: Äonen</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0917">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2007-->
-                        						
-                        <forename>Joachim</forename>
-                        						
-                        <surname>Hossenfelder</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1883"><b xmlns=""><i>PT</i></b> vom 20. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0918">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} [Klee]  {Text: „Pastor gefunden“, „kündet einer“} -->
-                        						
-                        <forename>Ludwig</forename>
-                        						
-                        <surname>Müller</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1884"><b xmlns=""><i>PT</i></b> vom 20. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0919">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
-                        						
-                        <forename>Adolf</forename>
-                        						
-                        <surname>Hitler</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0877"><span class="fw-bold">Ereignis: Kundgebung im Münchner Bürgerbräukeller</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0279" style="display:none"><span>Beginn Seite 279</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0603"><span class="fw-bold">Glossar: Die SA nach der ‚Machtergreifung‘</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1885"><b xmlns=""><i>AZ</i></b> vom 28. 2. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1886"><b xmlns=""><i>Der Angriff</i></b> vom 3. 6. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1887"><b xmlns=""><i>Die Rote Fahne</i></b> vom 24. 3. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1888"><b xmlns=""><i>NFP</i></b> vom 26. 3. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1889"><b xmlns=""><i>Die Fackel</i></b> vom Januar 1921</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1890"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1891"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1892"><b xmlns="">Ludwig der Bayer [zugeschr.]: </b><b xmlns="">[Sprichwort]</b> (1322)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0920">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle:  DB -->
-                        						
-                        <forename>Seyfried</forename>
-                        						
-                        <surname>Schweppermann</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1893"><b xmlns=""><i>Die Stunde</i></b> vom 16. 7. 1924</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0921">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: -->
-                        						
-                        <forename type="taken">Fritz</forename>
-                        						
-                        <forename subtype="unused">Friedrich</forename>
-                        						
-                        <forename type="middle" subtype="unused">Heinrich Karl</forename>
-                        						
-                        <surname>Haarmann</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1894"><b xmlns=""><i>AZ</i></b> vom 15. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1895"><b xmlns="">Marcus Tullius Cicero: </b><b xmlns="">1. Rede gegen Catilina</b> (63 v. Chr.)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1896"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1897"><b xmlns="">Die Bibel</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1898"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div>
-               </div>
-            </wpn-text-view>
-         </div>
-      </main>
-      <footer xmlns="http://www.w3.org/1999/xhtml" class="footer mt-auto py-3 border-top border-light-grey bg-white ">
-         <div class="container mt-1_5">
-            <ul class="list-unstyled d-flex flex-row justify-content-end">
-               <li><a class="project-link link-dark-grey link-hover-primary-hover text-decoration-none" href="impressum.html">Impressum</a></li>
-               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="nutzungsbedingungen.html">Nutzungsbedingungen</a></li>
-               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="projekt.html">Über das Projekt</a></li>
-               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="https://github.com/karl-kraus/dritte-walpurgisnacht-static"><i class="bi bi-github"></i></a></li>
-            </ul>
-         </div>
-      </footer><script xmlns="http://www.w3.org/1999/xhtml" src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script><script xmlns="http://www.w3.org/1999/xhtml" src="js/vendor/bootstrap/bootstrap.bundle.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"></script><script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-header.DLUPgEgS.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/init-micro-editor.C-FTEvHg.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-text-view.DAWrcRUb.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-entity.aFBLJyLo.js"></script></body>
-</html>
+<html id="edition-view"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"><meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta xmlns="http://www.w3.org/1999/xhtml" name="mobile-web-app-capable" content="yes"><meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-capable" content="yes"><meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-title" content=""><meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileColor" content="#ffffff"><meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileImage" content="images/logo.png"><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://use.typekit.net/ckc0oka.css"><link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/svg+xml" href="images/logo.png" sizes="any"><link xmlns="http://www.w3.org/1999/xhtml" rel="profile" href="http://gmpg.org/xfn/11"><title xmlns="http://www.w3.org/1999/xhtml"></title><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/style.80e10db4.css"><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/micro-editor.8e986c38.css"></head><body id="main_grid"><wpn-header xmlns="http://www.w3.org/1999/xhtml" class="fixed-top bg-white pe-0"><nav id="primary_nav" class="navbar border-bottom pt-05"><div class="container-fluid mx-1 edition-header"><a class="navbar-brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 123.47 106.97" width="90"><defs><style>.cls-1{fill:#4a4a49;}.cls-2{fill:#a21a17;}</style></defs><g id="Ebene_2" data-name="Ebene 2"><g id="KARLKRAUS1933-EXPORT"><g id="LOGO-Karl-Kraus-1933_FARBE"><path class="cls-1" d="M21.24,49v9.32h2.18L29.17,49h6.6L28.42,60.93l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V49Z"></path><path class="cls-1" d="M49.09,49a10.73,10.73,0,0,1,5.79,1.32c1.6,1,2.71,2.68,2.71,5.71,0,3.4-1.36,6-4.64,6.82,3.1.58,4,3.61,4.78,10.79H51.66c-.89-6.64-1.39-8.36-3.61-8.36H44.81v8.36H39V49ZM44.81,60.43h2.6c2.75,0,4.18-.61,4.18-3.72a2.88,2.88,0,0,0-.68-2.28,3,3,0,0,0-2.14-.5h-4Z"></path><path class="cls-1" d="M76.19,73.64,74.87,69H67.05l-1.32,4.68H59.84L67.59,49h6.93l7.74,24.64ZM71,54.82,68.3,64.35h5.36Z"></path><path class="cls-1" d="M89.69,49V64.85c0,2.65.22,4.22,3.89,4.22,3.5,0,3.82-1.43,3.82-4.22V49h5.79V64.78c0,2.32-.32,4.5-1.64,6.18s-4.07,3.11-8.18,3.11S87,72.89,85.66,71.32c-1.47-1.75-1.75-4.07-1.75-6.36V49Z"></path><path class="cls-1" d="M120.22,54.89A9.87,9.87,0,0,0,115,53.46c-1.75,0-2.89.47-2.89,2.4,0,3.75,11.32,1.53,11.32,10.46a7,7,0,0,1-3.11,6A11.58,11.58,0,0,1,114,74.07c-2.61,0-6.14-.65-8.14-2.47l2.85-4.25a9.85,9.85,0,0,0,5.86,1.82c1.68,0,3.07-.42,3.07-2.57,0-4.25-11.32-1.82-11.32-10.6a6.4,6.4,0,0,1,2.79-5.5,10.53,10.53,0,0,1,6.42-1.93c2.36,0,5.54.57,7.43,2.14Z"></path><path class="cls-1" d="M21.24,18.79v9.32h2.18l5.75-9.32h6.6L28.42,30.72l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V18.79Z"></path><path class="cls-1" d="M54.16,43.43l-1.32-4.68H45L43.7,43.43H37.8l7.75-24.64h6.93l7.75,24.64ZM49,24.61l-2.68,9.54h5.35Z"></path><path class="cls-1" d="M72.87,18.79a10.63,10.63,0,0,1,5.78,1.33c1.61,1,2.72,2.67,2.72,5.71,0,3.39-1.36,6-4.64,6.82,3.1.57,4,3.6,4.78,10.78H75.44c-.89-6.64-1.39-8.35-3.61-8.35H68.59v8.35H62.8V18.79ZM68.59,30.22h2.6c2.75,0,4.18-.61,4.18-3.71a2.94,2.94,0,0,0-.68-2.29,3.07,3.07,0,0,0-2.14-.5h-4Z"></path><path class="cls-1" d="M91,18.79v19.5h8.46v5.14H85.24V18.79Z"></path><path class="cls-2" d="M111,33.6h-6.1v-10.1h6.1v1.2h-4.7v3.1h4v1.2h-4v3.5h4.7v1.2ZM117.1,33.6h-1.5l-3.7-9.7,1.3-.5,3.2,8.7,3.2-8.7,1.2.5-3.7,9.7ZM95.2,33.6v-10c.5,0,.9,0,1.3-.1.2,0,.4,0,.6,0,.3,0,.6,0,.9,0,.4,0,.7,0,1.1,0,.4,0,.7.1,1,.3,0,0,0,0,.1,0,.4.2.7.4,1.1.6.2.1.4.3.5.5.4.5.7,1,.9,1.6.2.5.3,1,.3,1.6,0,.1,0,.3,0,.4,0,.6,0,1.1-.2,1.7,0,.1,0,.2,0,.3-.2.6-.5,1.2-.9,1.6-.4.5-1,.9-1.6,1.1-.6.3-1.3.4-2.1.4,0,0-.1,0-.2,0-.2,0-.4,0-.6,0-.2,0-.4,0-.5,0,0,0-.2,0-.3,0-.4,0-.8,0-1.2-.1ZM96.5,24.7v7.8c.2,0,.4,0,.6,0,.2,0,.3,0,.5,0,0,0,.1,0,.2,0,.3,0,.6,0,.9,0,.5,0,.9-.2,1.2-.4.5-.3,1-.8,1.2-1.4.2-.4.3-.8.3-1.2,0-.3,0-.6,0-.9,0-.7-.1-1.3-.4-1.9-.3-.6-.7-1.1-1.2-1.5-.3-.2-.7-.4-1-.4-.3,0-.6-.1-.9-.1,0,0-.1,0-.2,0-.3,0-.5,0-.8,0-.2,0-.4,0-.6,0Z" vector-effect="non-scaling-stroke"></path><path class="cls-2" d="M19.28,86.21v19.44H17.72v-18H15.37V86.21Z"></path><path class="cls-2" d="M24.52,92.21A6.24,6.24,0,0,1,31,85.89a6.2,6.2,0,0,1,6.39,6.45c0,4.48-4.67,10.69-8.17,13.31H26.9a27.53,27.53,0,0,0,7.56-8.5,5.2,5.2,0,0,1-3.59,1.35A6.2,6.2,0,0,1,24.52,92.21Zm1.57,0A4.86,4.86,0,1,0,31,87.29,4.73,4.73,0,0,0,26.09,92.21Z"></path><path class="cls-2" d="M44.53,87.32a9.53,9.53,0,0,0-4.24,1.11V86.86a10.53,10.53,0,0,1,4.32-1c3.48,0,5.78,2,5.78,5a5,5,0,0,1-3.76,4.67,5.21,5.21,0,0,1,4.08,5.13c0,3-2.46,5.23-6.1,5.23a9.34,9.34,0,0,1-4.7-1.1V103.3a8.72,8.72,0,0,0,4.65,1.24c2.72,0,4.53-1.67,4.53-3.86,0-2.75-2.11-4.37-5.64-4.37H43V95h.73c2.86,0,5.08-1.62,5.08-4S47,87.32,44.53,87.32Z"></path><path class="cls-2" d="M58.43,87.32a9.53,9.53,0,0,0-4.23,1.11V86.86a10.48,10.48,0,0,1,4.31-1c3.49,0,5.78,2,5.78,5a5,5,0,0,1-3.75,4.67,5.21,5.21,0,0,1,4.07,5.13c0,3-2.45,5.23-6.1,5.23a9.3,9.3,0,0,1-4.69-1.1V103.3a8.68,8.68,0,0,0,4.64,1.24c2.73,0,4.53-1.67,4.53-3.86,0-2.75-2.1-4.37-5.64-4.37h-.48V95h.73c2.86,0,5.07-1.62,5.07-4S60.94,87.32,58.43,87.32Z"></path><path class="cls-2" d="M4,18.79H0v-14A4.84,4.84,0,0,1,4.83,0H15.45V4H4.83A.83.83,0,0,0,4,4.83Z"></path></g></g></g></svg></a><span class="d-flex align-items-center"><a class="nav-link project-link pe-4 link-dark-grey link-hover-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a><button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12"><defs><style>.a{fill:none}</style></defs><g transform="translate(0 0.5)"><line class="a" x2="20"></line><line class="a" x2="20" transform="translate(0 5)"></line><line class="a" x2="20" transform="translate(0 10)"></line></g></svg></button></span><div class="navbar position-fixed start-0 bg-black-grey w-100 opacity-97" id="navbarSupportedContent"><div class="container d-block"><div class="row"><div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2"><li class="nav-item"><a xmlns="" class="nav-link" href="projekt.html">Über das Projekt<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="nutzungsbedingungen.html">Nutzungsbedingungen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="impressum.html">Impressum<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li></ul></div><div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Dritte Walpurgisnacht</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2"><li class="nav-item"><a xmlns="" class="nav-link" href="notizen.html">Notizen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="annotierte_lesefassung.html">Annotierte Lesefassung<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="register.html">Register<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li></ul></div><div class="col-md-4"><span class="d-block navbar-title text-dark-grey border-bottom border-light-grey pb-1">Kommentar</span></div></div></div></div></div></nav><nav aria-label="breadcrumb" class="my-05"><div class="container-fluid mx-1 edition-header"><ol class="breadcrumb"><li class="breadcrumb-item active" aria-current="page">Karl Kraus 1933: Dritte Walpurgisnacht</li></ol></div></nav></wpn-header><main class="flex-shrink-0 mt-18"><div class="container-fluid px-0"><wpn-text-view annotation-selectors=".entity" id="sub_grid"><div class="d-flex justify-content-center mt-2"><div class="p-0 d-flex flex-column align-items-center position-fixed"><div xmlns="http://www.w3.org/1999/xhtml" class="dropdown ff-ubuntu"><a href="absatz_63.html" title="zu seite absatz_63.html gehen"><svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg></a><button class="btn btn-secondary dropdown-toggle fs-9_38 border-0 px-05" type="button" data-bs-toggle="dropdown" aria-expanded="false">Absatz 64</button><ul class="dropdown-menu z-3 rounded-0"><li><a class="dropdown-item fs-9_38 py-0" href="motti.html">[Motti]</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_1.html">Absatz 1</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_2.html">Absatz 2</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_3.html">Absatz 3</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_4.html">Absatz 4</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_5.html">Absatz 5</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_6.html">Absatz 6</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_7.html">Absatz 7</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_8.html">Absatz 8</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_9.html">Absatz 9</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_10.html">Absatz 10</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_11.html">Absatz 11</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_12.html">Absatz 12</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_13.html">Absatz 13</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_14.html">Absatz 14</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_15.html">Absatz 15</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_16.html">Absatz 16</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_17.html">Absatz 17</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_18.html">Absatz 18</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_19.html">Absatz 19</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_20.html">Absatz 20</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_21.html">Absatz 21</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_22.html">Absatz 22</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_23.html">Absatz 23</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_24.html">Absatz 24</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_25.html">Absatz 25</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_26.html">Absatz 26</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_27.html">Absatz 27</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_28.html">Absatz 28</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_29.html">Absatz 29</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_30.html">Absatz 30</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_31.html">Absatz 31</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_32.html">Absatz 32</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_33.html">Absatz 33</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_34.html">Absatz 34</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_35.html">Absatz 35</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_36.html">Absatz 36</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_37.html">Absatz 37</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_38.html">Absatz 38</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_39.html">Absatz 39</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_40.html">Absatz 40</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_41.html">Absatz 41</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_42.html">Absatz 42</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_43.html">Absatz 43</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_44.html">Absatz 44</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_45.html">Absatz 45</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_46.html">Absatz 46</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_47.html">Absatz 47</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_48.html">Absatz 48</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_49.html">Absatz 49</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_50.html">Absatz 50</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_51.html">Absatz 51</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_52.html">Absatz 52</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_53.html">Absatz 53</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_54.html">Absatz 54</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_55.html">Absatz 55</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_56.html">Absatz 56</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_57.html">Absatz 57</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_58.html">Absatz 58</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_59.html">Absatz 59</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_60.html">Absatz 60</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_61.html">Absatz 61</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_62.html">Absatz 62</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_63.html">Absatz 63</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_64.html">Absatz 64</a></li></ul><a href=".html" title="zu seite .html gehen"><svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg></a></div><div id="editor-widget"><div xmlns="http://www.w3.org/1999/xhtml"><div id="aot-navBarNavDropdown" class="navBarNavDropdown dropstart d-md-none"><a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button"><i class="bi bi-gear" title="Menü zur Anpassung der Anzeige"></i></a><ul class="dropdown-menu d-block border-0 z-2"><li class="dropdown-item"><annotation-slider opt="prs" class="text-wpn-person fs-7"></annotation-slider></li><li class="dropdown-item"><annotation-slider opt="quts" class="text-wpn-quote fs-7"></annotation-slider></li><li class="dropdown-item"><annotation-slider opt="pbs" class="text-black-grey fs-7"></annotation-slider></li><li class="dropdown-item"><annotation-slider opt="cmts" class="text-comment fs-7"></annotation-slider></li></ul></div><div class="d-none d-md-block mt-2"><fieldset class="mb-2"><div class="d-flex gap-1_5 justify-content-center mb-05"><wpn-text-zoom-button zoom-direction="in"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" width="24" height="24"><g><path fill="#999" d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g></svg></wpn-text-zoom-button><wpn-text-zoom-button zoom-direction="out"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" width="24" height="24"><g><path fill="#999" d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g></svg></wpn-text-zoom-button></div><legend class="text-dark-grey fs-7 text-center">Textgröße</legend></fieldset><ul class="border-0 z-2 list-unstyled"><li class="mb-1"><annotation-slider opt="prs" class="text-wpn-person fs-7 mx-auto"></annotation-slider></li><li class="mb-1"><annotation-slider opt="quts" class="text-wpn-quote fs-7 mx-auto"></annotation-slider></li><li class="mb-1"><annotation-slider opt="pbs" class="text-black-grey fs-7 mx-auto"></annotation-slider></li><li class="mb-1"><annotation-slider opt="cmts" class="text-wpn-comment fs-7 mx-auto"></annotation-slider></li></ul></div></div></div></div></div><div id="textcolumn" class="mx-auto ff-century-old-style"><div id="textcontent"><div id="p__1303" class="yes-index typescriptRunningText1">
+<span class="pagebreaks entity" id="pb0269" style="display:none;">||</span>
+
+<span class="fackelrefs entity " id="F890seg0084">
+<span class="hidden">Wenn</span> ich mich nun frage, wie ich das <span class="hidden">so</span> begreifliche,
+von <span class="hidden">mir noch</span> nachgefühlte Widerstreben überwinden konnte,
+in das weiträumige Abenteuer <span class="hidden">einer</span> Walpurgisnacht einzutreten, aus der, <span class="hidden">nach</span> Bewältigung der andern Parole,
+<wpn-entity class="quotes entity " id="DWquote1825">Deutschland erwachen wird</wpn-entity>⁠ ⁠;<span class="comments entity" id="DWcomment0584"></span> zu deren Rätseln <wpn-entity class="quotes entity " id="DWquote1975">sein größtes
+Gedicht</wpn-entity> vielfachen Aufschluß gewährte⁠ ⁠; deren <wpn-entity class="quotes entity " id="DWquote1826">Fülle der
+Gesichte</wpn-entity> <span class="hidden">mir seine</span> besten Seher herbeirief und <span class="hidden"><wpn-entity class="persons entity " id="DWrsPers0906">Diebold</wpn-entity>
+und <wpn-entity class="persons entity " id="DWrsPers0907">Benn</wpn-entity></span> dazu⁠ ⁠; deren Grausen noch <wpn-entity class="persons entity " id="DWrsPers0908">Shakespeares</wpn-entity> blutigste
+Vision <span class="hidden">einschließt⁠ ⁠:
+
+<wpn-entity class="quotes entity " id="DWquote1827"><span class="d-block lg typescriptLongQuoteVerseLeading">
+<span class="d-block l "><span class="inline-text">Die Gegenwart verführt ins Übertriebne,</span></span>
+<span class="d-block l "><span class="inline-text">Ich halte mich vor allem ans Geschriebne</span></span></span></wpn-entity></span>
+
+— <span class="hidden">wenn</span> ich mich frage, wie ich <span class="hidden">eine Materie</span> durchstehen
+<span class="hidden">konnte,</span> die <span class="hidden">in Anlaß</span> und <span class="hidden">Hindernis</span> das Weltkriegsgetümmel<span class="comments entity" id="DWcomment0585"></span>
+<span class="hidden">aufwiegt⁠ ⁠; von Lesern</span> ermuntert und <span class="hidden">aufgehalten</span>,<span class="comments entity" id="DWcomment0586"></span> die mit
+guter Meinung und schlechter Sicht im Gebirgssturz
+<span class="hidden"><span>»</span>Stellungnahme<span>«</span></span> <span class="hidden">verlangen <span>(und</span> nicht einmal bedenkend,
+daß die Antwort auf die Frage, warum sie nicht erscheint,
+sie verzögert)</span> — <span class="hidden">wenn</span> ich mich solches frage, so ist es
+zugleich die Frage nach der moralischen Berechtigung, über
+ein Elementarereignis abzusprechen, mit dessen Walten sich
+der Presse meine Tendenz gegen sie verbindet. Die moralische
+Berechtigung würde sich nicht bloß aus dem Umstand ergeben,
+daß mein Wunsch, diese Verbindung abzulehnen, brennender
+ist als der, den mir der Sieg des Nationalsozialismus erfüllt hat. <span class="hidden">Die</span> Vorstellung, daß ich <span class="hidden">seinen</span> Sieg als den
+eigenen empfinden könnte, ist so erbärmlich wie das geistige
+Wesen, dem sie entstammt und dessen Perhorreszierung<span class="comments entity" id="DWcomment0587"></span> mich
+nicht hindert, mit ihm den vermeintlichen Helfer <span class="hidden">zu verabscheuen.</span> Nur daß ich es mit größerer Verantwortung <span class="hidden">besorge</span>
+und vermöge einer Erkenntnis, <span class="hidden">die mit besserm Recht</span> den
+Zusammenhang <span class="hidden">zwischen ihm und jenem Wesen bejaht.</span> Denn der
+Nationalsozialismus hat die Presse nicht vernichtet, sondern
+die Presse hat den Nationalsozialismus erschaffen. Scheinbar
+nur als Reaktion, in <span class="hidden">Wahrheit auch</span> als <span class="hidden">Fortsetzung.</span> Jenseits 
+
+<span class="pagebreaks entity" id="pb0270" style="display:none;">||</span>
+
+aller Frage, mit welchem Humbug sie die Masse nähren — sie
+sind Journalisten. <span class="hidden">Sie sind Leitartikler,</span> die mit Blut
+<span class="hidden">schreiben. Ja, Feuilletonisten der Tat. Sie haben</span> die Höhle
+bezogen, als die das gedruckte <span class="hidden">Wort der Altvordern</span> die Phantasie der Menschheit hinterlassen <span class="hidden">hat,</span> und daß sie des Zierats
+entbehren oder ihn nicht nachstümpern können, <span class="hidden">ist</span> ihr kultureller Vorsprung. Die Tat hat sich einmal der Phrase entwunden und daß diese ihr weiter aufgestülpt bleibt, hat nichts
+mehr zu <span class="hidden">bedeuten.</span> Nimmt man aber die <span class="hidden"><span>»</span>Gleichschaltung<span>«</span> der
+Presse</span> als politischen Eingriff,<span class="comments entity" id="DWcomment0817"></span> so bedeutet sie nur <span class="hidden">ihre</span>
+eigene letzte <span class="hidden">Möglichkeit,</span> die letzte Stufe, über die sie
+vermöge ihrer Konstitution nicht gelangen kann, welche von
+Natur die Prostitution ist. Die angebliche Entehrung der
+deutschen Presse mag das Problem einer Journalistik sein,
+deren Meinung auf freiem Fuß lebt, solange politische Gewalt
+nicht eingreift und <span class="hidden"><wpn-entity class="quotes entity " id="DWquote1828">annoncierende Schönheitspflegerinnen</wpn-entity>
+keinen</span> Terror üben. Wenn <span class="hidden">Kommissare</span> in Redaktionen eindringen
+und <span>»</span>den Revolver auf den Schreibtisch legen<span>«</span>, so ist dies
+kriminalistisch insofern erheblich, als <span class="hidden">in manchen Fällen
+dort jetzt zwei</span> liegen. <span class="hidden">Aber</span> nur auf dem journalistischen
+Flachland kann die Anschauung gedeihen, daß durch <span class="hidden">dessen</span>
+Verwüstung die <span>»</span>Kultur<span>«</span> einen Verlust erleidet. Das <span class="hidden">existenzielle</span> Moment, in jedem Einzelfall beklagenswert, ist nach der
+Gemeinnützigkeit des verlornen Berufs zu <span class="hidden">bewerten,</span> und <span class="hidden">abgesehen davon, daß</span> schon die Tyrannei der Not Erwerbslose gemacht hat, dürfte das Schicksal <span class="hidden">verjagter</span> Ärzte im Vergleich
+zu dem <span class="hidden">der postenlosen</span> Redakteure auch <span class="hidden">außerkollegiale</span> Teilnahme ansprechen. Aber noch journalistischer ist die Idee,
+<wpn-entity class="quotes entity " id="DWquote1831">daß die Okkupation des <span class="hidden">Druckbilds</span> durch den Sieger meiner
+Abneigung gegen den Besiegten zusagen könnte</wpn-entity>⁠ ⁠; daß <wpn-entity class="quotes entity " id="DWquote1832">dieses
+durch Greuel errungene Scheuel</wpn-entity> mir <span class="hidden">eine positive Empfindung
+weckt</span> und mir ein <span class="hidden">Wunschtraum erfüllt wird, wenn</span> der Geist
+der Schöpfung nun nicht mehr von der <span class="hidden">Intelligenz</span> bedrängt
+wird, sondern von der <span class="hidden">Dummheit,</span> die, <span class="hidden">unvermögend wie jene</span>
+ihr Prinzip rein zu erhalten, ihr nachkommen wird. Als ob die
+
+
+<span class="pagebreaks entity" id="pb0271" style="display:none;">||</span>
+
+Einsicht in die Verderblichkeit dessen, was täglich erscheint
+und <span class="hidden">was</span> in <span class="hidden">jeder Art und</span> Richtung der Sonne <span class="hidden">entgegenstrebt,</span>
+nicht im tiefsten Grund erst ihre Bestätigung erfahren
+hätte — bis <span class="hidden">dahin,</span> wo <span class="hidden">ihr</span> die scheinbaren Gegensätze <span class="hidden">dieser
+Meinungswelt ineinanderfließen.</span> Als ob es der Welt <span class="hidden">positiv</span>
+etwas zu bedeuten hätte, wie die politischen Faktoren sie
+anschauen, und ihre Meinungsverschiedenheiten <span class="hidden">aus einem
+geistigen Grunde wesentlich wären</span> und nicht bloß darum,
+weil zwischen ihnen eine Menschheit leidet. <span class="hidden">Wäre <wpn-entity class="persons entity " id="DWrsPers0909">Herr
+Goebbels</wpn-entity></span> rechtzeitig beim Berliner Tageblatt <span class="hidden">angekommen,
+dem</span> er nicht nur <span class="hidden">kosmisch</span> zugestrebt <span class="hidden">hat,</span><span class="comments entity" id="DWcomment0590"></span> so wäre <span class="hidden">ihr</span> mehr
+als dessen Gleichschaltung erspart geblieben. In meinem
+Werk ist sie zwischen den Gegenwelten vollzogen, weshalb ich,
+beiden verhaßt, von beiden reklamiert werden kann, mir zu
+völlig gleichwertigem <span class="hidden">Verdruß.</span> Aus den <span class="hidden"><span>»</span></span><wpn-entity class="quotes entity " id="DWquote1833"><span class="hidden">Letzten</span> Tagen der
+<span class="hidden">Menschheit</span></wpn-entity><span class="hidden"><span>«</span></span> holen sich die Nachkommen der <wpn-entity class="quotes entity " id="DWquote1834">Wahnschaffe</wpn-entity> und
+<span class="hidden"><wpn-entity class="quotes entity " id="DWquote1835">Schwarz-Gelber</wpn-entity></span> was sie für <span class="hidden">ihre Zwecke</span> brauchen, <span class="hidden">die</span> in
+keinem Fall <span class="hidden">die meinen sind. Wahnschaffes sind augenblicklich und unmittelbar bedrohlicher, aber</span> wenn ich vor ihnen
+und <span class="hidden">ihren</span> Scheiterhaufen geborgen wäre, weil <span class="hidden">die abträgliche
+Meinung</span> wegen deutscher Sprache unverständlich <span class="hidden">bliebe,</span> so
+besteht doch die Möglichkeit, daß Schwarz-Gelbers für Aufklärung <span class="hidden">sorgen würden. (Und ich hätte doch noch so viel
+gegen beide zu tun.)</span> <span>»</span><wpn-entity class="quotes entity " id="DWquote1836">In sprachzerfallnen Zeiten</wpn-entity><span>«</span> (die der
+Tat zuneigen) <span>»</span><wpn-entity class="quotes entity " id="DWquote1837">im sichern Satzbau wohnen</wpn-entity><span>«</span> — was nützt es,
+wenn jene <span class="hidden">hineingeschlieft</span> <span class="hidden">sind⁠ ⁠?</span> Meine Stellung zu den
+Parteien ist insofern schwankend, als mir Marksteine nicht
+zur Orientierung dienen und ich <wpn-entity class="quotes entity " id="DWquote1838">der Freiheit nicht über die
+Gasse traue</wpn-entity>. Daraus erklärt <span class="hidden">sich auch,</span> daß es mir gelungen
+ist, <span class="hidden">sie in einem</span> Mißtrauen gegen mich zu einigen, <span class="hidden">mit dem
+gelegentliche Päane<span class="comments entity" id="DWcomment0592"></span></span> so stark kontrastieren wie zueinander.
+Vergleicht man <span class="hidden">diese,</span> so möchte man glauben, daß ich mit
+den Vertretern sämtlicher politischen Überzeugungen die
+Schweine gehütet habe, während ich konsequent doch nur mir
+selbst <span class="hidden">diesen</span> Schutz vor <span class="hidden">Hirten und Herden</span> angedeihen ließ.
+
+
+<span class="pagebreaks entity" id="pb0272" style="display:none;">||</span>
+
+<span class="hidden">Man würde irren, wenn man annähme,</span> daß der Nationalsozialismus, den mit der <span>»</span>Journaille<span>«</span> versorgt zu haben sie <span class="hidden">beklagt,</span> seine Verankerung in meinem <span class="hidden">Grunde</span> verschmäht <span class="hidden">hätte.</span></span>
+<span class="fackelrefs entity " id="F890seg0085"><span class="hidden">Ja, er hat ihn geradezu als seinen Boden reklamiert, in
+der Annahme,</span> daß <span class="hidden">meine</span> Verteidigung der Menschheit, <span class="hidden">die</span>
+Parteinahme für Natur und Geist gegen die Zerstörermächte
+<span class="hidden">unbeherrschter Technik</span> und <span class="hidden">mißratener Intelligenz, einem</span>
+Ariogermanentum, dessen <span class="hidden">Lebensinteressen mir unbekannt
+sind, nicht diene,</span> sondern ausschließlich <span class="hidden">gilt. Meine
+moralische Kompetenz seinen</span> Ausbruch <span class="hidden">abzulesen,</span> <span class="hidden">erscheint
+demnach</span> von dem philosophischen Gründer der Bewegung <span class="hidden">anerkannt, jenem <wpn-entity class="persons entity " id="DWrsPers0910"><span>Dr. J. Lanz v. Liebenfels</span></wpn-entity>, der in einer Zeitschrift <wpn-entity class="quotes entity " id="DWquote1839"><span>‚</span>Ostara<span>‘</span></wpn-entity></span> die Züchtung des Rassemenschen angebahnt
+<span class="hidden">hat. An</span> einer Rundfrage <span class="hidden">des <span>‚</span>Brenner<span>‘</span>, anläßlich einer geringfügigen Schmähung meines Wirkens, die seither weit
+übertroffen wurde,<span class="comments entity" id="DWcomment0771"></span> war er</span> mit einer Antwort <span class="hidden">beteiligt,</span>
+deren <span class="hidden">Reproduktion nach genau</span> zwanzig Jahren nicht so
+<span class="hidden">meine</span> Eitelkeit als <span class="hidden">meine</span> Vorliebe für Kontraste befriedigen soll⁠ ⁠:</span>
+
+<wpn-entity>
+<span class="fackelrefs entity " id="F890seg0086"><wpn-entity class="quotes entity " id="DWquote1840"><span class="d-block FackelQuote_columnRight"><span class="inline-text"><span class="hidden">Karl Kraus’</span> Bedeutung ist eine
+allgemeine. Wer in ihm nur den
+phänomenalen Sprachkünstler, den
+ätzend scharfen Satiriker und den
+geistvollen Kritiker sieht, wird
+diesem Genius nicht gerecht. All
+diese Vorzüge und Eigenschaften sind
+bei <span class="hidden">Kraus</span> nur Waffen und Werkzeuge
+seines <span class="hidden">Wesens.</span> Sein Wesen aber ist
+sein großes, tief menschlich fühlendes, jedes fremde Unrecht als einen
+persönlichen, körperlichen Schmerz
+empfindendes Herz und seine unbestechliche Rechtlichkeit. In <span class="hidden">Kraus</span>
+vereinigt sich ein genialer Intellekt
+mit einem warmfühlenden Herzen.
+<span class="pagebreaks entity" id="pb45_(Fackel_381/382/383)" style="display:none;">||</span>
+Er ist der Mann und Märtyrer der
+publizistischen Überzeugungstreue.
+Diesem <span class="hidden">Manne</span> verdanken wir es —
+ich kann mich hierin als völlig <span class="hidden">objektiver</span> Beurteiler ausgeben, weil mein
+Wirkungskreis ein wissenschaftlich-religiöser ist und ich in jeder Hinsicht
+unabhängig bin —⁠ ⁠: daß die bisher nur
+auf dem Papier stehende Preßfreiheit,
+die im Grunde nur eine Banditenfreiheit für literarische Freibeuter,
+finanzielle und politische Volksbetrüger war, zur Tat geworden ist.
+Er hat dem die ganze Welt beherrschenden <span class="hidden">literarischen Journal-Drachen</span> die Zähne <span class="hidden">ausgeschlagen .&nbsp;.&nbsp;.&nbsp;.</span>
+Was Kaisern, Königen, Fürsten, Parlamenten und Regierungen mit ihren
+ungeheuren Machtmitteln nicht gelungen ist, das hat dieser Mann allein,
+ohne jegliche Hilfe lediglich durch die
+Mittel seiner genialen Begabung vollbracht. Er hat die jüngste und stärkste
+Großmacht, den Tyrannen unseres
+modernen Tschandalenzeitalters, die
+Preßkanaille, gestürzt⁠ ⁠! Diesem
+Manne kommt nicht lokal wienerische, nicht österreichische, nicht
+deutsche Bedeutung allein zu, <span class="hidden">dieser
+Mann hat den Ariogermanen wieder
+das Recht der öffentlichen Aussprache zurückgegeben,</span> er hat es <span class="hidden">uns
+ermöglicht,</span> daß wir jetzt, wo wir das
+<span class="hidden">überwältigende Schauspiel</span> erleben,
+daß sich über dem seiner Lösung sich
+nähernden Nationalitäten-Problem
+riesengroß das <span class="hidden">Rassen-Problem</span> erhebt und Europa und seiner Kultur
+der Untergang in der gelben und
+schwarzen Flut droht, unsere
+mahnende und belehrende Stimme
+erheben können. Er hat <span class="hidden">uns die
+Sprache wieder gegeben</span> und die
+bellende »Journaille« mundtot gemacht. Wer daher <span class="hidden">Karl Kraus</span> schmäht,
+der degradiert sich selbst, der tritt von
+selbst in die Reihen des allerdings
+noch immer nur zu zahlreichen
+<span class="pagebreaks entity" id="pb46_(Fackel_381/382/383)" style="display:none;">||</span>
+Heerhaufens wissenschaftlicher und
+literarischer Korruptionisten, Scharlatane und Marodeure.</span></span></wpn-entity></span></wpn-entity>
+
+<span class="pagebreaks entity" id="pb44_der_Fackel_381/382/383" style="display:none;">||</span>
+
+<span class="pagebreaks entity" id="pb0273" style="display:none;">||</span>
+
+<span class="fackelrefs entity " id="F890seg0087"><span class="hidden">Diese Apologie enthält nebst den</span> grundlegenden Irrtümern
+weltanschaulicher <span class="hidden">Auffassung</span> vor allem die <span class="hidden">Fehlansicht,</span> daß
+es <span class="hidden">mir</span> schon <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" class="date">1913</span> gelungen sei, die Presse unschädlich zu
+machen, <span class="hidden">die</span> gleich darauf den Weltkrieg<span class="comments entity" id="DWcomment0841"></span> bewirkte und förderte, aus ihm als <span class="hidden">der einzige</span> Sieger hervorging und es mit unaufhaltsamem Wachstum ihrer <span class="hidden">Geistesmacht bis zur Realisierung</span>
+des Nationalsozialismus <span><span class="hidden">brachte.</span> Man</span> muß natürlich immer verstehen, daß für diese Wertung des eigentlichen journalistischen
+Wirkens der lächerliche Außenbegriff einer Preßfreiheit mit
+ihrer Genehmigung oder Einschränkung durch <span class="hidden">den</span> ohnmächtigen
+Staat überhaupt nicht in Betracht kommt⁠ ⁠; selbst <span class="hidden">deren volle
+Sistierung<span class="comments entity" id="DWcomment0596"></span></span> für den politischen Zweck vermag nichts gegen die
+Verderblichkeit des in die Maschine <span class="hidden">diktierten</span> wie immer gesinnten <span class="hidden">Worts,</span> und mögen hundert Staatsanwälte die Presse <span class="hidden">bedrücken,</span> so hat sie doch Freiheit, solange sie lebt und kein
+Kulturanwalt <span class="hidden">sie</span> daran verhindert. Die Ohnmacht einer <span class="hidden">geistigen Vertretung dieser Ansicht</span> war <span class="hidden">schon</span> <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" class="date">1913</span> dargetan. <span class="hidden">Wichtig</span>
+aber erscheint heute die <span class="hidden">Feststellung,</span> daß <span class="hidden">ich den Ariogermanen</span> wieder das Recht der öffentlichen Aussprache zurückgegeben <span class="hidden">habe, was ich doch,</span> wenn <span class="hidden">es</span> der Fall wäre, als große
+Unüberlegtheit erkennen müßte. Wenn jedoch von so maßgebender
+Seite behauptet wird, daß <span class="hidden">ich es getan habe,</span> so darf <span class="hidden">solche
+Wohltat</span> als <span class="hidden">Dank und Revanche</span> auch für <span class="hidden">mich</span> das Recht der
+öffentlichen Aussprache anfordern, <span class="hidden">und ohne mir erst die
+weitere Anerkennung zu verdienen, ich</span> sei ein Märtyrer der
+publizistischen Überzeugungstreue. Denn wiewohl diese schmeichelhafte Ansicht vor und nach <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" class="date">1913</span> eine Übertreibung war,
+indem <span class="hidden">sie</span> ja nur eine gewisse <span class="hidden">Standhaftigkeit gegenüber Preßtücken betraf,</span> so <span class="hidden">bietet</span> doch jetzt, wo wir nach sieghafter
+Erhebung des <span class="hidden">Rassenproblems</span> ein <span class="hidden">wahrhaft überwältigendes</span>
+Schauspiel erleben, <span class="hidden">eine</span> öffentliche Aussprache über das
+Ariogermanentum erst die rechte Gelegenheit zur <span class="hidden">Bewährung,
+besonders</span> wenn an <span class="hidden">mir auch heute noch ein menschlich fühlendes, bereits</span> jedes fremde Unrecht als einen <span class="hidden">persönlichen,</span>
+körperlichen Schmerz <span class="hidden">empfindendes Herz erkennbar wäre. Da ich</span>
+
+
+<span class="pagebreaks entity" id="pb0274" style="display:none;">||</span>
+
+aber keinen Ruhm in Anspruch <span class="hidden">nehme,</span> ohne <span class="hidden">die</span> Kontrastwirkung
+zu genießen, so <span class="hidden">muß, schon</span> aus Gründen der unbestechlichen
+<span class="hidden">Rechtlichkeit,</span> verzeichnet werden, daß die Aussprache, die
+<span class="hidden">ich dem Ariogermanentum ermöglicht habe,</span> auch die folgende
+<span class="hidden">Version</span> zuließ⁠ ⁠:
+<wpn-entity class="quotes entity " id="DWquote1841">
+<span class="d-block typescriptLongQuoteLeading"><span class="inline-text">
+Kraus gehört zu einem <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar">teilweise</span> syphilitisch verseuchten
+Kreise von jüdischen Literaten, in dem die Schändung von
+Frauenspersonen an der Tagesordnung ist.</span></span></wpn-entity>
+
+Der <span class="hidden">Wortlaut</span> ist leider nicht mehr mit voller Genauigkeit
+<span class="hidden">feststellbar,</span> aber <span class="hidden">die gerechte</span> Einschränkung <span class="hidden">betreffs</span> der
+Krankheit, die von normwidrigem Umgang nicht <span class="hidden">abhält,</span> <span class="hidden">war</span> gemacht <span class="hidden">worden,</span> jedenfalls hatte der <wpn-entity class="persons entity " id="DWrsPers0911"><span class="hidden">Theaterkritiker</span></wpn-entity> in Wahrnehmung berechtigter Interessen gehandelt, <wpn-entity class="quotes entity " id="DWquote1842">für die <span class="hidden">er</span> auch
+von der Nürnberger Justiz freigesprochen <span class="hidden">wurde</span></wpn-entity><span class="hidden">.<span class="comments entity" id="DWcomment0597"></span> <wpn-entity class="quotes entity " id="DWquote1843">Er soll mit
+dem Urheber eines radikalern Judenboykotts<span class="comments entity" id="DWcomment0598"></span> identisch sein</wpn-entity>,
+der dann allerdings auch eingeschränkt wurde.</span> Wie <span class="hidden">man</span> nicht
+genug vorsichtig <span class="hidden">mit solchen</span> Hinweisen auf das Privatleben
+sein kann, <span class="hidden">beweist</span> das Vorgehen kommunistischer <span class="hidden">Verleumder,</span>
+<wpn-entity class="quotes entity " id="DWquote2076">die <span class="hidden">im Vorstrafenverzeichnis</span> der Biographie nationaler Vorkämpfer <span class="hidden">gerade diesem Mann,</span> auf den bloßen <span class="hidden">Anschein</span> seiner
+Lehrtätigkeit <span class="hidden">hin,</span> Kinderschändung nachsagten</wpn-entity>.<span class="comments entity" id="DWcomment0599"></span> Der <span class="hidden">publizistische Irrtum, den er selbst beging, ist auf ein Mißverständnis meines <span>»</span><wpn-entity class="quotes entity " id="DWquote2077">Traumstücks</wpn-entity><span>«</span> zurückzuführen, das gerade die Verschiedenartigkeit beweist, mit der nationalsozialistische
+Köpfe auf mein Schaffen reagieren. Dem <wpn-entity class="persons entity " id="DWrsPers0912">Nürnberger Kritiker</wpn-entity>,
+<wpn-entity class="quotes entity " id="DWquote1844">der in zweiter Instanz zu einer kleinen Geldstrafe verurteilt
+wurde</wpn-entity>,<span class="comments entity" id="DWcomment0600"></span> war wie dem <wpn-entity class="persons entity " id="DWrsPers0913">Schriftleiter des <span>‚</span>Völkischen Beobachter<span>‘</span></wpn-entity>,
+<wpn-entity class="quotes entity " id="DWquote1845">der gleich eine größere bekam</wpn-entity>,<span class="comments entity" id="DWcomment0601"></span> nationale Erregung zugebilligt
+worden, da sie fanden, </span><wpn-entity class="quotes entity " id="DWquote1846"><span class="hidden">jenes Werk stelle die frechste</span> Verhöhnung aller für ihr Vaterland gefallenen <span class="hidden">Frontkämpfer dar,</span>
+die <span class="hidden">jemals</span> auf offener Bühne vor sich <span class="hidden">gegangen</span> sei</wpn-entity>. Damals
+konnte sich <span class="hidden">noch</span> in <span class="hidden">Deutschland</span> eine Stimme erheben, <wpn-entity class="quotes entity " id="DWquote1847"><span class="hidden">die da</span>
+meinte, nichts mache die geistige Situation <span class="hidden">deutlicher als
+
+
+<span class="pagebreaks entity" id="pb0275" style="display:none;">||</span>
+
+dieser Fall eines Mißverständnisses, indem</span> <span>»</span>ein echter und
+<span class="hidden">schöner ethischer</span> Fanatismus dem Gesicht vom toten, vergessenen und weggeworfenen Soldaten Wahrheit und Kraft <span class="hidden">gibt</span><span class="hidden"><span>«</span></span> und
+am nächsten Tag die Vereinigten Vaterländischen Verbände
+Bayerns gegen <span class="hidden">die <span>»</span></span><span class="hidden">gemeinste</span> Verhöhnung <span class="hidden">des</span> toten Frontsoldaten<span>«</span> <span class="hidden">protestieren⁠ ⁠; es sei,</span> wie wenn Proletarier gegen die
+<span>»</span><wpn-entity class="quotes entity " id="DWquote2078">Weber</wpn-entity><span>«</span> protestierten, <span>»</span>weil sie sich <span class="hidden">in der Darstellung
+ihres Schicksals und</span> ihrer Leiden verhöhnt fühlten<span>«</span>. <span class="hidden">Statt
+der Schieber, hatten sich die Geschobenen gemeldet.</span></wpn-entity> Es <span class="hidden">war</span>
+umso <span class="hidden">interessanter,</span> als dieselben Wortführer dort, wo ihnen
+das Rassenmerkmal gelegen <span class="hidden">kam,</span> die analoge Betrachtung des
+Frontsoldaten für ihre Zwecke <span class="hidden">benützt hatten, indem sie, natürlich ohne autorisiert zu sein, </span><wpn-entity class="quotes entity " id="DWquote1851"><span class="hidden">in einem Flugblatt jene Hyänenszene</span> der <span>»</span>Letzten Nacht<span>«</span> <span class="hidden">verbreiteten</span></wpn-entity><span class="hidden">, deren</span> Sprecher <span class="hidden">des</span>
+toten <span class="hidden">Frontsoldaten</span> doch exemplarisch <span class="hidden">spotten. Schon damals,
+gegenüber dem Mangel jeder Ahnung über eine Identität der
+Ansichten und der Autorschaft, <wpn-entity class="quotes entity " id="DWquote1852">habe ich der Problematik
+zwischen Wahnschaffe und Schwarz-Gelber den Ausdruck gegeben,
+es sei vielleicht wirklich noch erfreulicher, von der Stupidität an die Seite der Schakale und Hyänen gerückt zu werden
+als ihr Helfer gegen diese zu sein</wpn-entity>.</span> Die Schwierigkeit, die
+sich der nationalen <span class="hidden">Kulturkritik</span> nicht <span class="hidden">nur</span> durch die Divergenzen innerhalb <span class="hidden">meines Gesamtwerks,</span> sondern schon <span class="hidden">innerhalb</span>
+einer und derselben <span class="hidden">Partie ergibt,</span> macht es <span class="hidden">begreiflich, daß
+sie mich</span> bei <span class="hidden">der</span> Säuberung übergangen <span class="hidden">hat,</span> was <span class="hidden">mir</span> vielfach
+den Verdacht zugezogen hat, daß <span class="hidden">sie mich</span> rechts liegen ließ.</span>
+<span class="fackelrefs entity " id="F890seg0088"><span class="hidden">Aber solche Schwierigkeit wiegt nichts gegenüber der Mühsal
+des Versuchs,</span> die Sprache ariogermanischen Wesens zu <span class="hidden">deuten,
+wenn derjenige das Wagnis unternimmt,</span> der sie ihm <span class="hidden">wiedergegeben</span> hat und dem mit der Berechtigung auch der ehrliche
+Wille zuerkannt sein muß, <span class="hidden">sie</span> zu verstehen, wenn schon nicht
+zu billigen. Daß ich sie nicht billige, dürfte sich gezeigt
+haben⁠ ⁠; daß ich sie aber auch nicht verstehe, muß der Vorwurf
+bleiben, der mich an die Seite Europas rückt, dessen <span class="hidden">kulturelle</span> Erhaltung bis <span class="hidden">heute</span> nicht mein Antrieb war und dessen
+<span class="hidden">Untergang</span> in der gelben und schwarzen <span class="hidden">Flut</span> mir beiweitem kein
+
+
+<span class="pagebreaks entity" id="pb0276" style="display:none;">||</span>
+
+so grauses Gemisch vorstellt wie sein Hinfall an die braune.
+Ich weiß, daß diese <span class="hidden">Kultur</span> auch ohne die Möglichkeit, daß
+ein blutbesoffener Pöbel mit ihren Gütern schaltet, ihre
+<span class="hidden">Übel, ja ihre</span> Schrecken <span class="hidden">hat,</span> und symptomempfindlich wie ich 
+<span class="hidden">bin</span> erschließe ich Krieg und Hunger aus dem Gebrauch, den
+die Presse von der Sprache macht, aus der Verkehrung von
+Sinn und Wert, aus der Entleerung und Entehrung <span class="hidden">allen</span> Begriffs und <span class="hidden">allen</span> Inhalts. Sicherlich, wenn sie heroischem
+Erinnern frönt, so ersteht das Projekt als Alpdruck
+<wpn-entity class="quotes entity " id="DWquote1853">
+<span class="d-block typescriptLongQuoteRightAlign"><span class="inline-text">
+eines österreichischen Denkmals für</span></span>
+<span class="d-block typescriptLongQuoteAdvInsert"><span class="inline-text"><span class="hidden"><span class="spacing">BERNA</span> — Käse</span></span></span>
+<span class="d-block typescriptLongQuoteLeading"><span class="inline-text">
+den Unbekannten Soldaten <span class="hidden">.&nbsp;.&nbsp;.&nbsp;.</span></span></span></wpn-entity>
+
+Schmach ihrem Gedenken durch alle Zeit, in der sie leben
+wird⁠ ⁠! <span class="hidden">Wenn</span> nicht die Menschheit, die es bewußtlos erträgt,
+ihre letzten Tage hinter sich <span class="hidden">hat,</span> im Begriffe, von jenem
+Diktator geholt zu werden, <span class="hidden">der einstweilen</span> ihre Wortführer
+zwingt, bei allem, was sie frisch wagen und ganz verlieren,
+bis zum <wpn-entity class="quotes entity " id="DWquote1970"><span class="hidden">letzten Ende</span></wpn-entity> eben dieses zu berufen. <span class="hidden">Zwangsläufig</span>
+haschen sie nach der Formel, die, wenn alle Phrasen gezündet
+haben, als letzte Motte dem Brand einer Papierwelt zufliegt.
+<span class="hidden">Doch selbst nicht der</span> Handel, den die <span class="hidden">Presse</span> mit dem Krieg
+eingeht und der nun wirklich von <wpn-entity class="quotes entity " id="DWquote1854">jener <span class="hidden">Käseausstellung <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" class="date">1914</span><span class="comments entity" id="DWcomment0768"></span></span></wpn-entity>
+über alles, was den Maden anheimfiel, bis zu diesem <span class="hidden">Dokument</span>
+reicht⁠ ⁠; <span class="hidden">kein</span> Frevel, dessen die Zivilisation an der Schöpfung
+fähig <span class="hidden">ist — nichts vergleicht sich mit der <wpn-entity class="quotes entity " id="DWquote2129">wahnschaffnen</wpn-entity></span>
+Tat, die solcher Wirklichkeit <span class="hidden">zuwuchs.</span></span> Mag der Weg zu ihr
+vom ausgehöhlten Wort geführt haben, mag die Presse auch hier
+der Unheilsbote sein, der es zu verantworten hat — wir müssen
+ihm danken, wenn er das Unheil nur meldet, das vor jeglichem
+Versuch, es zu deuten, bloß den Gedanken an Rettung gewährt,
+bloß das Gefühl, mit allem, was zu meiden ist, in Wehrlosigkeit verbunden zu sein⁠ ⁠; und bloß die Frage, wie lange es
+
+
+<span class="pagebreaks entity" id="pb0277" style="display:none;">||</span>
+
+noch dauern wird. Vor Augen, müde des Mords, vor Ohren,
+müde des Betrugs, vor allen Sinnen, die nicht mehr wollen
+und denen die Mixtur aus Blut und Lüge widersteht, taumeln
+und gellen noch diese täglichen Kommandos vorüber einer
+Pestgewalt, die alles Erdenkliche gegen sich selbst vorkehrt⁠ ⁠: <wpn-entity class="quotes entity " id="DWquote1855">Vermögenseinziehung</wpn-entity>, <wpn-entity class="quotes entity " id="DWquote1856">Aberkennung der Staatsbürgerschaft</wpn-entity>, <wpn-entity class="quotes entity " id="DWquote1857">Verhinderung der Neubildung politischer Parteien</wpn-entity>,
+<wpn-entity class="quotes entity " id="DWquote1858">Zulassung von Spielbanken</wpn-entity>, <wpn-entity class="quotes entity " id="DWquote1859">Ausschaltung von Wirtschaftskommissaren</wpn-entity>, <wpn-entity class="quotes entity " id="DWquote1860">Zulassung von nur einem Drittel als Hospitanten</wpn-entity>, <wpn-entity class="quotes entity " id="DWquote1861">Zwangsbeitritt zur Arbeitsfront</wpn-entity>, <wpn-entity class="quotes entity " id="DWquote1862">Eingliederung der
+Studenten in den freiwilligen Arbeitsdienst</wpn-entity>, <wpn-entity class="quotes entity " id="DWquote1863">Zusammenschließung der Musiker in die Fachschaft</wpn-entity>, <wpn-entity class="quotes entity " id="DWquote1864">Anmeldepflicht für mit
+Erbkrankheit Behaftete</wpn-entity>,<span class="comments entity" id="DWcomment0764"></span> <wpn-entity class="quotes entity " id="DWquote1865">Verhaftung von <wpn-entity class="persons entity " id="DWrsPers0980">Verwandten <wpn-entity class="persons entity " id="DWrsPers0979">Entflohener</wpn-entity></wpn-entity></wpn-entity>,<span class="comments entity" id="DWcomment0819"></span> <wpn-entity class="quotes entity " id="DWquote1866">Anordnung zur Erhebung des rechten Armes</wpn-entity>,<span class="comments entity" id="DWcomment0818"></span> <wpn-entity class="quotes entity " id="DWquote1867">Erschießung
+auf der Flucht</wpn-entity>. <wpn-entity class="quotes entity " id="DWquote1868">Wie lange noch⁠ ⁠?</wpn-entity> <span class="fackelrefs entity " id="F890seg0101">Die Handlung <span class="hidden">rückt</span> an den
+<span class="hidden">Punkt,</span> <wpn-entity class="quotes entity " id="DWquote1869">wo, wollt’ er nun im Waten stille stehn, <span class="hidden">Rückkehr</span> so
+schwierig <span class="hidden">wär’,</span> als durchzugehn. Seltsames <span class="hidden">glüht</span> im Kopf, es
+will zur Hand, und muß getan sein, eh’ <span class="hidden">noch recht erkannt</span><span class="hidden">.</span></wpn-entity></span>
+<span class="fackelrefs entity " id="F890seg0095"><wpn-entity class="quotes entity " id="DWquote1870">Doch ist’s gewiß, er kann den wild empörten Zustand nicht
+mehr schnallen in den Gurt der Ordnung. Jetzt empfindet er
+geheimen Mord an seinen Händen <span class="hidden">klebend⁠ ⁠;</span> jetzt straft Empörung stündlich seinen Treubruch⁠ ⁠; die er befehligt, handeln
+auf Befehl, aus Liebe nicht. Jetzt fühlt er seine Würde zu
+weit und lose, wie des Riesen Rock hängt um den <span class="hidden">dieb’schen
+Zwerg.</span></wpn-entity> <wpn-entity class="quotes entity " id="DWquote1871">Mir <span class="hidden">war,</span> als <span class="hidden">rief es⁠ ⁠: <span>»</span>Schlaft</span> nicht <span class="hidden">mehr.</span> Macbeth
+mordet den <span class="hidden">Schlaf⁠ ⁠!<span>«</span></span></wpn-entity> <wpn-entity class="quotes entity " id="DWquote1900">Und drum wird Macbeth nicht mehr <span class="hidden">schlafen.</span></wpn-entity></span> <span class="fackelrefs entity " id="F890seg0099"><span class="hidden"><span>»</span></span><wpn-entity class="quotes entity " id="DWquote1872"><span class="hidden">Denn so</span> zu sein, ist <span class="hidden">nichts⁠ ⁠: doch sicher so zu</span> sein⁠ ⁠!</wpn-entity><span>«</span></span>
+<span class="fackelrefs entity " id="F890seg0089"><span class="hidden">Beispiele</span> gibt es, wie solcher Aufstieg, der Konsorten hat,
+<span class="hidden">verläuft,</span> wenn jeglicher Mitwisser, mehr als sein Teil begehrend, nach der ergriffnen Macht greift.</span> 
+Nach außen alles einig⁠ ⁠: sie wird Jahrhunderte überdauern⁠ ⁠;
+<span class="fackelrefs entity " id="F890seg0100"><wpn-entity class="quotes entity " id="DWquote1873"><span class="hidden">wir</span> sind keine Partei, wir sind eine <span class="hidden">Weltanschauung</span></wpn-entity><span class="hidden">.</span> Wer
+wagt es, den Mythos durch Hunger zu <span class="hidden">stören⁠ ⁠?
+<wpn-entity class="quotes entity " id="DWquote1874">
+<span class="d-block typescriptLongQuoteLeading"><span class="inline-text">
+<wpn-entity class="quotes entity " id="DWquote1875">Wir denken in Jahrhunderten .&nbsp;.&nbsp;.&nbsp;.</wpn-entity> <wpn-entity class="quotes entity " id="DWquote1876">Es fangen manche an zu
+meckern. In Deutschland hat keiner zu meckern .&nbsp;.&nbsp;.&nbsp;.</wpn-entity></span></span></wpn-entity></span>
+
+
+<span class="pagebreaks entity" id="pb0278" style="display:none;">||</span>
+
+
+<span class="hidden">Heilloses Wort, das</span> aus der Walhalla<span class="comments entity" id="DWcomment0782"></span> in die <span class="hidden">Hölle reißt,</span>
+wo <span class="hidden">sie</span> asphaltiert <span class="hidden">ist⁠ ⁠!</span></span> Verbürgt es jene Dauer⁠ ⁠? Überall
+Zeichen des Kleinmuts. <wpn-entity class="quotes entity " id="DWquote1877"><wpn-entity class="persons entity " id="DWrsPers0914">Goebbels</wpn-entity> stellt fest, die nationale
+Presse
+
+<span class="d-block typescriptLongQuoteLeading"><span class="inline-text">
+hat auf dem Gebiet des Feuilletons und damit auf dem Gebiet
+der Kultur überhaupt fast hundertprozentig versagt.</span></span></wpn-entity>
+
+Es gilt, den neuen Menschen zu schaffen, es fehlt aber an
+einem hauptamtlichen Buchbesprecher. <wpn-entity class="quotes entity " id="DWquote1878"><wpn-entity class="persons entity " id="DWrsPers0915">Brückner</wpn-entity> sagt, die
+Revolution ist nicht beendigt, sondern geht weiter.</wpn-entity> Doch
+man soll sich nicht festlegen. <wpn-entity class="quotes entity " id="DWquote1879">Der Reichsführer der SS.,
+<wpn-entity class="persons entity " id="DWrsPers0916">Himmler</wpn-entity> heißt er, hat die Burg Schwabenberg zwecks Einrichtung der Reichsrassenschule bloß auf 99 Jahre gepachtet.<span class="comments entity" id="DWcomment0602"></span></wpn-entity>
+Dann kann man weiter sehn. Er, der im praktischen Leben
+steht und auch für die Sicherheit Münchens zu sorgen hat,
+kann doch schon heute, nicht ohne Einschränkung, schätzen⁠ ⁠:
+<wpn-entity class="quotes entity " id="DWquote1880">
+<span class="d-block typescriptLongQuoteLeading"><span class="inline-text">
+ein neuer Geschichtsraum hat begonnen, der sich — <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar">es mag
+vielleicht</span> lächerlich klingen — über 20.000 bis 30.000 Jahre
+ausdehnen wird.</span></span></wpn-entity>
+
+Die SS. wird <span>»</span><wpn-entity class="quotes entity " id="DWquote1881">auf der Erkenntnis vom Wert des Blutes</wpn-entity><span>«</span> (<wpn-entity class="quotes entity " id="DWquote1882">ganz
+besondrer Saft</wpn-entity>) aufgebaut werden⁠ ⁠; dürfte, wenn die ersten
+Äonen<span class="comments entity" id="DWcomment0642"></span> vorbei und die Stabilisierung begonnen hat, in den
+Rang himmlischer Heerscharen aufsteigen. Und die SA. — mißvergnügt und der Erdennot überlassen⁠ ⁠? <wpn-entity class="persons entity " id="DWrsPers0917">Geistliche Tröster</wpn-entity> erstehen, welche sagen, <wpn-entity class="quotes entity " id="DWquote1883">die deutschen Christen seien die SA.
+Jesu Christi im Kampf zur Vernichtung der leiblichen, sozialen und geistigen Not</wpn-entity>. Wer aber hilft der SA.⁠ ⁠? Im Bürgerbräu
+kündet <wpn-entity class="persons entity " id="DWrsPers0918">einer</wpn-entity>, <wpn-entity class="quotes entity " id="DWquote1884">der <wpn-entity class="persons entity " id="DWrsPers0919">Führer</wpn-entity> habe ihm anvertraut, daß er in der
+Entwicklung — sie ging von dort aus — ein Wunder sehe
+
+<span class="d-block typescriptLongQuoteLeading"><span class="inline-text">
+und sich als ein von Gott berufenes Werkzeug empfinde.<span class="comments entity" id="DWcomment0877"></span></span></span></wpn-entity>
+
+
+<span class="pagebreaks entity" id="pb0279" style="display:none;">||</span>
+
+
+Doch die SA. — wie will sie nun vollbringen⁠ ⁠?<span class="comments entity" id="DWcomment0603"></span> Anders als begonnen⁠ ⁠? Nicht anders⁠ ⁠: ganz wie begonnen⁠ ⁠! Was immer sie vollbrachte, es waren ja Kommunisten. <wpn-entity class="quotes entity " id="DWquote1885">Brandlegend, grundlegend —
+Kommunisten waren es.</wpn-entity> <wpn-entity class="quotes entity " id="DWquote1886">Raub und Mord an Kommunisten</wpn-entity>⁠ ⁠: Kommunisten befleckten <wpn-entity class="quotes entity " id="DWquote1887">die unblutigste aller Revolutionen</wpn-entity>. <wpn-entity class="quotes entity " id="DWquote1888">Sie legten die Uniformen jener an, immer mehr, immer mehr</wpn-entity> — und nun
+stecken in allen nur noch Kommunisten. Furchtbare Enthüllung
+<wpn-entity class="quotes entity " id="DWquote1889">letzten Endes</wpn-entity>⁠ ⁠: alles war getarnt⁠ ⁠! <wpn-entity class="quotes entity " id="DWquote1890">Der Birnamwald rückt heran.</wpn-entity>
+<span>»</span><wpn-entity class="quotes entity " id="DWquote1891">Das Gesicht der Bewegung steht nun eindeutig da.</wpn-entity><span>«</span> Immer
+schon⁠ ⁠; denn es war aus zwei Gestalten, die Tag für Tag sich
+zum Unikum verbanden, zur deutschen Doppelsage. Von <wpn-entity class="quotes entity " id="DWquote1892">jenem
+<wpn-entity class="persons entity " id="DWrsPers0920">Schweppermann</wpn-entity>, dem Braven, der statt eines Ei’s deren zwei
+bekam</wpn-entity>, und <wpn-entity class="quotes entity " id="DWquote1893">jenem <wpn-entity class="persons entity " id="DWrsPers0921">Haarmann</wpn-entity>, den nach mehr Menschen noch gelüstet</wpn-entity>. Wie hat uns das Monstrum gerührt und gewürgt⁠ ⁠! Erstand
+es aus den Gasschwaden des Kriegs, um neue, allerstickende
+heraufzubringen⁠ ⁠? <span class="fackelrefs entity " id="F890seg0090">Der Giftgeist, dem die Gehirne erlagen,
+droht der Apokalypse zu widerstehn.</span> Soll frommer Sinn zivilisiertem Mißbrauch der Gottesgaben die Zuchtrute am Himmel erkennen⁠ ⁠? Ist, worunter die Erde gelangt <span>ist, ein</span> Komet, dem
+Kreuze gleichend, <wpn-entity class="quotes entity " id="DWquote1894">von dem die Bücher sagen, rechtsgeflügelt
+bedeute es Niedergang, Vergehen, Tod</wpn-entity>⁠ ⁠? Ein armes Volk hebt
+beschwörend die Rechte empor zu dem Gesicht, zu der Stirn,
+zu der Pechsträhne⁠ ⁠: <wpn-entity class="quotes entity " id="DWquote1895">Wie lange noch⁠ ⁠!</wpn-entity> — Nicht so lange, als
+das Gedenken aller währen wird, die <wpn-entity class="quotes entity " id="DWquote1896">das Unbeschreibliche,
+das hier getan war</wpn-entity>, gelitten haben⁠ ⁠; jedes zertretenen Herzens,
+jedes zerbrochenen Willens, jeder geschändeten Ehre, aller
+Minuten geraubten Glücks der Schöpfung und <wpn-entity class="quotes entity " id="DWquote1897">jedes gekrümmten
+Haares auf dem Haupte</wpn-entity> aller, die nichts verschuldet hatten,
+als geboren zu sein⁠ ⁠! Und nur so lange, bis die guten Geister
+einer Menschenwelt aufleben zur Tat der Vergeltung⁠ ⁠:
+<wpn-entity class="quotes entity " id="DWquote1898">
+<span class="fackelrefs entity " id="F890seg0091"><span class="d-block lg typescriptLongQuoteVerse"><span class="hidden">
+<span class="d-block l "><span class="inline-text">Sei das Gespenst, das gegen uns erstanden,</span></span></span>
+<span class="d-block l "><span class="inline-text">Sich Kaiser nennt und Herr von unsern Landen,</span></span>
+<span class="d-block l "><span class="inline-text">Des Heeres Herzog, Lehnsherr unsrer Großen,</span></span>
+<span class="d-block l "><span class="inline-text">Mit eigner Faust ins Totenreich gestoßen⁠ ⁠!</span></span></span></span></wpn-entity></div></div></div><div id="infocolumn" class="bg-white px-0 border-start border-light-grey"><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0269" style="display:none"><span>Beginn Seite 269</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1825"><b xmlns="">Dietrich Eckart: </b><b xmlns="">Sturmlied [Feuerjo! / Deutschland erwache!]</b> (1919/1923)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0584"><span class="fw-bold">Glossar: „Deutschland erwache!“</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1975"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1826"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0906"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: --><!-- Quelle: GND, Deutsche Biographie -->
+						<forename>Bernhard</forename>
+						<forename type="middle" subtype="unused">Ludwig</forename>
+						<addName type="honorific">Dr.</addName>
+						<surname subtype="unused">Dreifus</surname>
+						<surname type="taken">Diebold</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0907"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2009 -->
+						<forename>Gottfried</forename>
+						<surname>Benn</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0908"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: GND -->
+						<forename>William</forename>
+						<surname>Shakespeare</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1827"><b xmlns="">Johann Wolfgang von Goethe: </b><b xmlns="">Faust</b> (EA 1808/1833)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0585"><span class="fw-bold">Ereignis: Erster Weltkrieg</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0586"><span class="fw-bold">Glossar: Die Ungeduld von Kraus’ Leserschaft</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0587"><span class="fw-bold">Glossar: Perhorreszierung</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0270" style="display:none"><span>Beginn Seite 270</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0588"><span class="fw-bold">Glossar: Die „Troglodyten“</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0817"><span class="fw-bold">Glossar: Die ‚Gleichschaltung‘ der deutschen Presselandschaft</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1828"><b xmlns=""><i>AZ</i></b> vom 15. 1. 1930</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1828"><b xmlns=""><i>Freiheit!</i></b> vom 14. 1. 1930</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1831"><b xmlns=""><i>WAZ</i></b> vom 21. 4. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1832"><b xmlns="">Die Bibel</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0271" style="display:none"><span>Beginn Seite 271</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0909"><persName xmlns="http://www.tei-c.org/ns/1.0">
+						<forename>Joseph</forename>
+						<forename subtype="unused">Paul</forename>
+						<addName type="honorific">Dr.</addName>
+						<surname>Goebbels</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0840"><span class="fw-bold">Ereignis: Erster Weltkrieg</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0589"><span class="fw-bold">Glossar: Faiseur</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0590"><span class="fw-bold">Glossar: Goebbels’ Bewerbungen beim <i>Berliner Tageblatt</i></span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1833"><b xmlns="">Karl Kraus: </b><b xmlns="">Die letzten Tage der Menschheit</b> (1919/1922)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1834"><b xmlns="">Karl Kraus: </b><b xmlns="">Die letzten Tage der Menschheit</b> (1919/1922)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1835"><b xmlns="">Karl Kraus: </b><b xmlns="">Die letzten Tage der Menschheit</b> (1919/1922)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1836"><b xmlns=""><i>Die Fackel</i></b> von Mitte November 1916</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1837"><b xmlns=""><i>Die Fackel</i></b> von Mitte November 1916</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1838"><b xmlns="">Georg Herwegh: </b><b xmlns="">Der Freiheit eine Gasse!</b> (1841)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0592"><span class="fw-bold">Glossar: Päan</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0272" style="display:none"><span>Beginn Seite 272</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2075"><b xmlns="">Friedrich von Schiller: </b><b xmlns="">Wilhelm Tell</b> (1804)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0910"><persName xmlns="http://www.tei-c.org/ns/1.0">
+						<forename type="taken">Jörg</forename>
+						<surname type="taken">Lanz</surname>
+						<nameLink type="taken">von</nameLink>
+						<surname type="taken">Liebenfels</surname>
+						<forename subtype="unused">Josef</forename>
+						<forename type="middle" subtype="unused">Adolf</forename>
+						<surname subtype="unused">Lanz</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1839"><b xmlns=""><i>Ostara</i></b>.  1905–1917</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0771"><span class="fw-bold">Ereignis: <i>Rundfrage über Karl Kraus</i></span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1840"><b xmlns=""><i>Der Brenner</i></b> vom 15. 6. 1913</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb45_(Fackel_381/382/383)" style="display:none"><span>Beginn Seite 45 (Fackel 381/382/383)</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb46_(Fackel_381/382/383)" style="display:none"><span>Beginn Seite 46 (Fackel 381/382/383)</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0273" style="display:none"><span>Beginn Seite 273</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0841"><span class="fw-bold">Ereignis: Erster Weltkrieg</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0596"><span class="fw-bold">Glossar: Sistierung</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0274" style="display:none"><span>Beginn Seite 274</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1841"><b xmlns=""><i>Fränkischer Kurier</i></b> vom 5. 3. 1928</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0911"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie}  https://www.historisches-lexikon-bayerns.de/Lexikon/M%C3%BCnchener_Zeitung {Text: syphilitisch verseuchten Kreise} [Verfasser des Artikels in Fränkischer Kurier, 5.3., S.14 - Samek-Akten 103.5, S. 122] https://www.kraus.wienbibliothek.at/content/privatanklage-und-strafantrag-von-karl-kraus-gegen-ernst-hohenstatter-wegen-beleidigung-->
+						<forename>Ernst</forename>
+						<addName type="honorific">Dr.</addName><!-- LU: verifiziert mit https://www.historisches-lexikon-bayerns.de/Lexikon/M%C3%BCnchener_Zeitung -->
+						<surname>Hohenstatter</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0911"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- fehlende Daten bei Gelegenheit nachtragen -->
+						<forename>Oskar</forename>
+						<forename type="middle">Franz</forename>
+						<surname>Schardt</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1842"><b xmlns=""><i>Die Fackel</i></b> von Anfang Februar 1929</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0597"><span class="fw-bold">Ereignis: Erstinstanzlicher Freispruch des Redakteurs des <i>Fränkischen Kuriers</i></span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1843"><b xmlns="">[Nicht ermittelt]</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0598"><span class="fw-bold">Glossar: Der „Judenboykott“</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2076"><b xmlns="">[Nicht ermittelt]</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0599"><span class="fw-bold">Glossar: NS-Größe als Kinderschänder</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2077"><b xmlns="">Karl Kraus: </b><b xmlns="">Traumstück</b> (1922)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0912"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie}  https://www.historisches-lexikon-bayerns.de/Lexikon/M%C3%BCnchener_Zeitung {Text: syphilitisch verseuchten Kreise} [Verfasser des Artikels in Fränkischer Kurier, 5.3., S.14 - Samek-Akten 103.5, S. 122] https://www.kraus.wienbibliothek.at/content/privatanklage-und-strafantrag-von-karl-kraus-gegen-ernst-hohenstatter-wegen-beleidigung-->
+						<forename>Ernst</forename>
+						<addName type="honorific">Dr.</addName><!-- LU: verifiziert mit https://www.historisches-lexikon-bayerns.de/Lexikon/M%C3%BCnchener_Zeitung -->
+						<surname>Hohenstatter</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0912"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- fehlende Daten bei Gelegenheit nachtragen -->
+						<forename>Oskar</forename>
+						<forename type="middle">Franz</forename>
+						<surname>Schardt</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1844"><b xmlns=""><i>Die Fackel</i></b> von Anfang Februar 1929</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0600"><span class="fw-bold">Glossar: Karl Kraus contra <i>Fränkischer Kurier</i></span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0913"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle:  {Biographie} Klee  GND https://www.historisches-lexikon-bayerns.de/Lexikon/V%C3%B6lkischer_Beobachter {Text: Schriftleiter des Völkischen Beobachters} [vgl. Prozeßakten Samek]-->
+						<forename>Wilhelm</forename>
+						<surname>Weiß</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1845"><b xmlns=""><i>Die Fackel</i></b> von Anfang Februar 1929</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0601"><span class="fw-bold">Glossar: Karl Kraus contra <i>Völkischer Beobachter</i></span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1846"><b xmlns=""><i>VB</i></b> vom 3. 3. 1928</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1847"><b xmlns=""><i>FZ</i></b> vom 13. 4. 1928</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0275" style="display:none"><span>Beginn Seite 275</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2078"><b xmlns="">Gerhart Hauptmann: </b><b xmlns="">Die Weber</b> (EA 1892)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1851"><b xmlns=""><i>Der Volkssturm</i></b> vom 20. 7. 1919</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1852"><b xmlns=""><i>Die Fackel</i></b> von Anfang Februar 1929</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0276" style="display:none"><span>Beginn Seite 276</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1853"><b xmlns=""><i>NFP</i></b> vom 16. 6. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1970"><b xmlns=""><i>Die Fackel</i></b> vom Januar 1921</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1854"><b xmlns=""><i>Die Fackel</i></b> vom Sommer 1914</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0768"><span class="fw-bold">Ereignis: Käseausstellung</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2129"><b xmlns="">Karl Kraus: </b><b xmlns="">Die letzten Tage der Menschheit</b> (1919/1922)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0277" style="display:none"><span>Beginn Seite 277</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1855"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1856"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1857"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1858"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1859"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1860"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1861"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1862"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1863"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1864"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0764"><span class="fw-bold">Ereignis: Beschluss zahlreicher neuer Gesetze im deutschen Reichstag</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1865"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0980"><persName xmlns="http://www.tei-c.org/ns/1.0">
+						<forename>[Nicht ermittelt]</forename>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0979"><persName xmlns="http://www.tei-c.org/ns/1.0">
+						<forename>Philipp</forename>
+						<forename type="middle">Heinrich</forename>
+						<surname>Scheidemann</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0819"><span class="fw-bold">Ereignis: Hitlergruß obligatorisch</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1866"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0818"><span class="fw-bold">Ereignis: Verhaftung von Verwandten Philipp Scheidemanns</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1867"><b xmlns=""><i>NFP</i></b> vom 15. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1868"><b xmlns="">Marcus Tullius Cicero: </b><b xmlns="">1. Rede gegen Catilina</b> (63 v. Chr.)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1869"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1870"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1871"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1900"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1872"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div></div></wpn-text-view></div></main><footer xmlns="http://www.w3.org/1999/xhtml" class="footer mt-auto py-3 border-top border-light-grey bg-white "><div class="container mt-1_5"><ul class="list-unstyled d-flex flex-row justify-content-end"><li><a class="project-link link-dark-grey link-hover-primary-hover text-decoration-none" href="impressum.html">Impressum</a></li><li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="nutzungsbedingungen.html">Nutzungsbedingungen</a></li><li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="projekt.html">Über das Projekt</a></li><li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="https://github.com/karl-kraus/dritte-walpurgisnacht-static"><i class="bi bi-github"></i></a></li></ul></div></footer><script xmlns="http://www.w3.org/1999/xhtml" src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script><script xmlns="http://www.w3.org/1999/xhtml" src="js/vendor/bootstrap/bootstrap.bundle.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"></script><script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-header.DLUPgEgS.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/init-micro-editor.C-FTEvHg.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-text-view.DAWrcRUb.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-entity.aFBLJyLo.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-text-zoom-button.nPzlt3pl.js"></script></body></html>

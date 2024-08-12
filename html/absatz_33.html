@@ -1,776 +1,275 @@
 <!DOCTYPE HTML>
-<html id="edition-view">
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="mobile-web-app-capable" content="yes">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-capable" content="yes">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-title" content="">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileColor" content="#ffffff">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileImage" content="images/logo.png">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://use.typekit.net/ckc0oka.css">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/svg+xml" href="images/logo.png" sizes="any">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="profile" href="http://gmpg.org/xfn/11">
-      <title xmlns="http://www.w3.org/1999/xhtml"></title>
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/style.b3df2898.css">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/micro-editor.8e986c38.css">
-   </head>
-   <body id="main_grid">
-      <wpn-header xmlns="http://www.w3.org/1999/xhtml" class="fixed-top bg-white pe-0">
-         <nav id="primary_nav" class="navbar border-bottom pt-05">
-            <div class="container-fluid"><a class="navbar-brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 123.47 106.97" width="90">
-                     <defs>
-                        <style>.cls-1{fill:#4a4a49;}.cls-2{fill:#a21a17;}</style>
-                     </defs>
-                     <g id="Ebene_2" data-name="Ebene 2">
-                        <g id="KARLKRAUS1933-EXPORT">
-                           <g id="LOGO-Karl-Kraus-1933_FARBE">
-                              <path class="cls-1" d="M21.24,49v9.32h2.18L29.17,49h6.6L28.42,60.93l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V49Z"></path>
-                              <path class="cls-1" d="M49.09,49a10.73,10.73,0,0,1,5.79,1.32c1.6,1,2.71,2.68,2.71,5.71,0,3.4-1.36,6-4.64,6.82,3.1.58,4,3.61,4.78,10.79H51.66c-.89-6.64-1.39-8.36-3.61-8.36H44.81v8.36H39V49ZM44.81,60.43h2.6c2.75,0,4.18-.61,4.18-3.72a2.88,2.88,0,0,0-.68-2.28,3,3,0,0,0-2.14-.5h-4Z"></path>
-                              <path class="cls-1" d="M76.19,73.64,74.87,69H67.05l-1.32,4.68H59.84L67.59,49h6.93l7.74,24.64ZM71,54.82,68.3,64.35h5.36Z"></path>
-                              <path class="cls-1" d="M89.69,49V64.85c0,2.65.22,4.22,3.89,4.22,3.5,0,3.82-1.43,3.82-4.22V49h5.79V64.78c0,2.32-.32,4.5-1.64,6.18s-4.07,3.11-8.18,3.11S87,72.89,85.66,71.32c-1.47-1.75-1.75-4.07-1.75-6.36V49Z"></path>
-                              <path class="cls-1" d="M120.22,54.89A9.87,9.87,0,0,0,115,53.46c-1.75,0-2.89.47-2.89,2.4,0,3.75,11.32,1.53,11.32,10.46a7,7,0,0,1-3.11,6A11.58,11.58,0,0,1,114,74.07c-2.61,0-6.14-.65-8.14-2.47l2.85-4.25a9.85,9.85,0,0,0,5.86,1.82c1.68,0,3.07-.42,3.07-2.57,0-4.25-11.32-1.82-11.32-10.6a6.4,6.4,0,0,1,2.79-5.5,10.53,10.53,0,0,1,6.42-1.93c2.36,0,5.54.57,7.43,2.14Z"></path>
-                              <path class="cls-1" d="M21.24,18.79v9.32h2.18l5.75-9.32h6.6L28.42,30.72l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V18.79Z"></path>
-                              <path class="cls-1" d="M54.16,43.43l-1.32-4.68H45L43.7,43.43H37.8l7.75-24.64h6.93l7.75,24.64ZM49,24.61l-2.68,9.54h5.35Z"></path>
-                              <path class="cls-1" d="M72.87,18.79a10.63,10.63,0,0,1,5.78,1.33c1.61,1,2.72,2.67,2.72,5.71,0,3.39-1.36,6-4.64,6.82,3.1.57,4,3.6,4.78,10.78H75.44c-.89-6.64-1.39-8.35-3.61-8.35H68.59v8.35H62.8V18.79ZM68.59,30.22h2.6c2.75,0,4.18-.61,4.18-3.71a2.94,2.94,0,0,0-.68-2.29,3.07,3.07,0,0,0-2.14-.5h-4Z"></path>
-                              <path class="cls-1" d="M91,18.79v19.5h8.46v5.14H85.24V18.79Z"></path>
-                              <path class="cls-2" d="M111,33.6h-6.1v-10.1h6.1v1.2h-4.7v3.1h4v1.2h-4v3.5h4.7v1.2ZM117.1,33.6h-1.5l-3.7-9.7,1.3-.5,3.2,8.7,3.2-8.7,1.2.5-3.7,9.7ZM95.2,33.6v-10c.5,0,.9,0,1.3-.1.2,0,.4,0,.6,0,.3,0,.6,0,.9,0,.4,0,.7,0,1.1,0,.4,0,.7.1,1,.3,0,0,0,0,.1,0,.4.2.7.4,1.1.6.2.1.4.3.5.5.4.5.7,1,.9,1.6.2.5.3,1,.3,1.6,0,.1,0,.3,0,.4,0,.6,0,1.1-.2,1.7,0,.1,0,.2,0,.3-.2.6-.5,1.2-.9,1.6-.4.5-1,.9-1.6,1.1-.6.3-1.3.4-2.1.4,0,0-.1,0-.2,0-.2,0-.4,0-.6,0-.2,0-.4,0-.5,0,0,0-.2,0-.3,0-.4,0-.8,0-1.2-.1ZM96.5,24.7v7.8c.2,0,.4,0,.6,0,.2,0,.3,0,.5,0,0,0,.1,0,.2,0,.3,0,.6,0,.9,0,.5,0,.9-.2,1.2-.4.5-.3,1-.8,1.2-1.4.2-.4.3-.8.3-1.2,0-.3,0-.6,0-.9,0-.7-.1-1.3-.4-1.9-.3-.6-.7-1.1-1.2-1.5-.3-.2-.7-.4-1-.4-.3,0-.6-.1-.9-.1,0,0-.1,0-.2,0-.3,0-.5,0-.8,0-.2,0-.4,0-.6,0Z" vector-effect="non-scaling-stroke"></path>
-                              <path class="cls-2" d="M19.28,86.21v19.44H17.72v-18H15.37V86.21Z"></path>
-                              <path class="cls-2" d="M24.52,92.21A6.24,6.24,0,0,1,31,85.89a6.2,6.2,0,0,1,6.39,6.45c0,4.48-4.67,10.69-8.17,13.31H26.9a27.53,27.53,0,0,0,7.56-8.5,5.2,5.2,0,0,1-3.59,1.35A6.2,6.2,0,0,1,24.52,92.21Zm1.57,0A4.86,4.86,0,1,0,31,87.29,4.73,4.73,0,0,0,26.09,92.21Z"></path>
-                              <path class="cls-2" d="M44.53,87.32a9.53,9.53,0,0,0-4.24,1.11V86.86a10.53,10.53,0,0,1,4.32-1c3.48,0,5.78,2,5.78,5a5,5,0,0,1-3.76,4.67,5.21,5.21,0,0,1,4.08,5.13c0,3-2.46,5.23-6.1,5.23a9.34,9.34,0,0,1-4.7-1.1V103.3a8.72,8.72,0,0,0,4.65,1.24c2.72,0,4.53-1.67,4.53-3.86,0-2.75-2.11-4.37-5.64-4.37H43V95h.73c2.86,0,5.08-1.62,5.08-4S47,87.32,44.53,87.32Z"></path>
-                              <path class="cls-2" d="M58.43,87.32a9.53,9.53,0,0,0-4.23,1.11V86.86a10.48,10.48,0,0,1,4.31-1c3.49,0,5.78,2,5.78,5a5,5,0,0,1-3.75,4.67,5.21,5.21,0,0,1,4.07,5.13c0,3-2.45,5.23-6.1,5.23a9.3,9.3,0,0,1-4.69-1.1V103.3a8.68,8.68,0,0,0,4.64,1.24c2.73,0,4.53-1.67,4.53-3.86,0-2.75-2.1-4.37-5.64-4.37h-.48V95h.73c2.86,0,5.07-1.62,5.07-4S60.94,87.32,58.43,87.32Z"></path>
-                              <path class="cls-2" d="M4,18.79H0v-14A4.84,4.84,0,0,1,4.83,0H15.45V4H4.83A.83.83,0,0,0,4,4.83Z"></path>
-                           </g>
-                        </g>
-                     </g></svg></a><span class="d-flex align-items-center"><a class="nav-link project-link pe-4 link-dark-grey link-hover-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a><button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12">
-                        <defs>
-                           <style>.a{fill:none}</style>
-                        </defs>
-                        <g transform="translate(0 0.5)">
-                           <line class="a" x2="20"></line>
-                           <line class="a" x2="20" transform="translate(0 5)"></line>
-                           <line class="a" x2="20" transform="translate(0 10)"></line>
-                        </g></svg></button></span><div class="navbar position-fixed start-0 bg-black-grey w-100 opacity-97" id="navbarSupportedContent">
-                  <div class="container d-block">
-                     <div class="row">
-                        <div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="projekt.html">Über das Projekt<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="nutzungsbedingungen.html">Nutzungsbedingungen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="impressum.html">Impressum<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                           </ul>
-                        </div>
-                        <div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Dritte Walpurgisnacht</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="notizen.html">Notizen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="annotierte_lesefassung.html">Annotierte Lesefassung<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="register.html">Register<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                           </ul>
-                        </div>
-                        <div class="col-md-4"><span class="d-block navbar-title text-dark-grey border-bottom border-light-grey pb-1">Kommentar</span></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </nav>
-         <nav aria-label="breadcrumb" class="my-1">
-            <div class="container-fluid">
-               <ol class="breadcrumb">
-                  <li class="breadcrumb-item active" aria-current="page">Karl Kraus 1933: Dritte Walpurgisnacht</li>
-               </ol>
-            </div>
-         </nav>
-      </wpn-header>
-      <main class="flex-shrink-0 mt-18">
-         <div class="container-fluid px-0">
-            <div class="row">
-               <div class="col-md-2 col-lg-2 col-sm-12"></div>
-               <div class="col-md-2 col-lg-2 col-sm-12" style="text-align:right"></div>
-            </div>
-            <wpn-text-view annotation-selectors=".entity" id="sub_grid">
-               <div>
-                  <div class="p-0 d-flex flex-column align-items-center position-fixed">
-                     <div xmlns="http://www.w3.org/1999/xhtml" class="dropdown ff-ubuntu"><button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">Absatz 33</button><ul class="dropdown-menu z-3 rounded-0">
-                           <li><a class="dropdown-item fs-9_38 py-0" href="motti.html">[Motti]</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_1.html">Absatz 1</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_2.html">Absatz 2</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_3.html">Absatz 3</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_4.html">Absatz 4</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_5.html">Absatz 5</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_6.html">Absatz 6</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_7.html">Absatz 7</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_8.html">Absatz 8</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_9.html">Absatz 9</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_10.html">Absatz 10</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_11.html">Absatz 11</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_12.html">Absatz 12</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_13.html">Absatz 13</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_14.html">Absatz 14</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_15.html">Absatz 15</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_16.html">Absatz 16</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_17.html">Absatz 17</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_18.html">Absatz 18</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_19.html">Absatz 19</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_20.html">Absatz 20</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_21.html">Absatz 21</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_22.html">Absatz 22</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_23.html">Absatz 23</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_24.html">Absatz 24</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_25.html">Absatz 25</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_26.html">Absatz 26</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_27.html">Absatz 27</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_28.html">Absatz 28</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_29.html">Absatz 29</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_30.html">Absatz 30</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_31.html">Absatz 31</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_32.html">Absatz 32</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_33.html">Absatz 33</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_34.html">Absatz 34</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_35.html">Absatz 35</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_36.html">Absatz 36</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_37.html">Absatz 37</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_38.html">Absatz 38</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_39.html">Absatz 39</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_40.html">Absatz 40</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_41.html">Absatz 41</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_42.html">Absatz 42</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_43.html">Absatz 43</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_44.html">Absatz 44</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_45.html">Absatz 45</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_46.html">Absatz 46</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_47.html">Absatz 47</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_48.html">Absatz 48</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_49.html">Absatz 49</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_50.html">Absatz 50</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_51.html">Absatz 51</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_52.html">Absatz 52</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_53.html">Absatz 53</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_54.html">Absatz 54</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_55.html">Absatz 55</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_56.html">Absatz 56</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_57.html">Absatz 57</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_58.html">Absatz 58</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_59.html">Absatz 59</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_60.html">Absatz 60</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_61.html">Absatz 61</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_62.html">Absatz 62</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_63.html">Absatz 63</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_64.html">Absatz 64</a></li>
-                        </ul>
-                     </div>
-                     <div id="editor-widget">
-                        <div xmlns="http://www.w3.org/1999/xhtml">
-                           <div id="aot-navBarNavDropdown" class="navBarNavDropdown dropstart d-md-none"><a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button"><i class="bi bi-gear" title="Menü zur Anpassung der Anzeige"></i></a><ul class="dropdown-menu d-block border-0 z-2">
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="prs" class="text-wpn-person fs-7"></annotation-slider>
-                                 </li>
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="quts" class="text-wpn-quote fs-7"></annotation-slider>
-                                 </li>
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="pbs" class="text-black-grey fs-7"></annotation-slider>
-                                 </li>
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="cmts" class="text-comment fs-7"></annotation-slider>
-                                 </li>
-                              </ul>
-                           </div>
-                           <div class="d-none d-md-block">
-                              <ul class="border-0 z-2 list-unstyled">
-                                 <li>
-                                    <annotation-slider opt="prs" class="text-wpn-person fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                                 <li>
-                                    <annotation-slider opt="quts" class="text-wpn-quote fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                                 <li>
-                                    <annotation-slider opt="pbs" class="text-black-grey fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                                 <li>
-                                    <annotation-slider opt="cmts" class="text-wpn-comment fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div id="textcolumn" class="mx-auto ff-century-old-style"><span class="d-block runningText1"><span class="inline-text">
-                        Doch könnte freilich er wieder sich auf 
-                        <wpn-entity class="persons entity " id="DWrsPers0957">Platen</wpn-entity> berufen,
-                        der ja ein noch besserer Dichter und Deutscher<span class="comments entity" id="DWcomment0317"></span> war
-                        und nicht bloß nachgedichtet, sondern gedichtet hat,
-                        was zwar nicht den Juden gilt, aber sich gleichfalls
-                        auf Rußland bezieht:
-                        <wpn-entity class="quotes entity " id="DWquote0797">
-                           <span class="d-block lg longQuoteVerse">
-                              <span class="d-block l"><span class="inline-text">Mag zu Staub uns auch zerschmettern</span></span>
-                              <span class="d-block l"><span class="inline-text">Jener Sklaven Legion,</span></span>
-                              <span class="d-block l"><span class="inline-text">Unter morscher Särge Brettern</span></span>
-                              <span class="d-block l"><span class="inline-text">Keimt die neue Blume schon!</span></span>
-                              <span class="d-block l"><span class="inline-text">Wenn das letzte Schwert zerbrochen,</span></span>
-                              <span class="d-block l"><span class="inline-text">Laßt zu Grab uns freudig gehn,</span></span>
-                              <span class="d-block l"><span class="inline-text">Aber einst aus unsern Knochen</span></span>
-                              <span class="d-block l"><span class="inline-text">Wird ein Rächer auferstehn!</span></span></span></wpn-entity>
-                        mehr als das:
-                        
-                        
-                        <span class="pagebreaks entity" id="pb0123" style="display:none;">||</span>
-                        
-                        <wpn-entity class="quotes entity " id="DWquote0799">
-                           <span class="d-block lg longQuoteVerse">
-                              <span class="d-block l"><span class="inline-text">O, kommt im Verein,</span></span>
-                              <span class="d-block l"><span class="inline-text">Ihr Männer, o kommt!</span></span>
-                              <span class="d-block l"><span class="inline-text">Vernehmt, was allein</span></span>
-                              <span class="d-block l"><span class="inline-text">Den Geächteten frommt!</span></span></span>
-                           <span class="d-block lg longQuoteVerse"><span class="d-block l"><span class="inline-text">Zieht aus von dem Land</span></span>
-                              <span class="d-block l"><span class="inline-text">Der Geburt, zieht aus</span></span>
-                              <span class="d-block l"><span class="inline-text">Und schleudert den Brand</span></span>
-                              <span class="d-block l"><span class="inline-text">In das eigene Haus!</span></span></span></wpn-entity>
-                        Also ganz die Gesinnung, die 
-                        <wpn-entity class="persons entity " id="DWrsPers0438">Benn</wpn-entity> so tadelnswert
-                        findet. <span>Und so sprechen die Flüchtlinge:
-                           
-                           <wpn-entity class="quotes entity " id="DWquote0800">
-                              <span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Aus den Hütten, die der Schnee bestiebte,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Sammelt euch um dieses Feu’r, Geliebte,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Laßt in freien Worten Trost uns suchen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Unsern Würger im Gesang verfluchen.</span></span></span></wpn-entity><span class="d-block lg longQuoteVerseMiddle">
-                              <span class="d-block l"><span class="inline-text">— — — — — — — — — — — — —</span></span></span><wpn-entity class="quotes entity " id="DWquote0801"><span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Kranz des Ruhms, von Vätern einst erworben,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Bist du wirklich völlig abgestorben?</span></span>
-                                 <span class="d-block l"><span class="inline-text">Baum der Freiheit, den wir einst begossen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Wirst du nie mehr aus der Erde sprossen?</span></span></span><span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Waren nicht auch wir ein Volk, wie eines,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Sind wir würdig schon des Leichensteines?</span></span>
-                                 <span class="d-block l"><span class="inline-text">Darf der Unhold uns zu Grabe senden,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Unsre Habe wie ein Dieb entwenden?</span></span></span></wpn-entity><span class="d-block lg longQuoteVerseMiddle">
-                              <span class="d-block l"><span class="inline-text">— — — — — — — — — — — — —</span></span></span><wpn-entity class="quotes entity " id="DWquote0802"><span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Schuldbewußt verdammt der Überwinder</span></span>
-                                 <span class="d-block l"><span class="inline-text">Selbst die junge Wißbegier der Kinder;</span></span>
-                                 <span class="d-block l"><span class="inline-text">Daß sie nicht im Ehedem sich spiegeln,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Läßt er selbst der Bücher Schatz versiegeln.</span></span></span></wpn-entity><span class="d-block lg longQuoteVerseMiddle">
-                              <span class="d-block l"><span class="inline-text">— — — — — — — — — — — — —</span></span></span><wpn-entity class="quotes entity " id="DWquote0803"><span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Doch zum Himmel steigen unsre Klagen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Fern hinab durch alle Zeit sie tragen</span></span>
-                                 <span class="d-block l"><span class="inline-text">Werden Dichter einst, durch alle Lande:</span></span>
-                                 <span class="d-block l"><span class="inline-text">Ewig währt o Wütrich, deine Schande.</span></span></span></wpn-entity>
-                           
-                           <wpn-entity class="quotes entity " id="DWquote0804"><span class="d-block lg longQuoteVerse"><span class="d-block l"><span class="inline-text">Trüge nicht des Menschen Seele Waffen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Hätte Gott die Welt umsonst geschaffen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Und der Erdball, über den wir schleichen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Wär’ ein Spiel für dich und deines Gleichen!</span></span></span></wpn-entity>
-                           
-                           <wpn-entity class="quotes entity " id="DWquote0805"><span class="d-block lg longQuoteVerseEnd"><span class="d-block l"><span class="inline-text">Doch es wird’s der Sohn, der Enkel büßen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Was wir ächzen unter deinen Füßen:</span></span>
-                                 <span class="d-block l"><span class="inline-text">Kommen wird ein Leu mit goldner Mähne,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Der zerbricht dem Krokodil die Zähne!</span></span></span></wpn-entity>
-                           
-                           
-                           <span class="pagebreaks entity" id="pb0124" style="display:none;">||</span>
-                           
-                           Und dies:
-                           <wpn-entity class="quotes entity " id="DWquote0806">
-                              <span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Wie Mancher wähnt den Feind zersplittert,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Indes die Nemesis umwittert</span></span>
-                                 <span class="d-block l"><span class="inline-text">Des Siegers Zelt.</span></span>
-                                 <span class="d-block l"><span class="inline-text">Triumphe sind wie Niederlagen:</span></span>
-                                 <span class="d-block l"><span class="inline-text">Wenn ihre Frucht besteht in Klagen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Im grenzenlosen Haß der Welt.</span></span></span></wpn-entity>
-                           Und dies:
-                           <wpn-entity class="quotes entity " id="DWquote0807">
-                              <span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Bricht dir nicht entzwei die Schulter,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Nicht entzwei die mürbe Schulter?</span></span>
-                                 <span class="d-block l"><span class="inline-text">Ganz Europa’s Haß belastet</span></span>
-                                 <span class="d-block l"><span class="inline-text">Deine Schulter, Autokrator!</span></span></span></wpn-entity>
-                           Und das:
-                           
-                           <wpn-entity class="quotes entity " id="DWquote0808"><span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Den Gott zu spielen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">War Der im Stand,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Der, vor so Vielen</span></span>
-                                 <span class="d-block l"><span class="inline-text">Geehrt und prächtig,</span></span>
-                                 <span class="d-block l"><span class="inline-text">So viel vermochte;</span></span>
-                                 <span class="d-block l"><span class="inline-text">Doch unterjochte</span></span>
-                                 <span class="d-block l"><span class="inline-text">Er jedes Recht:</span></span>
-                                 <span class="d-block l"><span class="inline-text">Er war allmächtig</span></span>
-                                 <span class="d-block l"><span class="inline-text">Und war so schlecht!</span></span></span>
-                              <span class="d-block lg longQuoteVerse"><span class="d-block l"><span class="inline-text">Er baute Tempel</span></span>
-                                 <span class="d-block l"><span class="inline-text">Dem Teufel selbst:</span></span>
-                                 <span class="d-block l"><span class="inline-text">Nun soll den Stempel</span></span>
-                                 <span class="d-block l"><span class="inline-text">Er auch empfangen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Der große Quäler:</span></span>
-                                 <span class="d-block l"><span class="inline-text">Es sei’n die Mäler</span></span>
-                                 <span class="d-block l"><span class="inline-text">Ihm aufgebrannt;</span></span>
-                                 <span class="d-block l"><span class="inline-text">Er hat’s begangen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Er ist erkannt.</span></span></span></wpn-entity><span class="d-block lg longQuoteVerseMiddle">
-                              <span class="d-block l"><span class="inline-text">— — — — — — — —</span></span></span><wpn-entity class="quotes entity " id="DWquote0809"><span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Von Schmach und Gräuel</span></span>
-                                 <span class="d-block l"><span class="inline-text">Entwirrt sich ihm</span></span>
-                                 <span class="d-block l"><span class="inline-text">Ein langer Knäuel.</span></span>
-                                 <span class="d-block l"><span class="inline-text">Doch kein Verbrecher</span></span>
-                                 <span class="d-block l"><span class="inline-text">Ist ihm vergleichbar,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Dem unerweichbar</span></span>
-                                 <span class="d-block l"><span class="inline-text">Der Busen schwoll.</span></span>
-                                 <span class="d-block l"><span class="inline-text">Geuß ihm den Becher,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Megära, voll!</span></span></span></wpn-entity>
-                           
-                           
-                           <span class="pagebreaks entity" id="pb0125" style="display:none;">||</span>
-                           
-                           Daß es deutsche Sprache ist, die solche Empfindungen tragen kann, wird selbst 
-                           <wpn-entity class="persons entity " id="DWrsPers0439">Benn</wpn-entity> nicht leugnen,
-                           wiewohl hier die Sache Polens gegen Rußland<span class="comments entity" id="DWcomment0671"></span> geführt
-                           wird. Aber an Kraft verwandt ist ihr der Text, den
-                           ein französisches Blatt als die Widmung wiedergab,
-                           mit der ein amerikanischer Offizier Lilien auf ein
-                           von Fremden vielbesuchtes Grab in London gelegt hatte<span class="comments entity" id="DWcomment0672"></span>:
-                           <wpn-entity class="quotes entity " id="DWquote0810">
-                              <span class="d-block longQuoteIndent"><span class="inline-text">
-                                    Si le soldat inconnu anglais pouvait parler au poilu américain,
-                                    il lui dirait qu’il préfère cette simple fleur à la couronne d’un
-                                    dictateur assassin qui souille ce mémorial.</span></span></wpn-entity>
-                           Der 
-                           <wpn-entity class="persons entity " id="DWrsPers0440">deutsche Dichter</wpn-entity> jedoch fühlte zu Zeiten, daß
-                           Schweigen die noch stärkere Antwort ist, wenn es
-                           den Eigenen galt:
-                           
-                           <wpn-entity class="quotes entity " id="DWquote0811"><span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Zusammen pack’ ich meine Habe,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Und was im Busen mir gedieh;</span></span>
-                                 <span class="d-block l"><span class="inline-text">Denn länger nicht mehr frommt die Gabe,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Die mir ein milder Gott verlieh.</span></span></span></wpn-entity><span class="d-block lg longQuoteVerseMiddle">
-                              <span class="d-block l"><span class="inline-text">— — — — — — — — — — — —</span></span></span><wpn-entity class="quotes entity " id="DWquote0812"><span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Im Dunkel muß der Geist sich bergen</span></span>
-                                 <span class="d-block l"><span class="inline-text">Damit’s die Blöden nicht verstehn,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Dann mag er mitten durch die Schergen</span></span>
-                                 <span class="d-block l"><span class="inline-text">Wie ein erhabnes Wesen gehn.</span></span></span></wpn-entity>
-                           
-                           <wpn-entity class="quotes entity " id="DWquote0813"><span class="d-block lg longQuoteVerse"><span class="d-block l"><span class="inline-text">Der mörderische Censor lümmelt</span></span>
-                                 <span class="d-block l"><span class="inline-text">Mit meinem Buch auf seinen Knien,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Und meine Lieder sind verstümmelt,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Zerrissen meine Harmonien.</span></span></span>
-                              <span class="d-block lg longQuoteVerse"><span class="d-block l"><span class="inline-text">So muß ich denn gezwungen schweigen.</span></span>
-                                 <span class="d-block l"><span class="inline-text">Und so verläßt mich jener Wahn:</span></span>
-                                 <span class="d-block l"><span class="inline-text">Mich fürder einem Volk zu zeigen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Das wandelt eine solche Bahn.</span></span></span>
-                              <span class="d-block lg longQuoteVerse"><span class="d-block l"><span class="inline-text">Doch gib, o Dichter, dich zufrieden,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Es büßt die Welt nur wenig ein,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Du weißt es längst, man kann hienieden</span></span>
-                                 <span class="d-block l"><span class="inline-text">Nichts Schlechtres, als ein Deutscher, sein.</span></span></span></wpn-entity>
-                           Sein Vaterland hat ihm trotz der Rasse jenen 
-                           <wpn-entity class="persons entity " id="DWrsPers0441">Heine</wpn-entity><span class="comments entity" id="DWcomment0318"></span>
-                           vorgezogen, der ihn mit der Schmach belud, daß er
-                           ihm eine heute normhafte Arteigenheit nachsagte,<span class="comments entity" id="DWcomment0319"></span>
-                           aus der sich vielleicht das schwüle Ineinander von
-                           
-                           
-                           <span class="pagebreaks entity" id="pb0126" style="display:none;">||</span>
-                           
-                           Mystik und Manneszucht erklärt. 
-                           <wpn-entity class="persons entity " id="DWrsPers0442">Platen</wpn-entity> bescheidet
-                           sich in einem seiner edlen Sonette, 
-                           <wpn-entity class="quotes entity " id="DWquote0814">daß »man Bessere
-                              bekröne«</wpn-entity> (unter die er freilich jenen nicht gezählt
-                           hat), ihn aber ziehen lassen möge:
-                           <wpn-entity class="quotes entity " id="DWquote0815">
-                              <span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Ja, daß man mir mein Vaterland verpöne!</span></span></span></wpn-entity>
-                           Und er fragt:
-                           <wpn-entity class="quotes entity " id="DWquote0816">
-                              <span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Was habt ihr denn an eurem Rhein und Ister,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Um neben dem Hellenenvolk zu thronen?</span></span>
-                                 <span class="d-block l"><span class="inline-text">Journale, Zeitungsblätter, Recensionen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Tabak und Bier und Polizeiminister?</span></span></span>
-                              <span class="d-block lg longQuoteVerse"><span class="d-block l"><span class="inline-text">Die nie ihr kanntet jene zwei Geschwister,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Freiheit und Kunst, die dort in schönern Zonen</span></span>
-                                 <span class="d-block l"><span class="inline-text">Aufs Haupt sich setzten der Vollendung Kronen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Ihr haltet euch für Griechen, ihr Philister?</span></span></span></wpn-entity>
-                           Kulturstand derer, 
-                           <wpn-entity class="quotes entity " id="DWquote0817">die »gestümpert nach vielen Seiten
-                              haben«</wpn-entity>:
-                           <wpn-entity class="quotes entity " id="DWquote0818">
-                              <span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">In einem Ozean von Albernheiten</span></span>
-                                 <span class="d-block l"><span class="inline-text">Erscheinen ein’ge geniale Schwimmer.</span></span></span></wpn-entity>
-                           Er weiß wie 
-                           <wpn-entity class="persons entity " id="DWrsPers0443">Goethe</wpn-entity> um die Entfernung,
-                           die die deutsche Sprache von der Sprache der Deutschen trennt, das Volk der Dichter von eben diesen.
-                           Er kann es mit der Sprache sagen, als deren Patriot,
-                           der nicht Kompatriot ist:
-                           <wpn-entity class="quotes entity " id="DWquote0819">
-                              <span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Wo mir zerrissen sind die letzten Bande,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Wo Haß und Undank edle Liebe lohnen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Wie bin ich satt von meinem Vaterlande!</span></span></span></wpn-entity>
-                           Er kennt die Gegend, wie 
-                           <wpn-entity class="persons entity " id="DWrsPers0444">Hölderlin</wpn-entity> mit seinem Fluch:
-                           »
-                           <wpn-entity class="quotes entity " id="DWquote0820">Barbaren von altersher, durch Fleiß und Wissenschaft und selbst durch Religion barbarischer geworden</wpn-entity>«:
-                           
-                           <wpn-entity class="quotes entity " id="DWquote0821"><span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Dies Land der Mühe, dieses Land des herben</span></span>
-                                 <span class="d-block l"><span class="inline-text">Entsagens werd’ ich ohne Seufzer missen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Wo man bedrängt von tausend Hindernissen</span></span>
-                                 <span class="d-block l"><span class="inline-text">Sich müde quält und dennoch muß verderben.</span></span></span></wpn-entity><span class="d-block lg longQuoteVerseMiddle">
-                              <span class="d-block l"><span class="inline-text">— — — — — — — — — — — — — — —</span></span></span><wpn-entity class="quotes entity " id="DWquote0822"><span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Doch wer aus voller Seele haßt das Schlechte,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Auch aus der Heimat wird es ihn verjagen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Wenn dort verehrt es wird vom Volk der Knechte.</span></span></span>
-                              
-                              
-                              <span class="pagebreaks entity" id="pb0127" style="display:none;">||</span>
-                              
-                              <span class="d-block lg longQuoteVerse"><span class="d-block l"><span class="inline-text">Weit klüger ist’s, dem Vaterland entsagen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Als unter einem kindischen Geschlechte</span></span>
-                                 <span class="d-block l"><span class="inline-text">Das Joch des blinden Pöbelhasses tragen.</span></span></span></wpn-entity>
-                           Hundert Jahre später bilden deutsche Professoren
-                           Spalier, wenn 
-                           <wpn-entity class="quotes entity " id="DWquote2111">der Bücher Schatz versiegelt</wpn-entity> wird,
-                           und folgen dem Kommando zum Fest des 
-                           <wpn-entity class="quotes entity " id="DWquote0823">Volks
-                              der Knechte</wpn-entity>:<span class="comments entity" id="DWcomment0673"></span><span class="comments entity" id="DWcomment0320"></span><wpn-entity class="quotes entity " id="DWquote0824">
-                              <span class="d-block longQuote"><span class="inline-text">
-                                    <span class="spacing">Universität
-                                       
-                                       <wpn-entity class="persons entity " id="DWrsPers0445">Johann Wolfgang Goethe</wpn-entity>,</span>
-                                    Frankfurt.</span></span>
-                              <span class="d-block longQuoteRightAlign2"><span class="inline-text">
-                                    Frankfurt, den <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" class="date">Mai 1933</span></span></span>
-                              <span class="d-block longQuoteMiddleIndent"><span class="inline-text">
-                                    <span class="spacing">Das</span> <span class="spacing">Studentenfreikorps lädt die Gesamtheit des
-                                       Professorenkollegiums zu der Verbrennung</span> der marxistischen und korruptionistischen Schriften ein, die Mittwoch abend,
-                                    den <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" class="date">10. Mai</span> auf dem Römerberg stattfinden wird.</span></span>
-                              <span class="d-block longQuoteMiddleIndent"><span class="inline-text">
-                                    <span class="spacing">Die Studenten würden es im Hinblick auf die
-                                       große symbolische Bedeutung dieser Zeremonie
-                                       begrüßen, die Gesamtheit der Professorenschaft
-                                       dort zu sehen.</span></span></span>
-                              <span class="d-block longQuoteMiddleIndent"><span class="inline-text">
-                                    <span class="spacing">Ich lade daher die Kollegen ein,</span> zahlreich daran
-                                    teilzunehmen.</span></span>
-                              <span class="d-block longQuoteMiddleIndent"><span class="inline-text">
-                                    <span class="spacing">Abmarsch:</span> von der Universität auf den Römerberg Mittwoch
-                                    abend um 20 Uhr, mit Musik. Die Korporationen werden in Uniformen
-                                    daran teilnehmen, <span class="spacing">ebenso die SA-Bataillone.</span></span></span>
-                              <span class="d-block longQuoteEndRightAlign2"><span class="inline-text">Der Rektor: 
-                                    <wpn-entity class="persons entity " id="DWrsPers0446">Krieck</wpn-entity>.</span></span></wpn-entity>
-                            
-                           <wpn-entity class="persons entity " id="DWrsPers0447">Platen</wpn-entity> war dahin
-                           entschlossen; und
-                           er sprach wie 
-                           <wpn-entity class="persons entity " id="DWrsPers0448">Hölderlin</wpn-entity> »
-                           <wpn-entity class="quotes entity " id="DWquote0825">für alle, die in diesem Lande
-                              sind und leiden, wie ich dort gelitten</wpn-entity>«. S<abbr xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" title="unclear"></abbr>ein Abmarsch vollzog sich so:
-                           <wpn-entity class="quotes entity " id="DWquote0826">
-                              <span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">Ihr, denen Bosheit angefrischt den Kleister,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Um Unverstand mit Ungeschmack zu kitten,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Bei denen bloß der Pöbel wohlgelitten,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Der täglich toller wird und täglich dreister:</span></span></span></wpn-entity>
-                           
-                           
-                           <span class="pagebreaks entity" id="pb0128" style="display:none;">||</span>
-                           
-                           
-                           <wpn-entity class="quotes entity " id="DWquote0829">wenn »einst der Unfug dieser Lügengeister jedwedes Maß phantastisch überschritten«, zu spät
-                              würden sie ihn, dessen Seele sich abgewendet, zurückbitten</wpn-entity>:
-                           <wpn-entity class="quotes entity " id="DWquote0830">
-                              <span class="d-block lg longQuoteVerse">
-                                 <span class="d-block l"><span class="inline-text">»Nie wird er mehr die Alpen übersteigen,</span></span>
-                                 <span class="d-block l"><span class="inline-text">Und sein Geschäft ist unter uns vollendet!«</span></span>
-                                 <span class="d-block l"><span class="inline-text">Ja, meine ganze Rache sei das Schweigen!</span></span></span></wpn-entity>
-                           Man kann aber nicht annehmen, daß er heute
-                           schweigend in der Akademie ausgeharrt hätte!</span></span></span></div>
-               <div id="infocolumn" class="px-0 border-start border-light-grey">
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0957">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Killy; GN Platen-Hallermünde -->
-                        						
-                        <forename>August</forename>
-                        						
-                        <nameLink>von</nameLink>
-                        						
-                        <surname>Platen</surname>
-                        					</persName>
-                     <persName xmlns="http://www.tei-c.org/ns/1.0" full="yes">
-                        						
-                        <forename>Karl</forename>
-                        						
-                        <forename type="middle">August</forename>
-                        						
-                        <forename type="middle">Georg</forename>
-                        						
-                        <forename type="middle">Maximilian</forename>
-                        						
-                        <roleName>Graf</roleName>
-                        						
-                        <nameLink>von</nameLink>
-                        						
-                        <surname>Platen-Hallermünde</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0317"><span class="fw-bold">Glossar: Kraus, Platen und Heine</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0797"><b xmlns="">August von Platen: </b>Gesang der Polen (Entst. 1831)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0798"><b xmlns="">Vergil: </b><b xmlns="">Aeneis</b> (29 bis 19 v. Chr.)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0123" style="display:none"><span>Beginn Seite 123</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0799"><b xmlns="">August von Platen: </b>Eamus omnis execrata Civitas (Entst. 1831)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0438">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2009 -->
-                        						
-                        <forename>Gottfried</forename>
-                        						
-                        <surname>Benn</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0800"><b xmlns="">August von Platen: </b>Klagelied der polnischen Verbannten in Sibirien (Entst. 1832)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0801"><b xmlns="">August von Platen: </b>Klagelied der polnischen Verbannten in Sibirien (Entst. 1832)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0802"><b xmlns="">August von Platen: </b>Klagelied der polnischen Verbannten in Sibirien (Entst. 1832)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0803"><b xmlns="">August von Platen: </b>Klagelied der polnischen Verbannten in Sibirien (Entst. 1832)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0804"><b xmlns="">August von Platen: </b>Klagelied der polnischen Verbannten in Sibirien (Entst. 1832)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0805"><b xmlns="">August von Platen: </b>Klagelied der polnischen Verbannten in Sibirien (Entst. 1832)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0124" style="display:none"><span>Beginn Seite 124</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0806"><b xmlns="">August von Platen: </b>An einen deutschen Fürsten (Entst. 1831)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0807"><b xmlns="">August von Platen: </b>Der legitime Monarch (Monolog) (Entst. 1831)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0808"><b xmlns="">August von Platen: </b>Unterirdischer Chor (Entst. 1832)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0809"><b xmlns="">August von Platen: </b>Unterirdischer Chor (Entst. 1832)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0125" style="display:none"><span>Beginn Seite 125</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0439">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2009 -->
-                        						
-                        <forename>Gottfried</forename>
-                        						
-                        <surname>Benn</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0671"><span class="fw-bold">Ereignis: Die „Sache Polens gegen Russland“</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0672"><span class="fw-bold">Ereignis: NS-feindliche Botschaft am Kenotaph in London</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0810"><b xmlns=""><i>La Croix</i></b> vom 13. 5. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0440">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Killy; GN Platen-Hallermünde -->
-                        						
-                        <forename>August</forename>
-                        						
-                        <nameLink>von</nameLink>
-                        						
-                        <surname>Platen</surname>
-                        					</persName>
-                     <persName xmlns="http://www.tei-c.org/ns/1.0" full="yes">
-                        						
-                        <forename>Karl</forename>
-                        						
-                        <forename type="middle">August</forename>
-                        						
-                        <forename type="middle">Georg</forename>
-                        						
-                        <forename type="middle">Maximilian</forename>
-                        						
-                        <roleName>Graf</roleName>
-                        						
-                        <nameLink>von</nameLink>
-                        						
-                        <surname>Platen-Hallermünde</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0811"><b xmlns="">August von Platen: </b><b xmlns="">Epilog</b> (Entst. 1833)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0812"><b xmlns="">August von Platen: </b><b xmlns="">Epilog</b> (Entst. 1833)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0813"><b xmlns="">August von Platen: </b><b xmlns="">Epilog</b> (Entst. 1833)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0441">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Killy -->
-                        						
-                        <forename type="taken">Heinrich</forename>
-                        						
-                        <forename subtype="unused">Harry</forename>
-                        						
-                        <forename type="middle" subtype="unused">Christian</forename>
-                        						
-                        <forename type="middle" subtype="unused">Johann</forename>
-                        						
-                        <surname>Heine</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0318"><span class="fw-bold">Glossar: Der Gegner Heine</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0319"><span class="fw-bold">Glossar: Homosexualität in der NSDAP –&nbsp;„Friderizianische Tradition“</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0319"><span class="fw-bold">Glossar: Kraus, Platen und Heine</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0126" style="display:none"><span>Beginn Seite 126</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0442">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Killy; GN Platen-Hallermünde -->
-                        						
-                        <forename>August</forename>
-                        						
-                        <nameLink>von</nameLink>
-                        						
-                        <surname>Platen</surname>
-                        					</persName>
-                     <persName xmlns="http://www.tei-c.org/ns/1.0" full="yes">
-                        						
-                        <forename>Karl</forename>
-                        						
-                        <forename type="middle">August</forename>
-                        						
-                        <forename type="middle">Georg</forename>
-                        						
-                        <forename type="middle">Maximilian</forename>
-                        						
-                        <roleName>Graf</roleName>
-                        						
-                        <nameLink>von</nameLink>
-                        						
-                        <surname>Platen-Hallermünde</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0814"><b xmlns="">August von Platen: </b><b xmlns="">Sonett [Anstimmen darf ich ungewöhnte Töne]</b> (Entst. 1826)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0815"><b xmlns="">August von Platen: </b><b xmlns="">Sonett [Anstimmen darf ich ungewöhnte Töne]</b> (Entst. 1826)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0816"><b xmlns="">August von Platen: </b><b xmlns="">Sonett [Was habt ihr denn an euerm Rhein und Ister]</b> (Entst. 1826)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0817"><b xmlns="">August von Platen: </b><b xmlns="">Sonett [Was habt ihr denn an euerm Rhein und Ister]</b> (Entst. 1826)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0818"><b xmlns="">August von Platen: </b><b xmlns="">Sonett [Was habt ihr denn an euerm Rhein und Ister]</b> (Entst. 1826)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0443">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: -->
-                        						
-                        <forename>Johann</forename>
-                        						
-                        <forename type="middle">Wolfgang</forename>
-                        						
-                        <nameLink>von</nameLink>
-                        						
-                        <surname>Goethe</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0819"><b xmlns="">August von Platen: </b><b xmlns="">Sonett [Die letzte Hefe sollt’ ich noch genießen]</b> (Entst. 1826)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0444">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Killy -->
-                        						
-                        <forename subtype="unused">Johann</forename>
-                        						
-                        <forename type="middle" subtype="unused">Christian</forename>
-                        						
-                        <forename type="middle">Friedrich</forename>
-                        						
-                        <surname>Hölderlin</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0820"><b xmlns="">Friedrich Hölderlin: </b><b xmlns="">Hyperion oder der Eremit in Griechenland</b> (1797 und 1799)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0821"><b xmlns="">August von Platen: </b><b xmlns="">Sonett [Dies Land der Mühe, dieses Land des herben]</b> (Entst. 1826)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0822"><b xmlns="">August von Platen: </b><b xmlns="">Sonett [Es sehnt sich ewig dieser Geist ins Weite]</b> (Entst. 1826)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0127" style="display:none"><span>Beginn Seite 127</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote2111"><b xmlns="">August von Platen: </b>Klagelied der polnischen Verbannten in Sibirien (Entst. 1832)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0823"><b xmlns="">August von Platen: </b><b xmlns="">Sonett [Es sehnt sich ewig dieser Geist ins Weite]</b> (Entst. 1826)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0673"><span class="fw-bold">Ereignis: Bücherverbrennung in Frankfurt am Main</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0320"><span class="fw-bold">Glossar: Die deutschen Bücherverbrennungen 1933</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0824"><b xmlns=""><i>AZ</i></b> vom 9. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0445">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: -->
-                        						
-                        <forename>Johann</forename>
-                        						
-                        <forename type="middle">Wolfgang</forename>
-                        						
-                        <nameLink>von</nameLink>
-                        						
-                        <surname>Goethe</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0446">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2007 -->
-                        						
-                        <forename>Ernst</forename>
-                        						
-                        <surname>Krieck</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0447">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Killy; GN Platen-Hallermünde -->
-                        						
-                        <forename>August</forename>
-                        						
-                        <nameLink>von</nameLink>
-                        						
-                        <surname>Platen</surname>
-                        					</persName>
-                     <persName xmlns="http://www.tei-c.org/ns/1.0" full="yes">
-                        						
-                        <forename>Karl</forename>
-                        						
-                        <forename type="middle">August</forename>
-                        						
-                        <forename type="middle">Georg</forename>
-                        						
-                        <forename type="middle">Maximilian</forename>
-                        						
-                        <roleName>Graf</roleName>
-                        						
-                        <nameLink>von</nameLink>
-                        						
-                        <surname>Platen-Hallermünde</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0448">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Killy -->
-                        						
-                        <forename subtype="unused">Johann</forename>
-                        						
-                        <forename type="middle" subtype="unused">Christian</forename>
-                        						
-                        <forename type="middle">Friedrich</forename>
-                        						
-                        <surname>Hölderlin</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0825"><b xmlns="">Friedrich Hölderlin: </b><b xmlns="">Hyperion oder der Eremit in Griechenland</b> (1797 und 1799)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0826"><b xmlns="">August von Platen: </b><b xmlns="">Sonett [Ihr, denen Bosheit angefrischt den Kleister]</b> (1829)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0449">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: DNB -->
-                        						
-                        <forename>Friedrich</forename>
-                        						
-                        <surname>Nietzsche</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0827"><b xmlns="">Friedrich Nietzsche: </b><b xmlns="">Aus dem Nachlass: Aufzeichnungen aus der Zeit der Morgenröthe
-                        						und der Fröhlichen Wissenschaft 1880–1882</b> (1924)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0828"><b xmlns="">Friedrich Nietzsche: </b><b xmlns="">Menschliches, Allzumenschliches</b> (1886)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0128" style="display:none"><span>Beginn Seite 128</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0829"><b xmlns="">August von Platen: </b><b xmlns="">Sonett [Ihr, denen Bosheit angefrischt den Kleister]</b> (1829)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0830"><b xmlns="">August von Platen: </b><b xmlns="">Sonett [Ihr, denen Bosheit angefrischt den Kleister]</b> (1829)</div>
-               </div>
-            </wpn-text-view>
-         </div>
-      </main>
-      <footer xmlns="http://www.w3.org/1999/xhtml" class="footer mt-auto py-3 border-top border-light-grey bg-white ">
-         <div class="container mt-1_5">
-            <ul class="list-unstyled d-flex flex-row justify-content-end">
-               <li><a class="project-link link-dark-grey link-hover-primary-hover text-decoration-none" href="impressum.html">Impressum</a></li>
-               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="nutzungsbedingungen.html">Nutzungsbedingungen</a></li>
-               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="projekt.html">Über das Projekt</a></li>
-               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="https://github.com/karl-kraus/dritte-walpurgisnacht-static"><i class="bi bi-github"></i></a></li>
-            </ul>
-         </div>
-      </footer><script xmlns="http://www.w3.org/1999/xhtml" src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script><script xmlns="http://www.w3.org/1999/xhtml" src="js/vendor/bootstrap/bootstrap.bundle.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"></script><script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-header.DLUPgEgS.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/init-micro-editor.C-FTEvHg.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-text-view.DAWrcRUb.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-entity.aFBLJyLo.js"></script></body>
-</html>
+<html id="edition-view"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"><meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta xmlns="http://www.w3.org/1999/xhtml" name="mobile-web-app-capable" content="yes"><meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-capable" content="yes"><meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-title" content=""><meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileColor" content="#ffffff"><meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileImage" content="images/logo.png"><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://use.typekit.net/ckc0oka.css"><link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/svg+xml" href="images/logo.png" sizes="any"><link xmlns="http://www.w3.org/1999/xhtml" rel="profile" href="http://gmpg.org/xfn/11"><title xmlns="http://www.w3.org/1999/xhtml"></title><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/style.80e10db4.css"><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/micro-editor.8e986c38.css"></head><body id="main_grid"><wpn-header xmlns="http://www.w3.org/1999/xhtml" class="fixed-top bg-white pe-0"><nav id="primary_nav" class="navbar border-bottom pt-05"><div class="container-fluid mx-1 edition-header"><a class="navbar-brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 123.47 106.97" width="90"><defs><style>.cls-1{fill:#4a4a49;}.cls-2{fill:#a21a17;}</style></defs><g id="Ebene_2" data-name="Ebene 2"><g id="KARLKRAUS1933-EXPORT"><g id="LOGO-Karl-Kraus-1933_FARBE"><path class="cls-1" d="M21.24,49v9.32h2.18L29.17,49h6.6L28.42,60.93l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V49Z"></path><path class="cls-1" d="M49.09,49a10.73,10.73,0,0,1,5.79,1.32c1.6,1,2.71,2.68,2.71,5.71,0,3.4-1.36,6-4.64,6.82,3.1.58,4,3.61,4.78,10.79H51.66c-.89-6.64-1.39-8.36-3.61-8.36H44.81v8.36H39V49ZM44.81,60.43h2.6c2.75,0,4.18-.61,4.18-3.72a2.88,2.88,0,0,0-.68-2.28,3,3,0,0,0-2.14-.5h-4Z"></path><path class="cls-1" d="M76.19,73.64,74.87,69H67.05l-1.32,4.68H59.84L67.59,49h6.93l7.74,24.64ZM71,54.82,68.3,64.35h5.36Z"></path><path class="cls-1" d="M89.69,49V64.85c0,2.65.22,4.22,3.89,4.22,3.5,0,3.82-1.43,3.82-4.22V49h5.79V64.78c0,2.32-.32,4.5-1.64,6.18s-4.07,3.11-8.18,3.11S87,72.89,85.66,71.32c-1.47-1.75-1.75-4.07-1.75-6.36V49Z"></path><path class="cls-1" d="M120.22,54.89A9.87,9.87,0,0,0,115,53.46c-1.75,0-2.89.47-2.89,2.4,0,3.75,11.32,1.53,11.32,10.46a7,7,0,0,1-3.11,6A11.58,11.58,0,0,1,114,74.07c-2.61,0-6.14-.65-8.14-2.47l2.85-4.25a9.85,9.85,0,0,0,5.86,1.82c1.68,0,3.07-.42,3.07-2.57,0-4.25-11.32-1.82-11.32-10.6a6.4,6.4,0,0,1,2.79-5.5,10.53,10.53,0,0,1,6.42-1.93c2.36,0,5.54.57,7.43,2.14Z"></path><path class="cls-1" d="M21.24,18.79v9.32h2.18l5.75-9.32h6.6L28.42,30.72l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V18.79Z"></path><path class="cls-1" d="M54.16,43.43l-1.32-4.68H45L43.7,43.43H37.8l7.75-24.64h6.93l7.75,24.64ZM49,24.61l-2.68,9.54h5.35Z"></path><path class="cls-1" d="M72.87,18.79a10.63,10.63,0,0,1,5.78,1.33c1.61,1,2.72,2.67,2.72,5.71,0,3.39-1.36,6-4.64,6.82,3.1.57,4,3.6,4.78,10.78H75.44c-.89-6.64-1.39-8.35-3.61-8.35H68.59v8.35H62.8V18.79ZM68.59,30.22h2.6c2.75,0,4.18-.61,4.18-3.71a2.94,2.94,0,0,0-.68-2.29,3.07,3.07,0,0,0-2.14-.5h-4Z"></path><path class="cls-1" d="M91,18.79v19.5h8.46v5.14H85.24V18.79Z"></path><path class="cls-2" d="M111,33.6h-6.1v-10.1h6.1v1.2h-4.7v3.1h4v1.2h-4v3.5h4.7v1.2ZM117.1,33.6h-1.5l-3.7-9.7,1.3-.5,3.2,8.7,3.2-8.7,1.2.5-3.7,9.7ZM95.2,33.6v-10c.5,0,.9,0,1.3-.1.2,0,.4,0,.6,0,.3,0,.6,0,.9,0,.4,0,.7,0,1.1,0,.4,0,.7.1,1,.3,0,0,0,0,.1,0,.4.2.7.4,1.1.6.2.1.4.3.5.5.4.5.7,1,.9,1.6.2.5.3,1,.3,1.6,0,.1,0,.3,0,.4,0,.6,0,1.1-.2,1.7,0,.1,0,.2,0,.3-.2.6-.5,1.2-.9,1.6-.4.5-1,.9-1.6,1.1-.6.3-1.3.4-2.1.4,0,0-.1,0-.2,0-.2,0-.4,0-.6,0-.2,0-.4,0-.5,0,0,0-.2,0-.3,0-.4,0-.8,0-1.2-.1ZM96.5,24.7v7.8c.2,0,.4,0,.6,0,.2,0,.3,0,.5,0,0,0,.1,0,.2,0,.3,0,.6,0,.9,0,.5,0,.9-.2,1.2-.4.5-.3,1-.8,1.2-1.4.2-.4.3-.8.3-1.2,0-.3,0-.6,0-.9,0-.7-.1-1.3-.4-1.9-.3-.6-.7-1.1-1.2-1.5-.3-.2-.7-.4-1-.4-.3,0-.6-.1-.9-.1,0,0-.1,0-.2,0-.3,0-.5,0-.8,0-.2,0-.4,0-.6,0Z" vector-effect="non-scaling-stroke"></path><path class="cls-2" d="M19.28,86.21v19.44H17.72v-18H15.37V86.21Z"></path><path class="cls-2" d="M24.52,92.21A6.24,6.24,0,0,1,31,85.89a6.2,6.2,0,0,1,6.39,6.45c0,4.48-4.67,10.69-8.17,13.31H26.9a27.53,27.53,0,0,0,7.56-8.5,5.2,5.2,0,0,1-3.59,1.35A6.2,6.2,0,0,1,24.52,92.21Zm1.57,0A4.86,4.86,0,1,0,31,87.29,4.73,4.73,0,0,0,26.09,92.21Z"></path><path class="cls-2" d="M44.53,87.32a9.53,9.53,0,0,0-4.24,1.11V86.86a10.53,10.53,0,0,1,4.32-1c3.48,0,5.78,2,5.78,5a5,5,0,0,1-3.76,4.67,5.21,5.21,0,0,1,4.08,5.13c0,3-2.46,5.23-6.1,5.23a9.34,9.34,0,0,1-4.7-1.1V103.3a8.72,8.72,0,0,0,4.65,1.24c2.72,0,4.53-1.67,4.53-3.86,0-2.75-2.11-4.37-5.64-4.37H43V95h.73c2.86,0,5.08-1.62,5.08-4S47,87.32,44.53,87.32Z"></path><path class="cls-2" d="M58.43,87.32a9.53,9.53,0,0,0-4.23,1.11V86.86a10.48,10.48,0,0,1,4.31-1c3.49,0,5.78,2,5.78,5a5,5,0,0,1-3.75,4.67,5.21,5.21,0,0,1,4.07,5.13c0,3-2.45,5.23-6.1,5.23a9.3,9.3,0,0,1-4.69-1.1V103.3a8.68,8.68,0,0,0,4.64,1.24c2.73,0,4.53-1.67,4.53-3.86,0-2.75-2.1-4.37-5.64-4.37h-.48V95h.73c2.86,0,5.07-1.62,5.07-4S60.94,87.32,58.43,87.32Z"></path><path class="cls-2" d="M4,18.79H0v-14A4.84,4.84,0,0,1,4.83,0H15.45V4H4.83A.83.83,0,0,0,4,4.83Z"></path></g></g></g></svg></a><span class="d-flex align-items-center"><a class="nav-link project-link pe-4 link-dark-grey link-hover-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a><button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12"><defs><style>.a{fill:none}</style></defs><g transform="translate(0 0.5)"><line class="a" x2="20"></line><line class="a" x2="20" transform="translate(0 5)"></line><line class="a" x2="20" transform="translate(0 10)"></line></g></svg></button></span><div class="navbar position-fixed start-0 bg-black-grey w-100 opacity-97" id="navbarSupportedContent"><div class="container d-block"><div class="row"><div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2"><li class="nav-item"><a xmlns="" class="nav-link" href="projekt.html">Über das Projekt<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="nutzungsbedingungen.html">Nutzungsbedingungen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="impressum.html">Impressum<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li></ul></div><div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Dritte Walpurgisnacht</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2"><li class="nav-item"><a xmlns="" class="nav-link" href="notizen.html">Notizen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="annotierte_lesefassung.html">Annotierte Lesefassung<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="register.html">Register<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li></ul></div><div class="col-md-4"><span class="d-block navbar-title text-dark-grey border-bottom border-light-grey pb-1">Kommentar</span></div></div></div></div></div></nav><nav aria-label="breadcrumb" class="my-05"><div class="container-fluid mx-1 edition-header"><ol class="breadcrumb"><li class="breadcrumb-item active" aria-current="page">Karl Kraus 1933: Dritte Walpurgisnacht</li></ol></div></nav></wpn-header><main class="flex-shrink-0 mt-18"><div class="container-fluid px-0"><wpn-text-view annotation-selectors=".entity" id="sub_grid"><div class="d-flex justify-content-center mt-2"><div class="p-0 d-flex flex-column align-items-center position-fixed"><div xmlns="http://www.w3.org/1999/xhtml" class="dropdown ff-ubuntu"><a href="absatz_32.html" title="zu seite absatz_32.html gehen"><svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg></a><button class="btn btn-secondary dropdown-toggle fs-9_38 border-0 px-05" type="button" data-bs-toggle="dropdown" aria-expanded="false">Absatz 33</button><ul class="dropdown-menu z-3 rounded-0"><li><a class="dropdown-item fs-9_38 py-0" href="motti.html">[Motti]</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_1.html">Absatz 1</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_2.html">Absatz 2</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_3.html">Absatz 3</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_4.html">Absatz 4</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_5.html">Absatz 5</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_6.html">Absatz 6</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_7.html">Absatz 7</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_8.html">Absatz 8</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_9.html">Absatz 9</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_10.html">Absatz 10</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_11.html">Absatz 11</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_12.html">Absatz 12</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_13.html">Absatz 13</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_14.html">Absatz 14</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_15.html">Absatz 15</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_16.html">Absatz 16</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_17.html">Absatz 17</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_18.html">Absatz 18</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_19.html">Absatz 19</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_20.html">Absatz 20</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_21.html">Absatz 21</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_22.html">Absatz 22</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_23.html">Absatz 23</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_24.html">Absatz 24</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_25.html">Absatz 25</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_26.html">Absatz 26</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_27.html">Absatz 27</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_28.html">Absatz 28</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_29.html">Absatz 29</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_30.html">Absatz 30</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_31.html">Absatz 31</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_32.html">Absatz 32</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_33.html">Absatz 33</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_34.html">Absatz 34</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_35.html">Absatz 35</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_36.html">Absatz 36</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_37.html">Absatz 37</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_38.html">Absatz 38</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_39.html">Absatz 39</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_40.html">Absatz 40</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_41.html">Absatz 41</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_42.html">Absatz 42</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_43.html">Absatz 43</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_44.html">Absatz 44</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_45.html">Absatz 45</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_46.html">Absatz 46</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_47.html">Absatz 47</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_48.html">Absatz 48</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_49.html">Absatz 49</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_50.html">Absatz 50</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_51.html">Absatz 51</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_52.html">Absatz 52</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_53.html">Absatz 53</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_54.html">Absatz 54</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_55.html">Absatz 55</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_56.html">Absatz 56</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_57.html">Absatz 57</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_58.html">Absatz 58</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_59.html">Absatz 59</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_60.html">Absatz 60</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_61.html">Absatz 61</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_62.html">Absatz 62</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_63.html">Absatz 63</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_64.html">Absatz 64</a></li></ul><a href="absatz_34.html" title="zu seite absatz_34.html gehen"><svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg></a></div><div id="editor-widget"><div xmlns="http://www.w3.org/1999/xhtml"><div id="aot-navBarNavDropdown" class="navBarNavDropdown dropstart d-md-none"><a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button"><i class="bi bi-gear" title="Menü zur Anpassung der Anzeige"></i></a><ul class="dropdown-menu d-block border-0 z-2"><li class="dropdown-item"><annotation-slider opt="prs" class="text-wpn-person fs-7"></annotation-slider></li><li class="dropdown-item"><annotation-slider opt="quts" class="text-wpn-quote fs-7"></annotation-slider></li><li class="dropdown-item"><annotation-slider opt="pbs" class="text-black-grey fs-7"></annotation-slider></li><li class="dropdown-item"><annotation-slider opt="cmts" class="text-comment fs-7"></annotation-slider></li></ul></div><div class="d-none d-md-block mt-2"><fieldset class="mb-2"><div class="d-flex gap-1_5 justify-content-center mb-05"><wpn-text-zoom-button zoom-direction="in"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" width="24" height="24"><g><path fill="#999" d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g></svg></wpn-text-zoom-button><wpn-text-zoom-button zoom-direction="out"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" width="24" height="24"><g><path fill="#999" d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g></svg></wpn-text-zoom-button></div><legend class="text-dark-grey fs-7 text-center">Textgröße</legend></fieldset><ul class="border-0 z-2 list-unstyled"><li class="mb-1"><annotation-slider opt="prs" class="text-wpn-person fs-7 mx-auto"></annotation-slider></li><li class="mb-1"><annotation-slider opt="quts" class="text-wpn-quote fs-7 mx-auto"></annotation-slider></li><li class="mb-1"><annotation-slider opt="pbs" class="text-black-grey fs-7 mx-auto"></annotation-slider></li><li class="mb-1"><annotation-slider opt="cmts" class="text-wpn-comment fs-7 mx-auto"></annotation-slider></li></ul></div></div></div></div></div><div id="textcolumn" class="mx-auto ff-century-old-style"><div id="textcontent"><div id="p__75" class="yes-index runningText1">
+Doch könnte freilich er sich wieder auf <wpn-entity class="persons entity " id="DWrsPers0957">Platen</wpn-entity> berufen,
+der ja ein noch besserer Dichter und Deutscher<span class="comments entity" id="DWcomment0317"></span> war
+und nicht bloß nachgedichtet, sondern gedichtet hat,
+was zwar nicht den Juden gilt, aber sich gleichfalls
+auf Rußland bezieht⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote0797">
+<span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Mag zu Staub uns auch zerschmettern</span></span>
+<span class="d-block l "><span class="inline-text">Jener Sklaven Legion,</span></span>
+<span class="d-block l "><span class="inline-text">Unter morscher Särge Brettern</span></span>
+<span class="d-block l "><span class="inline-text">Keimt die neue Blume schon⁠ ⁠!</span></span>
+<span class="d-block l "><span class="inline-text">Wenn das letzte Schwert zerbrochen,</span></span>
+<span class="d-block l "><span class="inline-text">Laßt zu Grab uns freudig gehn,</span></span>
+<span class="d-block l "><span class="inline-text"><span class="spacing">Aber einst aus unsern Knochen</span></span></span>
+<span class="d-block l "><span class="inline-text"><span class="spacing">Wird ein Rächer auferstehn⁠ ⁠!</span></span></span></span></wpn-entity>
+Wie gut hier das <span>»</span><wpn-entity class="quotes entity " id="DWquote0798">exoriare ex ossibus ultor</wpn-entity><span>«</span>
+zum deutschen Reim
+wurde⁠ ⁠! Doch mehr als das⁠ ⁠:
+
+
+<span class="pagebreaks entity" id="pb0123" style="display:none;">||</span>
+<wpn-entity class="quotes entity " id="DWquote0799">
+<span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">O, kommt im Verein,</span></span>
+<span class="d-block l "><span class="inline-text">Ihr Männer, o kommt⁠ ⁠!</span></span>
+<span class="d-block l "><span class="inline-text">Vernehmt, was allein</span></span>
+<span class="d-block l "><span class="inline-text">Den Geächteten frommt⁠ ⁠!</span></span></span>
+<span class="d-block lg longQuoteVerse"><span class="d-block l "><span class="inline-text">Zieht aus von dem Land</span></span>
+<span class="d-block l "><span class="inline-text">Der Geburt, zieht aus</span></span>
+<span class="d-block l "><span class="inline-text">Und schleudert den Brand</span></span>
+<span class="d-block l "><span class="inline-text">In das eigene Haus⁠ ⁠!</span></span></span></wpn-entity>
+Also ganz die Gesinnung, die <wpn-entity class="persons entity " id="DWrsPers0438">Benn</wpn-entity> so tadelnswert
+findet. Und so sprechen die Flüchtlinge⁠ ⁠:
+<wpn-entity class="quotes entity " id="DWquote0800">
+<span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Aus den Hütten, die der Schnee bestiebte,</span></span>
+<span class="d-block l "><span class="inline-text">Sammelt euch um dieses Feu’r, Geliebte,</span></span>
+<span class="d-block l "><span class="inline-text">Laßt in freien Worten Trost uns suchen,</span></span>
+<span class="d-block l "><span class="inline-text">Unsern Würger im Gesang verfluchen.</span></span></span></wpn-entity><span class="d-block lg longQuoteVerseMiddle">
+<span class="d-block l "><span class="inline-text">— — — — — — — — — — — — —</span></span></span><wpn-entity class="quotes entity " id="DWquote0801"><span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Kranz des Ruhms, von Vätern einst erworben,</span></span>
+<span class="d-block l "><span class="inline-text">Bist du wirklich völlig abgestorben⁠ ⁠?</span></span>
+<span class="d-block l "><span class="inline-text">Baum der Freiheit, den wir einst begossen,</span></span>
+<span class="d-block l "><span class="inline-text">Wirst du nie mehr aus der Erde sprossen⁠ ⁠?</span></span></span><span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Waren nicht auch wir ein Volk, wie eines,</span></span>
+<span class="d-block l "><span class="inline-text">Sind wir würdig schon des Leichensteines⁠ ⁠?</span></span>
+<span class="d-block l "><span class="inline-text">Darf der Unhold uns zu Grabe senden,</span></span>
+<span class="d-block l "><span class="inline-text">Unsre Habe wie ein Dieb entwenden⁠ ⁠?</span></span></span></wpn-entity><span class="d-block lg longQuoteVerseMiddle">
+<span class="d-block l "><span class="inline-text">— — — — — — — — — — — — —</span></span></span><wpn-entity class="quotes entity " id="DWquote0802"><span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Schuldbewußt verdammt der Überwinder</span></span>
+<span class="d-block l "><span class="inline-text"><span class="spacing">Selbst die junge Wißbegier der Kinder⁠ ⁠;</span></span></span>
+<span class="d-block l "><span class="inline-text">Daß sie nicht im Ehedem sich spiegeln,</span></span>
+<span class="d-block l "><span class="inline-text"><span class="spacing">Läßt er selbst der Bücher Schatz versiegeln.</span></span></span></span></wpn-entity><span class="d-block lg longQuoteVerseMiddle">
+<span class="d-block l "><span class="inline-text">— — — — — — — — — — — — —</span></span></span><wpn-entity class="quotes entity " id="DWquote0803"><span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Doch zum Himmel steigen unsre <span>Klagen,</span></span></span>
+<span class="d-block l "><span class="inline-text">Fern hinab durch alle Zeit sie tragen</span></span>
+<span class="d-block l "><span class="inline-text">Werden Dichter einst, durch alle Lande⁠ ⁠:</span></span>
+<span class="d-block l "><span class="inline-text">Ewig währt o Wütrich, deine Schande.</span></span></span></wpn-entity>
+<wpn-entity class="quotes entity " id="DWquote0804"><span class="d-block lg longQuoteVerse"><span class="d-block l "><span class="inline-text">Trüge nicht des Menschen Seele Waffen,</span></span>
+<span class="d-block l "><span class="inline-text">Hätte Gott die Welt umsonst geschaffen,</span></span>
+<span class="d-block l "><span class="inline-text">Und der Erdball, über den wir schleichen,</span></span>
+<span class="d-block l "><span class="inline-text">Wär’ ein Spiel für dich und deines Gleichen⁠ ⁠!</span></span></span></wpn-entity>
+<wpn-entity class="quotes entity " id="DWquote0805"><span class="d-block lg longQuoteVerseEnd"><span class="d-block l "><span class="inline-text">Doch es wird’s der Sohn, der Enkel büßen,</span></span>
+<span class="d-block l "><span class="inline-text">Was wir ächzen unter deinen Füßen⁠ ⁠:</span></span>
+<span class="d-block l "><span class="inline-text">Kommen wird ein Leu mit goldner Mähne,</span></span>
+<span class="d-block l "><span class="inline-text">Der zerbricht dem Krokodil die Zähne⁠ ⁠!</span></span></span></wpn-entity>
+
+
+<span class="pagebreaks entity" id="pb0124" style="display:none;">||</span>
+
+Und dies⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote0806">
+<span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Wie Mancher wähnt den Feind zersplittert,</span></span>
+<span class="d-block l "><span class="inline-text">Indes die Nemesis umwittert</span></span>
+<span class="d-block l "><span class="inline-text">Des Siegers Zelt.</span></span>
+<span class="d-block l "><span class="inline-text">Triumphe sind wie Niederlagen⁠ ⁠:</span></span>
+<span class="d-block l "><span class="inline-text">Wenn ihre Frucht besteht in Klagen,</span></span>
+<span class="d-block l "><span class="inline-text"><span class="spacing">Im grenzenlosen Haß der Welt.</span></span></span></span></wpn-entity>
+Und dies⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote0807">
+<span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Bricht dir nicht entzwei die Schulter,</span></span>
+<span class="d-block l "><span class="inline-text">Nicht entzwei die mürbe Schulter⁠ ⁠?</span></span>
+<span class="d-block l "><span class="inline-text">Ganz Europa’s Haß belastet</span></span>
+<span class="d-block l "><span class="inline-text">Deine Schulter, Autokrator⁠ ⁠!</span></span></span></wpn-entity>
+Und das⁠ ⁠:
+<wpn-entity class="quotes entity " id="DWquote0808"><span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text"><span class="spacing">Den Gott zu spielen,</span></span></span>
+<span class="d-block l "><span class="inline-text">War Der im Stand,</span></span>
+<span class="d-block l "><span class="inline-text">Der, vor so Vielen</span></span>
+<span class="d-block l "><span class="inline-text">Geehrt und prächtig,</span></span>
+<span class="d-block l "><span class="inline-text">So viel vermochte⁠ ⁠;</span></span>
+<span class="d-block l "><span class="inline-text">Doch unterjochte</span></span>
+<span class="d-block l "><span class="inline-text">Er jedes Recht⁠ ⁠:</span></span>
+<span class="d-block l "><span class="inline-text">Er war allmächtig</span></span>
+<span class="d-block l "><span class="inline-text">Und war so schlecht⁠ ⁠!</span></span></span>
+<span class="d-block lg longQuoteVerse"><span class="d-block l "><span class="inline-text">Er baute Tempel</span></span>
+<span class="d-block l "><span class="inline-text">Dem Teufel selbst⁠ ⁠:</span></span>
+<span class="d-block l "><span class="inline-text">Nun soll den Stempel</span></span>
+<span class="d-block l indent4"><span class="inline-text">Er auch empfangen,</span></span>
+<span class="d-block l "><span class="inline-text">Der große Quäler⁠ ⁠:</span></span>
+<span class="d-block l "><span class="inline-text">Es sei’n die Mäler</span></span>
+<span class="d-block l "><span class="inline-text">Ihm aufgebrannt⁠ ⁠;</span></span>
+<span class="d-block l "><span class="inline-text">Er hat’s begangen,</span></span>
+<span class="d-block l "><span class="inline-text">Er ist erkannt.</span></span></span></wpn-entity><span class="d-block lg longQuoteVerseMiddle">
+<span class="d-block l "><span class="inline-text">— — — — — — — —</span></span></span><wpn-entity class="quotes entity " id="DWquote0809"><span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Von Schmach und Gräuel</span></span>
+<span class="d-block l "><span class="inline-text">Entwirrt sich ihm</span></span>
+<span class="d-block l "><span class="inline-text">Ein langer Knäuel.</span></span>
+<span class="d-block l "><span class="inline-text">Doch kein Verbrecher</span></span>
+<span class="d-block l "><span class="inline-text">Ist ihm vergleichbar,</span></span>
+<span class="d-block l "><span class="inline-text">Dem unerweichbar</span></span>
+<span class="d-block l "><span class="inline-text">Der Busen schwoll.</span></span>
+<span class="d-block l "><span class="inline-text">Geuß ihm den Becher,</span></span>
+<span class="d-block l "><span class="inline-text">Megära, voll⁠ ⁠!</span></span></span></wpn-entity>
+
+
+<span class="pagebreaks entity" id="pb0125" style="display:none;">||</span>
+
+Daß es deutsche Sprache ist, die solche Empfindungen tragen kann, wird selbst <wpn-entity class="persons entity " id="DWrsPers0439">Benn</wpn-entity> nicht leugnen,
+wiewohl hier die Sache Polens gegen Rußland<span class="comments entity" id="DWcomment0671"></span> geführt
+wird. Aber an Kraft verwandt ist ihr der Text, den
+ein französisches Blatt als die Widmung wiedergab,
+mit der ein amerikanischer Offizier Lilien auf ein
+von Fremden vielbesuchtes Grab in London gelegt hatte<span class="comments entity" id="DWcomment0672"></span>⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote0810">
+<span class="d-block longQuoteIndent"><span class="inline-text">
+Si le soldat inconnu anglais pouvait parler au poilu <span>américain</span>,
+il lui dirait qu’il préfère cette simple fleur à la couronne d’un
+dictateur assassin qui souille ce <span>mémorial</span>.</span></span></wpn-entity>
+Der <wpn-entity class="persons entity " id="DWrsPers0440">deutsche Dichter</wpn-entity> jedoch fühlte zu Zeiten, daß
+Schweigen die noch stärkere Antwort ist, wenn es
+den Eigenen galt⁠ ⁠:
+<wpn-entity class="quotes entity " id="DWquote0811"><span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Zusammen pack’ ich meine Habe,</span></span>
+<span class="d-block l "><span class="inline-text">Und was im Busen mir gedieh⁠ ⁠;</span></span>
+<span class="d-block l "><span class="inline-text">Denn länger nicht mehr frommt die Gabe,</span></span>
+<span class="d-block l "><span class="inline-text">Die mir ein milder Gott verlieh.</span></span></span></wpn-entity><span class="d-block lg longQuoteVerseMiddle">
+<span class="d-block l "><span class="inline-text">— — — — — — — — — — — —</span></span></span><wpn-entity class="quotes entity " id="DWquote0812"><span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Im Dunkel muß der Geist sich bergen</span></span>
+<span class="d-block l "><span class="inline-text">Damit’s die Blöden nicht verstehn,</span></span>
+<span class="d-block l "><span class="inline-text">Dann mag er mitten durch die Schergen</span></span>
+<span class="d-block l "><span class="inline-text">Wie ein erhabnes Wesen gehn.</span></span></span></wpn-entity>
+<wpn-entity class="quotes entity " id="DWquote0813"><span class="d-block lg longQuoteVerse"><span class="d-block l "><span class="inline-text">Der mörderische Censor lümmelt</span></span>
+<span class="d-block l "><span class="inline-text">Mit meinem Buch auf seinen Knien,</span></span>
+<span class="d-block l "><span class="inline-text">Und meine Lieder sind verstümmelt,</span></span>
+<span class="d-block l "><span class="inline-text">Zerrissen meine Harmonien.</span></span></span>
+<span class="d-block lg longQuoteVerse"><span class="d-block l "><span class="inline-text">So muß ich denn gezwungen schweigen.</span></span>
+<span class="d-block l "><span class="inline-text">Und so verläßt mich jener Wahn⁠ ⁠:</span></span>
+<span class="d-block l "><span class="inline-text"><span class="spacing">Mich fürder einem Volk zu zeigen,</span></span></span>
+<span class="d-block l "><span class="inline-text"><span class="spacing">Das wandelt eine solche Bahn.</span></span></span></span>
+<span class="d-block lg longQuoteVerse"><span class="d-block l "><span class="inline-text">Doch gib, o Dichter, dich zufrieden,</span></span>
+<span class="d-block l "><span class="inline-text">Es büßt die Welt nur wenig ein,</span></span>
+<span class="d-block l "><span class="inline-text">Du weißt es längst, man kann hienieden</span></span>
+<span class="d-block l "><span class="inline-text">Nichts Schlechtres, als ein Deutscher, sein.</span></span></span></wpn-entity>
+Sein Vaterland hat ihm trotz der Rasse jenen <wpn-entity class="persons entity " id="DWrsPers0441">Heine</wpn-entity><span class="comments entity" id="DWcomment0318"></span>
+vorgezogen, der ihn mit der Schmach belud, daß er
+ihm eine heute normhafte Arteigenheit nachsagte,<span class="comments entity" id="DWcomment0319"></span>
+aus der sich vielleicht das schwüle Ineinander von
+
+
+<span class="pagebreaks entity" id="pb0126" style="display:none;">||</span>
+
+Mystik und Manneszucht erklärt. <wpn-entity class="persons entity " id="DWrsPers0442">Platen</wpn-entity> bescheidet
+sich in einem seiner edlen Sonette, <wpn-entity class="quotes entity " id="DWquote0814">daß »man Bessere
+bekröne«</wpn-entity> (unter die er freilich jenen nicht gezählt
+hat), ihn aber ziehen lassen möge⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote0815">
+<span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Ja, daß man mir mein Vaterland verpöne⁠ ⁠!</span></span></span></wpn-entity>
+Und er fragt⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote0816">
+<span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Was habt ihr denn an eurem Rhein und Ister,</span></span>
+<span class="d-block l "><span class="inline-text">Um neben dem Hellenenvolk zu thronen⁠ ⁠?</span></span>
+<span class="d-block l "><span class="inline-text">Journale, <span>Zeitungsblätter,</span> Recensionen,</span></span>
+<span class="d-block l "><span class="inline-text">Tabak und Bier und Polizeiminister⁠ ⁠?</span></span></span>
+<span class="d-block lg longQuoteVerse"><span class="d-block l "><span class="inline-text">Die nie ihr kanntet jene zwei Geschwister,</span></span>
+<span class="d-block l "><span class="inline-text">Freiheit und Kunst, die dort in schönern Zonen</span></span>
+<span class="d-block l "><span class="inline-text">Aufs Haupt sich setzten der Vollendung Kronen,</span></span>
+<span class="d-block l "><span class="inline-text">Ihr haltet euch für Griechen, ihr Philister⁠ ⁠?</span></span></span></wpn-entity>
+Kulturstand derer, <wpn-entity class="quotes entity " id="DWquote0817">die »gestümpert nach vielen Seiten
+haben<span>«</span></wpn-entity>⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote0818">
+<span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">In einem Ozean von Albernheiten</span></span>
+<span class="d-block l "><span class="inline-text">Erscheinen ein’ge geniale Schwimmer.</span></span></span></wpn-entity>
+Er weiß wie <wpn-entity class="persons entity " id="DWrsPers0443">Goethe</wpn-entity> um die Entfernung,
+die die deutsche Sprache von der Sprache der <span>Deutschen</span> trennt, das Volk der Dichter von eben diesen.
+Er kann es mit der Sprache sagen, als deren Patriot,
+der nicht Kompatriot ist⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote0819">
+<span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Wo mir zerrissen sind die letzten Bande,</span></span>
+<span class="d-block l "><span class="inline-text">Wo Haß und Undank edle Liebe lohnen,</span></span>
+<span class="d-block l "><span class="inline-text">Wie bin ich satt von meinem Vaterlande⁠ ⁠!</span></span></span></wpn-entity>
+Er kennt die Gegend, wie <wpn-entity class="persons entity " id="DWrsPers0444">Hölderlin</wpn-entity> mit seinem Fluch⁠ ⁠:
+»<wpn-entity class="quotes entity " id="DWquote0820">Barbaren von altersher, durch Fleiß und Wissenschaft und <span>selbst</span> durch Religion barbarischer geworden</wpn-entity>«⁠ ⁠:
+<wpn-entity class="quotes entity " id="DWquote0821"><span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Dies Land der Mühe, <span>dieses</span> Land des herben</span></span>
+<span class="d-block l "><span class="inline-text">Entsagens werd’ ich ohne Seufzer missen,</span></span>
+<span class="d-block l "><span class="inline-text">Wo man bedrängt von tausend Hindernissen</span></span>
+<span class="d-block l "><span class="inline-text">Sich müde quält und dennoch muß verderben.</span></span></span></wpn-entity><span class="d-block lg longQuoteVerseMiddle">
+<span class="d-block l "><span class="inline-text">— — — — — — — — — — — — — — —</span></span></span><wpn-entity class="quotes entity " id="DWquote0822"><span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Doch wer aus voller Seele haßt das Schlechte,</span></span>
+<span class="d-block l "><span class="inline-text">Auch aus der Heimat wird es ihn verjagen,</span></span>
+<span class="d-block l "><span class="inline-text">Wenn dort verehrt es wird vom Volk der Knechte.</span></span></span>
+
+
+<span class="pagebreaks entity" id="pb0127" style="display:none;">||</span>
+
+<span class="d-block lg longQuoteVerse"><span class="d-block l "><span class="inline-text">Weit klüger ist’s, dem Vaterland entsagen,</span></span>
+<span class="d-block l "><span class="inline-text">Als unter einem kindischen Geschlechte</span></span>
+<span class="d-block l "><span class="inline-text">Das Joch des blinden Pöbelhasses tragen.</span></span></span></wpn-entity>
+Hundert Jahre später bilden deutsche Professoren
+Spalier, wenn <wpn-entity class="quotes entity " id="DWquote2111">der Bücher Schatz versiegelt</wpn-entity> wird,
+und folgen dem Kommando zum Fest des <wpn-entity class="quotes entity " id="DWquote0823">Volks
+der Knechte</wpn-entity>⁠ ⁠:<span class="comments entity" id="DWcomment0673"></span><span class="comments entity" id="DWcomment0320"></span><wpn-entity class="quotes entity " id="DWquote0824">
+<span class="d-block longQuote"><span class="inline-text">
+<span class="spacing">Universität
+<br><wpn-entity class="persons entity " id="DWrsPers0445">Johann Wolfgang Goethe</wpn-entity>,</span>
+<br>Frankfurt.</span></span>
+<span class="d-block longQuoteRightAlign2"><span class="inline-text">
+Frankfurt, den <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" class="date">Mai 1933</span></span></span>
+<span class="d-block longQuoteMiddleIndent"><span class="inline-text">
+<span><span class="spacing">Das</span></span> <span class="spacing">Studentenfreikorps lädt die Gesamtheit des
+Professorenkollegiums zu der Verbrennung</span> der marxistischen und korruptionistischen Schriften ein, die Mittwoch abend,
+den <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar" class="date">10. Mai</span> auf dem Römerberg stattfinden wird.</span></span>
+<span class="d-block longQuoteMiddleIndent"><span class="inline-text">
+<span class="spacing">Die Studenten würden es im Hinblick auf die
+große symbolische Bedeutung dieser Zeremonie
+begrüßen, die Gesamtheit der Professorenschaft
+dort zu sehen.</span></span></span>
+<span class="d-block longQuoteMiddleIndent"><span class="inline-text">
+<span class="spacing">Ich lade daher die Kollegen ein,</span> <span class="spacing">zahlreich daran
+teilzunehmen.</span></span></span>
+<span class="d-block longQuoteMiddleIndent"><span class="inline-text">
+<span class="spacing">Abmarsch⁠ ⁠:</span> von der Universität auf den Römerberg Mittwoch
+abend um 20 Uhr, mit Musik. Die Korporationen werden in <span class="spacing">Uniformen</span>
+daran teilnehmen, <span class="spacing">ebenso die SA-Bataillone.</span></span></span>
+<span class="d-block longQuoteEndRightAlign2"><span class="inline-text">Der Rektor⁠ ⁠: <wpn-entity class="persons entity " id="DWrsPers0446">Krieck</wpn-entity>.</span></span></wpn-entity>
+Wie sagt doch <wpn-entity class="persons entity " id="DWrsPers0449">Nietzsche</wpn-entity>⁠ ⁠? <span>»</span><wpn-entity class="quotes entity " id="DWquote0827">Ein Zeitalter der Barbarei
+beginnt, die Wissenschaften werden ihm dienen⁠ ⁠!</wpn-entity><span>«</span> Und
+<wpn-entity class="quotes entity " id="DWquote0828"><span>»</span>die Wendung zum Undeutschen<span>«</span> sei <span>»</span>immer das
+Kennzeichen der Tüchtigen unseres Volkes gewesen<span>«</span></wpn-entity>. Schon <wpn-entity class="persons entity " id="DWrsPers0447">Platen</wpn-entity> war dahin
+entschlossen⁠ ⁠; und
+er sprach wie <wpn-entity class="persons entity " id="DWrsPers0448">Hölderlin</wpn-entity> »<wpn-entity class="quotes entity " id="DWquote0825">für alle, die in diesem Lande
+sind und leiden, wie ich dort gelitten</wpn-entity>«. Sein Abmarsch vollzog sich so⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote0826">
+<span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">Ihr, denen Bosheit angefrischt den Kleister,</span></span>
+<span class="d-block l "><span class="inline-text">Um Unverstand mit Ungeschmack zu kitten,</span></span>
+<span class="d-block l "><span class="inline-text">Bei denen bloß der Pöbel wohlgelitten,</span></span>
+<span class="d-block l "><span class="inline-text">Der täglich toller wird und täglich dreister⁠ ⁠:</span></span></span></wpn-entity>
+
+
+<span class="pagebreaks entity" id="pb0128" style="display:none;">||</span>
+
+<wpn-entity class="quotes entity " id="DWquote0829">wenn »einst der Unfug dieser Lügengeister jedwedes Maß phantastisch überschritten«, zu spät
+würden sie ihn, dessen Seele sich abgewendet, zurückbitten</wpn-entity>⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote0830">
+<span class="d-block lg longQuoteVerse">
+<span class="d-block l "><span class="inline-text">»Nie wird er mehr die Alpen übersteigen,</span></span>
+<span class="d-block l "><span class="inline-text">Und sein Geschäft ist unter uns vollendet⁠ ⁠!«</span></span>
+<span class="d-block l "><span class="inline-text">Ja, meine ganze Rache sei das Schweigen⁠ ⁠!</span></span></span></wpn-entity>
+Man kann aber nicht annehmen, daß er heute
+schweigend in der Akademie ausgeharrt hätte⁠ ⁠!</div></div></div><div id="infocolumn" class="bg-white px-0 border-start border-light-grey"><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0957"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Killy; GN Platen-Hallermünde -->
+						<forename>August</forename>
+						<nameLink>von</nameLink>
+						<surname>Platen</surname>
+					</persName><persName xmlns="http://www.tei-c.org/ns/1.0" full="yes">
+						<forename>Karl</forename>
+						<forename type="middle">August</forename>
+						<forename type="middle">Georg</forename>
+						<forename type="middle">Maximilian</forename>
+						<roleName>Graf</roleName>
+						<nameLink>von</nameLink>
+						<surname>Platen-Hallermünde</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0317"><span class="fw-bold">Glossar: Kraus, Platen und Heine</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0797"><b xmlns="">August von Platen: </b>Gesang der Polen (Entst. 1831)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0798"><b xmlns="">Vergil: </b><b xmlns="">Aeneis</b> (29 bis 19 v. Chr.)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0123" style="display:none"><span>Beginn Seite 123</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0799"><b xmlns="">August von Platen: </b>Eamus omnis execrata Civitas (Entst. 1831)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0438"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2009 -->
+						<forename>Gottfried</forename>
+						<surname>Benn</surname>
+					</persName></div></div></wpn-text-view></div></main><footer xmlns="http://www.w3.org/1999/xhtml" class="footer mt-auto py-3 border-top border-light-grey bg-white "><div class="container mt-1_5"><ul class="list-unstyled d-flex flex-row justify-content-end"><li><a class="project-link link-dark-grey link-hover-primary-hover text-decoration-none" href="impressum.html">Impressum</a></li><li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="nutzungsbedingungen.html">Nutzungsbedingungen</a></li><li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="projekt.html">Über das Projekt</a></li><li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="https://github.com/karl-kraus/dritte-walpurgisnacht-static"><i class="bi bi-github"></i></a></li></ul></div></footer><script xmlns="http://www.w3.org/1999/xhtml" src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script><script xmlns="http://www.w3.org/1999/xhtml" src="js/vendor/bootstrap/bootstrap.bundle.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"></script><script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-header.DLUPgEgS.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/init-micro-editor.C-FTEvHg.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-text-view.DAWrcRUb.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-entity.aFBLJyLo.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-text-zoom-button.nPzlt3pl.js"></script></body></html>
