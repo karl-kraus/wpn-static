@@ -18,10 +18,10 @@
     <xsl:import href="./partials/scripts.xsl"/>
 
     <xsl:variable name="prev">
-        <xsl:value-of select="replace(tokenize(data(tei:TEI/@prev), '/')[last()], '.xml', '.html')"/>
+        <xsl:value-of select="data(tei:TEI/@prev)||'.html'"/>
     </xsl:variable>
     <xsl:variable name="next">
-        <xsl:value-of select="replace(tokenize(data(tei:TEI/@next), '/')[last()], '.xml', '.html')"/>
+        <xsl:value-of select="data(tei:TEI/@next)||'.html'"/>
     </xsl:variable>
      <xsl:variable name="id">
         <xsl:value-of select="tei:TEI/@id"/>
