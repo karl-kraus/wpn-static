@@ -123,7 +123,7 @@
                     </div>
                 </div>
             </nav>
-            <nav aria-label="breadcrumb" class="my-1">
+            <nav aria-label="breadcrumb" class="my-05">
                 <div class="{$container}">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item active" aria-current="page">Karl Kraus 1933: Dritte Walpurgisnacht</li>
