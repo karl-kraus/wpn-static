@@ -1,350 +1,74 @@
 <!DOCTYPE HTML>
-<html id="edition-view">
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="mobile-web-app-capable" content="yes">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-capable" content="yes">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-title" content="">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileColor" content="#ffffff">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileImage" content="images/logo.png">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://use.typekit.net/ckc0oka.css">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/svg+xml" href="images/logo.png" sizes="any">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="profile" href="http://gmpg.org/xfn/11">
-      <title xmlns="http://www.w3.org/1999/xhtml"></title>
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/style.b3df2898.css">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/micro-editor.8e986c38.css">
-   </head>
-   <body id="main_grid">
-      <wpn-header xmlns="http://www.w3.org/1999/xhtml" class="fixed-top bg-white pe-0">
-         <nav id="primary_nav" class="navbar border-bottom pt-05">
-            <div class="container-fluid"><a class="navbar-brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 123.47 106.97" width="90">
-                     <defs>
-                        <style>.cls-1{fill:#4a4a49;}.cls-2{fill:#a21a17;}</style>
-                     </defs>
-                     <g id="Ebene_2" data-name="Ebene 2">
-                        <g id="KARLKRAUS1933-EXPORT">
-                           <g id="LOGO-Karl-Kraus-1933_FARBE">
-                              <path class="cls-1" d="M21.24,49v9.32h2.18L29.17,49h6.6L28.42,60.93l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V49Z"></path>
-                              <path class="cls-1" d="M49.09,49a10.73,10.73,0,0,1,5.79,1.32c1.6,1,2.71,2.68,2.71,5.71,0,3.4-1.36,6-4.64,6.82,3.1.58,4,3.61,4.78,10.79H51.66c-.89-6.64-1.39-8.36-3.61-8.36H44.81v8.36H39V49ZM44.81,60.43h2.6c2.75,0,4.18-.61,4.18-3.72a2.88,2.88,0,0,0-.68-2.28,3,3,0,0,0-2.14-.5h-4Z"></path>
-                              <path class="cls-1" d="M76.19,73.64,74.87,69H67.05l-1.32,4.68H59.84L67.59,49h6.93l7.74,24.64ZM71,54.82,68.3,64.35h5.36Z"></path>
-                              <path class="cls-1" d="M89.69,49V64.85c0,2.65.22,4.22,3.89,4.22,3.5,0,3.82-1.43,3.82-4.22V49h5.79V64.78c0,2.32-.32,4.5-1.64,6.18s-4.07,3.11-8.18,3.11S87,72.89,85.66,71.32c-1.47-1.75-1.75-4.07-1.75-6.36V49Z"></path>
-                              <path class="cls-1" d="M120.22,54.89A9.87,9.87,0,0,0,115,53.46c-1.75,0-2.89.47-2.89,2.4,0,3.75,11.32,1.53,11.32,10.46a7,7,0,0,1-3.11,6A11.58,11.58,0,0,1,114,74.07c-2.61,0-6.14-.65-8.14-2.47l2.85-4.25a9.85,9.85,0,0,0,5.86,1.82c1.68,0,3.07-.42,3.07-2.57,0-4.25-11.32-1.82-11.32-10.6a6.4,6.4,0,0,1,2.79-5.5,10.53,10.53,0,0,1,6.42-1.93c2.36,0,5.54.57,7.43,2.14Z"></path>
-                              <path class="cls-1" d="M21.24,18.79v9.32h2.18l5.75-9.32h6.6L28.42,30.72l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V18.79Z"></path>
-                              <path class="cls-1" d="M54.16,43.43l-1.32-4.68H45L43.7,43.43H37.8l7.75-24.64h6.93l7.75,24.64ZM49,24.61l-2.68,9.54h5.35Z"></path>
-                              <path class="cls-1" d="M72.87,18.79a10.63,10.63,0,0,1,5.78,1.33c1.61,1,2.72,2.67,2.72,5.71,0,3.39-1.36,6-4.64,6.82,3.1.57,4,3.6,4.78,10.78H75.44c-.89-6.64-1.39-8.35-3.61-8.35H68.59v8.35H62.8V18.79ZM68.59,30.22h2.6c2.75,0,4.18-.61,4.18-3.71a2.94,2.94,0,0,0-.68-2.29,3.07,3.07,0,0,0-2.14-.5h-4Z"></path>
-                              <path class="cls-1" d="M91,18.79v19.5h8.46v5.14H85.24V18.79Z"></path>
-                              <path class="cls-2" d="M111,33.6h-6.1v-10.1h6.1v1.2h-4.7v3.1h4v1.2h-4v3.5h4.7v1.2ZM117.1,33.6h-1.5l-3.7-9.7,1.3-.5,3.2,8.7,3.2-8.7,1.2.5-3.7,9.7ZM95.2,33.6v-10c.5,0,.9,0,1.3-.1.2,0,.4,0,.6,0,.3,0,.6,0,.9,0,.4,0,.7,0,1.1,0,.4,0,.7.1,1,.3,0,0,0,0,.1,0,.4.2.7.4,1.1.6.2.1.4.3.5.5.4.5.7,1,.9,1.6.2.5.3,1,.3,1.6,0,.1,0,.3,0,.4,0,.6,0,1.1-.2,1.7,0,.1,0,.2,0,.3-.2.6-.5,1.2-.9,1.6-.4.5-1,.9-1.6,1.1-.6.3-1.3.4-2.1.4,0,0-.1,0-.2,0-.2,0-.4,0-.6,0-.2,0-.4,0-.5,0,0,0-.2,0-.3,0-.4,0-.8,0-1.2-.1ZM96.5,24.7v7.8c.2,0,.4,0,.6,0,.2,0,.3,0,.5,0,0,0,.1,0,.2,0,.3,0,.6,0,.9,0,.5,0,.9-.2,1.2-.4.5-.3,1-.8,1.2-1.4.2-.4.3-.8.3-1.2,0-.3,0-.6,0-.9,0-.7-.1-1.3-.4-1.9-.3-.6-.7-1.1-1.2-1.5-.3-.2-.7-.4-1-.4-.3,0-.6-.1-.9-.1,0,0-.1,0-.2,0-.3,0-.5,0-.8,0-.2,0-.4,0-.6,0Z" vector-effect="non-scaling-stroke"></path>
-                              <path class="cls-2" d="M19.28,86.21v19.44H17.72v-18H15.37V86.21Z"></path>
-                              <path class="cls-2" d="M24.52,92.21A6.24,6.24,0,0,1,31,85.89a6.2,6.2,0,0,1,6.39,6.45c0,4.48-4.67,10.69-8.17,13.31H26.9a27.53,27.53,0,0,0,7.56-8.5,5.2,5.2,0,0,1-3.59,1.35A6.2,6.2,0,0,1,24.52,92.21Zm1.57,0A4.86,4.86,0,1,0,31,87.29,4.73,4.73,0,0,0,26.09,92.21Z"></path>
-                              <path class="cls-2" d="M44.53,87.32a9.53,9.53,0,0,0-4.24,1.11V86.86a10.53,10.53,0,0,1,4.32-1c3.48,0,5.78,2,5.78,5a5,5,0,0,1-3.76,4.67,5.21,5.21,0,0,1,4.08,5.13c0,3-2.46,5.23-6.1,5.23a9.34,9.34,0,0,1-4.7-1.1V103.3a8.72,8.72,0,0,0,4.65,1.24c2.72,0,4.53-1.67,4.53-3.86,0-2.75-2.11-4.37-5.64-4.37H43V95h.73c2.86,0,5.08-1.62,5.08-4S47,87.32,44.53,87.32Z"></path>
-                              <path class="cls-2" d="M58.43,87.32a9.53,9.53,0,0,0-4.23,1.11V86.86a10.48,10.48,0,0,1,4.31-1c3.49,0,5.78,2,5.78,5a5,5,0,0,1-3.75,4.67,5.21,5.21,0,0,1,4.07,5.13c0,3-2.45,5.23-6.1,5.23a9.3,9.3,0,0,1-4.69-1.1V103.3a8.68,8.68,0,0,0,4.64,1.24c2.73,0,4.53-1.67,4.53-3.86,0-2.75-2.1-4.37-5.64-4.37h-.48V95h.73c2.86,0,5.07-1.62,5.07-4S60.94,87.32,58.43,87.32Z"></path>
-                              <path class="cls-2" d="M4,18.79H0v-14A4.84,4.84,0,0,1,4.83,0H15.45V4H4.83A.83.83,0,0,0,4,4.83Z"></path>
-                           </g>
-                        </g>
-                     </g></svg></a><span class="d-flex align-items-center"><a class="nav-link project-link pe-4 link-dark-grey link-hover-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a><button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12">
-                        <defs>
-                           <style>.a{fill:none}</style>
-                        </defs>
-                        <g transform="translate(0 0.5)">
-                           <line class="a" x2="20"></line>
-                           <line class="a" x2="20" transform="translate(0 5)"></line>
-                           <line class="a" x2="20" transform="translate(0 10)"></line>
-                        </g></svg></button></span><div class="navbar position-fixed start-0 bg-black-grey w-100 opacity-97" id="navbarSupportedContent">
-                  <div class="container d-block">
-                     <div class="row">
-                        <div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="projekt.html">Über das Projekt<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="nutzungsbedingungen.html">Nutzungsbedingungen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="impressum.html">Impressum<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                           </ul>
-                        </div>
-                        <div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Dritte Walpurgisnacht</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="notizen.html">Notizen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="annotierte_lesefassung.html">Annotierte Lesefassung<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="register.html">Register<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                           </ul>
-                        </div>
-                        <div class="col-md-4"><span class="d-block navbar-title text-dark-grey border-bottom border-light-grey pb-1">Kommentar</span></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </nav>
-         <nav aria-label="breadcrumb" class="my-1">
-            <div class="container-fluid">
-               <ol class="breadcrumb">
-                  <li class="breadcrumb-item active" aria-current="page">Karl Kraus 1933: Dritte Walpurgisnacht</li>
-               </ol>
-            </div>
-         </nav>
-      </wpn-header>
-      <main class="flex-shrink-0 mt-18">
-         <div class="container-fluid px-0">
-            <div class="row">
-               <div class="col-md-2 col-lg-2 col-sm-12"></div>
-               <div class="col-md-2 col-lg-2 col-sm-12" style="text-align:right"></div>
-            </div>
-            <wpn-text-view annotation-selectors=".entity" id="sub_grid">
-               <div>
-                  <div class="p-0 d-flex flex-column align-items-center position-fixed">
-                     <div xmlns="http://www.w3.org/1999/xhtml" class="dropdown ff-ubuntu"><button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">Absatz 29</button><ul class="dropdown-menu z-3 rounded-0">
-                           <li><a class="dropdown-item fs-9_38 py-0" href="motti.html">[Motti]</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_1.html">Absatz 1</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_2.html">Absatz 2</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_3.html">Absatz 3</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_4.html">Absatz 4</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_5.html">Absatz 5</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_6.html">Absatz 6</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_7.html">Absatz 7</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_8.html">Absatz 8</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_9.html">Absatz 9</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_10.html">Absatz 10</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_11.html">Absatz 11</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_12.html">Absatz 12</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_13.html">Absatz 13</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_14.html">Absatz 14</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_15.html">Absatz 15</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_16.html">Absatz 16</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_17.html">Absatz 17</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_18.html">Absatz 18</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_19.html">Absatz 19</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_20.html">Absatz 20</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_21.html">Absatz 21</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_22.html">Absatz 22</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_23.html">Absatz 23</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_24.html">Absatz 24</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_25.html">Absatz 25</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_26.html">Absatz 26</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_27.html">Absatz 27</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_28.html">Absatz 28</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_29.html">Absatz 29</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_30.html">Absatz 30</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_31.html">Absatz 31</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_32.html">Absatz 32</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_33.html">Absatz 33</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_34.html">Absatz 34</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_35.html">Absatz 35</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_36.html">Absatz 36</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_37.html">Absatz 37</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_38.html">Absatz 38</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_39.html">Absatz 39</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_40.html">Absatz 40</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_41.html">Absatz 41</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_42.html">Absatz 42</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_43.html">Absatz 43</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_44.html">Absatz 44</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_45.html">Absatz 45</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_46.html">Absatz 46</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_47.html">Absatz 47</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_48.html">Absatz 48</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_49.html">Absatz 49</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_50.html">Absatz 50</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_51.html">Absatz 51</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_52.html">Absatz 52</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_53.html">Absatz 53</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_54.html">Absatz 54</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_55.html">Absatz 55</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_56.html">Absatz 56</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_57.html">Absatz 57</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_58.html">Absatz 58</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_59.html">Absatz 59</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_60.html">Absatz 60</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_61.html">Absatz 61</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_62.html">Absatz 62</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_63.html">Absatz 63</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_64.html">Absatz 64</a></li>
-                        </ul>
-                     </div>
-                     <div id="editor-widget">
-                        <div xmlns="http://www.w3.org/1999/xhtml">
-                           <div id="aot-navBarNavDropdown" class="navBarNavDropdown dropstart d-md-none"><a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button"><i class="bi bi-gear" title="Menü zur Anpassung der Anzeige"></i></a><ul class="dropdown-menu d-block border-0 z-2">
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="prs" class="text-wpn-person fs-7"></annotation-slider>
-                                 </li>
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="quts" class="text-wpn-quote fs-7"></annotation-slider>
-                                 </li>
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="pbs" class="text-black-grey fs-7"></annotation-slider>
-                                 </li>
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="cmts" class="text-comment fs-7"></annotation-slider>
-                                 </li>
-                              </ul>
-                           </div>
-                           <div class="d-none d-md-block">
-                              <ul class="border-0 z-2 list-unstyled">
-                                 <li>
-                                    <annotation-slider opt="prs" class="text-wpn-person fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                                 <li>
-                                    <annotation-slider opt="quts" class="text-wpn-quote fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                                 <li>
-                                    <annotation-slider opt="pbs" class="text-black-grey fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                                 <li>
-                                    <annotation-slider opt="cmts" class="text-wpn-comment fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div id="textcolumn" class="mx-auto ff-century-old-style"><span class="d-block runningText1"><span class="inline-text">
-                        Darum läßt er sich auch den Kitsch landsmännischen Gemütstons nicht entgehen, indem er den
-                        an der Küste gelagerten Flüchtlingen die folgende
-                        Perspektive eröffnet:
-                        <wpn-entity class="quotes entity " id="DWquote0724">
-                           <span class="d-block longQuote"><span class="inline-text">
-                                 Da werfen Sie nun also einen Blick auf das nach Afrika sich hinziehende Meer, vielleicht tummelt sich gerade ein Schlachtschiff darauf
-                                 mit Negertruppen aus jenen sechshunderttausend Kolonialsoldaten der
-                                 gegen Deutschland einzusetzenden berüchtigten Forces d’outremer<span class="comments entity" id="DWcomment0295"></span>,
-                                 vielleicht auch auf den Arc de triomphe oder den Hradschin, und
-                                 schwören diesem Land, das politisch nichts will als seine Zukunft
-                                 sichern .&nbsp;. Rache.</span></span></wpn-entity>
-                        
-                        
-                        <span class="pagebreaks entity" id="pb0112" style="display:none;">||</span>
-                        
-                        Er meint natürlich — und hat’s mit dem »vielleicht«
-                        nur falsch angeschlossen —, daß wieder andere
-                        Flüchtlinge auf den Arc de triomphe blicken und
-                        andere wieder auf den Hradschin, 
-                        <wpn-entity class="quotes entity " id="DWquote0726">was man ja bloß bei
-                           
-                           <wpn-entity class="persons entity " id="DWrsPers0407">Shakespeare</wpn-entity> bequem vom Meer aus tun kann</wpn-entity>. Wie
-                        dem immer sei, so läßt sich, vielleicht, selbst für den
-                        kriegerischen Umgang mit jenen Negertruppen<span class="comments entity" id="DWcomment0296"></span> mehr
-                        Sicherheit garantieren, als 
-                        <wpn-entity class="persons entity " id="DWrsPers0408">Benn</wpn-entity> sie hinterdrein den
-                        Flüchtlingen bietet, welche Bedenken wegen Dachau<span class="comments entity" id="DWcomment0297"></span>
-                        hatten. Was aber die aktive Behandlung von Negern
-                        anlangt, so mag man mit einer gewissen Zuversicht
-                        in die Berliner Kolonialschau<span class="comments entity" id="DWcomment0668"></span> blicken, die soeben
-                        unter der Devise eröffnet wurde:
-                        <wpn-entity class="quotes entity " id="DWquote0727">
-                           <span class="d-block longQuote"><span class="inline-text">
-                                 »Deutsches Land in fremder Hand!« Stets daran denken — stets dafür
-                                 wirken; was wir verloren haben.<span class="comments entity" id="DWcomment0298"></span></span></span></wpn-entity>
-                        Erinnerungen sind da aufgestellt an 
-                        <wpn-entity class="quotes entity " id="DWquote0728">eine heldenhafte
-                           Schutztruppe und »ihre braven schwarzen Askaris«</wpn-entity>,
-                        die jetzt in fremder Hand verwildern.<span class="comments entity" id="DWcomment0299"></span> Es gilt:
-                        <wpn-entity class="quotes entity " id="DWquote0729">
-                           <span class="d-block longQuote"><span class="inline-text">
-                                 unsere Jugend <span class="spacing">im kolonialen Gedanken zu erziehen.</span>
-                                 Zum würdigen Nachwuchs unserer alten Pionier- und Farmergarde,
-                                 deren Arbeit und Schaffen</span></span></wpn-entity>
-                        
-                        
-                        <span class="pagebreaks entity" id="pb0113" style="display:none;">||</span>
-                        
-                        (mit Hintansetzung des Gedenkens an das berühmte
-                        Schlagwort »
-                        <wpn-entity class="persons entity " id="DWrsPeGr0409">Putkamerun</wpn-entity>«)<span class="comments entity" id="DWcomment0300"></span><wpn-entity class="quotes entity " id="DWquote0731">
-                           <span class="d-block longQuote"><span class="inline-text">
-                                 <span class="spacing">fleckenrein</span> und <span class="spacing">vorbildlich</span> in der Kolonialgeschichte der
-                                 Völker dasteht.</span></span></wpn-entity>
-                        Denn die Selbstgerechtigkeit funktioniert trotz einer
-                        Justizreform<span class="comments entity" id="DWcomment0301"></span>; und 
-                        <wpn-entity class="quotes entity " id="DWquote0732">die Kolonialschau ist
-                           <span class="d-block longQuote"><span class="inline-text">
-                                 ein Denkmal, das den Besuchern zuruft: Wir vergessen euch nie —
-                                 <span class="spacing">wir müssen euch wiederhaben!</span></span></span></wpn-entity>
-                        Woraus freilich nicht klar hervorgeht, ob nur die
-                        Deutschen die Kolonien oder die Kolonien auch die
-                        Deutschen wiederhaben wollen. Um demnach auf die Sprache
-                        zurückzukommen, glaube ich, daß sie, wenn schon
-                        nicht in den französischen Kolonien, so doch im
-                        Stammland und desgleichen auch unter dem Hradschin besser kultiviert wird als von deutschen
-                        Zeitungen und ihren Lesern, gleichviel welchem
-                        politischen Ideal sie anhängen; die Sprache dieser
-                        Nationen, aber zuweilen selbst die deutsche. Daß das
-                        Land, wo diese behandelt wird als wäre sie in
-                        Schutzhaft, 
-                        <wpn-entity class="quotes entity " id="DWquote0733">nichts will als seine Zukunft sichern</wpn-entity> —
-                        was den Flüchtlingen ihrerseits unmöglich schien
-                        —, es klingt freilich bescheidener, als daß
-                        
-                        <wpn-entity class="quotes entity " id="DWquote0734">eine der großartigsten Realisationen des
-                           Weltgeists</wpn-entity> überhaupt geplant sei.</span></span></div>
-               <div id="infocolumn" class="px-0 border-start border-light-grey">
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0724"><b xmlns=""><i>DAZ</i></b> vom 25. 5. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0295"><span class="fw-bold">Glossar: Forces d’outremer</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0112" style="display:none"><span>Beginn Seite 112</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0726"><b xmlns="">William Shakespeare: </b><b xmlns="">Das Wintermärchen</b> (1611)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0407">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: GND -->
-                        						
-                        <forename>William</forename>
-                        						
-                        <surname>Shakespeare</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0296"><span class="fw-bold">Glossar: Einsatz afrikanischer Truppen auf Seiten Frankreichs</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0408">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2009 -->
-                        						
-                        <forename>Gottfried</forename>
-                        						
-                        <surname>Benn</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0297"><span class="fw-bold">Glossar: Das Konzentrationslager Dachau</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0668"><span class="fw-bold">Ereignis: Die Berliner Kolonialschau</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0727"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0298"><span class="fw-bold">Glossar: Verlust der deutschen Kolonien im Ersten Weltkrieg</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0728"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0299"><span class="fw-bold">Glossar: Deutsche Kolonialtruppen –&nbsp;die ‚braven Askaris‘</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0729"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0113" style="display:none"><span>Beginn Seite 113</span></div>Putkamerun
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0300"><span class="fw-bold">Glossar: „Puttkamerun“</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0731"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0301"><span class="fw-bold">Glossar: NS-„Justizreform“</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0732"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0733"><b xmlns=""><i>DAZ</i></b> vom 25. 5. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0734"><b xmlns=""><i>DAZ</i></b> vom 25. 5. 1933</div>
-               </div>
-            </wpn-text-view>
-         </div>
-      </main>
-      <footer xmlns="http://www.w3.org/1999/xhtml" class="footer mt-auto py-3 border-top border-light-grey bg-white ">
-         <div class="container mt-1_5">
-            <ul class="list-unstyled d-flex flex-row justify-content-end">
-               <li><a class="project-link link-dark-grey link-hover-primary-hover text-decoration-none" href="impressum.html">Impressum</a></li>
-               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="nutzungsbedingungen.html">Nutzungsbedingungen</a></li>
-               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="projekt.html">Über das Projekt</a></li>
-               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="https://github.com/karl-kraus/dritte-walpurgisnacht-static"><i class="bi bi-github"></i></a></li>
-            </ul>
-         </div>
-      </footer><script xmlns="http://www.w3.org/1999/xhtml" src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script><script xmlns="http://www.w3.org/1999/xhtml" src="js/vendor/bootstrap/bootstrap.bundle.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"></script><script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-header.DLUPgEgS.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/init-micro-editor.C-FTEvHg.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-text-view.DAWrcRUb.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-entity.aFBLJyLo.js"></script></body>
-</html>
+<html id="edition-view"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"><meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta xmlns="http://www.w3.org/1999/xhtml" name="mobile-web-app-capable" content="yes"><meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-capable" content="yes"><meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-title" content=""><meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileColor" content="#ffffff"><meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileImage" content="images/logo.png"><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://use.typekit.net/ckc0oka.css"><link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/svg+xml" href="images/logo.png" sizes="any"><link xmlns="http://www.w3.org/1999/xhtml" rel="profile" href="http://gmpg.org/xfn/11"><title xmlns="http://www.w3.org/1999/xhtml"></title><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/style.80e10db4.css"><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/micro-editor.8e986c38.css"></head><body id="main_grid"><wpn-header xmlns="http://www.w3.org/1999/xhtml" class="fixed-top bg-white pe-0"><nav id="primary_nav" class="navbar border-bottom pt-05"><div class="container-fluid mx-1 edition-header"><a class="navbar-brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 123.47 106.97" width="90"><defs><style>.cls-1{fill:#4a4a49;}.cls-2{fill:#a21a17;}</style></defs><g id="Ebene_2" data-name="Ebene 2"><g id="KARLKRAUS1933-EXPORT"><g id="LOGO-Karl-Kraus-1933_FARBE"><path class="cls-1" d="M21.24,49v9.32h2.18L29.17,49h6.6L28.42,60.93l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V49Z"></path><path class="cls-1" d="M49.09,49a10.73,10.73,0,0,1,5.79,1.32c1.6,1,2.71,2.68,2.71,5.71,0,3.4-1.36,6-4.64,6.82,3.1.58,4,3.61,4.78,10.79H51.66c-.89-6.64-1.39-8.36-3.61-8.36H44.81v8.36H39V49ZM44.81,60.43h2.6c2.75,0,4.18-.61,4.18-3.72a2.88,2.88,0,0,0-.68-2.28,3,3,0,0,0-2.14-.5h-4Z"></path><path class="cls-1" d="M76.19,73.64,74.87,69H67.05l-1.32,4.68H59.84L67.59,49h6.93l7.74,24.64ZM71,54.82,68.3,64.35h5.36Z"></path><path class="cls-1" d="M89.69,49V64.85c0,2.65.22,4.22,3.89,4.22,3.5,0,3.82-1.43,3.82-4.22V49h5.79V64.78c0,2.32-.32,4.5-1.64,6.18s-4.07,3.11-8.18,3.11S87,72.89,85.66,71.32c-1.47-1.75-1.75-4.07-1.75-6.36V49Z"></path><path class="cls-1" d="M120.22,54.89A9.87,9.87,0,0,0,115,53.46c-1.75,0-2.89.47-2.89,2.4,0,3.75,11.32,1.53,11.32,10.46a7,7,0,0,1-3.11,6A11.58,11.58,0,0,1,114,74.07c-2.61,0-6.14-.65-8.14-2.47l2.85-4.25a9.85,9.85,0,0,0,5.86,1.82c1.68,0,3.07-.42,3.07-2.57,0-4.25-11.32-1.82-11.32-10.6a6.4,6.4,0,0,1,2.79-5.5,10.53,10.53,0,0,1,6.42-1.93c2.36,0,5.54.57,7.43,2.14Z"></path><path class="cls-1" d="M21.24,18.79v9.32h2.18l5.75-9.32h6.6L28.42,30.72l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V18.79Z"></path><path class="cls-1" d="M54.16,43.43l-1.32-4.68H45L43.7,43.43H37.8l7.75-24.64h6.93l7.75,24.64ZM49,24.61l-2.68,9.54h5.35Z"></path><path class="cls-1" d="M72.87,18.79a10.63,10.63,0,0,1,5.78,1.33c1.61,1,2.72,2.67,2.72,5.71,0,3.39-1.36,6-4.64,6.82,3.1.57,4,3.6,4.78,10.78H75.44c-.89-6.64-1.39-8.35-3.61-8.35H68.59v8.35H62.8V18.79ZM68.59,30.22h2.6c2.75,0,4.18-.61,4.18-3.71a2.94,2.94,0,0,0-.68-2.29,3.07,3.07,0,0,0-2.14-.5h-4Z"></path><path class="cls-1" d="M91,18.79v19.5h8.46v5.14H85.24V18.79Z"></path><path class="cls-2" d="M111,33.6h-6.1v-10.1h6.1v1.2h-4.7v3.1h4v1.2h-4v3.5h4.7v1.2ZM117.1,33.6h-1.5l-3.7-9.7,1.3-.5,3.2,8.7,3.2-8.7,1.2.5-3.7,9.7ZM95.2,33.6v-10c.5,0,.9,0,1.3-.1.2,0,.4,0,.6,0,.3,0,.6,0,.9,0,.4,0,.7,0,1.1,0,.4,0,.7.1,1,.3,0,0,0,0,.1,0,.4.2.7.4,1.1.6.2.1.4.3.5.5.4.5.7,1,.9,1.6.2.5.3,1,.3,1.6,0,.1,0,.3,0,.4,0,.6,0,1.1-.2,1.7,0,.1,0,.2,0,.3-.2.6-.5,1.2-.9,1.6-.4.5-1,.9-1.6,1.1-.6.3-1.3.4-2.1.4,0,0-.1,0-.2,0-.2,0-.4,0-.6,0-.2,0-.4,0-.5,0,0,0-.2,0-.3,0-.4,0-.8,0-1.2-.1ZM96.5,24.7v7.8c.2,0,.4,0,.6,0,.2,0,.3,0,.5,0,0,0,.1,0,.2,0,.3,0,.6,0,.9,0,.5,0,.9-.2,1.2-.4.5-.3,1-.8,1.2-1.4.2-.4.3-.8.3-1.2,0-.3,0-.6,0-.9,0-.7-.1-1.3-.4-1.9-.3-.6-.7-1.1-1.2-1.5-.3-.2-.7-.4-1-.4-.3,0-.6-.1-.9-.1,0,0-.1,0-.2,0-.3,0-.5,0-.8,0-.2,0-.4,0-.6,0Z" vector-effect="non-scaling-stroke"></path><path class="cls-2" d="M19.28,86.21v19.44H17.72v-18H15.37V86.21Z"></path><path class="cls-2" d="M24.52,92.21A6.24,6.24,0,0,1,31,85.89a6.2,6.2,0,0,1,6.39,6.45c0,4.48-4.67,10.69-8.17,13.31H26.9a27.53,27.53,0,0,0,7.56-8.5,5.2,5.2,0,0,1-3.59,1.35A6.2,6.2,0,0,1,24.52,92.21Zm1.57,0A4.86,4.86,0,1,0,31,87.29,4.73,4.73,0,0,0,26.09,92.21Z"></path><path class="cls-2" d="M44.53,87.32a9.53,9.53,0,0,0-4.24,1.11V86.86a10.53,10.53,0,0,1,4.32-1c3.48,0,5.78,2,5.78,5a5,5,0,0,1-3.76,4.67,5.21,5.21,0,0,1,4.08,5.13c0,3-2.46,5.23-6.1,5.23a9.34,9.34,0,0,1-4.7-1.1V103.3a8.72,8.72,0,0,0,4.65,1.24c2.72,0,4.53-1.67,4.53-3.86,0-2.75-2.11-4.37-5.64-4.37H43V95h.73c2.86,0,5.08-1.62,5.08-4S47,87.32,44.53,87.32Z"></path><path class="cls-2" d="M58.43,87.32a9.53,9.53,0,0,0-4.23,1.11V86.86a10.48,10.48,0,0,1,4.31-1c3.49,0,5.78,2,5.78,5a5,5,0,0,1-3.75,4.67,5.21,5.21,0,0,1,4.07,5.13c0,3-2.45,5.23-6.1,5.23a9.3,9.3,0,0,1-4.69-1.1V103.3a8.68,8.68,0,0,0,4.64,1.24c2.73,0,4.53-1.67,4.53-3.86,0-2.75-2.1-4.37-5.64-4.37h-.48V95h.73c2.86,0,5.07-1.62,5.07-4S60.94,87.32,58.43,87.32Z"></path><path class="cls-2" d="M4,18.79H0v-14A4.84,4.84,0,0,1,4.83,0H15.45V4H4.83A.83.83,0,0,0,4,4.83Z"></path></g></g></g></svg></a><span class="d-flex align-items-center"><a class="nav-link project-link pe-4 link-dark-grey link-hover-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a><button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12"><defs><style>.a{fill:none}</style></defs><g transform="translate(0 0.5)"><line class="a" x2="20"></line><line class="a" x2="20" transform="translate(0 5)"></line><line class="a" x2="20" transform="translate(0 10)"></line></g></svg></button></span><div class="navbar position-fixed start-0 bg-black-grey w-100 opacity-97" id="navbarSupportedContent"><div class="container d-block"><div class="row"><div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2"><li class="nav-item"><a xmlns="" class="nav-link" href="projekt.html">Über das Projekt<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="nutzungsbedingungen.html">Nutzungsbedingungen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="impressum.html">Impressum<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li></ul></div><div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Dritte Walpurgisnacht</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2"><li class="nav-item"><a xmlns="" class="nav-link" href="notizen.html">Notizen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="annotierte_lesefassung.html">Annotierte Lesefassung<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="register.html">Register<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li></ul></div><div class="col-md-4"><span class="d-block navbar-title text-dark-grey border-bottom border-light-grey pb-1">Kommentar</span></div></div></div></div></div></nav><nav aria-label="breadcrumb" class="my-05"><div class="container-fluid mx-1 edition-header"><ol class="breadcrumb"><li class="breadcrumb-item active" aria-current="page">Karl Kraus 1933: Dritte Walpurgisnacht</li></ol></div></nav></wpn-header><main class="flex-shrink-0 mt-18"><div class="container-fluid px-0"><wpn-text-view annotation-selectors=".entity" id="sub_grid"><div class="d-flex justify-content-center mt-2"><div class="p-0 d-flex flex-column align-items-center position-fixed"><div xmlns="http://www.w3.org/1999/xhtml" class="dropdown ff-ubuntu"><a href="absatz_28.html" title="zu seite absatz_28.html gehen"><svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg></a><button class="btn btn-secondary dropdown-toggle fs-9_38 border-0 px-05" type="button" data-bs-toggle="dropdown" aria-expanded="false">Absatz 29</button><ul class="dropdown-menu z-3 rounded-0"><li><a class="dropdown-item fs-9_38 py-0" href="motti.html">[Motti]</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_1.html">Absatz 1</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_2.html">Absatz 2</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_3.html">Absatz 3</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_4.html">Absatz 4</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_5.html">Absatz 5</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_6.html">Absatz 6</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_7.html">Absatz 7</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_8.html">Absatz 8</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_9.html">Absatz 9</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_10.html">Absatz 10</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_11.html">Absatz 11</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_12.html">Absatz 12</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_13.html">Absatz 13</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_14.html">Absatz 14</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_15.html">Absatz 15</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_16.html">Absatz 16</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_17.html">Absatz 17</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_18.html">Absatz 18</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_19.html">Absatz 19</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_20.html">Absatz 20</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_21.html">Absatz 21</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_22.html">Absatz 22</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_23.html">Absatz 23</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_24.html">Absatz 24</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_25.html">Absatz 25</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_26.html">Absatz 26</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_27.html">Absatz 27</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_28.html">Absatz 28</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_29.html">Absatz 29</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_30.html">Absatz 30</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_31.html">Absatz 31</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_32.html">Absatz 32</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_33.html">Absatz 33</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_34.html">Absatz 34</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_35.html">Absatz 35</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_36.html">Absatz 36</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_37.html">Absatz 37</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_38.html">Absatz 38</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_39.html">Absatz 39</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_40.html">Absatz 40</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_41.html">Absatz 41</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_42.html">Absatz 42</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_43.html">Absatz 43</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_44.html">Absatz 44</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_45.html">Absatz 45</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_46.html">Absatz 46</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_47.html">Absatz 47</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_48.html">Absatz 48</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_49.html">Absatz 49</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_50.html">Absatz 50</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_51.html">Absatz 51</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_52.html">Absatz 52</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_53.html">Absatz 53</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_54.html">Absatz 54</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_55.html">Absatz 55</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_56.html">Absatz 56</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_57.html">Absatz 57</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_58.html">Absatz 58</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_59.html">Absatz 59</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_60.html">Absatz 60</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_61.html">Absatz 61</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_62.html">Absatz 62</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_63.html">Absatz 63</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_64.html">Absatz 64</a></li></ul><a href="absatz_30.html" title="zu seite absatz_30.html gehen"><svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg></a></div><div id="editor-widget"><div xmlns="http://www.w3.org/1999/xhtml"><div id="aot-navBarNavDropdown" class="navBarNavDropdown dropstart d-md-none"><a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button"><i class="bi bi-gear" title="Menü zur Anpassung der Anzeige"></i></a><ul class="dropdown-menu d-block border-0 z-2"><li class="dropdown-item"><annotation-slider opt="prs" class="text-wpn-person fs-7"></annotation-slider></li><li class="dropdown-item"><annotation-slider opt="quts" class="text-wpn-quote fs-7"></annotation-slider></li><li class="dropdown-item"><annotation-slider opt="pbs" class="text-black-grey fs-7"></annotation-slider></li><li class="dropdown-item"><annotation-slider opt="cmts" class="text-comment fs-7"></annotation-slider></li></ul></div><div class="d-none d-md-block mt-2"><fieldset class="mb-2"><div class="d-flex gap-1_5 justify-content-center mb-05"><wpn-text-zoom-button zoom-direction="in"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" width="24" height="24"><g><path fill="#999" d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g></svg></wpn-text-zoom-button><wpn-text-zoom-button zoom-direction="out"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" width="24" height="24"><g><path fill="#999" d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g></svg></wpn-text-zoom-button></div><legend class="text-dark-grey fs-7 text-center">Textgröße</legend></fieldset><ul class="border-0 z-2 list-unstyled"><li class="mb-1"><annotation-slider opt="prs" class="text-wpn-person fs-7 mx-auto"></annotation-slider></li><li class="mb-1"><annotation-slider opt="quts" class="text-wpn-quote fs-7 mx-auto"></annotation-slider></li><li class="mb-1"><annotation-slider opt="pbs" class="text-black-grey fs-7 mx-auto"></annotation-slider></li><li class="mb-1"><annotation-slider opt="cmts" class="text-wpn-comment fs-7 mx-auto"></annotation-slider></li></ul></div></div></div></div></div><div id="textcolumn" class="mx-auto ff-century-old-style"><div id="textcontent"><div id="p__161" class="yes-index runningText1">
+Darum läßt er sich auch den Kitsch landsmännischen Gemütstons nicht entgehen, indem er den
+an der Küste gelagerten Flüchtlingen die folgende
+Perspektive eröffnet⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote0724">
+<span class="d-block longQuote"><span class="inline-text">
+Da werfen Sie nun also einen Blick auf das nach Afrika sich hinziehende Meer, <span class="spacing">vielleicht tummelt sich gerade</span> ein Schlachtschiff darauf
+mit Negertruppen aus jenen sechshunderttausend Kolonialsoldaten der
+gegen Deutschland einzusetzenden berüchtigten Forces d’outremer<span class="comments entity" id="DWcomment0295"></span>,
+vielleicht auch auf den Arc de triomphe oder den Hradschin, und
+schwören diesem Land, das politisch nichts will als seine Zukunft
+sichern .&nbsp;. Rache.</span></span></wpn-entity>
+
+
+<span class="pagebreaks entity" id="pb0112" style="display:none;">||</span>
+
+Er meint natürlich — und hat’s mit dem »vielleicht«
+nur falsch angeschlossen —, daß wieder andere
+Flüchtlinge auf den Arc de triomphe blicken und
+andere wieder auf den Hradschin, <wpn-entity class="quotes entity " id="DWquote0726">was man ja bloß bei
+<wpn-entity class="persons entity " id="DWrsPers0407">Shakespeare</wpn-entity> bequem vom Meer aus tun kann</wpn-entity>. Wie
+dem immer sei, so läßt sich, vielleicht, selbst für den
+kriegerischen Umgang mit jenen Negertruppen<span class="comments entity" id="DWcomment0296"></span> mehr
+Sicherheit garantieren, als <wpn-entity class="persons entity " id="DWrsPers0408">Benn</wpn-entity> sie hinterdrein den
+Flüchtlingen bietet, welche Bedenken wegen Dachau<span class="comments entity" id="DWcomment0297"></span>
+hatten. Was aber die aktive Behandlung von Negern
+anlangt, so mag man mit einer gewissen Zuversicht
+in die Berliner Kolonialschau<span class="comments entity" id="DWcomment0668"></span> blicken, die soeben
+unter der Devise eröffnet wurde⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote0727">
+<span class="d-block longQuote"><span class="inline-text">
+»Deutsches Land in fremder Hand⁠ ⁠!« Stets daran denken — stets dafür
+wirken⁠ ⁠; was wir verloren haben.<span class="comments entity" id="DWcomment0298"></span></span></span></wpn-entity>
+Erinnerungen sind da aufgestellt an <wpn-entity class="quotes entity " id="DWquote0728">eine heldenhafte
+Schutztruppe und »ihre braven schwarzen Askaris«</wpn-entity>,
+die jetzt in fremder Hand verwildern.<span class="comments entity" id="DWcomment0299"></span> Es gilt⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote0729">
+<span class="d-block longQuote"><span class="inline-text">
+unsere Jugend <span class="spacing">im kolonialen Gedanken zu erziehen.</span>
+Zum würdigen Nachwuchs unserer alten Pionier- und Farmergarde,
+deren Arbeit und Schaffen</span></span></wpn-entity>
+
+
+<span class="pagebreaks entity" id="pb0113" style="display:none;">||</span>
+
+(mit Hintansetzung des Gedenkens an das berühmte
+Schlagwort »<wpn-entity class="persons entity " id="DWrsPeGr0409">Putkamerun</wpn-entity>«)<span class="comments entity" id="DWcomment0300"></span><wpn-entity class="quotes entity " id="DWquote0731">
+<span class="d-block longQuote"><span class="inline-text">
+<span class="spacing">fleckenrein</span> und <span class="spacing">vorbildlich</span> in der Kolonialgeschichte der
+Völker dasteht.</span></span></wpn-entity>
+Denn die Selbstgerechtigkeit funktioniert trotz einer
+Justizreform<span class="comments entity" id="DWcomment0301"></span>⁠ ⁠; und <wpn-entity class="quotes entity " id="DWquote0732">die Kolonialschau ist
+<span class="d-block longQuote"><span class="inline-text">
+ein Denkmal, das den Besuchern zuruft⁠ ⁠: Wir vergessen euch nie —
+<span class="spacing">wir müssen euch wiederhaben⁠ ⁠!</span></span></span></wpn-entity>
+Woraus freilich nicht klar hervorgeht, ob nur die
+Deutschen die Kolonien oder die Kolonien auch die
+Deutschen wiederhaben wollen. Um demnach auf die Sprache
+zurückzukommen, glaube ich, daß sie, wenn schon
+nicht in den französischen Kolonien, so doch im
+Stammland und desgleichen auch unter dem Hradschin besser kultiviert wird als von deutschen
+Zeitungen und ihren Lesern, gleichviel welchem
+politischen Ideal sie anhängen⁠ ⁠; die Sprache dieser
+Nationen, aber zuweilen selbst die deutsche. Daß das
+Land, wo diese behandelt wird als wäre sie in
+Schutzhaft, <wpn-entity class="quotes entity " id="DWquote0733">nichts will als seine Zukunft sichern</wpn-entity> —
+was den Flüchtlingen ihrerseits unmöglich schien
+—, es klingt freilich bescheidener, als daß
+<wpn-entity class="quotes entity " id="DWquote0734">eine der großartigsten Realisationen des
+Weltgeists</wpn-entity> überhaupt geplant sei.</div></div></div><div id="infocolumn" class="bg-white px-0 border-start border-light-grey"><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0724"><b xmlns=""><i>DAZ</i></b> vom 25. 5. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0295"><span class="fw-bold">Glossar: Forces d’outremer</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0112" style="display:none"><span>Beginn Seite 112</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0726"><b xmlns="">William Shakespeare: </b><b xmlns="">Das Wintermärchen</b> (1611)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0407"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: GND -->
+						<forename>William</forename>
+						<surname>Shakespeare</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0296"><span class="fw-bold">Glossar: Einsatz afrikanischer Truppen auf Seiten Frankreichs</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0408"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: Klee 2009 -->
+						<forename>Gottfried</forename>
+						<surname>Benn</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0297"><span class="fw-bold">Glossar: Das Konzentrationslager Dachau</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0668"><span class="fw-bold">Ereignis: Die Berliner Kolonialschau</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0727"><b xmlns="">[Nicht ermittelt]</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0298"><span class="fw-bold">Glossar: Verlust der deutschen Kolonien im Ersten Weltkrieg</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0728"><b xmlns="">[Nicht ermittelt]</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0299"><span class="fw-bold">Glossar: Deutsche Kolonialtruppen –&nbsp;die ‚braven Askaris‘</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0729"><b xmlns="">[Nicht ermittelt]</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0113" style="display:none"><span>Beginn Seite 113</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPeGr0409"></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0300"><span class="fw-bold">Glossar: „Puttkamerun“</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0731"><b xmlns="">[Nicht ermittelt]</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0301"><span class="fw-bold">Glossar: NS-„Justizreform“</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0732"><b xmlns="">[Nicht ermittelt]</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0733"><b xmlns=""><i>DAZ</i></b> vom 25. 5. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote0734"><b xmlns=""><i>DAZ</i></b> vom 25. 5. 1933</div></div></wpn-text-view></div></main><footer xmlns="http://www.w3.org/1999/xhtml" class="footer mt-auto py-3 border-top border-light-grey bg-white "><div class="container mt-1_5"><ul class="list-unstyled d-flex flex-row justify-content-end"><li><a class="project-link link-dark-grey link-hover-primary-hover text-decoration-none" href="impressum.html">Impressum</a></li><li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="nutzungsbedingungen.html">Nutzungsbedingungen</a></li><li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="projekt.html">Über das Projekt</a></li><li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="https://github.com/karl-kraus/dritte-walpurgisnacht-static"><i class="bi bi-github"></i></a></li></ul></div></footer><script xmlns="http://www.w3.org/1999/xhtml" src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script><script xmlns="http://www.w3.org/1999/xhtml" src="js/vendor/bootstrap/bootstrap.bundle.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"></script><script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-header.DLUPgEgS.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/init-micro-editor.C-FTEvHg.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-text-view.DAWrcRUb.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-entity.aFBLJyLo.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-text-zoom-button.nPzlt3pl.js"></script></body></html>

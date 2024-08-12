@@ -10160,8 +10160,16 @@ progress {
   z-index: 3 !important;
 }
 
+.ls-0 {
+  letter-spacing: 0 !important;
+}
+
 .ls-1 {
   letter-spacing: 0.01rem !important;
+}
+
+.ls-1em {
+  letter-spacing: 0.1em !important;
 }
 
 .ls-2 {
@@ -10176,36 +10184,36 @@ progress {
   scroll-snap-align: start !important;
 }
 
-.cursor-auto {
-  cursor: auto !important;
+.zoom-auto {
+  zoom: auto !important;
 }
 
-.cursor-default {
-  cursor: default !important;
+.zoom-default {
+  zoom: default !important;
 }
 
-.cursor-pointer {
-  cursor: pointer !important;
+.zoom-pointer {
+  zoom: pointer !important;
 }
 
-.cursor-wait {
-  cursor: wait !important;
+.zoom-wait {
+  zoom: wait !important;
 }
 
-.cursor-text {
-  cursor: text !important;
+.zoom-text {
+  zoom: text !important;
 }
 
-.cursor-move {
-  cursor: move !important;
+.zoom-move {
+  zoom: move !important;
 }
 
-.cursor-help {
-  cursor: help !important;
+.zoom-help {
+  zoom: help !important;
 }
 
-.cursor-not-allowed {
-  cursor: not-allowed !important;
+.zoom-not-allowed {
+  zoom: not-allowed !important;
 }
 
 @media (min-width: 576px) {
@@ -27860,6 +27868,11 @@ header {
   font-family: "Ubuntu";
 }
 
+/*** header ***/
+.edition_header {
+  max-height: 150px;
+}
+
 /*** footer ***/
 footer {
   min-height: 100px;
@@ -27904,66 +27917,228 @@ html[data-page=notes] .container {
 
 #edition-view #sub_grid {
   display: grid;
-  grid-template-columns: 170px calc((100% - 190px) * 0.6) calc((100% - 190px) * 0.4);
+  grid-template-columns: 10.625rem calc((100% - 190px) * 0.6) calc((100% - 190px) * 0.4);
   gap: 0;
   min-height: calc(100vh - 180px);
 }
 
 #controls {
-  width: 170px;
+  width: 10.625rem;
 }
 
 #textcolumn {
-  width: 77ch;
-  max-width: 96%;
+  width: calc(65ch + 10.625rem);
+  max-width: calc(90% + 40px);
   padding-right: 40px;
 }
 
-/*** TEI Styles Walpurgisnacht ***/
-.runningText1 {
+#textcontent {
   font-size: 20px;
+  line-height: 1.42857143;
+}
+
+/*** TEI Styles Walpurgisnacht ***/
+.runningText1, .typescriptRunningText1 {
+  font-size: 1em;
   text-align: justify;
   text-indent: 30px;
 }
 
 .runningText2 {
   text-indent: 0;
-  font-size: 20px;
+  font-size: 1em;
   text-align: justify;
+}
+
+.runningText2 .runningText1 {
+  font-size: unset;
 }
 
 .spacing {
   letter-spacing: 2.5px;
 }
 
-.longQuoteVerseStart, .longQuoteVerseMiddle {
+.longQuote,
+.typescriptLongQuote,
+.inkLongQuote,
+.typescriptLongQuoteLeading {
+  font-size: 0.75em;
   text-align: justify;
-  font-size: 15px;
+  display: block;
+  margin: 0.3125rem 0;
+  text-indent: 0;
 }
 
-.longQuoteRightAlign {
-  font-size: 15px;
+.longQuoteStart {
+  font-size: 0.75em;
+  text-align: justify;
+  margin-top: 0.3125rem;
+  display: block;
+  text-indent: 0;
+}
+
+.longQuoteEnd, .typescriptLongQuoteEnd {
+  font-size: 0.75em;
+  text-align: justify;
+  margin-bottom: 0.3125rem;
+  display: block;
+  text-indent: 0;
+}
+
+.longQuoteStartCenter {
+  font-size: 0.75em;
+  text-align: center;
+  margin-top: 0.3125rem;
+  display: block;
+}
+
+.longQuoteEndCenter {
+  font-size: 0.75em;
+  text-align: center;
+  margin-bottom: 0.3125rem;
+  display: block;
+}
+
+.inkLongQuote .longQuoteIndent,
+.longQuote .longQuoteIndent,
+.longQuote .longQuoteCenter,
+.longQuote .longQuoteStartIndent,
+.longQuote .longQuoteEndIndent,
+.longQuoteStart .longQuoteStartIndent,
+.longQuoteVerse .longQuoteVerseStart,
+.longQuoteVerse .longQuoteVerseEnd {
+  font-size: unset;
+}
+
+.longQuoteEndIndent .longQuoteEndCenter {
+  font-size: unset;
+}
+
+.longQuoteCenter {
+  font-size: 0.75em;
+  text-align: center;
+  margin: 0.3125rem 0;
+  display: block;
+}
+
+.longQuoteMiddleCenter {
+  font-size: 0.75em;
+  text-align: center;
+  display: block;
+}
+
+.longQuoteStartIndent,
+.longQuoteMarginStart {
+  font-size: 0.75em;
+  text-indent: 1.875rem;
+  margin-top: 0.3125rem;
+  text-align: justify;
+  display: block;
+}
+
+.longQuoteMiddleIndent,
+.longQuoteMarginMiddle {
+  font-size: 0.75em;
+  text-indent: 1.875rem;
+  text-align: justify;
+  display: block;
+}
+
+.longQuoteEndIndent,
+.longQuoteMarginEnd {
+  font-size: 0.75em;
+  text-indent: 1.875rem;
+  margin-bottom: 0.3125rem;
+  text-align: justify;
+  display: block;
+}
+
+.longQuoteRightAlign2, .typescriptLongQuoteRightAlign2 {
+  font-size: 0.75em;
+  text-align: center;
+  margin-bottom: 0.3125rem;
+  margin-top: 0.3125rem;
+  margin-right: 1.25rem;
+  display: table !important;
+  margin-left: auto;
+}
+
+.longQuoteVerse,
+.inkLongQuoteVerse,
+.typescriptLongQuoteVerse,
+.typescriptLongQuoteVerseLeading {
+  font-size: 0.75em;
+  margin: 0.3125rem 0;
+  text-align: justify;
+}
+
+.longQuoteVerseStart, .longQuoteVerseMiddle {
+  text-align: justify;
+  font-size: 0.75em;
+}
+
+.longQuoteVerseStart {
+  margin-top: 0.3125rem;
+}
+
+.FackelQuote_columnRight {
+  text-align: justify;
+  font-size: 0.75em;
+}
+
+.longQuoteRightAlign,
+.longQuoteEndRightAlign2,
+.typescriptLongQuoteRightAlign {
+  font-size: 0.75em;
   text-align: right;
 }
 
-.longQuoteVerseCenter {
-  font-size: 15px;
+.longQuoteEndRightAlign2 {
+  margin-bottom: 0.3125rem;
+  margin-right: 1.25rem;
   display: block;
-  margin: 5px auto;
+}
+
+.longQuoteVerseCenter {
+  font-size: 0.75em;
+  display: block;
+  margin: 0.3125rem auto;
   width: 50%;
 }
 
 .longQuoteVerseEnd {
-  font-size: 15px;
+  font-size: 0.75em;
+  margin-bottom: 0.3125rem;
 }
 
-.longQuoteIndent {
-  font-size: 15px;
+.longQuoteIndent, .typescriptLongQuoteIndent {
+  font-size: 0.75em;
   display: block;
   text-align: justify;
   text-indent: 30px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 0.3125rem 0;
+}
+
+.typescriptLongQuoteTitle,
+.typescriptLongQuoteTitle2 {
+  font-size: 0.75em;
+  display: block;
+  text-align: center;
+}
+
+.typescriptLongQuoteAdvInsert {
+  font-size: 0.75em;
+  text-align: center;
+  border-style: dashed;
+  border-width: 2px 0;
+}
+
+.indent1 {
+  text-indent: 12rem;
+}
+
+.indent3 {
+  text-indent: 13.125rem;
 }
 
 /*** register related ***/

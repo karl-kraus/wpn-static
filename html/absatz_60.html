@@ -1,565 +1,185 @@
 <!DOCTYPE HTML>
-<html id="edition-view">
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="mobile-web-app-capable" content="yes">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-capable" content="yes">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-title" content="">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileColor" content="#ffffff">
-      <meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileImage" content="images/logo.png">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://use.typekit.net/ckc0oka.css">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/svg+xml" href="images/logo.png" sizes="any">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="profile" href="http://gmpg.org/xfn/11">
-      <title xmlns="http://www.w3.org/1999/xhtml"></title>
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/style.b3df2898.css">
-      <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/micro-editor.8e986c38.css">
-   </head>
-   <body id="main_grid">
-      <wpn-header xmlns="http://www.w3.org/1999/xhtml" class="fixed-top bg-white pe-0">
-         <nav id="primary_nav" class="navbar border-bottom pt-05">
-            <div class="container-fluid"><a class="navbar-brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 123.47 106.97" width="90">
-                     <defs>
-                        <style>.cls-1{fill:#4a4a49;}.cls-2{fill:#a21a17;}</style>
-                     </defs>
-                     <g id="Ebene_2" data-name="Ebene 2">
-                        <g id="KARLKRAUS1933-EXPORT">
-                           <g id="LOGO-Karl-Kraus-1933_FARBE">
-                              <path class="cls-1" d="M21.24,49v9.32h2.18L29.17,49h6.6L28.42,60.93l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V49Z"></path>
-                              <path class="cls-1" d="M49.09,49a10.73,10.73,0,0,1,5.79,1.32c1.6,1,2.71,2.68,2.71,5.71,0,3.4-1.36,6-4.64,6.82,3.1.58,4,3.61,4.78,10.79H51.66c-.89-6.64-1.39-8.36-3.61-8.36H44.81v8.36H39V49ZM44.81,60.43h2.6c2.75,0,4.18-.61,4.18-3.72a2.88,2.88,0,0,0-.68-2.28,3,3,0,0,0-2.14-.5h-4Z"></path>
-                              <path class="cls-1" d="M76.19,73.64,74.87,69H67.05l-1.32,4.68H59.84L67.59,49h6.93l7.74,24.64ZM71,54.82,68.3,64.35h5.36Z"></path>
-                              <path class="cls-1" d="M89.69,49V64.85c0,2.65.22,4.22,3.89,4.22,3.5,0,3.82-1.43,3.82-4.22V49h5.79V64.78c0,2.32-.32,4.5-1.64,6.18s-4.07,3.11-8.18,3.11S87,72.89,85.66,71.32c-1.47-1.75-1.75-4.07-1.75-6.36V49Z"></path>
-                              <path class="cls-1" d="M120.22,54.89A9.87,9.87,0,0,0,115,53.46c-1.75,0-2.89.47-2.89,2.4,0,3.75,11.32,1.53,11.32,10.46a7,7,0,0,1-3.11,6A11.58,11.58,0,0,1,114,74.07c-2.61,0-6.14-.65-8.14-2.47l2.85-4.25a9.85,9.85,0,0,0,5.86,1.82c1.68,0,3.07-.42,3.07-2.57,0-4.25-11.32-1.82-11.32-10.6a6.4,6.4,0,0,1,2.79-5.5,10.53,10.53,0,0,1,6.42-1.93c2.36,0,5.54.57,7.43,2.14Z"></path>
-                              <path class="cls-1" d="M21.24,18.79v9.32h2.18l5.75-9.32h6.6L28.42,30.72l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V18.79Z"></path>
-                              <path class="cls-1" d="M54.16,43.43l-1.32-4.68H45L43.7,43.43H37.8l7.75-24.64h6.93l7.75,24.64ZM49,24.61l-2.68,9.54h5.35Z"></path>
-                              <path class="cls-1" d="M72.87,18.79a10.63,10.63,0,0,1,5.78,1.33c1.61,1,2.72,2.67,2.72,5.71,0,3.39-1.36,6-4.64,6.82,3.1.57,4,3.6,4.78,10.78H75.44c-.89-6.64-1.39-8.35-3.61-8.35H68.59v8.35H62.8V18.79ZM68.59,30.22h2.6c2.75,0,4.18-.61,4.18-3.71a2.94,2.94,0,0,0-.68-2.29,3.07,3.07,0,0,0-2.14-.5h-4Z"></path>
-                              <path class="cls-1" d="M91,18.79v19.5h8.46v5.14H85.24V18.79Z"></path>
-                              <path class="cls-2" d="M111,33.6h-6.1v-10.1h6.1v1.2h-4.7v3.1h4v1.2h-4v3.5h4.7v1.2ZM117.1,33.6h-1.5l-3.7-9.7,1.3-.5,3.2,8.7,3.2-8.7,1.2.5-3.7,9.7ZM95.2,33.6v-10c.5,0,.9,0,1.3-.1.2,0,.4,0,.6,0,.3,0,.6,0,.9,0,.4,0,.7,0,1.1,0,.4,0,.7.1,1,.3,0,0,0,0,.1,0,.4.2.7.4,1.1.6.2.1.4.3.5.5.4.5.7,1,.9,1.6.2.5.3,1,.3,1.6,0,.1,0,.3,0,.4,0,.6,0,1.1-.2,1.7,0,.1,0,.2,0,.3-.2.6-.5,1.2-.9,1.6-.4.5-1,.9-1.6,1.1-.6.3-1.3.4-2.1.4,0,0-.1,0-.2,0-.2,0-.4,0-.6,0-.2,0-.4,0-.5,0,0,0-.2,0-.3,0-.4,0-.8,0-1.2-.1ZM96.5,24.7v7.8c.2,0,.4,0,.6,0,.2,0,.3,0,.5,0,0,0,.1,0,.2,0,.3,0,.6,0,.9,0,.5,0,.9-.2,1.2-.4.5-.3,1-.8,1.2-1.4.2-.4.3-.8.3-1.2,0-.3,0-.6,0-.9,0-.7-.1-1.3-.4-1.9-.3-.6-.7-1.1-1.2-1.5-.3-.2-.7-.4-1-.4-.3,0-.6-.1-.9-.1,0,0-.1,0-.2,0-.3,0-.5,0-.8,0-.2,0-.4,0-.6,0Z" vector-effect="non-scaling-stroke"></path>
-                              <path class="cls-2" d="M19.28,86.21v19.44H17.72v-18H15.37V86.21Z"></path>
-                              <path class="cls-2" d="M24.52,92.21A6.24,6.24,0,0,1,31,85.89a6.2,6.2,0,0,1,6.39,6.45c0,4.48-4.67,10.69-8.17,13.31H26.9a27.53,27.53,0,0,0,7.56-8.5,5.2,5.2,0,0,1-3.59,1.35A6.2,6.2,0,0,1,24.52,92.21Zm1.57,0A4.86,4.86,0,1,0,31,87.29,4.73,4.73,0,0,0,26.09,92.21Z"></path>
-                              <path class="cls-2" d="M44.53,87.32a9.53,9.53,0,0,0-4.24,1.11V86.86a10.53,10.53,0,0,1,4.32-1c3.48,0,5.78,2,5.78,5a5,5,0,0,1-3.76,4.67,5.21,5.21,0,0,1,4.08,5.13c0,3-2.46,5.23-6.1,5.23a9.34,9.34,0,0,1-4.7-1.1V103.3a8.72,8.72,0,0,0,4.65,1.24c2.72,0,4.53-1.67,4.53-3.86,0-2.75-2.11-4.37-5.64-4.37H43V95h.73c2.86,0,5.08-1.62,5.08-4S47,87.32,44.53,87.32Z"></path>
-                              <path class="cls-2" d="M58.43,87.32a9.53,9.53,0,0,0-4.23,1.11V86.86a10.48,10.48,0,0,1,4.31-1c3.49,0,5.78,2,5.78,5a5,5,0,0,1-3.75,4.67,5.21,5.21,0,0,1,4.07,5.13c0,3-2.45,5.23-6.1,5.23a9.3,9.3,0,0,1-4.69-1.1V103.3a8.68,8.68,0,0,0,4.64,1.24c2.73,0,4.53-1.67,4.53-3.86,0-2.75-2.1-4.37-5.64-4.37h-.48V95h.73c2.86,0,5.07-1.62,5.07-4S60.94,87.32,58.43,87.32Z"></path>
-                              <path class="cls-2" d="M4,18.79H0v-14A4.84,4.84,0,0,1,4.83,0H15.45V4H4.83A.83.83,0,0,0,4,4.83Z"></path>
-                           </g>
-                        </g>
-                     </g></svg></a><span class="d-flex align-items-center"><a class="nav-link project-link pe-4 link-dark-grey link-hover-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a><button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12">
-                        <defs>
-                           <style>.a{fill:none}</style>
-                        </defs>
-                        <g transform="translate(0 0.5)">
-                           <line class="a" x2="20"></line>
-                           <line class="a" x2="20" transform="translate(0 5)"></line>
-                           <line class="a" x2="20" transform="translate(0 10)"></line>
-                        </g></svg></button></span><div class="navbar position-fixed start-0 bg-black-grey w-100 opacity-97" id="navbarSupportedContent">
-                  <div class="container d-block">
-                     <div class="row">
-                        <div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="projekt.html">Über das Projekt<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="nutzungsbedingungen.html">Nutzungsbedingungen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="impressum.html">Impressum<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                           </ul>
-                        </div>
-                        <div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Dritte Walpurgisnacht</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="notizen.html">Notizen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="annotierte_lesefassung.html">Annotierte Lesefassung<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                              <li class="nav-item"><a xmlns="" class="nav-link" href="register.html">Register<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12">
-                                       <defs>
-                                          <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                       </defs>
-                                       <path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li>
-                           </ul>
-                        </div>
-                        <div class="col-md-4"><span class="d-block navbar-title text-dark-grey border-bottom border-light-grey pb-1">Kommentar</span></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </nav>
-         <nav aria-label="breadcrumb" class="my-1">
-            <div class="container-fluid">
-               <ol class="breadcrumb">
-                  <li class="breadcrumb-item active" aria-current="page">Karl Kraus 1933: Dritte Walpurgisnacht</li>
-               </ol>
-            </div>
-         </nav>
-      </wpn-header>
-      <main class="flex-shrink-0 mt-18">
-         <div class="container-fluid px-0">
-            <div class="row">
-               <div class="col-md-2 col-lg-2 col-sm-12"></div>
-               <div class="col-md-2 col-lg-2 col-sm-12" style="text-align:right"></div>
-            </div>
-            <wpn-text-view annotation-selectors=".entity" id="sub_grid">
-               <div>
-                  <div class="p-0 d-flex flex-column align-items-center position-fixed">
-                     <div xmlns="http://www.w3.org/1999/xhtml" class="dropdown ff-ubuntu"><button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">Absatz 60</button><ul class="dropdown-menu z-3 rounded-0">
-                           <li><a class="dropdown-item fs-9_38 py-0" href="motti.html">[Motti]</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_1.html">Absatz 1</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_2.html">Absatz 2</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_3.html">Absatz 3</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_4.html">Absatz 4</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_5.html">Absatz 5</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_6.html">Absatz 6</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_7.html">Absatz 7</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_8.html">Absatz 8</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_9.html">Absatz 9</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_10.html">Absatz 10</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_11.html">Absatz 11</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_12.html">Absatz 12</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_13.html">Absatz 13</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_14.html">Absatz 14</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_15.html">Absatz 15</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_16.html">Absatz 16</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_17.html">Absatz 17</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_18.html">Absatz 18</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_19.html">Absatz 19</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_20.html">Absatz 20</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_21.html">Absatz 21</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_22.html">Absatz 22</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_23.html">Absatz 23</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_24.html">Absatz 24</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_25.html">Absatz 25</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_26.html">Absatz 26</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_27.html">Absatz 27</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_28.html">Absatz 28</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_29.html">Absatz 29</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_30.html">Absatz 30</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_31.html">Absatz 31</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_32.html">Absatz 32</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_33.html">Absatz 33</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_34.html">Absatz 34</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_35.html">Absatz 35</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_36.html">Absatz 36</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_37.html">Absatz 37</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_38.html">Absatz 38</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_39.html">Absatz 39</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_40.html">Absatz 40</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_41.html">Absatz 41</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_42.html">Absatz 42</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_43.html">Absatz 43</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_44.html">Absatz 44</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_45.html">Absatz 45</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_46.html">Absatz 46</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_47.html">Absatz 47</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_48.html">Absatz 48</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_49.html">Absatz 49</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_50.html">Absatz 50</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_51.html">Absatz 51</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_52.html">Absatz 52</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_53.html">Absatz 53</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_54.html">Absatz 54</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_55.html">Absatz 55</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_56.html">Absatz 56</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_57.html">Absatz 57</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_58.html">Absatz 58</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_59.html">Absatz 59</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_60.html">Absatz 60</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_61.html">Absatz 61</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_62.html">Absatz 62</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_63.html">Absatz 63</a></li>
-                           <li><a class="dropdown-item fs-9_38 py-0" href="absatz_64.html">Absatz 64</a></li>
-                        </ul>
-                     </div>
-                     <div id="editor-widget">
-                        <div xmlns="http://www.w3.org/1999/xhtml">
-                           <div id="aot-navBarNavDropdown" class="navBarNavDropdown dropstart d-md-none"><a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button"><i class="bi bi-gear" title="Menü zur Anpassung der Anzeige"></i></a><ul class="dropdown-menu d-block border-0 z-2">
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="prs" class="text-wpn-person fs-7"></annotation-slider>
-                                 </li>
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="quts" class="text-wpn-quote fs-7"></annotation-slider>
-                                 </li>
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="pbs" class="text-black-grey fs-7"></annotation-slider>
-                                 </li>
-                                 <li class="dropdown-item">
-                                    <annotation-slider opt="cmts" class="text-comment fs-7"></annotation-slider>
-                                 </li>
-                              </ul>
-                           </div>
-                           <div class="d-none d-md-block">
-                              <ul class="border-0 z-2 list-unstyled">
-                                 <li>
-                                    <annotation-slider opt="prs" class="text-wpn-person fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                                 <li>
-                                    <annotation-slider opt="quts" class="text-wpn-quote fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                                 <li>
-                                    <annotation-slider opt="pbs" class="text-black-grey fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                                 <li>
-                                    <annotation-slider opt="cmts" class="text-wpn-comment fs-7 mx-auto"></annotation-slider>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div id="textcolumn" class="mx-auto ff-century-old-style"><span class="d-block runningText1"><span class="inline-text">
-                        Und wäre sie denn ohne den Leidensweg vorstellbar, den so viele um des Zieles willen beschreiten
-                        mußten? Hat man nicht von Märtyrern gelesen,
-                        Kriegsteilnehmern, 
-                        <wpn-entity class="quotes entity " id="DWquote1608">manch einem, dem es erst jetzt
-                           widerfuhr, daß sein Körper »vom Rücken bis zu den
-                           Kniekehlen eine einzige blutige Masse war«</wpn-entity>? 
-                        <wpn-entity class="quotes entity " id="DWquote1609">Damit
-                           er seiner Sendung bewußt bleibe, überschüttete man
-                           ihn mit kaltem Wasser
-                           <span class="d-block longQuote"><span class="inline-text">
-                                 und zwickte hierauf mit Zangen Fleisch aus seiner Brust.</span></span></wpn-entity>
-                        
-                        <wpn-entity class="quotes entity " id="DWquote1610">Und dann nahm der 
-                           <wpn-entity class="persons entity " id="DWrsPers0972">Pfleger des Glaubens</wpn-entity> seine
-                           brennende Zigarre aus der Schnauze
-                           <span class="d-block longQuote"><span class="inline-text">
-                                 und sengte dem 
-                                 <wpn-entity class="persons entity " id="DWrsPers0973">Gefesselten</wpn-entity> einen Kranz rund um den Hals.</span></span>
-                           Und sprach die Worte:
-                           
-                           
-                           <span class="pagebreaks entity" id="pb0247" style="display:none;">||</span>
-                           <span class="d-block longQuote"><span class="inline-text">
-                                 Ein Kettchen aus roten Korallen zur Erinnerung!</span></span></wpn-entity>
-                        
-                        <wpn-entity class="quotes entity " id="DWquote1611">»Wir haben den Mann und seine Wunden gesehen«,
-                           sagte einer im Flüchtlingsbureau von Saarbrücken.</wpn-entity>
-                        Solchen Bewährungen suchen die Schutzhäftlinge zu
-                        entrinnen, indem sie 
-                        <wpn-entity class="quotes entity " id="DWquote1960">Sicherheitsnadeln sich ins Herz
-                           stoßen</wpn-entity>, 
-                        <wpn-entity class="quotes entity " id="DWquote1961">einen Bleistift in die Augen</wpn-entity>, 
-                        <wpn-entity class="quotes entity " id="DWquote1962">den Kopf am
-                           Eisenbett der Zelle sich einschlagen</wpn-entity> und so seltsame Arten der Abkürzung ersinnen für seltsamere
-                        des Leidens. Doch die strengen Riten der Schutzhaft
-                        
-                        überdauern den Schwachmut der Lebensflüchtlinge, sie bestehen kraft der Glaubenstreue der
-                        Bekenner, und mehr noch, weil jene nicht glauben
-                        wollen, die in Betten schlafen. Was aber der Menschlichkeit unfaßbar ist, weil es der Erlösung zu einem
-                        Ziel der Menschheit dient, möchte sie doch festhalten. Für das Andenken all der Blutzeugen, die daran
-                        glauben mußten, der Zertretenen und solcher, die
-                        nur Siechtum davontrugen: 
-                        <wpn-entity class="quotes entity " id="DWquote1612">der 
-                           <wpn-entity class="persons entity " id="DWrsPers0936">Frau in Köln</wpn-entity>, die,
-                           als sie den 
-                           <wpn-entity class="persons entity " id="DWrsPers0937">Mann</wpn-entity>  peinigten, in Todesangst aus dem
-                           Fenster sprang und mit gebrochenen Beinen liegen
-                           blieb</wpn-entity>; 
-                        <wpn-entity class="quotes entity " id="DWquote1613">des Zugs der Kremser Hilfspolizei, in den der
-                           feigste aller Morde schlug</wpn-entity>;<span class="comments entity" id="DWcomment0559"></span> 
-                        <wpn-entity class="quotes entity " id="DWquote1614">der 
-                           <wpn-entity class="persons entity " id="DWrsPeGr0826">Getöteten</wpn-entity> und 
-                           <wpn-entity class="persons entity " id="DWrsPeGr0827">Verstümmelten</wpn-entity>
-                           im
-                           Wiener Juwelierladen</wpn-entity>;<span class="comments entity" id="DWcomment0560"></span> 
-                        <wpn-entity class="quotes entity " id="DWquote1615">des 
-                           <wpn-entity class="persons entity " id="DWrsPers0828">greisen Rabbiners</wpn-entity>,
-                           der in Oberwiesenfeld das Hinrichtungsspiel erlitt</wpn-entity>,
-                        bis es doch Ernst wurde; 
-                        <wpn-entity class="quotes entity " id="DWquote1616">des 
-                           <wpn-entity class="persons entity " id="DWrsPers0829">Kindes</wpn-entity> — sie haben
-                           den Vorgang selbst berichtet —, das weinend der
-                           
-                           <wpn-entity class="persons entity " id="DWrsPers0830">Mutter</wpn-entity> nachlief, die als Geisel durch die Gassen von
-                           Pirmasens geschleift wurde, damit der 
-                           <wpn-entity class="persons entity " id="DWrsPers0831">entflohene
-                              Vater</wpn-entity> zu seinen Mördern zurückkehre</wpn-entity>.<span class="comments entity" id="DWcomment0747"></span> Und auch
-                        dieser Kreatur Gottes:
-                        <wpn-entity class="quotes entity " id="DWquote1617">
-                           <span class="d-block longQuoteStartIndent"><span class="inline-text">
-                                 .&nbsp;. und versuchten mit petroleumgetränkten Fetzen das Holzhaus
-                                 in Brand zu stecken.</span></span>
-                           <span class="d-block longQuoteMiddleIndent"><span class="inline-text">
-                                 Der Hund des 
-                                 <wpn-entity class="persons entity " id="DWrsPers0832">Platzmeisters</wpn-entity> störte die Brandstifter durch sein
-                                 Gebell bei ihrer Arbeit. Daraufhin feuerte einer der Nazis einen Revolverschuß auf das Tier ab und verletzte es schwer. Trotzdem konnte der
-                                 Hund noch zur etwa hundert Meter entfernten Wohnung des Platzmeisters laufen und seinen Herrn wecken.</span></span>
-                           <span class="d-block longQuoteMiddleIndent"><span class="inline-text">
-                                 Als der Platzmeister zum Klubhaus kam, waren die Eindringlinge
-                                 schon geflüchtet. Der Mann löschte mit einigen Eimern Wasser den Brand.</span></span>
-                           <span class="d-block longQuoteEndIndent"><span class="inline-text">
-                                 In den frühen Morgenstunden mußte der treue Hund, der die
-                                 Brandleger entdeckt und schwere Verletzungen erlitten hatte, durch
-                                 einen Gnadenschuß getötet werden.<span class="comments entity" id="DWcomment0748"></span></span></span></wpn-entity>
-                        
-                        
-                        <span class="pagebreaks entity" id="pb0247_a" style="display:none;">||</span>
-                        
-                        
-                        
-                        <span class="pagebreaks entity" id="pb0248" style="display:none;">||</span>
-                        
-                        Doch es muß einen Sinn haben, welchen
-                        die Menschen erst erkennen, wenn der 
-                        <wpn-entity class="persons entity " id="DWrsPers0839">Führer</wpn-entity> sie sehend
-                        macht. Symbolhaft war es, als eine Gruppe jugendlicher Angehöriger der Blindenanstalt in Halle sich
-                        an ihn mit der Bitte wandte:
-                        <wpn-entity class="quotes entity " id="DWquote1624">
-                           <span class="d-block longQuote"><span class="inline-text">
-                                 in ihm ihren 
-                                 <wpn-entity class="persons entity " id="DWrsPers0840">Führer</wpn-entity> sehen und ihr Zimmer »
-                                 <wpn-entity class="persons entity " id="DWrsPers0841">Adolf Hitler</wpn-entity>-Zimmer«
-                                 nennen zu dürfen. Der 
-                                 <wpn-entity class="persons entity " id="DWrsPers0842">Reichskanzler</wpn-entity> entsprach dieser Bitte mit einem
-                                 besonderen Schreiben und sandte den Jungen ein prachtvolles Lichtbild mit eigenhändiger Unterschrift.</span></span></wpn-entity>
-                        Gloster ersah das 
-                        <wpn-entity class="persons entity " id="DWrsPers0843">Führer</wpn-entity>prinzip: »<span class="fackelrefs entity " id="F890seg0047">
-                           <wpn-entity class="quotes entity " id="DWquote1625">’s ist Fluch der
-                              Zeit, daß Tolle Blinde <span class="hidden">führen</span></wpn-entity></span>«. Er war blind für den
-                        Segen, und nicht alle sind seiner wert. 
-                        <wpn-entity class="quotes entity " id="DWquote1626">Darum hat
-                           der Deutsche Blindenverein seine jüdischen Mitglieder ausgestoßen</wpn-entity> Und vor einem israelitischen
-                        war es ein Sehender, der
-                        die Aufschrift buchstabierend zu seinem Begleiter
-                        sprach:
-                        <wpn-entity class="quotes entity " id="DWquote1627">
-                           <span class="d-block longQuote"><span class="inline-text">
-                                 »Israe-lidisches Blinden-heim  — Dös heb’ i mit zwa Kracherln aus. Die
-                                 Blinden sehn’s eh net!«</span></span></wpn-entity>
-                        
-                        <wpn-entity class="quotes entity " id="DWquote1628">Während man, um eine christliche Mehrheit zu
-                           treffen, hinter dem Busch versteckt sein muß.</wpn-entity> Denn
-                        dieses Fatum waltet ohne Ansehn der Konfession,
-                        und je mehr ihm die Erfüllung entschwindet, umso
-                        unersättlicher drängt es zum dunklen Ziel.</span></span></div>
-               <div id="infocolumn" class="px-0 border-start border-light-grey">
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1608"><b xmlns=""><i>AZ</i></b> vom 6. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1609"><b xmlns=""><i>AZ</i></b> vom 6. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1610"><b xmlns=""><i>AZ</i></b> vom 6. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0972">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0">
-                        						
-                        <forename>[Nicht ermittelt]</forename>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0973">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0">
-                        						
-                        <forename>[Nicht ermittelt]</forename>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0247" style="display:none"><span>Beginn Seite 247</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1611"><b xmlns=""><i>AZ</i></b> vom 6. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1960"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1961"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1962"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1612"><b xmlns=""><i>AZ</i></b> vom 30. 3. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0936">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0">
-                        						
-                        <forename>[Nicht ermittelt]</forename>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0937">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0">
-                        						
-                        <forename>[Nicht ermittelt]</forename>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1613"><b xmlns=""><i>RP</i></b> vom 20. 6. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0559"><span class="fw-bold">Ereignis: Handgranatenanschlag in Krems</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1614"><b xmlns=""><i>AZ</i></b> vom 13. 6. 1933</div>GetötetenVerstümmelten
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0560"><span class="fw-bold">Ereignis: Bombenanschlag auf den Juwelier Futterweit</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1615"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0828">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:}  https://books.google.at/books?id=ETNJAAAAQBAJ&pg=PA77 {Text: greisen Rabbiners}  { Text}  Zur Geschichte der Juden in München 1933 und 1945 -->
-                        						
-                        <forename>Leo</forename>
-                        						
-                        <addName type="honorific">Dr.</addName>
-                        <!-- LU: verifiziert mit https://www.geni.com/people/Leo-Baerwald/6000000096144580102 -->
-                        						
-                        <surname>Bärwald</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1616"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0829">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} Politiker, https://www.sozialdemokratie-rlp.de/biographien.html  {Text: des Kindes} AZ 11.7., S. 1, Salzburger Wacht 12. 7., S. 2 -->
-                        						
-                        <forename>Werner</forename>
-                        						
-                        <addName type="honorific">Dr.</addName>
-                        <!-- LU: Quelle? -->
-                        						
-                        <surname>Ludwig</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0830">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} lt. Email von Dr. Becker, Stadtarvchiv Ludwigshafen v. 16. Dezember 2019 11:35 (Frau von Adolf Ludwig)  {Text: der Mutter} AZ 11.7., S. 1, Salzburger Wacht 12. 7., S. 2-->
-                        						
-                        <forename>Helena</forename>
-                        						
-                        <forename type="middle">Magdalena</forename>
-                        						
-                        <surname>Ludwig</surname>
-                        						
-                        <surname type="maiden">Sprenger</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0831">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} https://www.bavariathek.bayern/medien-themen/themen/geschichte-des-bayerischen-parlaments/personen/detail.html?tx_parlament_pi6%5Bperson%5D=2254&tx_parlament_pi6%5Bort%5D=&tx_parlament_pi6%5Baction%5D=show&tx_parlament_pi6%5Bcontroller%5D=Person&cHash=e8bdb8f6e3d9029fa22585f489a8ffb0 [Bürgermeister von Pirmasens (SPD), CALPO, GND: 1014760097] https://www.hdbg.de/parlament/content/persDetail.php?id=1344  - https://www.naturfreunde.de/adolf-ludwig-ein-beispiel-fuer-den-arbeiterwiderstand-pirmasens - https://www.sozialdemokratie-rlp.de/biographien.html {Text: der entflohene Vater} AZ 11.7., S. 1, Salzburger Wacht 12. 7., S. 2-->
-                        						
-                        <forename>Adolf</forename>
-                        						
-                        <surname>Ludwig</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0747"><span class="fw-bold">Ereignis: Öffentliche Demütigung einer Geisel</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1617"><b xmlns=""><i>Der Wiener Tag</i></b> vom 26. 6. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0832">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0">
-                        						
-                        <forename>[Nicht ermittelt]</forename>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0748"><span class="fw-bold">Ereignis: Brandstiftung bei der Hakoah</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1618"><b xmlns=""><i>AZ</i></b> vom 25. 8. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0834">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} http://www.hh.shuttle.de/hh/btg/bruno_tesch.htm -  https://de.wikipedia.org/wiki/Bruno_Tesch_(Kommunist) - Nach Druckexemplar suchen - Vergeßt uns nicht: Menschen im Widerstand 1933–1945 von Barbara Beuys {Text: Helden von Hamburg } ]-->
-                        						
-                        <forename>Bruno</forename>
-                        						
-                        <forename type="middle" subtype="unused">Guido</forename>
-                        						
-                        <forename type="middle" subtype="unused">Camillo</forename>
-                        						
-                        <surname>Tesch</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0835">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} http://vimu.info/fb.jsp?id=for_9_8_12_fb_blutsonntag_de_doc {Text: Mutter, die es durchs Radio erfuhr } ]-->
-                        						
-                        <forename>Virginia</forename>
-                        						
-                        <forename type="middle">Amata</forename>
-                        						
-                        <surname type="maiden">Jardas</surname>
-                        						
-                        <surname>Tesch</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0749"><span class="fw-bold">Ereignis: Hinrichtung von vier Kommunisten in Hamburg</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1619"><b xmlns="">Braunbuch über Reichstagsbrand und Hitlerterror</b> (1933)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0938">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} aus Leipzig https://books.google.at/books?id=b5pdBwAAQBAJ&pg=PA354 - Anzeige war auch in Vossische Zeitung ?? und Leipziger Neueste Nachrichten {Text: mein lieber Mann } [Quelle: Braunbuch 343, Der gelbe Fleck S. 255] -->
-                        						
-                        <forename>Alfred</forename>
-                        						
-                        <surname>Elker</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0813"><span class="fw-bold">Ereignis: ‚Mißverständnis‘ in Leipzig</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0836">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} Neffe des Zeitungsherausgebers -/- GND 43 Jahre Sterbedatum lt. YadVashem (8. 9. 1933) https://books.google.at/books?id=Ck13DwAAQBAJ&pg=PT40 , (Rudolf S. Mosse) https://www.geni.com/people/Rudolf-Mosse/6000000007969442225 - “In the Beginning there was Violence: ʺProtective Custodyʺ and Arrests of Jews, 1933–1934.” Before Auschwitz, by Kim Wünschmann, Harvard University Press, Cambridge, Massachusetts; London, England, 2015, pp. 17–57. JSTOR, www.jstor.org/stable/j.ctt1c84dh3.5. - https://books.google.at/books?id=hd8yHd5ToLYC&pg=PA532 - https://books.google.at/books?id=uyQsDwAAQBAJ&pg=PA197 {Text: "in einem verlöteten Sarg"} (Österr. Abendbltt 14.9., S. 1 Der Abend 14.9. Nachmittagsausgabe, S.2 und Der Abend 27.9., S.9 ) -->
-                        						
-                        <forename>Rudolf</forename>
-                        						
-                        <forename type="middle">Sigismund Markus</forename>
-                        						
-                        <surname>Mosse</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1620"><b xmlns=""><i>WAZ</i></b> vom 15. 9. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1621"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0837">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: GND -->
-                        						
-                        <forename>William</forename>
-                        						
-                        <surname>Shakespeare</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1622"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1623"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0248" style="display:none"><span>Beginn Seite 248</span></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0838">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
-                        						
-                        <forename>Adolf</forename>
-                        						
-                        <surname>Hitler</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0839">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
-                        						
-                        <forename>Adolf</forename>
-                        						
-                        <surname>Hitler</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1624"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0840">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
-                        						
-                        <forename>Adolf</forename>
-                        						
-                        <surname>Hitler</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0841">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
-                        						
-                        <forename>Adolf</forename>
-                        						
-                        <surname>Hitler</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0842">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
-                        						
-                        <forename>Adolf</forename>
-                        						
-                        <surname>Hitler</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0843">
-                     <persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
-                        						
-                        <forename>Adolf</forename>
-                        						
-                        <surname>Hitler</surname>
-                        					</persName>
-                  </div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1625"><b xmlns="">William Shakespeare: </b><b xmlns="">König Lear</b> (Entst. 1603–1606)</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1626"><b xmlns=""><i>WAZ</i></b> vom 11. 7. 1933</div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1627"><b xmlns="">[Nicht ermittelt]</b></div>
-                  <div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1628"><b xmlns=""><i>Österreichisches Abendblatt</i></b> vom 8. 8. 1933</div>
-               </div>
-            </wpn-text-view>
-         </div>
-      </main>
-      <footer xmlns="http://www.w3.org/1999/xhtml" class="footer mt-auto py-3 border-top border-light-grey bg-white ">
-         <div class="container mt-1_5">
-            <ul class="list-unstyled d-flex flex-row justify-content-end">
-               <li><a class="project-link link-dark-grey link-hover-primary-hover text-decoration-none" href="impressum.html">Impressum</a></li>
-               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="nutzungsbedingungen.html">Nutzungsbedingungen</a></li>
-               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="projekt.html">Über das Projekt</a></li>
-               <li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="https://github.com/karl-kraus/dritte-walpurgisnacht-static"><i class="bi bi-github"></i></a></li>
-            </ul>
-         </div>
-      </footer><script xmlns="http://www.w3.org/1999/xhtml" src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script><script xmlns="http://www.w3.org/1999/xhtml" src="js/vendor/bootstrap/bootstrap.bundle.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"></script><script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-header.DLUPgEgS.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/init-micro-editor.C-FTEvHg.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-text-view.DAWrcRUb.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-entity.aFBLJyLo.js"></script></body>
-</html>
+<html id="edition-view"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="X-UA-Compatible" content="IE=edge"><meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta xmlns="http://www.w3.org/1999/xhtml" name="mobile-web-app-capable" content="yes"><meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-capable" content="yes"><meta xmlns="http://www.w3.org/1999/xhtml" name="apple-mobile-web-app-title" content=""><meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileColor" content="#ffffff"><meta xmlns="http://www.w3.org/1999/xhtml" name="msapplication-TileImage" content="images/logo.png"><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://use.typekit.net/ckc0oka.css"><link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/svg+xml" href="images/logo.png" sizes="any"><link xmlns="http://www.w3.org/1999/xhtml" rel="profile" href="http://gmpg.org/xfn/11"><title xmlns="http://www.w3.org/1999/xhtml"></title><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/style.80e10db4.css"><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="css/micro-editor.8e986c38.css"></head><body id="main_grid"><wpn-header xmlns="http://www.w3.org/1999/xhtml" class="fixed-top bg-white pe-0"><nav id="primary_nav" class="navbar border-bottom pt-05"><div class="container-fluid mx-1 edition-header"><a class="navbar-brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 123.47 106.97" width="90"><defs><style>.cls-1{fill:#4a4a49;}.cls-2{fill:#a21a17;}</style></defs><g id="Ebene_2" data-name="Ebene 2"><g id="KARLKRAUS1933-EXPORT"><g id="LOGO-Karl-Kraus-1933_FARBE"><path class="cls-1" d="M21.24,49v9.32h2.18L29.17,49h6.6L28.42,60.93l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V49Z"></path><path class="cls-1" d="M49.09,49a10.73,10.73,0,0,1,5.79,1.32c1.6,1,2.71,2.68,2.71,5.71,0,3.4-1.36,6-4.64,6.82,3.1.58,4,3.61,4.78,10.79H51.66c-.89-6.64-1.39-8.36-3.61-8.36H44.81v8.36H39V49ZM44.81,60.43h2.6c2.75,0,4.18-.61,4.18-3.72a2.88,2.88,0,0,0-.68-2.28,3,3,0,0,0-2.14-.5h-4Z"></path><path class="cls-1" d="M76.19,73.64,74.87,69H67.05l-1.32,4.68H59.84L67.59,49h6.93l7.74,24.64ZM71,54.82,68.3,64.35h5.36Z"></path><path class="cls-1" d="M89.69,49V64.85c0,2.65.22,4.22,3.89,4.22,3.5,0,3.82-1.43,3.82-4.22V49h5.79V64.78c0,2.32-.32,4.5-1.64,6.18s-4.07,3.11-8.18,3.11S87,72.89,85.66,71.32c-1.47-1.75-1.75-4.07-1.75-6.36V49Z"></path><path class="cls-1" d="M120.22,54.89A9.87,9.87,0,0,0,115,53.46c-1.75,0-2.89.47-2.89,2.4,0,3.75,11.32,1.53,11.32,10.46a7,7,0,0,1-3.11,6A11.58,11.58,0,0,1,114,74.07c-2.61,0-6.14-.65-8.14-2.47l2.85-4.25a9.85,9.85,0,0,0,5.86,1.82c1.68,0,3.07-.42,3.07-2.57,0-4.25-11.32-1.82-11.32-10.6a6.4,6.4,0,0,1,2.79-5.5,10.53,10.53,0,0,1,6.42-1.93c2.36,0,5.54.57,7.43,2.14Z"></path><path class="cls-1" d="M21.24,18.79v9.32h2.18l5.75-9.32h6.6L28.42,30.72l8,12.71H29.49l-6.11-9.89H21.24v9.89H15.46V18.79Z"></path><path class="cls-1" d="M54.16,43.43l-1.32-4.68H45L43.7,43.43H37.8l7.75-24.64h6.93l7.75,24.64ZM49,24.61l-2.68,9.54h5.35Z"></path><path class="cls-1" d="M72.87,18.79a10.63,10.63,0,0,1,5.78,1.33c1.61,1,2.72,2.67,2.72,5.71,0,3.39-1.36,6-4.64,6.82,3.1.57,4,3.6,4.78,10.78H75.44c-.89-6.64-1.39-8.35-3.61-8.35H68.59v8.35H62.8V18.79ZM68.59,30.22h2.6c2.75,0,4.18-.61,4.18-3.71a2.94,2.94,0,0,0-.68-2.29,3.07,3.07,0,0,0-2.14-.5h-4Z"></path><path class="cls-1" d="M91,18.79v19.5h8.46v5.14H85.24V18.79Z"></path><path class="cls-2" d="M111,33.6h-6.1v-10.1h6.1v1.2h-4.7v3.1h4v1.2h-4v3.5h4.7v1.2ZM117.1,33.6h-1.5l-3.7-9.7,1.3-.5,3.2,8.7,3.2-8.7,1.2.5-3.7,9.7ZM95.2,33.6v-10c.5,0,.9,0,1.3-.1.2,0,.4,0,.6,0,.3,0,.6,0,.9,0,.4,0,.7,0,1.1,0,.4,0,.7.1,1,.3,0,0,0,0,.1,0,.4.2.7.4,1.1.6.2.1.4.3.5.5.4.5.7,1,.9,1.6.2.5.3,1,.3,1.6,0,.1,0,.3,0,.4,0,.6,0,1.1-.2,1.7,0,.1,0,.2,0,.3-.2.6-.5,1.2-.9,1.6-.4.5-1,.9-1.6,1.1-.6.3-1.3.4-2.1.4,0,0-.1,0-.2,0-.2,0-.4,0-.6,0-.2,0-.4,0-.5,0,0,0-.2,0-.3,0-.4,0-.8,0-1.2-.1ZM96.5,24.7v7.8c.2,0,.4,0,.6,0,.2,0,.3,0,.5,0,0,0,.1,0,.2,0,.3,0,.6,0,.9,0,.5,0,.9-.2,1.2-.4.5-.3,1-.8,1.2-1.4.2-.4.3-.8.3-1.2,0-.3,0-.6,0-.9,0-.7-.1-1.3-.4-1.9-.3-.6-.7-1.1-1.2-1.5-.3-.2-.7-.4-1-.4-.3,0-.6-.1-.9-.1,0,0-.1,0-.2,0-.3,0-.5,0-.8,0-.2,0-.4,0-.6,0Z" vector-effect="non-scaling-stroke"></path><path class="cls-2" d="M19.28,86.21v19.44H17.72v-18H15.37V86.21Z"></path><path class="cls-2" d="M24.52,92.21A6.24,6.24,0,0,1,31,85.89a6.2,6.2,0,0,1,6.39,6.45c0,4.48-4.67,10.69-8.17,13.31H26.9a27.53,27.53,0,0,0,7.56-8.5,5.2,5.2,0,0,1-3.59,1.35A6.2,6.2,0,0,1,24.52,92.21Zm1.57,0A4.86,4.86,0,1,0,31,87.29,4.73,4.73,0,0,0,26.09,92.21Z"></path><path class="cls-2" d="M44.53,87.32a9.53,9.53,0,0,0-4.24,1.11V86.86a10.53,10.53,0,0,1,4.32-1c3.48,0,5.78,2,5.78,5a5,5,0,0,1-3.76,4.67,5.21,5.21,0,0,1,4.08,5.13c0,3-2.46,5.23-6.1,5.23a9.34,9.34,0,0,1-4.7-1.1V103.3a8.72,8.72,0,0,0,4.65,1.24c2.72,0,4.53-1.67,4.53-3.86,0-2.75-2.11-4.37-5.64-4.37H43V95h.73c2.86,0,5.08-1.62,5.08-4S47,87.32,44.53,87.32Z"></path><path class="cls-2" d="M58.43,87.32a9.53,9.53,0,0,0-4.23,1.11V86.86a10.48,10.48,0,0,1,4.31-1c3.49,0,5.78,2,5.78,5a5,5,0,0,1-3.75,4.67,5.21,5.21,0,0,1,4.07,5.13c0,3-2.45,5.23-6.1,5.23a9.3,9.3,0,0,1-4.69-1.1V103.3a8.68,8.68,0,0,0,4.64,1.24c2.73,0,4.53-1.67,4.53-3.86,0-2.75-2.1-4.37-5.64-4.37h-.48V95h.73c2.86,0,5.07-1.62,5.07-4S60.94,87.32,58.43,87.32Z"></path><path class="cls-2" d="M4,18.79H0v-14A4.84,4.84,0,0,1,4.83,0H15.45V4H4.83A.83.83,0,0,0,4,4.83Z"></path></g></g></g></svg></a><span class="d-flex align-items-center"><a class="nav-link project-link pe-4 link-dark-grey link-hover-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a><button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12"><defs><style>.a{fill:none}</style></defs><g transform="translate(0 0.5)"><line class="a" x2="20"></line><line class="a" x2="20" transform="translate(0 5)"></line><line class="a" x2="20" transform="translate(0 10)"></line></g></svg></button></span><div class="navbar position-fixed start-0 bg-black-grey w-100 opacity-97" id="navbarSupportedContent"><div class="container d-block"><div class="row"><div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2"><li class="nav-item"><a xmlns="" class="nav-link" href="projekt.html">Über das Projekt<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="nutzungsbedingungen.html">Nutzungsbedingungen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="impressum.html">Impressum<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li></ul></div><div class="col-md-4"><span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Dritte Walpurgisnacht</span><ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2"><li class="nav-item"><a xmlns="" class="nav-link" href="notizen.html">Notizen<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="annotierte_lesefassung.html">Annotierte Lesefassung<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li><li class="nav-item"><a xmlns="" class="nav-link" href="register.html">Register<svg xmlns="http://www.w3.org/2000/svg" class="ms-2" width="14" height="14" viewBox="0 0 12 12"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg></a></li></ul></div><div class="col-md-4"><span class="d-block navbar-title text-dark-grey border-bottom border-light-grey pb-1">Kommentar</span></div></div></div></div></div></nav><nav aria-label="breadcrumb" class="my-05"><div class="container-fluid mx-1 edition-header"><ol class="breadcrumb"><li class="breadcrumb-item active" aria-current="page">Karl Kraus 1933: Dritte Walpurgisnacht</li></ol></div></nav></wpn-header><main class="flex-shrink-0 mt-18"><div class="container-fluid px-0"><wpn-text-view annotation-selectors=".entity" id="sub_grid"><div class="d-flex justify-content-center mt-2"><div class="p-0 d-flex flex-column align-items-center position-fixed"><div xmlns="http://www.w3.org/1999/xhtml" class="dropdown ff-ubuntu"><a href="absatz_59.html" title="zu seite absatz_59.html gehen"><svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg></a><button class="btn btn-secondary dropdown-toggle fs-9_38 border-0 px-05" type="button" data-bs-toggle="dropdown" aria-expanded="false">Absatz 60</button><ul class="dropdown-menu z-3 rounded-0"><li><a class="dropdown-item fs-9_38 py-0" href="motti.html">[Motti]</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_1.html">Absatz 1</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_2.html">Absatz 2</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_3.html">Absatz 3</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_4.html">Absatz 4</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_5.html">Absatz 5</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_6.html">Absatz 6</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_7.html">Absatz 7</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_8.html">Absatz 8</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_9.html">Absatz 9</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_10.html">Absatz 10</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_11.html">Absatz 11</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_12.html">Absatz 12</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_13.html">Absatz 13</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_14.html">Absatz 14</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_15.html">Absatz 15</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_16.html">Absatz 16</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_17.html">Absatz 17</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_18.html">Absatz 18</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_19.html">Absatz 19</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_20.html">Absatz 20</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_21.html">Absatz 21</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_22.html">Absatz 22</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_23.html">Absatz 23</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_24.html">Absatz 24</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_25.html">Absatz 25</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_26.html">Absatz 26</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_27.html">Absatz 27</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_28.html">Absatz 28</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_29.html">Absatz 29</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_30.html">Absatz 30</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_31.html">Absatz 31</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_32.html">Absatz 32</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_33.html">Absatz 33</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_34.html">Absatz 34</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_35.html">Absatz 35</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_36.html">Absatz 36</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_37.html">Absatz 37</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_38.html">Absatz 38</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_39.html">Absatz 39</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_40.html">Absatz 40</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_41.html">Absatz 41</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_42.html">Absatz 42</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_43.html">Absatz 43</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_44.html">Absatz 44</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_45.html">Absatz 45</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_46.html">Absatz 46</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_47.html">Absatz 47</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_48.html">Absatz 48</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_49.html">Absatz 49</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_50.html">Absatz 50</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_51.html">Absatz 51</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_52.html">Absatz 52</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_53.html">Absatz 53</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_54.html">Absatz 54</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_55.html">Absatz 55</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_56.html">Absatz 56</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_57.html">Absatz 57</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_58.html">Absatz 58</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_59.html">Absatz 59</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_60.html">Absatz 60</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_61.html">Absatz 61</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_62.html">Absatz 62</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_63.html">Absatz 63</a></li><li><a class="dropdown-item fs-9_38 py-0" href="absatz_64.html">Absatz 64</a></li></ul><a href="absatz_61.html" title="zu seite absatz_61.html gehen"><svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg></a></div><div id="editor-widget"><div xmlns="http://www.w3.org/1999/xhtml"><div id="aot-navBarNavDropdown" class="navBarNavDropdown dropstart d-md-none"><a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button"><i class="bi bi-gear" title="Menü zur Anpassung der Anzeige"></i></a><ul class="dropdown-menu d-block border-0 z-2"><li class="dropdown-item"><annotation-slider opt="prs" class="text-wpn-person fs-7"></annotation-slider></li><li class="dropdown-item"><annotation-slider opt="quts" class="text-wpn-quote fs-7"></annotation-slider></li><li class="dropdown-item"><annotation-slider opt="pbs" class="text-black-grey fs-7"></annotation-slider></li><li class="dropdown-item"><annotation-slider opt="cmts" class="text-comment fs-7"></annotation-slider></li></ul></div><div class="d-none d-md-block mt-2"><fieldset class="mb-2"><div class="d-flex gap-1_5 justify-content-center mb-05"><wpn-text-zoom-button zoom-direction="in"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" width="24" height="24"><g><path fill="#999" d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g></svg></wpn-text-zoom-button><wpn-text-zoom-button zoom-direction="out"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" width="24" height="24"><g><path fill="#999" d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g></svg></wpn-text-zoom-button></div><legend class="text-dark-grey fs-7 text-center">Textgröße</legend></fieldset><ul class="border-0 z-2 list-unstyled"><li class="mb-1"><annotation-slider opt="prs" class="text-wpn-person fs-7 mx-auto"></annotation-slider></li><li class="mb-1"><annotation-slider opt="quts" class="text-wpn-quote fs-7 mx-auto"></annotation-slider></li><li class="mb-1"><annotation-slider opt="pbs" class="text-black-grey fs-7 mx-auto"></annotation-slider></li><li class="mb-1"><annotation-slider opt="cmts" class="text-wpn-comment fs-7 mx-auto"></annotation-slider></li></ul></div></div></div></div></div><div id="textcolumn" class="mx-auto ff-century-old-style"><div id="textcontent"><div id="p__361" class="yes-index runningText1">
+Und wäre sie denn ohne den Leidensweg vorstellbar, den so viele um des Zieles willen beschreiten
+mußten⁠ ⁠? Hat man nicht von Märtyrern gelesen,
+Kriegsteilnehmern, <wpn-entity class="quotes entity " id="DWquote1608">manch einem, dem es erst jetzt
+widerfuhr, daß sein Körper <span>»</span>vom Rücken bis zu den
+Kniekehlen eine einzige blutige Masse war<span>«</span></wpn-entity>⁠ ⁠? <wpn-entity class="quotes entity " id="DWquote1609">Damit
+er seiner Sendung bewußt bleibe, überschüttete man
+ihn mit kaltem Wasser
+<span class="d-block longQuote"><span class="inline-text">
+und zwickte hierauf mit Zangen Fleisch aus seiner Brust.</span></span></wpn-entity>
+<wpn-entity class="quotes entity " id="DWquote1610">Und dann nahm der <wpn-entity class="persons entity " id="DWrsPers0972">Pfleger des Glaubens</wpn-entity> seine
+brennende Zigarre aus der Schnauze
+<span class="d-block longQuote"><span class="inline-text">
+<span>und</span> sengte dem <wpn-entity class="persons entity " id="DWrsPers0973">Gefesselten</wpn-entity> einen Kranz rund um den Hals.</span></span>
+Und sprach die Worte⁠ ⁠:
+
+
+<span class="pagebreaks entity" id="pb0247" style="display:none;">||</span>
+<span class="d-block longQuote"><span class="inline-text">
+Ein Kettchen aus roten Korallen zur Erinnerung⁠ ⁠!</span></span></wpn-entity>
+<wpn-entity class="quotes entity " id="DWquote1611"><span>»</span>Wir haben den Mann und seine Wunden gesehen<span>«</span>,
+sagte einer im Flüchtlingsbureau von Saarbrücken.</wpn-entity>
+Solchen Bewährungen suchen die Schutzhäftlinge zu
+entrinnen, indem sie <wpn-entity class="quotes entity " id="DWquote1960">Sicherheitsnadeln sich ins Herz
+stoßen</wpn-entity>, <wpn-entity class="quotes entity " id="DWquote1961">einen Bleistift in die Augen</wpn-entity>, <wpn-entity class="quotes entity " id="DWquote1962">den Kopf am
+Eisenbett der Zelle sich einschlagen</wpn-entity> und so seltsame Arten der Abkürzung ersinnen für seltsamere
+des Leidens. Doch die strengen Riten der Schutzhaft
+
+überdauern den Schwachmut der Lebensflüchtlinge, sie bestehen kraft der Glaubenstreue der
+Bekenner, und mehr noch, weil jene nicht glauben
+wollen, die in Betten schlafen. Was aber der Menschlichkeit unfaßbar ist, weil es der Erlösung zu einem
+Ziel der Menschheit dient, möchte sie doch festhalten. Für das Andenken all der Blutzeugen, die daran
+glauben mußten, der Zertretenen und solcher, die
+nur Siechtum davontrugen⁠ ⁠: <wpn-entity class="quotes entity " id="DWquote1618">des hingerichteten <wpn-entity class="persons entity " id="DWrsPers0834">Helden von Hamburg</wpn-entity> und der <wpn-entity class="persons entity " id="DWrsPers0835">Mutter</wpn-entity>, die es durchs Radio
+erfuhr und schreiend auf die Straße stürzte</wpn-entity>⁠ ⁠;<span class="comments entity" id="DWcomment0749"></span> <wpn-entity class="quotes entity " id="DWquote1612">der <wpn-entity class="persons entity " id="DWrsPers0936">Frau in Köln</wpn-entity>, die,
+als sie den <wpn-entity class="persons entity " id="DWrsPers0937">Mann</wpn-entity>  peinigten, in Todesangst aus dem
+Fenster sprang und mit gebrochenen Beinen liegen
+blieb</wpn-entity>⁠ ⁠; <wpn-entity class="quotes entity " id="DWquote1613">des Zugs der Kremser Hilfspolizei, in den der
+feigste aller Morde schlug</wpn-entity>⁠ ⁠;<span class="comments entity" id="DWcomment0559"></span> <wpn-entity class="quotes entity " id="DWquote1614">der <wpn-entity class="persons entity " id="DWrsPeGr0826">Getöteten</wpn-entity> und <wpn-entity class="persons entity " id="DWrsPeGr0827">Verstümmelten</wpn-entity>
+im
+Wiener Juwelierladen</wpn-entity>⁠ ⁠;<span class="comments entity" id="DWcomment0560"></span> <wpn-entity class="quotes entity " id="DWquote1615">des <wpn-entity class="persons entity " id="DWrsPers0828">greisen Rabbiners</wpn-entity>,
+der in Oberwiesenfeld das Hinrichtungsspiel erlitt</wpn-entity>,
+bis es doch Ernst wurde⁠ ⁠; <wpn-entity class="quotes entity " id="DWquote1616">des <wpn-entity class="persons entity " id="DWrsPers0829">Kindes</wpn-entity> — sie haben
+den Vorgang selbst berichtet —, das weinend der
+<wpn-entity class="persons entity " id="DWrsPers0830">Mutter</wpn-entity> nachlief, die als Geisel durch die Gassen von
+Pirmasens geschleift wurde, damit der <wpn-entity class="persons entity " id="DWrsPers0831">entflohene
+Vater</wpn-entity> zu seinen Mördern zurückkehre</wpn-entity>.<span class="comments entity" id="DWcomment0747"></span> Und auch
+dieser Kreatur Gottes⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote1617">
+<span class="d-block longQuoteStartIndent"><span class="inline-text">
+.&nbsp;. und versuchten mit petroleumgetränkten Fetzen das Holzhaus
+in Brand zu stecken.</span></span>
+<span class="d-block longQuoteMiddleIndent"><span class="inline-text">
+Der Hund des <wpn-entity class="persons entity " id="DWrsPers0832">Platzmeisters</wpn-entity> störte die Brandstifter durch sein
+Gebell bei ihrer Arbeit. Daraufhin feuerte einer der Nazis einen Revolverschuß auf das Tier ab und verletzte es schwer. Trotzdem konnte der
+Hund noch zur etwa hundert Meter entfernten Wohnung des Platzmeisters laufen und seinen Herrn wecken.</span></span>
+<span class="d-block longQuoteMiddleIndent"><span class="inline-text">
+Als der Platzmeister zum Klubhaus kam, waren die Eindringlinge
+schon geflüchtet. Der Mann löschte mit einigen Eimern Wasser den Brand.</span></span>
+<span class="d-block longQuoteEndIndent"><span class="inline-text">
+In den frühen Morgenstunden mußte der treue Hund, der die
+Brandleger entdeckt und schwere Verletzungen erlitten hatte, durch
+einen Gnadenschuß getötet werden.<span class="comments entity" id="DWcomment0748"></span></span></span></wpn-entity>
+
+Und das Andenken dieses⁠ ⁠:<wpn-entity>
+<wpn-entity class="quotes entity " id="DWquote1619">
+<span class="d-block typescriptLongQuote"><span class="inline-text">
+<span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar">Durch ein Mißverständnis</span> wurde mir <wpn-entity class="persons entity " id="DWrsPers0938">mein Mann</wpn-entity> entrissen.<span class="comments entity" id="DWcomment0813"></span> Um stilles Beileid bittet — —</span></span></wpn-entity>
+
+<wpn-entity class="persons entity " id="DWrsPers0836">Menschen</wpn-entity> gehen aus und <wpn-entity class="quotes entity " id="DWquote1620">werden in einem verlöteten
+Sarg ihren Familien zurückgestellt</wpn-entity>.
+<wpn-entity class="quotes entity " id="DWquote1621">
+<span class="fackelrefs entity " id="F890seg0046"><span class="d-block lg typescriptLongQuoteVerse">
+<span class="d-block l indent3"><span class="inline-text">Das arme Reich</span></span>
+<span class="d-block l "><span class="inline-text">Kennt kaum sich selber mehr. Nicht unsre Mutter</span></span>
+<span class="d-block l "><span class="inline-text">Kann’s heißen, sondern unser Grab⁠ ⁠: wo <span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar">Nichts</span></span></span>
+<span class="d-block l "><span class="inline-text"><span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar">Als was <span class="hidden">nichts</span> weiß, man jemals lächeln sieht</span>⁠ ⁠;</span></span>
+<span class="d-block l "><span class="inline-text">Wo <span class="hidden">Schrei’n</span> und Seufzen, das die Luft zerreißt,</span></span>
+<span class="d-block l "><span class="inline-text">Gemacht wird, nicht gemerkt⁠ ⁠; wo heft’ger Kummer</span></span>
+<span class="d-block l "><span class="inline-text">Alltägliche Erregung scheint. Man fragt</span></span>
+<span class="d-block l "><span class="inline-text">Beim Läuten kaum⁠ ⁠: für wen⁠ ⁠? Der Guten Leben</span></span>
+<span class="d-block l "><span class="inline-text">Welkt schneller als der Blumenstrauß am Hut,</span></span>
+<span class="d-block l "><span class="inline-text"><span xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:local="http://dse-static.foo.bar">Und stirbt noch eh es krank wird</span>.</span></span></span></span></wpn-entity>
+
+Mit so ungeheuren Zügen <wpn-entity class="persons entity " id="DWrsPers0837">Shakespeares</wpn-entity> ist die Stimmung
+in <span>»</span><wpn-entity class="quotes entity " id="DWquote1622">diesem unter einer Teufelsfaust ringenden Lande</wpn-entity><span>«</span>
+gemalt (<span>»</span><wpn-entity class="quotes entity " id="DWquote1623">ein heil’ger Engel flieg’ an den Hof von
+England, tue kund die Botschaft⁠ ⁠!</wpn-entity><span>«</span>) — nur der gleichmütigen Niedertracht sind die Seufzer, die erstickt
+sind, nicht gewesen. Sie wissen nichts⁠ ⁠; sie glauben
+es nicht.</wpn-entity>
+
+
+<span class="pagebreaks entity" id="pb0247_a" style="display:none;">||</span>
+
+
+
+<span class="pagebreaks entity" id="pb0248" style="display:none;">||</span>
+
+Doch es muß einen Sinn haben, welchen
+die Menschen erst erkennen, wenn der <wpn-entity class="persons entity " id="DWrsPers0839">Führer</wpn-entity> sie sehend
+macht. Symbolhaft war es, als eine Gruppe jugendlicher Angehöriger der Blindenanstalt in Halle sich
+an ihn mit der Bitte wandte⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote1624">
+<span class="d-block longQuote"><span class="inline-text">
+in ihm ihren <wpn-entity class="persons entity " id="DWrsPers0840">Führer</wpn-entity> sehen und ihr Zimmer »<wpn-entity class="persons entity " id="DWrsPers0841">Adolf Hitler</wpn-entity>-Zimmer«
+nennen zu dürfen. Der <wpn-entity class="persons entity " id="DWrsPers0842">Reichskanzler</wpn-entity> entsprach dieser Bitte mit einem
+besonderen Schreiben und sandte den Jungen ein prachtvolles Lichtbild mit eigenhändiger Unterschrift.</span></span></wpn-entity>
+Gloster ersah das <wpn-entity class="persons entity " id="DWrsPers0843">Führer</wpn-entity>prinzip⁠ ⁠: <span>»</span><span class="fackelrefs entity " id="F890seg0047"><wpn-entity class="quotes entity " id="DWquote1625">’s ist Fluch der
+Zeit, daß Tolle Blinde <span class="hidden">führen</span></wpn-entity></span><span>«</span>. Er war blind für den
+Segen, und nicht alle sind seiner wert. <wpn-entity class="quotes entity " id="DWquote1626">Darum hat
+der Deutsche Blindenverein seine jüdischen Mitglieder ausgestoßen</wpn-entity>,<span class="comments entity" id="DWcomment0750"></span> <wpn-entity class="quotes entity " id="DWquote1631">aber ein österreichischer als Nachrichtenzentrale gewirkt</wpn-entity>. Und vor einem israelitischen
+war es ein Sehender, der
+die Aufschrift buchstabierend zu seinem Begleiter
+sprach⁠ ⁠:<wpn-entity class="quotes entity " id="DWquote1627">
+<span class="d-block longQuote"><span class="inline-text">
+»Israe-lidisches Blinden-heim  — Dös heb’ i mit zwa Kracherln aus. Die
+Blinden sehn’s eh net⁠ ⁠!«</span></span></wpn-entity>
+<wpn-entity class="quotes entity " id="DWquote1628">Während man, um eine christliche Mehrheit zu
+treffen, hinter dem Busch versteckt sein muß.</wpn-entity> <span>Denn</span>
+dieses Fatum waltet ohne Ansehn der <span>Konfession,</span>
+und je mehr ihm die Erfüllung entschwindet, umso
+unersättlicher drängt es zum dunklen Ziel.</div></div></div><div id="infocolumn" class="bg-white px-0 border-start border-light-grey"><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1608"><b xmlns=""><i>AZ</i></b> vom 6. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1609"><b xmlns=""><i>AZ</i></b> vom 6. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1610"><b xmlns=""><i>AZ</i></b> vom 6. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0972"><persName xmlns="http://www.tei-c.org/ns/1.0">
+						<forename>[Nicht ermittelt]</forename>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0973"><persName xmlns="http://www.tei-c.org/ns/1.0">
+						<forename>[Nicht ermittelt]</forename>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0247" style="display:none"><span>Beginn Seite 247</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1611"><b xmlns=""><i>AZ</i></b> vom 6. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1960"><b xmlns="">[Nicht ermittelt]</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1961"><b xmlns="">[Nicht ermittelt]</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1962"><b xmlns="">[Nicht ermittelt]</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1612"><b xmlns=""><i>AZ</i></b> vom 30. 3. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0936"><persName xmlns="http://www.tei-c.org/ns/1.0">
+						<forename>[Nicht ermittelt]</forename>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0937"><persName xmlns="http://www.tei-c.org/ns/1.0">
+						<forename>[Nicht ermittelt]</forename>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1613"><b xmlns=""><i>RP</i></b> vom 20. 6. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0559"><span class="fw-bold">Ereignis: Handgranatenanschlag in Krems</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1614"><b xmlns=""><i>AZ</i></b> vom 13. 6. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPeGr0826"></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPeGr0827"></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0560"><span class="fw-bold">Ereignis: Bombenanschlag auf den Juwelier Futterweit</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1615"><b xmlns="">[Nicht ermittelt]</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0828"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:}  https://books.google.at/books?id=ETNJAAAAQBAJ&pg=PA77 {Text: greisen Rabbiners}  { Text}  Zur Geschichte der Juden in München 1933 und 1945 -->
+						<forename>Leo</forename>
+						<addName type="honorific">Dr.</addName><!-- LU: verifiziert mit https://www.geni.com/people/Leo-Baerwald/6000000096144580102 -->
+						<surname>Bärwald</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1616"><b xmlns="">[Nicht ermittelt]</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0829"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} Politiker, https://www.sozialdemokratie-rlp.de/biographien.html  {Text: des Kindes} AZ 11.7., S. 1, Salzburger Wacht 12. 7., S. 2 -->
+						<forename>Werner</forename>
+						<addName type="honorific">Dr.</addName><!-- LU: Quelle? -->
+						<surname>Ludwig</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0830"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} lt. Email von Dr. Becker, Stadtarvchiv Ludwigshafen v. 16. Dezember 2019 11:35 (Frau von Adolf Ludwig)  {Text: der Mutter} AZ 11.7., S. 1, Salzburger Wacht 12. 7., S. 2-->
+						<forename>Helena</forename>
+						<forename type="middle">Magdalena</forename>
+						<surname>Ludwig</surname>
+						<surname type="maiden">Sprenger</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0831"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} https://www.bavariathek.bayern/medien-themen/themen/geschichte-des-bayerischen-parlaments/personen/detail.html?tx_parlament_pi6%5Bperson%5D=2254&tx_parlament_pi6%5Bort%5D=&tx_parlament_pi6%5Baction%5D=show&tx_parlament_pi6%5Bcontroller%5D=Person&cHash=e8bdb8f6e3d9029fa22585f489a8ffb0 [Bürgermeister von Pirmasens (SPD), CALPO, GND: 1014760097] https://www.hdbg.de/parlament/content/persDetail.php?id=1344  - https://www.naturfreunde.de/adolf-ludwig-ein-beispiel-fuer-den-arbeiterwiderstand-pirmasens - https://www.sozialdemokratie-rlp.de/biographien.html {Text: der entflohene Vater} AZ 11.7., S. 1, Salzburger Wacht 12. 7., S. 2-->
+						<forename>Adolf</forename>
+						<surname>Ludwig</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0747"><span class="fw-bold">Ereignis: Öffentliche Demütigung einer Geisel</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1617"><b xmlns=""><i>Der Wiener Tag</i></b> vom 26. 6. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0832"><persName xmlns="http://www.tei-c.org/ns/1.0">
+						<forename>[Nicht ermittelt]</forename>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0748"><span class="fw-bold">Ereignis: Brandstiftung bei der Hakoah</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1618"><b xmlns=""><i>AZ</i></b> vom 25. 8. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0834"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} http://www.hh.shuttle.de/hh/btg/bruno_tesch.htm -  https://de.wikipedia.org/wiki/Bruno_Tesch_(Kommunist) - Nach Druckexemplar suchen - Vergeßt uns nicht: Menschen im Widerstand 1933–1945 von Barbara Beuys {Text: Helden von Hamburg } ]-->
+						<forename>Bruno</forename>
+						<forename type="middle" subtype="unused">Guido</forename>
+						<forename type="middle" subtype="unused">Camillo</forename>
+						<surname>Tesch</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0835"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} http://vimu.info/fb.jsp?id=for_9_8_12_fb_blutsonntag_de_doc {Text: Mutter, die es durchs Radio erfuhr } ]-->
+						<forename>Virginia</forename>
+						<forename type="middle">Amata</forename>
+						<surname type="maiden">Jardas</surname>
+						<surname>Tesch</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0749"><span class="fw-bold">Ereignis: Hinrichtung von vier Kommunisten in Hamburg</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1619"><b xmlns="">Braunbuch über Reichstagsbrand und Hitlerterror</b> (1933)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0938"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} aus Leipzig https://books.google.at/books?id=b5pdBwAAQBAJ&pg=PA354 - Anzeige war auch in Vossische Zeitung ?? und Leipziger Neueste Nachrichten {Text: mein lieber Mann } [Quelle: Braunbuch 343, Der gelbe Fleck S. 255] -->
+						<forename>Alfred</forename>
+						<surname>Elker</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWcomment0813"><span class="fw-bold">Ereignis: ‚Mißverständnis‘ in Leipzig</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0836"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: {Biographie:} Neffe des Zeitungsherausgebers -/- GND 43 Jahre Sterbedatum lt. YadVashem (8. 9. 1933) https://books.google.at/books?id=Ck13DwAAQBAJ&pg=PT40 , (Rudolf S. Mosse) https://www.geni.com/people/Rudolf-Mosse/6000000007969442225 - “In the Beginning there was Violence: ʺProtective Custodyʺ and Arrests of Jews, 1933–1934.” Before Auschwitz, by Kim Wünschmann, Harvard University Press, Cambridge, Massachusetts; London, England, 2015, pp. 17–57. JSTOR, www.jstor.org/stable/j.ctt1c84dh3.5. - https://books.google.at/books?id=hd8yHd5ToLYC&pg=PA532 - https://books.google.at/books?id=uyQsDwAAQBAJ&pg=PA197 {Text: "in einem verlöteten Sarg"} (Österr. Abendbltt 14.9., S. 1 Der Abend 14.9. Nachmittagsausgabe, S.2 und Der Abend 27.9., S.9 ) -->
+						<forename>Rudolf</forename>
+						<forename type="middle">Sigismund Markus</forename>
+						<surname>Mosse</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1620"><b xmlns=""><i>WAZ</i></b> vom 15. 9. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1621"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0837"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: GND -->
+						<forename>William</forename>
+						<surname>Shakespeare</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1622"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1623"><b xmlns="">William Shakespeare: </b><b xmlns="">Macbeth</b> (Entst. 1599–1606)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="pb0248" style="display:none"><span>Beginn Seite 248</span></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0838"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
+						<forename>Adolf</forename>
+						<surname>Hitler</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0839"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
+						<forename>Adolf</forename>
+						<surname>Hitler</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1624"><b xmlns="">[Nicht ermittelt]</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0840"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
+						<forename>Adolf</forename>
+						<surname>Hitler</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0841"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
+						<forename>Adolf</forename>
+						<surname>Hitler</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0842"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
+						<forename>Adolf</forename>
+						<surname>Hitler</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWrsPers0843"><persName xmlns="http://www.tei-c.org/ns/1.0"><!-- Quelle: ÖBL -->
+						<forename>Adolf</forename>
+						<surname>Hitler</surname>
+					</persName></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1625"><b xmlns="">William Shakespeare: </b><b xmlns="">König Lear</b> (Entst. 1603–1606)</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1626"><b xmlns=""><i>WAZ</i></b> vom 11. 7. 1933</div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1627"><b xmlns="">[Nicht ermittelt]</b></div><div xmlns="http://www.w3.org/1999/xhtml" class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="DWquote1628"><b xmlns=""><i>Österreichisches Abendblatt</i></b> vom 8. 8. 1933</div></div></wpn-text-view></div></main><footer xmlns="http://www.w3.org/1999/xhtml" class="footer mt-auto py-3 border-top border-light-grey bg-white "><div class="container mt-1_5"><ul class="list-unstyled d-flex flex-row justify-content-end"><li><a class="project-link link-dark-grey link-hover-primary-hover text-decoration-none" href="impressum.html">Impressum</a></li><li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="nutzungsbedingungen.html">Nutzungsbedingungen</a></li><li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="projekt.html">Über das Projekt</a></li><li><a class="project-link ps-4 link-dark-grey link-hover-primary-hover text-decoration-none" href="https://github.com/karl-kraus/dritte-walpurgisnacht-static"><i class="bi bi-github"></i></a></li></ul></div></footer><script xmlns="http://www.w3.org/1999/xhtml" src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script><script xmlns="http://www.w3.org/1999/xhtml" src="js/vendor/bootstrap/bootstrap.bundle.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"></script><script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-header.DLUPgEgS.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/init-micro-editor.C-FTEvHg.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-text-view.DAWrcRUb.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-entity.aFBLJyLo.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="js/wpn_utils/wpn-text-zoom-button.nPzlt3pl.js"></script></body></html>
