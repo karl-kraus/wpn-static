@@ -94,7 +94,9 @@
                            <div>
                                 <div class="p-0 d-flex flex-column align-items-center position-fixed">
                                     <xsl:call-template name="pagination">
-                                        <xsl:with-param name="current-page" select="$id"/>
+                                        <xsl:with-param name="current-page" select="if (matches($id,'[0-9]+')) then $id else data(tei:TEI/tei:p/@n)"/>
+                                        <xsl:with-param name="prev-page" select="$prev"/>
+                                        <xsl:with-param name="next-page" select="$next"/>
                                     </xsl:call-template>
                                     <div id="editor-widget">
                                         <xsl:call-template name="annotation-options"/>
