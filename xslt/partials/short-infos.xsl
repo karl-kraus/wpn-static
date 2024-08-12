@@ -19,7 +19,7 @@
     </div>
   </xsl:for-each>
 </xsl:template>
-<xsl:template match="tei:rs[@type='person']" mode="short_info">
+<xsl:template match="tei:rs[@type=('person','personGroup')]" mode="short_info">
   <xsl:variable name="xmlid" select="@xml:id"/>
   <xsl:variable name="type" select="@type"/>
   <xsl:for-each select="tokenize(@key,' ')">
