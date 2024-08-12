@@ -162,6 +162,11 @@ header {
   font-family: $meta-font-family;
 }
 
+/*** header ***/
+.edition_header {
+  max-height: 150px;
+}
+
 /*** footer ***/
 footer {
   min-height: $footer-min-height;
@@ -210,67 +215,231 @@ html[data-page="notes"] .container {
 
 #edition-view #sub_grid {
   display:grid;
-  grid-template-columns: 170px calc((100% - 190px) * 0.6) calc((100% - 190px) * 0.4);
+  grid-template-columns: 10.625rem calc((100% - 190px) * 0.6) calc((100% - 190px) * 0.4);
   gap:0;
   min-height:calc(100vh - $edition-view-header-height)
 }
 
 #controls {
-  width:170px;
+  width:10.625rem;
 }
 
 #textcolumn {
-  width: 77ch;
-  max-width: 96%;
+  width: calc(65ch + 10.625rem);
+  max-width: calc(90% + 40px);
   padding-right: 40px;
+}
+
+#textcontent {
+  font-size: 20px;
+  line-height: 1.42857143;
 }
 
 
 /*** TEI Styles Walpurgisnacht ***/
-.runningText1 {
-  font-size:20px;
+.runningText1,.typescriptRunningText1 {
+  font-size: 1em;
   text-align: justify;
   text-indent: 30px;
 }
 
 .runningText2 {
   text-indent: 0;
-  font-size:20px;
+  font-size: 1em;
   text-align: justify;
+}
+
+.runningText2 .runningText1 {
+  font-size:unset;
 }
 
 .spacing {
   letter-spacing: 2.5px;
 }
 
-.longQuoteVerseStart, .longQuoteVerseMiddle {
+.longQuote,
+.typescriptLongQuote,
+.inkLongQuote,
+.typescriptLongQuoteLeading {
+  font-size: 0.75em;
   text-align: justify;
-  font-size: 15px;
+  display: block;
+  margin: $spacer * 0.5 0;
+  text-indent: 0;
 }
 
-.longQuoteRightAlign {
-  font-size:15px;
+.longQuoteStart {
+  font-size: 0.75em;
+  text-align: justify;
+  margin-top: $spacer * 0.5;
+  display: block;
+  text-indent: 0;
+}
+
+.longQuoteEnd,.typescriptLongQuoteEnd {
+  font-size: 0.75em;
+  text-align: justify;
+  margin-bottom: $spacer * 0.5;
+  display: block;
+  text-indent: 0;
+}
+
+.longQuoteStartCenter {
+  font-size: 0.75em;
+  text-align: center;
+  margin-top: $spacer * 0.5;
+  display: block;
+}
+
+.longQuoteEndCenter {
+  font-size: 0.75em;
+  text-align: center;
+  margin-bottom: $spacer * 0.5;
+  display: block;
+}
+.inkLongQuote .longQuoteIndent,
+.longQuote .longQuoteIndent,
+.longQuote .longQuoteCenter,
+.longQuote .longQuoteStartIndent,
+.longQuote .longQuoteEndIndent,
+.longQuoteStart .longQuoteStartIndent,
+.longQuoteVerse .longQuoteVerseStart,
+.longQuoteVerse .longQuoteVerseEnd  {
+  font-size: unset;
+} 
+
+.longQuoteEndIndent .longQuoteEndCenter {
+  font-size: unset;
+}
+
+.longQuoteCenter {
+  font-size: 0.75em;
+  text-align: center;
+  margin: $spacer * 0.5 0;
+  display: block;
+}
+
+.longQuoteMiddleCenter {
+  font-size: 0.75em;
+  text-align: center;
+  display: block;
+}
+
+.longQuoteStartIndent,
+.longQuoteMarginStart {
+  font-size: 0.75em;
+  text-indent: $spacer * 3;
+  margin-top: $spacer * 0.5;
+  text-align: justify;
+  display: block;
+}
+
+
+
+.longQuoteMiddleIndent,
+.longQuoteMarginMiddle {
+  font-size: 0.75em;
+  text-indent: $spacer * 3;
+  text-align: justify;
+  display: block;
+}
+
+.longQuoteEndIndent,
+.longQuoteMarginEnd {
+  font-size: 0.75em;
+  text-indent: $spacer * 3;
+  margin-bottom: $spacer * 0.5;
+  text-align: justify;
+  display:block;
+}
+
+.longQuoteRightAlign2, .typescriptLongQuoteRightAlign2 {
+    font-size: 0.75em;
+    text-align: center;
+    margin-bottom: $spacer * 0.5;
+    margin-top: $spacer * 0.5;
+    margin-right: $spacer * 2;
+    display: table !important;
+    margin-left: auto;
+}
+
+.longQuoteVerse, 
+.inkLongQuoteVerse, 
+.typescriptLongQuoteVerse, 
+.typescriptLongQuoteVerseLeading {
+  font-size: 0.75em;
+  margin: $spacer * 0.5 0;
+  text-align: justify;
+} 
+
+.longQuoteVerseStart, .longQuoteVerseMiddle {
+  text-align: justify;
+  font-size: 0.75em;
+}
+
+.longQuoteVerseStart {
+  margin-top: $spacer * 0.5;
+}
+
+.FackelQuote_columnRight {
+  text-align: justify;
+  font-size: 0.75em;
+}
+
+.longQuoteRightAlign,
+.longQuoteEndRightAlign2,
+.typescriptLongQuoteRightAlign
+{
+  font-size: 0.75em;
   text-align:right;
 }
 
+.longQuoteEndRightAlign2 {
+    margin-bottom: $spacer * 0.5;
+    margin-right: $spacer * 2;
+    display: block;
+}
+
 .longQuoteVerseCenter {
-  font-size: 15px;
+  font-size: 0.75em;
   display:block;
-  margin: 5px auto;
+  margin: $spacer * 0.5 auto;
   width:50%;
 }
 
 .longQuoteVerseEnd {
-  font-size: 15px;
+  font-size: 0.75em;
+  margin-bottom: $spacer * 0.5; 
 }
 
-.longQuoteIndent {
-  font-size:15px;
+.longQuoteIndent, .typescriptLongQuoteIndent {
+  font-size: 0.75em;
   display: block;
   text-align: justify;
   text-indent: 30px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: $spacer * 0.5 0;
+}
+
+.typescriptLongQuoteTitle,
+.typescriptLongQuoteTitle2 {
+  font-size: 0.75em;
+  display:block;
+  text-align: center;
+}
+
+.typescriptLongQuoteAdvInsert {
+  font-size: 0.75em;
+  text-align: center;
+  border-style: dashed;
+  border-width: 2px 0; 
+}
+
+.indent1 {
+  text-indent: 12rem;
+}
+
+.indent3 {
+  text-indent: 13.125rem;
 }
 
 /*** register related ***/
