@@ -158,7 +158,7 @@
         <span class="d-block lg {replace(@rendition,'#','')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:l">
-        <span class="d-block l"><span class="inline-text"><xsl:apply-templates/></span></span>
+        <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
 	</xsl:template>
     <xsl:template match="tei:seg[@type='F890']">
         <span class="fackelrefs entity {substring-after(@rendition, '#')}" id="{@xml:id}">
