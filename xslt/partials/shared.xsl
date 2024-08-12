@@ -19,7 +19,7 @@
         <span class="pb" source="{@facs}"><xsl:value-of select="./@n"/></span>
     </xsl:template>
     <xsl:template match="tei:unclear">
-        <abbr title="unclear"><xsl:apply-templates/></abbr>
+        <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:del">
         <del><xsl:apply-templates/></del>
@@ -35,24 +35,6 @@
     </xsl:template>
     <xsl:template match="tei:lb"/>
 
-    <xsl:template match="tei:note">
-        <xsl:element name="a">
-            <xsl:attribute name="name">
-                <xsl:text>fna_</xsl:text>
-                <xsl:number level="any" format="1" count="tei:note"/>
-            </xsl:attribute>
-            <xsl:attribute name="href">
-                <xsl:text>#fn</xsl:text>
-                <xsl:number level="any" format="1" count="tei:note"/>
-            </xsl:attribute>
-            <xsl:attribute name="title">
-                <xsl:value-of select="normalize-space(.)"/>
-            </xsl:attribute>
-            <sup>
-                <xsl:number level="any" format="1" count="tei:note"/>
-            </sup>
-        </xsl:element>
-    </xsl:template>
 
     <xsl:template match="tei:list[@type='unordered']">
         <xsl:choose>
@@ -109,7 +91,7 @@
         <xsl:apply-templates/><br/>
     </xsl:template>
     <xsl:template match="tei:p">
-       <p><xsl:apply-templates/></p>
+       <p class="replace(@rendition,'#','')"><xsl:apply-templates/></p>
     </xsl:template>
     
     <xsl:template match="tei:table">
