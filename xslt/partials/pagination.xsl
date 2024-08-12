@@ -4,8 +4,13 @@
 <xsl:import href="./wpn_utils.xsl"/>
 <xsl:template name="pagination">
   <xsl:param name="current-page"/>
+  <xsl:param name="prev-page"/>
+  <xsl:param name="next-page"/>
   <div class="dropdown ff-ubuntu">
-    <button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a href="{$prev-page}" title="zu seite {$prev-page} gehen">
+      <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
+    </a>
+    <button class="btn btn-secondary dropdown-toggle fs-9_38 border-0 px-05" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       <xsl:value-of select="wpn:parse-page-name(replace($current-page,'absatz_',''),'label')"/>
     </button>
     <ul class="dropdown-menu z-3 rounded-0">
@@ -13,6 +18,9 @@
       <li><a class="dropdown-item fs-9_38 py-0" href="{wpn:parse-page-name(current()/@n,'')||'.html'}"><xsl:value-of select="wpn:parse-page-name(current()/@n,'label')"/></a></li>
     </xsl:for-each>
     </ul>
+    <a href="{$next-page}" title="zu seite {$next-page} gehen">
+      <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
+    </a>
   </div>
 </xsl:template>
 </xsl:stylesheet>
