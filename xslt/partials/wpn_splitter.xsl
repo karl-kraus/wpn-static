@@ -26,6 +26,7 @@
             <xsl:attribute name="next" select="wpn:normalizePagename($next/@n,'link')"/>
             <xsl:copy select=".">
             <xsl:attribute name="rendition" select="@rendition"/>
+             <xsl:attribute name="n" select="@n"/>
                 <xsl:apply-templates/>
             </xsl:copy>
         </TEI>
