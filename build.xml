@@ -5,8 +5,10 @@
     <property name="target_js_vendor" value="./html/js/vendor"/>
     <property name="target_fonts" value="./html/css/files"/>
     <property name="target_xml" value="./html/xml-view"/>
+    
     <delete>
         <fileset dir="${target}" includes="*.html"/>
+        <fileset dir="./data/merged" includes="*.html"/>
     </delete>
     <delete dir="${target}/static-search"/>
     <target name="build-landing-page">
@@ -40,7 +42,13 @@
         </xslt>
     </target>
     <target name="build-unstyled-edition">
-        <xslt style="./xslt/editions_unstyled.xsl"  basedir="./data/editions" destdir="./data/merged" includes="*.xml" excludes="Gesamt.xml">
+        <xslt style="./xslt/editions_unstyled.xsl"  basedir="./data/editions" destdir="./data/merged" includes="*.xml" excludes="Gesamt.xml Gesamt_modified.xml idPb*.xml">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-edition-typo">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions" destdir="${target}" includes="idPb*.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
@@ -97,7 +105,7 @@
         <!--<copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-wght-normal.woff2" todir="${target_fonts}"/>
         <copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-ext-wght-normal.woff2" todir="${target_fonts}"/>-->
     </target>
-    <target name="build-full-edition" depends="build-landing-page, split-edition-paragraphs, build-edition, build-unstyled-edition, build-meta-pages, build-notes, build-intertext-register, build-person-register, build-search-page, copy-libs"/>
+    <target name="build-full-edition" depends="build-landing-page, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-meta-pages, build-notes, generate-bibl-index, generate-person-index, build-intertext-register, build-person-register, build-search-page, copy-libs"/>
     <replace dir="${target}" value="">
         <include name="*.html"/>
         <replacetoken> xmlns=""</replacetoken>
@@ -122,4 +130,7 @@
         <include name="*.html"/>
         <replacetoken>xmlns="http://www.w3.org/1999/xhtml"</replacetoken>
     </replace>
+    <delete>
+        <fileset dir="${target}" includes="Gesamt.html Gesamt_modified.html"/>
+    </delete>
 </project>

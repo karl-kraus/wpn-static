@@ -15,6 +15,9 @@
             </xsl:for-each>
             <xsl:map-entry key="'biblindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>
             <xsl:map-entry key="'personindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>
+            <xsl:for-each select="collection('../../data/editions?select=idPb*.xml')">
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','init-micro-editor','wpn-text-view','wpn-entity','wpn-text-zoom-button')"/>
+            </xsl:for-each>
         </xsl:map>
     </xsl:variable>
     <xsl:template name="scripts">

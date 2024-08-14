@@ -4,6 +4,8 @@
 data
 /static-search
 html/static-search
+secret.env
+*.html
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

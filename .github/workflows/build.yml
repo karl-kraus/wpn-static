@@ -20,19 +20,35 @@ jobs:
   build_pages:
     name: Publish Edition as GitHub Pages Website
     runs-on: ubuntu-latest
+    env:
+      GITLAB_SOURCE_TOKEN: ${{ secrets.GITLAB_SOURCE_TOKEN }}
+      ANT_OPTS: -Xmx5g
     steps:
     - name: Perform Checkout
       uses: actions/checkout@v4
-    #- name: Install Saxon, Ant and Python
-    #  run: |
-    #    apt-get update && apt-get install openjdk-11-jre-headless ant -y --no-install-recommend
-    #    ./shellscripts/script.sh
-    #    pip install -r requirements.txt
-    #- name: Build
-    #  run: |
-    #    ant build-full-edition
-    #- name: Update Favicons
-    #  run: python update_favicons.py
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
+    - name: Node install 
+      run: |
+        npm install
+    - name: Build Site Dependencies
+      run: |
+        npm run build
+    - name: Install Saxon, Ant and Python
+      run: |
+        apt-get update && apt-get install openjdk-11-jre-headless ant -y --no-install-recommend
+        ./shellscripts/dl_saxon.sh
+        pip install -r requirements.txt
+    - name: Fetch data
+      run: ./shellscripts/fetch_data.sh
+    - name: Splitting the Edition
+      run: ./shellscripts/split_milestone_gesamt.sh
+    - name: Build
+      run: |
+        ant build-full-edition
+    # - name: Update Favicons
+    #   run: python update_favicons.py
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Upload artifact
