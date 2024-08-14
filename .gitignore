@@ -6,6 +6,8 @@ data
 html/static-search
 secret.env
 *.html
+manifest.json
+css_manifest.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

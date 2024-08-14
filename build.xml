@@ -36,7 +36,7 @@
         </xslt>
     </target>
     <target name="build-edition">
-        <xslt style="./xslt/editions.xsl"  basedir="./data/editions" destdir="${target}" includes="*.xml" excludes="Gesamt.xml">
+        <xslt style="./xslt/editions.xsl"  basedir="./data/editions" destdir="${target}" includes="*.xml" excludes="Gesamt.xml Gesamt_modified.xml idPb*.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>

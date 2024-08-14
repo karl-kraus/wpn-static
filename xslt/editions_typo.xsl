@@ -54,12 +54,12 @@
                 <main class="flex-shrink-0 mt-18">
                     <div class="container-fluid px-0">
                         <wpn-text-view annotation-selectors=".entity" id="sub_grid">
-                           <div class="d-flex justify-content-center mt-2">
+                            <div class="d-flex justify-content-center mt-2">
                                 <div class="p-0 d-flex flex-column align-items-center position-fixed">
-                                     <button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <xsl:text>Seiten: </xsl:text>
-                                        </button>
-                                        <ul class="dropdown-menu z-3 rounded-0 overflow-scroll" style="height: 400px;">
+                                    <button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <xsl:text>Seiten: </xsl:text>
+                                    </button>
+                                    <ul class="dropdown-menu z-3 rounded-0 overflow-scroll" style="height: 400px;">
                                         <xsl:for-each select="collection('../data/editions?select=idPb*.xml')">
                                             <xsl:sort select=".//tei:pb/@xml:id[1]"/>
                                             <li>
@@ -73,14 +73,17 @@
                                         <xsl:call-template name="annotation-options"/>
                                     </div>
                                 </div>
-                                
+                                </div>
                                 <div id="textcolumn" class="mx-auto ff-century-old-style">
-                                    <div id="textcontent">
-                                        <xsl:apply-templates select="//tei:body"/>
-                                    </div>
+                                        <div id="textcontent">
+                                            <xsl:apply-templates/>
+                                        </div>
                                 </div>
                                 <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
-                                </div>
+                                    <xsl:for-each select="//(tei:quote | tei:rs[@type=('person','personGroup')] | tei:pb | tei:ref[@type=('comment','glossary','event')])">
+                                        <xsl:apply-templates select="current()" mode="short_info"/>
+                                    </xsl:for-each>
+
                             </div>
                         </wpn-text-view>
                     </div>
