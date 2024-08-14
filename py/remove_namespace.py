@@ -1,7 +1,6 @@
 import glob
 import os
 import tqdm
-import shutil
 
 SOURCE_DIR = 'data/editions'
 SOURCE_FILE = 'Gesamt.xml'
