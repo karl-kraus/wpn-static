@@ -106,6 +106,16 @@
         <copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-ext-wght-normal.woff2" todir="${target_fonts}"/>-->
     </target>
     <target name="build-full-edition" depends="build-landing-page, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-meta-pages, build-notes, generate-bibl-index, generate-person-index, build-intertext-register, build-person-register, build-search-page, copy-libs"/>
+    <target name="add-header-pb">
+        <delete>
+            <fileset dir="./data/editions" includes="idPb*.xml idPb*.html"/>
+        </delete>
+        <xslt style="./xslt/partials/add-header-pb.xsl" basedir="./data/editions/tmp" destdir="./data/editions" includes="idPb*.xml" extension=".xml">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+        <delete dir="./data/editions/tmp"/>
+    </target>
     <replace dir="${target}" value="">
         <include name="*.html"/>
         <replacetoken> xmlns=""</replacetoken>
