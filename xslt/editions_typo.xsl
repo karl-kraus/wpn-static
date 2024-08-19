@@ -63,7 +63,7 @@
                                     <!-- osd viewer container -->
                                 </div>                                
                             </div>
-                            <div id="textcolumn" class="mx-auto ff-century-old-style">
+                            <div class="mx-auto ff-century-old-style">
                                 <div class="justify-content-center my-4">
                                     <div class="p-0 d-flex flex-column align-items-center">
                                         <div class="dropdown ff-ubuntu">
@@ -95,7 +95,7 @@
                                     </div>
                                 </div>
                                 <div id="textcontent">
-                                    <xsl:apply-templates select="//tei:body" />
+                                    <xsl:apply-templates select="//tei:text" />
                                 </div>
                             </div>
                             <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
@@ -135,6 +135,27 @@
                 
             </body>
         </html>
+    </xsl:template>
+    <xsl:template match="tei:body">
+        <div class="d-flex flex-column">
+            <div class="mb-2">
+                <xsl:apply-templates select="//tei:note[@place=('top', 'topUpperLeft')]" mode="render"/>
+            </div>
+            <div class="{.//tei:pb[1]/@type}">
+                <div>
+
+                </div>
+                <div>
+                    <xsl:apply-templates/>
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <div class="mt-2">
+                <xsl:apply-templates select="//tei:note[@place='bottom']" mode="render"/>
+            </div>
+        </div>
     </xsl:template>
     <xsl:template match="tei:p[@n]|tei:mod[@n]">
         <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')}">
@@ -230,25 +251,28 @@
      <xsl:template match="tei:subst">
         <xsl:apply-templates/>
      </xsl:template>
-     <xsl:template match="tei:ptr[parent::tei:transpose]">
-     <xsl:variable name="target" select="replace(@target,'#','')"/>
-        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:seg[@xml:id=$target]" mode="render"/>
+     <xsl:template match="tei:seg">
+        <xsl:apply-templates/>
      </xsl:template>
-     <xsl:template match="tei:seg[@type=('transposition','relocation') and not(parent::tei:restore)]"/>
-     <xsl:template match="tei:seg[@type=('transposition','relocation')]" mode="render">
+     <!-- <xsl:template match="tei:ptr[parent::tei:transpose]">
+        <xsl:variable name="target" select="replace(@target,'#','')"/>
+        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:seg[@xml:id=$target]" mode="render"/>
+     </xsl:template> -->
+     <!-- <xsl:template match="tei:seg[@type=('transposition','relocation') and not(parent::tei:restore)]"/> -->
+     <!-- <xsl:template match="tei:seg[@type=('transposition','relocation')]" mode="render">
        <xsl:apply-templates/>
-    </xsl:template>
-    <xsl:template match="tei:metamark[@function=('insertion','relocation') and not(matches(@target,'(note)+.*([a-z])_'))]">
+    </xsl:template> -->
+    <!-- <xsl:template match="tei:metamark[@function=('insertion','relocation') and not(matches(@target,'(note)+.*([a-z])_'))]">
        <xsl:variable name="target" select="replace(@target,'#','')"/>
         <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//(tei:seg|tei:note)[@xml:id=$target]" mode="render"/>
-    </xsl:template>
-    <xsl:template match="tei:metamark[@function=('insertion') and matches(@target,'(note)+.*([a-z])_')]">
+    </xsl:template> -->
+    <!-- <xsl:template match="tei:metamark[@function=('insertion') and matches(@target,'(note)+.*([a-z])_')]">
        <xsl:variable name="target" select="replace(@target,'#','')"/>
        <wpn-entity>
        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
        </wpn-entity>
-    </xsl:template>
-     <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]"/>
+    </xsl:template> -->
+     <!-- <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]"/> -->
     <xsl:template match="tei:mod[@style=('noLetterSpacing') and not(parent::tei:restore)]">
         <span class="ls-0"><xsl:apply-templates/></span>
     </xsl:template>
@@ -258,14 +282,26 @@
     <xsl:template match="tei:mod[contains(@rendition,'Quote')]">
         <span class="{replace(@rendition,'#','')}"><xsl:apply-templates/></span>
     </xsl:template>
-    <xsl:template match="tei:note"/>
-    <xsl:template match="tei:note" mode="render">
-        <xsl:apply-templates/>
+    <xsl:template match="tei:note[@place='bottom']" mode="render">
+        <div class="note {replace(@change , '#', '')}" id="{@xml:id}">
+            <xsl:apply-templates/>
+        </div>
     </xsl:template>
+    <xsl:template match="tei:note[@place=('top', 'topUpperLeft')]" mode="render">
+        <div class="note {replace(@change , '#', '')}" id="{@xml:id}">
+            <xsl:apply-templates/>
+        </div>
+    </xsl:template>
+    <!-- <xsl:template match="tei:note" mode="render">
+        <xsl:apply-templates/>
+    </xsl:template> -->
     <xsl:template match="tei:mod[@style='italic']">
         <span class="fst-italic"><xsl:apply-templates/></span>
     </xsl:template>
-    <xsl:template match="tei:lb[@type='req']">
+    <!-- <xsl:template match="tei:lb[@type='req']">
+        <br/>
+    </xsl:template> -->
+    <xsl:template match="tei:lb">
         <br/>
     </xsl:template>
 </xsl:stylesheet>

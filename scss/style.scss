@@ -220,13 +220,6 @@ html[data-page="notes"] .container {
   min-height:calc(100vh - $edition-view-header-height)
 }
 
-#edition-view #sub_grid_pb {
-  display:grid;
-  grid-template-columns: calc(100% * 0.4) calc(100% * 0.4) calc(100% * 0.2);
-  gap:0;
-  min-height:calc(100vh - $edition-view-header-height)
-}
-
 #controls {
   width:10.625rem;
 }
@@ -478,3 +471,29 @@ html[data-page="notes"] .container {
   background: url("../images/icon-signet-person.svg") 10px 10px/10px 12px no-repeat;
 }
 
+/** detail view Dritter Publikationsschritt **/
+
+#edition-view #sub_grid_pb {
+  display:grid;
+  grid-template-columns: calc(100% * 0.4) calc(100% * 0.4) calc(100% * 0.2);
+  gap:0;
+  min-height:calc(100vh - $edition-view-header-height)
+}
+
+.witnessPrint {
+  display: grid;
+  grid-template-columns: calc(100% * 0.198) calc(100% * 0.604) calc(100% * 0.198);
+  gap: 0;
+}
+
+.witnessTypescript {
+  display: grid;
+  grid-template-columns: calc(100% * 0.154) calc(100% * 0.8) calc(100% * 0.046);
+  gap: 0;
+}
+
+.witnessTypescriptInsert {
+  display: grid;
+  grid-template-columns: calc(100% * 0.175) calc(100% * 0.775) calc(100% * 0.05);
+  gap: 0;
+}
