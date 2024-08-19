@@ -6,10 +6,10 @@
     <property name="target_fonts" value="./html/css/files"/>
     <property name="target_xml" value="./html/xml-view"/>
     
-    <delete>
+    <!-- <delete>
         <fileset dir="${target}" includes="*.html"/>
         <fileset dir="./data/merged" includes="*.html"/>
-    </delete>
+    </delete> -->
     <delete dir="${target}/static-search"/>
     <target name="build-landing-page">
         <xslt in="${index}" out="${target}/index.html" style="./xslt/index.xsl">
@@ -48,6 +48,9 @@
         </xslt>
     </target>
     <target name="build-edition-typo">
+        <delete>
+            <fileset dir="${target}" includes="idPb*.html"/>
+        </delete>
         <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions" destdir="${target}" includes="idPb*.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>

@@ -17,10 +17,10 @@
     <xsl:import href="./partials/scripts.xsl"/>
 
     <xsl:variable name="prev">
-        <xsl:value-of select="data(tei:TEI/@prev)||'.html'"/>
+        <xsl:value-of select="substring-after(data(tei:TEI/@prev), 'https://id.acdh.oeaw.ac.at/')"/>
     </xsl:variable>
     <xsl:variable name="next">
-        <xsl:value-of select="data(tei:TEI/@next)||'.html'"/>
+        <xsl:value-of select="substring-after(data(tei:TEI/@next), 'https://id.acdh.oeaw.ac.at/')"/>
     </xsl:variable>
      <xsl:variable name="id">
         <xsl:value-of select="tei:TEI/@id"/>
@@ -33,6 +33,9 @@
     </xsl:variable>
     <xsl:variable name="doc_title">
         <xsl:value-of select=".//tei:titleStmt/tei:title[1]/text()"/>
+    </xsl:variable>
+    <xsl:variable name="facsimile">
+        <xsl:value-of select="replace(substring-after($teiSource, 'idPb'), '.xml', '')"/>
     </xsl:variable>
 
 
@@ -53,54 +56,82 @@
                 </xsl:call-template>
                 <main class="flex-shrink-0 mt-18">
                     <div class="container-fluid px-0">
-                        <wpn-text-view annotation-selectors=".entity" id="sub_grid">
-                            <div class="d-flex justify-content-center mt-2">
-                                <div class="p-0 d-flex flex-column align-items-center position-fixed">
-                                    <button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <xsl:text>Seiten: </xsl:text>
-                                    </button>
-                                    <ul class="dropdown-menu z-3 rounded-0 overflow-scroll" style="height: 400px;">
-                                        <xsl:for-each select="collection('../data/editions?select=idPb*.xml')">
-                                            <xsl:sort select=".//tei:pb/@xml:id[1]"/>
-                                            <li>
-                                                <a class="dropdown-item fs-9_38 py-0" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}">
-                                                    <xsl:value-of select=".//tei:pb[1]/@n"/>
-                                                </a>
-                                            </li>
-                                        </xsl:for-each>
-                                    </ul>
-                                    <div id="editor-widget">
-                                        <xsl:call-template name="annotation-options"/>
-                                    </div>
-                                </div>
+                        
+                        <wpn-text-view annotation-selectors=".entity" id="sub_grid_pb">
+                            <div id="facscolumn" class="mx-auto ff-century-old-style">
+                                <div id="facscontent" wpn-data="{$facsimile}">
+                                    <!-- osd viewer container -->
+                                </div>                                
                             </div>
                             <div id="textcolumn" class="mx-auto ff-century-old-style">
-                                    <div id="textcontent">
-                                        <xsl:apply-templates/>
+                                <div class="justify-content-center my-4">
+                                    <div class="p-0 d-flex flex-column align-items-center">
+                                        <div class="dropdown ff-ubuntu">
+                                            <a href="{replace($prev, '.xml', '.html')}" title="zu seite {replace($prev, '.xml', '.html')} gehen">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
+                                            </a>
+                                            <button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <xsl:text>Seite wählen</xsl:text>
+                                            </button>
+                                            <ul class="dropdown-menu z-3 rounded-0 overflow-scroll" style="height: 400px;">
+                                                <xsl:for-each select="collection('../data/editions?select=idPb*.xml')">
+                                                    <xsl:sort select=".//tei:pb/@xml:id[1]"/>
+                                                    <xsl:if test="not(contains(tokenize(base-uri(current()),'/')[last()], '-'))"><!-- verify first two pages -->
+                                                    <li>
+                                                        <a class="dropdown-item fs-9_38 py-0" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}">
+                                                            <xsl:value-of select=".//tei:pb[1]/@n"/>
+                                                        </a>
+                                                    </li>
+                                                    </xsl:if>
+                                                </xsl:for-each>
+                                            </ul>
+                                            <a href="{replace($next, '.xml', '.html')}" title="zu seite {replace($next, '.xml', '.html')} gehen">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
+                                            </a>
+                                        </div>
+                                        <!-- <div id="editor-widget">
+                                            <xsl:call-template name="annotation-options"/>
+                                        </div> -->
                                     </div>
-
-                                
+                                </div>
+                                <div id="textcontent">
+                                    <xsl:apply-templates select="//tei:body" />
+                                </div>
                             </div>
                             <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
-
+                                <div id="infocontent">
+                                <xsl:for-each select="//tei:TEI/tei:facsimile[1]/tei:surface/tei:note">
+                                    <div class="note m-2 {replace(@corresp, '#', '')}">
+                                        <xsl:apply-templates/>
+                                    </div>
+                                </xsl:for-each>
+                                </div>
                             </div>
                         </wpn-text-view>
                     </div>
-                    <xsl:for-each select="//tei:back">
-                        <div class="tei-back">
-                            <xsl:apply-templates/>
-                        </div>
-                    </xsl:for-each>
                 </main>
                 <xsl:call-template name="html_footer">
                     <xsl:with-param name="include_scroll_script" select="false()"/>
                 </xsl:call-template>
-                <!--<script src="https://unpkg.com/de-micro-editor@0.2.6/dist/de-editor.min.js"/>-->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"/>
+                
+                <script src="js/vendor/openseadragon-bin-4.1.1/openseadragon.min.js"/>
+                <script type="text/javascript">
+                    var facscontent = document.getElementById("facscontent");
+                    facscontent.style.height = window.innerHeight - 200 + "px";
+                    facscontent.style.width = window.innerWidth * 0.4 + "px";
+                    var image = facscontent.getAttribute("wpn-data");
+                    var imageUrl = {
+                        type: "image",
+                        prefixUrl: 'https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.1/images/',
+                        url: `https://iiif.acdh.oeaw.ac.at/iiif/images/wpn/${image}.jp2/full/max/0/default.jpg`
+                    }
+                    var viewer = OpenSeadragon({
+                        id: "facscontent",
+                        tileSources: imageUrl
+                    });
+                </script>
                 <script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script>
                 <xsl:call-template name="scripts"/>
-
-                <!--<script type="text/javascript" src="js/osd_scroll.js"></script>-->
                 
             </body>
         </html>
