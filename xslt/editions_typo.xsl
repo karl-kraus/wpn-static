@@ -4,7 +4,7 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:local="http://dse-static.foo.bar"
-    version="2.0" exclude-result-prefixes="xsl tei xs local">
+    version="3.0" exclude-result-prefixes="#all">
     
     <xsl:output encoding="UTF-8" media-type="text/html" method="html" version="5.0" indent="no" omit-xml-declaration="yes"/>
     <xsl:preserve-space elements="*" />
@@ -73,16 +73,15 @@
                                         <xsl:call-template name="annotation-options"/>
                                     </div>
                                 </div>
-                                </div>
-                                <div id="textcolumn" class="mx-auto ff-century-old-style">
-                                        <div id="textcontent">
-                                            <xsl:apply-templates/>
-                                        </div>
-                                </div>
-                                <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
-                                    <xsl:for-each select="//(tei:quote | tei:rs[@type=('person','personGroup')] | tei:pb | tei:ref[@type=('comment','glossary','event')])">
-                                        <xsl:apply-templates select="current()" mode="short_info"/>
-                                    </xsl:for-each>
+                            </div>
+                            <div id="textcolumn" class="mx-auto ff-century-old-style">
+                                    <div id="textcontent">
+                                        <xsl:apply-templates/>
+                                    </div>
+
+                                
+                            </div>
+                            <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
 
                             </div>
                         </wpn-text-view>

@@ -8,6 +8,8 @@ secret.env
 *.html
 manifest.json
 css_manifest.json
+html/css/*.css
+js/wpn_utils/*.js
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
