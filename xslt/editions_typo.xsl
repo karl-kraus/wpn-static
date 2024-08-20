@@ -56,44 +56,118 @@
                 </xsl:call-template>
                 <main class="flex-shrink-0 mt-18">
                     <div class="container-fluid px-0">
-                        
+                        <div class="d-flex flex-column my-0">
+                            <div id="editor-widget" class="mx-auto">
+                                <div>
+                                    <div id="aot-navBarNavDropdown" class="navBarNavDropdown dropstart d-md-none">
+                                        <!-- Your menu goes here -->
+                                        <a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button">
+                                            <i class="bi bi-gear" title="Menü zur Anpassung der Anzeige"></i>
+                                        </a>                  
+                                        <ul class="dropdown-menu d-block border-0 z-2">
+                                            <!--<li class="dropdown-item">
+                                                <full-size opt="fls"></full-size>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <image-switch opt="es"></image-switch>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <font-size opt="fs"></font-size>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <font-family opt="ff"></font-family>
+                                            </li>-->
+                                            <li class="dropdown-item">
+                                                <annotation-slider opt="prs" class="text-wpn-person fs-7"></annotation-slider>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <annotation-slider opt="quts" class="text-wpn-quote fs-7"></annotation-slider>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <annotation-slider opt="pbs" class="text-black-grey fs-7"></annotation-slider>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <annotation-slider opt="cmts" class="text-comment fs-7"></annotation-slider>
+                                            </li>
+                                        </ul>                                                    
+                                    </div>
+                                    <div class="mt-2 d-flex">
+                                            <!-- Your menu goes here --> 
+                                            <fieldset>
+                                                <div class="text-center gap-1_5 justify-content-center mb-05">
+                                                <legend class="text-dark-grey fs-7">Textgröße</legend>
+                                                <wpn-text-zoom-button zoom-direction="in">
+                                                    <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" width="24" height="24"><g><path fill="#999" d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g></svg>
+                                                </wpn-text-zoom-button>
+                                                <wpn-text-zoom-button zoom-direction="out">
+                                                    <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" width="24" height="24"><g><path fill="#999" d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g></svg>
+                                                </wpn-text-zoom-button>
+                                                </div>
+                                            </fieldset>                        
+                                            <ul class="gap-1_5 border-0 z-2 list-unstyled d-flex">
+                                                <!--<li class="dropdown-item">
+                                                    <full-size opt="fls"></full-size>
+                                                </li>
+                                                <li class="dropdown-item">
+                                                    <image-switch opt="es"></image-switch>
+                                                </li>
+                                                <li class="dropdown-item">
+                                                    <font-size opt="fs"></font-size>
+                                                </li>
+                                                <li class="dropdown-item">
+                                                    <font-family opt="ff"></font-family>
+                                                </li>-->
+                                                <li>
+                                                    <annotation-slider opt="prs" class="text-wpn-person fs-7 mx-auto"></annotation-slider>
+                                                </li>
+                                                <li>
+                                                    <annotation-slider opt="quts" class="text-wpn-quote fs-7 mx-auto"></annotation-slider>
+                                                </li>
+                                                <li>
+                                                    <annotation-slider opt="pbs" class="text-black-grey fs-7 mx-auto"></annotation-slider>
+                                                </li>
+                                                <li>
+                                                    <annotation-slider opt="cmts" class="text-wpn-comment fs-7 mx-auto"></annotation-slider>
+                                                </li>
+                                            </ul>                                                    
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="mx-auto">
+                                <div class="p-0 d-flex flex-column align-items-center">
+                                    <div class="dropdown ff-ubuntu">
+                                        <a href="{replace($prev, '.xml', '.html')}" title="zu seite {replace($prev, '.xml', '.html')} gehen">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
+                                        </a>
+                                        <button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <xsl:text>Seite wählen</xsl:text>
+                                        </button>
+                                        <ul class="dropdown-menu z-3 rounded-0 overflow-scroll" style="height: 400px;">
+                                            <xsl:for-each select="collection('../data/editions?select=idPb*.xml')">
+                                                <xsl:sort select=".//tei:pb/@xml:id[1]"/>
+                                                <xsl:if test="not(contains(tokenize(base-uri(current()),'/')[last()], '-'))"><!-- verify first two pages -->
+                                                <li>
+                                                    <a class="dropdown-item fs-9_38 py-0" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}">
+                                                        <xsl:value-of select=".//tei:pb[1]/@n"/>
+                                                    </a>
+                                                </li>
+                                                </xsl:if>
+                                            </xsl:for-each>
+                                        </ul>
+                                        <a href="{replace($next, '.xml', '.html')}" title="zu seite {replace($next, '.xml', '.html')} gehen">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <wpn-text-view annotation-selectors=".entity" id="sub_grid_pb">
                             <div id="facscolumn" class="mx-auto ff-century-old-style">
                                 <div id="facscontent" wpn-data="{$facsimile}">
                                     <!-- osd viewer container -->
                                 </div>                                
                             </div>
-                            <div class="mx-auto ff-century-old-style">
-                                <div class="justify-content-center my-4">
-                                    <div class="p-0 d-flex flex-column align-items-center">
-                                        <div class="dropdown ff-ubuntu">
-                                            <a href="{replace($prev, '.xml', '.html')}" title="zu seite {replace($prev, '.xml', '.html')} gehen">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
-                                            </a>
-                                            <button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <xsl:text>Seite wählen</xsl:text>
-                                            </button>
-                                            <ul class="dropdown-menu z-3 rounded-0 overflow-scroll" style="height: 400px;">
-                                                <xsl:for-each select="collection('../data/editions?select=idPb*.xml')">
-                                                    <xsl:sort select=".//tei:pb/@xml:id[1]"/>
-                                                    <xsl:if test="not(contains(tokenize(base-uri(current()),'/')[last()], '-'))"><!-- verify first two pages -->
-                                                    <li>
-                                                        <a class="dropdown-item fs-9_38 py-0" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}">
-                                                            <xsl:value-of select=".//tei:pb[1]/@n"/>
-                                                        </a>
-                                                    </li>
-                                                    </xsl:if>
-                                                </xsl:for-each>
-                                            </ul>
-                                            <a href="{replace($next, '.xml', '.html')}" title="zu seite {replace($next, '.xml', '.html')} gehen">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
-                                            </a>
-                                        </div>
-                                        <!-- <div id="editor-widget">
-                                            <xsl:call-template name="annotation-options"/>
-                                        </div> -->
-                                    </div>
-                                </div>
+                            <div id="textcolumnPb" class="mx-auto ff-century-old-style">
                                 <div id="textcontent">
                                     <xsl:apply-templates select="//tei:text" />
                                 </div>
@@ -113,35 +187,20 @@
                 <xsl:call-template name="html_footer">
                     <xsl:with-param name="include_scroll_script" select="false()"/>
                 </xsl:call-template>
-                
-                <script src="js/vendor/openseadragon-bin-4.1.1/openseadragon.min.js"/>
-                <script type="text/javascript">
-                    var facscontent = document.getElementById("facscontent");
-                    facscontent.style.height = window.innerHeight - 200 + "px";
-                    facscontent.style.width = window.innerWidth * 0.4 + "px";
-                    var image = facscontent.getAttribute("wpn-data");
-                    var imageUrl = {
-                        type: "image",
-                        prefixUrl: 'https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.1/images/',
-                        url: `https://iiif.acdh.oeaw.ac.at/iiif/images/wpn/${image}.jp2/full/max/0/default.jpg`
-                    }
-                    var viewer = OpenSeadragon({
-                        id: "facscontent",
-                        tileSources: imageUrl
-                    });
-                </script>
-                <script src="https://unpkg.com/de-micro-editor@0.4.0/dist/de-editor.min.js"></script>
                 <xsl:call-template name="scripts"/>
                 
             </body>
         </html>
     </xsl:template>
     <xsl:template match="tei:body">
+        <xsl:variable name="printType">
+            <xsl:value-of select=".//tei:pb[1]/@type"/>
+        </xsl:variable>
         <div class="d-flex flex-column">
-            <div class="mb-2">
-                <xsl:apply-templates select="//tei:note[@place=('top', 'topUpperLeft')]" mode="render"/>
+            <div class="printHeader {$printType}">
+                <xsl:apply-templates select="//tei:note[contains(@place, 'top')]" mode="render"/>
             </div>
-            <div class="{.//tei:pb[1]/@type}">
+            <div class="printBody {$printType}">
                 <div>
 
                 </div>
@@ -152,13 +211,13 @@
 
                 </div>
             </div>
-            <div class="mt-2">
-                <xsl:apply-templates select="//tei:note[@place='bottom']" mode="render"/>
+            <div class="printFooter {$printType}">
+                <xsl:apply-templates select="//tei:note[contains(@place, 'bottom')]" mode="render"/>
             </div>
         </div>
     </xsl:template>
     <xsl:template match="tei:p[@n]|tei:mod[@n]">
-        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')}">
+        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')} position-relative">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
@@ -185,7 +244,7 @@
         <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
 	</xsl:template>
     <xsl:template match="tei:seg[@type='F890']">
-        <span class="fackelrefs entity {substring-after(@rendition, '#')}" id="{@xml:id}">
+        <span class="fackelrefs entity {substring-after(@rendition, '#')} position-relative" id="{@xml:id}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
@@ -211,6 +270,9 @@
         <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:del[not(ancestor::tei:restore)][not(ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]])]"/>
+    <xsl:template match="tei:del[parent::tei:subst]">
+        <del><xsl:apply-templates/></del>
+    </xsl:template>
     <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letterSpacing']">
         <span class="spacing"><xsl:apply-templates/></span>
     </xsl:template>
@@ -218,7 +280,7 @@
         <span class="longQuoteRightAlign my-05 d-block"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@rendition='#runningText1']">
-        <span class="d-block runningText1"><xsl:apply-templates/></span>
+        <span class="d-block runningText1 position-relative"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
         <xsl:apply-templates select="tei:sic" mode="render"/>
@@ -228,7 +290,7 @@
     </xsl:template>
      <xsl:template match="tei:p[not(@n)]">
         <span class="d-block {replace(@rendition,'#','')}">
-            <span class="inline-text"><xsl:apply-templates/></span>
+            <span class="inline-text position-relative"><xsl:apply-templates/></span>
         </span>
     </xsl:template>
     <xsl:template match="tei:c">
@@ -238,10 +300,15 @@
      <xsl:template match="tei:sic" mode="render">
         <xsl:apply-templates/>
      </xsl:template>
-     <xsl:template match="tei:add[ancestor::tei:restore[not(child::tei:seg)]]"/>
-     <xsl:template match="tei:add[ancestor::tei:restore[child::tei:seg]]">
-     <xsl:apply-templates/>
+     <xsl:template match="tei:add">
+        <span class="add position-absolute {if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)} {replace(@rendition,'#','')}">
+            <xsl:apply-templates/>
+        </span>
      </xsl:template>
+     <!-- <xsl:template match="tei:add[ancestor::tei:restore[not(child::tei:seg)]]"/>
+     <xsl:template match="tei:add[ancestor::tei:restore[child::tei:seg]]">
+        <xsl:apply-templates/>
+     </xsl:template> -->
      <xsl:template match="tei:corr">
         <xsl:apply-templates/>
      </xsl:template>
@@ -272,7 +339,9 @@
        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
        </wpn-entity>
     </xsl:template> -->
-     <!-- <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]"/> -->
+     <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]">
+        <span class="metamark {replace(@change, '#', '')} {@rend}"><xsl:apply-templates/></span>
+     </xsl:template>
     <xsl:template match="tei:mod[@style=('noLetterSpacing') and not(parent::tei:restore)]">
         <span class="ls-0"><xsl:apply-templates/></span>
     </xsl:template>
@@ -282,26 +351,27 @@
     <xsl:template match="tei:mod[contains(@rendition,'Quote')]">
         <span class="{replace(@rendition,'#','')}"><xsl:apply-templates/></span>
     </xsl:template>
-    <xsl:template match="tei:note[@place='bottom']" mode="render">
-        <div class="note {replace(@change , '#', '')}" id="{@xml:id}">
+    <xsl:template match="tei:note[contains(@place, 'bottom')]" mode="render">
+        <div class="note {@place} {replace(@change, '#', '')}" id="{@xml:id}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
-    <xsl:template match="tei:note[@place=('top', 'topUpperLeft')]" mode="render">
-        <div class="note {replace(@change , '#', '')}" id="{@xml:id}">
+    <xsl:template match="tei:note[contains(@place, 'top')]" mode="render">
+        <div class="note {@place} {replace(@change, '#', '')}" id="{@xml:id}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
-    <!-- <xsl:template match="tei:note" mode="render">
-        <xsl:apply-templates/>
-    </xsl:template> -->
+    <xsl:template match="tei:note"/>
     <xsl:template match="tei:mod[@style='italic']">
         <span class="fst-italic"><xsl:apply-templates/></span>
     </xsl:template>
     <!-- <xsl:template match="tei:lb[@type='req']">
         <br/>
     </xsl:template> -->
-    <xsl:template match="tei:lb">
+    <xsl:template match="tei:lb[not(@break)]">
         <br/>
+    </xsl:template>
+    <xsl:template match="tei:lb[@break]">
+        <xsl:text>-</xsl:text><br/>
     </xsl:template>
 </xsl:stylesheet>
