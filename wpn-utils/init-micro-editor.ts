@@ -1,3 +1,5 @@
+import { LoadEditor } from "de-micro-editor";
+
 new LoadEditor({
   aot: {
     title: "Text Annotations",
