@@ -56,7 +56,7 @@
                 </xsl:call-template>
                 <main class="flex-shrink-0 mt-18">
                     <div class="container-fluid px-0">
-                        <div class="d-flex flex-column my-0">
+                        <div class="d-flex flex-column mb-4">
                             <div id="editor-widget" class="mx-auto">
                                 <div>
                                     <div id="aot-navBarNavDropdown" class="navBarNavDropdown dropstart d-md-none">
@@ -169,17 +169,17 @@
                         </div>
                         <wpn-text-view annotation-selectors=".entity" id="sub_grid_pb">
                             <div id="facscolumn" class="mx-auto ff-century-old-style">
-                                <div id="facscontent" wpn-data="{$facsimile}">
+                                <div id="facscontent" wpn-data="{$facsimile}" wpn-type="{.//tei:pb[1]/@type}">
                                     <!-- osd viewer container -->
                                 </div>                                
                             </div>
-                            <div id="textcolumnPb" class="mx-auto ff-century-old-style">
-                                <div id="textcontent">
+                            <div id="textcolumn-pb" class="mx-auto ff-century-old-style">
+                                <div id="textcontent-pb">
                                     <xsl:apply-templates select="//tei:text" />
                                 </div>
                             </div>
                             <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
-                                <div id="infocontent">
+                                <div id="infocontent-pb">
                                 <xsl:for-each select="//tei:TEI/tei:facsimile[1]/tei:surface/tei:note">
                                     <div class="note m-2 {replace(@corresp, '#', '')}">
                                         <xsl:apply-templates/>
@@ -202,22 +202,22 @@
         <xsl:variable name="printType">
             <xsl:value-of select=".//tei:pb[1]/@type"/>
         </xsl:variable>
-        <div class="d-flex flex-column">
-            <div class="printHeader {$printType}">
+        <div class="d-flex flex-column print-page {$printType}">
+            <div class="print-header {$printType}">
                 <xsl:apply-templates select="//tei:note[contains(@place, 'top')]" mode="render"/>
             </div>
-            <div class="printBody {$printType}">
-                <div class="bodyLeft">
+            <div class="print-body {$printType}">
+                <div class="body-left">
 
                 </div>
-                <div class="bodyMain">
+                <div class="body-main">
                     <xsl:apply-templates/>
                 </div>
-                <div class="bodyRight">
+                <div class="body-right">
 
                 </div>
             </div>
-            <div class="printFooter {$printType}">
+            <div class="print-footer {$printType}">
                 <xsl:apply-templates select="//tei:note[contains(@place, 'bottom')]" mode="render"/>
             </div>
         </div>

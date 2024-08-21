@@ -1,9 +1,14 @@
 import OpenSeadragon from "openseadragon";
 
-const facscontent = document.getElementById("facscontent") as HTMLElement;
-facscontent.style.height = window.innerHeight - 190 + "px";
-facscontent.style.width = window.innerWidth * 0.4 + "px";
+const facscontent: HTMLElement | null = document.getElementById("facscontent") ?? null;
+if (!facscontent) {
+	throw new Error("No facscontent element found");
+}
+const type = facscontent.getAttribute("wpn-type") ?? "";
+facscontent.style.height = type === "witnessPrint" ? "21cm": "26cm";
+facscontent.style.width = type === "witnessPrint" ? "14.2cm": "19.4cm";
 const image = facscontent.getAttribute("wpn-data") ?? "";
+
 const imageUrl = {
 	type: "image",
 	url: `https://iiif.acdh.oeaw.ac.at/${image}.jp2/full/max/0/default.jpg`
