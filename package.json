@@ -16,9 +16,11 @@
     "bootstrap": "5.3.3",
     "de-micro-editor": "^0.4.2",
     "glob": "^11.0.0",
-    "mirador": "3.3.0"
+    "mirador": "3.3.0",
+    "openseadragon": "^5.0.0"
   },
   "devDependencies": {
+    "@types/openseadragon": "^3.0.10",
     "@acdh-oeaw/eslint-config": "^1.0.9",
     "@acdh-oeaw/eslint-config-playwright": "^1.0.9",
     "@acdh-oeaw/prettier-config": "^2.0.0",

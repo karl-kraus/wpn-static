@@ -15,12 +15,24 @@
             </xsl:for-each>
             <xsl:map-entry key="'biblindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>
             <xsl:map-entry key="'personindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>
+            <xsl:for-each select="collection('../../data/editions?select=idPb*.xml')">
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','init-micro-editor','wpn-text-view','wpn-entity','wpn-text-zoom-button', 'init-openseadragon')"/>
+            </xsl:for-each>
         </xsl:map>
     </xsl:variable>
     <xsl:template name="scripts">
         <xsl:for-each select="map:get($script_mappings,tokenize(base-uri(),'/')[last()])">
             <xsl:variable name="script_src" select="json-doc('../../manifest.json')?*[matches(?file,current())]?file"/>
-            <script type="text/javascript" src="{'js/wpn_utils/'||$script_src}"></script>
+            <script src="{'js/wpn_utils/'||$script_src}">
+                <xsl:choose>
+                    <xsl:when test="contains($script_src,'init-micro-editor') or contains($script_src,'init-openseadragon')">
+                        <xsl:attribute name="type">module</xsl:attribute>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:attribute name="type">text/javascript</xsl:attribute>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </script>
         </xsl:for-each> 
     </xsl:template>
 </xsl:stylesheet>
