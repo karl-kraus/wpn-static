@@ -502,6 +502,17 @@ html[data-page="notes"] .container {
   width: 106ch;
   max-width: calc(90% + 40px);
   padding-right: 40px;
+  white-space: nowrap;
+}
+
+.text-align-justify {
+  text-align: justify; /* For Edge */
+  text-align-last: justify;
+}
+
+.text-align-left {
+  text-align: left !important;
+  text-align-last: left !important;  
 }
 
 .printHeader.witnessPrint,

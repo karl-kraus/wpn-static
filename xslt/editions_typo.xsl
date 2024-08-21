@@ -136,19 +136,25 @@
                             <div class="mx-auto">
                                 <div class="p-0 d-flex flex-column align-items-center">
                                     <div class="dropdown ff-ubuntu">
+                                        <xsl:variable name="currentPage" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
+                                        <xsl:variable name="currentPageString" select="if(contains($currentPage, '_') ) 
+                                                                                       then(xs:integer(replace( tokenize( $currentPage, '_' )[1], 'F', '' ) )||'/'||tokenize( $currentPage, '_' )[2] ) 
+                                                                                       else(xs:integer(replace($currentPage, 'F', '')))"/>
                                         <a href="{replace($prev, '.xml', '.html')}" title="zu seite {replace($prev, '.xml', '.html')} gehen">
                                             <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
                                         </a>
                                         <button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <xsl:text>Seite wählen</xsl:text>
+                                            <xsl:value-of select="'Seite: '||$currentPageString"/>
                                         </button>
                                         <ul class="dropdown-menu z-3 rounded-0 overflow-scroll" style="height: 400px;">
                                             <xsl:for-each select="collection('../data/editions?select=idPb*.xml')">
                                                 <xsl:sort select=".//tei:pb/@xml:id[1]"/>
-                                                <xsl:if test="not(contains(tokenize(base-uri(current()),'/')[last()], '-'))"><!-- verify first two pages -->
+                                                <xsl:variable name="page" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
+                                                <xsl:variable name="pageString" select="if(contains($page, '_'))then(xs:integer(replace(tokenize($page, '_')[1], 'F', ''))||'/'||tokenize($page, '_')[2])else(xs:integer(replace($page, 'F', '')))"/>
+                                                <xsl:if test="not(contains(tokenize(base-uri(current()),'/')[last()], '-'))"><!-- verify first and remove first (motti) two pages -->
                                                 <li>
                                                     <a class="dropdown-item fs-9_38 py-0" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}">
-                                                        <xsl:value-of select=".//tei:pb[1]/@n"/>
+                                                        <xsl:value-of select="'Seite: '||$pageString"/>
                                                     </a>
                                                 </li>
                                                 </xsl:if>
@@ -201,13 +207,13 @@
                 <xsl:apply-templates select="//tei:note[contains(@place, 'top')]" mode="render"/>
             </div>
             <div class="printBody {$printType}">
-                <div>
+                <div class="bodyLeft">
 
                 </div>
-                <div>
+                <div class="bodyMain">
                     <xsl:apply-templates/>
                 </div>
-                <div>
+                <div class="bodyRight">
 
                 </div>
             </div>
@@ -217,7 +223,7 @@
         </div>
     </xsl:template>
     <xsl:template match="tei:p[@n]|tei:mod[@n]">
-        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')} position-relative">
+        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')} position-relative text-align-justify">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
@@ -249,7 +255,7 @@
         </span>
     </xsl:template>
     <xsl:template match="tei:quote">
-        <wpn-entity class="quotes entity {substring-after(@rendition, '#')}" id="{@xml:id}">
+        <wpn-entity class="quotes entity {substring-after(@rendition, '#')} text-align-left" id="{@xml:id}">
             <xsl:apply-templates/>
         </wpn-entity>
     </xsl:template>
@@ -280,7 +286,7 @@
         <span class="longQuoteRightAlign my-05 d-block"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@rendition='#runningText1']">
-        <span class="d-block runningText1 position-relative"><xsl:apply-templates/></span>
+        <span class="d-block runningText1 position-relative text-align-justify"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
         <xsl:apply-templates select="tei:sic" mode="render"/>
@@ -289,7 +295,7 @@
         <span><xsl:apply-templates select="tei:corr"/></span>
     </xsl:template>
      <xsl:template match="tei:p[not(@n)]">
-        <span class="d-block {replace(@rendition,'#','')}">
+        <span class="d-block {replace(@rendition,'#','')} text-align-justify">
             <span class="inline-text position-relative"><xsl:apply-templates/></span>
         </span>
     </xsl:template>
