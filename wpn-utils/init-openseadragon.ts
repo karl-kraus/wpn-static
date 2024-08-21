@@ -2,7 +2,7 @@ import OpenSeadragon from "openseadragon";
 
 const facscontent = document.getElementById("facscontent") as HTMLElement;
 facscontent.style.height = window.innerHeight - 190 + "px";
-facscontent.style.width = window.innerWidth * 0.25 + "px";
+facscontent.style.width = window.innerWidth * 0.4 + "px";
 const image = facscontent.getAttribute("wpn-data") ?? "";
 const imageUrl = {
 	type: "image",

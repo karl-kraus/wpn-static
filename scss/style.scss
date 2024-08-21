@@ -475,7 +475,7 @@ html[data-page="notes"] .container {
 
 #edition-view #sub_grid_pb {
   display:grid;
-  grid-template-columns: calc(100% * 0.3) calc(100% * 0.5) calc(100% * 0.2);
+  grid-template-columns: calc(100% * 0.4) calc(100% * 0.4) calc(100% * 0.2);
   gap:0;
   min-height:calc(100vh - $edition-view-header-height)
 }
