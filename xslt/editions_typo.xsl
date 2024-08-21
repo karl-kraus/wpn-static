@@ -35,7 +35,7 @@
         <xsl:value-of select=".//tei:titleStmt/tei:title[1]/text()"/>
     </xsl:variable>
     <xsl:variable name="facsimile">
-        <xsl:value-of select="replace(substring-after($teiSource, 'idPb'), '.xml', '')"/>
+        <xsl:value-of select="//tei:facsimile/tei:surface[1]/tei:graphic[1]/@url"/>
     </xsl:variable>
 
 
