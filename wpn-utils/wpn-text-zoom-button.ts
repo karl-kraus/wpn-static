@@ -4,7 +4,7 @@ class WPNTextZoomButton extends HTMLElement {
 	
 	connectedCallback() {
 		const zoomDirection = this.getAttribute("zoom-direction") ?? "";
-		const textViewElement: HTMLElement | null = document.querySelector("#textcontent");
+		const textViewElement: HTMLElement | null = document.querySelector("#textcontent") ?? document.querySelector("#textcontent-pb") ?? null;
 		this.onclick = () => {
 			
 			if (textViewElement) {
