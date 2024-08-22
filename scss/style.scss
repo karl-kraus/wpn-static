@@ -448,6 +448,32 @@ html[data-page="notes"] .container {
 
 /*** detail view related ***/
 
+summary::after {
+  content: '';
+  width: 5px;
+  height: 10px;
+  background: url('../images/icon-arrow-collapse.svg');
+  background-repeat: no-repeat;
+  margin-left: $spacer * 2;
+  transition: 0.2s;
+  display: inline-block;
+}
+
+details[open] > summary::after {
+  transform: rotate(90deg);
+}
+
+.kwic-wrapper .comments {
+    content: "";
+    background-image: url(../images/icon-signet-comment-intext.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    background-size: 8px 8px;
+    left: -3px;
+    padding-left: 8px;
+}
+
 /** pagination **/
 .dropdown-toggle::after {
   border: solid black;
