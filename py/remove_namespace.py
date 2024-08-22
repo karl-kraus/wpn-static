@@ -10,7 +10,7 @@ source = os.path.join(SOURCE_DIR, SOURCE_FILE)
 source_glob = glob.glob(source)
 
 NS = [
-    'xmlns="http://www.tei-c.org/ns/1.0"'
+    ' xmlns="http://www.tei-c.org/ns/1.0"'
 ]
 
 NSMAP = {

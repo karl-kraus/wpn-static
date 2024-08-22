@@ -225,6 +225,19 @@ class Milestone(object):
             else:
                 raise
         return target_name
+    
+    def get_prev_milestone_name(self, name):
+        """Get prev milestone_name"""
+        keys = list(self.parts.keys())
+        target = keys.index(name) - 1
+        try:
+            target_name = keys[target]
+        except IndexError:
+            if target == len(keys):
+                return -1
+            else:
+                raise
+        return target_name
 
     def get_milestone_name(self, milestone):
         """Get milestone name."""
@@ -243,16 +256,44 @@ class Milestone(object):
         """Get the parent tags of the milestone."""
         return [(parent.tag, parent.attrib)
                 for parent in milestone.iterancestors()]
+    
+    @staticmethod
+    def get_parents_print(milestone):
+        """Get the parent tags of the milestone."""
+        with open("parents.txt", "a") as f:
+            f.write(str([(parent.tag, parent.attrib)
+                for parent in milestone.iterancestors()]))
+            f.write("\n")
 
     @staticmethod
     def get_milestone(milestone):
         """Get the milestone tag and attributes."""
         return [(milestone.tag, milestone.attrib)]
+    
+    def get_same_parents(self, parents, name):
+        """Check if the parents are the same."""
+        try:
+            if self.parts[self.get_prev_milestone_name(name)]['parents'] == parents:
+                return True
+            else:
+                return False
+        except:
+            return False
+        
 
     def process_milestone(self, milestone):
         """Process the milestone."""
         name = self.get_milestone_name(milestone)
+        # self.get_parents_print(milestone)
         self.parts[name] = {'parents': self.get_parents(milestone)}
+        prev_milestone = self.get_prev_milestone_name(name)
+        if prev_milestone != -1:
+            if self.get_same_parents(self.parts[name]['parents'], name):
+                try:
+                    if self.parts[name]['parents'][0][0] != "body":
+                        self.parts[name]['parents'][0][1]["prev"] = 'true'
+                except:
+                    print("Error")
         self.parts[name]['milestone'] = self.get_milestone(milestone)
 
     def split_raw(self, filename):

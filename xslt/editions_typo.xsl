@@ -223,7 +223,7 @@
         </div>
     </xsl:template>
     <xsl:template match="tei:p[@n]|tei:mod[@n]">
-        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')} position-relative text-align-justify">
+        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')} position-relative text-align-justify {if(@pref)then('no-indent')else()}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
@@ -250,7 +250,7 @@
         <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
 	</xsl:template>
     <xsl:template match="tei:seg[@type='F890']">
-        <span class="fackelrefs entity {substring-after(@rendition, '#')} position-relative" id="{@xml:id}">
+        <span class="fackelrefs entity {substring-after(@rendition, '#')} position-relative {if(@pref)then('no-indent')else()}" id="{@xml:id}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
@@ -286,7 +286,7 @@
         <span class="longQuoteRightAlign my-05 d-block"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@rendition='#runningText1']">
-        <span class="d-block runningText1 position-relative text-align-justify"><xsl:apply-templates/></span>
+        <span class="d-block runningText1 position-relative text-align-justify {if(@prev)then('no-indent')else()}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
         <xsl:apply-templates select="tei:sic" mode="render"/>
@@ -374,10 +374,8 @@
     <!-- <xsl:template match="tei:lb[@type='req']">
         <br/>
     </xsl:template> -->
-    <xsl:template match="tei:lb[not(@break)]">
-        <br/>
-    </xsl:template>
-    <xsl:template match="tei:lb[@break]">
-        <xsl:text>-</xsl:text><br/>
+    <xsl:template match="tei:lb[not(@type='first')]">
+    <!-- [not(parent::tei:seg|tei:p[parent::tei:p|tei:seg|tei:body] and position() = 1 or preceding-sibling::*[1]/local-name() = 'fw')] -->
+        <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
     </xsl:template>
 </xsl:stylesheet>

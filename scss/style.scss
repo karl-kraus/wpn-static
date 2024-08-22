@@ -483,6 +483,7 @@ html[data-page="notes"] .container {
 .print-body.witnessPrint {
   display: grid;
   grid-template-columns: calc(100% * 0.198) calc(100% * 0.604) calc(100% * 0.198);
+  //grid-template-columns: 2.9cm 8.4cm 2.9cm;
   gap: 0;
 }
 
@@ -494,25 +495,25 @@ html[data-page="notes"] .container {
 
 .print-body.witnessTypescriptInsert {
   display: grid;
-  grid-template-columns: calc(100% * 0.175) calc(100% * 0.775) calc(100% * 0.05);
+  grid-template-columns: calc(100% * 0.175) calc(100% * 0.8) calc(100% * 0.025);
   gap: 0;
 }
 
 #textcolumn-pb {
-  width: 106ch;
-  max-width: calc(90% + 40px);
-  padding-right: 40px;
+  // width: 106ch;
+  // max-width: calc(90% + 40px);
+  // padding-right: 40px;
   white-space: nowrap;
 }
 
 #textcontent-pb {
-  font-size: 13px;
-  line-height: 1.2;
+  font-size: 10pt;
+  line-height: 1.2em;
 }
 
 #infocontent-pb {
-  font-size: 13px;
-  line-height: 1.2;
+  font-size: 10pt;
+  line-height: 1.2em;
 }
 
 .text-align-justify {
@@ -602,12 +603,12 @@ html[data-page="notes"] .container {
 }
 
 .pencilOnProof {
-  font-family: "century-old-style-std", sans-serif;
+  // font-family: "century-old-style-std", sans-serif;
   font-size: 0.75em;
 }
 
 .inkOnProofKK {
-  font-family: "century-old-style-std", sans-serif;
+  // font-family: "century-old-style-std", sans-serif;
   font-size: 0.75em;
 }
 
@@ -620,19 +621,23 @@ html[data-page="notes"] .container {
 }
 
 .add.pencilRightAlign {
-  font-family: "century-old-style-std", sans-serif;
+  // font-family: "century-old-style-std", sans-serif;
   font-size: 0.75em;
   right: -1.5cm;
 }
 
 .add.marginLeft {
-  font-family: "century-old-style-std", sans-serif;
+  // font-family: "century-old-style-std", sans-serif;
   font-size: 0.75em;
   left: -1.5cm;
 }
 
 .add.marginRight {
-  font-family: "century-old-style-std", sans-serif;
+  // font-family: "century-old-style-std", sans-serif;
   font-size: 0.75em;
   right: -1.5cm;
+}
+
+.no-indent {
+  text-indent: 0 !important;
 }
