@@ -4,13 +4,15 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:local="http://dse-static.foo.bar"
-    version="2.0" exclude-result-prefixes="xsl tei xs local">
+    xmlns:wpn="https://wpn.acdh.oeaw.ac.at"
+    version="2.0" exclude-result-prefixes="xsl tei xs local wpn">
     
     <xsl:output encoding="UTF-8" media-type="text/html" method="xhtml" indent="yes" omit-xml-declaration="yes"/>
     <xsl:preserve-space elements="*" />
     <xsl:import href="./partials/shared.xsl"/>
     <xsl:import href="./partials/aot-options.xsl"/>
     <xsl:import href="./partials/short-infos.xsl"/>
+    <xsl:import href="./partials/wpn_utils.xsl"/>
 
     <xsl:variable name="prev">
         <xsl:value-of select="replace(tokenize(data(tei:TEI/@prev), '/')[last()], '.xml', '.html')"/>
@@ -19,7 +21,7 @@
         <xsl:value-of select="replace(tokenize(data(tei:TEI/@next), '/')[last()], '.xml', '.html')"/>
     </xsl:variable>
     <xsl:variable name="teiSource">
-        <xsl:value-of select="data(tei:TEI/@xml:id)"/>
+        <xsl:value-of select="data(tei:TEI/@id)"/>
     </xsl:variable>
     <xsl:variable name="link">
         <xsl:value-of select="replace($teiSource, '.xml', '.html')"/>
@@ -29,7 +31,7 @@
     </xsl:variable>
     <xsl:template match="/">
         <html class="h-100" id="edition-view">
-            <body id="main_grid" class="h-100">
+            <body id="main_grid" class="h-100"  data-teiid="{$teiSource}" data-label="{wpn:parse-page-name(replace($teiSource,'absatz_',''),'label')}">
                 <main class="flex-shrink-0 mt-18">
                     <div class="container-fluid px-0">
                         <div>
@@ -81,6 +83,9 @@
         <span class="quotes entity {substring-after(@rendition, '#')}" id="{@xml:id}" data-bs-toggle="modal" data-bs-target="{@ref}">
             <xsl:apply-templates/>
         </span>
+    </xsl:template>
+     <xsl:template match="tei:ref[@type=('comment','glossary','event')]">
+        <span class="comments entity" id="{@xml:id}"></span>
     </xsl:template>
     <xsl:template match="tei:rdg[@source='F890']"/>
     <xsl:template match="tei:del[ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]]]">
