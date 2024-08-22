@@ -1,7 +1,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:wpn="https://wpn.acdh.oeaw.ac.at" exclude-result-prefixes="xs tei wpn" version="3.0">
-    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="no" name="xml"/>
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" name="xml"/>
 
     <xsl:variable name="facsimile">
         <xsl:value-of select="'idfacs'||replace(substring-after(data(//tei:pb[1]/@xml:id), 'idPb'), '.xml', '')"/>
@@ -20,5 +20,19 @@
             </facsimile>
             <xsl:apply-templates />
         </xsl:copy> 
+    </xsl:template>
+    <xsl:template match="tei:lb[preceding-sibling::*[1][local-name()='quote'][child::tei:p[@rendition='#longQuote']|child::tei:seg[child::tei:lg[@rendition]]]]">
+        <xsl:copy>
+            <xsl:attribute name="type">
+                <xsl:text>first</xsl:text>
+            </xsl:attribute>
+        </xsl:copy>
+    </xsl:template>
+    <xsl:template match="tei:lb[preceding-sibling::*[1][local-name()=('p')]]">
+        <xsl:copy>
+            <xsl:attribute name="type">
+                <xsl:text>first</xsl:text>
+            </xsl:attribute>
+        </xsl:copy>
     </xsl:template>
 </xsl:stylesheet>

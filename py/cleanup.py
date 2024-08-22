@@ -2,6 +2,7 @@ import glob
 import os
 import tqdm
 import shutil
+from acdh_tei_pyutils.tei import TeiReader
 
 NS = [
     'xmlns="http://www.tei-c.org/ns/1.0"',
@@ -37,6 +38,31 @@ def add_root_namesapce(text):
     return text
 
 
+def verify_first_lb(file):
+    doc = TeiReader(file)
+    try:
+        p_lb = doc.any_xpath('//tei:body//tei:p[@rendition]/tei:lb[1]')
+        for lb in p_lb:
+            lb.attrib['type'] = 'first'
+    except IndexError:
+        print(f'No lb found in p for {file}')
+    try:
+        seg_lb = doc.any_xpath('//tei:body//tei:seg[@rendition or @type="relocation"]/tei:lb[1]')
+        for lb in seg_lb:
+            lb.attrib['type'] = 'first'
+    except IndexError:
+        print(f'No lb found in seg for {file}')
+    try:
+        seg_lb_f890 = doc.any_xpath('//tei:body//tei:seg[parent::tei:p[@rendition]][@type="F890"]/tei:lb')
+        if len(seg_lb_f890) > 1:
+            print(file)
+            print(seg_lb_f890[0])
+            seg_lb_f890[0].attrib['type'] = 'first'
+    except IndexError:
+        print(f'No lb found in seg for {file}')
+    doc.tree_to_file(file)
+
+
 if __name__ == '__main__':
     debug = False
     for file in tqdm.tqdm(files_glob, total=len(files_glob)):
@@ -47,5 +73,6 @@ if __name__ == '__main__':
         output_path = os.path.join(OUTPUT_DIR, os.path.basename(file))
         with open(output_path, 'w') as f:
             f.write(text)
+        verify_first_lb(output_path)
     if not debug:
         shutil.rmtree(INPUT_DIR)

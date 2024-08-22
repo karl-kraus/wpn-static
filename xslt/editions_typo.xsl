@@ -223,7 +223,7 @@
         </div>
     </xsl:template>
     <xsl:template match="tei:p[@n]|tei:mod[@n]">
-        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')} position-relative text-align-justify">
+        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')} position-relative text-align-justify {if(@pref)then('no-indent')else()}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
@@ -250,7 +250,7 @@
         <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
 	</xsl:template>
     <xsl:template match="tei:seg[@type='F890']">
-        <span class="fackelrefs entity {substring-after(@rendition, '#')} position-relative" id="{@xml:id}">
+        <span class="fackelrefs entity {substring-after(@rendition, '#')} position-relative {if(@pref)then('no-indent')else()}" id="{@xml:id}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
@@ -268,15 +268,15 @@
     <xsl:template match="tei:rdg[@source='DW']">
         <xsl:apply-templates/>
     </xsl:template>
-    <xsl:template match="tei:del[ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]]]">
+    <!-- <xsl:template match="tei:del[ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]]]">
         <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:del[ancestor::tei:restore[child::tei:seg]]"/>
     <xsl:template match="tei:del[ancestor::tei:restore[not(child::tei:seg)]]">
         <xsl:apply-templates/>
     </xsl:template>
-    <xsl:template match="tei:del[not(ancestor::tei:restore)][not(ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]])]"/>
-    <xsl:template match="tei:del[parent::tei:subst]">
+    <xsl:template match="tei:del[not(ancestor::tei:restore)][not(ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]])]"/> -->
+    <xsl:template match="tei:del">
         <del><xsl:apply-templates/></del>
     </xsl:template>
     <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letterSpacing']">
@@ -286,7 +286,7 @@
         <span class="longQuoteRightAlign my-05 d-block"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@rendition='#runningText1']">
-        <span class="d-block runningText1 position-relative text-align-justify"><xsl:apply-templates/></span>
+        <span class="d-block runningText1 position-relative text-align-justify {if(@prev)then('no-indent')else()}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
         <xsl:apply-templates select="tei:sic" mode="render"/>
@@ -345,8 +345,8 @@
        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
        </wpn-entity>
     </xsl:template> -->
-     <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]">
-        <span class="metamark {replace(@change, '#', '')} {@rend}"><xsl:apply-templates/></span>
+     <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')][child::*]">
+        <span class="metamark {replace(@change, '#', '')} {@rend} {@place} text-align-left"><xsl:apply-templates/></span>
      </xsl:template>
     <xsl:template match="tei:mod[@style=('noLetterSpacing') and not(parent::tei:restore)]">
         <span class="ls-0"><xsl:apply-templates/></span>
@@ -374,10 +374,8 @@
     <!-- <xsl:template match="tei:lb[@type='req']">
         <br/>
     </xsl:template> -->
-    <xsl:template match="tei:lb[not(@break)]">
-        <br/>
-    </xsl:template>
-    <xsl:template match="tei:lb[@break]">
-        <xsl:text>-</xsl:text><br/>
+    <xsl:template match="tei:lb[not(@type='first')]">
+    <!-- [not(parent::tei:seg|tei:p[parent::tei:p|tei:seg|tei:body] and position() = 1 or preceding-sibling::*[1]/local-name() = 'fw')] -->
+        <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
     </xsl:template>
 </xsl:stylesheet>

@@ -509,6 +509,7 @@ details[open] > summary::after {
 .print-body.witnessPrint {
   display: grid;
   grid-template-columns: calc(100% * 0.198) calc(100% * 0.604) calc(100% * 0.198);
+  //grid-template-columns: 2.9cm 8.4cm 2.9cm;
   gap: 0;
 }
 
@@ -520,25 +521,38 @@ details[open] > summary::after {
 
 .print-body.witnessTypescriptInsert {
   display: grid;
-  grid-template-columns: calc(100% * 0.175) calc(100% * 0.775) calc(100% * 0.05);
+  grid-template-columns: calc(100% * 0.175) calc(100% * 0.8) calc(100% * 0.025);
   gap: 0;
 }
 
 #textcolumn-pb {
-  width: 106ch;
-  max-width: calc(90% + 40px);
-  padding-right: 40px;
+  // width: 106ch;
+  // max-width: calc(90% + 40px);
+  // padding-right: 40px;
   white-space: nowrap;
 }
 
 #textcontent-pb {
-  font-size: 13px;
-  line-height: 1.2;
+  font-size: 10pt;
+  line-height: 1.2em;
+}
+
+
+#textcontent-pb .longQuote,
+#textcontent-pb .typescriptLongQuote,
+#textcontent-pb .inkLongQuote,
+#textcontent-pb .typescriptLongQuoteLeading {
+  font-size: 8pt !important;
+  line-height: 1em !important;
+}
+
+#textcontent-pb .spacing {
+  letter-spacing: 1.5px !important;
 }
 
 #infocontent-pb {
-  font-size: 13px;
-  line-height: 1.2;
+  font-size: 10pt;
+  line-height: 1.2em;
 }
 
 .text-align-justify {
@@ -628,37 +642,59 @@ details[open] > summary::after {
 }
 
 .pencilOnProof {
-  font-family: "century-old-style-std", sans-serif;
-  font-size: 0.75em;
+  // font-family: "century-old-style-std", sans-serif;
+  font-size: 8pt;
 }
 
 .inkOnProofKK {
-  font-family: "century-old-style-std", sans-serif;
+  // font-family: "century-old-style-std", sans-serif;
+  font-size: 8pt;
+}
+
+#textcontent-pb .metamark  {
+  position: absolute;
+}
+
+#textcontent-pb .metamark.marginRight,
+#textcontent-pb .metamark.topRight {
+  top: 0;
+  right: -2cm;
+}
+
+#textcontent-pb .metamark.marginLeft,
+#textcontent-pb .metamark.topLeft {
+  top: 0;
+  left: -2cm;
+}
+
+#textcontent-pb .metamark.marginMiddleRight {
+  top: 50%;
+  right: 0;
+}
+
+#textcontent-pb .metamark.marginLowerRight {
+  top: 80%;
+  right: 0;
+}
+
+#textcontent-pb .add.pencilRightAlign {
+  // font-family: "century-old-style-std", sans-serif;
   font-size: 0.75em;
+  right: -2cm;
 }
 
-.metamark.marginRight {
-  align-self: flex-end;
-}
-
-.metamark.marginLeft {
-  align-self: flex-start;
-}
-
-.add.pencilRightAlign {
-  font-family: "century-old-style-std", sans-serif;
+#textcontent-pb .add.marginLeft {
+  // font-family: "century-old-style-std", sans-serif;
   font-size: 0.75em;
-  right: -1.5cm;
+  left: -2cm;
 }
 
-.add.marginLeft {
-  font-family: "century-old-style-std", sans-serif;
+#textcontent-pb .add.marginRight {
+  // font-family: "century-old-style-std", sans-serif;
   font-size: 0.75em;
-  left: -1.5cm;
+  right: -2cm;
 }
 
-.add.marginRight {
-  font-family: "century-old-style-std", sans-serif;
-  font-size: 0.75em;
-  right: -1.5cm;
+.no-indent {
+  text-indent: 0 !important;
 }
