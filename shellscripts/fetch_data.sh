@@ -44,3 +44,4 @@ mkdir data/indices
 mv $custom_output_dir/Register.xml data/indices/
 mv $custom_output_dir/Events.xml data/indices/
 mv $custom_output_dir/Kommentar.xml data/indices/
+mv $custom_output_dir/SekLit_Kommentar.xml data/indices/
