@@ -511,6 +511,19 @@ html[data-page="notes"] .container {
   line-height: 1.2em;
 }
 
+
+#textcontent-pb .longQuote,
+#textcontent-pb .typescriptLongQuote,
+#textcontent-pb .inkLongQuote,
+#textcontent-pb .typescriptLongQuoteLeading {
+  font-size: 8pt !important;
+  line-height: 1em !important;
+}
+
+#textcontent-pb .spacing {
+  letter-spacing: 1.5px !important;
+}
+
 #infocontent-pb {
   font-size: 10pt;
   line-height: 1.2em;
@@ -604,38 +617,56 @@ html[data-page="notes"] .container {
 
 .pencilOnProof {
   // font-family: "century-old-style-std", sans-serif;
-  font-size: 0.75em;
+  font-size: 8pt;
 }
 
 .inkOnProofKK {
   // font-family: "century-old-style-std", sans-serif;
-  font-size: 0.75em;
+  font-size: 8pt;
 }
 
-.metamark.marginRight {
-  align-self: flex-end;
+#textcontent-pb .metamark  {
+  position: absolute;
 }
 
-.metamark.marginLeft {
-  align-self: flex-start;
+#textcontent-pb .metamark.marginRight,
+#textcontent-pb .metamark.topRight {
+  top: 0;
+  right: -2cm;
 }
 
-.add.pencilRightAlign {
+#textcontent-pb .metamark.marginLeft,
+#textcontent-pb .metamark.topLeft {
+  top: 0;
+  left: -2cm;
+}
+
+#textcontent-pb .metamark.marginMiddleRight {
+  top: 50%;
+  right: 0;
+}
+
+#textcontent-pb .metamark.marginLowerRight {
+  top: 80%;
+  right: 0;
+}
+
+#textcontent-pb .add.pencilRightAlign {
   // font-family: "century-old-style-std", sans-serif;
   font-size: 0.75em;
-  right: -1.5cm;
+  right: -2cm;
 }
 
-.add.marginLeft {
+#textcontent-pb .add.marginLeft {
   // font-family: "century-old-style-std", sans-serif;
   font-size: 0.75em;
-  left: -1.5cm;
+  left: -2cm;
 }
 
-.add.marginRight {
+#textcontent-pb .add.marginRight {
   // font-family: "century-old-style-std", sans-serif;
   font-size: 0.75em;
-  right: -1.5cm;
+  right: -2cm;
 }
 
 .no-indent {

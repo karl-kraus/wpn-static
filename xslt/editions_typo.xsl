@@ -268,15 +268,15 @@
     <xsl:template match="tei:rdg[@source='DW']">
         <xsl:apply-templates/>
     </xsl:template>
-    <xsl:template match="tei:del[ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]]]">
+    <!-- <xsl:template match="tei:del[ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]]]">
         <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:del[ancestor::tei:restore[child::tei:seg]]"/>
     <xsl:template match="tei:del[ancestor::tei:restore[not(child::tei:seg)]]">
         <xsl:apply-templates/>
     </xsl:template>
-    <xsl:template match="tei:del[not(ancestor::tei:restore)][not(ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]])]"/>
-    <xsl:template match="tei:del[parent::tei:subst]">
+    <xsl:template match="tei:del[not(ancestor::tei:restore)][not(ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]])]"/> -->
+    <xsl:template match="tei:del">
         <del><xsl:apply-templates/></del>
     </xsl:template>
     <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letterSpacing']">
@@ -345,8 +345,8 @@
        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
        </wpn-entity>
     </xsl:template> -->
-     <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]">
-        <span class="metamark {replace(@change, '#', '')} {@rend}"><xsl:apply-templates/></span>
+     <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')][child::*]">
+        <span class="metamark {replace(@change, '#', '')} {@rend} {@place} text-align-left"><xsl:apply-templates/></span>
      </xsl:template>
     <xsl:template match="tei:mod[@style=('noLetterSpacing') and not(parent::tei:restore)]">
         <span class="ls-0"><xsl:apply-templates/></span>

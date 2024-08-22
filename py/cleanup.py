@@ -52,6 +52,14 @@ def verify_first_lb(file):
             lb.attrib['type'] = 'first'
     except IndexError:
         print(f'No lb found in seg for {file}')
+    try:
+        seg_lb_f890 = doc.any_xpath('//tei:body//tei:seg[parent::tei:p[@rendition]][@type="F890"]/tei:lb')
+        if len(seg_lb_f890) > 1:
+            print(file)
+            print(seg_lb_f890[0])
+            seg_lb_f890[0].attrib['type'] = 'first'
+    except IndexError:
+        print(f'No lb found in seg for {file}')
     doc.tree_to_file(file)
 
 
