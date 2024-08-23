@@ -1,6 +1,6 @@
 /// <reference path="../node_modules/anychart/dist/index.d.ts"/>
 
-import timeLineData from "./data/timeline_data.json";
+import timeLineData from "./timeline_data/timeline_data.json";
 
 interface RangeDataItem {
 	id: string;
