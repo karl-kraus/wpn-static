@@ -16,6 +16,7 @@
             <xsl:map-entry key="'biblindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>
             <xsl:map-entry key="'personindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>
             <xsl:map-entry key="'commentindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>
+            <xsl:map-entry key="'eventindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry','wpn-timeline')"/>
             <xsl:for-each select="collection('../../data/editions?select=idPb*.xml')">
                 <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','init-micro-editor','wpn-text-view','wpn-entity','wpn-text-zoom-button', 'init-openseadragon')"/>
             </xsl:for-each>
@@ -26,7 +27,7 @@
             <xsl:variable name="script_src" select="json-doc('../../manifest.json')?*[matches(?file,current())]?file"/>
             <script src="{'js/wpn_utils/'||$script_src}">
                 <xsl:choose>
-                    <xsl:when test="contains($script_src,'init-micro-editor') or contains($script_src,'init-openseadragon')">
+                    <xsl:when test="contains($script_src,'init-micro-editor') or contains($script_src,'init-openseadragon') or contains($script_src,'wpn-timeline')">
                         <xsl:attribute name="type">module</xsl:attribute>
                     </xsl:when>
                     <xsl:otherwise>
