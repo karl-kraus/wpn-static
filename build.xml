@@ -41,6 +41,12 @@
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
+    <target name="generate-event-index">
+        <xslt style="./xslt/generate_event_index.xsl"  in="./data/indices/Events.xml" out="./data/indices/eventindex_updated.xml">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
     <target name="build-edition">
         <xslt style="./xslt/editions.xsl"  basedir="./data/editions" destdir="${target}" includes="*.xml" excludes="Gesamt.xml Gesamt_modified.xml idPb*.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
@@ -112,15 +118,25 @@
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
+     <target name="build-timeline-register">
+        <xslt in="./data/indices/eventindex_updated.xml" out="${target}/ereignisse.html" style="./xslt/ereignisse.xsl">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
     <target name="copy-libs">
         <!-- mirador -->
         <copy file="node_modules/mirador/dist/mirador.min.js" todir="${target_js_vendor}/mirador/"/>
         <!-- bootstrap -->
         <copy file="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" todir="${target_js_vendor}/bootstrap/"/>
+        <!-- anychart -->
+        <copy file="node_modules/anychart/dist/js/anychart-core.min.js" todir="${target_js_vendor}/anychart/"/>
+        <copy file="node_modules/anychart/dist/js/anychart-timeline.min.js" todir="${target_js_vendor}/anychart/"/>
+        <copy file="node_modules/anychart/dist/js/anychart-timeline.min.js" todir="${target_js_vendor}/anychart/"/>
         <!--<copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-wght-normal.woff2" todir="${target_fonts}"/>
         <copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-ext-wght-normal.woff2" todir="${target_fonts}"/>-->
     </target>
-    <target name="build-full-edition" depends="build-landing-page, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-meta-pages, build-notes, generate-bibl-index, generate-person-index, generate-comment-index, build-intertext-register, build-person-register, build-comment-register, build-search-page, copy-libs"/>
+    <target name="build-full-edition" depends="build-landing-page, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-meta-pages, build-notes, generate-bibl-index, generate-person-index, generate-comment-index, generate-event-index, build-intertext-register, build-person-register, build-comment-register, build-timeline-register, build-search-page, copy-libs"/>
     <target name="add-header-pb">
         <delete>
             <fileset dir="./data/editions" includes="idPb*.xml idPb*.html"/>
