@@ -13,6 +13,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "anychart": "^8.12.1",
     "bootstrap": "5.3.3",
     "de-micro-editor": "^0.4.2",
     "glob": "^11.0.0",
@@ -20,13 +21,13 @@
     "openseadragon": "^5.0.0"
   },
   "devDependencies": {
-    "@types/openseadragon": "^3.0.10",
     "@acdh-oeaw/eslint-config": "^1.0.9",
     "@acdh-oeaw/eslint-config-playwright": "^1.0.9",
     "@acdh-oeaw/prettier-config": "^2.0.0",
     "@playwright/test": "^1.45.1",
     "@types/bootstrap": "^5.2.10",
     "@types/node": "^20.14.10",
+    "@types/openseadragon": "^3.0.10",
     "sass": "^1.75.0",
     "strict": "file:@acdh-oeaw/eslint-config/strict",
     "typescript": "^5.4.5",
