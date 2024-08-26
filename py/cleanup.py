@@ -8,6 +8,10 @@ NS = [
     'xmlns="http://www.tei-c.org/ns/1.0"',
     '{http://www.w3.org/XML/1998/namespace}'
 ]
+NSMAP = {
+    "tei": "http://www.tei-c.org/ns/1.0",
+    "xml": "http://www.w3.org/XML/1998/namespace"
+}
 INPUT_DIR = 'output'
 INPUT_PROJECT_DIR = 'Gesamt_modified'
 OUTPUT_DIR = os.path.join('data', 'editions', 'tmp')
@@ -53,11 +57,12 @@ def verify_first_lb(file):
     except IndexError:
         print(f'No lb found in seg for {file}')
     try:
-        seg_lb_f890 = doc.any_xpath('//tei:body//tei:seg[parent::tei:p[@rendition]][@type="F890"]/tei:lb')
-        if len(seg_lb_f890) > 1:
-            print(file)
-            print(seg_lb_f890[0])
-            seg_lb_f890[0].attrib['type'] = 'first'
+        seg_lb_f890 = doc.any_xpath('//tei:body//tei:seg[parent::tei:p[@rendition]][@type="F890"]')
+        for seg in seg_lb_f890:
+            lb = seg.xpath('.//tei:lb', namespaces=NSMAP)
+            print(len(lb), file)
+            if len(lb) > 1:
+                lb[0].attrib['type'] = 'first'
     except IndexError:
         print(f'No lb found in seg for {file}')
     doc.tree_to_file(file)

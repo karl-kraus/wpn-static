@@ -223,7 +223,7 @@
         </div>
     </xsl:template>
     <xsl:template match="tei:p[@n]|tei:mod[@n]">
-        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')} position-relative text-align-justify {if(@pref)then('no-indent')else()}">
+        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')} position-relative text-align-justify{if(@prev)then(' no-indent')else()}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
@@ -250,7 +250,7 @@
         <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
 	</xsl:template>
     <xsl:template match="tei:seg[@type='F890']">
-        <span class="fackelrefs entity {substring-after(@rendition, '#')} position-relative {if(@pref)then('no-indent')else()}" id="{@xml:id}">
+        <span class="fackelrefs entity {substring-after(@rendition, '#')} position-relative" id="{@xml:id}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
@@ -286,7 +286,7 @@
         <span class="longQuoteRightAlign my-05 d-block"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@rendition='#runningText1']">
-        <span class="d-block runningText1 position-relative text-align-justify {if(@prev)then('no-indent')else()}"><xsl:apply-templates/></span>
+        <span class="d-block runningText1 position-relative text-align-justify{if(@prev)then(' no-indent')else()}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
         <xsl:apply-templates select="tei:sic" mode="render"/>
@@ -295,7 +295,7 @@
         <span><xsl:apply-templates select="tei:corr"/></span>
     </xsl:template>
      <xsl:template match="tei:p[not(@n)]">
-        <span class="d-block {replace(@rendition,'#','')} text-align-justify">
+        <span class="d-block {replace(@rendition,'#','')} text-align-justify{if(@prev)then(' no-indent')else()}">
             <span class="inline-text position-relative"><xsl:apply-templates/></span>
         </span>
     </xsl:template>

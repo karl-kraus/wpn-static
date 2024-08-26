@@ -171,6 +171,7 @@ class Milestone(object):
         for milestone in milestone_tags:
             self.process_milestone(milestone)
         self.split_raw(filename)
+        self.get_same_parents()
         self.create_all_closing_tags()
         self.create_all_opening_tags()
         if self.transform_without_split:
@@ -270,30 +271,47 @@ class Milestone(object):
         """Get the milestone tag and attributes."""
         return [(milestone.tag, milestone.attrib)]
     
-    def get_same_parents(self, parents, name):
+    def get_same_parents(self):
         """Check if the parents are the same."""
-        try:
-            if self.parts[self.get_prev_milestone_name(name)]['parents'] == parents:
-                return True
-            else:
-                return False
-        except:
-            return False
+        for milestone_name, data in self.parts.items():
+            parents = data['parents']
+            prev_milestone = self.get_prev_milestone_name(milestone_name)
+            if prev_milestone != -1:
+                prev_parents = self.parts[prev_milestone]['parents']
+                prev_parents_text = self.parts[prev_milestone]['text']
+                for i in parents:
+                    current_parents = i
+                    try:
+                        current_parents_id = current_parents[1]["id"]
+                    except KeyError:
+                        try:
+                            current_parents_id = current_parents[1]["n"]
+                        except KeyError:
+                            current_parents_id = False
+                    if current_parents and current_parents in prev_parents:
+                        print(milestone_name, True, "Current parent in prev parents")
+                        prev_parent = True
+                    elif current_parents and current_parents_id and current_parents_id in prev_parents_text:
+                        print(milestone_name, True, "Current parent in prev text")
+                        prev_parent = True
+                    else:
+                        print(milestone_name, False, "Current parent not in prev parents")
+                        prev_parent = False
+                    if prev_parent:
+                        try:
+                            for x in self.parts[milestone_name]['parents']:
+                                if x[0] == "p" or x[0] == "seg":
+                                    x[1]["prev"] = 'true'
+                        except:
+                            print("Error")
+        return prev_parent
         
 
     def process_milestone(self, milestone):
         """Process the milestone."""
         name = self.get_milestone_name(milestone)
-        # self.get_parents_print(milestone)
+        self.get_parents_print(milestone)
         self.parts[name] = {'parents': self.get_parents(milestone)}
-        prev_milestone = self.get_prev_milestone_name(name)
-        if prev_milestone != -1:
-            if self.get_same_parents(self.parts[name]['parents'], name):
-                try:
-                    if self.parts[name]['parents'][0][0] != "body":
-                        self.parts[name]['parents'][0][1]["prev"] = 'true'
-                except:
-                    print("Error")
         self.parts[name]['milestone'] = self.get_milestone(milestone)
 
     def split_raw(self, filename):
