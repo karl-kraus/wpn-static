@@ -1,0 +1,35 @@
+<TEI continued="true"><text continued="true"><body continued="true"><p rendition="#runningText1" n="063" prev="true" continued="true"><pb n="0260" facs="#idfacs0260" {http://www.w3.org/XML/1998/namespace}id="idPb0260" type="witnessPrint" continued="true"></pb><metamark function="progress" change="#pencilOnProof" place="topRightCorner">⨯</metamark><fw type="pageNum" place="pageNumRight" change="#inkOnProofKK">260</fw>
+
+<lb/>werden ausländische Korrespondenten nicht mehr
+<lb/>zugelassen<quote xml:id="DWquote1726" source="#DWbibl00211">
+<p rendition="#longQuote">
+<lb/>welche die Klagen, die sie über die Lebensweise in den Lagern zu
+<lb/>hören bekamen, an ihre Zeitungen weitergaben.<anchor subtype="sentenceEnd" type="delimiter"/></p></quote>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Eine Einmischung in innere Angelegenheiten, die
+<lb/>sich wohl mit der Souveränität keines Staates ver<metamark function="transposition" change="#inkOnProofKK" target="#seg260_1 #seg260_2" rend="marginRight" spanTo="#anch260_1"/><seg type="transposition" xml:id="seg260_1">r</seg><seg type="transposition" xml:id="seg260_2">t</seg><anchor type="metam" xml:id="anch260_1"/><listTranspose change="#inkOnProofKK"><transpose><ptr target="#seg260_2"/><ptr target="#seg260_1"/></transpose></listTranspose>üge
+<lb/>und deren Abweisung wieder nur auf ein geheucheltes
+<lb/>Unverständnis stößt.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Auch Differenzen zwischen den
+<lb/>deutschen Ländern betreffs der Zahl der Schutzhäft<lb break="no"/>linge gehen im Grunde das Ausland nichts an.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Wenn
+<lb/><metamark function="transposition" change="#inkOnProofKK" rend="marginRight" xml:id="metam260_1" corresp="#metam260_2" spanTo="#anch260_2"/><listTranspose change="#inkOnProofKK"><transpose><ptr target="#seg260_5"/><ptr type="implicit" target="#seg260_4"/><ptr target="#seg260_3"/></transpose></listTranspose><seg type="transposition" xml:id="seg260_3"><quote xml:id="DWquote1727" source="#DWbibl03168">der <rs xml:id="DWrsPers0884" key="#DWpers0070" type="person">sächsische Innenminister</rs> nicht ohne berechtigten
+<lb/>Stolz erklärt<del rend="marginLeft" change="#inkOnProofKK"> hat</del>, daß »Sachsen allein über das Dop<lb break="no"/>pelte an Schutzhäftlingen habe als das viel größere
+<lb/>Preußen«</quote>,</seg><seg type="transposition" subtype="implicit" xml:id="seg260_4"><anchor type="metam" xml:id="anch260_2"/> und <del rend="marginLeft" change="#inkOnProofKK">nun</del></seg><metamark function="transposition" change="#inkOnProofKK" rend="marginRight" xml:id="metam260_2" corresp="#metam260_1" spanTo="#anch260_3"/><seg type="transposition" xml:id="seg260_5"> <quote xml:id="DWquote1728" source="#DWbibl03627" type="else">der <rs xml:id="DWrsPers0885" key="#DWpers0084" type="person">preußische Innenminister</rs> fest<lb break="no"/>stellt, daß <subst change="#inkOnProofKK" rend="marginRight"><del>zurzeit </del><add><choice change="#edACE"><sic>„</sic><corr cert="high" type="norm">»</corr></choice></add></subst>ganz Deutschland 18.000 und
+<lb/>Preußen davon 12.000 habe<add change="#inkOnProofKK" rend="marginRight"><choice change="#edACE"><sic>“</sic><corr cert="high" type="norm">«</corr></choice></add></quote>,</seg><anchor type="metam" xml:id="anch260_3"/> so geht zunächst schon
+<lb/>aus de<subst change="#inkOnProofKK" rend="marginLeft"><del>r</del><add>n</add></subst> Quell<subst change="#inkOnProofKK" rend="marginLeft"><del>e</del><add>en</add></subst> der Berechnung klar hervor, daß <metamark function="progress" change="#inkOnProofKK" rend="marginRight">⨯</metamark>
+<lb/>es sich da wie dort um eine Innenangelegenheit
+<lb/>handelt<c type="nnbsp"/>; aber auch <quote xml:id="DWquote1729" source="#DWbibl01251" type="exemp">die scheinbare Unstimmigkeit<add change="#inkOnProofKK" rend="marginRight">,</add>
+<lb/>daß Sachsen über 24.000 <subst change="#inkOnProofKK" rend="marginRight"><del>unter</del><add>von</add></subst> den gesamtdeutschen
+<lb/>18.000 Schutzhäftlingen hat</quote>, läßt doch die Überein<lb break="no"/>stimmung mit Preußen in dem Punkte zu, <quote xml:id="DWquote1730" source="#DWbibl03171" type="exemp">daß in
+<lb/>ganz Deutschland nicht, wie eine ausländische Tele<lb break="no"/>graphenagentur behauptet hat, 100.000 Schutzhäftlinge
+<lb/>gezählt werden</quote>, und darum handelt es sich.<ref type="comment" target="#DWCseg0410" xml:id="DWcomment0816"/><anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Wie sich
+<lb/>selbst diese Anzahl zwischen den Ländern verteilen
+<lb/>würde, ist ausschließlich deren Sache, und wenn die
+<lb/>Einheit Deutschlands in diesem Punkte noch nicht
+<lb/>erzielt ist, so beweist dies höchstens, daß jedes der
+<lb/>Länder ihn als Ehrenpunkt in Anspruch nimmt,
+<lb/>nämlich vor einander möglichst viele Schutzhäftlinge
+<lb/>zu haben und nach außen möglichst wenig.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Mit dem<lb break="no"/>selben Recht könnte man schließlich auch eine Ver<lb break="no"/>schiedenartigkeit der Auffassungen bei Dingen be<lb break="no"/>mängeln, die nicht auf rechnerischer Grundlage be<lb break="no"/>ruhen.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Wir haben gehört, daß in der Beurteilung
+<lb/>des Phänomens der Erpressung die Ansichten aus<lb break="no"/>einandergehen, wiewohl es doch unstreitig den
+
+
+
+</p></body></text></TEI>

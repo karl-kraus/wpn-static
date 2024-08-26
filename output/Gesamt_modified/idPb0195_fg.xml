@@ -1,0 +1,39 @@
+<TEI continued="true"><text continued="true"><body continued="true"><p rendition="#runningText1" n="049" prev="true" continued="true"><pb n="0195_fg" {http://www.w3.org/XML/1998/namespace}id="idPb0195_fg" facs="#idfacs0195_fg" type="witnessTypescriptInsert" continued="true"></pb><fw type="pageNum" place="pageNumRight" change="#typewriter" rendition="#typescriptInsertNum">195f, g</fw><note change="#typewriter" xml:id="note0195fg_1">
+<metamark rendition="#typescriptFont" change="#typewriter" function="printInstruction">
+<lb/>garm.</metamark>
+<lb/><seg xml:id="F890seg0040" type="F890" corresp="#DWf8900012"><app xml:id="DWapp0276"><rdg source="DW"><anchor subtype="sentenceStart" type="delimiter"/>Einer, der geheiratet hat und infolgedessen niederge<lb break="no"/>schlagen wurde, beschwert sich und erhält den Amtsbescheid<c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/></rdg><rdg source="F890">Demgemäß der amtliche Bescheid an einen Verehelichten, der mit seiner Frau die Straße betreten hatte<c type="nnbsp"/>:</rdg></app>
+<metamark rendition="#typescriptFont" change="#typewriter" function="printInstruction">
+<lb/>col.</metamark>
+<quote xml:id="DWquote1316" source="#DWbibl00211"><p rendition="#typescriptLongQuote">
+<lb/><anchor subtype="sentenceStart" type="delimiter"/><del change="#undefined">▒</del>Der Polizeipräsident in <app xml:id="DWapp0277"><rdg source="DW">Kassel
+<lb type="req"/><anchor subtype="sentenceStart" type="delimiter"/>Kassel, Polizeipräsidium,</rdg><rdg source="F890">. . . .</rdg></app>
+<lb type="req"/><app xml:id="DWapp0278"><rdg source="DW">Königstraße 31<anchor subtype="sentenceEnd" type="delimiter"/><anchor subtype="sentenceStart" type="delimiter"/><seg rendition="#typescriptFloatRight">Kassel, den <choice change="#edACE" resp="ww"><sic>16<subst change="#typewriter" rend="overwritten"><del>½</del><add>.</add></subst>August</sic><corr type="emen">16. August</corr></choice> 1933<anchor subtype="sentenceEnd" type="delimiter"/></seg></rdg><rdg source="F890"><seg rendition="#floatRight">. . . den 16. August 1933</seg></rdg></app></p>
+
+<p rendition="#typescriptLongQuoteTitle2">
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>An Herrn <app xml:id="DWapp0279"><rdg source="DW">. . . . .</rdg><rdg source="F890">. . . .</rdg></app><anchor subtype="sentenceEnd" type="delimiter"/></p>
+<p rendition="#typescriptLongQuoteEnd">
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Betreffend Beschwerde vom <choice change="#edACE" resp="ww"><sic>12.August</sic><corr type="emen">12. August</corr></choice> 1933 I Ad.<anchor subtype="sentenceEnd" type="delimiter"/></p>
+<p rendition="#typescriptLongQuoteIndent">
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Es handelt sich hierbei um einen <hi style="underline">berechtigten Ausbruch
+<lb/>von Volkswut</hi> darüber, daß ein <app xml:id="DWapp0280"><rdg source="DW"><hi style="underline">deutsch-stämmiges Mädchen</hi></rdg><rdg source="F890">deutschstämmiges Mädchen</rdg></app>
+<lb/>noch heutigen Tages mit einem <app xml:id="DWapp0633"><rdg source="DW"><hi style="underline">Fremdrassigen</hi></rdg><rdg source="F890">Fremdrassigen</rdg></app> verkehrt.<anchor subtype="sentenceEnd" type="delimiter"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Daß <hi style="underline">der Zorn gerade der <app xml:id="DWapp0281"><rdg source="DW">SS.-Männer</rdg><rdg source="F890">S.S.-Männer</rdg></app></hi> über <hi style="underline">Ihr Verhalten</hi>,
+<lb/><hi style="underline">ein deutschstämmiges Mädchen zu ehelichen</hi>, besonders
+<lb/>hervorgerufen ist, <app xml:id="DWapp0634"><rdg source="DW">halte ich für</rdg><rdg source="F890"><hi style="letterSpacing">halte ich für</hi></rdg></app> <hi style="underline">selbstverständlich</hi>.<anchor subtype="sentenceEnd" type="delimiter"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Derartige Vorkommnisse <hi style="underline">zeugen von einem gesunden Volks<lb break="no"/>instinkt</hi>, und ich vermag <hi style="underline">daher keine strafbare Handlung</hi>
+<lb/>zu erblicken.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/><hi style="underline">Vor einigen hundert Jahren</hi> wurden von den
+<lb/>rassebewußten Juden die Mädchen ihres Volkes gesteinigt,
+<lb/>die sich mit Christen (Fremdblütigen) einließen.<anchor subtype="sentenceEnd" type="delimiter"/></p>
+<p rendition="#typescriptLongQuoteRightAlign2">
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>gez.<c type="nnbsp"/>: <app xml:id="DWapp0282"><rdg source="DW"><rs xml:id="DWrsPers0691" key="#DWpers0184" type="person">von Pfeffer</rs>.</rdg><rdg source="F890">– –</rdg></app><anchor subtype="sentenceEnd" type="delimiter"/>
+<lb type="req"/><anchor subtype="sentenceStart" type="delimiter"/>beglaubigt<c type="nnbsp"/>: <app xml:id="DWapp0283"><rdg source="DW">– – unleserlich.<anchor subtype="sentenceEnd" type="delimiter"/>
+<lb type="req"/><anchor subtype="sentenceStart" type="delimiter"/>Polizeisekretär.</rdg><rdg source="F890">– –</rdg></app><anchor subtype="sentenceEnd" type="delimiter"/></p></quote>
+<metamark rendition="#typescriptFont" change="#typewriter" function="printInstruction">
+<lb/>garm.</metamark>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Seither sind die Juden von diesem Brauch <app xml:id="DWapp0284"><rdg source="DW">abgekommen.<anchor subtype="sentenceEnd" type="delimiter"/></rdg><rdg source="F890">abgekommen. Nicht davon, solches Unheil mit der Meldung für erledigt zu halten, solange es sie nicht selbst betrifft<c type="nnbsp"/>; und nicht von der Neigung, den zu steinigen, der den Schutz der menschlichen Natur für wichtiger hält als ihre Versuche, an ihr herumzudoktern.</rdg></app>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>In welchem Dschungel des Erdballs <app xml:id="DWapp0285"><rdg source="DW">wären die</rdg><rdg source="F890">jene</rdg></app> Dinge <app xml:id="DWapp0286"><rdg source="DW">mög<lb break="no"/>lich<c type="nnbsp"/>?</rdg><rdg source="F890">möglich wären, bleibt eine rhetorische Frage.</rdg></app><anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/><quote xml:id="DWquote1317" source="#DWbibl00989">Ihr Antlitz wenden Gangsters davon ab.</quote><anchor subtype="sentenceEnd" type="delimiter"/></seg> </note><!-- Anm. BO: 
+
+Worttrennung am Seitenende
+
+ -->
+</p></body></text></TEI>

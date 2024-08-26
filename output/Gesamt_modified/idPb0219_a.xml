@@ -1,0 +1,23 @@
+<TEI continued="true"><text continued="true"><body continued="true"><p rendition="#runningText1" n="055" prev="true" continued="true"><pb n="0219_a" {http://www.w3.org/XML/1998/namespace}id="idPb0219_a" facs="#idfacs0219_a" type="witnessTypescriptInsert" continued="true"></pb><fw type="pageNum" place="pageNumRight" change="#typewriter" rendition="#typescriptInsertNum">219a</fw>
+<note change="#typewriter" xml:id="note0219a_1">
+<metamark rendition="#typescriptFont" change="#typewriter" function="printInstruction">
+<lb/>col.</metamark>
+<quote xml:id="DWquote1426" source="#DWbibl01648"><p rendition="#typescriptLongQuote">
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Die Alten haben davor gewarnt, <quote xml:id="DWquote1427" source="#DWbibl01402">propter vitam vivendi
+<lb/>perdere causas</quote>, um des Lebens willen preiszugeben, was
+<lb/>das Leben lebenswert macht.<anchor subtype="sentenceEnd" type="delimiter"/></p></quote>
+<metamark rendition="#typescriptFont" change="#typewriter" function="printInstruction">
+<lb/>garm.</metamark>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Ganz heroisch, doch selbst wenn die Alten (nicht zu
+<lb/>verwechseln mit denen, die <choice change="#edACE"><sic>„</sic><corr type="norm">»</corr></choice><quote xml:id="DWquote1428" source="#DWbibl02610">wir bleiben</quote><choice change="#edACE"><sic>“</sic><corr type="norm">«</corr></choice>) nicht auch
+<lb/>geraten hätten, <quote xml:id="DWquote1429" source="#DWbibl00713">primum vivere, deinde navigare</quote> (wozu
+<lb/>doch außerhalb von Konzentrationslagern eine gewisse
+<lb/>Möglichkeit bliebe), möchte man den Heldentod nicht
+<lb/>beim Wort der Alten nehmen und ihm die Probe vor der
+<lb/>einzigen Entscheidung, die er erkennt, ersparen.<anchor subtype="sentenceEnd" type="delimiter"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/><quote xml:id="DWquote1430" source="#DWbibl02662">Vivendi perdere causas</quote>, <quote xml:id="DWquote1431" source="#DWbibl01638">wenn man das hohe Glück genießt,
+<lb/>kein Untertan des Dritten Reiches zu sein</quote><c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/><metamark function="undefined" change="#undefined" rend="marginLeft"><c type="nnbsp"/>? <c type="nnbsp"/>:</metamark></note>
+
+
+
+</p></body></text></TEI>

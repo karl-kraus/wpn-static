@@ -1,0 +1,27 @@
+<TEI continued="true"><text continued="true"><body continued="true"><p rendition="#runningText1" n="048" prev="true" continued="true"><pb n="0179" {http://www.w3.org/XML/1998/namespace}id="idPb0179" facs="#idfacs0179" type="witnessPrint" continued="true"></pb><fw type="pageNum" place="pageNumRight" change="#inkOnProofKK">179</fw>
+
+<lb/>— man wollte ihn dem Leben und der Arbeit erhalten —<quote xml:id="DWquote1165" source="#DWbibl01687">
+<p rendition="#longQuote">
+<lb/>ihm künstlich zugeführt werden mußte.<anchor subtype="sentenceEnd" type="delimiter"/></p></quote>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Man tat das Erdenklichste.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Ärzte wurden herbeige<lb break="no"/>holt.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/><quote xml:id="DWquote1166" source="#DWbibl01688">Sie führen sein Ableben<ref type="event" target="#DWCevent0165" xml:id="DWcomment0691"/>
+<p rendition="#longQuote">
+<lb/>in <hi style="letterSpacing">erster</hi><restore change="#inkOnProofKK"><mod change="#inkOnProofKK"> Linie</mod></restore> auf die <hi style="letterSpacing">freiwillige Selbstaufgabe</hi> <choice change="#edACE" resp="ww"><sic>zurück.</sic><corr type="emen">zurück</corr></choice></p></quote>
+<lb/>die er leider wichtigeren Aufgaben, die seiner harrten,
+<lb/>vorzog.<anchor subtype="sentenceEnd" type="delimiter"/> <quote xml:id="DWquote1167" source="#DWbibl01589"><anchor subtype="sentenceStart" type="delimiter"/>Man hatte ihn, kombinierte die Greuelphan<lb break="no"/>tasie, von Breslau <restore change="#inkOnProofKK"><subst change="#inkOnProofKK"><del>nach</del><add/></subst></restore> <subst change="#undefined" rend="marginLeft"><del>V</del><add>O</add></subst>els gebracht<subst change="#inkOnProofKK" rend="marginRight"><del>,</del><add> (Sitz des <rs xml:id="DWrsPers0640" key="#DWpers0139" type="person">Kronprinzen</rs>),</add></subst> wo ihm <add change="#inkOnProofKK" rend="marginRight"><choice change="#edACE"><sic>„</sic><corr type="norm">»</corr></choice></add>in
+<lb/>stundenlange<subst change="#undefined" rend="marginLeft"><del>n</del><add>m</add></subst> Prügeln<restore change="#inkOnProofKK"><add change="#inkOnProofKK" rend="marginLeft"/></restore> Lungen und Nieren zerschla<lb break="no"/>gen wur<subst change="#undefined" rend="marginLeft"><del>e</del><add>d</add></subst>en<add change="#inkOnProofKK" rend="marginRight">«</add><c type="nnbsp"/>; <metamark change="#inkOnProofKK" function="insertion" rend="marginLeft" target="#note0179_1"/>
+<p rendition="#longQuote">
+<lb/>anscheinend sei er im Kopf nicht mehr ganz in Ordnung <subst change="#inkOnProofKK" rend="marginRight"><del>. . .</del><add>. . . .</add></subst><anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Man
+<lb/>brachte ihn <rs xml:id="DWrsPers0641" key="#DWpers1023" type="person">seiner unglücklichen Mutter</rs> <subst change="#inkOnProofKK" rend="marginRight"><del>. . .</del><add>. .</add></subst><anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Sie ließ ihn in die Irren<lb break="no"/>anstalt an der Einbaumstraße überführen<add change="#undefined" rend="marginRight"><c type="nnbsp"/>;</add> dort<del change="#inkOnProofKK" rend="marginRight"><!-- Anm. BO: nicht KK<c type="nnbsp"/>! -->,</del> ist er dann bald ge<lb break="no"/>storben.<anchor subtype="sentenceEnd" type="delimiter"/></p></quote>
+<lb/><restore change="#inkOnProofKK"><metamark change="#inkOnProofKK" function="insertion" rend="marginLeft" target="#note0179_2"/></restore><anchor subtype="sentenceStart" type="delimiter"/>Die geringe Widerstandskraft der Inhaftierten<del change="#inkOnProofKK" rend="marginRight">,</del> gibt
+<lb/>oft zu Klagen Anlaß.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Kaum ist einer ein paar
+<lb/>Stunden im Lager, heißt es bereits<c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/><quote xml:id="DWquote1169" source="#DWbibl00211">
+<p rendition="#longQuote">
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Er mußte ins Krankenhaus gebracht werden.<anchor subtype="sentenceEnd" type="delimiter"/></p></quote>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Manche erweisen sich schon auf dem Transport dahin<note change="#inkOnProofKK" place="bottomUpperLeft" xml:id="note0179_1">er wimmerte die ganze Nacht<c type="nnbsp"/>; es hieß</note><note change="#inkOnProofKK" place="bottom" xml:id="note0179_2"><del change="#inkOnProofKK"><metamark change="#inkOnProofKK" function="printInstruction" rendition="#inkFont">garmd</metamark>
+<lb/>Wie wenig die Intellektuellen aushalten. Kaum ist einer ein paar Stunden im Lager, heißt es bereits<c type="nnbsp"/>:
+<lb/><metamark change="#inkOnProofKK" function="printInstruction" rendition="#inkFont">col</metamark>
+<quote xml:id="DWquote1171" source="#DWbibl00211"><p rendition="#inkLongQuote"><lb/>Er mußte ins Kra</p></quote></del></note>
+
+
+
+</p></body></text></TEI>

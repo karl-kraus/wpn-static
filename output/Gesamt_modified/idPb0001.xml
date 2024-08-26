@@ -1,0 +1,33 @@
+<TEI continued="true"><text continued="true"><body continued="true"><p rendition="#runningText2" n="001" prev="true" continued="true"><seg type="F890" corresp="#DWf8900002" {http://www.w3.org/XML/1998/namespace}id="F890seg0003" next="#F890seg0004" prev="true" continued="true"><pb n="0001" {http://www.w3.org/XML/1998/namespace}id="idPb0001" facs="#idfacs0001" type="witnessPrint" continued="true"></pb><fw type="pageNum" place="pageNumRight" change="#inkOnProofKK">1</fw>
+<lb/><add change="#pencilOnProof" rendition="#pencilRightAlign"><metamark change="#pencilOnProof" function="printInstruction" rend="marginRight">petit</metamark><mod change="#pencilOnProofKK" rendition="#rightAlignSmall"><app xml:id="DWapp0066"><rdg source="DW">Anfang Mai</rdg><rdg source="F890">„ Anfang Mai bis September</rdg></app> 1933</mod></add>
+
+<seg rendition="#runningText1"><lb/><metamark change="#pencilOnProof" function="printInstruction" rend="lineRight" spanTo="#anch0003_01"/><seg xml:id="F890seg0018" type="F890" corresp="#DWf8900092"><quote xml:id="DWquote0028" source="#DWbibl01375"><anchor subtype="sentenceStart" type="delimiter"/>Mir fällt zu <rs xml:id="DWrsPers0001" key="#DWpers0113" type="person">Hitler</rs> nichts ein.<ref type="comment" resp="#edBO" target="#DWCseg0001" xml:id="DWcomment0001"/><anchor subtype="sentenceEnd" type="delimiter"/></quote></seg> <anchor subtype="sentenceStart" type="delimiter"/>Ich bin mir bewußt,
+<lb/>daß ich mit diesem Resultat längeren Nachdenkens
+<lb/>und vielfacher Versuche, das Ereignis und die
+<lb/>bewegende Kraft zu erfassen, beträchtlich hinter den
+<lb/>Erwartungen zurückbleibe.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Denn sie waren vielleicht
+<lb/>höher gespannt als jemals gegenüber dem Zeit<lb break="no"/>polemiker, von dem ein populäres Mißverständnis
+<lb/>die Leistung verlangt, die als Stellungnahme be<lb break="no"/>zeichnet wird, und der ja, sooft ein Übel nur einiger<lb break="no"/>maßen seiner Anregbarkeit entgegenkam, auch das
+<lb/>getan hat, was man <quote xml:id="DWquote0031" source="#DWbibl01366">die Stirn bieten</quote> nennt.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Aber es
+<lb/>gibt Übel, vor denen sie nicht bloß aufhört eine
+<lb/>Metapher zu sein, sondern das Gehirn hinter ihr,
+<lb/>das doch an solchen Handlungen seinen Anteil hat,
+<lb/>sich keines Gedankens mehr fähig dächte.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Ich fühle
+<lb/>mich wie vor den Kopf geschlagen, und wenn ich,
+<lb/>bevor ich es wäre, mich gleichwohl nicht begnügen
+<lb/>möchte, so sprachlos zu scheinen, wie ich bin, so
+<lb/>gehorche ich dem Zwang, auch über ein Versagen
+<lb/>Rechenschaft zu geben, Aufschluß über die Lage,
+<lb/>in die mich ein so vollkommener Umsturz im
+<lb/>deutschen Sprachbereich versetzt hat, über das
+<lb/>persönliche Erschlaffen bei <quote xml:id="DWquote0032" source="#DWbibl00296">Erweckung einer Nation</quote><ref type="comment" target="#DWCseg0232" xml:id="DWcomment0002"/>
+<lb/>und Aufrichtung einer Diktatur<ref resp="#edBO" target="#DWCseg0003" type="comment" xml:id="DWcomment0003"/>, <seg xml:id="F890seg0019" type="F890" corresp="#DWf8900093">die heute alles
+<lb/>beherrscht außer der Sprache</seg>.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Daß der Versuch
+<lb/>zu einer geistesgemäßen Verarbeitung der Ein<lb break="no"/>drücke, die das Schauspiel unerschöpflich und er<lb break="no"/>schöpfend bietet, daß diese starke und niederwerfende
+<lb/>Problematik auch dem Selbsterhaltungstrieb Raum
+<lb/>gewähren könnte, mag durch das Bekenntnis vor
+<lb/>unerschrockenen Lesern wettgemacht sein<c type="nnbsp"/>; umsomehr,<note change="#undefined" place="bottomLowerLeft">Schwadron Coll. / Kraus, K.</note>
+
+
+
+</seg></seg></p></body></text></TEI>

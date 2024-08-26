@@ -1,0 +1,50 @@
+<TEI continued="true"><text continued="true"><body continued="true"><p rendition="#runningText1" n="004" prev="true" continued="true"><seg type="F890" prev="true" {http://www.w3.org/XML/1998/namespace}id="F890seg0007" next="#F890seg0008" corresp="#DWf8900003" continued="true"><pb n="0008" {http://www.w3.org/XML/1998/namespace}id="idPb0008" facs="#idfacs0008" type="witnessPrint" continued="true"></pb><fw type="pageNum" place="pageNumRight" change="#inkOnProofKK">8</fw>
+<metamark function="printInstruction" change="#redOnProof" xml:id="note0008_01" corresp="#metam0008_01"><unclear resp="#edACE" reason="illegible"/></metamark><metamark function="printInstruction" change="#redOnProof" xml:id="note0008_02" corresp="#metam0008_02"><unclear resp="#edACE" reason="illegible"/></metamark><metamark function="printInstruction" change="#redOnProof" xml:id="note0008_03" corresp="#metam0008_03"><unclear resp="#edACE" reason="illegible"/></metamark><note change="#pencilOnProof" xml:id="note0008_04" corresp="#metam0008_04"><unclear resp="#edACE" reason="illegible"/></note>
+<lb/><metamark function="printInstruction" change="#redOnProof" spanTo="#anch0008_01" xml:id="metam0008_01" corresp="#note0008_01" rend="lineLeft"/><anchor subtype="sentenceStart" type="delimiter"/>Mögen sie es auch leichter gehabt haben als unser<lb break="no"/>eins — zu solchem Verzicht neigt unwillkürlich auch
+<lb/>der, der sich <choice change="#edACE" resp="ww"><sic>auffraffen</sic><corr type="emen">aufraffen</corr></choice> will, <del change="#inkOnProofKK" rend="marginRight">um</del> das Errungene zu <anchor type="metamark" xml:id="anch0008_01"/>
+<lb/>prüfen.<anchor subtype="sentenceEnd" type="delimiter"/> <metamark function="printInstruction" change="#pencilOnProof" rend="lineRight" spanTo="#anch0008_02"/><anchor subtype="sentenceStart" type="delimiter"/>Das ist eine <app xml:id="DWapp0081"><rdg source="DW">Vieharbeit, denn</rdg><rdg source="F890">Viechsarbeit,</rdg></app> der Untersucher
+<lb/><metamark function="printInstruction" change="#redOnProof" spanTo="#anch0008_03" xml:id="metam0008_02" corresp="#note0008_02" rend="lineLeft"/>gerät vor dem Schlichtesten an alle Probleme der Logik
+<lb/>und der Moral, <quote xml:id="DWquote0069" source="#DWbibl00943">daß ihm der Atem vergeht, Hören und
+<lb/>Sehn<subst change="#inkOnProofKK" rend="marginLeft"><del>vergeht,</del><add>,</add></subst> das Lachen, die Lust</quote>, und wenn sich die
+<lb/>Sprache findet, vergeht sie sich wieder im Irrgarten
+<lb/>tausendfacher Antithetik<ref type="glossary" target="#DWCseg0476" xml:id="DWcomment0847"/>, wo sich die Motive stoßen
+<lb/>und ein Wort das andere gibt<c type="nnbsp"/>: sie erlebt die
+<lb/>Schmach, sich zu verlieren, und das Glück, zu sich
+<lb/>zu kommen, immer hinter einer Wirklichkeit her,
+<lb/>von der sie nichts trennt als das Chaos.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Wer sich
+<lb/>da einem <rs xml:id="DWrsPers0009" key="#DWpers0113" type="person">Führer</rs> anvertrauen könnte<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Wer sich da
+<lb/>alles ersparen könnte, um schlicht zu sein wie <anchor type="metamark" xml:id="anch0008_02"/>
+<lb/>jene<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/><anchor type="metamark" xml:id="anch0008_03"/> <anchor subtype="sentenceStart" type="delimiter"/>Denn<quote xml:id="DWquote0070" source="#DWbibl01509">
+<p rendition="#longQuote">
+<lb/><metamark function="printInstruction" change="#redOnProof" spanTo="#anch0008_05" xml:id="metam0008_03" corresp="#note0008_03" rend="lineLeft"/>das eben ist ja das große Wunder, daß der <rs xml:id="DWrsPers0010" key="#DWpers0113" type="person">Schöpfer des neuen
+<lb/><app xml:id="DWapp0082"><rdg source="DW"><hi style="letterSpacing">Deutschlands</hi></rdg><rdg source="F890">Deutsch<hi style="letterSpacing">lands</hi></rdg></app></rs></p></quote>
+<lb/><metamark function="printInstruction" change="#pencilOnProof" rend="lineLeft" spanTo="#anch0008_05" xml:id="metam0008_04" corresp="#note0008_04"/>(welches immerhin im Genitiv biegbar erscheint)<quote xml:id="DWquote0071" source="#DWbibl01510">
+<p rendition="#longQuote">
+<lb/>die bezwingende Gewalt besitzt, <hi style="letterSpacing">selbst die kompliziertesten
+<lb/>Mitmenschen wieder zur volkhaften Schlichtheit zu
+<lb/>formen</hi>.<anchor subtype="sentenceEnd" type="delimiter"/></p></quote>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Und ich soll mich in das Problem vertiefen, ob
+<lb/>sich die ungeheure Erfüllung des Gebots »<quote xml:id="DWquote0072" source="#DWbibl00296">Deutsch<lb break="no"/>land erwache<c type="nnbsp"/>!</quote>«<ref type="comment" target="#DWCseg0232" xml:id="DWcomment0020"/> so reibungslos vollzogen hätte, wenn
+<lb/>ihm nicht die einfachere Weisung »Juda verrecke<c type="nnbsp"/>!«
+<lb/>angeschlossen und unmittelbar befolgt worden wäre<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Zwar, als ich einst gebannt jener Ruferin im Streite
+<lb/>auf den Mund sah, <quote xml:id="DWquote0073" source="#DWbibl01352 #DWbibl01368">die sich zwischen den bunten
+<lb/>Parolen »<foreign xml:lang="de-loc">Wachsstreichhelza</foreign><c type="nnbsp"/>!«, »<foreign xml:lang="de-loc">Bezetammittach<c type="nnbsp"/>!</foreign>«
+<lb/>und »Die ersten duftenden Frühlingsboten<c type="nnbsp"/>!« mit
+<lb/>»<quote source="#DWbibl03905" xml:id="DWquote2001">Fridericus</quote><c type="nnbsp"/>! <quote source="#DWbibl03907" xml:id="DWquote2002">Der eiserne Besen</quote><c type="nnbsp"/>!« <app xml:id="DWapp0083"><rdg source="DW">durchrang</rdg><rdg source="F890">durchrang,</rdg></app> und
+<lb/>Bahn brach mit der unverdrossenen Frage<c type="nnbsp"/>: »<foreign xml:lang="de-loc">Warum
+<lb/>vadient der Jude schnellerundmehr Jeld als der
+<lb/>Christ<c type="nnbsp"/>?</foreign>«</quote> — da hatte ich’s, da stieß ich an die
+<lb/>Wurzel, da konnte ich ahnen, was zu sagen so
+<lb/>schwer ist.<anchor subtype="sentenceEnd" type="delimiter"/><anchor type="metamark" xml:id="anch0008_05"/></seg></p>
+<p rendition="#runningText1" n="005">
+<seg type="F890" prev="#F890seg0007" xml:id="F890seg0008" next="#F890seg0009" corresp="#DWf8900003"><lb/><anchor subtype="sentenceStart" type="delimiter"/><metamark function="printInstruction" change="#redOnProof" spanTo="#anch0008_04" rend="lineLeft"/>Wie vermöchte ich, was einer Welt trotz allem
+<lb/><metamark function="printInstruction" change="#redOnProof" spanTo="#anch0008_04" rend="lineLeft"/>Anlauf nicht gelingen will<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/><quote xml:id="DWquote0074" source="#DWbibl00929">Das Unbeschreibliche,
+<lb/>das so schlicht getan ist</quote> und vor dessen Hekatom<lb break="no"/>ben<ref resp="#edBO" target="#DWCseg0010" type="glossary" xml:id="DWcomment0021"/> das menschheitliche Gefühl der Welt <del change="#inkOnProofKK" rend="marginRight">zwar</del>
+<lb/>schaudert<subst change="#inkOnProofKK" rend="marginRight"><del>, doch</del><add> und</add></subst> ins Nichtbegreifen flüchtet<c type="nnbsp"/>; woran
+<lb/>die Herzensleere einer noch geschützten Sprach<lb break="no"/>genossenschaft zum Greuel wird<c type="nnbsp"/>; wovor eine Soli<lb break="no"/>darität versagt, die sich einst für den Einzelfall
+<lb/>einer Formenjustiz alarmieren konnte<subst change="#undefined" rend="marginRight"><del> —</del><add><c type="nnbsp"/>:</add></subst><ref type="comment" target="#DWCseg0212" xml:id="DWcomment0022"/> dieses <quote xml:id="DWquote0075" source="#DWbibl00930">Un<lb break="no"/>beschreibliche</quote>, das die Existenz an die Bedingung<anchor type="metamark" xml:id="anch0008_04"/>
+
+
+
+</seg></p></body></text></TEI>

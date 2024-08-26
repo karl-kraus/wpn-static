@@ -1,0 +1,42 @@
+<TEI continued="true"><text continued="true"><body continued="true"><p rendition="#runningText1" prev="true" continued="true"><seg change="#inkOnProofKK" type="relocation" {http://www.w3.org/XML/1998/namespace}id="seg0005_02" prev="true" continued="true"><pb n="0006" {http://www.w3.org/XML/1998/namespace}id="idPb0006" facs="#idfacs0006" type="witnessPrint" continued="true"></pb><fw type="pageNum" place="pageNumRight" change="#inkOnProofKK"><hi change="#pencilOnProof" style="underline">6</hi></fw><lb break="no"/><metamark function="printInstruction" change="#pencilOnProof" rend="doubleLineLeft" spanTo="#anch0006_01"/>mürbung, Versklavung, vielleicht auch Entzweiung
+<lb/>bemerkbar macht.<anchor subtype="sentenceEnd" type="delimiter"/> <metamark function="printInstruction" change="#pencilOnProof" rend="lineRight" spanTo="#anch0006_02"/><seg type="F890" corresp="#DWf8900003" xml:id="F890seg0005" next="#F890seg0006"><anchor subtype="sentenceStart" type="delimiter"/>Wie dem immer sei, vorläufig <anchor type="metamark" xml:id="anch0006_01"/>
+<lb/>weckt das Naturereignis, sowohl durch seine Inten<lb break="no"/>sität wie insbesondere durch seine Organisation,
+<lb/>nebst ehrfürchtigem Staunen jenes Bedenken, das
+<lb/>der irdische Selbsterhaltungstrieb allem Gottgewollten
+<lb/>entgegenstellt<c type="nnbsp"/>; und legt die Frage nahe, ob der
+<lb/>Versuch nicht toller als kühn sei, das Phänomen ins
+<lb/>Auge zu fassen, daß das Unmögliche wirklich wurde
+<lb/>und wirkender als jemals ein politisches Absurdum.<anchor subtype="sentenceEnd" type="delimiter"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Ob solches Wagnis nicht bloß dann gerechtfertigt
+<lb/>und geboten wäre, wenn es die Wirklichkeit zu
+<lb/>hemmen vermöchte, anstatt die Ohnmacht geistigen
+<lb/>Einspruchs vor dem entfesselten und gereizten
+<lb/>Element zu erfahren<c type="nnbsp"/>; und ob nicht Schweigen der
+<lb/>Erwartung ziemte, daß die <quote xml:id="DWquote0058" source="#DWbibl01395">Richterin Natur</quote> den
+<lb/>Aufstand wider sie rächen wird.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Stellung nehmen<c type="nnbsp"/>?<anchor subtype="sentenceEnd" type="delimiter"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Entfernung<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/><anchor xml:id="anch0006_02" type="metamark"/><metamark function="printInstruction" change="#redOnProof" spanTo="#anch0006_03" rend="lineRight"/><quote xml:id="DWquote0059" source="#DWbibl00939">
+<lg rendition="#longQuoteVerseCenter">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Flüchten wir<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Kommt alle, kommt<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/></l>
+<l><anchor subtype="sentenceStart" type="delimiter"/>Niemand, dem das Wunder frommt<app xml:id="DWapp0077"><rdg source="DW">.</rdg><rdg source="F890"><c type="nnbsp"/>!</rdg></app><anchor subtype="sentenceEnd" type="delimiter"/></l></lg></quote><anchor xml:id="anch0006_03" type="metamark"/></seg></seg>
+</p>
+<p rendition="#runningText1" n="003">
+<seg type="F890" xml:id="F890seg0006" prev="#F890seg0005" next="#F890seg0007" corresp="#DWf8900003"><lb/><metamark function="printInstruction" change="#pencilOnProof" rend="lineRight" spanTo="#anch0006_04"/><anchor subtype="sentenceStart" type="delimiter"/>Gleichwohl hätte keine Räson einer Zurückhaltung,
+<lb/>die dem Zwang entgegenkommt, die Macht, noch ihr
+<lb/>eigenstes Bekenntnis zu versagen.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Gleichwohl wäre
+<lb/>der Wille, sich einem Übel zu stellen, dessen Wesen
+<lb/>Verhinderung ist, nicht aufhaltbar, wenn dieses Wesen
+<lb/>nicht, als eine dem Denken unnahbare Gewalt, auch
+<lb/>die innere Verhinderung mit sich brächte, eine ge<lb break="no"/>dankliche Lähmung, die sich atmosphärisch auf den
+<lb/>Fernststehenden überträgt, nichts gewährend als
+<lb/>eben noch ein Bewußtsein des Inkommensurablen<ref resp="#edBO" target="#DWCseg0047" type="glossary" xml:id="DWcomment0017"/>,
+<lb/>das jede Regung geistigen Widerstands, jeden Ver<lb break="no"/>such, sich zusammenzuraffen, matt setzt.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Das
+<lb/>ist in Wahrheit <quote xml:id="DWquote0060" source="#DWbibl01070" next="#DWquote2080">des Gedankens <app xml:id="DWapp0078"><rdg source="DW">Blässe,</rdg><rdg source="F890">Blässe, angekränkelt</rdg></app> der an<lb break="no"/>gebornen Farbe der </quote><app xml:id="DWapp0079"><rdg source="DW"><quote prev="#DWquote0060" source="#DWbibl01070" xml:id="DWquote2080">Entschließung angekränkelt</quote>,</rdg><rdg source="F890">Entschließung,</rdg></app>
+<lb/>und darüber hilft nicht einmal der Zuspruch
+<lb/>von Lesern hinweg, deren freundlicher Wunsch nach
+<lb/>einem Lebenszeichen<ref type="comment" target="#DWCseg0211" xml:id="DWcomment0018"/> nicht zu Ende gedacht scheint,
+<lb/>und denen es keineswegs zu verargen wäre, wenn
+<lb/>sie das Heft, das sie begehren, nicht zu ergreifen wagten.<anchor subtype="sentenceEnd" type="delimiter"/><anchor type="metamark" xml:id="anch0006_04"/>
+
+
+
+</seg></p></body></text></TEI>

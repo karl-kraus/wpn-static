@@ -1,0 +1,48 @@
+<TEI continued="true"><text continued="true"><body continued="true"><p rendition="#runningText1" n="063" prev="true" continued="true"><quote {http://www.w3.org/XML/1998/namespace}id="DWquote1787" source="#DWbibl01620" continued="true"><pb n="0266" facs="#idfacs0266" {http://www.w3.org/XML/1998/namespace}id="idPb0266" type="witnessPrint" continued="true"></pb><metamark function="progress" change="#pencilOnProof" place="topRightCorner">⨯</metamark><fw type="pageNum" place="pageNumRight" change="#inkOnProofKK">266</fw>
+
+<lb/>Hans und den Heinz.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Beide sind Sitzenbleiber<c type="nnbsp"/>; das
+<lb/>gilt sonst wohl als ein Fleckchen«, sagte der <rs xml:id="DWrsPers0900" key="#DWpers9999" type="person">Lehrer</rs>,
+<lb/>»doch die Uniform gleicht es aus.«<anchor subtype="sentenceEnd" type="delimiter"/></quote><metamark xml:id="idmetam266" function="insertion" change="#inkOnProofKK" rend="marginLeft" target="#note0266a_1" n="last"/><note change="#inkOnProofKK" place="topCenter" corresp="#idmetam266">266a</note><seg type="transposition" xml:id="seg266_01"><anchor subtype="sentenceStart" type="delimiter"/><subst change="#inkOnProofKK" rend="marginRight"><del>Und </del><add>Schon ist </add></subst><restore change="#inkOnProofKK"><del xml:id="del266">a</del></restore>uch für
+<lb/>Österreich <del change="#inkOnProofKK" rend="marginLeft">hat man</del> das Problem der Jugenderziehung<add change="#inkOnProofKK" rend="marginRight"> angeschnitten,</add>
+<lb/><del change="#inkOnProofKK" rend="marginRight">in die Hand genommen,</del> in dem Sinne, <quote xml:id="DWquote1788" source="#DWbibl03211" type="exemp">daß <rs xml:id="DWrsPeGr0004" key="#DWpers0266" type="personGroup">Lehrer</rs>
+<lb/>und <rs xml:id="DWrsPeGr0005" key="#DWpers0267" type="personGroup">Schüler</rs> nicht mehr wie einst durch eine Scheide<lb break="no"/>wand getrennt sind, sondern kameradschaftlich an
+<lb/>der Herstellung von Sprengkörpern arbeiten</quote>, und
+<lb/>dort wo Koedukation ist, zeigen sich oft die
+<lb/>Mädchen noch besser beschlagen.<anchor subtype="sentenceEnd" type="delimiter"/> <restore change="#inkOnProofKK"><metamark function="transposition" change="#inkOnProofKK" xml:id="trans266" spanTo="#anch266_4"/></restore><anchor subtype="sentenceStart" type="delimiter"/>Wie einst
+<lb/>Briefmarken und Mineralien, so tausch<restore change="#inkOnProofKK"><del change="#inkOnProofKK" xml:id="del266_2">t man</del></restore><restore change="#inkOnProofKK"><add change="#inkOnProofKK" rend="marginRight" xml:id="add266">en sie</add></restore> jetzt
+<lb/>Zündkapseln und Ammonit.<anchor subtype="sentenceEnd" type="delimiter"/><anchor type="metam" xml:id="anch266_4"/> </seg><metamark function="transposition" change="#inkOnProofKK" target="#seg266_01 #seg266_02" rend="marginLeft" spanTo="#anch266_5"/><seg type="transposition" xml:id="seg266_02"><anchor subtype="sentenceStart" type="delimiter"/><del change="#inkOnProofKK" rend="marginRight">Einem Erlaß zufolge</del>
+<lb/>»<quote xml:id="DWquote1789" source="#DWbibl03207"><metamark function="transposition" change="#inkOnProofKK" target="#seg266_03 #seg266_04" rend="marginRight"/><seg type="transposition" xml:id="seg266_03">muß<del change="#inkOnProofKK" resp="#edACE"> </del></seg><seg type="transposition" xml:id="seg266_04">künftig jeder einzelne Volksschüler mit der
+<lb/>Landschaft verbunden sein<add change="#inkOnProofKK" resp="#edACE"> </add></seg><listTranspose change="#inkOnProofKK"><transpose><ptr target="#seg266_04"/><ptr target="#seg266_03"/></transpose></listTranspose></quote>«, was ihm zugute
+<lb/>kommt, wenn Bomben zu vergraben <del change="#inkOnProofKK">sind.</del><del change="#inkOnProofKK"><metamark change="#inkOnProofKK" function="insertion" rend="marginRight">266b</metamark></del><metamark function="insertion" change="#inkOnProofKK" rend="marginLeft" target="#note0266_1"/><anchor subtype="sentenceEnd" type="delimiter"/></seg><anchor type="metam" xml:id="anch266_5"/><listTranspose change="#inkOnProofKK"><transpose><ptr target="#seg266_02"/><ptr target="#seg266_01"/></transpose></listTranspose><anchor subtype="sentenceStart" type="delimiter"/>So wach<lb break="no"/>sen jene <rs xml:id="DWrsPeGr0006" key="#DWpers0261" type="personGroup">Scharführer</rs> heran, <quote xml:id="DWquote1790" source="#DWbibl03213">die da planten, bei der
+<lb/>Produktenbörse Benzin auszuschütten, bis <rs xml:id="DWrsPers0901" key="#DWpers1116" type="person">einer</rs> »er<lb break="no"/>klärte, daß er etwas besseres habe«, und er zeigte
+<lb/>ihnen die Bombe, die er ihnen im Koffer mitgebracht
+<lb/>hatte</quote>, und sie gefiel ihnen.<ref type="event" target="#DWCevent0210" xml:id="DWcomment0762"/><anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Denn <quote xml:id="DWquote1791" source="#DWbibl01027">allegorisch wie die
+<lb/>Lumpen sind</quote>, sind sie auch praktisch und wissen,
+<lb/>was man fürs Leben braucht.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Auch für Handarbeiten
+<lb/>geschult von den Vorkämpfern Raufebold, Habebald
+<lb/>und Haltefest.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Der erste gibt die Anfangsgründe<c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/><metamark change="#redOnProof" function="printInstruction" rend="lineRight" spanTo="#anch266_1"/><quote xml:id="DWquote1792" source="#DWbibl01028">
+<seg xml:id="F890seg0068" type="F890" corresp="#DWf8900023"><lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Wenn einer mir ins Auge sieht,</l>
+<l>Werd’ ich ihm mit der Faust gleich in die Fresse fahren,</l>
+<l>Und eine Memme, wenn sie flieht,</l>
+<l>Faß ich bei ihren letzten Haaren.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></quote><anchor type="metamSpanTo" xml:id="anch266_1"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/><quote xml:id="DWquote1793" source="#DWbibl03305">Der zweite will im Nehmen unverdrossen sein</quote>, <quote xml:id="DWquote1794" source="#DWbibl03306">der
+<lb/>dr<subst change="#undefined" rend="marginLeft"><del>▒</del><add>i</add></subst>tte meint, nehmen sei recht gut, doch besser sei
+<lb/>behalten</quote>.<anchor subtype="sentenceEnd" type="delimiter"/><metamark change="#redOnProof" function="printInstruction" rend="lineRight" spanTo="#anch266_2"/><quote xml:id="DWquote1795" source="#DWbibl01029">
+<seg xml:id="F890seg0069" type="F890" corresp="#DWf8900025"><lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Der tüchtige Fuß nimmt Teil an ihrem Glück,</l>
+<l>Setzt dem Erschlagnen frisch sich ins Genick.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></quote><anchor type="metamSpanTo" xml:id="anch266_2"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Ohne Ansehn der Partei<subst rend="marginRight" change="#undefined"><del>,</del><add><c type="nnbsp"/>;</add></subst> und auch die Kirche muß
+<lb/>dran glauben<c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/><metamark change="#redOnProof" function="printInstruction" rend="lineRight" spanTo="#anch266_3"/><quote xml:id="DWquote1796" source="#DWbibl01030">
+<seg xml:id="F890seg0070" type="F890" corresp="#DWf8900031"><lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Dem Klerus hab’ ich eine Lust verdorben,</l>
+<l>Und ihre Gunst mir freilich nicht erworben.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></quote><anchor type="metamSpanTo" xml:id="anch266_3"/><note change="#inkOnProofKK" place="bottom" xml:id="note0266_1">
+<lb/>sind. Dagegen hat er, da es oft genug vorgekommen sei, daß <subst change="#inkOnProofKK" rend="inline"><del>Schüler</del><add>sie</add></subst>
+<lb/>mit dem Browning <del change="#inkOnProofKK">in der Hand </del><add change="#inkOnProofKK" rend="below">ihre Lehrer </add>zu Erklärungen gezwungen hätten, das <del change="#inkOnProofKK">ausdrücklich</del>
+<lb/> Ersuchen ausgesprochen<del change="#inkOnProofKK">,</del>
+<metamark rendition="#inkFont" change="#inkOnProofKK" function="printInstruction"><lb/>col</metamark>
+<quote xml:id="DWquote1797" source="#DWbibl00211"><p rendition="#inkLongQuote"><lb/>daß die nationalsozialistischen Schüler <hi style="underline">nicht mehr</hi> mit der Waffe in der Hand gegen ihre Lehrer vorgehen.</p></quote></note>
+
+
+
+</p></body></text></TEI>

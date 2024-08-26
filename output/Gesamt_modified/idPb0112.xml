@@ -1,0 +1,29 @@
+<TEI continued="true"><text continued="true"><body continued="true"><p rendition="#runningText1" n="029" prev="true" continued="true"><pb n="0112" {http://www.w3.org/XML/1998/namespace}id="idPb0112" facs="#idfacs0112" type="witnessPrint" continued="true"></pb><fw type="pageNum" place="pageNumRight" change="#inkOnProofKK">112</fw>
+
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Er meint natürlich — und hat’s mit dem »vielleicht«
+<lb/>nur falsch angeschlossen —, daß wieder andere
+<lb/>Flüchtlinge auf den <foreign xml:lang="fr">Arc de triomphe</foreign> blicken und
+<lb/>andere wieder auf den Hradschin, <quote xml:id="DWquote0726" source="#DWbibl01082">was man <add change="#inkOnProofKK" rend="marginRight">ja </add>bloß bei
+<lb/><rs xml:id="DWrsPers0407" key="#DWpers0220" type="person">Shakespeare</rs> bequem vom Meer aus tun kann</quote>.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Wie
+<lb/>dem immer sei, so läßt sich<add change="#inkOnProofKK" rend="marginRight">,</add> vielleicht<add change="#inkOnProofKK" rend="marginRight">,</add> selbst für den
+<lb/>kriegerischen Umgang mit jenen Negertruppen<ref type="comment" target="#DWCseg0240" xml:id="DWcomment0296"/> mehr
+<lb/>Sicherheit garantieren, als <rs xml:id="DWrsPers0408" key="#DWpers0064" type="person">Benn</rs> sie hinterdrein den
+<lb/>Flüchtlingen bietet, welche <del change="#inkOnProofKK" rend="marginRight">ja </del>Bedenken wegen Dachau<ref resp="#edBO" target="#DWCseg0069" type="comment" xml:id="DWcomment0297"/>
+<lb/>hatten.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Was aber die aktive Behan<subst change="#undefined" rend="marginRight"><del>pl</del><add>dl</add></subst>ung von Negern
+<lb/>anlangt, so <subst change="#inkOnProofKK" rend="marginRight"><del>dürfte</del><add><del change="#inkOnProofKK"><unclear resp="#edACE" reason="illegible"/></del>mag</add></subst> man mit einer gewissen Zuversicht
+<lb/>in die Berliner Kolonialschau<ref type="event" target="#DWCevent0090" xml:id="DWcomment0668"/> blicken, die soeben
+<lb/>unter der Devise eröffnet wurde<c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/><quote xml:id="DWquote0727" source="#DWbibl00211">
+<p rendition="#longQuote">
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>»Deutsches Land in fremder Hand<c type="nnbsp"/>!«<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Stets daran denken — stets dafür
+<lb/>wirken<c type="nnbsp"/>; was wir verloren haben.<ref type="comment" target="#DWCseg0144" xml:id="DWcomment0298"/><anchor subtype="sentenceEnd" type="delimiter"/></p></quote>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Erinnerungen sind <add change="#inkOnProofKK" rend="marginRight">da </add>aufgestellt an <quote xml:id="DWquote0728" source="#DWbibl00211">eine heldenhafte
+<lb/>Schutztruppe und »ihre braven schwarzen Askaris«</quote>,
+<lb/>die jetzt in fremder Hand verwildern.<anchor subtype="sentenceEnd" type="delimiter"/><ref type="comment" target="#DWCseg0241" xml:id="DWcomment0299"/> <anchor subtype="sentenceStart" type="delimiter"/>Es gilt<c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/><quote xml:id="DWquote0729" source="#DWbibl00211">
+<p rendition="#longQuote">
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>unsere Jugend <hi style="letterSpacing">im kolonialen Gedanken zu erziehen.</hi><anchor subtype="sentenceEnd" type="delimiter"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Zum würdigen Nachwuchs unserer alten Pionier- und Farmergarde,
+<lb/><add change="#inkOnProofKK" rend="inline"><del change="#undefined" rend="marginLeft">(</del>deren Arbeit und Schaffen</add><metamark function="printInstruction" change="#inkOnProofKK" rend="marginLeft" rendition="#inkFont">col</metamark></p></quote>
+
+
+
+</p></body></text></TEI>

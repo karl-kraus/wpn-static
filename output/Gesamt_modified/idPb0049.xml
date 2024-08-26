@@ -1,0 +1,45 @@
+<TEI continued="true"><text continued="true"><body continued="true"><p rendition="#runningText1" n="016" prev="true" continued="true"><quote {http://www.w3.org/XML/1998/namespace}id="DWquote0314" source="#DWbibl01184" continued="true"><pb n="0049" {http://www.w3.org/XML/1998/namespace}id="idPb0049" facs="#idfacs0049" type="witnessPrint" continued="true"></pb><fw type="pageNum" place="pageNumRight" change="#inkOnProofKK">49</fw>
+
+<lb/>habe dem <rs xml:id="DWrsPers0191" key="#DWpers0196" type="person">Komponisten einer <quote xml:id="DWquote2139" source="#DWbibl04146"><rs xml:id="DWrsPers0192" key="#DWpers0080" type="person">Goethe</rs>-Symphonie</quote></rs>,
+<lb/>die dem <rs xml:id="DWrsPers0193" key="#DWpers0113" type="person">Führer</rs> gewidmet ist, zugejubelt,<ref type="event" target="#DWCevent0241" xml:id="DWcomment0871"/> denn es
+<lb/>grüßte
+<p rendition="#longQuote">
+<lb/>mit dem Meister <hi style="letterSpacing">die großen Geister,</hi> denen sein Werk dient<c type="nnbsp"/>:
+<lb/><hi style="letterSpacing"><rs xml:id="DWrsPers0194" key="#DWpers0080" type="person">Goethe</rs> und <rs xml:id="DWrsPers0195" key="#DWpers0113" type="person">Adolf Hitler</rs>.</hi><anchor subtype="sentenceEnd" type="delimiter"/></p></quote>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Der Musikkritiker, der es schrieb, heißt <rs xml:id="DWrsPers0196" key="#DWpers0037" type="person">Damisch</rs>.<anchor subtype="sentenceEnd" type="delimiter"/><quote xml:id="DWquote0315" source="#DWbibl01512">
+<p rendition="#longQuote">
+<lb/><anchor subtype="sentenceStart" type="delimiter"/><hi style="letterSpacing">So nur</hi> kann, so <hi style="letterSpacing">muß</hi> es sein</p></quote>
+<lb/>schloß treffend der <rs xml:id="DWrsPers0931" type="person" key="#DWpers1176">völkische Kollege</rs>, als es die
+<lb/>Künstler endlich erfahren hatten.<anchor subtype="sentenceEnd" type="delimiter"/></p>
+<p rendition="#runningText1" n="017">
+<lb/><quote xml:id="DWquote0316" source="#DWbibl00952"><anchor subtype="sentenceStart" type="delimiter"/>Überall regt es sich.<anchor subtype="sentenceEnd" type="delimiter"/></quote> <anchor subtype="sentenceStart" type="delimiter"/>Dichter empfangen Winke,
+<lb/>von den kunstsinnigen Führern nach dem Kaiserhof
+<lb/>beschieden<subst change="#undefined" rend="marginLeft"><del>▒</del><add><c type="nnbsp"/>:</add></subst><anchor subtype="sentenceEnd" type="delimiter"/><quote xml:id="DWquote0317" source="#DWbibl00953">
+<seg xml:id="F890seg0023" type="F890" corresp="#DWf8900072"><lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Ap<del change="#undefined" rend="marginLeft">p</del>o<subst change="#undefined" rend="marginLeft"><del>l</del><add>ll</add></subst>en hält ein froh Verweilen</l>
+<l>Dort nun mit seliger Musen <app xml:id="DWapp0615"><rdg source="DW">Chor</rdg><rdg source="F890">Chor.</rdg></app></l></lg></seg></quote>
+<lb/>woselbst, wie es <add change="#inkOnProofKK" rend="marginRight">ferner </add>bei <rs xml:id="DWrsPers0197" key="#DWpers0176" type="person">Nestroy</rs> heißt, <quote xml:id="DWquote0318" source="#DWbibl01424 #DWbibl01206">man <del change="#undefined" rend="marginLeft">den</del>
+<lb/>den Musen und dem Tee huldigt</quote>.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Bald springt denn
+<lb/>auch ein Verslein von den Lippen, und es zeigen
+<lb/>sich die ersten Triebe einer Produktion im Volkslied<lb break="no"/>haften, die nicht nur der heroischen, sondern auch
+<lb/>der idyllischen Neigung der Tage gerecht wird<c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/><quote xml:id="DWquote0319" source="#DWbibl01492">
+<lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Unter der Birke standen zwei,</l>
+<l>Ein Blonder und eine Blonde,</l>
+<l>Der Himmel lag blau und es war Mai</l>
+<l>Und Sonne die Welt umsonnte.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Und wie nun »zwei blonde Herzen zitterten heiß«
+<lb/>und <del change="#inkOnProofKK" rend="marginRight">wie</del>
+<lg rendition="#longQuoteVerse">
+<l>Im Wipfel da sang ein Singvögelein</l>
+<l>Und nickte froh mit dem Köpfchen,</l>
+<l>Es stürmte das Blut dem Mägdelein</l>
+<l>Bis unter die blonden Zöpfchen <seg type="relocation" xml:id="seg0049_1">—</seg></l></lg></quote>
+<lb/><metamark function="relocation" rend="marginRight" target="#seg0049_1" change="#undefined"/><choice change="#edACE"><sic/><corr type="emen"> </corr></choice>da geht wohl auch der Unbeteiligte mit, und wenn
+<lb/>der ‚Völkische Beobachter‘ solche Beschränkung des
+<lb/>Blutmythos auf das Allgemeinverständliche als »<quote xml:id="DWquote0322" type="exemp" source="#DWbibl01500">Kitsch</quote>«
+<lb/>ablehnt, so beweist er nur, daß er den Umfang art<lb break="no"/>eigener Möglichkeit unterschätzt und die Wiederbe<lb break="no"/>sinnung auf die Urinstinkte vielleicht zu sehr auf das
+
+
+
+</p></body></text></TEI>

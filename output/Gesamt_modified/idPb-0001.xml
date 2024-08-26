@@ -1,0 +1,71 @@
+<TEI continued="true"><text continued="true"><body continued="true"><p rendition="#runningText1" change="#edACE" n="[Motti]" prev="true" continued="true"><seg {http://www.w3.org/XML/1998/namespace}id="F890seg0092" type="F890" corresp="#DWf8900020" prev="true" continued="true"><pb n="[2]_(Motti)" {http://www.w3.org/XML/1998/namespace}id="idPb-0001" facs="#idfacs-0001" type="nonWitness" subtype="MottiWBR" continued="true"></pb>
+<quote xml:id="DWquote0014" source="#DWbibl00918"><lg rendition="#longQuoteVerseMiddle"><l>Ein widrig Volk<c type="nnbsp"/>! Doch darf’s mich nicht verdrießen,</l>
+<l>Als neuer Gast anständig sie zu grüßen.</l></lg></quote>
+<lg rendition="#longQuoteVerseMiddle"><l>— — — — — — — — — — — — — — — —</l></lg>
+<quote xml:id="DWquote0015" source="#DWbibl00919"><lg rendition="#longQuoteVerseMiddle"><l>Allein, was ich bisher gesehn,</l>
+<l>Hinein da möcht’ ich mich nicht wagen.</l></lg></quote>
+<lg rendition="#longQuoteVerseMiddle"><l>— — — — — — — — — — — — — — — —</l></lg>
+<quote xml:id="DWquote0016" source="#DWbibl00920"><lg rendition="#longQuoteVerseMiddle"><l>Warum denn nicht<c type="nnbsp"/>! — Ich sehe was, und staune<c type="nnbsp"/>!</l>
+<l>So stolz ich bin, muß ich mir selbst gestehn<c type="nnbsp"/>:</l>
+<l>Dergleichen<metamark change="#inkOnProofKK" function="transposition" rend="marginLeft" target="#seg-0002_1 #seg-0002_2"/><seg type="transposition" xml:id="seg-0002_1">’</seg><seg type="transposition" subtype="implicit" xml:id="seg-0002_2"> hab</seg><listTranspose change="#inkOnProofKK"><transpose><ptr type="implicit" target="#seg-0002_2"/><ptr target="#seg-0002_1"/></transpose></listTranspose> ich nie gesehn,</l>
+<l>Die sind ja schlimmer als <app xml:id="DWapp0061"><rdg source="Motti">Alraune<c type="nnbsp"/>!</rdg><rdg source="F890">Alraune  . . . .</rdg></app></l>
+<l>Wird man die urverworfnen Sünden</l>
+<l>Im mindesten noch häßlich finden,</l>
+<l><hi style="letterSpacing">Wenn man dies Dreigetüm erblickt<c type="nnbsp"/>?</hi></l>
+<l>Wir litten sie nicht auf den Schwellen</l>
+<l>Der grauenvollsten unsrer <app xml:id="DWapp0062"><rdg source="Motti">Höllen<del change="#inkOnProofKK" rend="marginLeft">.</del> . . . .</rdg><rdg source="F890">Höllen. — —</rdg></app></l></lg></quote>
+<quote xml:id="DWquote0017" source="#DWbibl00921"><lg rendition="#longQuoteVerseMiddle"><l>Die Parzen selbst, das Chaos, eure Schwestern,</l>
+<l>Ich sah sie gestern<subst change="#inkOnProofKK" rend="marginLeft"><del>,</del><add> —</add></subst> oder ehegestern<c type="nnbsp"/>;</l>
+<l>Doch eures Gleichen hab’ ich nie erblickt,</l>
+<l><app xml:id="DWapp0610"><rdg source="DW">Ich schweige nun</rdg><rdg source="F890"><hi style="letterSpacing">Ich schweige nun</hi></rdg></app> und fühle mich entzückt.</l></lg></quote>
+<lg rendition="#longQuoteVerseMiddle"><l>— — — — — — — — — — — — — — — —</l></lg>
+<quote xml:id="DWquote0018" source="#DWbibl00922"><lg rendition="#longQuoteVerseMiddle"><l>Wie wunderbar<c type="nnbsp"/>! das Anschaun tut mir Gnüge,</l>
+<l>Im Widerwärtigen große tüchtige Züge.</l></lg></quote>
+<lg rendition="#longQuoteVerseMiddle"><l>— — — — — — — — — — — — — — — —</l></lg>
+<quote xml:id="DWquote0019" source="#DWbibl00923"><lg rendition="#longQuoteVerseMiddle"><l>Die Majestät verzeihe, wenn ins Kleine</l>
+<l>Das hohe Werk ich zu erniedern scheine.</l></lg></quote>
+<lg rendition="#longQuoteVerseMiddle"><l>— — <!-- Anm. BO: vorangehendes Leerzeichen auf der Fahne Setzfehler: statt LZ fetter Ober- und Unterstrich -->— — — — — — — — — — — — — —</l></lg>
+<quote xml:id="DWquote0020" source="#DWbibl00924"><lg rendition="#longQuoteVerseMiddle"><l>Und sagt<c type="nnbsp"/>! Wie konnte das geschehn<c type="nnbsp"/>?</l></lg></quote>
+<lg rendition="#longQuoteVerseMiddle"><l>— — — — — — — — — — — — — — — —</l></lg>
+<quote xml:id="DWquote0021" source="#DWbibl00925"><lg rendition="#longQuoteVerseMiddle"><l>Erst gewahrten wir vergnüglich</l>
+<l>Wilden Wesens irren Lauf<c type="nnbsp"/>;</l>
+<l>Unerwartet, unverzüglich</l>
+<l>Trat ein neuer Kaiser auf.</l>
+<l>Und auf vorgeschriebenen Bahnen</l>
+<l>Zieht die Menge durch die Flur<c type="nnbsp"/>;</l>
+<l>Den entrollten Lügenfahnen</l>
+<l>Folgen alle. — Schafsnatur<c type="nnbsp"/>!</l></lg></quote>
+<lg rendition="#longQuoteVerseMiddle"><l>— — — — — — — — — — — — — — — —</l></lg>
+<quote xml:id="DWquote0022" source="#DWbibl00926"><lg rendition="#longQuoteVerseMiddle"><l>Haben wirklich Platz genommen,</l>
+<l>Wissen nicht, wie es geschah.</l>
+<l>Fraget nicht, woher wir kommen,</l>
+<l>Denn wir sind nun einmal <app xml:id="DWapp0063"><rdg source="Motti">da.</rdg><rdg source="F890">da<c type="nnbsp"/>!</rdg></app></l></lg></quote>
+<lg rendition="#longQuoteVerseMiddle"><l>— — — — — — — — — — — — — — — —</l></lg>
+<quote xml:id="DWquote0023" source="#DWbibl00927"><lg rendition="#longQuoteVerseMiddle"><l>Sind Briten hier<c type="nnbsp"/>? Sie reisen sonst so viel,</l>
+<l>Schlachtfeldern nachzuspüren, Wasserfällen,</l>
+<l>Gestürzten Mauern, klassisch dumpfen Stellen,</l>
+<l>Das wäre hier für sie ein würdig Ziel.</l></lg></quote>
+<lg rendition="#longQuoteVerseMiddle"><l>— — — — — — — — — — — — — — — —</l></lg>
+<quote xml:id="DWquote0024" source="#DWbibl00928"><lg rendition="#longQuoteVerseMiddle"><l>Ich griff nach holden Maskenzügen</l>
+<l>Und faßte Wesen, daß mich’s <app xml:id="DWapp0064"><rdg source="Motti">schauerte.</rdg><rdg source="F890">schauerte . . . .</rdg></app></l>
+<l>Ich möchte gerne mich betrügen,</l>
+<l>Wenn es nur länger dauerte.</l></lg></quote>
+<lg rendition="#longQuoteVerseMiddle"><l>— — — — — — — — — — — — — — — —</l></lg>
+<quote xml:id="DWquote0025" source="#DWbibl01704"><lg rendition="#longQuoteVerseMiddle"><l>Daneben, das Gebild des Wahns,</l>
+<l>Verschwindet schon beim Krähn des Hahns.</l>
+<l>Dergleichen Märchen seh’ ich oft entstehn</l>
+<l>Und plötzlich wieder untergehn.</l></lg></quote></seg>
+<lg rendition="#longQuoteVerseMiddle"><l>— — — — — — — — — — — — — — — —</l></lg>
+<seg xml:id="F890seg0015" type="F890" corresp="#DWf8900063"><quote xml:id="DWquote0026" source="#DWbibl00932"><lg rendition="#longQuoteVerseMiddle"><l>Ganz recht<c type="nnbsp"/>! Sie sind nicht mehr zu <app xml:id="DWapp0065"><rdg source="Motti">zügeln <subst change="#inkOnProofKK" rend="marginLeft"><del>. </del><add>. . </add></subst>. .</rdg><rdg source="F890">zügeln.</rdg></app></l></lg></quote></seg>
+<lg rendition="#longQuoteVerseMiddle"><l>— — — — — — — — — — — — — — — —</l></lg>
+<seg xml:id="F890seg0017" type="F890" corresp="#DWf8900094"><quote xml:id="DWquote0027" source="#DWbibl00933"><lg rendition="#longQuoteVerseEnd"><l>Angestrengtest, nimmer müde,</l>
+<l>Kolossal-Karyatide,</l>
+<l>Trägt ein furchtbar Steingerüste,</l>
+<l>Noch im Boden bis zur Büste<c type="nnbsp"/>;</l>
+<l>Weiter aber soll’s nicht kommen,</l>
+<l>Sphinxe haben Platz genommen.</l></lg></quote></seg></p>
+
+<p rendition="#runningText2" n="001">
+<seg type="F890" corresp="#DWf8900002" xml:id="F890seg0003" next="#F890seg0004">
+
+</seg></p></body></text></TEI>

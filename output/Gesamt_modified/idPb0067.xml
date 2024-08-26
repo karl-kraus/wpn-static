@@ -1,0 +1,41 @@
+<TEI continued="true"><text continued="true"><body continued="true"><p rendition="#runningText1" n="019" prev="true" continued="true"><quote {http://www.w3.org/XML/1998/namespace}id="DWquote0459" source="#DWbibl00211" continued="true"><foreign {http://www.w3.org/XML/1998/namespace}lang="fr" continued="true"><pb n="0067" {http://www.w3.org/XML/1998/namespace}id="idPb0067" facs="#idfacs0067" type="witnessPrint" continued="true"></pb><fw type="pageNum" place="pageNumRight" change="#inkOnProofKK">67</fw>
+
+<lb/>au moyen age</foreign></quote><add change="#inkOnProofKK" rend="marginLeft"><choice change="#edACE"><sic>“</sic><corr cert="high" type="norm">«</corr></choice></add><ref type="glossary" xml:id="DWcomment0173" target="#DWCseg0288"/> annimmt<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Wie irrational <metamark function="transposition" change="#inkOnProofKK" target="#seg0067_1 #seg0067_2" rend="marginRight"/><seg type="transposition" xml:id="seg0067_1">der Mensch </seg>
+<lb/><seg type="transposition" xml:id="seg0067_2">doch </seg><listTranspose change="#inkOnProofKK"><transpose><ptr target="#seg0067_2"/><ptr target="#seg0067_1"/></transpose></listTranspose>zu denken vermag, wenn er ein Deutscher ist<subst change="#inkOnProofKK" rend="marginRight"><del>,</del><add><c type="nnbsp"/>;</add></subst>
+<lb/>wie weit <add change="#inkOnProofKK" rend="marginLeft">er</add> in die zeitliche Ferne <del change="#inkOnProofKK" rend="marginRight">zu </del>schweif<subst change="#inkOnProofKK" rend="marginRight"><del>en</del><add>t</add></subst>, ohne
+<lb/>den so nahe liegenden Schwindel zu kriegen<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Ein
+<lb/>Philosoph der Walpurgisnacht rät<c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/><quote xml:id="DWquote0460" source="#DWbibl00961">
+<seg xml:id="F890seg0025" type="F890" corresp="#DWf8900022"><lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Gib nach dem löblichen Verlangen,</l>
+<l>Von vorn die Schöpfung anzufangen<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/></l>
+<l><anchor subtype="sentenceStart" type="delimiter"/>Zu raschem Wirken sei bereit<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/></l>
+<l><anchor subtype="sentenceStart" type="delimiter"/>Da regst du dich nach ewigen <app xml:id="DWapp0616"><rdg source="DW">Normen</rdg><rdg source="F890">Normen,</rdg></app></l>
+<l>Durch tausend abertausend Formen,<metamark change="#inkOnProofKK" function="progress" rend="marginRight">⨯</metamark></l>
+<l><app xml:id="DWapp0617"><rdg source="DW"><hi style="letterSpacing">Und bis zum Mensch<subst change="#inkOnProofKK" rend="marginRight"><del>c</del><add>e</add></subst>n <subst change="#inkOnProofKK" rend="marginRight"><del>ist es</del><add>hast du</add></subst> Zeit.</hi></rdg><rdg source="F890">Und bis zum Menschen hast du Zeit.</rdg></app><anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></quote>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Nun, es hat ja manches für sich, zur Erklärung der
+<lb/>Vorgänge auf den <foreign xml:lang="la">homo primogenitus</foreign><ref type="glossary" xml:id="DWcomment0174" target="#DWCseg0289"/> zurückzugehen
+<lb/>und noch für die eigene Person selbstlos den An<lb break="no"/>sprüchen des <foreign xml:lang="la">homo sapiens</foreign> zu entsagen.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Das ist
+<lb/>jetzt so der Brauch, und da der Intellekt sich nicht
+<lb/>bewährt hat, hält man sich an die Vorschrift, das
+<lb/>Kind mit dem Bad auszuschütten.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/><rs type="person" key="#DWpers0064" xml:id="DWrsPers0946">Ben<subst change="#inkOnProofKK" rend="marginRight"><del>u</del><add>n</add></subst></rs> gewinnt
+<lb/>das philosophische Rennen<subst change="#inkOnProofKK" rend="marginRight"><del>,</del><add><c type="nnbsp"/>:</add></subst> er <subst change="#inkOnProofKK" rend="marginRight"><del>sieht</del><add>ist nicht</add></subst> populär, aber
+<lb/>er ist <quote xml:id="DWquote0461" source="#DWbibl01815">mythisch und tief</quote><c type="nnbsp"/>; <add change="#inkOnProofKK" rend="marginRight">er </add>ist der wahre Deuter der
+<lb/>Dinge.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Man hätte <del change="#inkOnProofKK" rend="marginRight">wohl </del><rs xml:id="DWrsPers0273" key="#DWpers0127" type="person">Keyserling</rs> befragen mögen
+<lb/>(<quote xml:id="DWquote0462" source="#DWbibl02930">Telegrammadresse<c type="nnbsp"/>: Weisheitling</quote>), der sich denn
+<lb/>auch schon geregt hat, <quote xml:id="DWquote1971" source="#DWbibl00211">aber für die Fortbildung der
+<lb/>deutschen Kultur bloß um rund tausend Jahre zu<lb break="no"/>rückgehen will</quote>.<ref type="comment" target="#DWCseg0225" xml:id="DWcomment0176"/><anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Mit solchen Lappalien gibt sich
+<lb/><rs xml:id="DWrsPers0274" key="#DWpers0064" type="person">Benn</rs> gar nicht erst ab.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Er läßt sogar das Diluvium<ref type="glossary" xml:id="DWcomment0177" target="#DWCseg0291"/> <metamark change="#inkOnProofKK" function="progress" rend="marginRight">⨯</metamark>
+<lb/>hinter sich (<foreign xml:lang="fr">après lui</foreign>)<ref type="glossary" xml:id="DWcomment0178" target="#DWCseg0292"/>; <add change="#inkOnProofKK" rend="marginRight">denn </add> wenn man einmal im Erken<lb break="no"/>nen der Zusammenhänge so weit hält, kommt es
+<lb/>auf Zwischenstadien nicht an, und da sich die Be<lb break="no"/>wegung <restore change="#inkOnProofKK"><add change="#inkOnProofKK"><unclear resp="#edACE" reason="illegible" cert="medium">sowieso </unclear></add></restore>auf Jahrtausende einrichtet, <subst change="#inkOnProofKK" rend="marginRight"><del>schlägt er</del><add>kann man</add></subst> die
+<lb/>absolvierten dazu<subst change="#inkOnProofKK" rend="marginRight"><del>.</del><add>schlagen.</add></subst><anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Bezüglich einer Vergangenheit,
+<lb/>für die ein ohnedies fragwürdiges W<subst change="#inkOnProofKK" rend="marginRight"><del>e</del><add>is</add></subst>sen nicht zu
+<lb/>haben ist, <subst change="#inkOnProofKK" rend="marginLeft"><del>kann</del><add>verläßt</add></subst> man sich <subst change="#inkOnProofKK" rend="marginRight"><del>vollends sicher</del><add>am besten</add></subst> auf den
+<lb/>Glauben<subst change="#inkOnProofKK" rend="marginLeft"><del>verlassen.</del><add>.</add></subst><anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/><rs xml:id="DWrsPers0947" type="person" key="#DWpers0064"><subst change="#undefined" rend="marginRight"><!-- Anm. BO: wieso nicht KK? --><del>D</del><add>B</add></subst>enn</rs> vermutet, <quote xml:id="DWquote0463" source="#DWbibl01816">daß jenes
+<lb/>Quartär<ref type="glossary" xml:id="DWcomment0179" target="#DWCseg0453"/>, dessen Fortwirkung er für die deutsche
+<lb/>Gegenwart annimmt und <del change="#inkOnProofKK" rend="marginRight">offenbar </del>für die deutsche
+<lb/>Zukunft erhofft, h<subst change="#inkOnProofKK" rend="marginRight"><del>I</del><add>i</add></subst>nter »den letzten Eiszeiten« ge<lb break="no"/>legen ist</quote>, an die man sich noch erinnern kann und
+<lb/>deren Genossen er bereits für ausgewachsene
+
+
+
+</p></body></text></TEI>

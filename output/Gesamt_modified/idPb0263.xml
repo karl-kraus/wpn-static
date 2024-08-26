@@ -1,0 +1,69 @@
+<TEI continued="true"><text continued="true"><body continued="true"><p rendition="#runningText1" n="063" prev="true" continued="true"><pb n="0263" facs="#idfacs0263" {http://www.w3.org/XML/1998/namespace}id="idPb0263" type="witnessPrint" continued="true"></pb><metamark function="progress" change="#pencilOnProof" place="topRightCorner">⨯</metamark><fw type="pageNum" place="pageNumRight" change="#inkOnProofKK">263</fw>
+<metamark change="#redOnProof" function="printInstruction" rend="lineLeft" xml:id="metam263_1" spanTo="#anch263_1"/><quote xml:id="DWquote1749" source="#DWbibl01006">
+<mod change="#inkOnProofKK" rendition="#longQuoteVerse" resp="#edACE"><seg xml:id="F890seg0049" type="F890" corresp="#DWf8900077"><lg rendition="#longQuoteVerseStart">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Indessen wogt, in grimmigem Schwalle</l>
+<l>Des Aufruhrs wachsendes Gewühl.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></mod></quote><metamark function="insertion" change="#inkOnProofKK" target="#note0263_1"/>
+<quote xml:id="DWquote1750" source="#DWbibl01007"><mod change="#inkOnProofKK" rendition="#longQuoteVerse" resp="#edACE"><seg xml:id="F890seg0050" type="F890" corresp="#DWf8900066"><lg rendition="#longQuoteVerseEnd">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Der darf auf Schand und Frevel pochen,</l>
+<l>Der auf Mitschuldigste sich stützt,</l>
+<l>Und<c type="nnbsp"/>: Schuldig<c type="nnbsp"/>! hörst du ausgesprochen,</l>
+<l>Wo Unschuld nur sich selber schützt.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></mod></quote><anchor type="metamSpanTo" xml:id="anch263_1"/><note place="marginUpperLeft" change="#inkOnProofKK" xml:id="note0263_1">
+<metamark rendition="#inkFont" change="#inkOnProofKK" function="printInstruction"><lb/>gar</metamark>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Und die ungeheure Sorge um den
+<lb/>Reichstagsbrand<ref type="event" target="#DWCevent0006" xml:id="DWcomment0702"/>, die <del change="#inkOnProofKK"><unclear resp="#edACE" reason="illegible"/> weder</del>in der
+<lb/>Weltgeschichte <subst change="#inkOnProofKK" rend="inline"><del>noch in der</del><add>wie in der</add></subst>
+<lb/>Kriminalgeschichte noch nicht
+<lb/>dagewesene Schwierigkeit, daß
+<lb/>die Täter der Justiz den Fall
+<lb/>in Auftrag geben.<del change="#inkOnProofKK"> <unclear resp="#edACE" reason="illegible"/></del> Sie
+<lb/><del change="#inkOnProofKK">zum Rechten sehn soll<c type="nnbsp"/>:</del><choice change="#edACE"><sic><c type="nnbsp"/>:</sic><corr type="emen"/></choice>
+<lb/><del><unclear resp="#edACE" reason="illegible"/></del>soll blinde Kuh
+<lb/>spielen und zum Rechten
+<lb/>sehn<c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/></note>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Wohl, deutsches Recht <subst change="#inkOnProofKK" rend="marginLeft"><del>will es ausgleichen<c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/></del><add>gleicht’s oft aus<c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/></add></subst><quote xml:id="DWquote1751" source="#DWbibl01008">
+<seg xml:id="F890seg0051" type="F890" corresp="#DWf8900067"><lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Ein Richter, der nicht strafen kann,</l>
+<l>Gesellt sich endlich zum <app xml:id="DWapp0365"><rdg source="DW">Verbrecher . . . .</rdg><rdg source="F890">Verbrecher.</rdg></app><anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></quote>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Aber deutsche Gewalt will mehr<c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/><metamark rend="lineLeft" change="#redOnProof" function="printInstruction" spanTo="#anch263_2"/>
+<seg xml:id="F890seg0052" type="F890" corresp="#DWf8900034"><quote xml:id="DWquote1752" source="#DWbibl01009"><lg rendition="#longQuoteVerseStart">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Wie tobt’s in diesen wilden Tagen<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/></l>
+<l><anchor subtype="sentenceStart" type="delimiter"/>Ein <subst rend="marginRight" change="#undefined"><del>J</del><add>j</add></subst>eder schlägt und wird erschlagen,</l>
+<l>Und für’s Kommando bleibt man <app xml:id="DWapp0366"><rdg source="DW">taub . . . .</rdg><rdg source="F890">taub. — —</rdg></app><anchor subtype="sentenceEnd" type="delimiter"/></l></lg></quote>
+<quote xml:id="DWquote1753" source="#DWbibl01010"><lg rendition="#longQuoteVerseEnd"><l><anchor subtype="sentenceStart" type="delimiter"/>Der Mietsoldat wird ungeduldig,</l>
+<l>Mit Ungestüm verlangt er seinen Lohn,</l>
+<l>Und wären wir ihm nichts mehr schuldig,</l>
+<l>Er liefe ganz und gar davon.<anchor subtype="sentenceEnd" type="delimiter"/></l>
+<l><anchor subtype="sentenceStart" type="delimiter"/>Verbiete wer, was Alle wollten,</l>
+<l>Der hat ins Wespennest gestört<c type="nnbsp"/>;</l>
+<l>Das Reich, das sie beschützen sollten,</l>
+<l>Es liegt geplündert und verheert.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg></quote></seg><anchor type="metamSpanTo" xml:id="anch263_2"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Und das Ausland<c type="nnbsp"/>?<anchor subtype="sentenceEnd" type="delimiter"/><metamark rend="lineLeft" change="#redOnProof" function="printInstruction" spanTo="#anch263_3"/><quote xml:id="DWquote1754" source="#DWbibl01011">
+<seg xml:id="F890seg0053" type="F890" corresp="#DWf8900078"><lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Man läßt ihr Toben, wütend Hausen,</l>
+<l>Schon ist die halbe Welt vertan<c type="nnbsp"/>;</l>
+<l>Es sind noch Könige da draußen,</l>
+<l>Doch keiner denkt, es ging’ ihn irgend an.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></quote><anchor type="metamSpanTo" xml:id="anch263_3"/>
+<lb/><quote xml:id="DWquote1755" source="#DWbibl03184" type="exemp"><anchor subtype="sentenceStart" type="delimiter"/>Innere Angelegenheiten<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/></quote> <anchor subtype="sentenceStart" type="delimiter"/>Der Schatzmeister<c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/><metamark rend="lineLeft" change="#redOnProof" function="printInstruction" spanTo="#anch263_4"/><quote xml:id="DWquote1756" source="#DWbibl01012">
+<seg xml:id="F890seg0054" type="F890" corresp="#DWf8900039"><lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Die <choice change="#edACE" resp="ww"><sic>Goldespforfen</sic><corr type="emen">Goldespforten</corr></choice> sind verrammelt,</l>
+<l>Ein jeder kratzt und scharrt und sammelt</l>
+<l>Und unsre Kassen bleiben leer<subst change="#undefined" rend="marginRight"><del>▒</del><add>.</add></subst><anchor subtype="sentenceEnd" type="delimiter"/><metamark change="#inkOnProofKK" function="progress" rend="marginRight">⨯</metamark></l></lg></seg></quote><anchor type="metamSpanTo" xml:id="anch263_4"/>
+<lb/><quote xml:id="DWquote1757" source="#DWbibl03190" type="exemp"><anchor subtype="sentenceStart" type="delimiter"/>Deckung auf 7 Prozent zurückgegangen.<ref type="comment" target="#DWCseg0421" xml:id="DWcomment0761"/><anchor subtype="sentenceEnd" type="delimiter"/></quote><metamark rend="lineLeft" change="#redOnProof" function="printInstruction" spanTo="#anch263_5"/>
+<quote xml:id="DWquote1758" source="#DWbibl01013"><seg xml:id="F890seg0055" type="F890" corresp="#DWf8900036"><lg rendition="#longQuoteVerseStart">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Wir wollen alle Tage sparen</l>
+<l>Und brauchen alle Tage <app xml:id="DWapp0367"><rdg source="DW">mehr . . . .</rdg><rdg source="F890">mehr.</rdg></app><anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></quote>
+<quote xml:id="DWquote1759" source="#DWbibl01014"><seg xml:id="F890seg0056" type="F890" corresp="#DWf8900037"><lg rendition="#longQuoteVerseMiddle"><l><anchor subtype="sentenceStart" type="delimiter"/>Verpfändet ist der Pfühl im Bette,</l>
+<l>Und auf den Tisch kommt vorgegessen Brot.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></quote>
+<lg rendition="#longQuoteVerseMiddle"><l>— — — — — — — — — — — —</l></lg>
+<quote xml:id="DWquote1760" source="#DWbibl01015"><seg xml:id="F890seg0057" type="F890" corresp="#DWf8900038"><lg rendition="#longQuoteVerseEnd"><l><anchor subtype="sentenceStart" type="delimiter"/>Wo fehlt’s nicht irgendwo auf dieser Welt<c type="nnbsp"/>?<anchor subtype="sentenceEnd" type="delimiter"/></l>
+<l><anchor subtype="sentenceStart" type="delimiter"/>Dem dies, dem das, hier aber fehlt das Geld.<anchor subtype="sentenceEnd" type="delimiter"/><metamark change="#inkOnProofKK" function="progress" rend="marginRight">⨯</metamark></l></lg></seg></quote><anchor type="metamSpanTo" xml:id="anch263_5"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Doch gibt’s noch Fahnen, Feste, <quote xml:id="DWquote1761" source="#DWbibl01662" type="exemp">Feuerwerke</quote><c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/><metamark rend="lineLeft" change="#redOnProof" function="printInstruction" spanTo="#anch263_6"/><quote xml:id="DWquote1762" source="#DWbibl01016">
+<seg xml:id="F890seg0058" type="F890" corresp="#DWf8900075"><lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>So sei die Zeit in Fröhlichkeit vertan<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/></l>
+<l><anchor subtype="sentenceStart" type="delimiter"/>Und ganz erwünscht kommt Aschermittwoch an.<anchor subtype="sentenceEnd" type="delimiter"/></l>
+<l><anchor subtype="sentenceStart" type="delimiter"/>Indessen feiern wir, auf jeden Fall,</l>
+<l>Nur lustiger das wilde Carneval.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></quote><anchor type="metamSpanTo" xml:id="anch263_6"/>
+
+
+
+</p></body></text></TEI>

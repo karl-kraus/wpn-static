@@ -1,0 +1,46 @@
+<TEI continued="true"><text continued="true"><body continued="true"><p rendition="#runningText1" n="063" prev="true" continued="true"><pb n="0265" facs="#idfacs0265" {http://www.w3.org/XML/1998/namespace}id="idPb0265" type="witnessPrint" continued="true"></pb><metamark function="progress" change="#pencilOnProof" place="topRightCorner">⨯</metamark><fw type="pageNum" place="pageNumRight" change="#inkOnProofKK">265</fw>
+
+<lb/><anchor subtype="sentenceStart" type="delimiter"/><subst change="#inkOnProofKK" rend="above"><del><quote xml:id="DWquote1773" source="#DWbibl03468" type="exemp">»Ein Krieg wäre Wahnsinn«</quote><c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/></del><add><choice change="#edACE"><sic>„</sic><corr cert="high" type="norm">»</corr></choice><quote xml:id="DWquote1774" source="#DWbibl03723">Wir haben nicht die geringste kriegerische Absicht</quote><choice change="#edACE"><sic>“</sic><corr cert="high" type="norm">«</corr></choice><c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/></add></subst><metamark change="#redOnProof" function="printInstruction" rend="lineRight" spanTo="#anch265_1"/><quote xml:id="DWquote1775" source="#DWbibl01022">
+<seg xml:id="F890seg0064" type="F890" corresp="#DWf8900061"><lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Wer wird uns retten<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/></l>
+<l><anchor subtype="sentenceStart" type="delimiter"/>Wir schaffen’s Eisen,</l>
+<l>Sie schmieden Ketten.<anchor subtype="sentenceEnd" type="delimiter"/></l>
+<l><anchor subtype="sentenceStart" type="delimiter"/>Uns los zu reißen</l>
+<l>Ist noch nicht zeitig,</l>
+<l>Drum seid geschmeidig.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></quote><anchor type="metamSpanTo" xml:id="anch265_1"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Draußen geht’s <subst rend="marginLeft" change="#inkOnProofKK"><del>los,</del><add rend="marginLeft">dreckig, erklärt <rs xml:id="DWrsPers0895" key="#DWpers0079" type="person">Goebbels</rs>,</add></subst> drinnen drunter und drüber.<anchor subtype="sentenceEnd" type="delimiter"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/><quote xml:id="DWquote1776" source="#DWbibl03799" type="exemp"><rs xml:id="DWrsPers0896" key="#DWpers0218" type="person">Seldte</rs> huldigt</quote>,<ref resp="#edBO" type="comment" target="#DWCseg0111" xml:id="DWcomment0579"/><ref type="event" target="#DWCevent0233" xml:id="DWcomment0770"/> <quote xml:id="DWquote1777" source="#DWbibl00601" type="exemp"><rs xml:id="DWrsPers0897" key="#DWpers0118" type="person">Hugenberg</rs> w<subst rend="marginRight" change="#inkOnProofKK"><del>i</del><add rend="marginRight">a</add></subst>rd vom Teufel geholt</quote>,<ref resp="#edBO" target="#DWCseg0066" type="comment" xml:id="DWcomment0580"/>
+<lb/><quote xml:id="DWquote1778" source="#DWbibl01696" type="exemp"><rs xml:id="DWrsPers0898" key="#DWpers0182" type="person">Papen</rs> soll sich als Herrenreiter produzieren</quote><c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/><metamark change="#redOnProof" function="printInstruction" rend="lineRight" spanTo="#anch265_2"/><quote xml:id="DWquote1779" source="#DWbibl01023">
+<lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Das heiß ich frischen Hexenritt,</l>
+<l>Die bringen ihren Blocksberg mit.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg></quote><anchor type="metamSpanTo" xml:id="anch265_2"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/><quote xml:id="DWquote1780" source="#DWbibl03522" type="exemp"><rs xml:id="DWrsPers0899" key="#DWpers0110" type="person">Hindenburg</rs> ist in Sicherheit</quote><c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/><metamark change="#redOnProof" function="printInstruction" rend="lineRight" spanTo="#anch265_3"/><quote xml:id="DWquote1781" source="#DWbibl01024">
+<seg xml:id="F890seg0065" type="F890" corresp="#DWf8900079"><lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Laß du den Generalstab sorgen</l>
+<l>Und der Feldmarschall ist geborgen.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></quote><anchor type="metamSpanTo" xml:id="anch265_3"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Immer mehr doch werden ihrer, denen die Erfüllung
+<lb/>des <subst change="#inkOnProofKK" rend="marginLeft"><del>Radio</del><add rend="marginLeft">Rundfunk</add></subst>programms nicht genügt.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/><quote xml:id="DWquote1782" source="#DWbibl01613">Es sind »jene ge<lb break="no"/>tarnten bolschewistischen Elemente, die von einer
+<lb/>zweiten Revolution<ref type="comment" xml:id="DWcomment0581" target="#DWCseg0215"/> sprechen in einem Zeitpunkt, in dem
+<lb/>das Volk und die Nation sich eben anschicken«<subst change="#inkOnProofKK" rend="marginRight"><del>,</del><add rend="marginRight"><c type="nnbsp"/>:</add></subst> die
+<lb/>Ergebnisse der ersten für das <date>nächste Jahr<restore change="#inkOnProofKK"><subst rend="marginRight" change="#inkOnProofKK" xml:id="subst265_1"><del>hundert</del><add rend="marginRight">tausend</add></subst></restore></date>
+<lb/>auszubauen.</quote><anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Jetzt geht es um die Zukunft und <quote xml:id="DWquote1783" source="#DWbibl03199">da
+<lb/>muß »die eine oder die andere gutgemeinte Theorie
+<lb/>zu kurz kommen«</quote>, welche für die Vergangenheit in
+<lb/>Geltung bleibt.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Die Unterführer übernehmen sich.<anchor subtype="sentenceEnd" type="delimiter"/><metamark change="#redOnProof" function="printInstruction" rend="lineRight" spanTo="#anch265_4"/><quote xml:id="DWquote1784" source="#DWbibl01025">
+<seg xml:id="F890seg0066" type="F890" corresp="#DWf8900062"><lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Nur sachte drauf<c type="nnbsp"/>!<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Allzugewohnt ans Naschen,</l>
+<l>Wo es auch sei, man sucht was zu erhaschen.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></quote><anchor type="metamSpanTo" xml:id="anch265_4"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Sie werden <quote xml:id="DWquote1785" source="#DWbibl01575">als »Bazillenträger« von den Führern
+<lb/>gemieden</quote>, die sich vor der braunen Pest zu fürchten
+<lb/>beginnen.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/>Man versucht romantische Ablenkung<c type="nnbsp"/>:<anchor subtype="sentenceEnd" type="delimiter"/><metamark change="#redOnProof" function="printInstruction" rend="lineRight" spanTo="#anch265_5"/><quote xml:id="DWquote1786" source="#DWbibl01026">
+<seg xml:id="F890seg0067" type="F890" corresp="#DWf8900057"><lg rendition="#longQuoteVerse">
+<l><anchor subtype="sentenceStart" type="delimiter"/>Es liebt sich jetzt ein jedes Kind</l>
+<l>Den Harnisch und den Ritterkragen<c type="nnbsp"/>;</l>
+<l>Und, allegorisch wie die Lumpen sind,</l>
+<l>Sie werden nur um desto mehr behagen.<anchor subtype="sentenceEnd" type="delimiter"/></l></lg></seg></quote><anchor type="metamSpanTo" xml:id="anch265_5"/>
+<lb/><anchor subtype="sentenceStart" type="delimiter"/>Und wirklich dürfen sie, müssen sie vom zehnten
+<lb/>Lebensjahre an zum Schulunterricht in Uniform er<lb break="no"/>scheinen.<anchor subtype="sentenceEnd" type="delimiter"/> <anchor subtype="sentenceStart" type="delimiter"/><quote xml:id="DWquote1787" source="#DWbibl01620">»Alle meine Neunjährigen beneiden den
+
+
+
+</quote></p></body></text></TEI>
