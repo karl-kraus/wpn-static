@@ -36,8 +36,11 @@
             </body>
         </html>
     </xsl:template>
-    <xsl:template match="tei:head">
-        <h2><xsl:apply-templates/></h2>
+    <xsl:template match="tei:head[count(ancestor::tei:div) = 1]">
+        <h2 class="fs-meta-heading-2"><xsl:apply-templates/></h2>
+    </xsl:template>
+    <xsl:template match="tei:head[count(ancestor::tei:div) > 1]">
+        <h3 class="fs-meta-heading-3"><xsl:apply-templates/></h3>
     </xsl:template>
     <xsl:template match="tei:p">
         <p id="{generate-id()}" class="my-1 {if (@rend='indent') then 'ms-2_5' else ()}"><xsl:apply-templates/></p>
