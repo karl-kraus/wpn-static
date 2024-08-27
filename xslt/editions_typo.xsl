@@ -83,27 +83,16 @@
                                             <li class="dropdown-item">
                                                 <annotation-slider opt="quts" class="text-wpn-quote fs-7"></annotation-slider>
                                             </li>
-                                            <li class="dropdown-item">
+                                            <!-- <li class="dropdown-item">
                                                 <annotation-slider opt="pbs" class="text-black-grey fs-7"></annotation-slider>
                                             </li>
                                             <li class="dropdown-item">
                                                 <annotation-slider opt="cmts" class="text-comment fs-7"></annotation-slider>
-                                            </li>
-                                        </ul>                                                    
+                                            </li> -->
+                                        </ul>
                                     </div>
                                     <div class="mt-2 d-flex">
-                                            <!-- Your menu goes here --> 
-                                            <fieldset>
-                                                <div class="text-center gap-1_5 justify-content-center mb-05">
-                                                <legend class="text-dark-grey fs-7">Textgröße</legend>
-                                                <wpn-text-zoom-button zoom-direction="in">
-                                                    <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" width="24" height="24"><g><path fill="#999" d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g></svg>
-                                                </wpn-text-zoom-button>
-                                                <wpn-text-zoom-button zoom-direction="out">
-                                                    <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" width="24" height="24"><g><path fill="#999" d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g></svg>
-                                                </wpn-text-zoom-button>
-                                                </div>
-                                            </fieldset>                        
+                                            <!-- Your menu goes here -->                      
                                             <ul class="gap-1_5 border-0 z-2 list-unstyled d-flex">
                                                 <!--<li class="dropdown-item">
                                                     <full-size opt="fls"></full-size>
@@ -123,12 +112,12 @@
                                                 <li>
                                                     <annotation-slider opt="quts" class="text-wpn-quote fs-7 mx-auto"></annotation-slider>
                                                 </li>
-                                                <li>
+                                                <!-- <li>
                                                     <annotation-slider opt="pbs" class="text-black-grey fs-7 mx-auto"></annotation-slider>
                                                 </li>
                                                 <li>
                                                     <annotation-slider opt="cmts" class="text-wpn-comment fs-7 mx-auto"></annotation-slider>
-                                                </li>
+                                                </li> -->
                                             </ul>                                                    
                                         </div>
                                 </div>
@@ -250,7 +239,7 @@
         <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
 	</xsl:template>
     <xsl:template match="tei:seg[@type='F890']">
-        <span class="fackelrefs entity {substring-after(@rendition, '#')} position-relative" id="{@xml:id}">
+        <span class="fackelrefs entity {substring-after(@rendition, '#')} position-relative{if(@prev)then(' no-indent')else()}" id="{@xml:id}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
@@ -374,15 +363,15 @@
     <!-- <xsl:template match="tei:lb[@type='req']">
         <br/>
     </xsl:template> -->
-    <xsl:template match="tei:lb[not(@type)]">
+    <xsl:template match="tei:lb[not(@n)]">
     <!-- [not(parent::tei:seg|tei:p[parent::tei:p|tei:seg|tei:body] and position() = 1 or preceding-sibling::*[1]/local-name() = 'fw')] -->
         <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
     </xsl:template>
-    <xsl:template match="tei:lb[@type='first']"/>
-    <xsl:template match="tei:lb[@type='last']">
+    <xsl:template match="tei:lb[@n='first']"/>
+    <xsl:template match="tei:lb[@n='last']">
         <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
     </xsl:template>
-    <xsl:template match="tei:s[@type='last']">
+    <xsl:template match="tei:s[@n='last']">
         <span class="d-block text-align-left no-indent"><xsl:apply-templates/></span>
     </xsl:template>
 </xsl:stylesheet>
