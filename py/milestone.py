@@ -299,10 +299,9 @@ class Milestone(object):
                         prev_parent = False
                     if prev_parent:
                         try:
-                            if self.parts[milestone_name]['parents'][0] == "p":
-                                self.parts[milestone_name]['parents'][0][1]["prev"] = 'true'
-                            else:
-                                self.parts[milestone_name]['parents'][0][1]["prev"] = 'true'
+                            for x in self.parts[milestone_name]['parents']:
+                                if x[0] == "p" or x[0] == "seg":
+                                    x[1]["prev"] = 'true'
                         except:
                             print("Error")
                         # try:

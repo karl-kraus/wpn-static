@@ -48,13 +48,13 @@ def verify_first_lb(file):
     try:
         p_lb = doc.any_xpath('//tei:body//tei:p[@rendition]/tei:lb[1][not(preceding-sibling::tei:seg[@type="F890"])]')
         for lb in p_lb:
-            lb.attrib['type'] = 'first'
+            lb.attrib['n'] = 'first'
     except IndexError:
         print(f'No lb found in p for {file}')
     try:
         seg_lb = doc.any_xpath('//tei:body//tei:seg[@rendition or @type="relocation"]/tei:lb[1]')
         for lb in seg_lb:
-            lb.attrib['type'] = 'first'
+            lb.attrib['n'] = 'first'
     except IndexError:
         print(f'No lb found in seg for {file}')
     try:
@@ -63,7 +63,7 @@ def verify_first_lb(file):
             lb = seg.xpath('.//tei:lb', namespaces=NSMAP)
             print(len(lb), file)
             if len(lb) > 1:
-                lb[0].attrib['type'] = 'first'
+                lb[0].attrib['n'] = 'first'
     except IndexError:
         print(f'No lb found in seg for {file}')
     doc.tree_to_file(file)
@@ -74,13 +74,13 @@ def verify_last_lb(file):
     try:
         p_lb = doc.any_xpath('//tei:body//tei:p[not(contains(@rendition, "longQuote"))]/tei:lb[last()]')
         for lb in p_lb:
-            lb.attrib['type'] = 'last'
+            lb.attrib['n'] = 'last'
     except IndexError:
         print(f'No lb found in p for {file}')
     try:
         seg_lb = doc.any_xpath('//tei:body//tei:seg[@rendition or @type="relocation"]/tei:lb[last()][not(following-sibling::tei:seg[@type="F890"])]')
         for lb in seg_lb:
-            lb.attrib['type'] = 'last'
+            lb.attrib['n'] = 'last'
     except IndexError:
         print(f'No lb found in seg for {file}')
     # try:
@@ -99,11 +99,11 @@ def wrap_last_sentence(file):
     # with open(file) as text_fp:
     #     text = text_fp.read()
     doc = ET.parse(file)
-    lb = doc.xpath('.//tei:lb[@type="last"]', namespaces=NSMAP)
+    lb = doc.xpath('.//tei:lb[@n="last"]', namespaces=NSMAP)
     for x in lb:
         following_sibling = [sibling for sibling in x.itersiblings()]
         s = ET.Element('s')
-        s.attrib["type"] = "last"
+        s.attrib["n"] = "last"
         s.text = x.tail
         x.tail = None
         for sibling in following_sibling:
@@ -128,8 +128,8 @@ if __name__ == '__main__':
         output_path = os.path.join(OUTPUT_DIR, os.path.basename(file))
         with open(output_path, 'w') as f:
             f.write(text)
-        # verify_first_lb(output_path)
+        verify_first_lb(output_path)
         # verify_last_lb(output_path)
-        # wrap_last_sentence(output_path)
+        wrap_last_sentence(output_path)
     if not debug:
         shutil.rmtree(INPUT_DIR)
