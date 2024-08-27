@@ -9,7 +9,7 @@ new LoadEditor({
         color: "annot_quote",
         title: "Intertexte",
         html_class: "quotes",
-        css_class: "quts",
+        css_class: ["quts", "pe-auto"],
         chg_citation: "citation-url",
         hide: {
           hidden: false,
