@@ -39,7 +39,7 @@ def replace_namespace(text):
 def add_root_namesapce(text):
     text = text.replace(
         '<TEI continued="true">',
-        '<TEI xmlns="http://www.tei-c.org/ns/1.0" continued="true">')
+        '<TEI xmlns="http://www.tei-c.org/ns/1.0">')
     return text
 
 

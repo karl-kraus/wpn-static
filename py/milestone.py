@@ -278,7 +278,7 @@ class Milestone(object):
             prev_milestone = self.get_prev_milestone_name(milestone_name)
             if prev_milestone != -1:
                 prev_parents = self.parts[prev_milestone]['parents']
-                prev_parents_text = self.parts[prev_milestone]['text']
+                prev_text = self.parts[prev_milestone]['text']
                 for i in parents:
                     current_parents = i
                     try:
@@ -291,7 +291,7 @@ class Milestone(object):
                     if current_parents and current_parents in prev_parents:
                         print(milestone_name, True, "Current parent in prev parents")
                         prev_parent = True
-                    elif current_parents and current_parents_id and current_parents_id in prev_parents_text:
+                    elif current_parents and current_parents_id and current_parents_id in prev_text:
                         print(milestone_name, True, "Current parent in prev text")
                         prev_parent = True
                     else:
@@ -299,17 +299,19 @@ class Milestone(object):
                         prev_parent = False
                     if prev_parent:
                         try:
-                            for x in self.parts[milestone_name]['parents']:
-                                if x[0] == "p" or x[0] == "seg":
-                                    x[1]["prev"] = 'true'
+                            if self.parts[milestone_name]['parents'][0] == "p":
+                                self.parts[milestone_name]['parents'][0][1]["prev"] = 'true'
+                            else:
+                                self.parts[milestone_name]['parents'][0][1]["prev"] = 'true'
                         except:
                             print("Error")
-                        try:
-                            for x in self.parts[prev_milestone]['parents']:
-                                if x[0] == "body":
-                                    x[1]["next"] = 'true'
-                        except:
-                            print("Error")
+                        # try:
+                        #     if self.parts[prev_milestone]['parents'][0] == "p":
+                        #         self.parts[prev_milestone]['parents'][0][1]["next"] = 'true'
+                        #     else:
+                        #         self.parts[prev_milestone]['parents'][0][1]["next"] = 'true'
+                        # except:
+                        #     print("Error")
         return prev_parent
         
 
