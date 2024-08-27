@@ -21,7 +21,7 @@
             <xsl:apply-templates />
         </xsl:copy> 
     </xsl:template>
-    <xsl:template match="tei:lb[preceding-sibling::*[1][local-name()='quote'][child::tei:p[@rendition='#longQuote']|child::tei:seg[child::tei:lg[@rendition]]|child::tei:lg[@rendition]]]">
+    <!-- <xsl:template match="tei:lb[preceding-sibling::*[1][local-name()='quote'][child::tei:p[@rendition='#longQuote']|child::tei:seg[child::tei:lg[@rendition]]|child::tei:lg[@rendition]]]">
         <xsl:copy>
             <xsl:attribute name="type">
                 <xsl:text>first</xsl:text>
@@ -48,5 +48,5 @@
                 <xsl:text>not-first</xsl:text>
             </xsl:attribute>
         </xsl:copy>
-    </xsl:template>
+    </xsl:template> -->
 </xsl:stylesheet>

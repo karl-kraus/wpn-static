@@ -304,6 +304,12 @@ class Milestone(object):
                                     x[1]["prev"] = 'true'
                         except:
                             print("Error")
+                        try:
+                            for x in self.parts[prev_milestone]['parents']:
+                                if x[0] == "body":
+                                    x[1]["next"] = 'true'
+                        except:
+                            print("Error")
         return prev_parent
         
 

@@ -46,7 +46,7 @@ def add_root_namesapce(text):
 def verify_first_lb(file):
     doc = TeiReader(file)
     try:
-        p_lb = doc.any_xpath('//tei:body//tei:p[@rendition]/tei:lb[1]')
+        p_lb = doc.any_xpath('//tei:body//tei:p[@rendition]/tei:lb[1][not(preceding-sibling::tei:seg[@type="F890"])]')
         for lb in p_lb:
             lb.attrib['type'] = 'first'
     except IndexError:
@@ -72,26 +72,26 @@ def verify_first_lb(file):
 def verify_last_lb(file):
     doc = TeiReader(file)
     try:
-        p_lb = doc.any_xpath('//tei:body//tei:p[@rendition]/tei:lb[last()]')
+        p_lb = doc.any_xpath('//tei:body//tei:p[not(contains(@rendition, "longQuote"))]/tei:lb[last()]')
         for lb in p_lb:
             lb.attrib['type'] = 'last'
     except IndexError:
         print(f'No lb found in p for {file}')
     try:
-        seg_lb = doc.any_xpath('//tei:body//tei:seg[@rendition or @type="relocation"]/tei:lb[last()]')
+        seg_lb = doc.any_xpath('//tei:body//tei:seg[@rendition or @type="relocation"]/tei:lb[last()][not(following-sibling::tei:seg[@type="F890"])]')
         for lb in seg_lb:
             lb.attrib['type'] = 'last'
     except IndexError:
         print(f'No lb found in seg for {file}')
-    try:
-        seg_lb_f890 = doc.any_xpath('//tei:body//tei:seg[parent::tei:p[@rendition]][@type="F890"]')
-        for seg in seg_lb_f890:
-            lb = seg.xpath('.//tei:lb', namespaces=NSMAP)
-            print(len(lb), file)
-            if len(lb) > 1:
-                lb[-1].attrib['type'] = 'first'
-    except IndexError:
-        print(f'No lb found in seg for {file}')
+    # try:
+    #     seg_lb_f890 = doc.any_xpath('//tei:body//tei:seg[parent::tei:p[@rendition]][@type="F890"]')
+    #     for seg in seg_lb_f890:
+    #         lb = seg.xpath('./tei:lb', namespaces=NSMAP)
+    #         print(len(lb), file)
+    #         if len(lb) > 1:
+    #             lb[-1].attrib['type'] = 'last'
+    # except IndexError:
+    #     print(f'No lb found in seg for {file}')
     doc.tree_to_file(file)
 
 
@@ -101,17 +101,19 @@ def wrap_last_sentence(file):
     doc = ET.parse(file)
     lb = doc.xpath('.//tei:lb[@type="last"]', namespaces=NSMAP)
     for x in lb:
-        print(x)
-        following_siblings = [sibling for sibling in x.iter()]
+        following_sibling = [sibling for sibling in x.itersiblings()]
         s = ET.Element('s')
-        for sibling in following_siblings:
-            s.append(sibling)
-        print(ET.tostring(s))
-        print(file)
+        s.attrib["type"] = "last"
+        s.text = x.tail
+        x.tail = None
+        for sibling in following_sibling:
+            if sibling.tag != "{http://www.tei-c.org/ns/1.0}seg":
+                #if sibling.tag != "{http://www.tei-c.org/ns/1.0}quote":
+                if sibling.tag != "{http://www.tei-c.org/ns/1.0}note":
+                    if sibling.tag != "{http://www.tei-c.org/ns/1.0}p": 
+                        sibling.getparent().remove(sibling)
+                        s.append(sibling)
         x.addnext(s)
-        # parent = x.getparent()
-        # print(parent)
-        # parent.replace(x, s)
     with open(file, 'w') as f:
         f.write(ET.tostring(doc, pretty_print=True).decode('utf-8'))
 
@@ -126,8 +128,8 @@ if __name__ == '__main__':
         output_path = os.path.join(OUTPUT_DIR, os.path.basename(file))
         with open(output_path, 'w') as f:
             f.write(text)
-        verify_first_lb(output_path)
-        verify_last_lb(output_path)
-        wrap_last_sentence(output_path)
+        # verify_first_lb(output_path)
+        # verify_last_lb(output_path)
+        # wrap_last_sentence(output_path)
     if not debug:
         shutil.rmtree(INPUT_DIR)

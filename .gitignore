@@ -10,6 +10,8 @@ manifest.json
 css_manifest.json
 html/css/*.css
 html/js/wpn_utils/*.js
+/output
+parents.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
