@@ -220,6 +220,10 @@ html[data-page="notes"] .container {
   min-height:calc(100vh - $edition-view-header-height)
 }
 
+#edition-view .entity {
+  pointer-events: none;
+}
+
 #controls {
   width:10.625rem;
 }
