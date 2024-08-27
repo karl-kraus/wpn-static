@@ -2,6 +2,7 @@ import glob
 import os
 import tqdm
 import shutil
+from lxml import etree as ET
 from acdh_tei_pyutils.tei import TeiReader
 
 NS = [
@@ -38,14 +39,14 @@ def replace_namespace(text):
 def add_root_namesapce(text):
     text = text.replace(
         '<TEI continued="true">',
-        '<TEI xmlns="http://www.tei-c.org/ns/1.0" continued="true">')
+        '<TEI xmlns="http://www.tei-c.org/ns/1.0">')
     return text
 
 
 def verify_first_lb(file):
     doc = TeiReader(file)
     try:
-        p_lb = doc.any_xpath('//tei:body//tei:p[@rendition]/tei:lb[1]')
+        p_lb = doc.any_xpath('//tei:body//tei:p[@rendition]/tei:lb[1][not(preceding-sibling::tei:seg[@type="F890"])]')
         for lb in p_lb:
             lb.attrib['type'] = 'first'
     except IndexError:
@@ -68,6 +69,55 @@ def verify_first_lb(file):
     doc.tree_to_file(file)
 
 
+def verify_last_lb(file):
+    doc = TeiReader(file)
+    try:
+        p_lb = doc.any_xpath('//tei:body//tei:p[not(contains(@rendition, "longQuote"))]/tei:lb[last()]')
+        for lb in p_lb:
+            lb.attrib['type'] = 'last'
+    except IndexError:
+        print(f'No lb found in p for {file}')
+    try:
+        seg_lb = doc.any_xpath('//tei:body//tei:seg[@rendition or @type="relocation"]/tei:lb[last()][not(following-sibling::tei:seg[@type="F890"])]')
+        for lb in seg_lb:
+            lb.attrib['type'] = 'last'
+    except IndexError:
+        print(f'No lb found in seg for {file}')
+    # try:
+    #     seg_lb_f890 = doc.any_xpath('//tei:body//tei:seg[parent::tei:p[@rendition]][@type="F890"]')
+    #     for seg in seg_lb_f890:
+    #         lb = seg.xpath('./tei:lb', namespaces=NSMAP)
+    #         print(len(lb), file)
+    #         if len(lb) > 1:
+    #             lb[-1].attrib['type'] = 'last'
+    # except IndexError:
+    #     print(f'No lb found in seg for {file}')
+    doc.tree_to_file(file)
+
+
+def wrap_last_sentence(file):
+    # with open(file) as text_fp:
+    #     text = text_fp.read()
+    doc = ET.parse(file)
+    lb = doc.xpath('.//tei:lb[@type="last"]', namespaces=NSMAP)
+    for x in lb:
+        following_sibling = [sibling for sibling in x.itersiblings()]
+        s = ET.Element('s')
+        s.attrib["type"] = "last"
+        s.text = x.tail
+        x.tail = None
+        for sibling in following_sibling:
+            if sibling.tag != "{http://www.tei-c.org/ns/1.0}seg":
+                #if sibling.tag != "{http://www.tei-c.org/ns/1.0}quote":
+                if sibling.tag != "{http://www.tei-c.org/ns/1.0}note":
+                    if sibling.tag != "{http://www.tei-c.org/ns/1.0}p": 
+                        sibling.getparent().remove(sibling)
+                        s.append(sibling)
+        x.addnext(s)
+    with open(file, 'w') as f:
+        f.write(ET.tostring(doc, pretty_print=True).decode('utf-8'))
+
+
 if __name__ == '__main__':
     debug = False
     for file in tqdm.tqdm(files_glob, total=len(files_glob)):
@@ -78,6 +128,8 @@ if __name__ == '__main__':
         output_path = os.path.join(OUTPUT_DIR, os.path.basename(file))
         with open(output_path, 'w') as f:
             f.write(text)
-        verify_first_lb(output_path)
+        # verify_first_lb(output_path)
+        # verify_last_lb(output_path)
+        # wrap_last_sentence(output_path)
     if not debug:
         shutil.rmtree(INPUT_DIR)

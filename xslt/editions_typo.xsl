@@ -374,8 +374,15 @@
     <!-- <xsl:template match="tei:lb[@type='req']">
         <br/>
     </xsl:template> -->
-    <xsl:template match="tei:lb[not(@type='first')]">
+    <xsl:template match="tei:lb[not(@type)]">
     <!-- [not(parent::tei:seg|tei:p[parent::tei:p|tei:seg|tei:body] and position() = 1 or preceding-sibling::*[1]/local-name() = 'fw')] -->
         <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
+    </xsl:template>
+    <xsl:template match="tei:lb[@type='first']"/>
+    <xsl:template match="tei:lb[@type='last']">
+        <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
+    </xsl:template>
+    <xsl:template match="tei:s[@type='last']">
+        <span class="d-block text-align-left no-indent"><xsl:apply-templates/></span>
     </xsl:template>
 </xsl:stylesheet>
