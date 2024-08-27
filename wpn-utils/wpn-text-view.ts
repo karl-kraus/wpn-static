@@ -21,8 +21,7 @@ class WPNTextView extends HTMLElement {
 			console.log(offset, el.getAttribute("id") ?? "");
 			offset += parseInt(getComputedStyle(el).lineHeight, 10) / 2;
 
-			let infoElm: HTMLElement | null = document.querySelector(`div[data-xmlid=${elmId}]`);
-			infoElm = document.querySelector(`div[data-xmlid=${elmId}]`);
+			const infoElm: HTMLElement | null = document.querySelector(`div[data-xmlid='${elmId}']`);
 			if (infoElm) {
 				const calculatedMargin =
 					this.calcMargin(infoElm, offset) - parseInt(getComputedStyle(el).lineHeight, 10) / 2;
