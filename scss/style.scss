@@ -499,6 +499,37 @@ details[open] > summary::after {
 
 /** detail view Dritter Publikationsschritt **/
 
+#textcontent-pb .runningText1,
+#textcontent-pb .typescriptRunningText1,
+#textcontent-pb .runningText2,
+#textcontent-pb .longQuote,
+#textcontent-pb .typescriptLongQuote,
+#textcontent-pb .inkLongQuote,
+#textcontent-pb .typescriptLongQuoteLeading,
+#textcontent-pb .longQuoteStart,
+#textcontent-pb .longQuoteEnd,
+#textcontent-pb .typescriptLongQuoteEnd,
+#textcontent-pb .longQuoteStartIndent,
+#textcontent-pb .longQuoteMarginStart,
+#textcontent-pb .longQulongQuoteMiddleIndentoteEnd,
+#textcontent-pb .longQuoteMarginMiddle,
+#textcontent-pb .longQuoteEndIndent,
+#textcontent-pb .longQuoteMarginEnd,
+#textcontent-pb .longQuoteIndent,
+#textcontent-pb .FackelQuote_columnRight {
+  text-align-last: justify;
+}
+
+#textcontent-pb .longQuoteVerse,
+#textcontent-pb .inkLongQuoteVerse,
+#textcontent-pb .typescriptLongQuoteVerse,
+#textcontent-pb .typescriptLongQuoteVerseLeading,
+#textcontent-pb .longQuoteVerseStart,
+#textcontent-pb .longQuoteVerseStart {
+  text-align-last: left;
+  text-indent: 30px;
+}
+
 #edition-view #sub_grid_pb {
   display:grid;
   grid-template-columns: calc(100% * 0.4) calc(100% * 0.4) calc(100% * 0.2);
@@ -506,23 +537,66 @@ details[open] > summary::after {
   min-height:calc(100vh - $edition-view-header-height)
 }
 
-.print-body.witnessPrint {
-  display: grid;
-  grid-template-columns: calc(100% * 0.198) calc(100% * 0.604) calc(100% * 0.198);
-  //grid-template-columns: 2.9cm 8.4cm 2.9cm;
-  gap: 0;
+.print-page.witnessPrint {
+  $height: 21cm;
+  width: 14.2cm;
+  height: $height;
+  margin: 0 auto;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .print-body.witnessPrint {
+    display: grid;
+    grid-template-columns: calc(100% * 0.198) calc(100% * 0.604) calc(100% * 0.198);
+    gap: 0;
+  }
+
+  .print-header.witnessPrint,
+  .print-footer.witnessPrint {
+    height: auto;
+    position: relative;
+  }
 }
 
-.print-body.witnessTypescript {
-  display: grid;
-  grid-template-columns: calc(100% * 0.154) calc(100% * 0.8) calc(100% * 0.046);
-  gap: 0;
+.print-page.witnessTypescript {
+  width: 19.4cm;
+  height: 26cm;
+  margin: 0 auto;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .print-body.witnessTypescript {
+    display: grid;
+    grid-template-columns: calc(100% * 0.154) auto auto;
+    gap: 0;
+  }
+
+  .print-header.witnessTypescript,
+  .print-footer.witnessTypescript {
+    position: relative;
+  }
 }
 
-.print-body.witnessTypescriptInsert {
-  display: grid;
-  grid-template-columns: calc(100% * 0.175) calc(100% * 0.8) calc(100% * 0.025);
-  gap: 0;
+.print-page.witnessTypescriptInsert {
+  width: 19.4cm;
+  height: 26cm;
+  margin: 0 auto;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .print-body.witnessTypescriptInsert {
+    display: grid;
+    grid-template-columns: calc(100% * 0.175) auto auto;
+    gap: 0;
+  }
+
+  .print-header.witnessTypescriptInsert {
+    position: relative;
+  }
+  
+  .print-footer.witnessTypescriptInsert {
+    position: relative;
+  }
 }
 
 #textcolumn-pb {
@@ -534,7 +608,7 @@ details[open] > summary::after {
 
 #textcontent-pb {
   font-size: 10pt;
-  line-height: 1.2em;
+  line-height: 11pt;
 }
 
 
@@ -542,69 +616,37 @@ details[open] > summary::after {
 #textcontent-pb .typescriptLongQuote,
 #textcontent-pb .inkLongQuote,
 #textcontent-pb .typescriptLongQuoteLeading {
-  font-size: 8pt !important;
-  line-height: 1em !important;
+  font-size: 7pt !important;
+  line-height: 8pt !important;
+}
+
+#textcontent-pb .typescriptRunningText1,
+#textcontent-pb .typewriter {
+  font-size: 11pt;
+  line-height: 16pt;
+  text-align: left !important;
+  text-align-last: left !important;
+  font-family: monospace;
+  letter-spacing: 0.4pt;
 }
 
 #textcontent-pb .spacing {
-  letter-spacing: 1.5px !important;
+  letter-spacing: 1pt;
 }
 
 #infocontent-pb {
-  font-size: 10pt;
+  font-size: 1em;
   line-height: 1.2em;
 }
 
-.text-align-justify {
-  text-align: justify; /* For Edge */
-  text-align-last: justify;
-}
+// .text-align-justify {
+//   text-align: justify; /* For Edge */
+//   text-align-last: justify;
+// }
 
 .text-align-left {
-  text-align: left !important;
-  text-align-last: left !important;  
-}
-
-.print-page.witnessPrint {
-  width: 14.2cm;
-  height: 21cm;
-  margin: 0 auto;
-  border: 1px solid #f2f2f2;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.print-page.witnessTypescript {
-  width: 19.4cm;
-  height: 26cm;
-  margin: 0 auto;
-  border: 1px solid #f2f2f2;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.print-page.witnessTypescriptInsert {
-  width: 19.4cm;
-  height: 26cm;
-  margin: 0 auto;
-  border: 1px solid #f2f2f2;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.print-header.witnessPrint,
-.print-footer.witnessPrint,
-.print-header.witnessTypescript,
-.print-footer.witnessTypescript {
-  height: 5cm;
-  position: relative;
-}
-
-.print-header.witnessTypescriptInsert {
-  height: 8cm;
-  position: relative;
-}
-
-.print-footer.witnessTypescriptInsert {
-  height: 2cm;
-  position: relative;
+  text-align: left;
+  text-align-last: left;  
 }
 
 .note.bottom,
@@ -655,50 +697,82 @@ details[open] > summary::after {
   position: absolute;
 }
 
-#textcontent-pb .metamark.marginRight,
-#textcontent-pb .metamark.topRight {
+.topRight {
   top: 0;
   right: -2cm;
 }
 
-#textcontent-pb .metamark.marginLeft,
-#textcontent-pb .metamark.topLeft {
-  top: 0;
+.marginRight {
+  right: -2cm;
+}
+
+.marginLeft {
   left: -2cm;
 }
 
-#textcontent-pb .metamark.marginMiddleRight {
+.topLeft {
+  left: -2cm;
+  top: 1cm;
+}
+
+.marginLeftAbove {
+  left: -2cm;
+  top: -1cm;
+}
+
+.marginLeftBelow {
+  left: -2cm;
+  bottom: -1cm;
+}
+
+.marginMiddleRight {
   top: 50%;
   right: 0;
 }
 
-#textcontent-pb .metamark.marginLowerRight {
+.marginLowerRight {
   top: 80%;
   right: 0;
 }
 
-#textcontent-pb .add.pencilRightAlign {
-  // font-family: "century-old-style-std", sans-serif;
-  font-size: 0.75em;
+.pencilRightAlign {
   right: -2cm;
 }
 
-#textcontent-pb .add.marginLeft {
-  // font-family: "century-old-style-std", sans-serif;
+#textcontent-pb .add {
   font-size: 0.75em;
-  left: -2cm;
-}
-
-#textcontent-pb .add.marginRight {
-  // font-family: "century-old-style-std", sans-serif;
-  font-size: 0.75em;
-  right: -2cm;
 }
 
 .no-indent {
   text-indent: 0 !important;
 }
 
+.pageNumRight {
+  right: 100px;
+  top: 50px;
+}
+
+.fw {
+  position: absolute;
+
+  .typescriptInsertNum {
+    font-size: 18pt;
+    line-height: 22pt;
+    text-decoration: underline;
+    padding: 0 1cm 0 0.5cm;
+  }
+}
+
+
+.metamark.typescriptFont {
+  position: relative !important;
+  display: block;
+  text-decoration: underline;
+}
+
+.typescriptFont {
+  font-family: "century-old-style-std", sans-serif;
+}
 
 /*** timeline ***/
 wpn-time-line {

@@ -191,8 +191,9 @@
         <xsl:variable name="printType">
             <xsl:value-of select=".//tei:pb[1]/@type"/>
         </xsl:variable>
-        <div class="d-flex flex-column print-page {$printType}">
+        <div class="print-page {$printType}">
             <div class="print-header {$printType}">
+                <xsl:apply-templates select="//tei:fw" mode="render"/>
                 <xsl:apply-templates select="//tei:note[contains(@place, 'top')]" mode="render"/>
             </div>
             <div class="print-body {$printType}">
@@ -212,7 +213,7 @@
         </div>
     </xsl:template>
     <xsl:template match="tei:p[@n]|tei:mod[@n]">
-        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')} position-relative text-align-justify{if(@prev)then(' no-indent')else()}">
+        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')} position-relative {if(@prev)then(' no-indent')else()}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
@@ -228,6 +229,9 @@
         <span class="comments entity" id="{@xml:id}"></span>
     </xsl:template>
     <xsl:template match="tei:fw"/>
+    <xsl:template match="tei:fw" mode="render">
+        <span class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}"><xsl:apply-templates/></span>
+    </xsl:template>
     <xsl:template match="tei:mod[@change='#pencilOnProof_KK'][not(@rendition='#pencilOnProof_rightAlignSmall')]"/>
     <xsl:template match="tei:app">
         <span class="hidden"><xsl:apply-templates/></span>
@@ -244,7 +248,7 @@
         </span>
     </xsl:template>
     <xsl:template match="tei:quote">
-        <wpn-entity class="quotes entity {substring-after(@rendition, '#')} text-align-left" id="{@xml:id}">
+        <wpn-entity class="quotes entity {substring-after(@rendition, '#')}" id="{@xml:id}">
             <xsl:apply-templates/>
         </wpn-entity>
     </xsl:template>
@@ -275,7 +279,7 @@
         <span class="longQuoteRightAlign my-05 d-block"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@rendition='#runningText1']">
-        <span class="d-block runningText1 position-relative text-align-justify{if(@prev)then(' no-indent')else()}"><xsl:apply-templates/></span>
+        <span class="d-block runningText1 position-relative {if(@prev)then(' no-indent')else()}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
         <xsl:apply-templates select="tei:sic" mode="render"/>
@@ -284,7 +288,7 @@
         <span><xsl:apply-templates select="tei:corr"/></span>
     </xsl:template>
      <xsl:template match="tei:p[not(@n)]">
-        <span class="d-block {replace(@rendition,'#','')} text-align-justify{if(@prev)then(' no-indent')else()}">
+        <span class="d-block {replace(@rendition,'#','')} {if(@prev)then(' no-indent')else()}">
             <span class="inline-text position-relative"><xsl:apply-templates/></span>
         </span>
     </xsl:template>
@@ -335,7 +339,7 @@
        </wpn-entity>
     </xsl:template> -->
      <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')][child::*]">
-        <span class="metamark {replace(@change, '#', '')} {@rend} {@place} text-align-left"><xsl:apply-templates/></span>
+        <span class="metamark {replace(@change, '#', '')} {@rend} {replace(@rendition, '#', '')} {@place}"><xsl:apply-templates/></span>
      </xsl:template>
     <xsl:template match="tei:mod[@style=('noLetterSpacing') and not(parent::tei:restore)]">
         <span class="ls-0"><xsl:apply-templates/></span>
@@ -357,6 +361,9 @@
         </div>
     </xsl:template>
     <xsl:template match="tei:note"/>
+    <xsl:template match="tei:note[not(@place)]">
+        <span class="note {replace(@change,'#','')}"><xsl:apply-templates/></span>
+    </xsl:template>
     <xsl:template match="tei:mod[@style='italic']">
         <span class="fst-italic"><xsl:apply-templates/></span>
     </xsl:template>
