@@ -156,7 +156,7 @@
                                 </div>
                             </div>
                         </div>
-                        <wpn-text-view annotation-selectors=".entity" id="sub_grid_pb">
+                        <wpn-page-view annotation-selectors=".entity" id="sub_grid_pb">
                             <div id="facscolumn" class="mx-auto ff-century-old-style">
                                 <div id="facscontent" wpn-data="{$facsimile}" wpn-type="{.//tei:pb[1]/@type}">
                                     <!-- osd viewer container -->
@@ -176,7 +176,7 @@
                                 </xsl:for-each>
                                 </div>
                             </div>
-                        </wpn-text-view>
+                        </wpn-page-view>
                     </div>
                 </main>
                 <xsl:call-template name="html_footer">
@@ -191,29 +191,29 @@
         <xsl:variable name="printType">
             <xsl:value-of select=".//tei:pb[1]/@type"/>
         </xsl:variable>
-        <div class="print-page {$printType}">
+        <div class="print-page {$printType} position-relative">
             <div class="print-header {$printType}">
-                <xsl:apply-templates select="//tei:fw" mode="render"/>
-                <xsl:apply-templates select="//tei:note[contains(@place, 'top')]" mode="render"/>
+                <!-- <xsl:apply-templates select="//tei:fw" mode="render"/>
+                <xsl:apply-templates select="//tei:note[contains(@place, 'top')]" mode="render"/> -->
             </div>
             <div class="print-body {$printType}">
                 <div class="body-left">
-
+                    <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Left')]" mode="render"/>
                 </div>
                 <div class="body-main">
                     <xsl:apply-templates/>
                 </div>
                 <div class="body-right">
-
+                    <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')]" mode="render"/>
                 </div>
             </div>
             <div class="print-footer {$printType}">
-                <xsl:apply-templates select="//tei:note[contains(@place, 'bottom')]" mode="render"/>
+                <!-- <xsl:apply-templates select="//tei:note[contains(@place, 'bottom')]" mode="render"/> -->
             </div>
         </div>
     </xsl:template>
     <xsl:template match="tei:p[@n]|tei:mod[@n]">
-        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')} position-relative {if(@prev)then(' no-indent')else()}">
+        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')}  {if(@prev)then(' no-indent')else()}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
@@ -243,7 +243,7 @@
         <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
 	</xsl:template>
     <xsl:template match="tei:seg[@type='F890']">
-        <span class="fackelrefs entity {substring-after(@rendition, '#')} position-relative{if(@prev)then(' no-indent')else()}" id="{@xml:id}">
+        <span class="fackelrefs entity {substring-after(@rendition, '#')} {if(@prev)then(' no-indent')else()}" id="{@xml:id}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
@@ -279,7 +279,7 @@
         <span class="longQuoteRightAlign my-05 d-block"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@rendition='#runningText1']">
-        <span class="d-block runningText1 position-relative {if(@prev)then(' no-indent')else()}"><xsl:apply-templates/></span>
+        <span class="d-block runningText1  {if(@prev)then(' no-indent')else()}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
         <xsl:apply-templates select="tei:sic" mode="render"/>
@@ -289,7 +289,7 @@
     </xsl:template>
      <xsl:template match="tei:p[not(@n)]">
         <span class="d-block {replace(@rendition,'#','')} {if(@prev)then(' no-indent')else()}">
-            <span class="inline-text position-relative"><xsl:apply-templates/></span>
+            <span class="inline-text "><xsl:apply-templates/></span>
         </span>
     </xsl:template>
     <xsl:template match="tei:c">
@@ -299,8 +299,24 @@
      <xsl:template match="tei:sic" mode="render">
         <xsl:apply-templates/>
      </xsl:template>
-     <xsl:template match="tei:add">
-        <span class="add position-absolute {if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)} {replace(@rendition,'#','')}">
+     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((@rend|parent::tei:subst/@rend), 'Right')]">
+        <wpn-entity class="add entity" id="{@xml:id}"></wpn-entity>
+     </xsl:template>
+     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((@rend|parent::tei:subst/@rend), 'Left')]">
+        <wpn-entity class="add entity" id="{@xml:id}"></wpn-entity>
+     </xsl:template>
+     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')]" mode="render">
+        <div class="add {if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+           <div><xsl:apply-templates/></div>
+        </div>
+     </xsl:template>
+     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Left')]" mode="render">
+        <div class="add {if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><xsl:apply-templates/></div>
+        </div>
+     </xsl:template>
+     <xsl:template match="tei:add[@rendition]">
+        <span class="add rendition {replace(@rendition,'#','')} {replace(@change,'#','')}">
             <xsl:apply-templates/>
         </span>
      </xsl:template>
@@ -338,7 +354,7 @@
        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
        </wpn-entity>
     </xsl:template> -->
-     <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')][child::*]">
+     <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]">
         <span class="metamark {replace(@change, '#', '')} {@rend} {replace(@rendition, '#', '')} {@place}"><xsl:apply-templates/></span>
      </xsl:template>
     <xsl:template match="tei:mod[@style=('noLetterSpacing') and not(parent::tei:restore)]">
@@ -350,17 +366,17 @@
     <xsl:template match="tei:mod[contains(@rendition,'Quote')]">
         <span class="{replace(@rendition,'#','')}"><xsl:apply-templates/></span>
     </xsl:template>
-    <xsl:template match="tei:note[contains(@place, 'bottom')]" mode="render">
+    <xsl:template match="tei:note[contains(@place, 'bottom')]">
         <div class="note {@place} {replace(@change, '#', '')}" id="{@xml:id}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
-    <xsl:template match="tei:note[contains(@place, 'top')]" mode="render">
+    <xsl:template match="tei:note[contains(@place, 'top')]">
         <div class="note {@place} {replace(@change, '#', '')}" id="{@xml:id}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
-    <xsl:template match="tei:note"/>
+    <!-- <xsl:template match="tei:note"/> -->
     <xsl:template match="tei:note[not(@place)]">
         <span class="note {replace(@change,'#','')}"><xsl:apply-templates/></span>
     </xsl:template>

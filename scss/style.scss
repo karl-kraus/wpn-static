@@ -499,25 +499,50 @@ details[open] > summary::after {
 
 /** detail view Dritter Publikationsschritt **/
 
+#textconent-pb .rightAlignSmall {
+  text-align: right;
+  text-align-last: right;
+  font-size: 8pt;
+}
+
 #textcontent-pb .runningText1,
-#textcontent-pb .typescriptRunningText1,
 #textcontent-pb .runningText2,
 #textcontent-pb .longQuote,
-#textcontent-pb .typescriptLongQuote,
-#textcontent-pb .inkLongQuote,
-#textcontent-pb .typescriptLongQuoteLeading,
 #textcontent-pb .longQuoteStart,
 #textcontent-pb .longQuoteEnd,
-#textcontent-pb .typescriptLongQuoteEnd,
 #textcontent-pb .longQuoteStartIndent,
 #textcontent-pb .longQuoteMarginStart,
-#textcontent-pb .longQulongQuoteMiddleIndentoteEnd,
+#textcontent-pb .longQuoteMiddleIndent,
 #textcontent-pb .longQuoteMarginMiddle,
 #textcontent-pb .longQuoteEndIndent,
 #textcontent-pb .longQuoteMarginEnd,
-#textcontent-pb .longQuoteIndent,
+#textcontent-pb .longQuoteIndent
+#textcontent-pb .typescriptLongQuoteIndent,
+#textcontent-pb .inkLongQuote{
+  text-align: justify;
+  text-align-last: justify !important;
+}
+
+
+#textcontent-pb .inkLongQuote,
 #textcontent-pb .FackelQuote_columnRight {
-  text-align-last: justify;
+  text-align: left;
+  text-align-last: left;
+}
+
+#textcontent-pb .typescriptLongQuoteLeading
+#textcontent-pb .typescriptRunningText1,
+#textcontent-pb .typescriptLongQuote,
+#textcontent-pb .typescriptLongQuoteStart {
+  text-align: left;
+  text-align-last: left;
+  margin: $spacer * 0.5 0;
+}
+
+#textcontent-pb .typescriptLongQuoteEnd {
+  text-align: left;
+  text-align-last: left;
+  margin-bottom: $spacer * 0.5;
 }
 
 #textcontent-pb .longQuoteVerse,
@@ -525,9 +550,28 @@ details[open] > summary::after {
 #textcontent-pb .typescriptLongQuoteVerse,
 #textcontent-pb .typescriptLongQuoteVerseLeading,
 #textcontent-pb .longQuoteVerseStart,
-#textcontent-pb .longQuoteVerseStart {
+#textcontent-pb .longQuoteVerseEnd,
+#textcontent-pb .longQuoteVerseMiddle {
   text-align-last: left;
+  text-align: left;
   text-indent: 30px;
+}
+
+#textcontent-pb .inkCenterAlignIndent1{
+  text-align-last: center;
+  text-align: center;
+  text-indent: 30px;
+}
+
+#textcontent-pb .longQuoteMiddleCenter,
+#textcontent-pb .longQuoteVerseCenter,
+#textcontent-pb .typescriptLongQuoteTitle,
+#textcontent-pb .typescriptLongQuoteTitle2,
+#textcontent-pb .typescriptLongQuoteAdvInsert,
+#textcontent-pb .typescriptLongQuoteRightAlign,
+#textcontent-pb .typescriptLongQuoteRightAlign2 {
+  text-align-last: center;
+  text-align: center;
 }
 
 #edition-view #sub_grid_pb {
@@ -621,7 +665,8 @@ details[open] > summary::after {
 }
 
 #textcontent-pb .typescriptRunningText1,
-#textcontent-pb .typewriter {
+#textcontent-pb .typewriter,
+#textcontent-pb .typewriter2 {
   font-size: 11pt;
   line-height: 16pt;
   text-align: left !important;
@@ -648,99 +693,301 @@ details[open] > summary::after {
   text-align: left;
   text-align-last: left;  
 }
-
-.note.bottom,
-.note.bottomLowerLeft {
-  position: absolute;
-}
-
-.note.bottomLowerLeft {
+.bottomLowerLeft {
   left: 0;
   bottom: 0;
 }
 
-.note.bottom {
-  bottom: 0;
+.bottom {
+  left: 8.5%;
+  top: 86.8%
 }
 
-.note.top,
-.note.topUpperLeft,
-.note.topLowerRight {
-  position: absolute;
+.bottomLower {
+  left: 16.3%;
+  top: 92.5%;
 }
 
-.note.topUpperLeft {
-  left: 0;
-  top: 0;
+.bottomCenter {
+  left: 22.6%;
+  top: 82.4%;
 }
 
-.note.topLowerRight {
-  right: 0;
-  bottom: 0;
+.bottomLeft {
+  left: 10.7%;
+  top: 88.8%;
 }
 
-.note.top {
-  top: 0;
+.bottomLowerLeft {
+  left: 10.7%;
+  top: 92.9%;
 }
 
-.pencilOnProof {
-  // font-family: "century-old-style-std", sans-serif;
+.bottomLowerCenter {
+  left: 27%;
+  top: 92.9%;
+}
+
+.bottomRight {
+  left: 54.5%;
+  top: 87.9%;
+}
+
+.bottomLowerRight {
+  left: 54.5%;
+  top: 92.9%;
+}
+
+.bottomRightCorner {
+  left: 83.1%;
+  top: 93.6%;
+}
+
+.bottomUpper {
+  left: 9%;
+  top: 83.6%;
+}
+
+.bottomUpperLeft {
+  left: 10.7%;
+  top: 83.6%;
+}
+
+.bottomUpperRight {
+  left: 54.5%;
+  top: 83.6%;
+}
+
+.topUpper {
+  left: 18.3%;
+  top: 1.9%;
+}
+
+.topUpperCenter {
+  left: 26%;
+  top: 1.9%;
+}
+
+.topUpperLeft {
+  left: 10%;
+  top: 1.9%;
+}
+
+.topUpperRight {
+  left: 35.1%;
+  top: 1.9%;
+}
+
+.topCenter {
+  left: 26%;
+  top: 6.5%;
+}
+
+.topLeft {
+  left: 10%;
+  top: 6.5%;
+}
+
+.topRight {
+  left: 68.5%;
+  top: 6.5%;
+}
+
+.top {
+  left: 8.5%;
+  top: 6.5%;
+}
+
+.topLower {
+  left: 8.5%;
+  top: 1%;
+}
+
+.topLowerCenter {
+  left: 26%;
+  top: 11%;
+}
+
+.topLowerLeft {
+  left: 10%;
+  top: 11%;
+}
+
+.topLowerRight {
+  left: 68.6%;
+  top: 11%;
+}
+
+.topRightCorner {
+  left: 87.9%;
+  top: 4.3%;
+}
+
+.topLeftCorner {
+  left: 6.4%;
+  top: 4.3%;
+}
+
+.marginLowerLeft {
+  left: 1.5%;
+  top: 81.2%;
+}
+
+.marginLowerRight {
+  right: 1.5%;
+  top: 81.2%;
+}
+
+.marginUpperLeft {
+  left: 1.5%;
+  top: 17.6%;
+}
+
+.marginMiddleLeft {
+  left: 1.5%;
+  top: 53.2%;
+}
+
+.marginMiddleRight {
+  top: 53.2%;
+  right: 1.5%;
+}
+
+#textcontent-pb .letterSpacing {
+  letter-spacing: 1pt;
+}
+
+#textcontent-pb .underline {
+  text-decoration: underline;
+}
+
+#textcontent-pb .pencilOnTypescript,
+#textcontent-pb .undefined,
+#textcontent-pb .redOnProof,
+#textcontent-pb .pencilOnProof,
+#textcontent-pb .pencilOnProofKK,
+#textcontent-pb .inkOnProofKK {
   font-size: 8pt;
 }
 
-.inkOnProofKK {
-  // font-family: "century-old-style-std", sans-serif;
-  font-size: 8pt;
+#textcontent-pb .pencilOnTypescript,
+#textcontent-pb .pencilOnProof,
+#textcontent-pb .undefined {
+  color: #b7b7b7;
+}
+
+#textcontent-pb .pencilOnProofKK {
+  color: #5e5e5e;
+}
+
+#textcontent-pb .redOnProof {
+  color: #ff7171b5;
+}
+
+#textcontent-pb .inkOnProofKK {
+  color: #000;
+}
+
+#textcontent-pb .typewriter,
+#textcontent-pb .typewriter2 {
+  color: #303030;
 }
 
 #textcontent-pb .metamark  {
   position: absolute;
+  text-indent: 0 !important;
 }
 
-.topRight {
-  top: 0;
-  right: -2cm;
-}
-
-.marginRight {
-  right: -2cm;
-}
-
-.marginLeft {
-  left: -2cm;
-}
-
-.topLeft {
-  left: -2cm;
-  top: 1cm;
-}
-
-.marginLeftAbove {
-  left: -2cm;
-  top: -1cm;
-}
-
-.marginLeftBelow {
-  left: -2cm;
-  bottom: -1cm;
-}
-
-.marginMiddleRight {
-  top: 50%;
-  right: 0;
-}
-
-.marginLowerRight {
-  top: 80%;
-  right: 0;
-}
-
-.pencilRightAlign {
-  right: -2cm;
+#textcontent-pb .note {
+  position: absolute;
+  text-indent: 0 !important;
+  text-align: left;
+  text-align-last: left;
 }
 
 #textcontent-pb .add {
   font-size: 0.75em;
+  text-indent: 0 !important;
+}
+
+#textcontent-pb .add div {
+  width: 100%;
+  word-break: break-word;
+  white-space: normal;
+}
+
+#textcontent-pb .add.rendition {
+  position: relative !important;
+}
+
+
+// @rend
+
+.typescriptFloatRight {
+  float: right;
+}
+
+.overwritten,
+.x-edOut {
+  color: #ffb922b5;
+}
+
+.rotate270 {
+  transform: rotate(270deg);
+}
+
+.rotate315 {
+  transform: rotate(315deg);
+}
+
+.below {
+  margin-bottom: -10pt;
+}
+
+.above {
+  margin-top: -10pt;
+}
+
+.topRight {
+  top: 1.9%;
+  right: 1.9%;
+}
+
+.marginRightAbove {
+  margin-left: 20%;
+  margin-bottom: 10pt;
+}
+
+.marginRightBelow {
+  margin-left: 20%;
+  margin-bottom: -10pt;
+}
+
+.marginRight {
+  margin-left: 20%;
+}
+
+.marginLeft {
+  margin-left: 40%;
+}
+
+.marginLeftAbove {
+  margin-left: 10%;
+  margin-bottom: 10pt;
+}
+
+.marginLeftBelow {
+  margin-left: 40%;
+  margin-bottom: -10pt;
+}
+
+.inline {
+  display: inline;
+}
+
+.pencilRightAlign {
+  text-align: right;
+  text-align-last: right;
 }
 
 .no-indent {
@@ -748,21 +995,25 @@ details[open] > summary::after {
 }
 
 .pageNumRight {
-  right: 100px;
-  top: 50px;
+  left: 82.5%;
+  top: 4.5%;
 }
 
 .fw {
   position: absolute;
 
   .typescriptInsertNum {
-    font-size: 18pt;
-    line-height: 22pt;
+    font-size: 10pt;
+    line-height: 13pt;
     text-decoration: underline;
-    padding: 0 1cm 0 0.5cm;
+    margin: 0 1cm 0 0.5cm;
+  }
+
+  .typescriptPageNum {
+    font-size: 10pt;
+    line-height: 13pt;
   }
 }
-
 
 .metamark.typescriptFont {
   position: relative !important;
