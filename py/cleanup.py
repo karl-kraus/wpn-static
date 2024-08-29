@@ -123,9 +123,13 @@ def wrap_last_sentence(file):
                     if not EXCLUDE:
                         sibling.getparent().remove(sibling)
                         s.append(sibling)
+                    else:
+                        break
                 else:
                     sibling.getparent().remove(sibling)
                     s.append(sibling)
+            else:
+                break
         x.addnext(s)
     with open(file, 'w') as f:
         f.write(ET.tostring(doc, pretty_print=True).decode('utf-8'))
