@@ -500,24 +500,29 @@ details[open] > summary::after {
 /** detail view Dritter Publikationsschritt **/
 
 #textcontent-pb .runningText1,
-#textcontent-pb .typescriptRunningText1,
 #textcontent-pb .runningText2,
 #textcontent-pb .longQuote,
-#textcontent-pb .typescriptLongQuote,
-#textcontent-pb .inkLongQuote,
 #textcontent-pb .typescriptLongQuoteLeading,
 #textcontent-pb .longQuoteStart,
 #textcontent-pb .longQuoteEnd,
-#textcontent-pb .typescriptLongQuoteEnd,
 #textcontent-pb .longQuoteStartIndent,
 #textcontent-pb .longQuoteMarginStart,
 #textcontent-pb .longQulongQuoteMiddleIndentoteEnd,
 #textcontent-pb .longQuoteMarginMiddle,
 #textcontent-pb .longQuoteEndIndent,
 #textcontent-pb .longQuoteMarginEnd,
-#textcontent-pb .longQuoteIndent,
-#textcontent-pb .FackelQuote_columnRight {
+#textcontent-pb .longQuoteIndent {
+  text-align: justify;
   text-align-last: justify;
+}
+
+#textcontent-pb .typescriptRunningText1,
+#textcontent-pb .typescriptLongQuote,
+#textcontent-pb .inkLongQuote,
+#textcontent-pb .typescriptLongQuoteEnd,
+#textcontent-pb .FackelQuote_columnRight {
+  text-align: left;
+  text-align-last: left;
 }
 
 #textcontent-pb .longQuoteVerse,
@@ -527,6 +532,7 @@ details[open] > summary::after {
 #textcontent-pb .longQuoteVerseStart,
 #textcontent-pb .longQuoteVerseStart {
   text-align-last: left;
+  text-align: left;
   text-indent: 30px;
 }
 
