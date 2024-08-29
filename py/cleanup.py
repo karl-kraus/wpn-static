@@ -108,11 +108,11 @@ def wrap_last_sentence(file):
         x.tail = None
         for sibling in following_sibling:
             if sibling.tag != "{http://www.tei-c.org/ns/1.0}seg":
-                #if sibling.tag != "{http://www.tei-c.org/ns/1.0}quote":
-                if sibling.tag != "{http://www.tei-c.org/ns/1.0}note":
-                    if sibling.tag != "{http://www.tei-c.org/ns/1.0}p": 
-                        sibling.getparent().remove(sibling)
-                        s.append(sibling)
+                if sibling.tag != "{http://www.tei-c.org/ns/1.0}quote":
+                    if sibling.tag != "{http://www.tei-c.org/ns/1.0}note":
+                        if sibling.tag != "{http://www.tei-c.org/ns/1.0}p": 
+                            sibling.getparent().remove(sibling)
+                            s.append(sibling)
         x.addnext(s)
     with open(file, 'w') as f:
         f.write(ET.tostring(doc, pretty_print=True).decode('utf-8'))

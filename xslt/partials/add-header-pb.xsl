@@ -47,4 +47,12 @@
             <xsl:apply-templates/>
         </xsl:copy>
     </xsl:template>
+    <xsl:template match="tei:add">
+        <xsl:copy>
+            <xsl:attribute name="xml:id">
+                <xsl:value-of select="concat(replace(tokenize(base-uri(), '/')[last()], '.xml', ''), '-add-', generate-id())"/>
+            </xsl:attribute>
+            <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
 </xsl:stylesheet>
