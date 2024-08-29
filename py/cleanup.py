@@ -95,6 +95,13 @@ def verify_last_lb(file):
     doc.tree_to_file(file)
 
 
+EXCLUDE_TAGS = [
+    "{http://www.tei-c.org/ns/1.0}lg",
+    "{http://www.tei-c.org/ns/1.0}note",
+    "{http://www.tei-c.org/ns/1.0}p"
+]
+
+
 def wrap_last_sentence(file):
     # with open(file) as text_fp:
     #     text = text_fp.read()
@@ -107,12 +114,18 @@ def wrap_last_sentence(file):
         s.text = x.tail
         x.tail = None
         for sibling in following_sibling:
-            if sibling.tag != "{http://www.tei-c.org/ns/1.0}seg":
-                if sibling.tag != "{http://www.tei-c.org/ns/1.0}quote":
-                    if sibling.tag != "{http://www.tei-c.org/ns/1.0}note":
-                        if sibling.tag != "{http://www.tei-c.org/ns/1.0}p": 
-                            sibling.getparent().remove(sibling)
-                            s.append(sibling)
+            if sibling.tag not in EXCLUDE_TAGS:
+                if sibling.tag == "{http://www.tei-c.org/ns/1.0}quote":
+                    EXCLUDE = False
+                    for child in sibling.iterchildren():
+                        if child.tag in EXCLUDE_TAGS:
+                            EXCLUDE = True
+                    if not EXCLUDE:
+                        sibling.getparent().remove(sibling)
+                        s.append(sibling)
+                else:
+                    sibling.getparent().remove(sibling)
+                    s.append(sibling)
         x.addnext(s)
     with open(file, 'w') as f:
         f.write(ET.tostring(doc, pretty_print=True).decode('utf-8'))
