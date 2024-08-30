@@ -1,6 +1,6 @@
 import { LoadEditor } from "de-micro-editor";
 
-new LoadEditor({
+const le = new LoadEditor({
   aot: {
     title: "Text Annotations",
     variants: [
@@ -25,7 +25,7 @@ new LoadEditor({
         color: "annot_person",
         title: "Personen",
         html_class: "persons",
-        css_class: "prs",
+        css_class: ["prs", "pe-auto"],
         chg_citation: "citation-url",
         hide: {
           hidden: false,
@@ -71,3 +71,5 @@ new LoadEditor({
 },
 up: true
 })
+/** set aot slider status on page load **/
+le.upc.textFeatures()
