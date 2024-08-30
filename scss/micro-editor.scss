@@ -76,6 +76,10 @@ input:checked+.i-slider:before {
  
 }
 
+.annot_quote.d-block {
+  background: unset;
+}
+
 .annot_person {
   background: rgba($wpn-person, $entity-highlighted-background-opacity);
   border-radius: $entity-highlighted-border-radius;
