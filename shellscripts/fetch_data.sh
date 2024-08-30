@@ -13,7 +13,7 @@ gitlab_api_base_url='https://gitlab.oeaw.ac.at/api/v4/projects/'
 gitlab_api_request='/repository/archive?'
 output_archive='./walpurgisnacht-ende-2020.tar.gz'
 custom_output_dir='./data'
-sha_commit='543cf4d3adda5bcde2fc68d167416361d77de0dd'
+sha_commit='78767ee72d9443f1690b9257d921bb86740d08f6'
 
 
 # download and unzip
