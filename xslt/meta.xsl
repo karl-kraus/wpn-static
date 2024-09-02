@@ -45,7 +45,7 @@
     </xsl:template>
 
     <xsl:template match="tei:head">
-        <h2><xsl:apply-templates/></h2>
+        <h2 class="{if (@rend='larger_heading') then 'fs-meta-heading-1' else 'fs-meta-heading-2'}"><xsl:apply-templates/></h2>
     </xsl:template>
     <xsl:template match="tei:p">
         <p id="{generate-id()}" class="my-1 {if (@rend='indent') then 'ms-2_5' else ()}"><xsl:apply-templates/></p>
