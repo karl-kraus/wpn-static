@@ -29,7 +29,12 @@
             <xsl:call-template name="nav_bar"/>
                 <main class="text-black-grey lh-1625 ls-1 mt-18">
                     <div class="container pt-1">                        
-                        <h1><xsl:value-of select="$doc_title"/></h1>    
+                        <h1><xsl:value-of select="$doc_title"/></h1>
+                        <xsl:if test="tokenize(base-uri(),'/')[last()] = 'annotierte_lesefassung.xml'">
+                            <section class="my-5_5">
+                                <a role="button" class="btn btn-outline-black-grey" href="motti.html">Zum Text</a>
+                            </section>
+                        </xsl:if>
                         <xsl:apply-templates select=".//tei:body"></xsl:apply-templates>
                     </div>
                 </main>
