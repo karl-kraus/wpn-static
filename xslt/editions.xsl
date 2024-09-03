@@ -56,7 +56,7 @@
                     <div class="container-fluid px-0">
                         <wpn-text-view annotation-selectors=".entity" id="sub_grid">
                            <div class="d-flex justify-content-center mt-2">
-                                <div class="p-0 d-flex flex-column align-items-center position-fixed">
+                                <div id="controls" class="p-0 d-flex flex-column align-items-center position-fixed">
                                     <xsl:call-template name="pagination">
                                         <xsl:with-param name="current-page" select="if (matches($id,'[0-9]+')) then $id else data(tei:TEI/tei:p/@n)"/>
                                         <xsl:with-param name="prev-page" select="$prev"/>
