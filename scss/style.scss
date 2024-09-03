@@ -224,6 +224,10 @@ html[data-page="notes"] .container {
   pointer-events: none;
 }
 
+#edition-view wpn-entity[class*='annot_'] {
+  pointer-events: auto;
+}
+
 #controls {
   width:10.625rem;
 }

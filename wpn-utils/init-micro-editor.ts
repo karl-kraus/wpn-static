@@ -9,7 +9,7 @@ const le = new LoadEditor({
         color: "annot_quote",
         title: "Intertexte",
         html_class: "quotes",
-        css_class: ["quts", "pe-auto"],
+        css_class: "quts",
         chg_citation: "citation-url",
         hide: {
           hidden: false,
@@ -25,7 +25,7 @@ const le = new LoadEditor({
         color: "annot_person",
         title: "Personen",
         html_class: "persons",
-        css_class: ["prs", "pe-auto"],
+        css_class: "prs",
         chg_citation: "citation-url",
         hide: {
           hidden: false,
@@ -33,7 +33,7 @@ const le = new LoadEditor({
         },
         features: {
           all: false,
-          class: "features-1",
+          class: "features-2",
         },
       },
       {
@@ -48,7 +48,7 @@ const le = new LoadEditor({
         },
         features: {
           all: false,
-          class: "features-1",
+          class: "features-3",
         },
       },
       {
@@ -64,7 +64,7 @@ const le = new LoadEditor({
         },
         features: {
           all: false,
-          class: "features-1",
+          class: "features-4",
         },
       }
     ],
