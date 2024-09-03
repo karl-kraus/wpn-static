@@ -127,7 +127,7 @@
         </span>
     </xsl:template>
     <xsl:template match="tei:quote">
-    <xsl:variable name="break" select="if (descendant::*[1]/local-name()='p' or descendant::*[1]/local-name()='lg') then 'd-block' else()"/>
+    <xsl:variable name="break" select="if (descendant::node()[1]/local-name()='p' or descendant::node()[1]/local-name()='lg') then 'd-block' else()"/>
         <wpn-entity class="quotes entity {substring-after(@rendition, '#')}{$break}" id="{@xml:id}">
             <xsl:apply-templates/>
         </wpn-entity>
