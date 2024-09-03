@@ -149,7 +149,7 @@
         <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:del[not(ancestor::tei:restore)][not(ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]])]"/>
-    <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letterSpacing']">
+    <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style=('letterSpacing','underline')]">
         <span class="spacing"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:mod[@rendition='#rightAlignSmall']">
