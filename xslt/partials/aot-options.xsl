@@ -31,7 +31,7 @@
                     <li class="dropdown-item">
                         <font-family opt="ff"></font-family>
                     </li>-->
-                    <li class="dropdown-item">
+                   <!--<li class="dropdown-item">
                         <annotation-slider opt="prs" class="text-wpn-person fs-7"></annotation-slider>
                     </li>
                     <li class="dropdown-item">
@@ -42,7 +42,7 @@
                     </li>
                     <li class="dropdown-item">
                         <annotation-slider opt="cmts" class="text-comment fs-7"></annotation-slider>
-                    </li>
+                    </li>-->
                 </ul>                                                    
             </div>
             <div class="d-none d-md-block mt-2">
