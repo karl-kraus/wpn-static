@@ -12,7 +12,7 @@
             <xsl:map-entry key="'kommentar.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'notizen.xml'" select="('wpn-header','init-mirador')"/>
             <xsl:for-each select="collection('../../data/editions?select=absatz*.xml|motti*.xml')">
-                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','init-micro-editor','wpn-text-view','wpn-entity','wpn-text-zoom-button')"/>
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','init-micro-editor','wpn-text-view','wpn-entity','wpn-text-zoom-button','wpn-pagination')"/>
             </xsl:for-each>
             <xsl:map-entry key="'biblindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>
             <xsl:map-entry key="'personindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>

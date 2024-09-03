@@ -6,8 +6,10 @@
   <xsl:param name="current-page"/>
   <xsl:param name="prev-page"/>
   <xsl:param name="next-page"/>
+  <wpn-pagination>
+  <a id="citation-url" class="d-none"/>
   <div class="dropdown ff-ubuntu">
-    <a href="{$prev-page}" title="zu seite {$prev-page} gehen">
+    <a href="{$prev-page}" class="page_link" title="zu seite {$prev-page} gehen">
       <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
     </a>
     <button class="btn btn-secondary dropdown-toggle fs-9_38 border-0 px-05" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -15,12 +17,13 @@
     </button>
     <ul class="dropdown-menu z-3 rounded-0">
     <xsl:for-each select="doc('../../data/editions/Gesamt.xml')//(tei:p[@n]|tei:mod[@n])">
-      <li><a class="dropdown-item fs-9_38 py-0" href="{wpn:parse-page-name(current()/@n,'')||'.html'}"><xsl:value-of select="wpn:parse-page-name(current()/@n,'label')"/></a></li>
+      <li><a class="dropdown-item fs-9_38 py-0 page_link" href="{wpn:parse-page-name(current()/@n,'')||'.html'}"><xsl:value-of select="wpn:parse-page-name(current()/@n,'label')"/></a></li>
     </xsl:for-each>
     </ul>
-    <a href="{$next-page}" title="zu seite {$next-page} gehen">
+    <a href="{$next-page}" class="page_link" title="zu seite {$next-page} gehen">
       <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
     </a>
   </div>
+  </wpn-pagination>
 </xsl:template>
 </xsl:stylesheet>
