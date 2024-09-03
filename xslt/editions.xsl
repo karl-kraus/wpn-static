@@ -227,7 +227,7 @@
     <xsl:template match="tei:lb[@type='req']">
         <br/>
     </xsl:template>
-    <xsl:template match="tei:lb[not(@*)]"><xsl:text> </xsl:text></xsl:template>
+    <xsl:template match="tei:lb[not(@break)][not(@type)]"><xsl:text> </xsl:text></xsl:template>
      <xsl:template match="text()">
     <xsl:value-of 
      select="translate(.,'&#xA;&#x9;','')"/>
