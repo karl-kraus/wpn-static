@@ -12,12 +12,13 @@
             <xsl:map-entry key="'kommentar.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'notizen.xml'" select="('wpn-header','init-mirador')"/>
             <xsl:for-each select="collection('../../data/editions?select=absatz*.xml|motti*.xml')">
-                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','init-micro-editor','wpn-text-view','wpn-entity','wpn-text-zoom-button','wpn-pagination')"/>
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','init-micro-editor','wpn-text-view','wpn-entity','wpn-text-zoom-button','wpn-pagination','init-mark')"/>
             </xsl:for-each>
             <xsl:map-entry key="'biblindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>
             <xsl:map-entry key="'personindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>
             <xsl:map-entry key="'commentindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>
             <xsl:map-entry key="'eventindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry','wpn-timeline')"/>
+            <xsl:map-entry key="'suche.xml'" select="('wpn-header','wpn-detail-view','init-typesense')"/>
             <xsl:for-each select="collection('../../data/editions?select=idPb*.xml')">
                 <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','init-micro-editor','wpn-page-view','wpn-entity','wpn-text-zoom-button', 'init-openseadragon', 'wpn-hf-height')"/>
             </xsl:for-each>
@@ -28,7 +29,7 @@
             <xsl:variable name="script_src" select="json-doc('../../manifest.json')?*[matches(?file,current())]?file"/>
             <script src="{'js/wpn_utils/'||$script_src}">
                 <xsl:choose>
-                    <xsl:when test="contains($script_src,'init-micro-editor') or contains($script_src,'init-openseadragon') or contains($script_src,'wpn-timeline')">
+                    <xsl:when test="contains($script_src,'init-micro-editor') or contains($script_src,'init-openseadragon') or contains($script_src,'wpn-timeline') or contains($script_src, 'init-typesense')">
                         <xsl:attribute name="type">module</xsl:attribute>
                     </xsl:when>
                     <xsl:otherwise>
