@@ -23,6 +23,10 @@ jobs:
     env:
       GITLAB_SOURCE_TOKEN: ${{ secrets.GITLAB_SOURCE_TOKEN }}
       ANT_OPTS: -Xmx5g
+      TYPESENSE_HOST: typesense.acdh-dev.oeaw.ac.at
+      TYPESENSE_PORT: 443
+      TYPESENSE_PROTOCOL: https
+      TYPESENSE_API_KEY: ${{secrets.TYPESENSE_API_KEY}}
     steps:
     - name: Perform Checkout
       uses: actions/checkout@v4
@@ -60,3 +64,6 @@ jobs:
     - name: Deploy
       id: deployment
       uses: actions/deploy-pages@v4
+    - name: Build Typesense Index
+      run: |
+        python ./pyscripts/make_ts_index.py
