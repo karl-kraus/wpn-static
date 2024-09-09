@@ -56,7 +56,6 @@ search.addWidgets([
 			empty: "No results for <q>{{ query }}</q>",
 			item(hit, { html, components }) {
 				const snippets = snippetsFromHighlightedContent(hit.id, hit._highlightResult.full_text.value);
-				console.log(snippets);
 
 				return `
               <p><a class="link-black-grey text-decoration-none" href="${hit.id}">${hit.title}</a></p>
@@ -102,6 +101,7 @@ search.addWidgets([
 
 const snippetsFromHighlightedContent = (hitid, highlightedContent) => {
 	const snippetArray = getHighlightedParts(highlightedContent);
+	let hitNo = 1;
 	return snippetArray
 		.map((elm, idx) => {
 			if (elm.isHighlighted) {
@@ -112,12 +112,13 @@ const snippetsFromHighlightedContent = (hitid, highlightedContent) => {
 					.slice(1)
 					.slice(-10)
 					.join("");
-				snippet += `<a href="${hitid}?mark=${elm.value}" class="link-primary text-decoration-none ff-ubuntu">${elm.value}</a>`;
+				snippet += `<a href="${hitid}?mark=${elm.value}&occurence=${String(hitNo)}" class="link-primary text-decoration-none ff-ubuntu">${elm.value}</a>`;
 				snippet += Array.from(segmenter.segment(snippetArray[idx + 1]?.value))
 					.map((seg) => seg.segment)
 					.slice(0, 10)
 					.join("");
 				snippet += "&#x2026;</p>";
+				hitNo++;
 				return snippet;
 			}
 		})
