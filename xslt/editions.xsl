@@ -90,6 +90,7 @@
                 <xsl:call-template name="html_footer">
                     <xsl:with-param name="include_scroll_script" select="false()"/>
                 </xsl:call-template>
+                <script type="text/javascript" src="js/vendor/markjs/mark.min.js"></script>
                 <xsl:call-template name="scripts"/>
                 
             </body>
