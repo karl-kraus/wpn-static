@@ -10,6 +10,7 @@
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="partials/html_footer.xsl"/>
+     <xsl:import href="./partials/scripts.xsl"/>
     <xsl:template match="/">
         <xsl:variable name="doc_title" select="'Volltextsuche'"/>
         <html  class="h-100">
@@ -18,16 +19,25 @@
                     <xsl:with-param name="html_title" select="$doc_title"></xsl:with-param>
                 </xsl:call-template>
             </head>
-            
             <body class="d-flex flex-column h-100">
                 <xsl:call-template name="nav_bar"/>
-                    <div class="container">
-                        <h1>
-                            <xsl:value-of select="$doc_title"/>
-                        </h1>
-                                            
-                    </div>
+                    <main>
+                        <div class="container">
+                            <h1>
+                                <xsl:value-of select="$doc_title"/>
+                            </h1>
+                            <div id="searchbox" class="my-2 mx-auto"></div>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <div id="pagination" class="align-self-center"></div>
+                                <div class="text-center align-self-center" id="stats-container"></div>
+                            </div>
+                            <div id="hits"></div>
+                        </div>
+                    </main>
                     <xsl:call-template name="html_footer"/>
+                    <script src="js/vendor/typesense/typesense-instantsearch-adapter.min.js" type="text/javascript"></script>
+                    <script src="js/vendor/instantsearch/instantsearch.production.min.js" type="text/javascript"></script>
+                    <xsl:call-template name="scripts"/>
             </body>
         </html>
     </xsl:template>
