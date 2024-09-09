@@ -3,21 +3,22 @@ import os
 
 from typesense.api_call import ObjectNotFound
 from acdh_cfts_pyutils import TYPESENSE_CLIENT as client
-from acdh_cfts_pyutils import CFTS_COLLECTION
 from acdh_tei_pyutils.tei import TeiReader
 from tqdm import tqdm
 
 
-files = glob.glob("./data/editions/*/*.xml")
+schema_name = "walpurgisnacht"
+
+files = glob.glob("./data/merged/*.html")
 
 
 try:
-    client.collections["WPN Static-Site"].delete()
+    client.collections[schema_name].delete()
 except ObjectNotFound:
     pass
 
 current_schema = {
-    "name": "WPN Static-Site",
+    "name": schema_name,
     "fields": [
         {"name": "id", "type": "string"},
         {"name": "rec_id", "type": "string"},
@@ -30,9 +31,10 @@ current_schema = {
             "facet": True,
         },
         {"name": "persons", "type": "string[]", "facet": True, "optional": True},
-        {"name": "places", "type": "string[]", "facet": True, "optional": True},
-        {"name": "orgs", "type": "string[]", "facet": True, "optional": True},
+        {"name": "quotes", "type": "string[]", "facet": True, "optional": True},
+        {'name': 'order', 'type': 'int32', 'facet': False},
     ],
+    "default_sorting_field": "order"
 }
 
 client.collections.create(current_schema)
@@ -40,10 +42,11 @@ client.collections.create(current_schema)
 
 def get_entities(ent_type, ent_node, ent_name):
     entities = []
-    e_path = f'.//tei:rs[@type="{ent_type}"]/@ref'
+    e_path = f'.//span[contains(@class,"{ent_type}")]/@id'
     for p in body:
-        ent = p.xpath(e_path, namespaces={"tei": "http://www.tei-c.org/ns/1.0"})
-        ref = [ref.replace("#", "") for e in ent if len(ent) > 0 for ref in e.split()]
+        ent = p.xpath(e_path)
+        ref = [ref.replace("#", "")
+               for e in ent if len(ent) > 0 for ref in e.split()]
         for r in ref:
             p_path = f'.//tei:{ent_node}[@xml:id="{r}"]//tei:{ent_name}[1]'
             en = doc.any_xpath(p_path)
@@ -60,89 +63,47 @@ def get_entities(ent_type, ent_node, ent_name):
 records = []
 cfts_records = []
 for x in tqdm(files, total=len(files)):
-    doc = TeiReader(xml=x, xsl="./xslt/preprocess_typesense.xsl")
-    facs = doc.any_xpath(".//tei:body/tei:div/tei:pb/@facs")
+    doc = TeiReader(x)
     pages = 0
-    for v in facs:
-        p_group = f".//tei:body/tei:div/tei:p[preceding-sibling::tei:pb[1]/@facs='{v}']|.//tei:body/tei:div/tei:lg[preceding-sibling::tei:pb[1]/@facs='{v}']"
-        body = doc.any_xpath(p_group)
-        pages += 1
-        cfts_record = {
-            "project": "WPN Static-Site",
-        }
-        record = {}
-        record["id"] = os.path.split(x)[-1].replace(".xml", f".html?tab={str(pages)}")
-        cfts_record["id"] = record["id"]
-        cfts_record["resolver"] = f"https://github.com/karl-kraus/dritte-walpurgisnacht-static/{record['id']}"
-        record["rec_id"] = os.path.split(x)[-1]
-        cfts_record["rec_id"] = record["rec_id"]
-        r_title = " ".join(
-            " ".join(
-                doc.any_xpath('.//tei:titleStmt/tei:title[@level="a"]/text()')
-            ).split()
-        )
-        record["title"] = f"{r_title} Page {str(pages)}"
-        cfts_record["title"] = record["title"]
-        try:
-            date_str = doc.any_xpath("//tei:origin/tei:origDate/@notBefore")[0]
-        except IndexError:
-            date_str = doc.any_xpath("//tei:origin/tei:origDate/text()")[0]
-            data_str = date_str.split("--")[0]
-            if len(date_str) > 3:
-                date_str = date_str
-            else:
-                date_str = "1959"
-
-        try:
-            record["year"] = int(date_str[:4])
-            cfts_record["year"] = int(date_str[:4])
-        except ValueError:
-            pass
-
-        if len(body) > 0:
-            # get unique persons per page
-            ent_type = "person"
-            ent_name = "persName"
-            record["persons"] = get_entities(
-                ent_type=ent_type, ent_node=ent_type, ent_name=ent_name
-            )
-            cfts_record["persons"] = record["persons"]
-            # get unique places per page
-            ent_type = "place"
-            ent_name = "placeName"
-            record["places"] = get_entities(
-                ent_type=ent_type, ent_node=ent_type, ent_name=ent_name
-            )
-            cfts_record["places"] = record["places"]
-            # get unique orgs per page
-            ent_type = "org"
-            ent_name = "orgName"
-            record["orgs"] = get_entities(
-                ent_type=ent_type, ent_node=ent_type, ent_name=ent_name
-            )
-            cfts_record["orgs"] = record["orgs"]
-            # get unique bibls per page
-            ent_type = "lit_work"
-            ent_name = "title"
-            ent_node = "bibl"
-            record["works"] = get_entities(
-                ent_type=ent_type, ent_node=ent_node, ent_name=ent_name
-            )
-            cfts_record["works"] = record["works"]
-            record["full_text"] = "\n".join(
-                " ".join("".join(p.itertext()).split()) for p in body
-            )
-            if len(record["full_text"]) > 0:
-                records.append(record)
-                cfts_record["full_text"] = record["full_text"]
-                cfts_records.append(cfts_record)
+    pages += 1
+    body = doc.any_xpath(".//body")
+    cfts_record = {
+        "project": "WPN Static-Site",
+    }
+    record = {}
+    record["id"] = os.path.split(x)[-1]
+    cfts_record["id"] = record["id"]
+    cfts_record["resolver"] = {record['id']}
+    record["rec_id"] = os.path.split(x)[-1]
+    cfts_record["rec_id"] = record["rec_id"]
+    r_title = " ".join(
+        " ".join(
+            doc.any_xpath('.//@data-label')
+        ).split()
+    )
+    print(r_title)
+    record["title"] = f"{r_title}"
+    cfts_record["title"] = record["title"]
+    # get unique persons per page
+    '''ent_type = "persons"
+    ent_name = "persName"
+    ent_node = "span"
+    record["persons"] = get_entities(
+        ent_type=ent_type, ent_node=ent_node, ent_name=ent_name
+    )'''
+    record["order"] = 0 if "motti" in r_title else int(
+        r_title.replace('Absatz ', ''))
+    # cfts_record["persons"] = record["persons"]
+    record["full_text"] = "\n".join(
+        " ".join("".join(p.itertext()).split()) for p in body
+    )
+    if len(record["full_text"]) > 0:
+        records.append(record)
+        cfts_record["full_text"] = record["full_text"]
+        cfts_records.append(cfts_record)
 
 make_index = client.collections[
-    "WPN Static-Site"
-].documents.import_(records)
+    schema_name
+].documents.import_(records, {"action": "upsert"})
 print(make_index)
-print("done with indexing WPN Static-Site")
-
-make_index = CFTS_COLLECTION.documents.import_(cfts_records, {"action": "upsert"})
-print(make_index)
-print("done with cfts-index WPN Static-Site")
+print(f"done with indexing {schema_name}")
