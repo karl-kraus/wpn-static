@@ -83,7 +83,8 @@
         </xslt>
     </target>
     <target name="build-search-page">
-        <xslt in="${index}" out="${target}/search.html" style="./xslt/search.xsl">
+        <delete file="${target}/suche.html"/>
+        <xslt in="./data/meta/suche.xml" out="${target}/suche.html" style="./xslt/search.xsl">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
@@ -137,6 +138,9 @@
         <copy file="node_modules/anychart/dist/js/anychart-core.min.js" todir="${target_js_vendor}/anychart/"/>
         <copy file="node_modules/anychart/dist/js/anychart-timeline.min.js" todir="${target_js_vendor}/anychart/"/>
         <copy file="node_modules/anychart/dist/js/anychart-timeline.min.js" todir="${target_js_vendor}/anychart/"/>
+        <copy file="node_modules/typesense-instantsearch-adapter/dist/typesense-instantsearch-adapter.min.js" todir="${target_js_vendor}/typesense/"/>
+        <copy file="node_modules/instantsearch.js/dist/instantsearch.production.min.js" todir="${target_js_vendor}/instantsearch/"/>
+        <copy file="node_modules/mark.js/dist/mark.min.js" todir="${target_js_vendor}/markjs/"/>
         <!--<copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-wght-normal.woff2" todir="${target_fonts}"/>
         <copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-ext-wght-normal.woff2" todir="${target_fonts}"/>-->
     </target>
