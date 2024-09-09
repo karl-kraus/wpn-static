@@ -19,14 +19,10 @@
         <meta name="msapplication-TileImage" content="{$project_logo}" />
         <link rel="stylesheet" href="https://use.typekit.net/ckc0oka.css"/>
     <!-- favicon -->
-        <!-- <link rel="None" type="image/ico" href="images/favicons/favicon.ico" />
-        <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" />
-        <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" />
-        <link rel="icon" type="image/png" href="images/favicons/favicon-64x64.png" />
-        <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" />
-        <link rel="icon" type="image/png" href="images/favicons/favicon-180x180.png" />
-        <link rel="apple-touch-icon" type="image/png" href="images/favicons/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon" type="image/png" href="images/favicons/apple-touch-icon-60x60.png" />
+        <link rel="icon" href="images/favicons/favicon.ico" sizes="32x32"/>
+        <link rel="icon" href="images/favicons/icon.svg" type="image/svg+xml"/>
+        <link rel="apple-touch-icon" type="image/png" href="images/favicons/apple-touch-icon.png" />
+        <!-- <link rel="apple-touch-icon" type="image/png" href="images/favicons/apple-touch-icon-60x60.png" />
         <link rel="apple-touch-icon" type="image/png" href="images/favicons/apple-touch-icon-72x72.png" />
         <link rel="apple-touch-icon" type="image/png" href="images/favicons/apple-touch-icon-76x76.png" />
         <link rel="apple-touch-icon" type="image/png" href="images/favicons/apple-touch-icon-114x114.png" />
@@ -41,7 +37,6 @@
         <link rel="None" type="image/png" href="images/favicons/mstile-310x150.png" />
         <link rel="shortcut icon" type="image/png" href="images/favicons/favicon-196x196.png" /> -->
     <!-- favicon end -->
-        <link rel="icon" type="image/svg+xml" href="{$project_logo}" sizes="any" />
         <link rel="profile" href="http://gmpg.org/xfn/11"></link>
         <title><xsl:value-of select="$html_title"/></title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"></link>        
