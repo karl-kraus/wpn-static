@@ -40,6 +40,11 @@
 @import "../node_modules/bootstrap/scss/bootstrap-grid";
 
 
+:root {
+  --bs-highlight-bg: white;
+  --bs-highlight-color: var(--bs-primary);
+  
+}
 
 
 /*** fonts ***/
