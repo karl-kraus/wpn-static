@@ -17,8 +17,11 @@
     "bootstrap": "5.3.3",
     "de-micro-editor": "^0.4.2",
     "glob": "^11.0.0",
+    "instantsearch.js": "^4.74.0",
+    "mark.js": "^8.11.1",
     "mirador": "3.3.0",
-    "openseadragon": "^5.0.0"
+    "openseadragon": "^5.0.0",
+    "typesense-instantsearch-adapter": "^2.8.0"
   },
   "devDependencies": {
     "@acdh-oeaw/eslint-config": "^1.0.9",
