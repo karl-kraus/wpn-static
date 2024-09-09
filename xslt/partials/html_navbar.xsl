@@ -6,6 +6,7 @@
     <xsl:import href="nav-link.xsl"/>
     <xsl:template match="/" name="nav_bar">
         <xsl:param name="logo_small" as="xs:boolean" select="true()"/>
+        <xsl:param name="include_searchbox" as="xs:boolean" select="false()"/>
         <xsl:param name="container" select="'container'"/>
         <wpn-header class="fixed-top bg-white pe-0">
             <nav id="primary_nav" class="navbar border-bottom {if ($logo_small = true()) then 'pt-05' else ()}">
@@ -41,7 +42,12 @@
                             </g>
                         </svg>
                     </a>
-                    <span class="d-flex align-items-center">
+                    <span class="d-flex align-items-center gap-2">
+                        <xsl:if test="$include_searchbox">
+                            <form method="get" action="suche.html?walpurgisnacht%5Bquery%5D" role="search">
+                                <input type="text" name="walpurgisnacht[query]" class="rounded-0 form-control border-top-0 border-start-0 border-end-0 border-bottom"></input>
+                            </form>
+                        </xsl:if>
                         <a class="nav-link project-link pe-4 link-dark-grey link-hover-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a>
                         <button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <!--<span class="navbar-toggler-icon"></span>-->
