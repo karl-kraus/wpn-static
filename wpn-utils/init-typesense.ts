@@ -5,12 +5,12 @@ const project_collection_name = "walpurgisnacht";
 const typesenseInstantsearchAdapter: TypesenseInstantSearchAdapter =
 	new TypesenseInstantSearchAdapter({
 		server: {
-			apiKey: "xyz", // Be sure to use an API key that only allows searches, in production
+			apiKey: "TFtQIIj2VbL8TOZNWfofQLToZnS65VmI", // Be sure to use an API key that only allows searches, in production
 			nodes: [
 				{
-					host: "localhost",
-					port: 8108,
-					protocol: "http",
+					host: "typesense.acdh-dev.oeaw.ac.at",
+					port: 443,
+					protocol: "https",
 				},
 			],
 		},
