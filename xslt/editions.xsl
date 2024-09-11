@@ -137,10 +137,14 @@
     <xsl:template match="tei:quote">
     <xsl:variable name="break" select="if (descendant::node()[1]/local-name()='p' or descendant::node()[1]/local-name()='lg') then 'd-block' else()"/>
         <wpn-entity class="quotes entity {substring-after(@rendition, '#')}{$break}" id="{@xml:id}">
+        <xsl:if test="@prev">
+            <xsl:attribute name="data-prev" select="replace(@prev,'#','')"/>
+        </xsl:if>
             <xsl:apply-templates/>
         </wpn-entity>
     </xsl:template>
-    <xsl:template match="tei:rs[@type=('person','personGroup')]">
+    <xsl:template match="tei:rs[@type=('person','personGroup')][@prev]"/>
+    <xsl:template match="tei:rs[@type=('person','personGroup')][not(@prev)]">
         <wpn-entity class="persons entity {substring-after(@rendition, '#')}" id="{@xml:id}">
             <xsl:apply-templates/>
         </wpn-entity>
