@@ -4,7 +4,12 @@ class WPNEntity extends HTMLElement {
 
   clickHandler = () =>{ 
     const targetId = this.hasAttribute("data-prev") ? this.getAttribute("data-prev") : this.getAttribute("id");
-    document.querySelector(`div[data-xmlid=${targetId ?? ''}]`)?.classList.toggle("d-none");
+    const annotationClassName = Array.from(this.classList).find(className => className.startsWith("annot_"));
+    if (annotationClassName) {
+      if (document.querySelector(`annotation-slider .${annotationClassName}`)) {
+        document.querySelector(`div[data-xmlid=${targetId ?? ''}]`)?.classList.toggle("d-none");
+      }
+    }
     this.notifyTextView();
     
   }
