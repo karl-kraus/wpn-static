@@ -98,6 +98,20 @@ input:checked+.i-slider:before {
   border-radius: $entity-highlighted-border-radius;
 }
 
+.annot_fackel {
+  background-color: rgba($wpn-fackel,0.2);
+}
+
+.annot_fackel:not(.app):not(.d-block) {
+  padding: 1.49px 0;
+}
+
+.annot_fackel:not(.app):not(.d-block) .lg {
+  background-color: rgba($wpn-fackel,0.2);
+}
+
+
+
 span.annot_comment::after  {
   content: url("../images/icon-signet-comment-intext.svg");
     position: absolute;
@@ -119,6 +133,11 @@ annotation-slider[opt='prs'] .i-slider::before {
 annotation-slider[opt='quts'] .i-slider,
 annotation-slider[opt='quts'] .i-slider::before {
   background: $wpn-quote;
+}
+
+annotation-slider[opt='fkl'] .i-slider,
+annotation-slider[opt='fkl'] .i-slider::before {
+  background-color: $wpn-fackel;
 }
 
 annotation-slider[opt='pbs'] .i-slider,
