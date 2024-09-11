@@ -3,7 +3,8 @@ import type WPNTextView from "./wpn-text-view";
 class WPNEntity extends HTMLElement {
 
   clickHandler = () =>{ 
-    document.querySelector(`div[data-xmlid=${this.getAttribute("id") ?? ''}]`)?.classList.toggle("d-none");
+    const targetId = this.hasAttribute("data-prev") ? this.getAttribute("data-prev") : this.getAttribute("id");
+    document.querySelector(`div[data-xmlid=${targetId ?? ''}]`)?.classList.toggle("d-none");
     this.notifyTextView();
     
   }
