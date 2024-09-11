@@ -35,14 +35,13 @@ class WPNTextView extends HTMLElement {
 		this.positionElements(annotationSelectors);
 		[...document.getElementsByTagName("annotation-slider")].forEach((aos) => {
 			aos.addEventListener("click", () => {
-				this.positionElements(".entity");
 				const btnsToDisableAttr = aos.getAttribute("data-disable-btns");
+				const aosInput = aos.querySelector("input");
 				if (btnsToDisableAttr) {
 					const btnsToDisable = btnsToDisableAttr.split(",");
 					btnsToDisable.forEach((btnOpt) => {
 						const btn = document.querySelector(`[opt='${btnOpt}']`);
 						if (btn) {
-							const aosInput = aos.querySelector("input");
 							const btnInput = btn.querySelector("input");
 							if (aosInput?.checked && btnInput?.checked) {
 								btnInput.click();
@@ -50,6 +49,12 @@ class WPNTextView extends HTMLElement {
 						}
 					});
 				}
+				if (!aosInput?.checked) {
+					document.querySelectorAll(`[data-entity-type=${aos.getAttribute("opt")}]`).forEach((el)=>{
+						el.classList.add('d-none');
+					})
+				}
+				this.positionElements(".entity");
 			});
 		});
 
