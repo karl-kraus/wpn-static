@@ -12,13 +12,11 @@ class WPNTextView extends HTMLElement {
 	};
 
 	positionElements(annotationSelectors: string) {
-		console.log("repositioned")
 		Array.from(document.querySelectorAll(annotationSelectors)).forEach((el: Element) => {
 			const element = el as HTMLElement;
 			const elmId: string = el.getAttribute("id") ?? "";
 			let offset: number =
 				element.offsetTop - document.getElementsByTagName("wpn-header")[0].offsetHeight;
-			console.log(offset, el.getAttribute("id") ?? "");
 			offset += parseInt(getComputedStyle(el).lineHeight, 10) / 2;
 
 			const infoElm: HTMLElement | null = document.querySelector(`div[data-xmlid='${elmId}']`);
@@ -56,7 +54,6 @@ class WPNTextView extends HTMLElement {
 		});
 
 		this.addEventListener("stateChange", () => {
-			console.log("state changed")
 			this.positionElements(".entity")
 		});
 	}
