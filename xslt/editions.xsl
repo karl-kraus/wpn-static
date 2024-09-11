@@ -74,7 +74,7 @@
                                         </div>
                                 </div>
                                 <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
-                                    <xsl:for-each select="//(tei:quote | tei:rs[@type=('person','personGroup')] | tei:pb | tei:ref[@type=('comment','glossary','event')])">
+                                    <xsl:for-each select="//(tei:quote | tei:rs[@type=('person','personGroup')] | tei:pb | tei:ref[@type=('comment','glossary','event')] | tei:seg[@type='F890'] | tei:app)">
                                         <xsl:apply-templates select="current()" mode="short_info"/>
                                     </xsl:for-each>
 
