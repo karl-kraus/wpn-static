@@ -6,6 +6,7 @@
     xmlns:wpn="https://wpn.acdh.oeaw.ac.at"
     exclude-result-prefixes="#all" version="2.0">
 <xsl:import href="wpn_utils.xsl"/>
+<xsl:import href="person.xsl"/>
 <xsl:template match="tei:quote" mode="short_info">
   <xsl:variable name="xmlid" select="@xml:id"/>
   <xsl:variable name="type" select="@type"/>
@@ -153,12 +154,6 @@
       </xsl:otherwise>
 
     </xsl:choose>
-</xsl:template>
-<xsl:template match="tei:person" mode="short_info">
-<xsl:param name="quotetype"/>
-<xsl:param name="nonexcl"/>
-<xsl:param name="linktext" as="xs:boolean" required="no" select="false()"/>
-  <xsl:copy-of select="tei:persName"/>
 </xsl:template>
 <xsl:template match="tei:seg" mode="short_info">
   <xsl:param name="ref_type"/>
