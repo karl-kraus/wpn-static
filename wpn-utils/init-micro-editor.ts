@@ -59,7 +59,7 @@ const le = new LoadEditor({
         css_class: "cmts",
         chg_citation: "citation-url",
         hide: {
-          hidden: false,
+          hidden: true,
           class:"comments",
         },
         features: {
