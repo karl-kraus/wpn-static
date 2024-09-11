@@ -124,9 +124,15 @@
         <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
 	</xsl:template>
     <xsl:template match="tei:seg[@type='F890']">
-        <span class="fackelrefs entity {substring-after(@rendition, '#')}" id="{@xml:id}">
+    <xsl:variable name="isInline" select="boolean(./preceding-sibling::node()[self::text()[matches(.,'.*[a-z].*')]] or ./following-sibling::node()[self::text()[matches(.,'.*[a-z].*')]])"/>
+        <wpn-entity class="fackel entity {substring-after(@rendition, '#')} {if ($isInline) then () else 'd-block'}" id="{@xml:id}">
             <xsl:apply-templates/>
-        </span>
+        </wpn-entity>
+    </xsl:template>
+    <xsl:template match="tei:app[not(@prev)][not(@next)]">
+        <wpn-entity class="apps fackel entity" id="{@xml:id}">
+            <xsl:apply-templates/>
+        </wpn-entity>
     </xsl:template>
     <xsl:template match="tei:quote">
     <xsl:variable name="break" select="if (descendant::node()[1]/local-name()='p' or descendant::node()[1]/local-name()='lg') then 'd-block' else()"/>
