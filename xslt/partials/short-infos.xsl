@@ -82,7 +82,7 @@
   <xsl:for-each select="tokenize(@target,' ')">
     <xsl:variable name="target" select="substring-after(current(),'#')"/>
     <xsl:variable name="source_element" select="if ($type=('comment','glossary')) then doc('../../data/indices/Kommentar.xml')//tei:seg[@xml:id=$target] else doc('../../data/indices/Events.xml')//tei:event[@xml:id=$target] "/>
-    <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}">
+    <div class="fs-6 ps-3 text-dark-grey comments" data-xmlid="{$xmlid}" style="display:none">
       <xsl:apply-templates select="$source_element" mode="short_info">
       </xsl:apply-templates>
     </div>
