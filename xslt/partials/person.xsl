@@ -100,6 +100,23 @@
             </xsl:if>
         </xsl:for-each>
     </xsl:template>
+    <xsl:template match="tei:person" mode="short_info">
+        <b><xsl:apply-templates select="tei:persName[not(@full)][not(@type)]" mode="short"/></b>
+        <xsl:apply-templates select="tei:birth" mode="short"/>
+        <xsl:apply-templates select="tei:death" mode="short"/>
+        <xsl:for-each select="tei:affiliation">
+            <xsl:if test="position() = 1">
+                <xsl:value-of select="' ('"/>
+            </xsl:if>
+            <xsl:apply-templates select="current()"/>
+            <xsl:if test="position() != last()">
+                <xsl:value-of select="','"/>
+            </xsl:if>
+            <xsl:if test="position() = last()">
+                <xsl:value-of select="')'"/>
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:template>
     <xsl:template match="tei:persName[child::element()]" mode="short">
         <!-- we iterate to keep correct order of name parts -->
         <xsl:for-each select="descendant::*[not(@type=('nick','honorific','maiden','pseud'))][not(@subtype)]">
