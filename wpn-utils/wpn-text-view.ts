@@ -3,9 +3,9 @@ class WPNTextView extends HTMLElement {
 		let offset = source_offset;
 		if (element.previousElementSibling)
 			while ((element = element.previousElementSibling as HTMLElement)) {
-		if (!element.classList.contains("d-none")) {
-				offset -= (parseInt(element.style.marginTop, 10) || 0) + element.offsetHeight;
-			}
+				if (!element.classList.contains("d-none")) {
+					offset -= (parseInt(element.style.marginTop, 10) || 0) + element.offsetHeight;
+				}
 			}
 
 		return Math.max(Math.min(offset, 0), offset, 0);
@@ -38,6 +38,20 @@ class WPNTextView extends HTMLElement {
 		[...document.getElementsByTagName("annotation-slider")].forEach((aos) => {
 			aos.addEventListener("click", () => {
 				this.positionElements(".entity");
+				const btnsToDisableAttr = aos.getAttribute("data-disable-btns");
+				if (btnsToDisableAttr) {
+					const btnsToDisable = btnsToDisableAttr.split(",");
+					btnsToDisable.forEach((btnOpt) => {
+						const btn = document.querySelector(`[opt='${btnOpt}']`);
+						if (btn) {
+							const aosInput = aos.querySelector("input");
+							const btnInput = btn.querySelector("input");
+							if (aosInput?.checked && btnInput?.checked) {
+								btnInput.click();
+							}
+						}
+					});
+				}
 			});
 		});
 
