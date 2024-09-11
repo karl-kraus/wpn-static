@@ -112,7 +112,7 @@ input:checked+.i-slider:before {
 
 
 
-span.annot_comment::after  {
+#textcolumn span.annot_comment::after  {
   content: url("../images/icon-signet-comment-intext.svg");
     position: absolute;
     text-indent: 0;
