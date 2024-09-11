@@ -66,6 +66,22 @@ const le = new LoadEditor({
           all: false,
           class: "features-4",
         },
+      },
+      {
+        opt: "fkl",
+        color: "annot_fackel",
+        title: "Fackel Nr. F890",
+        html_class: "fackel",
+        css_class: "fkl",
+        chg_citation: "citation-url",
+        hide: {
+          hidden: false,
+          class:"fkl",
+        },
+        features: {
+          all: false,
+          class: "features-5",
+        },
       }
     ],
 },
