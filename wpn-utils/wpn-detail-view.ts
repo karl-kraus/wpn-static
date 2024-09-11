@@ -14,7 +14,6 @@ class WPNDetailView extends HTMLElement {
       }
       const popoverTriggerElement = detailElement?.querySelector("[data-bs-toggle='popover']")
       if (popoverTriggerElement) {
-        console.log(popoverTriggerElement)
         new bootstrap.Popover(popoverTriggerElement, {placement:'left'})
       }
     }
@@ -30,7 +29,6 @@ class WPNDetailView extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    console.log(name)
   }
 }
 

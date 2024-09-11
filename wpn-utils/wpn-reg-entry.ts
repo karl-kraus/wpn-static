@@ -12,7 +12,6 @@ class WPNRegEntry extends HTMLElement {
     this.removeEventListener("click",this.clickHandler)
   }
   notifyDetailView = () => {
-    console.log(this.getAttribute("id"))
     this.dispatchEvent(new CustomEvent('updateDetailView',{ bubbles: true,detail:{id:this.getAttribute("id")}}));
   }
 }
