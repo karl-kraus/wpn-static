@@ -19,6 +19,18 @@
     </div>
   </xsl:for-each>
 </xsl:template>
+<xsl:template match="tei:seg[@type='F890']" mode="short_info">
+  <xsl:variable name="xmlid" select="@xml:id"/>
+  <xsl:for-each select="tokenize(@corresp,' ')">
+    <xsl:variable name="corresp" select="substring-after(current(),'#')"/>
+    <xsl:variable name="source_element" select="doc('../../data/indices/Register.xml')//(tei:bibl|tei:citedRange)[@xml:id=$corresp]"/>
+    <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}">
+      <xsl:apply-templates select="$source_element" mode="short_info">
+        
+      </xsl:apply-templates>
+    </div>
+  </xsl:for-each>
+</xsl:template>
 <xsl:template match="tei:rs[@type=('person','personGroup')]" mode="short_info">
   <xsl:variable name="xmlid" select="@xml:id"/>
   <xsl:variable name="type" select="@type"/>
@@ -36,6 +48,32 @@
     <div class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="{'pb'||@n}" style="display:none">
       <span><xsl:value-of select="'Beginn Seite '||(if (@n castable as xs:integer) then number(@n) else replace(@n,'[_]',' '))"/></span>
     </div>
+</xsl:template>
+<xsl:template match="tei:app" mode="short_info">
+    <xsl:variable name="xmlid" select="@xml:id"/>
+    <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}">
+        <xsl:apply-templates mode='short_info'/>
+    </div>
+</xsl:template>
+<xsl:template match="tei:rdg" mode="short_info">
+  <div>
+      <div>
+        <xsl:choose>
+          <xsl:when test="@source='Motti'">
+              <xsl:text>Motti (1933):</xsl:text>
+          </xsl:when>
+          <xsl:when test="@source='DW'">
+              <xsl:text>Dritte Walpurgisnacht (1933):</xsl:text>
+          </xsl:when>
+          <xsl:when test="@source='F890'">
+              <xsl:text>F890 (1934):</xsl:text>
+          </xsl:when>
+        </xsl:choose>
+      </div>
+      <div>
+        <xsl:apply-templates/>
+      </div>
+  </div>
 </xsl:template>
 <xsl:template match="tei:ref[@type=('comment','glossary','event')]" mode="short_info">
   <xsl:variable name="xmlid" select="@xml:id"/>
