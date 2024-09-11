@@ -12,7 +12,7 @@
   <xsl:for-each select="tokenize(@source,' ')">
     <xsl:variable name="source" select="substring-after(current(),'#')"/>
     <xsl:variable name="source_element" select="doc('../../data/indices/Register.xml')//(tei:bibl|tei:citedRange)[@xml:id=$source]"/>
-    <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}">
+    <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}" data-entity-type="quts">
       <xsl:apply-templates select="$source_element" mode="short_info">
         <xsl:with-param name="quotetype" select="if ($type = 'exemp') then 'z. B. ' else if ($type = 'else') then 'Berichterstattung dazu z. B. in: ' else ()"/>
       </xsl:apply-templates>
@@ -24,7 +24,7 @@
   <xsl:for-each select="tokenize(@corresp,' ')">
     <xsl:variable name="corresp" select="substring-after(current(),'#')"/>
     <xsl:variable name="source_element" select="doc('../../data/indices/Register.xml')//(tei:bibl|tei:citedRange)[@xml:id=$corresp]"/>
-    <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}">
+    <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}" data-entity-type="fkl">
       <xsl:apply-templates select="$source_element" mode="short_info">
         
       </xsl:apply-templates>
@@ -37,7 +37,7 @@
   <xsl:for-each select="tokenize(@key,' ')">
     <xsl:variable name="key" select="substring-after(current(),'#')"/>
     <xsl:variable name="source_element" select="doc('../../data/indices/Register.xml')//tei:person[@xml:id=$key]"/>
-    <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}">
+    <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}" data-entity-type="prs">
       <xsl:apply-templates select="$source_element" mode="short_info">
         <xsl:with-param name="ref_type" select="$type"/>
       </xsl:apply-templates>
@@ -51,7 +51,7 @@
 </xsl:template>
 <xsl:template match="tei:app" mode="short_info">
     <xsl:variable name="xmlid" select="@xml:id"/>
-    <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}">
+    <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}" data-entity-type="fkl">
         <xsl:apply-templates mode='short_info'/>
     </div>
 </xsl:template>
