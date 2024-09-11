@@ -11,6 +11,18 @@
             <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
     </xsl:template>
+    <xsl:template match="tei:rs[@type=('person','personGroup')][@prev]"/>
+    <xsl:template match="tei:rs[@type=('person','personGroup')][@next]">
+        <xsl:variable name="next">
+            <xsl:value-of select="replace(@next,'#','')"/>
+        </xsl:variable>
+        <xsl:copy>
+            <xsl:copy-of select="@*" />
+            <xsl:copy-of select="node()"/>
+            <xsl:value-of select="' '"/>
+            <xsl:copy-of select="root()//tei:rs[@xml:id = $next]/node()"/>
+        </xsl:copy>
+    </xsl:template>
     <xsl:template match="tei:p[@n]|tei:mod[@n]">
         <xsl:variable name="pagename" select="wpn:normalizePagename(@n,'link')||'.xml'"/>
         <xsl:variable name="prev" select="preceding::*[local-name()=('p','mod')][@n][1]"/>
