@@ -25,6 +25,22 @@ $utilities: map-merge(
 
 );
 
+$utilities: map-merge(
+  $utilities,
+  (
+  'viewport-height': (
+    property: height,
+    class: vh,
+    responsive: true,
+    values: (
+      50: 50vh,
+      100: 100vh,
+    ),
+  )
+)
+
+);
+
 
 $utilities: map-merge(
   $utilities,
