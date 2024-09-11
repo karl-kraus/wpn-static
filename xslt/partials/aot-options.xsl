@@ -78,6 +78,9 @@
                             <annotation-slider opt="quts" class="text-wpn-quote fs-7 mx-auto"></annotation-slider>
                         </li>
                         <li class="mb-1">
+                            <annotation-slider opt="fkl" class="text-wpn-fackel fs-7 mx-auto"></annotation-slider>
+                        </li>
+                        <li class="mb-1">
                             <annotation-slider opt="pbs" class="text-black-grey fs-7 mx-auto"></annotation-slider>
                         </li>
                          <li class="mb-1">
