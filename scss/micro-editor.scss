@@ -106,11 +106,9 @@ input:checked+.i-slider:before {
   padding: 1.49px 0;
 }
 
-.annot_fackel:not(.app):not(.d-block) .lg {
+.annot_fackel:not(.d-block) *.d-block {
   background-color: rgba($wpn-fackel,0.2);
 }
-
-
 
 #textcolumn span.annot_comment::after  {
   content: url("../images/icon-signet-comment-intext.svg");
