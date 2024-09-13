@@ -138,6 +138,9 @@
     <xsl:template match="tei:l">
         <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
 	</xsl:template>
+    <xsl:template match="tei:seg[@rendition='#typescriptFloatRight']">
+        <span class="float-end"><xsl:apply-templates/></span>
+    </xsl:template>
     <xsl:template match="tei:seg[@type='F890']">
     <xsl:variable name="isInline" select="boolean(./preceding-sibling::node()[self::text()[matches(.,'.*[a-z].*')]] or ./following-sibling::node()[self::text()[matches(.,'.*[a-z].*')]])"/>
         <wpn-entity class="fackel entity {substring-after(@rendition, '#')} {if ($isInline) then () else 'd-block'}" id="{@xml:id}">
