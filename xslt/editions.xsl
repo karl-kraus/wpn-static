@@ -74,10 +74,15 @@
                                         </div>
                                 </div>
                                 <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
-                                    <xsl:for-each select="//(tei:quote | tei:rs[@type=('person','personGroup')] | tei:pb | tei:ref[@type=('comment','glossary','event')] | tei:seg[@type='F890'] | tei:app)">
-                                        <xsl:apply-templates select="current()" mode="short_info"/>
-                                    </xsl:for-each>
-
+                                <xsl:variable name="regrefs">
+                                    <xsl:copy>
+                                        <xsl:apply-templates mode="raw"/>
+                                    </xsl:copy>
+                                </xsl:variable>
+                                <xsl:for-each select="$regrefs//@target">
+                                    <xsl:variable name="target" select="current()"/>
+                                    <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="short_info"/>
+                                </xsl:for-each>
                             </div>
                         </wpn-text-view>
                     </div>
@@ -109,8 +114,18 @@
     <xsl:template match="tei:pb">
         <span class="pagebreaks entity" id="{'pb'||@n}"  style="display:none;">||</span>
     </xsl:template>
+    <xsl:template match="tei:pb" mode="raw">
+        <ref target="{@xml:id}">
+            <xsl:apply-templates mode="raw"/>
+        </ref>
+    </xsl:template>
     <xsl:template match="tei:ref[@type=('comment','glossary','event')]">
         <span class="comments entity" id="{@xml:id}"></span>
+    </xsl:template>
+    <xsl:template match="tei:ref[@type=('comment','glossary','event')]" mode="raw">
+        <ref target="{@xml:id}">
+            <xsl:apply-templates mode="raw"/>
+        </ref>
     </xsl:template>
     <xsl:template match="tei:fw"/>
     <xsl:template match="tei:mod[@change='#pencilOnProof_KK'][not(@rendition='#pencilOnProof_rightAlignSmall')]"/>
@@ -129,10 +144,20 @@
             <xsl:apply-templates/>
         </wpn-entity>
     </xsl:template>
+    <xsl:template match="tei:seg[@type='F890']" mode="raw">
+        <ref target="{@xml:id}">
+            <xsl:apply-templates mode="raw"/>
+        </ref>
+    </xsl:template>
     <xsl:template match="tei:app[not(@prev)][not(@next)]">
         <wpn-entity class="apps fackel entity" id="{@xml:id}">
             <xsl:apply-templates/>
         </wpn-entity>
+    </xsl:template>
+    <xsl:template match="tei:app[not(@prev)][not(@next)]" mode="raw">
+        <ref target="{@xml:id}">
+            <xsl:apply-templates mode="raw"/>
+        </ref>
     </xsl:template>
     <xsl:template match="tei:quote">
     <xsl:variable name="break" select="if (descendant::node()[1]/local-name()='p' or descendant::node()[1]/local-name()='lg') then 'd-block' else()"/>
@@ -143,11 +168,21 @@
             <xsl:apply-templates/>
         </wpn-entity>
     </xsl:template>
+    <xsl:template match="tei:quote" mode="raw">
+        <ref target="{@xml:id}">
+            <xsl:apply-templates mode="raw"/>
+        </ref>
+    </xsl:template>
     <xsl:template match="tei:rs[@type=('person','personGroup')][@prev]"/>
     <xsl:template match="tei:rs[@type=('person','personGroup')][not(@prev)]">
         <wpn-entity class="persons entity {substring-after(@rendition, '#')}" id="{@xml:id}">
             <xsl:apply-templates/>
         </wpn-entity>
+    </xsl:template>
+    <xsl:template match="tei:rs[@type=('person','personGroup')][not(@prev)]" mode="raw">
+       <ref target="{@xml:id}">
+            <xsl:apply-templates mode="raw"/>
+        </ref>
     </xsl:template>
     <xsl:template match="tei:rdg[@source='F890']"/>
     <xsl:template match="tei:rdg[@source='DW']">
@@ -209,9 +244,16 @@
      <xsl:template match="tei:seg[@type=('transposition','relocation')]" mode="render">
        <xsl:apply-templates/>
     </xsl:template>
+    <xsl:template match="tei:seg[@type=('transposition','relocation')]" mode="raw">
+       <xsl:apply-templates mode="raw"/>
+    </xsl:template>
     <xsl:template match="tei:metamark[@function=('insertion','relocation') and not(matches(@target,'(note)+.*([a-z])_'))]">
        <xsl:variable name="target" select="replace(@target,'#','')"/>
         <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//(tei:seg|tei:note)[@xml:id=$target]" mode="render"/>
+    </xsl:template>
+    <xsl:template match="tei:metamark[@function=('insertion','relocation') and not(matches(@target,'(note)+.*([a-z])_'))]" mode="raw">
+       <xsl:variable name="target" select="replace(@target,'#','')"/>
+        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//(tei:seg|tei:note)[@xml:id=$target]" mode="raw"/>
     </xsl:template>
     <xsl:template match="tei:metamark[@function=('insertion') and matches(@target,'(note)+.*([a-z])_')]">
        <xsl:variable name="target" select="replace(@target,'#','')"/>
@@ -244,4 +286,5 @@
     <xsl:value-of 
      select="translate(.,'&#xA;&#x9;','')"/>
   </xsl:template>
+  <xsl:template match="text()" mode="raw"/>
 </xsl:stylesheet>
