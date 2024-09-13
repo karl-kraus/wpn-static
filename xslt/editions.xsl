@@ -141,9 +141,13 @@
     <xsl:template match="tei:seg[@rendition='#typescriptFloatRight']">
         <span class="float-end"><xsl:apply-templates/></span>
     </xsl:template>
+    <!-- refactor following template if time is left -->
     <xsl:template match="tei:seg[@type='F890']">
-    <xsl:variable name="isInline" select="boolean(./preceding-sibling::node()[self::text()[matches(.,'.*[a-z].*')]] or ./following-sibling::node()[self::text()[matches(.,'.*[a-z].*')]])"/>
-        <wpn-entity class="fackel entity {substring-after(@rendition, '#')} {if ($isInline) then () else 'd-block'}" id="{@xml:id}">
+    <xsl:variable name="prev_id" select="replace(@prev,'#','')"/>
+    <xsl:variable name="prev_on_same_page" select="boolean(root()//tei:seg[@xml:id=$prev_id])"/>
+    <xsl:variable name="followed_by_inline" select="boolean(following-sibling::*[1][self::tei:metamark[not(matches(@target,'(note)+.*([a-z])_'))]])"/>
+    <xsl:variable name="isInline" select="boolean(./preceding-sibling::node()[self::text()[matches(.,'.*[a-z].*')]] or ./following-sibling::node()[self::text()[matches(.,'.*[a-z].*')]] or ./parent::tei:note)"/> 
+        <wpn-entity class="fackel entity {substring-after(@rendition, '#')} {if ($isInline or $prev_on_same_page or $followed_by_inline) then () else 'd-block'}" id="{@xml:id}">
             <xsl:apply-templates/>
         </wpn-entity>
     </xsl:template>
@@ -163,7 +167,7 @@
         </ref>
     </xsl:template>
     <xsl:template match="tei:quote">
-    <xsl:variable name="break" select="if (descendant::node()[1]/local-name()='p' or descendant::node()[1]/local-name()='lg') then 'd-block' else()"/>
+    <xsl:variable name="break" select="if (descendant::node()[1]/local-name()='p' or (descendant::*[1]/local-name()='p' and not(descendant::*[1]/preceding-sibling::node()[string-length(.)>1]) and not(descendant::*[1]/preceding-sibling::node()[string-length(.)>1]) and not(descendant::*[1]/following-sibling::node()[string-length(.)>1])) or descendant::node()[1]/local-name()='lg') then 'd-block' else()"/>
         <wpn-entity class="quotes entity {substring-after(@rendition, '#')}{$break}" id="{@xml:id}">
         <xsl:if test="@prev">
             <xsl:attribute name="data-prev" select="replace(@prev,'#','')"/>
