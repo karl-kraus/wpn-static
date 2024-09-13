@@ -374,6 +374,11 @@ html[data-page="notes"] .container {
     margin-right: $spacer * 2;
     display: table !important;
     margin-left: auto;
+    text-indent: 0;
+}
+
+.typescriptLongQuoteRightAlign2 {
+  padding-top: $spacer * 0.5;
 }
 
 .longQuoteVerse, 
