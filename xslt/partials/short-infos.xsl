@@ -50,6 +50,33 @@
       <span><xsl:value-of select="'Beginn Seite '||(if (@n castable as xs:integer) then number(@n) else replace(@n,'[_]',' '))"/></span>
     </div>
 </xsl:template>
+<xsl:template match="tei:metamark[@function='insertion' and matches(@target,'(note)+.*([a-z])_')]" mode="short_info">
+  <xsl:param name="reftype"/>
+  <xsl:variable name="description">
+    <xsl:choose>
+      <xsl:when test="$reftype='insertionstart'">
+        <xsl:text>Beginn des Einschubs von Seite</xsl:text>
+      </xsl:when>
+      <xsl:when test="$reftype='insertionend'">
+        <xsl:text>Fortsetzung Seite</xsl:text>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:variable name="target" select="@target"/>
+  <xsl:variable name="preceding_pb_val">
+  <xsl:choose>
+      <xsl:when test="$reftype='insertionstart'">
+        <xsl:value-of select="doc('../../data/editions/Gesamt.xml')//tei:note[@xml:id=replace($target,'#','')]/preceding::tei:pb[1]/replace(replace(@n,'_',' '),'^0+','')"/>
+      </xsl:when>
+      <xsl:when test="$reftype='insertionend'">
+        <xsl:value-of select="doc('../../data/editions/Gesamt.xml')//tei:metamark[@target=$target]/preceding::tei:pb[1]/replace(replace(@n,'_',' '),'^0+','')"/>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+    <div class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="{$reftype||'_'||replace($target,'#','')}" style="display:none">
+      <span><xsl:value-of select="$description||' '||$preceding_pb_val"/></span>
+    </div>
+</xsl:template>
 <xsl:template match="tei:app" mode="short_info">
     <xsl:variable name="xmlid" select="@xml:id"/>
     <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}" data-entity-type="fkl">

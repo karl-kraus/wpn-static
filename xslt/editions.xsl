@@ -81,7 +81,21 @@
                                 </xsl:variable>
                                 <xsl:for-each select="$regrefs//@target">
                                     <xsl:variable name="target" select="current()"/>
-                                    <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="short_info"/>
+                                    <xsl:choose>
+                                        <xsl:when test="starts-with($target,'insertionstart')">
+                                            <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@target=replace($target,'insertionstart_','#')]" mode="short_info">
+                                                <xsl:with-param name="reftype" select="'insertionstart'"/>
+                                            </xsl:apply-templates>
+                                        </xsl:when>
+                                        <xsl:when test="starts-with($target,'insertionend')">
+                                            <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@target=replace($target,'insertionend_','#')]" mode="short_info">
+                                                <xsl:with-param name="reftype" select="'insertionend'"/>
+                                            </xsl:apply-templates>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="short_info"/>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
                                 </xsl:for-each>
                             </div>
                         </wpn-text-view>
@@ -111,8 +125,9 @@
             <xsl:apply-templates/>
         </div>
     </xsl:template>
-    <xsl:template match="tei:pb">
-        <span class="pagebreaks entity" id="{'pb'||@n}"  style="display:none;">||</span>
+    <xsl:template match="tei:pb[matches(@n,'.*_[a-z].*')]"/>
+    <xsl:template match="tei:pb[not(matches(@n,'.*_[a-z].*'))]">
+        <span class="pagebreaks entity" id="{'pb'||@n}">||</span>
     </xsl:template>
     <xsl:template match="tei:pb" mode="raw">
         <ref target="{@xml:id}">
@@ -264,9 +279,20 @@
     </xsl:template>
     <xsl:template match="tei:metamark[@function=('insertion') and matches(@target,'(note)+.*([a-z])_')]">
        <xsl:variable name="target" select="replace(@target,'#','')"/>
-       <wpn-entity>
-       <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
-       </wpn-entity>
+       <span>
+       <span class="pagebreaks entity" id="{'insertionstart_'||$target}">||</span>
+            <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
+       <span class="pagebreaks entity" id="{'insertionend_'||$target}">||</span>
+       </span>
+    </xsl:template>
+    <xsl:template match="tei:metamark[@function=('insertion') and matches(@target,'(note)+.*([a-z])_')]" mode="raw">
+         <xsl:variable name="target" select="replace(@target,'#','')"/>
+        <ref target="{'insertionstart_'||replace(@target,'#','')}">
+            <xsl:apply-templates  select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="raw"/>
+            <xsl:if test="@n='last'">
+                <ref target="{'insertionend_'||replace(@target,'#','')}"></ref>
+            </xsl:if>
+        </ref>
     </xsl:template>
      <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]"/>
     <xsl:template match="tei:mod[@style=('noLetterSpacing') and not(parent::tei:restore)]">
