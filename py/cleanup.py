@@ -66,6 +66,12 @@ def verify_first_lb(file):
                 lb[0].attrib['n'] = 'first'
     except IndexError:
         print(f'No lb found in seg for {file}')
+    try:
+        prev_sib_quote = doc.any_xpath('//tei:body//tei:lb[preceding-sibling::*[1][self::tei:quote[tei:p]]]')
+        for lb in prev_sib_quote:
+            lb.attrib['n'] = 'first'
+    except IndexError:
+        print(f'No lb found in seg for {file}')
     doc.tree_to_file(file)
 
 
@@ -98,9 +104,18 @@ def verify_last_lb(file):
 EXCLUDE_TAGS = [
     "{http://www.tei-c.org/ns/1.0}lg",
     "{http://www.tei-c.org/ns/1.0}note",
-    "{http://www.tei-c.org/ns/1.0}p"
+    "{http://www.tei-c.org/ns/1.0}p",
 ]
 
+# def wrap_or_not(elements):
+#     EXCLUDE = False
+#     for child in elements.iterchildren():
+#         if child.tag in EXCLUDE_TAGS:
+#             EXCLUDE = True
+#             break
+#         if child.tag == "{http://www.tei-c.org/ns/1.0}seg":
+#             EXCLUDE = wrap_or_not(child)
+#     return EXCLUDE
 
 def wrap_last_sentence(file):
     # with open(file) as text_fp:
@@ -120,6 +135,10 @@ def wrap_last_sentence(file):
                     for child in sibling.iterchildren():
                         if child.tag in EXCLUDE_TAGS:
                             EXCLUDE = True
+                        if child.tag == "{http://www.tei-c.org/ns/1.0}seg":
+                            for c in child.iterchildren():
+                                if c.tag in EXCLUDE_TAGS:
+                                    EXCLUDE = True
                     if not EXCLUDE:
                         sibling.getparent().remove(sibling)
                         s.append(sibling)
@@ -130,6 +149,22 @@ def wrap_last_sentence(file):
                     s.append(sibling)
             else:
                 break
+        # if x.getparent().tag == "{http://www.tei-c.org/ns/1.0}quote":
+        #     parent_siblings = [sibling for sibling in x.getparent().itersiblings()]
+        #     for sibling in parent_siblings:
+        #         if sibling.tag not in EXCLUDE_TAGS:
+        #             if sibling.tag == "{http://www.tei-c.org/ns/1.0}quote":
+        #                 EXCLUDE = wrap_or_not(sibling)
+        #                 if not EXCLUDE:
+        #                     sibling.getparent().remove(sibling)
+        #                     s.append(sibling)
+        #                 else:
+        #                     break
+        #             else:
+        #                 sibling.getparent().remove(sibling)
+        #                 s.append(sibling)
+        #         else:
+        #             break
         x.addnext(s)
     with open(file, 'w') as f:
         f.write(ET.tostring(doc, pretty_print=True).decode('utf-8'))

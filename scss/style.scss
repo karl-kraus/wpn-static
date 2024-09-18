@@ -538,7 +538,7 @@ details[open] > summary::after {
 #textcontent-pb .typescriptLongQuoteIndent,
 #textcontent-pb .inkLongQuote{
   text-align: justify;
-  text-align-last: justify !important;
+  text-align-last: justify;
 }
 
 
@@ -687,8 +687,8 @@ details[open] > summary::after {
 #textcontent-pb .typewriter2 {
   font-size: 11pt;
   line-height: 16pt;
-  text-align: left !important;
-  text-align-last: left !important;
+  text-align: left;
+  text-align-last: left;
   font-family: monospace;
   letter-spacing: 0.4pt;
 }
@@ -708,8 +708,8 @@ details[open] > summary::after {
 // }
 
 .text-align-left {
-  text-align: left;
-  text-align-last: left;  
+  text-align: left !important;
+  text-align-last: left !important;  
 }
 .bottomLowerLeft {
   left: 0;
