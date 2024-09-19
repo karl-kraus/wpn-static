@@ -685,12 +685,12 @@ details[open] > summary::after {
 #textcontent-pb .typescriptRunningText1,
 #textcontent-pb .typewriter,
 #textcontent-pb .typewriter2 {
-  font-size: 11pt;
-  line-height: 16pt;
+  // font-size: 11pt;
+  // line-height: 16pt;
   text-align: left;
   text-align-last: left;
   font-family: monospace;
-  letter-spacing: 0.4pt;
+  // letter-spacing: 0.4pt;
 }
 
 #textcontent-pb .spacing {
@@ -1040,7 +1040,7 @@ details[open] > summary::after {
 }
 
 .typescriptFont {
-  font-family: "century-old-style-std", sans-serif;
+  font-family: "monospace";
 }
 
 /*** timeline ***/

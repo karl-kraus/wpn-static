@@ -21,13 +21,13 @@ files = os.path.join(INPUT_DIR, INPUT_PROJECT_DIR, '*.xml')
 files_glob = glob.glob(files)
 
 
-def file_parser(file):
+def file_parser(file) -> str:
     with open(file, 'r') as f:
         text = f.read()
     return text
 
 
-def replace_namespace(text):
+def replace_namespace(text) -> str:
     for ns in NS:
         if ns == '{http://www.w3.org/XML/1998/namespace}':
             text = text.replace(ns, 'xml:')
@@ -36,14 +36,14 @@ def replace_namespace(text):
     return text
 
 
-def add_root_namesapce(text):
+def add_root_namesapce(text) -> str:
     text = text.replace(
         '<TEI continued="true">',
         '<TEI xmlns="http://www.tei-c.org/ns/1.0">')
     return text
 
 
-def verify_first_lb(file):
+def verify_first_lb(file) -> None:
     doc = TeiReader(file)
     try:
         p_lb = doc.any_xpath('//tei:body//tei:p[@rendition]/tei:lb[1][not(preceding-sibling::tei:seg[@type="F890"])]')
@@ -75,7 +75,7 @@ def verify_first_lb(file):
     doc.tree_to_file(file)
 
 
-def verify_last_lb(file):
+def verify_last_lb(file) -> None:
     doc = TeiReader(file)
     try:
         p_lb = doc.any_xpath('//tei:body//tei:p[not(contains(@rendition, "longQuote"))]/tei:lb[last()]')
@@ -105,66 +105,97 @@ EXCLUDE_TAGS = [
     "{http://www.tei-c.org/ns/1.0}lg",
     "{http://www.tei-c.org/ns/1.0}note",
     "{http://www.tei-c.org/ns/1.0}p",
+    "{http://www.tei-c.org/ns/1.0}lb",
 ]
 
-# def wrap_or_not(elements):
-#     EXCLUDE = False
-#     for child in elements.iterchildren():
-#         if child.tag in EXCLUDE_TAGS:
-#             EXCLUDE = True
-#             break
-#         if child.tag == "{http://www.tei-c.org/ns/1.0}seg":
-#             EXCLUDE = wrap_or_not(child)
-#     return EXCLUDE
+def has_tail(el) -> str:
+    if el.tail is not None:
+        tail = el.tail 
+        el.tail = ""
+        return tail
+    return ""
 
-def wrap_last_sentence(file):
+def append_el(el, s) -> None:
+    el.getparent().remove(el)
+    tail = has_tail(el)
+    s.append(el)
+    el.tail = tail
+    return s
+
+def wrap_or_not(el, s, ancestor=False) -> ET.Element:
+    while el is not None:
+        print(el)
+        if el.tag not in EXCLUDE_TAGS:
+            next_el = el.getnext()
+            if el.tag == "{http://www.tei-c.org/ns/1.0}quote" or el.tag == "{http://www.tei-c.org/ns/1.0}seg":
+                breakpoint_els = el.xpath("./tei:p|./tei:lg|./tei:note", namespaces=NSMAP)
+                if breakpoint_els:
+                    breakpoint_el = breakpoint_els[0]
+                    if ancestor:
+                        if el.tail is not None:
+                            if len(s) != 0:
+                                s[-1].tail += el.tail
+                            else:
+                                if s.text is not None:
+                                    s.text += el.tail
+                                else:
+                                    s.text = el.tail
+                            el.tail = ""
+                        for childel in breakpoint_el.xpath("following-sibling::*"):
+                            el.remove(childel)
+                            s.append(childel)
+                    else:
+                        if el.text is not None:
+                            if len(s) != 0:
+                                s[-1].tail += el.text
+                            else:
+                                if s.text is not None:
+                                    s.text += el.text
+                                else:
+                                    s.text = el.text
+                            el.text = ""
+                        for childel in breakpoint_el.xpath("preceding-sibling::*"):
+                            el.remove(childel)
+                            s.append(childel)
+                else:
+                    s = append_el(el, s)
+            else:
+                s = append_el(el, s)
+        else:
+            return s
+        print(type(el))
+        el = next_el
+    return s
+
+def create_sub_el(s, parent_or_ancestor, ancestor=False) -> ET._Element:
+    s2 = ET.Element('span')
+    s2.text = parent_or_ancestor.tail
+    parent_or_ancestor.tail = ""
+    s2 = wrap_or_not(parent_or_ancestor.getnext(), s2, ancestor)
+    s.append(s2)
+    return s
+
+def wrap_last_sentence(file) -> None:
     # with open(file) as text_fp:
     #     text = text_fp.read()
     doc = ET.parse(file)
     lb = doc.xpath('.//tei:lb[@n="last"]', namespaces=NSMAP)
     for x in lb:
-        following_sibling = [sibling for sibling in x.itersiblings()]
-        s = ET.Element('s')
+        s = ET.Element('span')
         s.attrib["n"] = "last"
         s.text = x.tail
-        x.tail = None
-        for sibling in following_sibling:
-            if sibling.tag not in EXCLUDE_TAGS:
-                if sibling.tag == "{http://www.tei-c.org/ns/1.0}quote":
-                    EXCLUDE = False
-                    for child in sibling.iterchildren():
-                        if child.tag in EXCLUDE_TAGS:
-                            EXCLUDE = True
-                        if child.tag == "{http://www.tei-c.org/ns/1.0}seg":
-                            for c in child.iterchildren():
-                                if c.tag in EXCLUDE_TAGS:
-                                    EXCLUDE = True
-                    if not EXCLUDE:
-                        sibling.getparent().remove(sibling)
-                        s.append(sibling)
-                    else:
-                        break
-                else:
-                    sibling.getparent().remove(sibling)
-                    s.append(sibling)
-            else:
-                break
-        # if x.getparent().tag == "{http://www.tei-c.org/ns/1.0}quote":
-        #     parent_siblings = [sibling for sibling in x.getparent().itersiblings()]
-        #     for sibling in parent_siblings:
-        #         if sibling.tag not in EXCLUDE_TAGS:
-        #             if sibling.tag == "{http://www.tei-c.org/ns/1.0}quote":
-        #                 EXCLUDE = wrap_or_not(sibling)
-        #                 if not EXCLUDE:
-        #                     sibling.getparent().remove(sibling)
-        #                     s.append(sibling)
-        #                 else:
-        #                     break
-        #             else:
-        #                 sibling.getparent().remove(sibling)
-        #                 s.append(sibling)
-        #         else:
-        #             break
+        x.tail = ""
+        s = wrap_or_not(x.getnext(), s)
+        parent = x.getparent()
+        if parent.tag == "{http://www.tei-c.org/ns/1.0}quote":
+            s = create_sub_el(s, parent)
+            s = create_sub_el(s, parent.getparent(), ancestor=True)
+        if parent.tag == "{http://www.tei-c.org/ns/1.0}del":
+            ancestor = parent.getparent()
+            if ancestor.tag == "{http://www.tei-c.org/ns/1.0}subst":
+                s = create_sub_el(s, ancestor)
+        if parent.tag == "{http://www.tei-c.org/ns/1.0}rs":
+            s = create_sub_el(s, parent)
         x.addnext(s)
     with open(file, 'w') as f:
         f.write(ET.tostring(doc, pretty_print=True).decode('utf-8'))

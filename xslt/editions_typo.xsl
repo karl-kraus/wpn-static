@@ -12,6 +12,7 @@
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
+    <xsl:import href="./partials/short-infos.xsl"/>
     <xsl:import href="./partials/scripts.xsl"/>
 
     <xsl:variable name="prev">
@@ -232,11 +233,14 @@
      <xsl:template match="tei:sic" mode="render">
         <xsl:apply-templates/>
      </xsl:template>
-     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((@rend|parent::tei:subst/@rend), 'Right')]">
+     <!-- <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((@rend|parent::tei:subst/@rend), 'Right')]">
         <wpn-entity class="add entity" id="{@xml:id}"></wpn-entity>
      </xsl:template>
      <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((@rend|parent::tei:subst/@rend), 'Left')]">
         <wpn-entity class="add entity" id="{@xml:id}"></wpn-entity>
+     </xsl:template> -->
+     <xsl:template match="tei:add">
+        <span class="add entity" id="{@xml:id}"></span>
      </xsl:template>
      <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')]" mode="render">
         <div class="add {if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
@@ -248,11 +252,11 @@
             <div><xsl:apply-templates/></div>
         </div>
      </xsl:template>
-     <xsl:template match="tei:add[@rendition]">
+     <!-- <xsl:template match="tei:add[@rendition]">
         <span class="add rendition {replace(@rendition,'#','')} {replace(@change,'#','')}">
             <xsl:apply-templates/>
         </span>
-     </xsl:template>
+     </xsl:template> -->
      <!-- <xsl:template match="tei:add[ancestor::tei:restore[not(child::tei:seg)]]"/>
      <xsl:template match="tei:add[ancestor::tei:restore[child::tei:seg]]">
         <xsl:apply-templates/>
@@ -327,7 +331,10 @@
     <xsl:template match="tei:lb[@n='last']">
         <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
     </xsl:template>
-    <xsl:template match="tei:s[@n='last']">
+    <xsl:template match="tei:span[@n='last']">
         <span class="d-block text-align-left no-indent"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:span[not(@n)]">
+        <xsl:apply-templates/>
     </xsl:template>
 </xsl:stylesheet>

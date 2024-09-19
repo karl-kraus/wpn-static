@@ -37,7 +37,7 @@ class WPNPageView extends HTMLElement {
 
 		this.addEventListener("stateChange", () => {
 			console.log("state changed")
-			this.positionElements(".entity")
+			this.positionElements(annotationSelectors)
 		});
 	}
 }
