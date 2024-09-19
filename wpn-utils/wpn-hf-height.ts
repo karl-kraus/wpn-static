@@ -18,7 +18,7 @@ var headerHeight = (page.offsetHeight - textHeight) * 0.5;
 var footerHeight = (page.offsetHeight - textHeight) * 0.5;
 if (document.querySelector(".witnessTypescriptInsert") as HTMLElement) {
 	headerHeight = page.offsetHeight * 0.081;
-	footerHeight = (page.offsetHeight - textHeight) - (page.offsetHeight * 0.081);
+	footerHeight = (page.offsetHeight - textHeight) - headerHeight;
 }
 
 header.style.height = `${headerHeight}px`;

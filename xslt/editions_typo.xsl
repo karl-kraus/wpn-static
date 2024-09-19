@@ -12,7 +12,6 @@
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
-    <xsl:import href="./partials/aot-options.xsl"/>
     <xsl:import href="./partials/short-infos.xsl"/>
     <xsl:import href="./partials/scripts.xsl"/>
 
@@ -57,71 +56,6 @@
                 <main class="flex-shrink-0 mt-18">
                     <div class="container-fluid px-0">
                         <div class="d-flex flex-column mb-4">
-                            <div id="editor-widget" class="mx-auto">
-                                <div>
-                                    <div id="aot-navBarNavDropdown" class="navBarNavDropdown dropstart d-md-none">
-                                        <!-- Your menu goes here -->
-                                        <a title="Annotationen" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" role="button">
-                                            <i class="bi bi-gear" title="Menü zur Anpassung der Anzeige"></i>
-                                        </a>                  
-                                        <ul class="dropdown-menu d-block border-0 z-2">
-                                            <!--<li class="dropdown-item">
-                                                <full-size opt="fls"></full-size>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <image-switch opt="es"></image-switch>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <font-size opt="fs"></font-size>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <font-family opt="ff"></font-family>
-                                            </li>-->
-                                            <li class="dropdown-item">
-                                                <annotation-slider opt="prs" class="text-wpn-person fs-7"></annotation-slider>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <annotation-slider opt="quts" class="text-wpn-quote fs-7"></annotation-slider>
-                                            </li>
-                                            <!-- <li class="dropdown-item">
-                                                <annotation-slider opt="pbs" class="text-black-grey fs-7"></annotation-slider>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <annotation-slider opt="cmts" class="text-comment fs-7"></annotation-slider>
-                                            </li> -->
-                                        </ul>
-                                    </div>
-                                    <div class="mt-2 d-flex">
-                                            <!-- Your menu goes here -->                      
-                                            <ul class="gap-1_5 border-0 z-2 list-unstyled d-flex">
-                                                <!--<li class="dropdown-item">
-                                                    <full-size opt="fls"></full-size>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <image-switch opt="es"></image-switch>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <font-size opt="fs"></font-size>
-                                                </li>
-                                                <li class="dropdown-item">
-                                                    <font-family opt="ff"></font-family>
-                                                </li>-->
-                                                <li>
-                                                    <annotation-slider opt="prs" class="text-wpn-person fs-7 mx-auto"></annotation-slider>
-                                                </li>
-                                                <li>
-                                                    <annotation-slider opt="quts" class="text-wpn-quote fs-7 mx-auto"></annotation-slider>
-                                                </li>
-                                                <!-- <li>
-                                                    <annotation-slider opt="pbs" class="text-black-grey fs-7 mx-auto"></annotation-slider>
-                                                </li>
-                                                <li>
-                                                    <annotation-slider opt="cmts" class="text-wpn-comment fs-7 mx-auto"></annotation-slider>
-                                                </li> -->
-                                            </ul>                                                    
-                                        </div>
-                                </div>
-                            </div>
                             <div class="mx-auto">
                                 <div class="p-0 d-flex flex-column align-items-center">
                                     <div class="dropdown ff-ubuntu">
@@ -193,8 +127,8 @@
         </xsl:variable>
         <div class="print-page {$printType} position-relative">
             <div class="print-header {$printType}">
-                <!-- <xsl:apply-templates select="//tei:fw" mode="render"/>
-                <xsl:apply-templates select="//tei:note[contains(@place, 'top')]" mode="render"/> -->
+                <!-- <xsl:apply-templates select="//tei:fw" mode="render"/> -->
+                <!-- <xsl:apply-templates select="//tei:note[contains(@place, 'top')]" mode="render"/> -->
             </div>
             <div class="print-body {$printType}">
                 <div class="body-left">
@@ -228,8 +162,7 @@
     <xsl:template match="tei:ref[@type=('comment','glossary','event')]">
         <span class="comments entity" id="{@xml:id}"></span>
     </xsl:template>
-    <xsl:template match="tei:fw"/>
-    <xsl:template match="tei:fw" mode="render">
+    <xsl:template match="tei:fw">
         <span class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:mod[@change='#pencilOnProof_KK'][not(@rendition='#pencilOnProof_rightAlignSmall')]"/>
@@ -288,7 +221,8 @@
         <span><xsl:apply-templates select="tei:corr"/></span>
     </xsl:template>
      <xsl:template match="tei:p[not(@n)]">
-        <span class="d-block {replace(@rendition,'#','')} {if(@prev)then(' no-indent')else()}">
+        <xsl:variable name="string" select="tokenize(string-join(.//text(), ' '), '.')"/>
+        <span class="d-block {replace(@rendition,'#','')} {if(parent::tei:quote and count($string) lt 55)then('text-align-left')else('')} {if(@prev)then(' no-indent')else()}">
             <span class="inline-text "><xsl:apply-templates/></span>
         </span>
     </xsl:template>
@@ -299,11 +233,14 @@
      <xsl:template match="tei:sic" mode="render">
         <xsl:apply-templates/>
      </xsl:template>
-     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((@rend|parent::tei:subst/@rend), 'Right')]">
+     <!-- <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((@rend|parent::tei:subst/@rend), 'Right')]">
         <wpn-entity class="add entity" id="{@xml:id}"></wpn-entity>
      </xsl:template>
      <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((@rend|parent::tei:subst/@rend), 'Left')]">
         <wpn-entity class="add entity" id="{@xml:id}"></wpn-entity>
+     </xsl:template> -->
+     <xsl:template match="tei:add[not(@rendition)]">
+        <span class="add entity" id="{@xml:id}"></span>
      </xsl:template>
      <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')]" mode="render">
         <div class="add {if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
@@ -394,7 +331,10 @@
     <xsl:template match="tei:lb[@n='last']">
         <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
     </xsl:template>
-    <xsl:template match="tei:s[@n='last']">
+    <xsl:template match="tei:span[@n='last']">
         <span class="d-block text-align-left no-indent"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:span[not(@n)]">
+        <xsl:apply-templates/>
     </xsl:template>
 </xsl:stylesheet>
