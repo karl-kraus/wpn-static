@@ -239,7 +239,7 @@
      <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((@rend|parent::tei:subst/@rend), 'Left')]">
         <wpn-entity class="add entity" id="{@xml:id}"></wpn-entity>
      </xsl:template> -->
-     <xsl:template match="tei:add">
+     <xsl:template match="tei:add[not(@rendition)]">
         <span class="add entity" id="{@xml:id}"></span>
      </xsl:template>
      <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')]" mode="render">
@@ -252,11 +252,11 @@
             <div><xsl:apply-templates/></div>
         </div>
      </xsl:template>
-     <!-- <xsl:template match="tei:add[@rendition]">
+     <xsl:template match="tei:add[@rendition]">
         <span class="add rendition {replace(@rendition,'#','')} {replace(@change,'#','')}">
             <xsl:apply-templates/>
         </span>
-     </xsl:template> -->
+     </xsl:template>
      <!-- <xsl:template match="tei:add[ancestor::tei:restore[not(child::tei:seg)]]"/>
      <xsl:template match="tei:add[ancestor::tei:restore[child::tei:seg]]">
         <xsl:apply-templates/>
