@@ -222,11 +222,11 @@
     </xsl:template>
      <xsl:template match="tei:p[not(@n)]">
         <xsl:variable name="string" select="count(tokenize(string-join(.//text(), ''), '.'))"/>
-        <span style="color:red;display:block;"><xsl:value-of select="$string"/></span>
+        <!-- <span style="color:red;display:block;"><xsl:value-of select="$string"/></span> -->
         <xsl:variable name="spacing-string" select="count(tokenize(string-join(./tei:hi[@style='letterSpacing']/text(), ''), '.'))"/>
-        <span style="color:blue;display:block;"><xsl:value-of select="$spacing-string"/></span>
+        <!-- <span style="color:blue;display:block;"><xsl:value-of select="$spacing-string"/></span> -->
         <xsl:variable name="max" select="if($spacing-string gt 44)then(54)else(71)"/>
-        <span style="display:block;"><xsl:value-of select="string($max)"/></span>
+        <!-- <span style="display:block;"><xsl:value-of select="string($max)"/></span> -->
         <span class="d-block {replace(@rendition,'#','')} {if(parent::tei:quote and $string lt $max)then('text-align-left')else('')} {if(@prev)then(' no-indent')else()}">
             <span class="inline-text "><xsl:apply-templates/></span>
         </span>
