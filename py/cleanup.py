@@ -108,12 +108,14 @@ EXCLUDE_TAGS = [
     "{http://www.tei-c.org/ns/1.0}lb",
 ]
 
+
 def has_tail(el) -> str:
     if el.tail is not None:
-        tail = el.tail 
+        tail = el.tail
         el.tail = ""
         return tail
     return ""
+
 
 def append_el(el, s) -> None:
     el.getparent().remove(el)
@@ -122,13 +124,15 @@ def append_el(el, s) -> None:
     el.tail = tail
     return s
 
+
 def wrap_or_not(el, s, ancestor=False) -> ET.Element:
     while el is not None:
         print(el)
         if el.tag not in EXCLUDE_TAGS:
             next_el = el.getnext()
             if el.tag == "{http://www.tei-c.org/ns/1.0}quote" or el.tag == "{http://www.tei-c.org/ns/1.0}seg":
-                breakpoint_els = el.xpath("./tei:p|./tei:lg|./tei:note", namespaces=NSMAP)
+                breakpoint_els = el.xpath("./tei:p|./tei:lg|./tei:note",
+                                          namespaces=NSMAP)
                 if breakpoint_els:
                     breakpoint_el = breakpoint_els[0]
                     if ancestor:
@@ -167,6 +171,7 @@ def wrap_or_not(el, s, ancestor=False) -> ET.Element:
         el = next_el
     return s
 
+
 def create_sub_el(s, parent_or_ancestor, ancestor=False) -> ET._Element:
     s2 = ET.Element('span')
     s2.text = parent_or_ancestor.tail
@@ -174,6 +179,17 @@ def create_sub_el(s, parent_or_ancestor, ancestor=False) -> ET._Element:
     s2 = wrap_or_not(parent_or_ancestor.getnext(), s2, ancestor)
     s.append(s2)
     return s
+
+
+LB_WRAPPED = [
+    "{http://www.tei-c.org/ns/1.0}rs",
+    "{http://www.tei-c.org/ns/1.0}hi",
+    "{http://www.tei-c.org/ns/1.0}del",
+    "{http://www.tei-c.org/ns/1.0}quote",
+    "{http://www.tei-c.org/ns/1.0}foreign",
+    "{http://www.tei-c.org/ns/1.0}mod",
+]
+
 
 def wrap_last_sentence(file) -> None:
     # with open(file) as text_fp:
@@ -187,15 +203,15 @@ def wrap_last_sentence(file) -> None:
         x.tail = ""
         s = wrap_or_not(x.getnext(), s)
         parent = x.getparent()
-        if parent.tag == "{http://www.tei-c.org/ns/1.0}quote":
-            s = create_sub_el(s, parent)
-            s = create_sub_el(s, parent.getparent(), ancestor=True)
-        if parent.tag == "{http://www.tei-c.org/ns/1.0}del":
+        if parent.tag in LB_WRAPPED:
             ancestor = parent.getparent()
-            if ancestor.tag == "{http://www.tei-c.org/ns/1.0}subst":
-                s = create_sub_el(s, ancestor)
-        if parent.tag == "{http://www.tei-c.org/ns/1.0}rs":
-            s = create_sub_el(s, parent)
+            if parent.tag == "{http://www.tei-c.org/ns/1.0}del":
+                if ancestor == "{http://www.tei-c.org/ns/1.0}subst":
+                    s = create_sub_el(s, ancestor)
+            if parent.tag == "{http://www.tei-c.org/ns/1.0}quote":
+                s = create_sub_el(s, ancestor, ancestor=True)
+            if parent.tag != "{http://www.tei-c.org/ns/1.0}del":
+                s = create_sub_el(s, parent)
         x.addnext(s)
     with open(file, 'w') as f:
         f.write(ET.tostring(doc, pretty_print=True).decode('utf-8'))
