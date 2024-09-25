@@ -53,10 +53,10 @@
                     <xsl:with-param name="include_searchbox" select="true()"/>
                     <xsl:with-param name="container" select="'container-fluid mx-1 edition-header'"/>
                 </xsl:call-template>
-                <main class="flex-shrink-0 mt-18">
+                <div class="flex-shrink-0 mt-18">
                     <div class="container-fluid px-0">
                         <wpn-text-view annotation-selectors=".entity" id="sub_grid">
-                           <div class="d-flex justify-content-center mt-2">
+                            <aside>
                                 <div id="controls" class="p-0 d-flex flex-column align-items-center position-fixed">
                                     <xsl:call-template name="pagination">
                                         <xsl:with-param name="current-page" select="if (matches($id,'[0-9]+')) then $id else data(tei:TEI/tei:p/@n)"/>
@@ -67,13 +67,15 @@
                                         <xsl:call-template name="annotation-options"/>
                                     </div>
                                 </div>
-                                </div>
+                            </aside>
+                            <main>
                                 <div id="textcolumn" class="mx-auto ff-century-old-style">
                                         <div id="textcontent">
                                             <xsl:apply-templates/>
                                         </div>
                                 </div>
-                                <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
+                            </main>
+                            <aside id="infocolumn" class="bg-white px-0 border-start border-light-grey">
                                 <xsl:variable name="regrefs">
                                     <xsl:copy>
                                         <xsl:apply-templates mode="raw"/>
@@ -97,21 +99,15 @@
                                         </xsl:otherwise>
                                     </xsl:choose>
                                 </xsl:for-each>
-                            </div>
+                           </aside>
                         </wpn-text-view>
                     </div>
-                    <xsl:for-each select="//tei:back">
-                        <div class="tei-back">
-                            <xsl:apply-templates/>
-                        </div>
-                    </xsl:for-each>
-                </main>
+                </div>
                 <xsl:call-template name="html_footer">
                     <xsl:with-param name="include_scroll_script" select="false()"/>
                 </xsl:call-template>
                 <script type="text/javascript" src="js/vendor/markjs/mark.min.js"></script>
                 <xsl:call-template name="scripts"/>
-                
             </body>
         </html>
     </xsl:template>
