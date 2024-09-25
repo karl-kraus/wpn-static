@@ -14,9 +14,11 @@
     <xsl:variable name="source" select="substring-after(current(),'#')"/>
     <xsl:variable name="source_element" select="doc('../../data/indices/Register.xml')//(tei:bibl|tei:citedRange)[@xml:id=$source]"/>
     <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}" data-entity-type="quts">
-      <xsl:apply-templates select="$source_element" mode="short_info">
-        <xsl:with-param name="quotetype" select="if ($type = 'exemp') then 'z. B. ' else if ($type = 'else') then 'Berichterstattung dazu z. B. in: ' else ()"/>
-      </xsl:apply-templates>
+      <a class="text-dark-grey text-decoration-none text-wpn-quote-hover" href="{'#'||$xmlid||'_'||$source}">
+        <xsl:apply-templates select="$source_element" mode="short_info">
+          <xsl:with-param name="quotetype" select="if ($type = 'exemp') then 'z. B. ' else if ($type = 'else') then 'Berichterstattung dazu z. B. in: ' else ()"/>
+        </xsl:apply-templates>
+      </a>
     </div>
   </xsl:for-each>
 </xsl:template>
