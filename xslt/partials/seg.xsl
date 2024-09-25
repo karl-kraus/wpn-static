@@ -140,4 +140,23 @@
         </a>
         
     </xsl:template>
+    <xsl:template match="tei:seg" mode="short_info">
+        <xsl:param name="ref_type"/>
+            <span class="fw-bold">
+                <xsl:value-of select="(if ($ref_type='comment') then 'Kommentar' else 'Glossar')||': '"/>
+                <xsl:apply-templates select="tei:label" mode="comment"/>
+            </span>
+    </xsl:template>
+    <xsl:template match="tei:event" mode="short_info">
+    <span class="fw-bold"><xsl:text>Ereignis: </xsl:text><xsl:apply-templates select="tei:label" mode="comment"/></span>
+    </xsl:template>
+    <xsl:template match="tei:label" mode="comment">
+    <xsl:apply-templates mode="comment"/>
+    </xsl:template>
+    <xsl:template match="tei:title" mode="comment">
+    <i><xsl:apply-templates mode="comment"/></i>
+    </xsl:template>
+    <xsl:template match="text()" mode="comment">
+    <xsl:value-of select="."/>
+    </xsl:template>
 </xsl:stylesheet>
