@@ -7,7 +7,7 @@ class WPNEntity extends HTMLElement {
     const annotationClassName = Array.from(this.classList).find(className => className.startsWith("annot_"));
     if (annotationClassName) {
       if (document.querySelector(`annotation-slider .${annotationClassName}`)) {
-        document.querySelector(`div[data-xmlid=${targetId ?? ''}]`)?.classList.toggle("d-none");
+        Array.from(document.querySelectorAll(`div[data-xmlid=${targetId ?? ''}]`)).forEach((el)=> el.classList.toggle("d-none"));
       }
     }
     this.notifyTextView();
