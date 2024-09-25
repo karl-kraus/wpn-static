@@ -37,15 +37,41 @@
 <xsl:template match="tei:rs[@type=('person','personGroup')]" mode="short_info">
   <xsl:variable name="xmlid" select="@xml:id"/>
   <xsl:variable name="type" select="@type"/>
-  <xsl:for-each select="tokenize(@key,' ')">
-    <xsl:variable name="key" select="substring-after(current(),'#')"/>
-    <xsl:variable name="source_element" select="doc('../../data/indices/Register.xml')//tei:person[@xml:id=$key]"/>
-    <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}" data-entity-type="prs">
-      <xsl:apply-templates select="$source_element" mode="short_info">
-        <xsl:with-param name="ref_type" select="$type"/>
-      </xsl:apply-templates>
-    </div>
-  </xsl:for-each>
+  <xsl:variable name="cert_subtype" select="@cert|@subtype"/>
+  <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}" data-entity-type="prs">
+    <xsl:value-of select="if ($cert_subtype = 'exemp') then 'z. B. ' else if ($cert_subtype = 'medium') then 'wahrsch. ' else if ($cert_subtype = 'recte') then 'recte: ' else ()"/>
+    <xsl:for-each select="tokenize(@key,' ')">
+      <xsl:variable name="key" select="substring-after(current(),'#')"/>
+      <xsl:variable name="source_element" select="doc('../../data/indices/Register.xml')//(tei:person|tei:personGrp)[@xml:id=$key]"/>
+      <xsl:choose>
+        <xsl:when test="$source_element/name() = 'personGrp'">
+          <p class="mb-0">
+            <xsl:apply-templates select="$source_element/tei:note" mode="persgrpnote"/>
+          </p>
+          <ul class="list-unstyled ps-1 my-0">
+            <xsl:for-each select="$source_element//tei:ptr">
+              <xsl:variable name="ref_id" select="replace(current()/@target,'#','')"/>
+              <xsl:variable name="referenced_element" select="doc('../../data/indices/Register.xml')//tei:person[@xml:id=$ref_id]"/>
+              <li>
+                <a class="text-dark-grey text-decoration-none text-wpn-person-hover" href="{'#'||$xmlid||'_'||$key||'_'||$ref_id}">
+                  <xsl:apply-templates select="$referenced_element" mode="short_info">
+                    <xsl:with-param name="ref_type" select="$type"/>
+                  </xsl:apply-templates>
+                </a>
+              </li>
+            </xsl:for-each>
+          </ul>
+        </xsl:when>
+        <xsl:otherwise>
+          <a class="text-dark-grey text-decoration-none text-wpn-person-hover" href="{'#'||$xmlid||'_'||$key}">
+            <xsl:apply-templates select="$source_element" mode="short_info">
+              <xsl:with-param name="ref_type" select="$type"/>
+            </xsl:apply-templates>
+          </a>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:for-each>
+  </div>
 </xsl:template>
 <xsl:template match="tei:pb[not(matches(@n,'.*_[a-z].*'))]" mode="short_info">
     <div class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="{'pb'||@n}" style="display:none">
@@ -202,4 +228,12 @@
 <xsl:template match="text()" mode="comment">
   <xsl:value-of select="."/>
 </xsl:template>
+<xsl:template match="tei:note[@type='relation']" mode="persgrpnote">
+  <xsl:apply-templates/>
+</xsl:template>
+<xsl:template match="tei:note[@type='source']" mode="persgrpnote">
+  <xsl:text> (lt. </xsl:text>
+  <xsl:apply-templates/>
+  <xsl:text>)</xsl:text>  
+  </xsl:template>
 </xsl:stylesheet>
