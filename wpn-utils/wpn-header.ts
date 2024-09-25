@@ -1,13 +1,16 @@
 class WPNHeader extends HTMLElement {
 	resizeObserver = new ResizeObserver((entries) => {
 		for (const entry of entries) {
-			const mainElement = document.querySelector("main");
+			const isAnnotationView = Boolean(document.querySelector("wpn-text-view"));
+			const mainElement = isAnnotationView
+				? document.querySelector("wpn-text-view")
+				: document.querySelector("main");
 			const wpnDetailView = document.querySelector("wpn-detail-view");
 			const footer = document.querySelector("footer");
 			if (mainElement) {
-				mainElement.style.marginTop = `${String(entry.target.clientHeight)}px`;
+				(mainElement as HTMLElement).style.marginTop = `${String(entry.target.clientHeight)}px`;
 			}
-			if (wpnDetailView) {
+			if (wpnDetailView && !isAnnotationView) {
 				(wpnDetailView as HTMLElement).style.top = `${String(entry.target.clientHeight)}px`;
 				if (footer) {
 					(wpnDetailView as HTMLElement).style.maxHeight =
