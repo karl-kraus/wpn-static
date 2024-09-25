@@ -295,4 +295,75 @@
             <span><xsl:apply-templates select="./ancestor::tei:bibl" mode="short"/></span>
         </div>
     </xsl:template>
+    <xsl:template match="tei:citedRange" mode="short_info">
+        <xsl:param name="quotetype"/>
+        <span><xsl:value-of select="$quotetype"/></span>
+        <xsl:apply-templates select="./ancestor::tei:bibl" mode="short_info">
+        </xsl:apply-templates>
+        <xsl:if test="preceding-sibling::tei:biblScope">
+            <span><xsl:value-of select="', '||data(preceding-sibling::tei:biblScope)"/></span>
+        </xsl:if>
+</xsl:template>
+<xsl:template match="tei:bibl" mode="short_info">
+<xsl:param name="quotetype"/>
+<xsl:param name="nonexcl"/>
+<xsl:param name="linktext" as="xs:boolean" required="no" select="false()"/>
+  <xsl:choose>
+      <xsl:when test="tei:title[@level = 'j']">
+        <xsl:variable name="papertitleshort">
+          <xsl:choose>
+            <xsl:when test="tei:title[@level = 'j'][@type = 'short']">
+              <xsl:copy-of select="tei:title[@level = 'j'][@type = 'short']"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="tei:title[@level = 'j']"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:value-of select="$nonexcl"/>
+        <xsl:if test="not($nonexcl = $quotetype)">
+          <xsl:value-of select="$quotetype"/>
+        </xsl:if>
+        <xsl:copy-of select="wpn:bold-italic($papertitleshort)"/>
+        <xsl:if test="tei:date">
+          <xsl:if test="tei:date[@from]">
+            <xsl:text>. </xsl:text>
+          </xsl:if>
+          <xsl:value-of select="wpn:preposition(tei:date)"/>
+          <xsl:value-of select="tei:date/text()"/>
+        </xsl:if>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$nonexcl"/>
+        <xsl:if test="not($nonexcl = $quotetype)">
+          <xsl:value-of select="$quotetype"/>
+        </xsl:if>
+
+        <xsl:if test="$linktext = false()">
+          <xsl:copy-of select="wpn:group-authors-bold(tei:author, false())"/>
+        </xsl:if>
+        <xsl:choose>
+
+          <xsl:when test="tei:title[@level = 'a']">
+            <xsl:value-of select="tei:title[@level = 'a'][not(@type)]"/>
+          </xsl:when>
+          <xsl:when test="tei:title[@level='a'] and $linktext = true()">
+            <xsl:value-of select="tei:title[@level = 'm'][not(@type)]"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:copy-of select="wpn:bold(tei:title[@level = 'm'][not(@type)])"/>
+          </xsl:otherwise>
+        </xsl:choose>
+        <xsl:variable name="note">
+          <xsl:if test="tei:date/tei:note">
+            <xsl:value-of select="tei:date/tei:note || ' '"/>
+          </xsl:if>
+        </xsl:variable>
+        <xsl:if test="$linktext = false()">
+          <xsl:value-of select="wpn:brackets($note || tei:date/text())"/>
+        </xsl:if>
+      </xsl:otherwise>
+
+    </xsl:choose>
+</xsl:template>
 </xsl:stylesheet>
