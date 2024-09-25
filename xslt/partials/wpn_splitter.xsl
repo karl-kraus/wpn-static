@@ -25,8 +25,8 @@
     </xsl:template>
     <xsl:template match="tei:p[@n]|tei:mod[@n]">
         <xsl:variable name="pagename" select="wpn:normalizePagename(@n,'link')||'.xml'"/>
-        <xsl:variable name="prev" select="preceding::*[local-name()=('p','mod')][@n][1]"/>
-        <xsl:variable name="next" select="following::*[local-name()=('p','mod')][@n][1]"/>
+        <xsl:variable name="prev" select="(preceding::*[self::tei:p|self::tei:mod][@n]|ancestor::*[self::tei:p|self::tei:mod][@n])[last()]"/>
+        <xsl:variable name="next" select="(following::*[self::tei:p|self::tei:mod][@n]|descendant::*[self::tei:p|self::tei:mod][@n])[1]"/>
         <xsl:result-document href="{$pagename}" format="xml">
         <TEI xmlns="http://www.tei-c.org/ns/1.0">
             <xsl:attribute name="prev" select="wpn:normalizePagename($prev/@n,'link')"/>
