@@ -4,6 +4,9 @@
     xmlns:wpn="https://wpn.acdh.oeaw.ac.at"
     version="2.0" exclude-result-prefixes="xsl tei xs wpn">
     <xsl:import href="./wpn_utils.xsl"/>
+    <!-- special cases regarding citation style -->
+    <xsl:variable name="initials_only_names"
+        select="('Hanns Heinz Ewers', 'Jacob und Wilhelm Grimm', 'August von Platen')"/>
     <!-- templates for bibl elements and descendants -->
     <!-- template for the intertext register -->
     <xsl:template match="tei:bibl" mode="detail_view">
@@ -158,6 +161,37 @@
     <xsl:template match="tei:title[@type = 'short']"/>
     <xsl:template match="tei:title[@level = 'j']" mode="short">
         <i><xsl:value-of select="."/></i>
+    </xsl:template>
+    <xsl:template match="tei:title[@level = ('a', 'm')][text()]">
+        <xsl:param name="from_cited_range" select="false()" />
+        <span>
+            <xsl:if test="@level = 'm' and preceding-sibling::tei:title[@level = 'a']">
+            <xsl:value-of select="'In: '" />
+            <xsl:apply-templates
+                select="
+                                if (preceding-sibling::tei:author[. = 'Hanns Heinz Ewers']) then
+                                    preceding-sibling::tei:author[1]
+                                else
+                                    preceding-sibling::tei:author">
+                <xsl:with-param name="initials_only"
+                select="preceding-sibling::tei:author/text() = $initials_only_names" />
+                <xsl:with-param name="skip_role" select="true()" as="xs:boolean" />
+            </xsl:apply-templates>
+            <xsl:value-of select="': '" />
+            </xsl:if>
+            <xsl:value-of select="normalize-space(.)" />
+            <xsl:choose>
+            <!-- Die Bibel - special case -->
+            <xsl:when test="ancestor::tei:bibl[@xml:id ='DWbibl00192']">
+            </xsl:when>
+            <xsl:when test="not(matches(., '(\p{Pf}|\p{Po}|\.\p{Pi})$'))">
+                <xsl:text>.</xsl:text>
+            </xsl:when>
+            </xsl:choose>
+            <xsl:if test="following-sibling::tei:title[not(@type='short')]">
+            <xsl:text> </xsl:text>
+            </xsl:if>
+        </span>
     </xsl:template>
     <xsl:template match="tei:biblScope">
         <xsl:choose>
