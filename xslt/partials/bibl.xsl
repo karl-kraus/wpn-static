@@ -344,15 +344,15 @@
         </span>
     </xsl:template>
     <xsl:template match="tei:title[not(@type = 'short')][@level = 'j'][text()]">
-        <i>
-            <xsl:if test="preceding-sibling::tei:title and not(@type = 'subtitle')">
-                <xsl:text> In: </xsl:text>
-            </xsl:if>
-            <xsl:if test="@type = 'subtitle' and preceding-sibling::tei:title[@level = 'j']">
-                <xsl:value-of select="'. '"/>
-            </xsl:if>
-            <xsl:value-of select="."/>
+        <xsl:if test="preceding-sibling::tei:title and not(@type = 'subtitle')">
+            <xsl:text> In: </xsl:text>
+        </xsl:if>
+        <i>    
+            <xsl:value-of select="normalize-space(.)"/>
         </i>
+        <xsl:if test="following-sibling::tei:title[not(@type='short')]">
+            <xsl:value-of select="'. '"/>
+        </xsl:if>
     </xsl:template>
     <xsl:template match="tei:title[@type = 'short']"/>
     <xsl:template match="tei:title[@level = 'j']" mode="short">
@@ -514,14 +514,20 @@
             <span>
                 <xsl:value-of select="$linklabel"/>
             </span>
-            <a class="text-decoration-none text-dark-grey" href="{@target}">
+            <a class="ps-2 text-decoration-none text-dark-grey" href="{@target}">
                 <xsl:copy-of select="$linktext"/>
+                <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                    <defs>
+                        <style>.b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                    </defs>
+                    <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                </svg>
             </a>
         </div>
     </xsl:template>
     <xsl:template match="@corresp" mode="detail_view_reg">
         <div class="pb-1 border-bottom border-light-grey">
-            <span>Scan: </span>
+            <span>Scan </span>
             <span><xsl:apply-templates select="./ancestor::tei:bibl" mode="short"/></span>
         </div>
     </xsl:template>
