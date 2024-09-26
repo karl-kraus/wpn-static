@@ -17,6 +17,12 @@ class WPNDetailView extends HTMLElement {
       if (popoverTriggerElement) {
         new bootstrap.Popover(popoverTriggerElement, {placement:'left'})
       }
+      if (detailElement) {
+        detailElement.querySelector(".close-button")?.addEventListener("click", () => {
+          this.classList.add('d-none');
+          detailElement.classList.add('d-none');
+        })
+      }
     }
   }
   
