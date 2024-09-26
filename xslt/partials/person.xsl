@@ -138,20 +138,10 @@
         </xsl:choose>
         <xsl:apply-templates select="tei:birth"/>
         <xsl:apply-templates select="tei:death"/>
-        <xsl:apply-templates select="tei:occupation"/>
-        <xsl:for-each select="tei:affiliation">
-            <xsl:if test="position() = 1">
-                <xsl:value-of select="' ('"/>
-            </xsl:if>
-            <xsl:apply-templates select="current()"/>
-            <xsl:if test="position() != last()">
-                <xsl:value-of select="','"/>
-            </xsl:if>
-            <xsl:if test="position() = last()">
-                <xsl:value-of select="')'"/>
-            </xsl:if>
-        </xsl:for-each>
-        <xsl:text>.</xsl:text>
+        <xsl:apply-templates select="tei:occupation">
+            <xsl:sort select="@type" order="descending"/>
+        </xsl:apply-templates>
+        <xsl:apply-templates select="tei:affiliation"/>
     </xsl:template>
     <xsl:template match="tei:person" mode="short">
         <xsl:apply-templates select="tei:persName[not(@full)][not(@type)]" mode="short"/>
@@ -164,7 +154,7 @@
             </xsl:if>
             <xsl:apply-templates select="current()"/>
             <xsl:if test="position() != last()">
-                <xsl:value-of select="','"/>
+                <xsl:value-of select="."/>
             </xsl:if>
             <xsl:if test="position() = last()">
                 <xsl:value-of select="')'"/>
@@ -175,11 +165,12 @@
         <b><xsl:apply-templates select="tei:persName[not(@full)][not(@type)]" mode="short"/></b>
         <xsl:apply-templates select="tei:birth" mode="short"/>
         <xsl:apply-templates select="tei:death" mode="short"/>
+        <xsl:apply-templates select="tei:occupation[@type='prim']" mode="short"/>
         <xsl:for-each select="tei:affiliation">
             <xsl:if test="position() = 1">
                 <xsl:value-of select="' ('"/>
             </xsl:if>
-            <xsl:apply-templates select="current()"/>
+            <xsl:value-of select="current()"/>
             <xsl:if test="position() != last()">
                 <xsl:value-of select="','"/>
             </xsl:if>
@@ -260,10 +251,64 @@
         <xsl:value-of select="', '||."/>
     </xsl:template>
     <xsl:template match="tei:occupation">
-        <xsl:value-of select="( if (not(preceding-sibling::tei:occupation)) then ' ' else ', ')||."/>
+        <xsl:text> </xsl:text>
+        <xsl:choose>
+        <xsl:when test="@when">
+            <xsl:value-of select="wpn:date('[D]. [M]. [Y]', @when) || ' '" />
+            <xsl:apply-templates mode="reg" />
+        </xsl:when>
+        <xsl:when test="@notAfter and not(@notBefore)">
+            <xsl:choose>
+            <xsl:when test="@type = 'prim'">
+                <xsl:value-of select="'Bis ' || wpn:date('[D]. [M]. [Y]', @notAfter) || ' '" />
+                <xsl:apply-templates mode="reg" />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="'bis ' || wpn:date('[D]. [M]. [Y]', @notAfter) || ' '" />
+                <xsl:apply-templates mode="reg" />
+            </xsl:otherwise>
+            </xsl:choose>
+        </xsl:when>
+        <xsl:when
+            test="@notBefore and (not(@notAfter) or @notAfter[. = ./ancestor::tei:person/tei:death/@when])">
+            <xsl:choose>
+            <xsl:when test="position() = 1">
+                <xsl:value-of select="' Ab ' || wpn:date('[D]. [M]. [Y]', @notBefore) || ' '" />
+                <xsl:apply-templates mode="reg" />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="'ab ' || wpn:date('[D]. [M]. [Y]', @notBefore) || ' '" />
+                <xsl:apply-templates mode="reg" />
+            </xsl:otherwise>
+            </xsl:choose>
+        </xsl:when>
+        <xsl:when test="@notBefore and @notAfter">
+            <xsl:value-of
+            select="wpn:date('[D]. [M]. [Y]', @notBefore) || ' bis ' || wpn:date('[D]. [M]. [Y]', @notAfter) || ' '" />
+            <xsl:apply-templates mode="reg" />
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:apply-templates mode="reg" />
+        </xsl:otherwise>
+        </xsl:choose>
+        <xsl:if test="position() != last()">,</xsl:if>
+        <xsl:if test="position() = last()">.</xsl:if>
     </xsl:template>
     <xsl:template match="tei:affiliation">
-        <xsl:value-of select="."/>
+        <xsl:text> </xsl:text>
+        <xsl:if test="@notAfter">
+        <xsl:value-of select="'Bis '||@notAfter||' '" />
+        </xsl:if>
+        <xsl:if test="@notBefore">
+        <xsl:value-of select="(if (position() = 1) then 'Ab ' else 'ab ')||@notBefore||' '" />
+        </xsl:if>
+        <xsl:value-of select="." />
+        <xsl:if test="position() != last()">
+        <xsl:value-of select="','" />
+        </xsl:if>
+        <xsl:if test="position() = last()">
+        <xsl:value-of select="'.'" />
+        </xsl:if>
     </xsl:template>
      <xsl:template match="tei:forename[@subtype='unused']">
        <xsl:value-of select="' ('||.||')'"/>
