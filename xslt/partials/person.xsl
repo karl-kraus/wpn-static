@@ -161,6 +161,9 @@
             </xsl:if>
         </xsl:for-each>
     </xsl:template>
+    <xsl:template match="tei:person" mode="short_name_only">
+        <xsl:apply-templates select="tei:persName[not(@full)][not(@type)]" mode="short"/>
+    </xsl:template>
     <xsl:template match="tei:person" mode="short_info">
         <b><xsl:apply-templates select="tei:persName[not(@full)][not(@type)]" mode="short"/></b>
         <xsl:apply-templates select="tei:birth" mode="short"/>
