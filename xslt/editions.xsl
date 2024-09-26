@@ -14,6 +14,7 @@
     <xsl:import href="./partials/html_footer.xsl"/>
     <xsl:import href="./partials/aot-options.xsl"/>
     <xsl:import href="./partials/short-infos.xsl"/>
+    <xsl:import href="./partials/textview-detail-infos.xsl"/>
     <xsl:import href="./partials/pagination.xsl"/>
     <xsl:import href="./partials/scripts.xsl"/>
 
@@ -99,6 +100,39 @@
                                         </xsl:otherwise>
                                     </xsl:choose>
                                 </xsl:for-each>
+                                <wpn-detail-view class="d-none position-absolute top-0 h-100 bg-white w-100">
+                                    <div class="d-block position-sticky">
+                                        <xsl:variable name="regrefs">
+                                        <xsl:copy>
+                                            <xsl:apply-templates mode="raw" />
+                                        </xsl:copy>
+                                        </xsl:variable>
+                                        <xsl:copy-of select="$regrefs" />
+                                        <xsl:for-each select="$regrefs//@target">
+                                        <xsl:variable name="target" select="current()" />
+                                        <xsl:choose>
+                                            <xsl:when test="starts-with($target,'insertionstart')">
+                                            <xsl:apply-templates
+                                                select="doc('../data/editions/Gesamt.xml')//*[@target=replace($target,'insertionstart_','#')]"
+                                                mode="short_info">
+                                                <xsl:with-param name="reftype" select="'insertionstart'" />
+                                            </xsl:apply-templates>
+                                            </xsl:when>
+                                            <xsl:when test="starts-with($target,'insertionend')">
+                                            <xsl:apply-templates
+                                                select="doc('../data/editions/Gesamt.xml')//*[@target=replace($target,'insertionend_','#')]"
+                                                mode="short_info">
+                                                <xsl:with-param name="reftype" select="'insertionend'" />
+                                            </xsl:apply-templates>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                            <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]"
+                                                mode="detail_view_textpage" />
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+                                        </xsl:for-each>
+                                    </div>
+                                </wpn-detail-view>
                            </aside>
                         </wpn-text-view>
                     </div>
