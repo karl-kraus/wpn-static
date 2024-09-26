@@ -27,6 +27,51 @@
         </div>
 <!--</xsl:result-document>-->
     </xsl:template>
+    <!-- template needed for detail view in edition view -->
+    <xsl:template match="tei:seg" mode="detail_view_textpage">
+        <xsl:param name="id" />
+        <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2"
+            id="{'details_'||(if ($id) then $id else @xml:id)}">
+            <div class="quote_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
+                <div class="border-0 flex flex-column">
+                    <button class="float-end border-0 bg-transparent close-button">
+                    <svg class="align-top" width="10" height="10" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 7.778 7.778">
+                        <defs>
+                        <style>.a{fill:none;stroke:#d8d8d8;stroke-width:2px;}</style>
+                        </defs>
+                        <g transform="translate(0.707 0.707)">
+                        <line class="a" x2="9" transform="translate(0 0) rotate(45)"></line>
+                        <line class="a" x2="9" transform="translate(0 6.364) rotate(-45)"></line>
+                        </g>
+                    </svg>
+                    </button>
+                    <div class="fs-6 text-dark-grey p-0 pt-1">
+                        <div class="mb-2_5">
+                            <xsl:apply-templates select="." />
+                        </div>
+                        <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view_reg" />
+                        <xsl:apply-templates select="@corresp" mode="detail_view_reg" />
+                        <div class="py-1 border-bottom border-light-grey">
+                            <span>Register</span>
+                            <a class="text-decoration-none text-dark-grey ps-2"
+                            href="{'register_intertexte.html#'||@xml:id}" target="_blank">
+                            <xsl:apply-templates select="." mode="short" />
+                            <svg class="ms-2 align-baseline" width="5" height="10"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                                <defs>
+                                <style>
+                                    .b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                </defs>
+                                <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                            </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </xsl:template>
     <xsl:template match="tei:seg" mode="kwic">
     <div>
          <details class="pb-1 mt-1 border-bottom border-light-grey">
@@ -93,7 +138,7 @@
     <xsl:template match="text()">
         <xsl:value-of select="."/>
     </xsl:template>
-    <xsl:template match="tei:title">
+    <xsl:template match="tei:title[ancestor::tei:seg]">
         <i><xsl:value-of select="."/></i>
     </xsl:template>
     <xsl:template match="tei:note">
