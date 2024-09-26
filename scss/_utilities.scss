@@ -92,6 +92,7 @@ $utilities: map-merge(
       property: line-height,
       class: lh,
       values: (
+        0_86: 0.86rem,
         1_4: 1.4rem,
         1_625: 1.625rem
       ),
@@ -119,6 +120,22 @@ $utilities: map-merge(
     ),
   )
 ),
+);
+
+$utilities: map-merge(
+  $utilities, 
+  (
+    "text-align": (
+      property: text-align,
+        class: text,
+        values: (
+          start: left,
+          end: right,
+          center: center,
+          justify: justify
+      )
+    )
+  )
 );
 
 $utilities: map-merge(
