@@ -4,7 +4,7 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:wpn="https://wpn.acdh.oeaw.ac.at" 
     version="2.0" exclude-result-prefixes="xsl tei xs wpn">
-    
+    <xsl:import href="./wpn_utils.xsl"/>
     <xsl:template match="tei:event" mode="detail_view">
       <!--<xsl:result-document href="{@xml:id||'.html'}" method="html">-->
         <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2" id="{'details_'||@xml:id}">   
@@ -155,7 +155,7 @@
     <xsl:template match="text()">
         <xsl:value-of select="."/>
     </xsl:template>
-    <xsl:template match="tei:title">
+    <xsl:template match="tei:title[ancestor::tei:desc]">
         <i><xsl:value-of select="."/></i>
     </xsl:template>
     <xsl:template match="tei:desc">
