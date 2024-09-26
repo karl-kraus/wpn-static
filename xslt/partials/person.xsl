@@ -239,7 +239,6 @@
             </xsl:apply-templates>
             <xsl:text>)</xsl:text>
         </xsl:if>
-        <xsl:apply-templates select="tei:surname[@type='maiden']"/>
     </xsl:template>
     <xsl:template match="tei:persName[not(child::element())]" mode="short">
         <xsl:value-of select="."/>
