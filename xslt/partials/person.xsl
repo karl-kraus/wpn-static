@@ -4,7 +4,7 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:wpn="https://wpn.acdh.oeaw.ac.at" 
     version="2.0" exclude-result-prefixes="xsl tei xs wpn">
-    
+    <xsl:import href="./wpn_utils.xsl"/>
     <xsl:template match="tei:person" mode="detail_view">
       <!--<xsl:result-document href="{@xml:id||'.html'}" method="html">-->
         <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2" id="{'details_'||@xml:id}">   
@@ -189,10 +189,56 @@
         </xsl:for-each>
     </xsl:template>
     <xsl:template match="tei:persName[child::element()]">
-        <xsl:apply-templates select="tei:forename[not(@subtype='unused')]"/>
-        <xsl:apply-templates select="tei:forename[@subtype='unused']"/>
-        <xsl:apply-templates select="tei:surname[not(@subtype='unused')][not(@type='maiden')]"/>
-        <xsl:apply-templates select="tei:surname[@subtype='unused']"/>
+        <xsl:variable name="move_unused_forename_to_end" select="tei:forename[@subtype='unused'][preceding-sibling::tei:forename[@type='taken']]" />
+        <xsl:variable name="move_unused_surname_to_end" select="tei:surname[@subtype='unused'][preceding-sibling::tei:surname[@type='taken']]" />
+        <xsl:variable name="move_complete_name" select="$move_unused_forename_to_end and $move_unused_surname_to_end" />
+        <xsl:apply-templates select="tei:roleName[not(preceding-sibling::*)]" />
+        <xsl:apply-templates select="tei:forename[not(@subtype='unused')][not(@subtype='later')]" />
+        <xsl:if test="tei:forename[@subtype='unused'] and not($move_complete_name)">
+            <xsl:text> (</xsl:text>
+            <xsl:if test="tei:forename/@type='taken'">
+                <xsl:text>d. i.:  </xsl:text>
+            </xsl:if>
+            <xsl:apply-templates select="tei:forename[@subtype='unused']">
+                <xsl:with-param name="brackets" select="false()" />
+            </xsl:apply-templates>
+            <xsl:text>)</xsl:text>
+        </xsl:if>
+        <xsl:apply-templates select="tei:genName[preceding-sibling::*[1][self::tei:forename]]" />
+        <xsl:apply-templates select="tei:addName[not(@type='honorific')][preceding-sibling::*[1][self::tei:forename or self::tei:genName]]" />
+        <xsl:apply-templates select="tei:roleName[preceding-sibling::*[1][self::tei:forename or self::tei:genName[preceding-sibling::*[1][self::tei:forename]]]]" />
+        <xsl:apply-templates select="tei:nameLink[preceding-sibling::*[1][self::tei:forename or self::tei:roleName[preceding-sibling::*[1][self::tei:forename or self::tei:genName]]]]" />
+        <xsl:apply-templates select="tei:surname[not(@subtype='unused')][not(@type=('maiden','pseud'))][not(@subtype='later')][position()=1]" />
+        <xsl:apply-templates select="tei:roleName[preceding-sibling::*[1][self::tei:surname]]" />
+        <xsl:apply-templates select="tei:nameLink[preceding-sibling::*[1][self::tei:surname or self::tei:roleName[preceding-sibling::*[1][self::tei:surname]]]]" />
+        <xsl:apply-templates select="tei:surname[not(@subtype='unused')][not(@type=('maiden','pseud'))][not(@subtype='later')][not(position()=1)]" />
+        <xsl:apply-templates select="tei:genName[preceding-sibling::*[1][self::tei:surname]]" />
+        <xsl:apply-templates select="tei:addName[not(@type='honorific')][preceding-sibling::*[1][self::tei:surname]]" />
+        <xsl:if test="tei:surname[@subtype='unused'] and not($move_complete_name)">
+            <xsl:text> (</xsl:text>
+            <xsl:if test="tei:surname/@type='taken'">
+                <xsl:text>d. i.:  </xsl:text>
+            </xsl:if>
+            <xsl:apply-templates select="tei:surname[@subtype='unused']">
+                <xsl:with-param name="brackets" select="false()" />
+            </xsl:apply-templates>
+            <xsl:text>)</xsl:text>
+        </xsl:if>
+        <xsl:apply-templates select="tei:surname[@type='maiden']" />
+        <xsl:if test="$move_unused_forename_to_end and $move_unused_surname_to_end">
+            <xsl:text> (d. i.: </xsl:text>
+            <xsl:apply-templates select="tei:*[@subtype='unused']">
+                <xsl:with-param name="brackets" select="false()" />
+            </xsl:apply-templates>
+            <xsl:text>)</xsl:text>
+        </xsl:if>
+        <xsl:if test="tei:*[@subtype='later']">
+            <xsl:text> (später: </xsl:text>
+            <xsl:apply-templates select="tei:*[@subtype='later']">
+                <xsl:with-param name="brackets" select="false()" />
+            </xsl:apply-templates>
+            <xsl:text>)</xsl:text>
+        </xsl:if>
         <xsl:apply-templates select="tei:surname[@type='maiden']"/>
     </xsl:template>
     <xsl:template match="tei:persName[not(child::element())]" mode="short">
@@ -202,16 +248,19 @@
         <xsl:if test="preceding-sibling::tei:forename">
             <xsl:value-of select="' '"/>
         </xsl:if>
-        <xsl:value-of select="."/>
+        <xsl:value-of select="if (@type='nick') then '('||.||')' else ."/>
     </xsl:template>
     <xsl:template match="tei:surname">
-        <xsl:value-of select="' '||."/>
+        <xsl:value-of select="' '||normalize-space(.)"/>
     </xsl:template>
     <xsl:template match="tei:addName">
         <xsl:value-of select="' '||."/>
     </xsl:template>
     <xsl:template match="tei:nameLink">
         <xsl:value-of select="' '||."/>
+    </xsl:template>
+    <xsl:template match="tei:roleName">
+        <xsl:value-of select="if (not(preceding-sibling::*)) then .||' ' else ' '||."/>
     </xsl:template>
      <xsl:template match="tei:genName">
         <xsl:value-of select="' '||."/>
@@ -314,18 +363,36 @@
         </xsl:if>
     </xsl:template>
      <xsl:template match="tei:forename[@subtype='unused']">
-       <xsl:value-of select="' ('||.||')'"/>
+       <xsl:param name="brackets" select="true()"/>
+       <xsl:if test="position() != 1"><xsl:text> </xsl:text></xsl:if>
+       <xsl:value-of select="(if ($brackets) then '(' else ())||.||(if ($brackets) then ')' else ())"/>
     </xsl:template>
      <xsl:template match="tei:surname[@subtype='unused']">
-        <xsl:value-of select="' ('||.||')'"/>
+        <xsl:param name="brackets" select="true()"/>
+        <xsl:if test="position() != 1"><xsl:text> </xsl:text></xsl:if>
+        <xsl:value-of select="(if ($brackets) then '(' else ())||.||(if ($brackets) then ')' else ())"/>
     </xsl:template>
     <xsl:template match="tei:birth|tei:death">
-        <xsl:value-of select="if (self::tei:birth) then (', '||.) else (' – '||.||'.')"/>
+        <xsl:value-of select="if (self::tei:birth) then (', '||.) else (' – '||.|| (if (ends-with(.,'.')) then () else '.'))"/>
     </xsl:template>
     <xsl:template match="tei:idno[@type='GND']" mode="detail_view_reg">
     <div class="border-bottom border-light-grey pb-1">
         <a class="text-decoration-none text-dark-grey" target="_blank" href="{'http://d-nb.info/gnd/'||.}"><span class="pe-2">Link</span><span class="pe-2 text-blacker-grey-hover">GND</span></a>
         <svg width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061"><defs><style>.a{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg>
     </div>
+    </xsl:template>
+    <xsl:template match="text()" mode="reg">
+        <xsl:if test="preceding-sibling::node() and not(starts-with(.,','))">
+            <xsl:text> </xsl:text>
+        </xsl:if>
+        <xsl:value-of select="normalize-space(.)" />
+        <xsl:if test="following-sibling::node()">
+            <xsl:text> </xsl:text>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="tei:title" mode="reg">
+        <i>
+            <xsl:apply-templates mode="reg" />
+        </i>
     </xsl:template>
 </xsl:stylesheet>
