@@ -14,9 +14,6 @@
     <!-- alphabetic index  -->
     <xsl:variable name="index_letters"
         select="sort(distinct-values(//tei:term/@key))"/>
-    <!-- special cases regarding citation style -->    
-    <xsl:variable name="initials_only_names"
-        select="('Hanns Heinz Ewers', 'Jacob und Wilhelm Grimm', 'August von Platen')"/>
     <xsl:template match="/">
         <xsl:variable name="doc_title">
             <xsl:value-of select=".//tei:title[@type = 'main'][1]/text()"/>
@@ -89,31 +86,5 @@
                 <xsl:call-template name="scripts"/>
             </body>
         </html>
-    </xsl:template>
-    <xsl:template match="tei:title[@level = ('a', 'm')][text()]">
-        <span>
-            <xsl:if test="@level = 'm' and preceding-sibling::tei:title[@level = 'a']">
-                <xsl:value-of select="'In: '"/>
-                <xsl:apply-templates select="
-                        if (preceding-sibling::tei:author[. = 'Hanns Heinz Ewers']) then
-                            preceding-sibling::tei:author[1]
-                        else
-                            preceding-sibling::tei:author">
-                    <xsl:with-param name="initials_only"
-                        select="preceding-sibling::tei:author/text() = $initials_only_names"/>
-                    <xsl:with-param name="skip_role" select="true()" as="xs:boolean"/>
-                </xsl:apply-templates>
-                <xsl:value-of select="': '"/>
-            </xsl:if>
-            <xsl:if test="@type = 'subtitle'">
-                <xsl:value-of select="' '"/>
-            </xsl:if>
-            <xsl:value-of select="."/>
-            <xsl:value-of select="
-                    if (not(matches(., '(\p{Pf}|\p{Po}|\.\p{Pi})$'))) then
-                        '. '
-                    else
-                        ' '"/>
-        </span>
     </xsl:template>
 </xsl:stylesheet>
