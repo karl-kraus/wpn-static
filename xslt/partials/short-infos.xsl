@@ -142,6 +142,7 @@
     <div class="fs-6 ps-3 text-dark-grey comments" data-xmlid="{$xmlid}" style="display:none">
       <a class="text-dark-grey text-decoration-none text-wpn-comment-hover" href="{'#'||$xmlid||'_'||$target}">
         <xsl:apply-templates select="$source_element" mode="short_info">
+          <xsl:with-param name="ref_type" select="$type"/>
         </xsl:apply-templates>
       </a>
     </div>
