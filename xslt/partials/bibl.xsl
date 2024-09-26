@@ -250,20 +250,25 @@
     </xsl:template>
     <!-- template for long citation -->
     <xsl:template match="tei:bibl">
+        <xsl:param name="detail_view_textpage" select="false()"/>
+        <xsl:param name="render-cited-range"/>
+        <xsl:param name="final-dot" select="true()"/>
         <span>
             <xsl:choose>
-                <xsl:when test="@sortKey = 'N._N.'">
+                <xsl:when test="@sortKey = 'N._N.' and not($detail_view_textpage)">
                     <xsl:value-of select="'N. N.'"/>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:apply-templates select="tei:author"/>
                 </xsl:otherwise>
             </xsl:choose>
-            <xsl:if test="tei:author or @sortKey = 'N._N.'">
+            <xsl:if test="tei:author or (@sortKey = 'N._N.' and not($detail_view_textpage))">
                 <xsl:value-of select="': '"/>
             </xsl:if>
             <xsl:variable name="citation">
-                <xsl:apply-templates select="tei:title[not(@level = 's')]"/>
+                <xsl:apply-templates select="tei:title[not(@level = 's')]">
+                    <xsl:with-param name="from_cited_range" select="boolean(normalize-space($render-cited-range))"/>
+                </xsl:apply-templates>
                 <xsl:choose>
                     <xsl:when test="descendant::tei:title[@level = 'm']">
                         <xsl:if test="not(descendant::tei:title[@level = 's'])">
@@ -285,10 +290,28 @@
                 </xsl:if>
                 <xsl:apply-templates select="tei:biblScope"/>
             </xsl:variable>
-            <xsl:copy-of select="$citation"/>
-            <xsl:if test="not(matches(normalize-space($citation), '\.$'))">
-                <xsl:text>.</xsl:text>
-            </xsl:if>
+            <xsl:variable name="cited-range">
+                <xsl:if test="normalize-space($render-cited-range)">
+                    <xsl:choose>
+                    <xsl:when test="tei:biblScope">
+                        <xsl:if test="not(tei:biblScope/text() = $render-cited-range)">
+                        <xsl:value-of select="', hier '||$render-cited-range" />
+                        </xsl:if>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="', '||$render-cited-range" />
+                    </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:if>
+                </xsl:variable>
+                <xsl:variable name="full-citation">
+                <xsl:copy-of select="$citation" />
+                <xsl:copy-of select="$cited-range" />
+                </xsl:variable>
+                <xsl:copy-of select="$full-citation" />
+                <xsl:if test="not(ends-with(normalize-space($full-citation),'.')) and $final-dot">
+                    <xsl:text>.</xsl:text>
+                </xsl:if>
         </span>
     </xsl:template>
     <!-- template for newspaper short citation -->
