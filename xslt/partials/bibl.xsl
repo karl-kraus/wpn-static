@@ -32,6 +32,179 @@
             </div>
         </div>
     </xsl:template>
+    <!-- template neded for detail view in edition view -->
+    <xsl:template match="tei:bibl" mode="detail_view_textpage">
+    <xsl:param name="id" />
+    <xsl:param name="quotetype" />
+    <xsl:param name="id_in_text" />
+    <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2"
+        id="{'details_'||$id_in_text||'_'||(if ($id) then $id else @xml:id)}">
+        <div class="quote_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
+        <div class="border-0">
+            <button class="float-end border-0 bg-transparent close-button">
+            <svg class="align-top" width="10" height="10" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 7.778 7.778">
+                <defs>
+                <style>.a{fill:none;stroke:#d8d8d8;stroke-width:2px;}</style>
+                </defs>
+                <g transform="translate(0.707 0.707)">
+                <line class="a" x2="9" transform="translate(0 0) rotate(45)"></line>
+                <line class="a" x2="9" transform="translate(0 6.364) rotate(-45)"></line>
+                </g>
+            </svg>
+            </button>
+            <div class="fs-6 text-dark-grey p-0 pt-1">
+            <div class="mb-2_5">
+                <span>
+                <xsl:value-of select="$quotetype" />
+                </span>
+                <xsl:apply-templates select=".">
+                </xsl:apply-templates>
+            </div>
+            <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view_reg" />
+            <xsl:apply-templates select="@corresp" mode="detail_view_reg" />
+            <div class="py-1 border-bottom border-light-grey">
+                <span>Register</span>
+                <a class="text-decoration-none text-dark-grey ps-2"
+                href="{'register_intertexte.html#'||@xml:id}" target="_blank">
+                <xsl:apply-templates select="." mode="short" />
+                <svg class="ms-2 align-baseline" width="5" height="10"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                    <defs>
+                    <style>
+                        .b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                    </defs>
+                    <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                </svg>
+                </a>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </xsl:template>
+    <xsl:template match="tei:ref[@type='int'][parent::tei:citedRange]">
+    <xsl:param name="quotetype" />
+    <xsl:variable name="reftarget" select="replace(@target,'#','')" />
+    <xsl:variable name="refnode"
+        select="doc('../../data/indices/Register.xml')//tei:citedRange[@xml:id=$reftarget]" />
+    <xsl:apply-templates select="$refnode" mode="simple">
+        <xsl:with-param name="ref_subtype" select="@subtype" />
+        <xsl:with-param name="quotetype" select="$quotetype" />
+    </xsl:apply-templates>
+    <xsl:choose>
+        <xsl:when test="$quotetype ='Berichterstattung dazu z. B. in: '">
+        <br />
+        <xsl:value-of select="$quotetype" />
+        </xsl:when>
+        <xsl:otherwise>
+        <xsl:if test="@subtype='nonexcl'">
+            <xsl:choose>
+            <xsl:when test="$refnode/tei:ref[@type='int']">
+                <span>, zit. z. B. in: </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <br />
+                <span>Zit. z. B. in: </span>
+            </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
+        <xsl:if test="@subtype='specific'">
+            <xsl:choose>
+            <xsl:when test="$refnode/tei:ref[@type='int']">
+                <span>, zit. in: </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span><br />Zit. in: </span>
+            </xsl:otherwise>
+            </xsl:choose>
+        </xsl:if>
+        </xsl:otherwise>
+    </xsl:choose>
+    </xsl:template>
+    <xsl:template match="tei:citedRange" mode="simple">
+    <xsl:param name="id" />
+    <xsl:param name="quotetype" />
+    <xsl:param name="id_in_text" />
+    <xsl:param name="ref_subtype" />
+    <xsl:param name="initial_cited_range" />
+    <!--<xsl:value-of
+    select="@xml:id"/>-->
+    <span class="fs-6 text-dark-grey p-0 pt-1 d-l">
+        <span>
+        <xsl:value-of
+            select="if ($quotetype ='Berichterstattung dazu z. B. in: ') then () else $quotetype" />
+        </span>
+        <xsl:apply-templates select="tei:ref[@type='int']">
+        <xsl:with-param name="quotetype" select="$quotetype" />
+        </xsl:apply-templates>
+        <xsl:apply-templates select="ancestor::tei:bibl">
+        <xsl:with-param name="render-cited-range" select="normalize-space(string-join(./text()))" />
+        <xsl:with-param name="final-dot" select="if (tei:ref[@type='int']) then false() else true()" />
+        <xsl:with-param name="detail_view_textpage" select="true()" />
+        </xsl:apply-templates>
+
+    </span>
+    </xsl:template>
+    <xsl:template match="tei:citedRange" mode="detail_view_textpage">
+    <xsl:param name="id" />
+    <xsl:param name="quotetype" />
+    <xsl:param name="id_in_text" />
+    <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2"
+        id="{'details_'||$id_in_text||'_'||(if ($id) then $id else @xml:id)}">
+        <div class="quote_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
+        <div class="border-0 flex flex-column">
+            <button class="float-end border-0 bg-transparent close-button">
+            <svg class="align-top" width="10" height="10" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 7.778 7.778">
+                <defs>
+                <style>.a{fill:none;stroke:#d8d8d8;stroke-width:2px;}</style>
+                </defs>
+                <g transform="translate(0.707 0.707)">
+                <line class="a" x2="9" transform="translate(0 0) rotate(45)"></line>
+                <line class="a" x2="9" transform="translate(0 6.364) rotate(-45)"></line>
+                </g>
+            </svg>
+            </button>
+            <div class="fs-6 text-dark-grey p-0 pt-1">
+            <div class="mb-2_5">
+                <span>
+                <xsl:value-of
+                    select="if (tei:ref[@type='int']/@subtype = 'nonexcl') then () else $quotetype" />
+                </span>
+                <xsl:apply-templates select="tei:ref[@type='int']">
+                <xsl:with-param name="quotetype" select="$quotetype" />
+                </xsl:apply-templates>
+                <xsl:apply-templates select="ancestor::tei:bibl">
+                <xsl:with-param name="render-cited-range"
+                    select="normalize-space(string-join(./text()))" />
+                <xsl:with-param name="detail_view_textpage" select="true()" />
+                </xsl:apply-templates>
+            </div>
+            <xsl:apply-templates select="ancestor::tei:bibl/tei:ref[@type = 'gen']"
+                mode="detail_view_reg" />
+            <xsl:apply-templates select="tei:note[@type='context']" mode="detail_view_reg" />
+            <xsl:apply-templates select="@corresp" mode="detail_view_reg" />
+            <div class="py-1 border-bottom border-light-grey">
+                <span>Register</span>
+                <a class="text-decoration-none text-dark-grey ps-2"
+                href="{'register_intertexte.html#'||@xml:id}" target="_blank">
+                <xsl:apply-templates select="ancestor::tei:bibl" mode="short" />
+                <svg class="ms-2 align-baseline" width="5" height="10"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                    <defs>
+                    <style>
+                        .b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                    </defs>
+                    <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                </svg>
+                </a>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </xsl:template>
     <!-- template for the kwics needed in the intertext register -->
     <xsl:template match="tei:bibl" mode="kwic">
         <div class="border-bottom border-light-grey pb-1 mt-1">
@@ -338,6 +511,26 @@
             <span><xsl:value-of select="', '||data(preceding-sibling::tei:biblScope)"/></span>
         </xsl:if>
 </xsl:template>
+    <xsl:template match="@corresp" mode="detail_view_textpage">
+        <div class="pb-1 border-bottom border-light-grey">
+            <span>Scan </span>
+            <span>
+            <xsl:apply-templates select="./ancestor::tei:bibl" mode="short" />
+            </span>
+            <div>
+            </div>
+        </div>
+    </xsl:template>
+    <xsl:template match="tei:note[@type='context']" mode="detail_view_reg">
+    <details class="pt-1 pb-1 border-bottom border-light-grey">
+        <summary class="d-flex align-items-baseline">Textausschnitt <span class="ps-2">
+            <xsl:apply-templates select="./ancestor::tei:bibl" mode="short" />
+        </span></summary>
+        <div class="ff-century-old-style pt-1_5 px-1_5 pb-1">
+        <xsl:apply-templates />
+        </div>
+    </details>
+    </xsl:template>
 <xsl:template match="tei:bibl" mode="short_info">
 <xsl:param name="quotetype"/>
 <xsl:param name="nonexcl"/>
