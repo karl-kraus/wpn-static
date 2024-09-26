@@ -7,6 +7,7 @@
     <xsl:import href="person.xsl"/>
     <xsl:import href="bibl.xsl"/>
     <xsl:import href="seg.xsl"/>
+    <xsl:import href="event.xsl"/>
     <xsl:template match="tei:quote" mode="detail_view_textpage">
         <xsl:variable name="xmlid" select="@xml:id"/>
         <xsl:variable name="type" select="@type"/>
@@ -37,6 +38,27 @@
            
                 <xsl:apply-templates select="$source_element" mode="detail_view_textpage"
                 > </xsl:apply-templates>
+         
+        </xsl:for-each>
+    </xsl:template>
+    <xsl:template match="tei:ref[@type=('comment','event','glossary')]" mode="detail_view_textpage">
+        <xsl:variable name="xmlid" select="@xml:id"/>
+        <xsl:variable name="type" select="@type"/>
+        <xsl:for-each select="tokenize(@target, ' ')">
+            <xsl:variable name="target" select="substring-after(current(), '#')"/>
+            <xsl:variable name="source_element">
+                <xsl:choose>
+                    <xsl:when test="$type='event'">
+                        <xsl:copy-of  select="doc('../../data/indices/Events.xml')//(tei:event)[@xml:id = $target]"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:copy-of  select="doc('../../data/indices/Kommentar.xml')//(tei:seg)[@xml:id = $target]"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+                <xsl:apply-templates select="$source_element" mode="detail_view_textpage"
+                ><xsl:with-param name="id_in_text" select="$xmlid"/>
+                </xsl:apply-templates>
          
         </xsl:for-each>
     </xsl:template>
