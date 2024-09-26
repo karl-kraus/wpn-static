@@ -27,6 +27,64 @@
         </div>
 <!--</xsl:result-document>-->
     </xsl:template>
+           <xsl:template match="tei:event" mode="detail_view_textpage">
+        <xsl:param name="id" />
+        <xsl:param name="id_in_text" />
+        <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2"
+            id="{'details_'||$id_in_text||'_'||(if ($id) then $id else @xml:id)}">
+            <div class="comment_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
+                <div class="border-0 flex flex-column">
+                    <button class="float-end border-0 bg-transparent close-button">
+                    <svg class="align-top" width="10" height="10" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 7.778 7.778">
+                        <defs>
+                        <style>.a{fill:none;stroke:#d8d8d8;stroke-width:2px;}</style>
+                        </defs>
+                        <g transform="translate(0.707 0.707)">
+                        <line class="a" x2="9" transform="translate(0 0) rotate(45)"></line>
+                        <line class="a" x2="9" transform="translate(0 6.364) rotate(-45)"></line>
+                        </g>
+                    </svg>
+                    </button>
+                    <div class="fs-6 text-dark-grey p-0 pt-1">
+                        <div class="mb-1">
+                            <xsl:apply-templates select="." />
+                        </div>
+                        <div class="py-1 border-bottom border-light-grey">
+                            <span>Zeitleiste</span>
+                            <a class="text-decoration-none text-dark-grey ps-2"
+                            href="{'ereignisse.html#'||@xml:id}" target="_blank">
+                            <xsl:apply-templates select="." mode="short" />
+                            <xsl:text> </xsl:text>
+                            <xsl:apply-templates select="." mode="detail_view_textpage_event_date">
+                                <xsl:with-param name="fs" select="fs-6"/>
+                            </xsl:apply-templates>
+                            <svg class="ms-2 align-baseline" width="5" height="10"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                                <defs>
+                                <style>
+                                    .b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                                </defs>
+                                <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                            </svg>
+                            </a>
+                        </div>
+                        <xsl:apply-templates select="tei:desc" mode="list_sources"/>
+                        <xsl:if test="tei:ref[@type='ext']">
+                            <div>
+                                <details class="py-1 border-bottom border-light-grey">
+                                    <summary class="d-flex align-items-baseline">Links</summary>
+                                        <xsl:for-each select="tei:ref[@type='ext']">
+                                            <xsl:apply-templates select="current()"/>
+                                        </xsl:for-each>
+                                </details>
+                            </div>
+                        </xsl:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </xsl:template>
     <xsl:template match="tei:event" mode="kwic">
     <div>
          <details class="pb-1 mt-1 border-bottom border-light-grey">
@@ -66,16 +124,20 @@
          </a>
     </div>
     </xsl:template>
-    <xsl:template match="tei:seg" mode="short">
+    <xsl:template match="tei:event" mode="short">
         <xsl:apply-templates select="tei:label" mode="short"/>
     </xsl:template>
     <xsl:template match="tei:label" mode="short">
         <span><xsl:apply-templates/></span>
     </xsl:template>
-    <xsl:template match="tei:seg">
-        <xsl:apply-templates select="tei:label"/>
-        <xsl:apply-templates select="tei:note"/>
-        <xsl:apply-templates select="tei:note" mode="list_sources"/>
+    <xsl:template match="tei:event">
+         <p class="text-black-grey">
+            <xsl:apply-templates select="tei:label"/><br/>
+            <xsl:apply-templates select="." mode="detail_view_textpage_event_date">
+                <xsl:with-param name="fs" select="fs-7"/>
+            </xsl:apply-templates>
+        </p>
+        <xsl:apply-templates select="tei:desc"/>
         <xsl:if test="tei:ref[@type='ext']">
             <div>
                 <details class="py-1 border-bottom border-light-grey">
@@ -88,7 +150,7 @@
         </xsl:if>
     </xsl:template>
     <xsl:template match="tei:label">
-        <p class="fs-9 text-black-grey"><b><xsl:apply-templates/></b></p>
+        <span class="fs-9"><b>Ereignis: <xsl:apply-templates/></b></span>
     </xsl:template>
     <xsl:template match="text()">
         <xsl:value-of select="."/>
@@ -96,8 +158,19 @@
     <xsl:template match="tei:title">
         <i><xsl:value-of select="."/></i>
     </xsl:template>
-    <xsl:template match="tei:note">
-        <p class="text-justify fs-8_5 lh-0_86 my-1 text-black-grey"><xsl:apply-templates/></p>
+    <xsl:template match="tei:desc">
+        <p class="text-justify fs-8_5 lh-0_86 my-1 text-dark-grey"><xsl:apply-templates/></p>
+    </xsl:template>
+    <xsl:template match="tei:event" mode="detail_view_textpage_event_date">
+        <span class="fs-7 text-dark-grey">
+            <xsl:text>(</xsl:text>
+            <xsl:choose>
+                <xsl:when test="@when">
+                    <xsl:value-of select="wpn:date('[D]. [M]. [Y]', @when)"/>
+                </xsl:when>
+            </xsl:choose>
+            <xsl:text>)</xsl:text>
+        </span>
     </xsl:template>
     <xsl:template match="tei:ref[@type='source']">
     <xsl:variable name="sources">
@@ -113,9 +186,9 @@
     <xsl:template match="tei:citedRange" mode="popover_content">
         <p><xsl:value-of select="preceding-sibling::tei:bibl[@type='short']"/><xsl:value-of select="', '||.||'.'"/></p>
     </xsl:template>
-    <xsl:template match="tei:note" mode="list_sources">
+    <xsl:template match="tei:desc" mode="list_sources">
     <div>
-        <details class="pb-1 border-bottom border-light-grey">
+        <details class="py-1 border-bottom border-light-grey">
             <summary class="d-flex align-items-baseline">Quellen</summary>
             <xsl:for-each select="tei:ref[@type='source']/tokenize(@target,' ')">
                 <xsl:sort select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=replace(current(),'#','')]/ancestor-or-self::tei:bibl/@sortKey"/>
