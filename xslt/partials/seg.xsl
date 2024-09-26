@@ -30,9 +30,10 @@
     <!-- template needed for detail view in edition view -->
     <xsl:template match="tei:seg" mode="detail_view_textpage">
         <xsl:param name="id" />
+        <xsl:param name="id_in_text" />
         <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2"
-            id="{'details_'||(if ($id) then $id else @xml:id)}">
-            <div class="quote_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
+            id="{'details_'||$id_in_text||'_'||(if ($id) then $id else @xml:id)}">
+            <div class="comment_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
                 <div class="border-0 flex flex-column">
                     <button class="float-end border-0 bg-transparent close-button">
                     <svg class="align-top" width="10" height="10" xmlns="http://www.w3.org/2000/svg"
@@ -47,11 +48,9 @@
                     </svg>
                     </button>
                     <div class="fs-6 text-dark-grey p-0 pt-1">
-                        <div class="mb-2_5">
+                        <div class="mb-1">
                             <xsl:apply-templates select="." />
                         </div>
-                        <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view_reg" />
-                        <xsl:apply-templates select="@corresp" mode="detail_view_reg" />
                         <div class="py-1 border-bottom border-light-grey">
                             <span>Register</span>
                             <a class="text-decoration-none text-dark-grey ps-2"
@@ -67,6 +66,17 @@
                             </svg>
                             </a>
                         </div>
+                        <xsl:apply-templates select="tei:note" mode="list_sources"/>
+                        <xsl:if test="tei:ref[@type='ext']">
+                            <div>
+                                <details class="py-1 border-bottom border-light-grey">
+                                    <summary class="d-flex align-items-baseline">Links</summary>
+                                        <xsl:for-each select="tei:ref[@type='ext']">
+                                            <xsl:apply-templates select="current()"/>
+                                        </xsl:for-each>
+                                </details>
+                            </div>
+                        </xsl:if>
                     </div>
                 </div>
             </div>
@@ -118,22 +128,14 @@
         <span><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg">
-        <xsl:apply-templates select="tei:label"/>
-        <xsl:apply-templates select="tei:note"/>
-        <xsl:apply-templates select="tei:note" mode="list_sources"/>
-        <xsl:if test="tei:ref[@type='ext']">
-            <div>
-                <details class="py-1 border-bottom border-light-grey">
-                    <summary class="d-flex align-items-baseline">Links</summary>
-                        <xsl:for-each select="tei:ref[@type='ext']">
-                            <xsl:apply-templates select="current()"/>
-                        </xsl:for-each>
-                </details>
-            </div>
-        </xsl:if>
+        <p class="text-black-grey">
+            <xsl:apply-templates select="tei:label"/><br/>
+            <xsl:apply-templates select="@corresp" mode="detail_view_textpage_seg"/>
+        </p>
+        <xsl:apply-templates select="tei:note" mode="detail_view_textpage_seg"/>
     </xsl:template>
     <xsl:template match="tei:label">
-        <p class="fs-9 text-black-grey"><b><xsl:apply-templates/></b></p>
+       <span class="fs-9"><b><xsl:apply-templates/></b></span>
     </xsl:template>
     <xsl:template match="text()">
         <xsl:value-of select="."/>
@@ -141,7 +143,7 @@
     <xsl:template match="tei:title[ancestor::tei:seg]">
         <i><xsl:value-of select="."/></i>
     </xsl:template>
-    <xsl:template match="tei:note">
+    <xsl:template match="tei:note" mode="detail_view_textpage_seg">
         <p class="text-justify fs-8_5 lh-0_86 my-1 text-black-grey"><xsl:apply-templates/></p>
     </xsl:template>
     <xsl:template match="tei:ref[@type='source']">
@@ -160,7 +162,7 @@
     </xsl:template>
     <xsl:template match="tei:note" mode="list_sources">
     <div>
-        <details class="pb-1 border-bottom border-light-grey">
+        <details class="py-1 border-bottom border-light-grey">
             <summary class="d-flex align-items-baseline">Quellen</summary>
             <xsl:for-each select="tei:ref[@type='source']/tokenize(@target,' ')">
                 <xsl:sort select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=replace(current(),'#','')]/ancestor-or-self::tei:bibl/@sortKey"/>
@@ -185,7 +187,7 @@
         </a>
         
     </xsl:template>
-    <xsl:template match="tei:seg" mode="short_info">
+    <xsl:template match="tei:seg[not(@type='F890')]" mode="short_info">
         <xsl:param name="ref_type"/>
             <span class="fw-bold">
                 <xsl:value-of select="(if ($ref_type='comment') then 'Kommentar' else 'Glossar')||': '"/>
@@ -203,5 +205,17 @@
     </xsl:template>
     <xsl:template match="text()" mode="comment">
     <xsl:value-of select="."/>
+    </xsl:template>
+     <xsl:template match="@corresp" mode="detail_view_textpage_seg">
+        <span class="fs-8_5">
+            <b>
+                <xsl:text>(Zum Thema: </xsl:text>
+                <xsl:for-each select="tokenize(.,' ')">
+                    <xsl:variable name="topicid" select="replace(current(),'#','')"/>
+                    <xsl:value-of select="doc('../../data/indices/Kommentar.xml')//tei:desc[@xml:id=$topicid]"/>
+                </xsl:for-each>
+                <xsl:text>)</xsl:text>
+            </b>
+        </span>
     </xsl:template>
 </xsl:stylesheet>
