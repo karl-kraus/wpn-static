@@ -305,7 +305,7 @@
     </xsl:template>
     <xsl:template match="tei:metamark[@function=('insertion','relocation') and not(matches(@target,'(note)+.*([a-z])_'))]" mode="raw">
        <xsl:variable name="target" select="replace(@target,'#','')"/>
-        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//(tei:seg|tei:note)[@xml:id=$target]" mode="raw"/>
+        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//(tei:seg|tei:note)[@xml:id=$target]/*" mode="raw"/>
     </xsl:template>
     <xsl:template match="tei:metamark[@function=('insertion') and matches(@target,'(note)+.*([a-z])_')]">
        <xsl:variable name="target" select="replace(@target,'#','')"/>
@@ -318,7 +318,7 @@
     <xsl:template match="tei:metamark[@function=('insertion') and matches(@target,'(note)+.*([a-z])_')]" mode="raw">
          <xsl:variable name="target" select="replace(@target,'#','')"/>
         <ref target="{'insertionstart_'||replace(@target,'#','')}">
-            <xsl:apply-templates  select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="raw"/>
+            <xsl:apply-templates  select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]/*" mode="raw"/>
             <xsl:if test="@n='last'">
                 <ref target="{'insertionend_'||replace(@target,'#','')}"></ref>
             </xsl:if>
@@ -335,6 +335,7 @@
         <span class="{replace(@rendition,'#','')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:note"/>
+    <xsl:template match="tei:note" mode="raw"/>
     <xsl:template match="tei:note" mode="render">
         <xsl:apply-templates/>
     </xsl:template>
