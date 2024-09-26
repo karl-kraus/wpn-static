@@ -123,7 +123,19 @@
     </div>
     </xsl:template>
     <xsl:template match="tei:person">
-        <xsl:apply-templates select="tei:persName[not(@full)][not(@type)]"/>
+        <xsl:choose>
+            <xsl:when test="tei:persName[@full]">
+                <xsl:apply-templates select="tei:persName[@full]" />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates select="tei:persName[not(@type='pseud')]" />
+                <xsl:if test="tei:persName[@type='pseud']">
+                <xsl:text> (Pseud. </xsl:text>
+                <xsl:apply-templates select="tei:persName[@type='pseud']" />
+                <xsl:text>)</xsl:text>
+                </xsl:if>
+            </xsl:otherwise>
+        </xsl:choose>
         <xsl:apply-templates select="tei:birth"/>
         <xsl:apply-templates select="tei:death"/>
         <xsl:apply-templates select="tei:occupation"/>
@@ -211,7 +223,12 @@
         <xsl:value-of select="' '||."/>
     </xsl:template>
     <xsl:template match="tei:surname[@type='maiden']">
-        <xsl:value-of select="' (geb. '||.||')'"/>
+        <xsl:text> (geb. </xsl:text>
+        <xsl:value-of select="."/>
+        <xsl:if test="following-sibling::tei:surname[@type='pseud']">
+            <xsl:value-of select="', Pseud. '|| following-sibling::tei:surname[@type='pseud']/text()"/>
+        </xsl:if>
+        <xsl:text>)</xsl:text>
     </xsl:template>
     <xsl:template match="tei:note[@type='source'][@subtype='publ']" mode="detail_view_reg">
         <a href="#" data-bs-toggle="popover" data-bs-content="{.}"  data-bs-placement="left" data-bs-trigger="hover" data-bs-custom-class="ff-ubuntu">
