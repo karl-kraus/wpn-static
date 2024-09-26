@@ -33,6 +33,65 @@
         </div>
 <!--</xsl:result-document>-->
     </xsl:template>
+    <xsl:template match="tei:person" mode="detail_view_textpage">
+        <xsl:param name="id" />
+        <xsl:param name="id_in_text" />
+        <xsl:param name="cert_subtype" />
+        <xsl:param name="group_id" />
+        <!--<xsl:result-document
+        href="{@xml:id||'.html'}" method="html">-->
+        <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2"
+        id="{'details_'||$id_in_text||(if ($group_id) then ('_'||$group_id) else ())||'_'||(if ($id) then $id else @xml:id)}">
+            <div class="person_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
+                <div class="border-0">
+                <button class="float-end border-0 bg-transparent close-button">
+                    <svg class="align-top" width="10" height="10" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 7.778 7.778">
+                    <defs>
+                        <style>.a{fill:none;stroke:#d8d8d8;stroke-width:2px;}</style>
+                    </defs>
+                    <g transform="translate(0.707 0.707)">
+                        <line class="a" x2="9" transform="translate(0 0) rotate(45)"></line>
+                        <line class="a" x2="9" transform="translate(0 6.364) rotate(-45)"></line>
+                    </g>
+                    </svg>
+                </button>
+                <div class="fs-6 text-dark-grey p-0 pt-1">
+                    <div class="mb-2_5">
+                    <span>
+                        <xsl:if test="not($group_id)">
+                        <xsl:value-of select="$cert_subtype" />
+                        </xsl:if>
+                    </span>
+                    <xsl:apply-templates select="." />
+                    </div>
+                    <div class="d-flex justify-content-end">
+                    <xsl:apply-templates select="tei:note[@type='source'][@subtype='publ']"
+                        mode="detail_view_reg" />
+                    </div>
+                    <xsl:apply-templates select="tei:ref[@type='gen']" mode="detail_view_reg" />
+                    <xsl:apply-templates select="@corresp" mode="detail_view_reg" />
+                    <xsl:apply-templates select="tei:idno[@type='GND']" mode="detail_view_reg" />
+                    <div class="py-1 border-bottom border-light-grey">
+                    <span>Register</span>
+                    <a class="text-decoration-none text-dark-grey ps-2"
+                        href="{'register_personen.html#'||@xml:id}" target="_blank">
+                        <xsl:apply-templates select="." mode="short_name_only" />
+                        <svg class="ms-2 align-baseline" width="5" height="10"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                        <defs>
+                            <style>
+                            .b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                        </defs>
+                        <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                        </svg>
+                    </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </xsl:template>
     <xsl:template match="tei:person" mode="kwic">
     <div class="border-bottom border-light-grey pb-1 mt-1">
         <a class="text-decoration-none text-dark-grey user-select-none" role="button" data-bs-toggle="collapse" data-bs-target="{'#kwics_'||@xml:id}" aria-expanded="false" aria-controls="{'kwics_'||@xml:id}">
