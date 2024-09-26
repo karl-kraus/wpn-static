@@ -76,7 +76,7 @@
                                         </div>
                                 </div>
                             </main>
-                            <aside id="infocolumn" class="bg-white px-0 border-start border-light-grey">
+                            <aside id="infocolumn" class="bg-white px-0 border-start border-light-grey position-relative">
                                 <xsl:variable name="regrefs">
                                     <xsl:copy>
                                         <xsl:apply-templates mode="raw"/>
@@ -107,7 +107,6 @@
                                             <xsl:apply-templates mode="raw" />
                                         </xsl:copy>
                                         </xsl:variable>
-                                        <xsl:copy-of select="$regrefs" />
                                         <xsl:for-each select="$regrefs//@target">
                                         <xsl:variable name="target" select="current()" />
                                         <xsl:choose>
