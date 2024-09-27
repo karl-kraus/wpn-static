@@ -30,15 +30,16 @@ jobs:
     steps:
     - name: Perform Checkout
       uses: actions/checkout@v4
+      uses: pnpm/action-setup@v4
     - uses: actions/setup-node@v4
       with:
         node-version: 20
     - name: Node install 
       run: |
-        npm install
+        pnpm install
     - name: Build Site Dependencies
       run: |
-        npm run build
+        pnpm run build
     - name: Install Saxon, Ant and Python
       run: |
         apt-get update && apt-get install openjdk-11-jre-headless ant -y --no-install-recommend
