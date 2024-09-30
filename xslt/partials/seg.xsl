@@ -18,7 +18,7 @@
                     </div>
                     <div class="fs-6 text-dark-grey p-0">
                         <div>
-                            <xsl:apply-templates select="."/>
+                            <xsl:apply-templates select="."  mode="detail_view_textpage_seg"/>
                         </div>
                         <xsl:apply-templates select="." mode="kwic"/>
                     </div>
@@ -127,7 +127,7 @@
     <xsl:template match="tei:label" mode="short">
         <span><xsl:apply-templates/></span>
     </xsl:template>
-    <xsl:template match="tei:seg">
+    <xsl:template match="tei:seg" mode="detail_view_textpage_seg">
         <p class="text-black-grey">
             <xsl:apply-templates select="tei:label"/><br/>
             <xsl:apply-templates select="@corresp" mode="detail_view_textpage_seg"/>

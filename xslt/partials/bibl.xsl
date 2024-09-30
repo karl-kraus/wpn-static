@@ -284,7 +284,7 @@
                         </xsl:if>
                     </xsl:otherwise>
                 </xsl:choose>
-                <xsl:apply-templates select="tei:date"/>
+                <xsl:apply-templates select="tei:date" mode="info_view"/>
                 <xsl:if test="descendant::tei:title[@level = 's']">
                     <xsl:apply-templates select="descendant::tei:title[@level = 's']"/>
                 </xsl:if>
@@ -398,7 +398,7 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:date[not(@from)][not(@to)]">
+    <xsl:template match="tei:date[not(@from)][not(@to)]" mode="info_view">
         <xsl:choose>
             <xsl:when test="preceding-sibling::tei:title[@level = 'j']">
                 <span>

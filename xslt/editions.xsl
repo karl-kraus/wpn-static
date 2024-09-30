@@ -239,11 +239,8 @@
     <xsl:template match="tei:rdg[@source='DW']">
         <xsl:apply-templates/>
     </xsl:template>
-    <xsl:template match="tei:del[ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]]]">
-        <xsl:apply-templates/>
-    </xsl:template>
-    <xsl:template match="tei:del[ancestor::tei:restore[child::tei:seg]]"/>
-    <xsl:template match="tei:del[ancestor::tei:restore[not(child::tei:seg)]]">
+    <xsl:template match="tei:del[ancestor::tei:restore[1][child::tei:seg]]"/>
+    <xsl:template match="tei:del[ancestor::tei:restore[1][not(child::tei:seg)]]">
         <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:del[not(ancestor::tei:restore)][not(ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]])]"/>
@@ -274,8 +271,8 @@
      <xsl:template match="tei:sic" mode="render">
         <xsl:apply-templates/>
      </xsl:template>
-     <xsl:template match="tei:add[ancestor::tei:restore[not(child::tei:seg)]]"/>
-     <xsl:template match="tei:add[ancestor::tei:restore[child::tei:seg]]">
+     <xsl:template match="tei:add[ancestor::tei:restore[1][not(child::tei:seg)]]"/>
+     <xsl:template match="tei:add[ancestor::tei:restore[1][child::tei:seg]]">
      <xsl:apply-templates/>
      </xsl:template>
      <xsl:template match="tei:corr">
