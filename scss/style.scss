@@ -319,7 +319,12 @@ html[data-page="notes"] .container {
 .longQuoteVerse .longQuoteVerseStart,
 .longQuoteVerse .longQuoteVerseEnd  {
   font-size: unset;
-} 
+}
+
+.longQuoteVerse {
+  margin-top: $spacer * 0.5;
+  margin-bottom: $spacer * 0.5;
+}
 
 .longQuoteEndIndent .longQuoteEndCenter {
   font-size: unset;
@@ -378,7 +383,7 @@ html[data-page="notes"] .container {
 }
 
 .typescriptLongQuoteRightAlign2 {
-  padding-top: $spacer * 0.5;
+  padding-top: $spacer * 2;
 }
 
 .longQuoteVerse, 
@@ -388,6 +393,7 @@ html[data-page="notes"] .container {
   font-size: 0.75em;
   margin: $spacer * 0.5 0;
   text-align: justify;
+  display:block;
 } 
 
 .longQuoteVerseStart, .longQuoteVerseMiddle {
@@ -402,6 +408,9 @@ html[data-page="notes"] .container {
 .FackelQuote_columnRight {
   text-align: justify;
   font-size: 0.75em;
+  text-indent: 0;
+  margin-top: $spacer * 0.5;
+  margin-bottom: $spacer * 0.5;
 }
 
 .longQuoteRightAlign,
@@ -410,6 +419,11 @@ html[data-page="notes"] .container {
 {
   font-size: 0.75em;
   text-align:right;
+}
+
+.typescriptLongQuoteRightAlign {
+  margin-top: $spacer * 0.5;
+  margin-bottom: $spacer * 0.5;
 }
 
 .longQuoteEndRightAlign2 {
@@ -443,6 +457,7 @@ html[data-page="notes"] .container {
   font-size: 0.75em;
   display:block;
   text-align: center;
+  margin-top: $spacer * 0.5;
 }
 
 .typescriptLongQuoteAdvInsert {
