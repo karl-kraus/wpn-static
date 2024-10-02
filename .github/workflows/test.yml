@@ -55,9 +55,9 @@ jobs:
       run: pnpm exec playwright install --with-deps
     - name: run tests 
       run: pnpm run e2e:test_edition_view
-    - uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+    - name: deploy report
+      uses: peaceiris/actions-gh-pages@v4
+      with: 
+        personal_token: ${{ secrets.REPORT_REPO_KEY }}
+        external_repository: karl-kraus/wpn-static-test-reports
+        publish_dir: ./playwright-report
