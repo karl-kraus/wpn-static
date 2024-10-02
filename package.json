@@ -7,7 +7,8 @@
     "lint:check": "eslint . --cache --ext .js,.ts --ignore-path .gitignore",
     "format:check": "prettier . \"!./html/**\" --cache --check --ext .js,.ts --ignore-path .gitignore",
     "compile-scss": "rm -f html/css/* && sass --update --style=expanded scss:html/css",
-    "build": "pnpm run compile-scss && vite build -l info && mv html/js/wpn_utils/manifest.json manifest.json"
+    "build": "pnpm run compile-scss && vite build -l info && mv html/js/wpn_utils/manifest.json manifest.json",
+    "e2e:test_edition_view": "npx playwright test e2e/specs/edition_view.spec.ts --project=chromium --workers=2" 
   },
   "keywords": [],
   "author": "",
