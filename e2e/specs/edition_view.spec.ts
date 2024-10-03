@@ -36,8 +36,10 @@ pathsToTest.forEach(({ label, path }) => {
 		*/
 		// compare local page to screenshot(s) gathered above
 		await page.goto(`http://localhost:8000/html/${path}.html`);
-		await page.waitForTimeout(2000);
+		const viewportWidth = page.viewportSize()?.width;
+		const mainElement = page.locator("main");
+		const textElemBox = await mainElement.boundingBox();
 		await page.addStyleTag({ content: "wpn-header, #controls, footer {display:none !important;}" });
-		await expect(page).toHaveScreenshot(`snapshot-${path}.png`, { fullPage: true, timeout: 10000 });
+		await expect(page).toHaveScreenshot(`snapshot-${path}.png`, { fullPage: true, timeout: 10000,clip: { x: 0, y: 0, width: Number(viewportWidth), height: Number(textElemBox?.height) } });
 	});
 });
