@@ -57,7 +57,8 @@ jobs:
       run: pnpm run e2e:test_edition_view
     - name: deploy report
       uses: peaceiris/actions-gh-pages@v4
-      with: 
+      if: always()
+      with:
         personal_token: ${{ secrets.REPORT_REPO_KEY }}
         external_repository: karl-kraus/wpn-static-test-reports
         publish_dir: ./playwright-report
