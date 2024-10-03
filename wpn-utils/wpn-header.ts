@@ -17,6 +17,12 @@ class WPNHeader extends HTMLElement {
 						`calc(100% - ${String(entry.target.clientHeight + footer.clientHeight)}px`;
 				}
 			}
+			if (isAnnotationView) {
+				const stickyElement = document.querySelector(".position-sticky");
+				if (stickyElement) {
+					(stickyElement as HTMLElement).style.top = `${String(entry.target.clientHeight)}px`;
+				}
+			}
 		}
 	});
 
