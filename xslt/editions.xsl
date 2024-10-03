@@ -264,8 +264,8 @@
             <span class="inline-text"><xsl:apply-templates/></span>
         </span>
     </xsl:template>
-    <xsl:template match="tei:c">
-        <xsl:value-of select="'&#x2060;&#x2009;&#x2060;'"/>
+    <xsl:template match="tei:c[@type='nnbsp']">
+        <span class="ls-0"><xsl:value-of select="'&#x2060;&#x2009;&#x2060;'"/></span>
     </xsl:template>
      <xsl:template match="tei:sic"/>
      <xsl:template match="tei:sic" mode="render">
