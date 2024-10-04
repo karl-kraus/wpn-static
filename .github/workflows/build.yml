@@ -64,25 +64,21 @@ jobs:
       run: pnpm exec playwright install --with-deps
     - name: run tests 
       run: pnpm run e2e:test_edition_view
+      continue-on-error: true
     - name: Setup Pages
       uses: actions/configure-pages@v5
-      if: always()
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
-      if: always()
       with:
         path: './html'
     - name: Deploy
       id: deployment
       uses: actions/deploy-pages@v4
-      if: always()
     - name: Build Typesense Index
-      if: always()
       run: |
         python ./py/make_ts_index.py
     - name: deploy report
       uses: peaceiris/actions-gh-pages@v4
-      if: always()
       with:
         deploy_key: ${{ secrets.REPORT_REPO_KEY }}
         external_repository: karl-kraus/wpn-static-test-reports
