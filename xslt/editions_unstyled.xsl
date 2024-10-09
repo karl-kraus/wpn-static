@@ -90,7 +90,7 @@
         </span>
     </xsl:template>
     <xsl:template match="tei:rs[@type=('person','personGroup')]">
-        <span>
+        <span id="{@xml:id}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>

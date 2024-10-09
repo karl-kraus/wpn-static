@@ -93,27 +93,34 @@
         </div>
     </xsl:template>
     <xsl:template match="tei:person" mode="kwic">
-    <div class="border-bottom border-light-grey pb-1 mt-1">
-        <a class="text-decoration-none text-dark-grey user-select-none" role="button" data-bs-toggle="collapse" data-bs-target="{'#kwics_'||@xml:id}" aria-expanded="false" aria-controls="{'kwics_'||@xml:id}">
-        Textstellen
-        </a>
-        <div id="{'kwics_'||@xml:id}" class="collapse p-1 no-transition ff-century-old-style">
+    <details class="border-bottom border-light-grey pb-1 mt-1">
+        <summary class="d-flex align-items-baseline">Textstellen</summary>
+        <div id="{'kwics_'||@xml:id}">
             <xsl:for-each select="descendant::tei:rs">
                 <xsl:variable name="kwic_hit" select="collection('../../data/merged?select=*.html')//span[@id=current()/@xml:id]"/>
                 <xsl:variable name="prev_text" select="string($kwic_hit/string-join(preceding::text()))"/>
                 <xsl:variable name="following_text" select="string($kwic_hit/string-join(following::text()))"/>
                 <xsl:variable name="kwic_left" select="substring($prev_text, string-length($prev_text) - 56)"/>
                 <xsl:variable name="kwic_right" select="substring($following_text, 1, 56)"/>
-                <xsl:if test="string-length($kwic_left) > 0">
-                    <span class="text-light-grey"><xsl:copy-of select="'...'||$kwic_left"/></span>
-                </xsl:if>
-                <span class="text-kwic-grey"><xsl:copy-of select="$kwic_hit"/></span>
-                    <xsl:if test="string-length($kwic_right) > 0">
-                    <span class="text-light-grey"><xsl:copy-of select="$kwic_right||'...'"/></span>
-                </xsl:if>
+                <div class="text-kwic-grey d-flex justify-content-between align-items-end position-relative">
+                    <div class="kwic-wrapper w-80 ff-century-old-style p-08">
+                        <xsl:if test="string-length($kwic_left) > 0">
+                            <span class="text-light-grey"><xsl:copy-of select="'...'||$kwic_left"/></span>
+                        </xsl:if>
+                        <span class="text-kwic-grey"><xsl:copy-of select="$kwic_hit"/></span>
+                        <xsl:if test="string-length($kwic_right) > 0">
+                            <span class="text-light-grey"><xsl:copy-of select="$kwic_right||'...'"/></span>
+                        </xsl:if>
+                    </div>
+                    <div>
+                        <a href="{$kwic_hit/ancestor::body/@data-teiid||'.html#'||current()/@xml:id}" class="text-decoration-none link-dark-grey stretched-link ff-ubuntu m-0 p-08">
+                            <xsl:value-of select="$kwic_hit/ancestor::body/@data-label"/>
+                        </a>
+                    </div>
+                </div>
             </xsl:for-each>
         </div>
-    </div>
+    </details>
     </xsl:template>
     <xsl:template match="tei:person" mode="list_view">
     <div  id="{@xml:id}" class="py-1_5 px-2_5 fs-8_75 border-bottom border-light-grey lh-1625">
