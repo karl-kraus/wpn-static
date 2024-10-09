@@ -141,6 +141,7 @@
         <copy file="node_modules/typesense-instantsearch-adapter/dist/typesense-instantsearch-adapter.min.js" todir="${target_js_vendor}/typesense/"/>
         <copy file="node_modules/instantsearch.js/dist/instantsearch.production.min.js" todir="${target_js_vendor}/instantsearch/"/>
         <copy file="node_modules/mark.js/dist/mark.min.js" todir="${target_js_vendor}/markjs/"/>
+        <copy file="node_modules/openseadragon/build/openseadragon/openseadragon.min.js" todir="${target_js_vendor}/openseadragon/"/>
         <!--<copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-wght-normal.woff2" todir="${target_fonts}"/>
         <copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-ext-wght-normal.woff2" todir="${target_fonts}"/>-->
     </target>
