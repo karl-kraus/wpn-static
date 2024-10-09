@@ -2,8 +2,10 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:wpn="https://wpn.acdh.oeaw.ac.at"
+    xmlns:map="http://www.w3.org/2005/xpath-functions/map"
     version="2.0" exclude-result-prefixes="xsl tei xs wpn">
     <xsl:import href="./wpn_utils.xsl"/>
+    <xsl:variable name="scan_index" select="json-doc('../../data/indices/scan_index.json')"/>
     <!-- special cases regarding citation style -->
     <xsl:variable name="initials_only_names"
         select="('Hanns Heinz Ewers', 'Jacob und Wilhelm Grimm', 'August von Platen')"/>
@@ -521,7 +523,7 @@
             <span>
                 <xsl:value-of select="$linklabel"/>
             </span>
-            <a class="ps-2 text-decoration-none text-dark-grey" href="{@target}">
+            <a class="ps-2 text-decoration-none text-dark-grey" href="{@target}" target="_blank">
                 <xsl:copy-of select="$linktext"/>
                 <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
                     <defs>
@@ -548,14 +550,21 @@
         </xsl:if>
 </xsl:template>
     <xsl:template match="@corresp" mode="detail_view_textpage">
-        <div class="pb-1 border-bottom border-light-grey">
-            <span>Scan </span>
-            <span>
-            <xsl:apply-templates select="./ancestor::tei:bibl" mode="short" />
-            </span>
-            <div>
-            </div>
-        </div>
+    <xsl:variable name="parentId" select="(parent::tei:citedRange|parent::tei:bibl)/@xml:id" as="xs:string"/>
+    <xsl:variable name="scan_index_item"  select="map:get($scan_index, $parentId)"/>
+        <details class="pb-1 border-bottom border-light-grey">
+            <summary class="d-flex align-items-baseline">Scan 
+                <span class="ps-2">
+                    <xsl:apply-templates select="./ancestor::tei:bibl" mode="short" />
+                </span>
+            </summary>
+            <wpn-scans id="{'scans_'||parent::*/@xml:id}" class="d-block vh-50">
+                <xsl:attribute name="facs" select="serialize($scan_index_item, map {'method': 'json'})"/>
+            </wpn-scans>
+            <xsl:if test="$scan_index_item?*[1]?note_short">
+                <div class="fs-7 mt-3 text-end"><xsl:value-of select="'(Bildquelle: '||$scan_index_item?*[1]?note_short||')'"/></div>
+            </xsl:if>
+        </details>
     </xsl:template>
     <xsl:template match="tei:note[@type='context']" mode="detail_view_reg">
     <details class="pt-1 pb-1 border-bottom border-light-grey">
