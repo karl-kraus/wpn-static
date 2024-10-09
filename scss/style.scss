@@ -1066,3 +1066,10 @@ details[open] > summary::after {
 wpn-time-line {
   height: calc(100vh - 200px);
 }
+
+/*** osd overlays ***/
+.osd_overlay {
+  border: 2px solid $wpn-red;
+  background-color: $wpn-red;
+  opacity: 0.4;
+}
