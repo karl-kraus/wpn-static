@@ -26,7 +26,7 @@
                         </div>
                         <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view_reg"/>
                         <xsl:apply-templates select="@corresp" mode="detail_view_reg"/>
-                        <!--<xsl:apply-templates select="." mode="kwic"/>-->
+                        <xsl:apply-templates select="." mode="kwic"/>
                     </div>
                 </div>
             </div>
@@ -61,8 +61,8 @@
                 <xsl:apply-templates select=".">
                 </xsl:apply-templates>
             </div>
-            <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view_reg" />
-            <xsl:apply-templates select="@corresp" mode="detail_view_reg" />
+            <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view_textpage" />
+            <xsl:apply-templates select="@corresp" mode="detail_view_textpage" />
             <div class="py-1 border-bottom border-light-grey">
                 <span>Register</span>
                 <a class="text-decoration-none text-dark-grey ps-2"
@@ -182,9 +182,9 @@
                 </xsl:apply-templates>
             </div>
             <xsl:apply-templates select="ancestor::tei:bibl/tei:ref[@type = 'gen']"
-                mode="detail_view_reg" />
-            <xsl:apply-templates select="tei:note[@type='context']" mode="detail_view_reg" />
-            <xsl:apply-templates select="@corresp" mode="detail_view_reg" />
+                mode="detail_view_textpage" />
+            <xsl:apply-templates select="tei:note[@type='context']" mode="detail_view_textpage" />
+            <xsl:apply-templates select="@corresp" mode="detail_view_textpage" />
             <div class="py-1 border-bottom border-light-grey">
                 <span>Register</span>
                 <a class="text-decoration-none text-dark-grey ps-2"
@@ -207,14 +207,12 @@
     </xsl:template>
     <!-- template for the kwics needed in the intertext register -->
     <xsl:template match="tei:bibl" mode="kwic">
-        <div class="border-bottom border-light-grey pb-1 mt-1">
-            <a class="text-decoration-none text-dark-grey user-select-none" role="button" data-bs-toggle="collapse" data-bs-target="{'#kwics_'||@xml:id}" aria-expanded="false" aria-controls="{'kwics_'||@xml:id}">
-            Textstellen
-            </a>
-            <div id="{'kwics_'||@xml:id}" class="collapse p-1 no-transition ff-century-old-style">
+        <details class="border-bottom border-light-grey pb-1 mt-1">
+            <summary class="d-flex align-items-baseline">Textstellen</summary>
+            <div id="{'kwics_'||@xml:id}">
                 <xsl:for-each select="descendant::tei:quote">
                     <xsl:variable name="kwic_hit"
-                        select="collection('../data/merged?select=*.html')//span[@id = current()/@xml:id]"/>
+                        select="collection('../../data/merged?select=*.html')//span[@id = current()/@xml:id]"/>
                     <xsl:variable name="prev_text"
                         select="string($kwic_hit/string-join(preceding::text()))"/>
                     <xsl:variable name="following_text"
@@ -222,22 +220,31 @@
                     <xsl:variable name="kwic_left"
                         select="substring($prev_text, string-length($prev_text) - 56)"/>
                     <xsl:variable name="kwic_right" select="substring($following_text, 1, 56)"/>
-                    <xsl:if test="string-length($kwic_left) > 0">
-                        <span class="text-light-grey">
-                            <xsl:copy-of select="'...' || $kwic_left"/>
-                        </span>
-                    </xsl:if>
-                    <span class="text-kwic-grey">
-                        <xsl:copy-of select="$kwic_hit"/>
-                    </span>
-                    <xsl:if test="string-length($kwic_right) > 0">
-                        <span class="text-light-grey">
-                            <xsl:copy-of select="$kwic_right || '...'"/>
-                        </span>
-                    </xsl:if>
+                    <div class="text-kwic-grey d-flex justify-content-between align-items-end position-relative">
+                        <div class="kwic-wrapper w-80 ff-century-old-style p-08">
+                            <xsl:if test="string-length($kwic_left) > 0">
+                                <span class="text-light-grey">
+                                    <xsl:copy-of select="'...' || $kwic_left"/>
+                                </span>
+                            </xsl:if>
+                            <span class="text-kwic-grey">
+                                <xsl:copy-of select="$kwic_hit"/>
+                            </span>
+                            <xsl:if test="string-length($kwic_right) > 0">
+                                <span class="text-light-grey">
+                                    <xsl:copy-of select="$kwic_right || '...'"/>
+                                </span>
+                            </xsl:if>
+                        </div>
+                        <div>
+                            <a href="{$kwic_hit/ancestor::body/@data-teiid||'.html#'||current()/@xml:id}" class="text-decoration-none link-dark-grey stretched-link ff-ubuntu m-0 p-08">
+                            <xsl:value-of select="$kwic_hit/ancestor::body/@data-label"/>
+                        </a>
+                        </div>
+                    </div>
                 </xsl:for-each>
             </div>
-        </div>
+        </details>
     </xsl:template>
     <!-- template for the list view entries needed in the intertext register -->
     <xsl:template match="tei:bibl" mode="list_view">
