@@ -140,6 +140,7 @@
                     <xsl:with-param name="include_scroll_script" select="false()"/>
                 </xsl:call-template>
                 <script type="text/javascript" src="js/vendor/markjs/mark.min.js"></script>
+                <script type="text/javascript" src="js/vendor/openseadragon/openseadragon.min.js"></script>
                 <xsl:call-template name="scripts"/>
             </body>
         </html>
