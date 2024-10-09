@@ -12,7 +12,7 @@
             <xsl:map-entry key="'kommentar.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'notizen.xml'" select="('wpn-header','init-mirador')"/>
             <xsl:for-each select="collection('../../data/editions?select=absatz*.xml|motti*.xml')">
-                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','init-micro-editor','wpn-text-view','wpn-entity','wpn-text-zoom-button','wpn-pagination','init-mark','wpn-detail-view')"/>
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','init-micro-editor','wpn-text-view','wpn-entity','wpn-text-zoom-button','wpn-pagination','init-mark','wpn-detail-view','wpn-scans')"/>
             </xsl:for-each>
             <xsl:map-entry key="'biblindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>
             <xsl:map-entry key="'personindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>
@@ -29,7 +29,7 @@
             <xsl:variable name="script_src" select="json-doc('../../manifest.json')?*[matches(?file,current())]?file"/>
             <script src="{'js/wpn_utils/'||$script_src}">
                 <xsl:choose>
-                    <xsl:when test="contains($script_src,'init-micro-editor') or contains($script_src,'init-openseadragon') or contains($script_src,'wpn-timeline') or contains($script_src, 'init-typesense')">
+                    <xsl:when test="contains($script_src,'init-micro-editor') or contains($script_src,'init-openseadragon') or contains($script_src,'wpn-timeline') or contains($script_src, 'init-typesense') or contains($script_src, 'wpn-scans')">
                         <xsl:attribute name="type">module</xsl:attribute>
                     </xsl:when>
                     <xsl:otherwise>
