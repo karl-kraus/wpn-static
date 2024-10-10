@@ -35,9 +35,9 @@
             <xsl:variable name="corresp" select="substring-after(current(), '#')"/>
             <xsl:variable name="source_element"
                 select="doc('../../data/indices/Register.xml')//(tei:bibl | tei:citedRange)[@xml:id = $corresp]"/>
-           
-                <xsl:apply-templates select="$source_element" mode="detail_view_textpage"
-                > </xsl:apply-templates>
+                <xsl:apply-templates select="$source_element" mode="detail_view_textpage">
+                    <xsl:with-param name="id_in_text" select="$xmlid"/>
+                </xsl:apply-templates>
          
         </xsl:for-each>
     </xsl:template>
