@@ -138,7 +138,7 @@
         <span><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg" mode="detail_view_textpage_seg">
-        <p class="text-black-grey">
+        <p class="text-black-grey lh-0_9">
             <xsl:apply-templates select="tei:label"/><br/>
             <xsl:apply-templates select="@corresp" mode="detail_view_textpage_seg"/>
         </p>
