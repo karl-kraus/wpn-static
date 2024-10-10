@@ -132,7 +132,7 @@
     </xsl:template>
     <xsl:template match="tei:event">
          <p class="text-black-grey">
-            <xsl:apply-templates select="tei:label"/><br/>
+            <xsl:apply-templates select="tei:label" mode="detail_view_textpage_event"/><br/>
             <xsl:apply-templates select="." mode="detail_view_textpage_event_date">
                 <xsl:with-param name="fs" select="fs-7"/>
             </xsl:apply-templates>
@@ -149,7 +149,7 @@
             </div>
         </xsl:if>
     </xsl:template>
-    <xsl:template match="tei:label">
+    <xsl:template match="tei:label" mode="detail_view_textpage_event">
         <span class="fs-9"><b>Ereignis: <xsl:apply-templates/></b></span>
     </xsl:template>
     <xsl:template match="text()">
