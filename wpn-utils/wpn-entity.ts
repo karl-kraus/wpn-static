@@ -1,14 +1,20 @@
-import type WPNTextView from "./wpn-text-view";
-
 class WPNEntity extends HTMLElement {
+  get shouldBubble(): boolean {
+    const attributeValue = this.getAttribute("bubble");
+    
+		return attributeValue === 'false' ? false : true;
+	}
 
-  clickHandler = () =>{ 
+  clickHandler = (e: MouseEvent) =>{ 
     const targetId = this.hasAttribute("data-prev") ? this.getAttribute("data-prev") : this.getAttribute("id");
     const annotationClassName = Array.from(this.classList).find(className => className.startsWith("annot_"));
     if (annotationClassName) {
       if (document.querySelector(`annotation-slider .${annotationClassName}`)) {
         Array.from(document.querySelectorAll(`div[data-xmlid=${targetId ?? ''}]`)).forEach((el)=> el.classList.toggle("d-none"));
       }
+    }
+    if (!this.shouldBubble) {
+      e.stopPropagation();
     }
     this.notifyTextView();
     
@@ -21,7 +27,7 @@ class WPNEntity extends HTMLElement {
     this.removeEventListener("click",this.clickHandler)
   }
   notifyTextView = () => {
-    this.dispatchEvent(new Event('stateChange',{ bubbles: true,}));
+    this.dispatchEvent(new Event('stateChange',{ bubbles: true}));
   }
 }
 
