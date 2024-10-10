@@ -229,7 +229,8 @@ html[data-page="notes"] .container {
   pointer-events: none;
 }
 
-#edition-view wpn-entity[class*='annot_'] {
+#edition-view wpn-entity[class*='annot_'],
+#edition-view wpn-entity[class*='annot_fackel'] .quotes {
   pointer-events: auto;
 }
 
@@ -433,9 +434,13 @@ html[data-page="notes"] .container {
 }
 
 .longQuoteVerseCenter {
+  margin: $spacer * 0.5 0;
+}
+
+.longQuoteVerseCenter .l {
   font-size: 0.75em;
   display:block;
-  margin: $spacer * 0.5 auto;
+  margin: 0 auto;
   width:50%;
 }
 
