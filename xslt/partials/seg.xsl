@@ -77,6 +77,16 @@
                                 </details>
                             </div>
                         </xsl:if>
+                        <xsl:if test="tei:ref[@type='event']">
+                            <div>
+                                <details class="py-1 border-bottom border-light-grey">
+                                    <summary class="d-flex align-items-baseline">Ereignisse</summary>
+                                        <xsl:for-each select="tei:ref[@type='event']">
+                                            <xsl:apply-templates select="current()" mode="detail_view_textpage_seg"/>
+                                        </xsl:for-each>
+                                </details>
+                            </div>
+                        </xsl:if>
                     </div>
                 </div>
             </div>
@@ -186,6 +196,18 @@
             </svg>
         </a>
         
+    </xsl:template>
+     <xsl:template match="tei:ref[@type='event']" mode="detail_view_textpage_seg">
+        <xsl:variable name="ref_id" select="replace(@target,'#','')"/>
+        <a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="ereignisse.html{@target}" target="_blank">
+            <xsl:apply-templates select="doc('../../data/indices/Events.xml')//tei:event[@xml:id = $ref_id]/tei:label" mode="comment"/>
+            <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                <defs>
+                    <style>.b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                </defs>
+                <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+            </svg>
+        </a>
     </xsl:template>
     <xsl:template match="tei:seg[not(@type='F890')]" mode="short_info">
         <xsl:param name="ref_type"/>
