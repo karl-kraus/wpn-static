@@ -39,9 +39,10 @@
     <xsl:param name="id" />
     <xsl:param name="quotetype" />
     <xsl:param name="id_in_text" />
+    <xsl:variable name="signet_class" select="if (starts-with($id_in_text,'F890')) then 'fackel_signet_background' else 'quote_signet_background'"/>
     <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2"
         id="{'details_'||$id_in_text||'_'||(if ($id) then $id else @xml:id)}">
-        <div class="quote_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
+        <div class="{$signet_class} my-0 mw-100 top-18 px-2 ps-2 pt-1">
         <div class="border-0">
             <button class="float-end border-0 bg-transparent close-button">
             <svg class="align-top" width="10" height="10" xmlns="http://www.w3.org/2000/svg"
@@ -152,9 +153,10 @@
     <xsl:param name="id" />
     <xsl:param name="quotetype" />
     <xsl:param name="id_in_text" />
+    <xsl:variable name="signet_class" select="if (starts-with($id_in_text,'F890')) then 'fackel_signet_background' else 'quote_signet_background'"/>
     <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2"
         id="{'details_'||$id_in_text||'_'||(if ($id) then $id else @xml:id)}">
-        <div class="quote_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
+        <div class="{$signet_class} my-0 mw-100 top-18 px-2 ps-2 pt-1">
         <div class="border-0 flex flex-column">
             <button class="float-end border-0 bg-transparent close-button">
             <svg class="align-top" width="10" height="10" xmlns="http://www.w3.org/2000/svg"
