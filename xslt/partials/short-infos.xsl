@@ -30,9 +30,10 @@
     <xsl:variable name="corresp" select="substring-after(current(),'#')"/>
     <xsl:variable name="source_element" select="doc('../../data/indices/Register.xml')//(tei:bibl|tei:citedRange)[@xml:id=$corresp]"/>
     <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}" data-entity-type="fkl">
+      <a class="text-dark-grey text-decoration-none text-wpn-fackel-hover" href="{'#'||$xmlid||'_'||$corresp}">
       <xsl:apply-templates select="$source_element" mode="short_info">
-        
       </xsl:apply-templates>
+      </a>
     </div>
   </xsl:for-each>
 </xsl:template>
