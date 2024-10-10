@@ -5,7 +5,7 @@ class WPNDetailView extends HTMLElement {
     if(window.location.hash) {
       const entityId = window.location.hash.replace('#','');
       this.classList.remove('d-none');
-      const detailElement = this.querySelector(`[id^='details_${entityId}']`);
+      const detailElement = this.querySelector(`[id='details_${entityId}']`);
       this.querySelector("[id^='details_']:not(.d-none)")?.classList.add('d-none');
       detailElement?.classList.remove("d-none");
       const anchorElement = document.getElementById(entityId);
