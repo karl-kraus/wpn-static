@@ -49,7 +49,7 @@
                     </button>
                     <div class="fs-6 text-dark-grey p-0 pt-1">
                         <div class="mb-1">
-                            <xsl:apply-templates select="." />
+                            <xsl:apply-templates select="." mode="detail_view_textpage_seg"/>
                         </div>
                         <div class="py-1 border-bottom border-light-grey">
                             <span>Register</span>
