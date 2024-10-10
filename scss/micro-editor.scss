@@ -106,7 +106,7 @@ input:checked+.i-slider:before {
   padding: 1.49px 0;
 }
 
-.annot_fackel:not(.d-block) *.d-block {
+.annot_fackel:not(.d-block) * > .d-block:not(.l) {
   background-color: rgba($wpn-fackel,0.2);
 }
 
