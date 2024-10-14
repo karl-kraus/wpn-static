@@ -54,7 +54,7 @@
                         <div class="py-1 border-bottom border-light-grey">
                             <span>Register</span>
                             <a class="text-decoration-none text-dark-grey ps-2"
-                            href="{'register_intertexte.html#'||@xml:id}" target="_blank">
+                            href="{'register_kommentare.html#'||@xml:id}" target="_blank">
                             <xsl:apply-templates select="." mode="short" />
                             <svg class="ms-2 align-baseline" width="5" height="10"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
