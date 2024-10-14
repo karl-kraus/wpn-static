@@ -250,7 +250,9 @@
                 <xsl:text>(Zum Thema: </xsl:text>
                 <xsl:for-each select="tokenize(.,' ')">
                     <xsl:variable name="topicid" select="replace(current(),'#','')"/>
-                    <xsl:value-of select="doc('../../data/indices/Kommentar.xml')//tei:desc[@xml:id=$topicid]"/>
+                    <a class="text-decoration-none link-black-grey" href="{'register_kommentare.html#'||$topicid}">
+                        <xsl:value-of select="doc('../../data/indices/Kommentar.xml')//tei:desc[@xml:id=$topicid]"/>
+                    </a>
                 </xsl:for-each>
                 <xsl:text>)</xsl:text>
             </b>
