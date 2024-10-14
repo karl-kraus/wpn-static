@@ -67,22 +67,22 @@
                             </a>
                         </div>
                         <xsl:apply-templates select="tei:note" mode="list_sources"/>
-                        <xsl:if test="tei:ref[@type='ext']">
-                            <div>
-                                <details class="py-1 border-bottom border-light-grey">
-                                    <summary class="d-flex align-items-baseline">Links</summary>
-                                        <xsl:for-each select="tei:ref[@type='ext']">
-                                            <xsl:apply-templates select="current()"/>
-                                        </xsl:for-each>
-                                </details>
-                            </div>
-                        </xsl:if>
-                        <xsl:if test="tei:ref[@type='event']">
+                         <xsl:if test="tei:ref[@type='event']">
                             <div>
                                 <details class="py-1 border-bottom border-light-grey">
                                     <summary class="d-flex align-items-baseline">Ereignisse</summary>
                                         <xsl:for-each select="tei:ref[@type='event']">
                                             <xsl:apply-templates select="current()" mode="detail_view_textpage_seg"/>
+                                        </xsl:for-each>
+                                </details>
+                            </div>
+                        </xsl:if>
+                        <xsl:if test="tei:ref[@type='ext']">
+                            <div>
+                                <details class="py-1 border-light-grey">
+                                    <summary class="d-flex align-items-baseline">Links</summary>
+                                        <xsl:for-each select="tei:ref[@type='ext']">
+                                            <xsl:apply-templates select="current()"/>
                                         </xsl:for-each>
                                 </details>
                             </div>
