@@ -153,8 +153,24 @@
     <xsl:template match="tei:title[ancestor::tei:seg]">
         <i><xsl:value-of select="."/></i>
     </xsl:template>
-    <xsl:template match="tei:note" mode="detail_view_textpage_seg">
-        <p class="text-justify fs-8_5 lh-0_86 my-1 text-black-grey"><xsl:apply-templates/></p>
+    <xsl:template match="tei:note[descendant::tei:seg]" mode="detail_view_textpage_seg">
+        <xsl:variable name="grouped_notes">
+            <xsl:for-each-group select="descendant::node()[not(ancestor-or-self::tei:ref[@type='DW'])][not(ancestor-or-self::tei:label)][not(ancestor-or-self::comment())]" group-adjacent="count(preceding::*:label) + count(ancestor::*:note)">
+                <tei:note>
+                    <xsl:copy-of select="current-group()"/>
+                </tei:note>
+            </xsl:for-each-group>     
+        </xsl:variable>
+        <xsl:for-each select="$grouped_notes/tei:note">
+            <p class="text-justify fs-8_5 lh-0_86 my-1 text-black-grey">
+                <xsl:apply-templates select="(current()/node() except (tei:seg,tei:note))"  mode="comment_note"/>
+            </p>
+        </xsl:for-each>
+    </xsl:template>
+    <xsl:template match="tei:note[not(descendant::tei:seg)]" mode="detail_view_textpage_seg">
+        <p class="text-justify fs-8_5 lh-0_86 my-1 text-black-grey">
+            <xsl:apply-templates select="(current()/node() except (tei:seg,tei:note))"  mode="comment_note"/>
+        </p>
     </xsl:template>
     <xsl:template match="tei:ref[@type='source']">
     <xsl:variable name="sources">
