@@ -512,6 +512,12 @@ details[open] > summary::after {
     padding-left: 8px;
 }
 
+wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .summary-sources span {
+  background:$wpn-lighter-grey;
+}
+
+
+
 /** pagination **/
 .dropdown-toggle::after {
   border: solid black;
