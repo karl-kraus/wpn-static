@@ -701,11 +701,15 @@ details[open] > summary::after {
   line-height: 11pt;
 }
 
+#textcontent-pb .typescriptLongQuote,
+#textcontent-pb .typescriptLongQuoteLeading {
+  font-size: 1em;
+  line-height: 1em;
+}
 
 #textcontent-pb .longQuote,
-#textcontent-pb .typescriptLongQuote,
-#textcontent-pb .inkLongQuote,
-#textcontent-pb .typescriptLongQuoteLeading {
+#textcontent-pb .inkLongQuote
+ {
   font-size: 7pt !important;
   line-height: 8pt !important;
 }

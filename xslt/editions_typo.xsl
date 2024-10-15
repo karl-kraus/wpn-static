@@ -7,7 +7,10 @@
     version="3.0" exclude-result-prefixes="#all">
     
     <xsl:output encoding="UTF-8" media-type="text/html" method="html" version="5.0" indent="no" omit-xml-declaration="yes"/>
-    <xsl:preserve-space elements="*" />
+    
+    <xsl:strip-space elements="*"/>
+    <xsl:preserve-space elements="tei:p tei:mod tei:seg"/>
+
     <xsl:import href="./partials/shared.xsl"/>
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
@@ -120,6 +123,19 @@
                 
             </body>
         </html>
+    </xsl:template>
+    <xsl:template match="//text()[ancestor::tei:body]">
+        <xsl:choose>
+            <xsl:when test="following-sibling::tei:*[1]/local-name() = 'subst'">
+                <xsl:value-of select="replace(., ' $', '')"/>
+            </xsl:when>
+            <xsl:when test="preceding-sibling::tei:*[1]/local-name() = 'subst'">
+                <xsl:value-of select="replace(., '^ ', '')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="."/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:body">
         <xsl:variable name="printType">
@@ -273,7 +289,7 @@
     <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:subst">
-    <xsl:apply-templates/>
+        <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:seg">
     <xsl:apply-templates/>
