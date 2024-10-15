@@ -124,19 +124,7 @@
             </body>
         </html>
     </xsl:template>
-    <xsl:template match="//text()[ancestor::tei:body]">
-        <xsl:choose>
-            <xsl:when test="following-sibling::tei:*[1]/local-name() = 'subst'">
-                <xsl:value-of select="replace(., ' $', '')"/>
-            </xsl:when>
-            <xsl:when test="preceding-sibling::tei:*[1]/local-name() = 'subst'">
-                <xsl:value-of select="replace(., '^ ', '')"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="."/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
+
     <xsl:template match="tei:body">
         <xsl:variable name="printType">
             <xsl:value-of select=".//tei:pb[1]/@type"/>
@@ -148,13 +136,13 @@
             </div>
             <div class="print-body {$printType}">
                 <div class="body-left">
-                    <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Left')]" mode="render"/>
+                    <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Left')] | //tei:del[not(parent::tei:subst) and contains(@rend, 'Left')] | //tei:metamark[@function='progress' and contains(@rend, 'Left')] | //tei:metamark[@function='transposition' and contains(@rend, 'Left')]" mode="render"/>
                 </div>
                 <div class="body-main">
                     <xsl:apply-templates/>
                 </div>
                 <div class="body-right">
-                    <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')]" mode="render"/>
+                    <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')] | //tei:del[not(parent::tei:subst) and contains(@rend, 'Right')] | //tei:metamark[@function='progress' and contains(@rend, 'Right')] | //tei:metamark[@function='transposition' and contains(@rend, 'Right')]" mode="render"/>
                 </div>
             </div>
             <div class="print-footer {$printType}">
@@ -218,9 +206,6 @@
         <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:del[not(ancestor::tei:restore)][not(ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]])]"/> -->
-    <xsl:template match="tei:del">
-        <del><xsl:apply-templates/></del>
-    </xsl:template>
     <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letterSpacing']">
         <span class="spacing"><xsl:apply-templates/></span>
     </xsl:template>
@@ -263,17 +248,45 @@
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((@rend|parent::tei:subst/@rend), 'Left')]">
     <wpn-entity class="add entity" id="{@xml:id}"></wpn-entity>
     </xsl:template> -->
-    <xsl:template match="tei:add[not(@rendition)]">
+    <xsl:template match="tei:del[not(parent::tei:subst[@rend='overwritten']) and not(parent::tei:restore)]">
+        <del class="entity" id="{@xml:id}"><xsl:apply-templates/></del>
+    </xsl:template>
+    <xsl:template match="tei:del[parent::tei:subst[@rend='overwritten']]">
+        <span class="del text-black-grey"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:del[not(parent::tei:subst) and contains(@rend, 'Left')]" mode="render">
+        <div class="del {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><xsl:text>&#124; </xsl:text><xsl:apply-templates/></div>
+        </div>
+    </xsl:template>
+    <xsl:template match="tei:del[not(parent::tei:subst) and contains(@rend, 'Right')]" mode="render">
+        <div class="del {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><xsl:text>&#124; </xsl:text><xsl:apply-templates/></div>
+        </div>
+    </xsl:template>
+    <xsl:template match="tei:del[parent::tei:restore]">
+        <del class="add entity text-decoration-underline-dotted" id="{@xml:id}"><xsl:apply-templates/></del>
+    </xsl:template>
+    <xsl:template match="tei:add[not(@rendition) and not(parent::tei:subst[@rend='overwritten']) and not(parent::tei:restore)]">
         <span class="add entity" id="{@xml:id}"></span>
+    </xsl:template>
+    <xsl:template match="tei:add[parent::tei:restore]">
+        <del class="add entity" id="{@xml:id}"><xsl:apply-templates/></del><span class="text-decoration-underline-dotted"> &#124; </span>
+    </xsl:template>
+    <xsl:template match="tei:add[parent::tei:subst[@rend='overwritten']]">
+        <span class="entity ms-n1 me-n1 align-super" id="{@xml:id}"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:add[not(parent::tei:subst)]">
+        <span class="add entity" id="{@xml:id}"><xsl:text> &#124; </xsl:text></span>
     </xsl:template>
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')]" mode="render">
         <div class="add {if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div><xsl:apply-templates/></div>
+            <div><xsl:text>&#124; </xsl:text><xsl:apply-templates/></div>
         </div>
     </xsl:template>
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Left')]" mode="render">
         <div class="add {if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div><xsl:apply-templates/></div>
+            <div><xsl:text>&#124; </xsl:text><xsl:apply-templates/></div>
         </div>
     </xsl:template>
     <xsl:template match="tei:add[@rendition]">
@@ -281,6 +294,32 @@
             <xsl:apply-templates/>
         </span>
     </xsl:template>
+    <xsl:template match="tei:metamark[@function='progress']">
+        <span class="metamark entity" id="{@xml:id}"></span>
+     </xsl:template>
+     <xsl:template match="tei:metamark[@function='progress' and contains(@rend, 'Left')]" mode="render">
+        <div class="metamark {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><xsl:apply-templates/></div>
+        </div>
+     </xsl:template>
+     <xsl:template match="tei:metamark[@function='progress' and contains(@rend, 'Right')]" mode="render">
+        <div class="metamark {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><xsl:apply-templates/></div>
+        </div>
+     </xsl:template>
+     <xsl:template match="tei:metamark[@function='transposition']">
+        <span class="metamark entity" id="{@xml:id}"><xsl:apply-templates/></span>
+     </xsl:template>
+     <xsl:template match="tei:metamark[@function='transposition' and contains(@rend, 'Left')]" mode="render">
+        <div class="metamark {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><xsl:text>&#423;</xsl:text></div>
+        </div>
+     </xsl:template>
+     <xsl:template match="tei:metamark[@function='transposition' and contains(@rend, 'Right')]" mode="render">
+        <div class="metamark {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><xsl:text>&#423;</xsl:text></div>
+        </div>
+     </xsl:template>
     <!-- <xsl:template match="tei:add[ancestor::tei:restore[not(child::tei:seg)]]"/>
     <xsl:template match="tei:add[ancestor::tei:restore[child::tei:seg]]">
     <xsl:apply-templates/>
@@ -298,7 +337,12 @@
     <xsl:variable name="target" select="replace(@target,'#','')"/>
     <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:seg[@xml:id=$target]" mode="render"/>
     </xsl:template> -->
-    <!-- <xsl:template match="tei:seg[@type=('transposition','relocation') and not(parent::tei:restore)]"/> -->
+    <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit') and not(parent::tei:restore)]">
+        <span class="border rounded-pill"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit') and parent::tei:restore]">
+        <span class="border-dotted rounded-pill"><xsl:apply-templates/></span>
+    </xsl:template>
     <!-- <xsl:template match="tei:seg[@type=('transposition','relocation')]" mode="render">
     <xsl:apply-templates/>
     </xsl:template> -->
@@ -312,9 +356,9 @@
        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
        </wpn-entity>
     </xsl:template> -->
-     <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]">
+     <!-- <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]">
         <span class="metamark {replace(@change, '#', '')} {@rend} {replace(@rendition, '#', '')} {@place}"><xsl:apply-templates/></span>
-     </xsl:template>
+     </xsl:template> -->
     <xsl:template match="tei:mod[@style=('noLetterSpacing') and not(parent::tei:restore)]">
         <span class="ls-0"><xsl:apply-templates/></span>
     </xsl:template>
@@ -358,4 +402,5 @@
     <xsl:template match="tei:span[not(@n)]">
         <xsl:apply-templates/>
     </xsl:template>
+    <xsl:template match="tei:listTranspose"/>
 </xsl:stylesheet>
