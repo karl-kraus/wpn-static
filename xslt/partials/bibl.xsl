@@ -362,7 +362,8 @@
     </xsl:template>
     <xsl:template match="tei:title[@type = 'short']"/>
     <xsl:template match="tei:title[@level = 'j']" mode="short">
-        <i><xsl:value-of select="."/></i>
+        <i><xsl:value-of select="normalize-space(.)"/></i>
+        <span><xsl:value-of select="normalize-space(.)"/></span>
     </xsl:template>
     <xsl:template match="tei:title[@level = ('a', 'm')][text()]">
         <xsl:param name="from_cited_range" select="false()" />
@@ -538,7 +539,7 @@
               <xsl:copy-of select="tei:title[@level = 'j'][@type = 'short']"/>
             </xsl:when>
             <xsl:otherwise>
-              <xsl:value-of select="tei:title[@level = 'j']"/>
+              <xsl:value-of select="normalize-space(tei:title[@level = 'j'])"/>
             </xsl:otherwise>
           </xsl:choose>
         </xsl:variable>
@@ -570,10 +571,10 @@
             <xsl:value-of select="tei:title[@level = 'a'][not(@type)]"/>
           </xsl:when>
           <xsl:when test="tei:title[@level='a'] and $linktext = true()">
-            <xsl:value-of select="tei:title[@level = 'm'][not(@type)]"/>
+            <xsl:value-of select="normalize-space(tei:title[@level = 'm'][not(@type)])"/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:copy-of select="wpn:bold(tei:title[@level = 'm'][not(@type)])"/>
+            <xsl:copy-of select="wpn:bold(normalize-space(tei:title[@level = 'm'][not(@type)]))"/>
           </xsl:otherwise>
         </xsl:choose>
         <xsl:variable name="note">
