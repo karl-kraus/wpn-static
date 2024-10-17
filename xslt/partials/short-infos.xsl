@@ -15,7 +15,7 @@
   <xsl:for-each select="tokenize(@source,' ')">
     <xsl:variable name="source" select="substring-after(current(),'#')"/>
     <xsl:variable name="source_element" select="doc('../../data/indices/Register.xml')//(tei:bibl|tei:citedRange)[@xml:id=$source]"/>
-    <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}" data-entity-type="quts">
+    <div class="fs-6 ps-3 text-dark-grey d-none" data-testid="{if ($source = 'DWbibl00211') then 'short_info_'||$xmlid else 'short_info_'||$xmlid||'_'||$source}" data-xmlid="{$xmlid}" data-entity-type="quts">
       <a class="text-dark-grey text-decoration-none text-wpn-quote-hover" href="{'#'||$xmlid||'_'||$source}">
         <xsl:apply-templates select="$source_element" mode="short_info">
           <xsl:with-param name="quotetype" select="if ($source = 'DWbibl00211') then () else if ($type = 'exemp') then 'z. B. ' else if ($type = 'else') then 'Berichterstattung dazu z. B. in: ' else ()"/>
