@@ -20,7 +20,7 @@
             <xsl:map-entry key="'eventindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry','wpn-timeline')"/>
             <xsl:map-entry key="'suche.xml'" select="('wpn-header','wpn-detail-view','init-typesense')"/>
             <xsl:for-each select="collection('../../data/editions?select=idPb*.xml')">
-                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','wpn-page-view','wpn-entity', 'init-openseadragon', 'wpn-hf-height')"/>
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','wpn-page-view','wpn-entity', 'init-openseadragon', 'wpn-hf-height', 'wpn-typo-connections')"/>
             </xsl:for-each>
         </xsl:map>
     </xsl:variable>
