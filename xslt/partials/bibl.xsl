@@ -701,4 +701,10 @@
             </a>
         </li>
     </xsl:template>
+    <xsl:template match="tei:lg" mode="excerpt">
+        <span class="d-block lg {replace(@rendition,'#','')}"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:l"  mode="excerpt">
+        <span class="d-block l"><xsl:apply-templates/></span>
+	</xsl:template>
 </xsl:stylesheet>
