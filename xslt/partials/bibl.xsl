@@ -26,8 +26,8 @@
                         <div class="mb-2_5">
                             <xsl:apply-templates select="."/>
                         </div>
-                        <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view_reg"/>
-                        <xsl:apply-templates select="@corresp" mode="detail_view_reg"/>
+                        <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view"/>
+                        <xsl:apply-templates select="@corresp" mode="detail_view"/>
                         <xsl:apply-templates select="." mode="kwic"/>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                 <xsl:apply-templates select=".">
                 </xsl:apply-templates>
             </div>
-            <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view_textpage" />
+            <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view" />
             <xsl:apply-templates select="@corresp" mode="detail_view_textpage" />
             <div class="py-1 border-bottom border-light-grey">
                 <span>Register</span>
