@@ -67,26 +67,8 @@
                             </a>
                         </div>
                         <xsl:apply-templates select="tei:note" mode="list_sources"/>
-                         <xsl:if test="tei:ref[@type='event']">
-                            <div>
-                                <details class="py-1 border-bottom border-light-grey">
-                                    <summary class="d-flex align-items-baseline">Ereignisse</summary>
-                                        <xsl:for-each select="tei:ref[@type='event']">
-                                            <xsl:apply-templates select="current()" mode="detail_view_textpage_seg"/>
-                                        </xsl:for-each>
-                                </details>
-                            </div>
-                        </xsl:if>
-                        <xsl:if test="tei:ref[@type='ext']">
-                            <div>
-                                <details class="py-1 border-light-grey">
-                                    <summary class="d-flex align-items-baseline">Links</summary>
-                                        <xsl:for-each select="tei:ref[@type='ext']">
-                                            <xsl:apply-templates select="current()"/>
-                                        </xsl:for-each>
-                                </details>
-                            </div>
-                        </xsl:if>
+                        <xsl:apply-templates select="." mode="list_events"/>
+                        <xsl:apply-templates select="." mode="list_links"/>
                     </div>
                 </div>
             </div>
@@ -192,16 +174,29 @@
         <xsl:value-of select="preceding-sibling::tei:bibl[@type='short']"/><xsl:value-of select="', '||.||'.'"/>
     </xsl:template>
     <xsl:template match="tei:note" mode="list_sources">
-    <div>
-        <details class="py-1 border-bottom border-light-grey">
-            <summary class="d-flex align-items-baseline summary-sources"><span>Quellen</span></summary>
-            <xsl:for-each select="tei:ref[@type='source']/tokenize(@target,' ')">
-                <xsl:sort select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=replace(current(),'#','')]/ancestor-or-self::tei:bibl/@sortKey"/>
-                <xsl:variable name="target_id" select="replace(current(),'#','')"/>
-                <xsl:apply-templates select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=$target_id]" mode="list_sources"/>
-            </xsl:for-each>
-        </details>
-    </div>
+    <xsl:template match="tei:seg" mode="list_events">
+        <xsl:if test="tei:ref[@type='event']">
+            <div>
+                <details class="py-1 border-bottom border-light-grey">
+                    <summary class="d-flex align-items-baseline">Ereignisse</summary>
+                        <xsl:for-each select="tei:ref[@type='event']">
+                            <xsl:apply-templates select="current()" mode="detail_view_textpage_seg"/>
+                        </xsl:for-each>
+                </details>
+            </div>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="tei:seg" mode="list_links">
+        <xsl:if test="tei:ref[@type='ext']">
+            <div>
+                <details class="py-1 border-light-grey">
+                    <summary class="d-flex align-items-baseline">Links</summary>
+                        <xsl:for-each select="tei:ref[@type='ext']">
+                            <xsl:apply-templates select="current()"/>
+                        </xsl:for-each>
+                </details>
+            </div>
+        </xsl:if>
     </xsl:template>
     <xsl:template match="tei:citedRange" mode="list_sources">
         <p class="my-05 lh-0_86">
