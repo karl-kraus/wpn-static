@@ -367,6 +367,8 @@
     <xsl:template match="tei:title[@type = 'short']"/>
     <xsl:template match="tei:title[@level = 'j']" mode="short">
         <i><xsl:value-of select="normalize-space(.)"/></i>
+    </xsl:template>
+    <xsl:template match="tei:title[@level = ('a','m')]" mode="short">
         <span><xsl:value-of select="normalize-space(.)"/></span>
     </xsl:template>
     <xsl:template match="tei:title[@level = ('a', 'm')][text()]">
