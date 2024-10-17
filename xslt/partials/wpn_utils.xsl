@@ -35,13 +35,13 @@
     <xsl:param name="input"/>
     <xsl:choose>
       <xsl:when test="matches($input, '^(Anfang|Mitte|Ende)')">
-        <xsl:text> von </xsl:text>
+        <xsl:text>von</xsl:text>
       </xsl:when>
       <xsl:when test="$input[@from]">
         <xsl:text> </xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:text> vom </xsl:text>
+        <xsl:text>vom</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:function>
