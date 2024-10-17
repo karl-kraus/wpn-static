@@ -73,11 +73,7 @@
                 <xsl:apply-templates select="." mode="short" />
                 <svg class="ms-2 align-baseline" width="5" height="10"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
-                    <defs>
-                    <style>
-                        .b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                    </defs>
-                    <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                    <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
                 </svg>
                 </a>
             </div>
