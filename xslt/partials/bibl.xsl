@@ -274,6 +274,7 @@
             <xsl:variable name="citation">
                 <xsl:apply-templates select="tei:title[not(@level = 's')]">
                     <xsl:with-param name="from_cited_range" select="boolean(normalize-space($render-cited-range))"/>
+                    <xsl:with-param name="final-dot" select="$final-dot"/>
                 </xsl:apply-templates>
                 <xsl:choose>
                     <xsl:when test="descendant::tei:title[@level = 'm']">
@@ -325,6 +326,9 @@
         <xsl:apply-templates select="if (tei:title[@level='j'][@type='short']) then tei:title[@level='j'][@type='short'] else tei:title[@level='j']" mode="short"/>
          <!--<xsl:value-of select="wpn:preposition(tei:date)"/>
          <xsl:value-of select="tei:date/text()"/>-->
+         <xsl:if test="tei:date[@from][@to]">
+            <xsl:text>.</xsl:text>
+         </xsl:if>
          <xsl:apply-templates select="tei:date" mode="short"/>
     </xsl:template>
     <!-- template for non-newspaper short citation -->
@@ -357,7 +361,7 @@
             <xsl:value-of select="normalize-space(.)"/>
         </i>
         <xsl:if test="following-sibling::tei:title[not(@type='short')]">
-            <xsl:value-of select="'. '"/>
+           <xsl:value-of select="'.'"/>
         </xsl:if>
     </xsl:template>
     <xsl:template match="tei:title[@type = 'short']"/>
@@ -367,6 +371,7 @@
     </xsl:template>
     <xsl:template match="tei:title[@level = ('a', 'm')][text()]">
         <xsl:param name="from_cited_range" select="false()" />
+        <xsl:param name="final-dot" select="true()" />
         <span>
             <xsl:if test="@level = 'm' and preceding-sibling::tei:title[@level = 'a']">
             <xsl:value-of select="'In: '" />
@@ -387,7 +392,7 @@
             <!-- Die Bibel - special case -->
             <xsl:when test="ancestor::tei:bibl[@xml:id ='DWbibl00192']">
             </xsl:when>
-            <xsl:when test="not(matches(., '(\p{Pf}|\p{Po}|\.\p{Pi})$'))">
+            <xsl:when test="not(matches(., '(\p{Pf}|\p{Po}|\.\p{Pi})$')) and ($final-dot or boolean(following-sibling::*[1][not(self::tei:citedRange)]))">
                 <xsl:text>.</xsl:text>
             </xsl:when>
             </xsl:choose>
@@ -452,7 +457,7 @@
                     <xsl:value-of select="."/>
                     <xsl:value-of select="')'"/>
                     <xsl:if test="following-sibling::tei:date[@from][@to]">
-                        <xsl:value-of select="'.'"/>
+                        <xsl:value-of select="'. '"/>
                     </xsl:if>
                 </span>
             </xsl:when>
@@ -552,7 +557,7 @@
           <xsl:if test="tei:date[@from]">
             <xsl:text>. </xsl:text>
           </xsl:if>
-          <xsl:value-of select="wpn:preposition(tei:date)"/>
+          <xsl:value-of select="' '||wpn:preposition(tei:date)|| ' '"/>
           <xsl:value-of select="tei:date/text()"/>
         </xsl:if>
       </xsl:when>
