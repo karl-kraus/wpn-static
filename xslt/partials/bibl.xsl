@@ -426,6 +426,10 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    <xsl:template match="tei:date[@from or @to]" mode="info_view">
+        <xsl:value-of select="' ' || string-join(text())"/>
+        <xsl:apply-templates select="tei:note" mode="date_note"/>
+    </xsl:template>
     <xsl:template match="tei:date[not(@from)][not(@to)]" mode="short">
         <xsl:choose>
             <xsl:when test="preceding-sibling::tei:title[@level = 'j']">
