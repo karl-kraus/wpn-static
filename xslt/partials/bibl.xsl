@@ -163,6 +163,7 @@
             </svg>
             </button>
             <div class="fs-6 text-dark-grey p-0 pt-1">
+            <div class="mb-2_5" data-testid="description_{$elem_id}">
                 <xsl:if test="$quotetype">
                     <xsl:if test="not($quotetype = 'Berichterstattung dazu z. B. in: ' and tei:ref[@type='int'][@subtype = 'nonexcl'])">   
                         <span>
