@@ -174,6 +174,19 @@
         <xsl:value-of select="preceding-sibling::tei:bibl[@type='short']"/><xsl:value-of select="', '||.||'.'"/>
     </xsl:template>
     <xsl:template match="tei:note" mode="list_sources">
+        <xsl:if test="descendant::tei:ref[@type='source']">
+            <div>
+                <details class="py-1 border-bottom border-light-grey">
+                    <summary class="d-flex align-items-baseline summary-sources"><span>Quellen</span></summary>
+                    <xsl:for-each select="tei:ref[@type='source']/tokenize(@target,' ')">
+                        <xsl:sort select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=replace(current(),'#','')]/ancestor-or-self::tei:bibl/@sortKey"/>
+                        <xsl:variable name="target_id" select="replace(current(),'#','')"/>
+                        <xsl:apply-templates select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=$target_id]" mode="list_sources"/>
+                    </xsl:for-each>
+                </details>
+            </div>
+        </xsl:if>
+    </xsl:template>
     <xsl:template match="tei:seg" mode="list_events">
         <xsl:if test="tei:ref[@type='event']">
             <div>
