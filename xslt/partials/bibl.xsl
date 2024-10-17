@@ -179,25 +179,26 @@
                 <xsl:with-param name="detail_view_textpage" select="true()" />
                 </xsl:apply-templates>
             </div>
-            <xsl:apply-templates select="ancestor::tei:bibl/tei:ref[@type = 'gen']"
-                mode="detail_view_textpage" />
-            <xsl:apply-templates select="tei:note[@type='context']" mode="detail_view_textpage" />
-            <xsl:apply-templates select="@corresp" mode="detail_view_textpage" />
-            <div class="py-1 border-bottom border-light-grey">
-                <span>Register</span>
-                <a class="text-decoration-none text-dark-grey ps-2"
-                href="{'register_intertexte.html#'||@xml:id}" target="_blank">
-                <xsl:apply-templates select="ancestor::tei:bibl" mode="short" />
-                <svg class="ms-2 align-baseline" width="5" height="10"
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
-                    <defs>
-                    <style>
-                        .b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                    </defs>
-                    <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
-                </svg>
-                </a>
-            </div>
+            <ul data-testid="external_links_{$elem_id}" class="list-unstyled mb-0">
+                <xsl:call-template name="ext_links">
+                    <xsl:with-param name="node_id" select="@xml:id"/>
+                </xsl:call-template>
+            </ul>
+            <ul data-testid="text_excerpts_{$elem_id}" class="list-unstyled mb-0">
+                <xsl:call-template name="text_excerpts">
+                    <xsl:with-param name="node_id" select="@xml:id"/>
+                </xsl:call-template>
+            </ul>
+            <ul data-testid="scans_{$elem_id}" class="list-unstyled mb-0">
+                <xsl:call-template name="scans">
+                    <xsl:with-param name="node_id" select="@xml:id"/>
+                </xsl:call-template>
+            </ul>
+            <ul data-testid="register_links_{$elem_id}" class="list-unstyled mb-0">
+                <xsl:call-template name="link_to_register">
+                    <xsl:with-param name="node_id" select="@xml:id"/>
+                </xsl:call-template>
+            </ul>
             </div>
         </div>
         </div>
@@ -500,36 +501,6 @@
         <xsl:value-of select=". || ', '"/>
     </xsl:template>
     <xsl:template match="tei:note"/>
-    <xsl:template match="tei:ref[@type='gen']" mode="detail_view_reg">
-        <xsl:variable name="linktext">
-        <xsl:apply-templates select="./ancestor::tei:bibl" mode="short"/>
-        </xsl:variable>
-        <xsl:variable name="linklabel">
-            <xsl:choose>
-                <xsl:when test="@subtype = 'specific'">
-                    <xsl:text>Link </xsl:text>
-                </xsl:when>
-                <xsl:when test="@subtype = 'example'">
-                    <xsl:text>Link (exempl.) </xsl:text>
-                </xsl:when>
-                <xsl:otherwise/>
-            </xsl:choose>
-        </xsl:variable>
-        <div  class="pb-1 border-bottom border-light-grey">
-            <span>
-                <xsl:value-of select="$linklabel"/>
-            </span>
-            <a class="ps-2 text-decoration-none text-dark-grey" href="{@target}" target="_blank">
-                <xsl:copy-of select="$linktext"/>
-                <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
-                    <defs>
-                        <style>.b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                    </defs>
-                    <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
-                </svg>
-            </a>
-        </div>
-    </xsl:template>
     <xsl:template match="@corresp" mode="detail_view_reg">
         <div class="pb-1 border-bottom border-light-grey">
             <span>Scan </span>
@@ -544,23 +515,6 @@
         <xsl:if test="preceding-sibling::tei:biblScope">
             <span><xsl:value-of select="', '||data(preceding-sibling::tei:biblScope)"/></span>
         </xsl:if>
-</xsl:template>
-    <xsl:template match="@corresp" mode="detail_view_textpage">
-    <xsl:variable name="parentId" select="(parent::tei:citedRange|parent::tei:bibl)/@xml:id" as="xs:string"/>
-    <xsl:variable name="scan_index_item"  select="map:get($scan_index, $parentId)"/>
-        <details class="pb-1 border-bottom border-light-grey">
-            <summary class="d-flex align-items-baseline">Scan 
-                <span class="ps-2">
-                    <xsl:apply-templates select="./ancestor::tei:bibl" mode="short" />
-                </span>
-            </summary>
-            <wpn-scans id="{'scans_'||parent::*/@xml:id}" class="d-block vh-50">
-                <xsl:attribute name="facs" select="serialize($scan_index_item, map {'method': 'json'})"/>
-            </wpn-scans>
-            <xsl:if test="$scan_index_item?*[1]?note_short">
-                <div class="fs-7 mt-3 text-end"><xsl:value-of select="'(Bildquelle: '||$scan_index_item?*[1]?note_short||')'"/></div>
-            </xsl:if>
-        </details>
     </xsl:template>
     <xsl:template match="tei:note[@type='context']" mode="detail_view_reg">
     <details class="pt-1 pb-1 border-bottom border-light-grey">
@@ -634,4 +588,117 @@
 
     </xsl:choose>
 </xsl:template>
+<xsl:template name="ext_links">
+    <xsl:param name="node_id" as="xs:string"/>
+    <xsl:variable name="ref_node" select="doc('../../data/indices/Register.xml')//(tei:bibl|tei:citedRange)[@xml:id=$node_id]"/>
+    <xsl:variable name="bibl_id"
+        select="if ($ref_node/name() = 'citedRange') then ancestor::tei:bibl/@xml:id else $node_id"/>
+        <xsl:if test="$ref_node/tei:ref[@type='int']">
+            <xsl:call-template name="ext_links">
+                <xsl:with-param name="node_id" select="$ref_node/tei:ref[@type='int']/replace(@target,'#','')"/>
+            </xsl:call-template>
+        </xsl:if>
+        <xsl:if test="$ref_node[tei:ref[@type='ext']]">
+            <xsl:for-each select="$ref_node//tei:ref[@type='ext']">
+                <xsl:variable name="ext_link" select="current()"/>
+                <xsl:variable name="linktext">
+                    <xsl:apply-templates select="current()/ancestor-or-self::tei:bibl" mode="short"/>
+                </xsl:variable>
+                <xsl:variable name="linklabel">
+                    <xsl:choose>
+                        <xsl:when test="$ext_link/@subtype = 'specific'">
+                            <xsl:text>Link</xsl:text>
+                        </xsl:when>
+                        <xsl:when test="$ext_link/@subtype = 'example'">
+                            <xsl:text>Link (exempl.)</xsl:text>
+                        </xsl:when>
+                        <xsl:otherwise/>
+                    </xsl:choose>
+                </xsl:variable>
+                <li class="py-1 border-bottom border-light-grey">
+                    <span>
+                        <xsl:value-of select="$linklabel"/>
+                    </span>
+                    <a class="ps-2 text-decoration-none text-dark-grey" href="{$ext_link/@target}" target="_blank">
+                        <xsl:copy-of select="$linktext"/>
+                        <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                            <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                        </svg>
+                    </a>
+                </li>
+            </xsl:for-each>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template name="text_excerpts">
+    <xsl:param name="node_id" as="xs:string"/>
+        <xsl:variable name="ref_node" select="doc('../../data/indices/Register.xml')//(tei:bibl|tei:citedRange)[@xml:id=$node_id]"/>
+        <xsl:variable name="bibl_id"
+            select="if ($ref_node/name() = 'citedRange') then ancestor::tei:bibl/@xml:id else $node_id"/>
+        <xsl:if test="$ref_node/tei:ref[@type='int']">
+            <xsl:call-template name="text_excerpts">
+                <xsl:with-param name="node_id" select="$ref_node/tei:ref[@type='int']/replace(@target,'#','')"/>
+            </xsl:call-template>
+        </xsl:if>
+        <xsl:if test="$ref_node[tei:note[@type='context']]">
+            <li><details class="pt-1 pb-1 border-bottom border-light-grey">
+                <summary class="d-flex align-items-baseline"><span>Textausschnitt</span><span class="ps-2">
+                    <xsl:apply-templates select="$ref_node/ancestor::tei:bibl" mode="short" />
+                </span></summary>
+                <div class="ff-century-old-style pt-1_5 px-1_5 pb-1">
+                    <xsl:apply-templates select="$ref_node/tei:note[@type='context']" mode="excerpt"/>
+                </div>
+            </details></li>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template name="scans">
+        <xsl:param name="node_id" as="xs:string"/>
+        <xsl:variable name="ref_node" select="doc('../../data/indices/Register.xml')//(tei:bibl|tei:citedRange)[@xml:id=$node_id]"/>
+        <xsl:if test="$ref_node/tei:ref[@type='int']">
+            <xsl:call-template name="scans">
+                <xsl:with-param name="node_id" select="$ref_node/tei:ref[@type='int']/replace(@target,'#','')"/>
+            </xsl:call-template>
+        </xsl:if>
+        <xsl:if test="$ref_node/@corresp">
+            <xsl:variable name="scan_index_item"  select="map:get($scan_index, $ref_node/@xml:id)"/>
+            <li><details class="py-1 border-bottom border-light-grey">
+                <summary class="d-flex align-items-baseline">
+                    <span>Scan</span> 
+                    <span class="ps-2">
+                        <xsl:apply-templates select="$ref_node/ancestor-or-self::tei:bibl" mode="short" />
+                    </span>
+                </summary>
+                <wpn-scans id="{'scans_'||$ref_node/@xml:id}" class="d-block vh-50">
+                    <xsl:attribute name="facs" select="serialize($scan_index_item, map {'method': 'json'})"/>
+                </wpn-scans>
+                <xsl:if test="$scan_index_item?*[1]?note_short">
+                    <div class="fs-7 mt-3 text-end"><xsl:value-of select="'(Bildquelle: '||$scan_index_item?*[1]?note_short||')'"/></div>
+                </xsl:if>
+            </details></li>
+         </xsl:if>
+    </xsl:template>
+    <xsl:template name="link_to_register">
+        <xsl:param name="node_id" as="xs:string"/>
+        <xsl:variable name="ref_node" select="doc('../../data/indices/Register.xml')//(tei:bibl|tei:citedRange)[@xml:id=$node_id]"/>
+        <xsl:variable name="bibl_id"
+            select="if ($ref_node/name() = 'citedRange') then $ref_node/ancestor::tei:bibl/@xml:id else $node_id"/>
+        
+        <xsl:if test="$ref_node/tei:ref[@type='int']">
+            <xsl:call-template name="link_to_register">
+                <xsl:with-param name="node_id" select="$ref_node/tei:ref[@type='int']/replace(@target,'#','')"/>
+            </xsl:call-template>
+        </xsl:if>
+        <li class="py-1 border-bottom border-light-grey">
+            <span>Register</span>
+            <a class="text-decoration-none text-dark-grey ps-2"
+                href="{'register_intertexte.html#'||$bibl_id}" target="_blank">
+                <xsl:apply-templates select="$ref_node/ancestor-or-self::tei:bibl" mode="short"/>
+                
+                <svg class="ms-2 align-baseline" width="5" height="10"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                    <path style="fill: none; stroke: #666; stroke-linejoin: round;
+                            stroke-miterlimit: 10; stroke-width: 1.5px;" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"/>
+                </svg>
+            </a>
+        </li>
+    </xsl:template>
 </xsl:stylesheet>
