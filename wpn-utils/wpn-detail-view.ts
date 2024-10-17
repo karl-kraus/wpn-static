@@ -13,10 +13,26 @@ class WPNDetailView extends HTMLElement {
         anchorElement.style.scrollMarginTop = `${String(document.getElementsByTagName("wpn-header")[0].clientHeight)}px`
         anchorElement.scrollIntoView()
       }
-      const popoverTriggerElement = detailElement?.querySelector("[data-bs-toggle='popover']")
-      if (popoverTriggerElement) {
-        new bootstrap.Popover(popoverTriggerElement, {placement:'left'})
-      }
+      const popoverTriggerElements = detailElement?.querySelectorAll("[data-bs-toggle='popover']");
+      popoverTriggerElements?.forEach(pTE=>{
+        new bootstrap.Popover(pTE, {placement:'left',html: true,});
+        pTE.addEventListener('shown.bs.popover',() =>{
+          const elementsToHighlight = pTE.getAttribute("data-highlight")?.split(',');
+          elementsToHighlight?.forEach(eTH =>{
+            const citedRangeElement = this.querySelector(`span[data-cited-range=${eTH}]`);
+            citedRangeElement?.classList.add('bg-lighter-grey');
+            citedRangeElement?.parentElement?.querySelector(`span[data-bibl-id]`)?.classList.add('bg-lighter-grey');
+          });
+        })
+        pTE.addEventListener('hidden.bs.popover',() =>{
+          const elementsToHighlight = pTE.getAttribute("data-highlight")?.split(',');
+          elementsToHighlight?.forEach(eTH =>{
+            const citedRangeElement = this.querySelector(`span[data-cited-range=${eTH}]`);
+            citedRangeElement?.classList.remove('bg-lighter-grey');
+            citedRangeElement?.parentElement?.querySelector(`span[data-bibl-id]`)?.classList.remove('bg-lighter-grey');
+          });
+        })
+      })
       if (detailElement) {
         detailElement.querySelector(".close-button")?.addEventListener("click", () => {
           this.classList.add('d-none');
