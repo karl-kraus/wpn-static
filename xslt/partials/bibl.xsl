@@ -134,12 +134,7 @@
     <!--<xsl:value-of
     select="@xml:id"/>-->
     <span class="fs-6 text-dark-grey p-0 pt-1 d-l">
-        <span>
-        <xsl:value-of
-            select="if ($quotetype ='Berichterstattung dazu z. B. in: ') then () else $quotetype" />
-        </span>
         <xsl:apply-templates select="tei:ref[@type='int']">
-        <xsl:with-param name="quotetype" select="$quotetype" />
         </xsl:apply-templates>
         <xsl:apply-templates select="ancestor::tei:bibl">
         <xsl:with-param name="render-cited-range" select="normalize-space(string-join(./text()))" />
@@ -172,13 +167,15 @@
             </svg>
             </button>
             <div class="fs-6 text-dark-grey p-0 pt-1">
-            <div class="mb-2_5">
-                <span>
-                <xsl:value-of
-                    select="if (tei:ref[@type='int']/@subtype = 'nonexcl') then () else $quotetype" />
-                </span>
+                <xsl:if test="$quotetype">
+                    <xsl:if test="not($quotetype = 'Berichterstattung dazu z. B. in: ' and tei:ref[@type='int'][@subtype = 'nonexcl'])">   
+                        <span>
+                            <xsl:value-of select="$quotetype" />
+                        </span>
+                    </xsl:if>
+                </xsl:if>
                 <xsl:apply-templates select="tei:ref[@type='int']">
-                <xsl:with-param name="quotetype" select="$quotetype" />
+                    <xsl:with-param name="quotetype" select="$quotetype" />
                 </xsl:apply-templates>
                 <xsl:apply-templates select="ancestor::tei:bibl">
                 <xsl:with-param name="render-cited-range"
