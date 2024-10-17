@@ -333,7 +333,7 @@
     </xsl:template>
     <!-- template for non-newspaper short citation -->
     <xsl:template match="tei:bibl[not(descendant::tei:title[@level='j'])]" mode="short">
-        <xsl:apply-templates select="tei:title[@level='a'][not(@type='subtitle')] | tei:title[@level='m'][not(@type='subtitle')]" mode="short"/>
+        <xsl:apply-templates select="if (tei:title[@level='a'][not(@type='subtitle')]) then tei:title[@level='a'][not(@type='subtitle')]  else tei:title[@level='m'][not(@type='subtitle')]" mode="short"/>
     </xsl:template>
     <!-- template for authors -->
     <xsl:template match="tei:author">
