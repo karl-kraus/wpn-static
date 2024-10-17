@@ -515,11 +515,18 @@
     </xsl:template>
     <xsl:template match="tei:citedRange" mode="short_info">
         <xsl:param name="quotetype"/>
-        <span><xsl:value-of select="$quotetype"/></span>
-        <xsl:apply-templates select="./ancestor::tei:bibl" mode="short_info">
+        <xsl:variable name="ref_node_id" select="tei:ref[@type='int']/replace(@target,'#','')"/>
+        <xsl:variable name="ref_node" select="if (tei:ref[@type='int'] and not(preceding-sibling::tei:title[@level='j'])) then doc('../../data/indices/Register.xml')//(tei:bibl|tei:citedRange)[@xml:id=$ref_node_id] else ."/>
+            <span>
+                <xsl:value-of select="$quotetype"/>
+            </span>
+        <xsl:if test="$ref_node/tei:ref[@type='int'][@subtype='nonexcl'] and not($quotetype = ('z. B. ','Berichterstattung dazu z. B. in: '))">
+            <span>z. B. </span>
+        </xsl:if>
+        <xsl:apply-templates select="$ref_node/ancestor-or-self::tei:bibl" mode="short_info">
         </xsl:apply-templates>
-        <xsl:if test="preceding-sibling::tei:biblScope">
-            <span><xsl:value-of select="', '||data(preceding-sibling::tei:biblScope)"/></span>
+        <xsl:if test="$ref_node/ancestor-or-self::tei:bibl[tei:title[@level='j']] and $ref_node/preceding-sibling::tei:biblScope">
+            <span><xsl:value-of select="', '||data($ref_node/preceding-sibling::tei:biblScope)"/></span>
         </xsl:if>
     </xsl:template>
     <xsl:template match="tei:note[@type='context']" mode="detail_view_reg">
