@@ -70,16 +70,7 @@
                             </a>
                         </div>
                         <xsl:apply-templates select="tei:desc" mode="list_sources"/>
-                        <xsl:if test="tei:ref[@type='ext']">
-                            <div>
-                                <details class="py-1 border-bottom border-light-grey">
-                                    <summary class="d-flex align-items-baseline">Links</summary>
-                                        <xsl:for-each select="tei:ref[@type='ext']">
-                                            <xsl:apply-templates select="current()"/>
-                                        </xsl:for-each>
-                                </details>
-                            </div>
-                        </xsl:if>
+                        <xsl:apply-templates select="." mode="list_links"/>
                     </div>
                 </div>
             </div>
@@ -159,7 +150,7 @@
         <i><xsl:value-of select="."/></i>
     </xsl:template>
     <xsl:template match="tei:desc">
-        <p class="text-justify fs-8_5 lh-0_86 my-1 text-dark-grey"><xsl:apply-templates/></p>
+        <p class="text-justify fs-8_5 lh-0_86 my-1 text-dark-grey"><xsl:apply-templates select="*"/></p>
     </xsl:template>
     <xsl:template match="tei:event" mode="detail_view_textpage_event_date">
         <span class="fs-7 text-dark-grey">
@@ -174,32 +165,65 @@
     </xsl:template>
     <xsl:template match="tei:ref[@type='source']">
     <xsl:variable name="sources">
-        <xsl:for-each select="tokenize(@target,' ')">
-        <xsl:variable name="target_id" select="replace(current(),'#','')"/>
-            <xsl:apply-templates select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=$target_id]" mode="popover_content"/>
-        </xsl:for-each>
+        <p>
+            <xsl:for-each select="tokenize(@target,' ')">
+                <xsl:variable name="target_id" select="replace(current(),'#','')"/>
+                <xsl:apply-templates select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=$target_id]" mode="popover_content"/>
+                <xsl:if test="not(position()=last())"><br/></xsl:if>
+            </xsl:for-each>
+        </p>
     </xsl:variable>
-     <a href="#" data-bs-toggle="popover" data-bs-content="{$sources}"  data-bs-placement="left" data-bs-trigger="hover" data-bs-custom-class="ff-ubuntu">
+     <span data-bs-toggle="popover" data-bs-content="{serialize($sources, map {'output':'default'})}"  data-bs-html="true" data-highlight="{replace(replace(@target,' ',','),'#','')}"  data-bs-placement="left" data-bs-trigger="hover" data-bs-custom-class="ff-ubuntu">
+
         <svg width="14" height="14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="none" stroke="#d8d8d8" stroke-width="1"><circle cx="12.5" cy="12.5" r="12.5" stroke="none"></circle><circle cx="12.5" cy="12.5" r="12" fill="none"></circle></g><g transform="translate(8.229 8.025)"><path d="M4253.114,129.086v-5.543h3.88" transform="translate(-4253.114 -123.543)" fill="none" stroke="#999" stroke-linejoin="round" stroke-width="1"></path><g transform="translate(2.5 4.5)"><line x2="6.041" fill="none" stroke="#999" stroke-width="1"></line><line x2="6.041" transform="translate(0 2.225)" fill="none" stroke="#999" stroke-width="1"></line><line x2="6.041" transform="translate(0 4.45)" fill="none" stroke="#999" stroke-width="1"></line></g></g></svg>
-    </a>
+    </span>
     </xsl:template>
     <xsl:template match="tei:citedRange" mode="popover_content">
-        <p><xsl:value-of select="preceding-sibling::tei:bibl[@type='short']"/><xsl:value-of select="', '||.||'.'"/></p>
+        <xsl:value-of select="preceding-sibling::tei:bibl[@type='short']"/><xsl:value-of select="', '||.||'.'"/>
     </xsl:template>
     <xsl:template match="tei:desc" mode="list_sources">
-    <div>
-        <details class="py-1 border-bottom border-light-grey">
-            <summary class="d-flex align-items-baseline">Quellen</summary>
-            <xsl:for-each select="tei:ref[@type='source']/tokenize(@target,' ')">
-                <xsl:sort select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=replace(current(),'#','')]/ancestor-or-self::tei:bibl/@sortKey"/>
-                <xsl:variable name="target_id" select="replace(current(),'#','')"/>
-                <xsl:apply-templates select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=$target_id]" mode="list_sources"/>
-            </xsl:for-each>
-        </details>
-    </div>
+    <xsl:if test="descendant::tei:ref[@type='source']">
+        <div>
+            <details class="py-1 border-bottom border-light-grey">
+                <summary class="d-flex align-items-baseline">Quellen</summary>
+                <xsl:for-each select="tei:ref[@type='source']/tokenize(@target,' ')">
+                    <xsl:sort select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=replace(current(),'#','')]/ancestor-or-self::tei:bibl/@sortKey"/>
+                    <xsl:variable name="target_id" select="replace(current(),'#','')"/>
+                    <xsl:apply-templates select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=$target_id]" mode="list_sources"/>
+                </xsl:for-each>
+            </details>
+        </div>
+    </xsl:if>
+    </xsl:template>
+    <xsl:template match="tei:event" mode="list_links">
+        <xsl:if test="descendant::tei:ref[@type='ext']">
+            <div>
+                <details class="py-1 border-bottom border-light-grey">
+                    <summary class="d-flex align-items-baseline">Links</summary>
+                        <xsl:for-each select="descendant::tei:ref[@type='ext']">
+                            <xsl:apply-templates select="current()"/>
+                        </xsl:for-each>
+                </details>
+            </div>
+        </xsl:if>
     </xsl:template>
     <xsl:template match="tei:citedRange" mode="list_sources">
-        <p class="my-04 lh-0_86"><xsl:value-of select="ancestor::tei:bibl/text()"/><xsl:value-of select="', '||."/></p>
+        <p class="my-05 lh-0_86">
+            <span data-bibl-id="{ancestor::tei:bibl/@xml:id}">
+                <xsl:apply-templates select="ancestor::tei:bibl/(text()|tei:ref)" mode="list_sources"/>
+            </span>
+            <xsl:text>, </xsl:text>
+            <span data-cited-range="{@xml:id}">
+                <xsl:apply-templates select="./(text()|tei:ref)" mode="list_sources"/>
+            </span>
+        </p>
+    </xsl:template>
+    <xsl:template match="text()" mode="list_sources">
+        <xsl:value-of select="normalize-space(.)"/>
+    </xsl:template>
+    <xsl:template match="tei:ref" mode="list_sources">
+        <xsl:text> </xsl:text>
+        <a href="{.}" target="_blank"><xsl:value-of select="."/></a>
     </xsl:template>
      <xsl:template match="tei:ref[@type='ext']">
         <a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="{@target}" target="_blank">
