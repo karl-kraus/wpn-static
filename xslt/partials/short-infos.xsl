@@ -41,11 +41,11 @@
   <xsl:variable name="xmlid" select="@xml:id"/>
   <xsl:variable name="type" select="@type"/>
   <xsl:variable name="cert_subtype" select="@cert|@subtype"/>
-  <div class="fs-6 ps-3 text-dark-grey d-none" data-xmlid="{$xmlid}" data-entity-type="prs">
-    <xsl:value-of select="if ($cert_subtype = 'exemp') then 'z. B. ' else if ($cert_subtype = 'medium') then 'wahrsch. ' else if ($cert_subtype = 'recte') then 'recte: ' else ()"/>
     <xsl:for-each select="tokenize(@key,' ')">
       <xsl:variable name="key" select="substring-after(current(),'#')"/>
       <xsl:variable name="source_element" select="doc('../../data/indices/Register.xml')//(tei:person|tei:personGrp)[@xml:id=$key]"/>
+  <div class="fs-6 ps-3 text-dark-grey d-none" data-testid="short_info_{if ($key = 'DWpers9999') then $xmlid else $xmlid||'_'||$key}" data-xmlid="{$xmlid}" data-entity-type="prs">
+    <xsl:value-of select="if ($cert_subtype = 'exemp') then 'z. B. ' else if ($cert_subtype = 'medium') then 'wahrsch. ' else if ($cert_subtype = 'recte') then 'recte: ' else ()"/>
       <xsl:choose>
         <xsl:when test="$source_element/name() = 'personGrp'">
           <p class="mb-0">
@@ -73,8 +73,8 @@
           </a>
         </xsl:otherwise>
       </xsl:choose>
+        </div>
     </xsl:for-each>
-  </div>
 </xsl:template>
 <xsl:template match="tei:pb[not(matches(@n,'.*_[a-z].*'))]" mode="short_info">
     <div class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="{'pb'||@n}" style="display:none">
@@ -150,11 +150,15 @@
   </xsl:for-each>
 </xsl:template>
 <xsl:template match="tei:note[@type='relation']" mode="persgrpnote">
-  <xsl:apply-templates/>
+  <xsl:apply-templates mode="persgrpnote"/>
 </xsl:template>
 <xsl:template match="tei:note[@type='source']" mode="persgrpnote">
   <xsl:text> (lt. </xsl:text>
   <xsl:apply-templates/>
   <xsl:text>)</xsl:text>  
+  </xsl:template>
+  <xsl:template match="text()" mode="persgrpnote">
+    <xsl:value-of 
+      select="normalize-space(.)"/>
   </xsl:template>
 </xsl:stylesheet>
