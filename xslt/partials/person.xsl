@@ -76,7 +76,8 @@
                     <div class="py-1 border-bottom border-light-grey">
                     <a data-testid="register_link_{$elem_id}" class="text-decoration-none text-dark-grey"
                         href="{'register_personen.html#'||@xml:id}" target="_blank">
-                        <xsl:apply-templates select="." mode="short_name_only" />
+                        <span>Register</span>
+                        <span class="ps-2"><xsl:apply-templates select="." mode="short_name_only" /></span>
                         <svg class="ms-2 align-baseline" width="5" height="10"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
                         <defs>
@@ -383,6 +384,17 @@
     </xsl:template>
     <xsl:template match="tei:idno[@type='GND']" mode="detail_view_reg">
         <xsl:param name="id_in_text"/>
+        <div class="border-bottom border-light-grey pb-1">
+            <a data-testid="gnd_link_{$id_in_text}" class="text-decoration-none text-dark-grey" target="_blank" href="{'http://d-nb.info/gnd/'||.}"><span class="pe-2">Link</span><span class="pe-2 text-blacker-grey-hover">GND</span></a>
+           <svg class="align-baseline" width="5" height="10"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                        <defs>
+                            <style>
+                            .b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                        </defs>
+                        <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                        </svg>
+        </div>
     </xsl:template>
     <xsl:template match="text()" mode="reg">
         <xsl:if test="preceding-sibling::node() and not(starts-with(.,','))">
