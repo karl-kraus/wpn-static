@@ -62,9 +62,21 @@ jobs:
     #   run: python update_favicons.py
     - name: Install Playwright Browsers
       run: pnpm exec playwright install --with-deps
-    - name: run tests 
+    - name: test edition view running text
       run: pnpm run e2e:test_edition_view
       continue-on-error: true
+    - name: test edition view short infos for persons
+      run: pnpm run e2e:test_edition_short_info_person
+      if: contains(github.event.pull_request.title, '[run tests]')
+    - name: test edition view short infos for quotes
+      run: pnpm run e2e:test_edition_short_info_quote
+      if: contains(github.event.pull_request.title, '[run tests]')
+    - name: test edition view detail infos for persons
+      run: pnpm run e2e:test_edition_detail_view_person
+      if: contains(github.event.pull_request.title, '[run tests]')
+    - name: test edition view detail infos for quotes
+      run: pnpm run e2e:test_edition_detail_view_quote
+      if: contains(github.event.pull_request.title, '[run tests]')
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Upload artifact
