@@ -192,7 +192,7 @@
     </xsl:template>
     <xsl:template match="tei:persName[child::element()]" mode="short">
         <!-- we iterate to keep correct order of name parts -->
-        <xsl:for-each select="descendant::*[not(@type=('nick','honorific','maiden','pseud'))][not(@subtype)]">
+        <xsl:for-each select="descendant::*[not(@type=('nick','honorific','maiden','pseud'))][not(@subtype)][not(self::tei:roleName)]">
             <xsl:apply-templates select="current()"/>
         </xsl:for-each>
     </xsl:template>
@@ -252,7 +252,7 @@
         <xsl:value-of select="."/>
     </xsl:template>
     <xsl:template match="tei:forename">
-        <xsl:if test="preceding-sibling::tei:forename">
+        <xsl:if test="preceding-sibling::tei:forename[not(@subtype='unused')]">
             <xsl:value-of select="' '"/>
         </xsl:if>
         <xsl:value-of select="if (@type='nick') then '('||.||')' else ."/>
@@ -307,7 +307,7 @@
         <xsl:value-of select="(if (self::tei:birth) then ', ' else $separator)||$year||$addendum"/>
     </xsl:template>
     <xsl:template match="tei:occupation[@type='prim']" mode="short">
-        <xsl:value-of select="', '||."/>
+        <xsl:value-of select="', '||normalize-space(.)"/>
     </xsl:template>
     <xsl:template match="tei:occupation">
         <xsl:text> </xsl:text>
