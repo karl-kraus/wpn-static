@@ -62,25 +62,10 @@ jobs:
     #   run: python update_favicons.py
     - name: Install Playwright Browsers
       run: pnpm exec playwright install --with-deps
-    - name: test edition view running text
-      run: pnpm run e2e:test_edition_view
+    - name: run tests
+      run: pnpm run e2e:run_all_tests
       continue-on-error: true
-    - name: test edition view short infos for persons
-      run: pnpm run e2e:test_edition_short_info_person
-      if: github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.title, '[run tests]')
-      continue-on-error: true
-    - name: test edition view short infos for quotes
-      run: pnpm run e2e:test_edition_short_info_quote
-      if: github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.title, '[run tests]')
-      continue-on-error: true
-    - name: test edition view detail infos for persons
-      run: pnpm run e2e:test_edition_detail_view_person
-      if: github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.title, '[run tests]')
-      continue-on-error: true
-    - name: test edition view detail infos for quotes
-      run: pnpm run e2e:test_edition_detail_view_quote
-      if: github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.title, '[run tests]')
-      continue-on-error: true
+      if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[run tests]')
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Upload artifact
