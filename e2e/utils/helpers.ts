@@ -4,13 +4,13 @@ import type { TestDataObjectIntertext,TestDataObjectPerson } from "../src/interf
 
 
 export async function fetchIntertextData(fileName: string) {
-  const data_module = await import(`../data/${fileName}`, {with: {type: "json"}}) as {default: Array<TestDataObjectIntertext>};
+  const data_module = await import(`../test-data/${fileName}`, {with: {type: "json"}}) as {default: Array<TestDataObjectIntertext>};
   const TestData: Array<TestDataObjectIntertext> = data_module.default;
   return TestData;
 };
 
 export async function fetchPersonData(fileName: string) {
-  const data_module = await import(`../data/${fileName}`, {with: {type: "json"}}) as {default: Array<TestDataObjectPerson>};
+  const data_module = await import(`../test-data/${fileName}`, {with: {type: "json"}}) as {default: Array<TestDataObjectPerson>};
   const TestData: Array<TestDataObjectPerson> = data_module.default;
   return TestData;
 };
