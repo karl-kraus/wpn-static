@@ -40,8 +40,9 @@
         <xsl:param name="group_id" />
         <!--<xsl:result-document
         href="{@xml:id||'.html'}" method="html">-->
+        <xsl:variable name="elem_id" select="'details_'||$id_in_text||(if ($group_id) then ('_'||$group_id) else ())||'_'||(if ($id) then $id else @xml:id)"/>
         <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2"
-        id="{'details_'||$id_in_text||(if ($group_id) then ('_'||$group_id) else ())||'_'||(if ($id) then $id else @xml:id)}">
+        id="{$elem_id}">
             <div class="person_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
                 <div class="border-0">
                 <button class="float-end border-0 bg-transparent close-button">
