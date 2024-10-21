@@ -58,7 +58,7 @@
                     </svg>
                 </button>
                 <div class="fs-6 text-dark-grey p-0 pt-1">
-                    <div class="mb-2_5">
+                    <div class="mb-2_5" data-testid="description_{$elem_id}">
                     <span>
                         <xsl:if test="not($group_id)">
                         <xsl:value-of select="$cert_subtype" />
@@ -70,12 +70,11 @@
                     <xsl:apply-templates select="tei:note[@type='source'][@subtype='publ']"
                         mode="detail_view_reg" />
                     </div>
-                    <xsl:apply-templates select="tei:ref[@type='gen']" mode="detail_view_reg" />
-                    <xsl:apply-templates select="@corresp" mode="detail_view_reg" />
-                    <xsl:apply-templates select="tei:idno[@type='GND']" mode="detail_view_reg" />
+                    <xsl:apply-templates select="tei:idno[@type='GND']" mode="detail_view_reg" >
+                        <xsl:with-param name="id_in_text" select="$elem_id"/>
+                    </xsl:apply-templates>
                     <div class="py-1 border-bottom border-light-grey">
-                    <span>Register</span>
-                    <a class="text-decoration-none text-dark-grey ps-2"
+                    <a data-testid="register_link_{$elem_id}" class="text-decoration-none text-dark-grey"
                         href="{'register_personen.html#'||@xml:id}" target="_blank">
                         <xsl:apply-templates select="." mode="short_name_only" />
                         <svg class="ms-2 align-baseline" width="5" height="10"
@@ -383,10 +382,7 @@
         <xsl:value-of select="if (self::tei:birth) then (', '||.) else (' – '||.|| (if (ends-with(.,'.')) then () else '.'))"/>
     </xsl:template>
     <xsl:template match="tei:idno[@type='GND']" mode="detail_view_reg">
-    <div class="border-bottom border-light-grey pb-1">
-        <a class="text-decoration-none text-dark-grey" target="_blank" href="{'http://d-nb.info/gnd/'||.}"><span class="pe-2">Link</span><span class="pe-2 text-blacker-grey-hover">GND</span></a>
-        <svg width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061"><defs><style>.a{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="a" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path></svg>
-    </div>
+        <xsl:param name="id_in_text"/>
     </xsl:template>
     <xsl:template match="text()" mode="reg">
         <xsl:if test="preceding-sibling::node() and not(starts-with(.,','))">
