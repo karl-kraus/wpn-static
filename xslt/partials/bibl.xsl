@@ -358,6 +358,9 @@
         <xsl:if test="preceding-sibling::tei:title and not(@type = 'subtitle')">
             <xsl:text> In: </xsl:text>
         </xsl:if>
+        <xsl:if test="@type='subtitle'">
+            <xsl:text> </xsl:text>
+        </xsl:if>
         <i>    
             <xsl:value-of select="normalize-space(.)"/>
         </i>
@@ -395,7 +398,7 @@
             <!-- Die Bibel - special case -->
             <xsl:when test="ancestor::tei:bibl[@xml:id ='DWbibl00192']">
             </xsl:when>
-            <xsl:when test="not(matches(., '(\p{Pf}|\p{Po}|\.\p{Pi})$')) and ($final-dot or boolean(following-sibling::*[1][not(self::tei:citedRange)]))">
+            <xsl:when test="not(matches(normalize-space(.), '(\p{Pf}|\p{Po}|\.\p{Pi})$')) and ($final-dot or boolean(following-sibling::*[1][not(self::tei:citedRange)]))">
                 <xsl:text>.</xsl:text>
             </xsl:when>
             </xsl:choose>
