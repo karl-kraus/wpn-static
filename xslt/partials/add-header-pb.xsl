@@ -73,4 +73,12 @@
             <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
     </xsl:template>
+    <xsl:template match="tei:mod">
+        <xsl:copy>
+            <xsl:attribute name="xml:id">
+                <xsl:value-of select="concat(replace(tokenize(base-uri(), '/')[last()], '.xml', ''), '-mod-', generate-id())"/>
+            </xsl:attribute>
+            <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
 </xsl:stylesheet>
