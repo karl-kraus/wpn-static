@@ -569,7 +569,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .longQuoteEndIndent,
 #textcontent-pb .longQuoteMarginEnd,
 #textcontent-pb .longQuoteIndent
-#textcontent-pb .typescriptLongQuoteIndent,
 #textcontent-pb .inkLongQuote{
   text-align: justify;
   text-align-last: justify;
@@ -582,6 +581,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align-last: left;
 }
 
+#textcontent-pb .typescriptLongQuoteIndent {
+  font-size: 1em;
+}
+
+#textcontent-pb .typescriptLongQuoteIndent,
 #textcontent-pb .typescriptLongQuoteLeading
 #textcontent-pb .typescriptRunningText1,
 #textcontent-pb .typescriptLongQuote,
@@ -731,9 +735,9 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   // letter-spacing: 0.4pt;
 }
 
-#textcontent-pb .spacing {
-  letter-spacing: 1pt;
-}
+// #textcontent-pb .spacing {
+//   letter-spacing: 1pt;
+// }
 
 #infocontent-pb {
   font-size: 1em;
@@ -909,9 +913,9 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   right: 1.5%;
 }
 
-#textcontent-pb .letterSpacing {
-  letter-spacing: 1pt;
-}
+// #textcontent-pb .letterSpacing {
+//   letter-spacing: 1pt;
+// }
 
 #textcontent-pb .underline {
   text-decoration: underline;
@@ -1051,6 +1055,16 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .pageNumRight {
+  left: 82.5%;
+  top: 4.5%;
+}
+
+.pageNumLeft {
+  left: 4.5%;
+  top: 4.5%;
+}
+
+.lineRight {
   left: 82.5%;
   top: 4.5%;
 }
