@@ -8,8 +8,9 @@
     
     <xsl:output encoding="UTF-8" media-type="text/html" method="html" version="5.0" indent="no" omit-xml-declaration="yes"/>
     
-    <xsl:strip-space elements="*"/>
-    <xsl:preserve-space elements="tei:p tei:mod tei:seg"/>
+    <!-- <xsl:strip-space elements="*"/> -->
+    <!-- <xsl:preserve-space elements="tei:p tei:mod tei:seg"/> -->
+    <xsl:preserve-space elements="*"/>
 
     <xsl:import href="./partials/shared.xsl"/>
     <xsl:import href="./partials/html_navbar.xsl"/>
