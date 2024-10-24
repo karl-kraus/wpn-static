@@ -43,36 +43,36 @@ def add_root_namesapce(text) -> str:
     return text
 
 
-def verify_first_lb(file) -> None:
-    doc = TeiReader(file)
-    try:
-        p_lb = doc.any_xpath('//tei:body//tei:p[@rendition]/tei:lb[1][not(preceding-sibling::tei:seg[@type="F890"])]')
-        for lb in p_lb:
-            lb.attrib['n'] = 'first'
-    except IndexError:
-        print(f'No lb found in p for {file}')
-    try:
-        seg_lb = doc.any_xpath('//tei:body//tei:seg[@rendition or @type="relocation"]/tei:lb[1]')
-        for lb in seg_lb:
-            lb.attrib['n'] = 'first'
-    except IndexError:
-        print(f'No lb found in seg for {file}')
-    try:
-        seg_lb_f890 = doc.any_xpath('//tei:body//tei:seg[parent::tei:p[@rendition]][@type="F890"]')
-        for seg in seg_lb_f890:
-            lb = seg.xpath('.//tei:lb', namespaces=NSMAP)
-            print(len(lb), file)
-            if len(lb) > 1:
-                lb[0].attrib['n'] = 'first'
-    except IndexError:
-        print(f'No lb found in seg for {file}')
-    try:
-        prev_sib_quote = doc.any_xpath('//tei:body//tei:lb[preceding-sibling::*[1][self::tei:quote[tei:p]]]')
-        for lb in prev_sib_quote:
-            lb.attrib['n'] = 'first'
-    except IndexError:
-        print(f'No lb found in seg for {file}')
-    doc.tree_to_file(file)
+# def verify_first_lb(file) -> None:
+#     doc = TeiReader(file)
+#     try:
+#         p_lb = doc.any_xpath('//tei:body//tei:p[@rendition]/tei:lb[1][not(preceding-sibling::tei:seg[@type="F890"])]')
+#         for lb in p_lb:
+#             lb.attrib['n'] = 'first'
+#     except IndexError:
+#         print(f'No lb found in p for {file}')
+#     try:
+#         seg_lb = doc.any_xpath('//tei:body//tei:seg[@rendition or @type="relocation"]/tei:lb[1]')
+#         for lb in seg_lb:
+#             lb.attrib['n'] = 'first'
+#     except IndexError:
+#         print(f'No lb found in seg for {file}')
+#     try:
+#         seg_lb_f890 = doc.any_xpath('//tei:body//tei:seg[parent::tei:p[@rendition]][@type="F890"]')
+#         for seg in seg_lb_f890:
+#             lb = seg.xpath('.//tei:lb', namespaces=NSMAP)
+#             print(len(lb), file)
+#             if len(lb) > 1:
+#                 lb[0].attrib['n'] = 'first'
+#     except IndexError:
+#         print(f'No lb found in seg for {file}')
+#     try:
+#         prev_sib_quote = doc.any_xpath('//tei:body//tei:lb[preceding-sibling::*[1][self::tei:quote[tei:p]]]')
+#         for lb in prev_sib_quote:
+#             lb.attrib['n'] = 'first'
+#     except IndexError:
+#         print(f'No lb found in seg for {file}')
+#     doc.tree_to_file(file)
 
 
 def verify_last_lb(file) -> None:
@@ -227,7 +227,7 @@ if __name__ == '__main__':
         output_path = os.path.join(OUTPUT_DIR, os.path.basename(file))
         with open(output_path, 'w') as f:
             f.write(text)
-        verify_first_lb(output_path)
+        # verify_first_lb(output_path)
         # verify_last_lb(output_path)
         wrap_last_sentence(output_path)
     if not debug:
