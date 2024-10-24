@@ -397,7 +397,7 @@
         <span class="mod {@style} longQuoteRightAlign my-05 d-block"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:mod[@rendition='#runningText1']">
-        <span class="mod {@style} {replace(@rendition,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
+        <span class="mod connect entity {@style} {replace(@rendition,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:mod[@rendition='#longQuote' and contains(@rend, 'Right')]" mode="render">
         <div id="container-{@xml:id}" class="mod connect entity {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
