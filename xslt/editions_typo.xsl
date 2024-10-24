@@ -137,13 +137,25 @@
             </div>
             <div class="print-body {$printType}">
                 <div class="body-left">
-                    <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Left')] | //tei:del[not(parent::tei:subst) and contains(@rend, 'Left')] | //tei:metamark[@function='progress' and contains(@rend, 'Left')] | //tei:metamark[@function='transposition' and contains(@rend, 'Left')]" mode="render"/>
+                    <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]
+                                                    and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Left')]
+                        | //tei:del[not(parent::tei:subst) and contains(@rend, 'Left')]
+                        | //tei:metamark[@function='progress' and contains(@rend, 'Left')]
+                        | //tei:metamark[@function='transposition' and contains(@rend, 'Left')]
+                        | //tei:mod[@rendition='#longQuote' and contains(@rend, 'Left')]
+                        | //tei:mod[@rendition='#runningText1' and contains(@rend, 'Left')]" mode="render"/>
                 </div>
                 <div class="body-main">
                     <xsl:apply-templates/>
                 </div>
                 <div class="body-right">
-                    <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')] | //tei:del[not(parent::tei:subst) and contains(@rend, 'Right')] | //tei:metamark[@function='progress' and contains(@rend, 'Right')] | //tei:metamark[@function='transposition' and contains(@rend, 'Right')]" mode="render"/>
+                    <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]
+                                                    and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')]
+                        | //tei:del[not(parent::tei:subst) and contains(@rend, 'Right')]
+                        | //tei:metamark[@function='progress' and contains(@rend, 'Right')]
+                        | //tei:metamark[@function='transposition' and contains(@rend, 'Right')]
+                        | //tei:mod[@rendition='#longQuote' and contains(@rend, 'Right')]
+                        | //tei:mod[@rendition='#runningText1' and contains(@rend, 'Right')]" mode="render"/>
                 </div>
             </div>
             <div class="print-footer {$printType}">
@@ -170,7 +182,7 @@
     <xsl:template match="tei:fw">
         <span class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}"><xsl:apply-templates/></span>
     </xsl:template>
-    <xsl:template match="tei:mod[@change='#pencilOnProof_KK'][not(@rendition='#pencilOnProof_rightAlignSmall')]"/>
+    <!-- <xsl:template match="tei:mod[@change='#pencilOnProof_KK'][not(@rendition='#pencilOnProof_rightAlignSmall')]"/> -->
     <xsl:template match="tei:app">
         <span class="hidden"><xsl:apply-templates/></span>
     </xsl:template>
@@ -210,8 +222,8 @@
     <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letterSpacing']">
         <span class="spacing"><xsl:apply-templates/></span>
     </xsl:template>
-    <xsl:template match="tei:mod[@rendition='#rightAlignSmall']">
-        <span class="longQuoteRightAlign my-05 d-block"><xsl:apply-templates/></span>
+    <xsl:template match="tei:hi[@style='underline']">
+        <span class="underline"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@rendition='#runningText1']">
         <span class="d-block runningText1  {if(@prev)then(' no-indent')else()}"><xsl:apply-templates/></span>
@@ -256,38 +268,38 @@
         <del class="del connect entity" id="{@xml:id}"><xsl:apply-templates/></del>
     </xsl:template>
     <xsl:template match="tei:del[parent::tei:restore]">
-        <del class="add connect entity text-decoration-underline-dotted" id="{@xml:id}"><xsl:apply-templates/></del>
+        <del class="del connect entity text-decoration-underline-dotted" id="{@xml:id}"><xsl:apply-templates/></del>
     </xsl:template>
     <xsl:template match="tei:del[not(parent::tei:subst) and contains(@rend, 'Left')]" mode="render">
         <div id="container-{@xml:id}" class="del connect {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div><xsl:text>&#124; </xsl:text><xsl:apply-templates/></div>
+            <div><span style="font-size:1.25em;">&#124;&#x20B0;</span><xsl:apply-templates/></div>
         </div>
     </xsl:template>
     <xsl:template match="tei:del[not(parent::tei:subst) and contains(@rend, 'Right')]" mode="render">
         <div id="container-{@xml:id}" class="del connect {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div><xsl:text>&#124; </xsl:text><xsl:apply-templates/></div>
+            <div><span style="font-size:1.25em;">&#124;&#x20B0;</span><xsl:apply-templates/></div>
         </div>
     </xsl:template>
     <xsl:template match="tei:add[not(@rendition) and not(parent::tei:subst[@rend='overwritten']) and not(parent::tei:restore)]">
         <span class="add connect entity" id="{@xml:id}"></span>
     </xsl:template>
     <xsl:template match="tei:add[parent::tei:restore]">
-        <del class="add connect entity" id="{@xml:id}"><xsl:apply-templates/></del><span class="text-decoration-underline-dotted"> &#124; </span>
+        <del class="add connect entity" id="{@xml:id}"><xsl:apply-templates/></del><span style="font-size:1.25em;" class="text-decoration-underline-dotted">&#124;</span>
     </xsl:template>
     <xsl:template match="tei:add[parent::tei:subst[@rend='overwritten']]">
-        <span class="add connect entity ms-n1 me-n1 align-super" id="{@xml:id}"><xsl:apply-templates/></span>
+        <span class="add connect entity overwrite ms-n08" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:add[not(parent::tei:subst)]">
-        <span class="add connect entity" id="{@xml:id}"><xsl:text> &#124; </xsl:text></span>
+        <span class="add connect entity" id="{@xml:id}"><span style="font-size:1.25em;">&#124;</span></span>
     </xsl:template>
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')]" mode="render">
         <div id="container-{@xml:id}" class="add connect {if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div><xsl:text>&#124; </xsl:text><xsl:apply-templates/></div>
+            <div><span style="font-size:1.25em;">&#124;</span><xsl:apply-templates/></div>
         </div>
     </xsl:template>
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Left')]" mode="render">
         <div id="container-{@xml:id}" class="add connect {if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div><xsl:text>&#124; </xsl:text><xsl:apply-templates/></div>
+            <div><span style="font-size:1.25em;">&#124;</span><xsl:apply-templates/></div>
         </div>
     </xsl:template>
     <xsl:template match="tei:add[@rendition]">
@@ -296,7 +308,7 @@
         </span>
     </xsl:template>
     <xsl:template match="tei:metamark[@function='progress']">
-        <span class="metamark entity" id="{@xml:id}"></span>
+        <span class="metamark entity {replace(@change,'#','')}" id="{@xml:id}"></span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='progress' and contains(@rend, 'Left')]" mode="render">
         <div class="metamark {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
@@ -309,16 +321,19 @@
         </div>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='transposition']">
-        <span class="metamark entity" id="{@xml:id}"><xsl:apply-templates/></span>
+        <span class="metamark entity {replace(@change,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
+     </xsl:template>
+     <xsl:template match="tei:metamark[@function='printInstruction']">
+        <span class="metamark entity {replace(@change,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='transposition' and contains(@rend, 'Left')]" mode="render">
         <div class="metamark {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div><xsl:text>&#423;</xsl:text></div>
+            <div><span style="font-size:1.25em;">&#124;</span></div>
         </div>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='transposition' and contains(@rend, 'Right')]" mode="render">
         <div class="metamark {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div><xsl:text>&#423;</xsl:text></div>
+            <div><span style="font-size:1.25em;">&#124;</span></div>
         </div>
      </xsl:template>
     <!-- <xsl:template match="tei:add[ancestor::tei:restore[not(child::tei:seg)]]"/>
@@ -361,14 +376,49 @@
         <span class="metamark {replace(@change, '#', '')} {@rend} {replace(@rendition, '#', '')} {@place}"><xsl:apply-templates/></span>
      </xsl:template> -->
     <xsl:template match="tei:mod[@style=('noLetterSpacing') and not(parent::tei:restore)]">
-        <span class="ls-0"><xsl:apply-templates/></span>
+        <span class="mod {@style} underline {replace(@change, '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:mod[@style=('letterSpacing') and not(parent::tei:restore)]">
-        <span class="spacing"><xsl:apply-templates/></span>
+        <span class="mod {@style} underline {replace(@change, '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:mod[contains(@rendition,'Quote')]">
-        <span class="{replace(@rendition,'#','')}"><xsl:apply-templates/></span>
+        <span class="mod connect entity {@style} {replace(@rendition,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
+    <xsl:template match="tei:mod[@style='indent2']">
+        <span class="mod {@style} {replace(@rendition,'#','')}"><xsl:apply-templates/> <span style="font-size:1.25em;">&#8594;</span></span>
+    </xsl:template>
+    <xsl:template match="tei:mod[@style='noUnderline']">
+        <span class="mod {@style} {replace(@rendition,'#','')}"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:mod[@style='italic']">
+        <span class="mod {@style} fst-italic {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:mod[@rendition='#rightAlignSmall']">
+        <span class="mod {@style} longQuoteRightAlign my-05 d-block"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:mod[@rendition='#runningText1']">
+        <span class="mod {@style} {replace(@rendition,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:mod[@rendition='#longQuote' and contains(@rend, 'Right')]" mode="render">
+        <div id="container-{@xml:id}" class="mod connect entity {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><span style="font-size:1.25em;">&#124;</span></div>
+        </div>
+     </xsl:template>
+     <xsl:template match="tei:mod[@rendition='#longQuote' and contains(@rend, 'Left')]" mode="render">
+        <div id="container-{@xml:id}" class="mod connect entity {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><span style="font-size:1.25em;">&#124;</span></div>
+        </div>
+     </xsl:template>
+     <xsl:template match="tei:mod[@rendition='#runningText1' and contains(@rend, 'Right')]" mode="render">
+        <div id="container-{@xml:id}" class="mod connect entity {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><span style="font-size:1.25em;">[</span></div>
+        </div>
+     </xsl:template>
+     <xsl:template match="tei:mod[@rendition='#runningText1' and contains(@rend, 'Left')]" mode="render">
+        <div id="container-{@xml:id}" class="mod connect entity {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><span style="font-size:1.25em;">[</span></div>
+        </div>
+     </xsl:template>
     <xsl:template match="tei:note[contains(@place, 'bottom')]">
         <div class="note {@place} {replace(@change, '#', '')}" id="{@xml:id}">
             <xsl:apply-templates/>
@@ -382,9 +432,6 @@
     <!-- <xsl:template match="tei:note"/> -->
     <xsl:template match="tei:note[not(@place)]">
         <span class="note {replace(@change,'#','')}"><xsl:apply-templates/></span>
-    </xsl:template>
-    <xsl:template match="tei:mod[@style='italic']">
-        <span class="fst-italic"><xsl:apply-templates/></span>
     </xsl:template>
     <!-- <xsl:template match="tei:lb[@type='req']">
         <br/>

@@ -921,6 +921,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-decoration: underline;
 }
 
+#textcontent-pb .entity {
+  pointer-events: all !important;
+}
+
 #textcontent-pb .pencilOnTypescript,
 #textcontent-pb .undefined,
 #textcontent-pb .redOnProof,
@@ -1076,7 +1080,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
     font-size: 10pt;
     line-height: 13pt;
     text-decoration: underline;
-    margin: 0 1cm 0 0.5cm;
   }
 
   .typescriptPageNum {
@@ -1118,3 +1121,39 @@ wpn-time-line {
 .border-red-500 {
   border-color: rgb(255, 92, 92) !important;
 }
+
+.add.overwrite {
+  font-size: 1em !important;
+}
+
+.indent2 {
+  text-indent: 12rem;
+}
+
+.mod.noUnderline {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+}
+
+.mod.longQuote {
+  display: inline !important;
+  border: 1px solid #8b8b8b;
+  font-size: 1em !important;
+}
+
+.mod.longQuote span {
+  display: inline !important;
+  border: 1px solid #8b8b8b;
+  font-size: 1em !important;
+}
+
+.mod.longQuote span span {
+  display: inline !important;
+  border: 1px solid #8b8b8b;
+  font-size: 1em !important;
+}
+
+// .overwrite:hover {
+//   cursor: url(images/cursor-circle.svg) 15 15, auto;
+//   opacity: 0;
+// }
