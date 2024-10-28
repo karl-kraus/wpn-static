@@ -30,8 +30,9 @@
            <xsl:template match="tei:event" mode="detail_view_textpage">
         <xsl:param name="id" />
         <xsl:param name="id_in_text" />
+        <xsl:variable name="elem_id" select="'details_'||$id_in_text||'_'||(if ($id) then $id else @xml:id)"/>
         <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2"
-            id="{'details_'||$id_in_text||'_'||(if ($id) then $id else @xml:id)}">
+            id="{$elem_id}">
             <div class="comment_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
                 <div class="border-0 flex flex-column">
                     <button class="float-end border-0 bg-transparent close-button">
@@ -48,7 +49,9 @@
                     </button>
                     <div class="fs-6 text-dark-grey p-0 pt-1">
                         <div class="mb-1">
-                            <xsl:apply-templates select="." />
+                            <xsl:apply-templates select=".">
+                                <xsl:with-param name="elem_id" select="$elem_id"/>
+                            </xsl:apply-templates>
                         </div>
                         <div class="py-1 border-bottom border-light-grey">
                             <span>Zeitleiste</span>
@@ -70,7 +73,12 @@
                             </a>
                         </div>
                         <xsl:apply-templates select="tei:desc" mode="list_sources"/>
-                        <xsl:apply-templates select="." mode="list_links"/>
+                        <xsl:apply-templates select="tei:desc" mode="list_comments">
+                            <xsl:with-param name="elem_id" select="$elem_id"/>
+                        </xsl:apply-templates>
+                        <xsl:apply-templates select="." mode="link_list">
+                            <xsl:with-param name="elem_id" select="$elem_id"/>
+                        </xsl:apply-templates>
                     </div>
                 </div>
             </div>
@@ -122,13 +130,19 @@
         <span><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:event">
+        <xsl:param name="elem_id"/>
          <p class="text-black-grey">
-            <xsl:apply-templates select="tei:label" mode="detail_view_textpage_event"/><br/>
+            <xsl:apply-templates select="tei:label" mode="detail_view_textpage_event">
+                <xsl:with-param name="elem_id" select="$elem_id"/>
+            </xsl:apply-templates>
+            <br/>
             <xsl:apply-templates select="." mode="detail_view_textpage_event_date">
                 <xsl:with-param name="fs" select="fs-7"/>
             </xsl:apply-templates>
         </p>
-        <xsl:apply-templates select="tei:desc"/>
+        <xsl:apply-templates select="tei:desc">
+            <xsl:with-param name="elem_id" select="$elem_id"/>
+        </xsl:apply-templates>
         <xsl:if test="tei:ref[@type='ext']">
             <div>
                 <details class="py-1 border-bottom border-light-grey">
@@ -141,16 +155,18 @@
         </xsl:if>
     </xsl:template>
     <xsl:template match="tei:label" mode="detail_view_textpage_event">
-        <span class="fs-9"><b>Ereignis: <xsl:apply-templates/></b></span>
+        <xsl:param name="elem_id"/>
+        <span class="fs-9"><b data-testid="comment_label_{$elem_id}">Ereignis: <xsl:apply-templates/></b></span>
     </xsl:template>
-    <xsl:template match="text()">
-        <xsl:value-of select="."/>
-    </xsl:template>
+    <!--<xsl:template match="text()">
+        <xsl:value-of select="normalize-space(.)"/>
+    </xsl:template>-->
     <xsl:template match="tei:title[ancestor::tei:desc]">
         <i><xsl:value-of select="."/></i>
     </xsl:template>
     <xsl:template match="tei:desc">
-        <p class="text-justify fs-8_5 lh-0_86 my-1 text-dark-grey"><xsl:apply-templates select="*"/></p>
+        <xsl:param name="elem_id"/>
+        <p data-testid="description_long_{$elem_id}" class="text-justify fs-8_5 lh-0_86 my-1 text-dark-grey"><xsl:apply-templates select="*[not(self::tei:ref[@type=('ext','int')])]|text()"/></p>
     </xsl:template>
     <xsl:template match="tei:event" mode="detail_view_textpage_event_date">
         <span class="fs-7 text-dark-grey">
@@ -182,27 +198,30 @@
         <xsl:value-of select="preceding-sibling::tei:bibl[@type='short']"/><xsl:value-of select="', '||.||'.'"/>
     </xsl:template>
     <xsl:template match="tei:desc" mode="list_sources">
-    <xsl:if test="descendant::tei:ref[@type='source']">
-        <div>
-            <details class="py-1 border-bottom border-light-grey">
-                <summary class="d-flex align-items-baseline">Quellen</summary>
-                <xsl:for-each select="tei:ref[@type='source']/tokenize(@target,' ')">
-                    <xsl:sort select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=replace(current(),'#','')]/ancestor-or-self::tei:bibl/@sortKey"/>
-                    <xsl:variable name="target_id" select="replace(current(),'#','')"/>
-                    <xsl:apply-templates select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=$target_id]" mode="list_sources"/>
-                </xsl:for-each>
-            </details>
-        </div>
-    </xsl:if>
-    </xsl:template>
-    <xsl:template match="tei:event" mode="list_links">
-        <xsl:if test="descendant::tei:ref[@type='ext']">
+        <xsl:if test="descendant::tei:ref[@type='source']">
             <div>
                 <details class="py-1 border-bottom border-light-grey">
-                    <summary class="d-flex align-items-baseline">Links</summary>
-                        <xsl:for-each select="descendant::tei:ref[@type='ext']">
-                            <xsl:apply-templates select="current()"/>
+                    <summary class="d-flex align-items-baseline">Quellen</summary>
+                    <xsl:for-each select="tei:ref[@type='source']/tokenize(@target,' ')">
+                        <xsl:sort select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=replace(current(),'#','')]/ancestor-or-self::tei:bibl/@sortKey"/>
+                        <xsl:variable name="target_id" select="replace(current(),'#','')"/>
+                        <xsl:apply-templates select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=$target_id]" mode="list_sources"/>
+                    </xsl:for-each>
+                </details>
+            </div>
+        </xsl:if>
+    </xsl:template>
+     <xsl:template match="tei:desc" mode="list_comments">
+        <xsl:param name="elem_id"/>
+        <xsl:if test="descendant::tei:ref[@type='comment']">
+            <div>
+                <details class="py-1 border-bottom border-light-grey">
+                    <summary class="d-flex align-items-baseline">Kommentar</summary>
+                    <ul data-testid="comment_links_{$elem_id}">
+                        <xsl:for-each select="tei:ref[@type='comment']">
+                            <li><xsl:apply-templates select="current()" mode="detail_view_textpage_event"/></li>
                         </xsl:for-each>
+                    </ul>
                 </details>
             </div>
         </xsl:if>
@@ -225,16 +244,15 @@
         <xsl:text> </xsl:text>
         <a href="{.}" target="_blank"><xsl:value-of select="."/></a>
     </xsl:template>
-     <xsl:template match="tei:ref[@type='ext']">
-        <a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="{@target}" target="_blank">
-            <xsl:apply-templates/>
+    <xsl:template match="tei:ref[@type='comment']" mode="detail_view_textpage_event">
+        <xsl:variable name="ref_id" select="replace(@target,'#','')"/>
+        <xsl:variable name="ref_node" select="doc('../../data/indices/Kommentar.xml')//tei:seg[@xml:id = $ref_id]"/>
+        <xsl:variable name="ref_node_topic_id" select="replace(tokenize($ref_node/@corresp,' ')[1],'#','')"/>
+        <a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="{'register_kommentare.html#'||$ref_node_topic_id||'_'||replace(@target,'#','')}" target="_blank">
+            <xsl:apply-templates select="$ref_node/tei:label" mode="comment"/>
             <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
-                <defs>
-                    <style>.b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                </defs>
-                <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
             </svg>
         </a>
-        
     </xsl:template>
 </xsl:stylesheet>
