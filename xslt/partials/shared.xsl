@@ -80,10 +80,6 @@
             <xsl:apply-templates/>
         </span>
     </xsl:template>
-
-    <xsl:template match="tei:ref">
-        <a class="ref {@type}" href="{@target}"><xsl:apply-templates/></a>
-    </xsl:template>
     <xsl:template match="tei:lg">
         <p><xsl:apply-templates/></p>
     </xsl:template>
