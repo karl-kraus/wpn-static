@@ -41,6 +41,7 @@
         <!--<xsl:result-document
         href="{@xml:id||'.html'}" method="html">-->
         <xsl:variable name="elem_id" select="'details_'||$id_in_text||(if ($group_id) then ('_'||$group_id) else ())||'_'||(if ($id) then $id else @xml:id)"/>
+        <xsl:variable name="reg_letter" select="substring(@sortKey,1,1)"/>
         <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2"
         id="{$elem_id}">
             <div class="person_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
@@ -75,7 +76,7 @@
                     </xsl:apply-templates>
                     <div class="py-1 border-bottom border-light-grey">
                     <a data-testid="register_link_{$elem_id}" class="text-decoration-none text-dark-grey"
-                        href="{'register_personen.html#'||@xml:id}" target="_blank">
+                        href="{'register_personen.html?letter='||$reg_letter||'#'||@xml:id}" target="_blank">
                         <span>Register</span>
                         <span class="ps-2"><xsl:apply-templates select="." mode="short_name_only" /></span>
                         <svg class="ms-2 align-baseline" width="5" height="10"
