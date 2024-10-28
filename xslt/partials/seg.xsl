@@ -29,10 +29,13 @@
     </xsl:template>
     <!-- template needed for detail view in edition view -->
     <xsl:template match="tei:seg" mode="detail_view_textpage">
-        <xsl:param name="id" />
+        <xsl:param name="id" select="@xml:id"/>
         <xsl:param name="id_in_text" />
+        <xsl:variable name="elem_id" select="'details_'||$id_in_text||'_'||$id"/>
+        <xsl:variable name="topic_for_reglink" select="replace(tokenize(@corresp,' ')[1],'#','')"/>
+        <xsl:variable name="ancestor_seg_id" select="doc('../../data/indices/Kommentar.xml')//tei:seg[@xml:id = $id]/ancestor::tei:seg/@xml:id"/>
         <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2"
-            id="{'details_'||$id_in_text||'_'||(if ($id) then $id else @xml:id)}">
+            id="{$elem_id}">
             <div class="comment_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
                 <div class="border-0 flex flex-column">
                     <button class="float-end border-0 bg-transparent close-button">
@@ -49,26 +52,27 @@
                     </button>
                     <div class="fs-6 text-dark-grey p-0 pt-1">
                         <div class="mb-1">
-                            <xsl:apply-templates select="." mode="detail_view_textpage_seg"/>
+                            <xsl:apply-templates select="." mode="detail_view_textpage_seg">
+                                <xsl:with-param name="elem_id" select="$elem_id"/>
+                            </xsl:apply-templates>
                         </div>
                         <div class="py-1 border-bottom border-light-grey">
+                            <a data-testid="register_link_{$elem_id}" class="text-decoration-none text-dark-grey"
+                            href="{'register_kommentare.html#'||$topic_for_reglink||'_'||(if ($ancestor_seg_id) then $ancestor_seg_id else @xml:id)}" target="_blank">
                             <span>Register</span>
-                            <a class="text-decoration-none text-dark-grey ps-2"
-                            href="{'register_kommentare.html#'||@xml:id}" target="_blank">
-                            <xsl:apply-templates select="." mode="short" />
+                            <span class="ps-2"><xsl:apply-templates select="." mode="short" />
                             <svg class="ms-2 align-baseline" width="5" height="10"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
-                                <defs>
-                                <style>
-                                    .b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                                </defs>
-                                <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                                <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
                             </svg>
+                            </span>
                             </a>
                         </div>
                         <xsl:apply-templates select="tei:note" mode="list_sources"/>
                         <xsl:apply-templates select="." mode="list_events"/>
-                        <xsl:apply-templates select="." mode="list_links"/>
+                        <xsl:apply-templates select="." mode="link_list">
+                            <xsl:with-param name="elem_id" select="$elem_id"/>
+                        </xsl:apply-templates>
                     </div>
                 </div>
             </div>
@@ -120,30 +124,37 @@
         <span><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg" mode="detail_view_textpage_seg">
+        <xsl:param name="elem_id"/>
         <p class="text-black-grey lh-0_9">
-            <xsl:apply-templates select="tei:label"/><br/>
+            <xsl:apply-templates select="tei:label">
+                <xsl:with-param name="elem_id" select="$elem_id"/>
+            </xsl:apply-templates>
+            <br/>
             <xsl:apply-templates select="@corresp" mode="detail_view_textpage_seg"/>
         </p>
-        <xsl:apply-templates select="tei:note" mode="detail_view_textpage_seg"/>
+        <div data-testid="description_long_{$elem_id}">
+            <xsl:apply-templates select="tei:note" mode="detail_view_textpage_seg"/>
+        </div>
     </xsl:template>
     <xsl:template match="tei:label">
-       <span class="fs-9"><b><xsl:apply-templates/></b></span>
+        <xsl:param name="elem_id"/>
+       <span class="fs-9"><b data-testid="comment_label_{$elem_id}"><xsl:apply-templates/></b></span>
     </xsl:template>
-    <xsl:template match="text()">
-        <xsl:value-of select="."/>
-    </xsl:template>
+    <!--<xsl:template match="text()">
+        <xsl:value-of select="normalize-space(.)"/>
+    </xsl:template>-->
     <xsl:template match="tei:title[ancestor::tei:seg]">
         <i><xsl:value-of select="."/></i>
     </xsl:template>
     <xsl:template match="tei:note[descendant::tei:seg]" mode="detail_view_textpage_seg">
         <xsl:variable name="grouped_notes">
-            <xsl:for-each-group select="descendant::node()[not(ancestor-or-self::tei:ref[@type='DW'])][not(ancestor-or-self::tei:label)][not(ancestor-or-self::comment())]" group-adjacent="count(preceding::*:label) + count(ancestor::*:note)">
+            <xsl:for-each-group select="descendant::node()[normalize-space() or self::tei:ref][not(parent::tei:title)][not(ancestor-or-self::tei:ref[@type=('DW','ext')])][not(ancestor-or-self::tei:label)][not(ancestor-or-self::comment())]" group-adjacent="count(preceding::*:label) + count(ancestor::*:note)">
                 <tei:note>
                     <xsl:copy-of select="current-group()"/>
                 </tei:note>
             </xsl:for-each-group>     
         </xsl:variable>
-        <xsl:for-each select="$grouped_notes/tei:note">
+        <xsl:for-each select="$grouped_notes/tei:note[not(tei:note)][text()[normalize-space()]]">
             <p class="text-justify fs-8_5 lh-0_86 my-1 text-black-grey">
                 <xsl:apply-templates select="(current()/node() except (tei:seg,tei:note))"  mode="comment_note"/>
             </p>
@@ -199,18 +210,6 @@
             </div>
         </xsl:if>
     </xsl:template>
-    <xsl:template match="tei:seg" mode="list_links">
-        <xsl:if test="tei:ref[@type='ext']">
-            <div>
-                <details class="py-1 border-light-grey">
-                    <summary class="d-flex align-items-baseline">Links</summary>
-                        <xsl:for-each select="tei:ref[@type='ext']">
-                            <xsl:apply-templates select="current()"/>
-                        </xsl:for-each>
-                </details>
-            </div>
-        </xsl:if>
-    </xsl:template>
     <xsl:template match="tei:citedRange" mode="list_sources">
         <p class="my-05 lh-0_86">
             <span data-bibl-id="{ancestor::tei:bibl/@xml:id}">
@@ -221,18 +220,6 @@
                 <xsl:apply-templates select="./(text()|tei:ref)" mode="list_sources"/>
             </span>
         </p>
-    </xsl:template>
-     <xsl:template match="tei:ref[@type='ext']">
-        <a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="{@target}" target="_blank">
-            <xsl:apply-templates/>
-            <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
-                <defs>
-                    <style>.b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
-                </defs>
-                <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
-            </svg>
-        </a>
-        
     </xsl:template>
      <xsl:template match="tei:ref[@type='event']" mode="detail_view_textpage_seg">
         <xsl:variable name="ref_id" select="replace(@target,'#','')"/>
@@ -262,8 +249,20 @@
     <xsl:template match="tei:title" mode="comment">
     <i><xsl:apply-templates mode="comment"/></i>
     </xsl:template>
+    <xsl:template match="tei:title" mode="comment_note">
+    <i><xsl:apply-templates mode="comment_note"/></i>
+    </xsl:template>
     <xsl:template match="text()" mode="comment">
-    <xsl:value-of select="."/>
+        <xsl:value-of select="."/>
+    </xsl:template>
+    <xsl:template match="text()" mode="comment_note">
+        <!--<xsl:if test="preceding-sibling::node() and not(matches(.,'^(\.|,|-|:|\)|;)'))">
+           <xsl:text> </xsl:text>
+        </xsl:if>-->
+        <xsl:value-of select="replace(.,'(\n[ \t]+)',' ')"/>
+        <!--<xsl:if test="following-sibling::node()[self::tei:title] and not(matches(.,'(\(|-)$'))">
+            <xsl:text> </xsl:text>
+        </xsl:if>-->
     </xsl:template>
      <xsl:template match="@corresp" mode="detail_view_textpage_seg">
         <span class="fs-8_5">
@@ -279,4 +278,5 @@
             </b>
         </span>
     </xsl:template>
+    <xsl:template match="comment()"  mode="comment_note"/>
 </xsl:stylesheet>
