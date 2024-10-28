@@ -41,6 +41,7 @@
         <!--<xsl:result-document
         href="{@xml:id||'.html'}" method="html">-->
         <xsl:variable name="elem_id" select="'details_'||$id_in_text||(if ($group_id) then ('_'||$group_id) else ())||'_'||(if ($id) then $id else @xml:id)"/>
+        <xsl:variable name="reg_letter" select="substring(@sortKey,1,1)"/>
         <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2"
         id="{$elem_id}">
             <div class="person_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
@@ -75,7 +76,7 @@
                     </xsl:apply-templates>
                     <div class="py-1 border-bottom border-light-grey">
                     <a data-testid="register_link_{$elem_id}" class="text-decoration-none text-dark-grey"
-                        href="{'register_personen.html#'||@xml:id}" target="_blank">
+                        href="{'register_personen.html?letter='||$reg_letter||'#'||@xml:id}" target="_blank">
                         <span>Register</span>
                         <span class="ps-2"><xsl:apply-templates select="." mode="short_name_only" /></span>
                         <svg class="ms-2 align-baseline" width="5" height="10"
@@ -156,13 +157,13 @@
         <xsl:apply-templates select="tei:birth" mode="short"/>
         <xsl:apply-templates select="tei:death" mode="short"/>
         <xsl:apply-templates select="tei:occupation[@type='prim']" mode="short"/>
-        <xsl:for-each select="tei:affiliation">
+        <xsl:for-each select="distinct-values(tei:affiliation)">
             <xsl:if test="position() = 1">
                 <xsl:value-of select="' ('"/>
             </xsl:if>
-            <xsl:apply-templates select="current()"/>
+            <xsl:apply-templates select="current()" mode="short"/>
             <xsl:if test="position() != last()">
-                <xsl:value-of select="."/>
+                <xsl:value-of select="','"/>
             </xsl:if>
             <xsl:if test="position() = last()">
                 <xsl:value-of select="')'"/>
@@ -367,6 +368,15 @@
         </xsl:if>
         <xsl:if test="position() = last()">
         <xsl:value-of select="'.'" />
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="tei:affiliation" mode="short">
+        <xsl:if test="@notAfter">
+        <xsl:value-of select="'Bis '||@notAfter||' '" />
+        </xsl:if>
+        <xsl:value-of select="." />
+        <xsl:if test="position() != last()">
+        <xsl:value-of select="','" />
         </xsl:if>
     </xsl:template>
      <xsl:template match="tei:forename[@subtype='unused']">

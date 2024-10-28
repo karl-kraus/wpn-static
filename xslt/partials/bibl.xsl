@@ -704,7 +704,7 @@
         <xsl:variable name="ref_node" select="doc('../../data/indices/Register.xml')//(tei:bibl|tei:citedRange)[@xml:id=$node_id]"/>
         <xsl:variable name="bibl_id"
             select="if ($ref_node/name() = 'citedRange') then $ref_node/ancestor::tei:bibl/@xml:id else $node_id"/>
-        
+        <xsl:variable name="reg_letter" select="$ref_node/ancestor-or-self::tei:bibl/substring(@sortKey,1,1)"/>
         <xsl:if test="$ref_node/tei:ref[@type='int']">
             <xsl:call-template name="link_to_register">
                 <xsl:with-param name="node_id" select="$ref_node/tei:ref[@type='int']/replace(@target,'#','')"/>
@@ -713,7 +713,7 @@
         <li class="py-1 border-bottom border-light-grey">
             <span>Register</span>
             <a class="text-decoration-none text-dark-grey ps-2"
-                href="{'register_intertexte.html#'||$bibl_id}" target="_blank">
+                href="{'register_intertexte.html?letter='||$reg_letter||'#'||$bibl_id}" target="_blank">
                 <xsl:apply-templates select="$ref_node/ancestor-or-self::tei:bibl" mode="short"/>
                 
                 <svg class="ms-2 align-baseline" width="5" height="10"

@@ -1150,3 +1150,8 @@ wpn-time-line {
 //   cursor: url(images/cursor-circle.svg) 15 15, auto;
 //   opacity: 0;
 // }
+
+/*** nav tabs register view ***/
+.nav-tabs a.active {
+  font-weight: bold;
+}
