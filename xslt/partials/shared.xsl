@@ -613,17 +613,27 @@
             </div>
         </div> 
     </xsl:template>
-
-    <!-- <xsl:template match="tei:rs[@ref or @key]">
-        <strong>
-            <xsl:element name="a">
-                <xsl:attribute name="data-toggle">modal</xsl:attribute>
-                <xsl:attribute name="data-target">
-                    <xsl:value-of select="data(@ref)"/>
-                </xsl:attribute>
-                <xsl:value-of select="."/>
-            </xsl:element>
-        </strong>
-    </xsl:template> -->
-    
+    <xsl:template match="tei:seg|tei:event" mode="link_list">
+        <xsl:param name="elem_id"/>
+        <xsl:if test="tei:ref[@type='ext'] or tei:desc/tei:ref[@type='ext']">
+            <div>
+                <details class="py-1 border-light-grey">
+                    <summary class="d-flex align-items-baseline">Links</summary>
+                        <ul data-testid="external_links_{$elem_id}" class="list-unstyled">
+                            <xsl:for-each select="tei:ref[@type='ext'] | tei:desc/tei:ref[@type='ext']">
+                                <xsl:apply-templates select="current()" mode="link_list_item"/>
+                            </xsl:for-each>
+                        </ul>
+                </details>
+            </div>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="tei:ref[@type='ext']" mode="link_list_item">
+        <li><a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="{@target}" target="_blank">
+            <xsl:apply-templates/>
+            <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+            </svg>
+        </a></li>
+    </xsl:template>
 </xsl:stylesheet>
