@@ -445,7 +445,18 @@
         <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
     </xsl:template>
     <xsl:template match="tei:span[@n='last']">
-        <span class="d-block text-align-left no-indent"><xsl:apply-templates/></span>
+        <xsl:choose>
+            <xsl:when test="ancestor::tei:del or parent::tei:del or preceding-sibling::*[1]/local-name() = ('del', 'add')">
+                <span class="d-table-row text-align-left no-indent">&#160;<xsl:apply-templates/></span>
+            </xsl:when>
+            <!-- <xsl:when test="preceding-sibling::*[1][@n='last']/local-name() = 'span'">
+                <span class="d-table-row text-align-left no-indent">&#160;<xsl:apply-templates/></span>
+            </xsl:when> -->
+            <xsl:otherwise>
+                <span class="d-block text-align-left no-indent"><xsl:apply-templates/></span>
+            </xsl:otherwise>
+        </xsl:choose>
+        
     </xsl:template>
     <xsl:template match="tei:span[not(@n)]">
         <xsl:apply-templates/>

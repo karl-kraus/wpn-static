@@ -191,13 +191,14 @@ def wrap_or_not(el, s, ancestor=False) -> ET.Element:
     return s
 
 
-def create_sub_el(s, parent_or_ancestor, ancestor=False) -> ET._Element:
+def create_sub_el(parent_or_ancestor, ancestor=False) -> ET._Element:
     s2 = ET.Element('span')
+    if parent_or_ancestor.tag == "{http://www.tei-c.org/ns/1.0}subst":
+        s2.attrib["n"] = "last"
     s2.text = parent_or_ancestor.tail
     parent_or_ancestor.tail = ""
     s2 = wrap_or_not(parent_or_ancestor.getnext(), s2, ancestor)
-    s.append(s2)
-    return s
+    return s2
 
 
 LB_WRAPPED = [
@@ -225,13 +226,23 @@ def wrap_last_sentence(file) -> None:
         if parent.tag in LB_WRAPPED:
             ancestor = parent.getparent()
             if parent.tag == "{http://www.tei-c.org/ns/1.0}del":
-                if ancestor == "{http://www.tei-c.org/ns/1.0}subst":
-                    s = create_sub_el(s, ancestor)
+                if ancestor.tag == "{http://www.tei-c.org/ns/1.0}subst":
+                    s2 = create_sub_el(ancestor)
+                    x.addnext(s)
+                    x.getparent().addnext(s2)
             if parent.tag == "{http://www.tei-c.org/ns/1.0}quote":
-                s = create_sub_el(s, ancestor, ancestor=True)
+                s2 = create_sub_el(ancestor, ancestor=True)
+                s.append(s2)
+                x.addnext(s)
+                if ancestor.tag == "{http://www.tei-c.org/ns/1.0}del" or ancestor.tag == "{http://www.tei-c.org/ns/1.0}add":
+                    s3 = create_sub_el(ancestor.getparent(), ancestor=True)
+                    ancestor.addnext(s3)
             if parent.tag != "{http://www.tei-c.org/ns/1.0}del":
-                s = create_sub_el(s, parent)
-        x.addnext(s)
+                s2 = create_sub_el(parent)
+                s.append(s2)
+                x.addnext(s)
+        else:
+            x.addnext(s)
     with open(file, 'w') as f:
         f.write(ET.tostring(doc, pretty_print=True).decode('utf-8'))
 

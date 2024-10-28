@@ -6,6 +6,7 @@
     <xsl:variable name="facsimile">
         <xsl:value-of select="'idfacs'||replace(substring-after(data(//tei:pb[1]/@xml:id), 'idPb'), '.xml', '')"/>
     </xsl:variable>
+    
     <xsl:template match="@*|node()">
         <xsl:copy>
             <xsl:apply-templates select="@*|node()"/>
