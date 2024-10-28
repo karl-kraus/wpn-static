@@ -157,13 +157,13 @@
         <xsl:apply-templates select="tei:birth" mode="short"/>
         <xsl:apply-templates select="tei:death" mode="short"/>
         <xsl:apply-templates select="tei:occupation[@type='prim']" mode="short"/>
-        <xsl:for-each select="tei:affiliation">
+        <xsl:for-each select="distinct-values(tei:affiliation)">
             <xsl:if test="position() = 1">
                 <xsl:value-of select="' ('"/>
             </xsl:if>
-            <xsl:apply-templates select="current()"/>
+            <xsl:apply-templates select="current()" mode="short"/>
             <xsl:if test="position() != last()">
-                <xsl:value-of select="."/>
+                <xsl:value-of select="','"/>
             </xsl:if>
             <xsl:if test="position() = last()">
                 <xsl:value-of select="')'"/>
@@ -368,6 +368,15 @@
         </xsl:if>
         <xsl:if test="position() = last()">
         <xsl:value-of select="'.'" />
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="tei:affiliation" mode="short">
+        <xsl:if test="@notAfter">
+        <xsl:value-of select="'Bis '||@notAfter||' '" />
+        </xsl:if>
+        <xsl:value-of select="." />
+        <xsl:if test="position() != last()">
+        <xsl:value-of select="','" />
         </xsl:if>
     </xsl:template>
      <xsl:template match="tei:forename[@subtype='unused']">
