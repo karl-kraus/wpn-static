@@ -16,5 +16,16 @@ export interface TestDataObjectPerson extends TestDataObject {
 	register_link: Record<string, string>;
 };
 
+export interface TestDataObjectComment extends TestDataObject {
+	event_date?: string,
+	description_long: string;
+	external_links?: Array<object>;
+	timeline_links?: Array<object>;
+	comment_links?: Array<object>;
+	register_link?: Record<string, string>;
+	sources?: string;
+	
+};
+
 
 
