@@ -126,16 +126,31 @@ def append_el(el, s) -> None:
 
 
 def wrap_or_not(el, s, ancestor=False) -> ET.Element:
+    """_summary_
+
+    Args:
+        el (lxml etree element): first element after milestone element (lb n="last")
+        s (lxml etree element): span element to wrap the sentence
+        ancestor (bool, optional): if el is wrapped in LB_Elements. Defaults to False.
+
+    Returns:
+        ET.Element: span element with the sentence
+    """
     while el is not None:
-        print(el)
         if el.tag not in EXCLUDE_TAGS:
             next_el = el.getnext()
             if el.tag == "{http://www.tei-c.org/ns/1.0}quote" or el.tag == "{http://www.tei-c.org/ns/1.0}seg":
                 breakpoint_els = el.xpath("./tei:p|./tei:lg|./tei:note",
                                           namespaces=NSMAP)
+                # quote and seg are inline or block elements but
+                # (Breakpoints: p, lg, note)
+                # they may have nested block and inline elements
                 if breakpoint_els:
                     breakpoint_el = breakpoint_els[0]
                     if ancestor:
+                        # if el is wrapped in LB_Elements
+                        # next to siblings also siblings of the parent element
+                        # should be appended to the span element
                         if el.tail is not None:
                             if len(s) != 0:
                                 s[-1].tail += el.tail
@@ -149,6 +164,9 @@ def wrap_or_not(el, s, ancestor=False) -> ET.Element:
                             el.remove(childel)
                             s.append(childel)
                     else:
+                        # if el is not in wrapped in LB_Elements
+                        # check for preceding siblings before
+                        # breakpoint element
                         if el.text is not None:
                             if len(s) != 0:
                                 s[-1].tail += el.text
@@ -161,6 +179,7 @@ def wrap_or_not(el, s, ancestor=False) -> ET.Element:
                         for childel in breakpoint_el.xpath("preceding-sibling::*"):
                             el.remove(childel)
                             s.append(childel)
+                    next_el = None
                 else:
                     s = append_el(el, s)
             else:
