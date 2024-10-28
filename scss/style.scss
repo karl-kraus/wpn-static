@@ -720,8 +720,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .longQuote,
 #textcontent-pb .inkLongQuote
  {
-  font-size: 7pt !important;
-  line-height: 8pt !important;
+  font-size: 7pt;
+  line-height: 8pt;
 }
 
 #textcontent-pb .typescriptRunningText1,
@@ -1142,13 +1142,6 @@ wpn-time-line {
 }
 
 .mod.longQuote span {
-  display: inline !important;
-  border: 1px solid #8b8b8b;
-  font-size: 1em !important;
-}
-
-.mod.longQuote span span {
-  display: inline !important;
   border: 1px solid #8b8b8b;
   font-size: 1em !important;
 }
