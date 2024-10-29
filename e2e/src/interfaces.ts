@@ -16,6 +16,15 @@ export interface TestDataObjectPerson extends TestDataObject {
 	register_link: Record<string, string>;
 };
 
+export interface TestDataObjectIntertextRegister extends TestDataObject {
+	sortkey: string;
+};
+
+export interface TestDataObjectPersonRegister extends TestDataObject {
+	gnd_link?: Record<string,string>;
+	sortkey: string;
+};
+
 export interface TestDataObjectComment extends TestDataObject {
 	event_date?: string,
 	description_long: string;
