@@ -83,6 +83,7 @@
                     </aside>                    
                 </div>
                 <xsl:call-template name="html_footer"/>
+                <script type="text/javascript" src="js/vendor/openseadragon/openseadragon.min.js"></script>
                 <xsl:call-template name="scripts"/>
             </body>
         </html>
