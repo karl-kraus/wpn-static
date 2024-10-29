@@ -10,10 +10,14 @@
     "build": "pnpm run compile-scss && vite build -l info && mv html/js/wpn_utils/manifest.json manifest.json",
     "e2e:run_all_tests": "npx playwright test --project=chromium",
     "e2e:test_edition_view": "npx playwright test e2e/specs/edition_view.spec.ts --project=chromium",
+    "e2e:test_edition_short_info_comment": "npx playwright test e2e/specs/edition_view_short_infos/edition_view_short_info_comment.spec.ts --project=chromium", 
     "e2e:test_edition_short_info_person": "npx playwright test e2e/specs/edition_view_short_infos/edition_view_short_info_person.spec.ts --project=chromium",
-    "e2e:test_edition_short_info_quote": "npx playwright test e2e/specs/edition_view_short_infos/edition_view_short_info_quote.spec.ts --project=chromium", 
+    "e2e:test_edition_short_info_quote": "npx playwright test e2e/specs/edition_view_short_infos/edition_view_short_info_quote.spec.ts --project=chromium",
+    "e2e:test_edition_detail_view_comment": "npx playwright test e2e/specs/edition_view_details/edition_view_detail_info_comment.spec.ts --project=chromium", 
     "e2e:test_edition_detail_view_person": "npx playwright test e2e/specs/edition_view_details/edition_view_detail_info_person.spec.ts --project=chromium",
-    "e2e:test_edition_detail_view_quote": "npx playwright test e2e/specs/edition_view_details/edition_view_detail_info_quote.spec.ts --project=chromium"   
+    "e2e:test_edition_detail_view_quote": "npx playwright test e2e/specs/edition_view_details/edition_view_detail_info_quote.spec.ts --project=chromium",
+    "e2e:test_register_list_view_person": "npx playwright test e2e/specs/register_views/register_list_view_person.spec.ts --project=chromium",
+    "e2e:test_register_list_view_quote": "npx playwright test e2e/specs/register_views/register_list_view_quote.spec.ts --project=chromium"   
   },
   "keywords": [],
   "author": "",
