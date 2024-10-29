@@ -173,9 +173,10 @@
             <xsl:apply-templates/>
         </div>
     </xsl:template>
-    <xsl:template match="tei:pb">
+    <!-- <xsl:template match="tei:pb">
         <span class="pagebreaks entity" id="{'pb'||@n}"  style="display:none;">||</span>
-    </xsl:template>
+    </xsl:template> -->
+    <xsl:template match="tei:pb"/>
     <xsl:template match="tei:ref[@type=('comment','glossary','event')]">
         <span class="comments entity" id="{@xml:id}"></span>
     </xsl:template>
