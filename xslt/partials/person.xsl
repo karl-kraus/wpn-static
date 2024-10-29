@@ -206,7 +206,7 @@
         <xsl:if test="tei:forename[@subtype='unused'] and not($move_complete_name)">
             <xsl:text> (</xsl:text>
             <xsl:if test="tei:forename/@type='taken'">
-                <xsl:text>d. i.:  </xsl:text>
+                <xsl:text>d. i.: </xsl:text>
             </xsl:if>
             <xsl:apply-templates select="tei:forename[@subtype='unused']">
                 <xsl:with-param name="brackets" select="false()" />
@@ -226,7 +226,7 @@
         <xsl:if test="tei:surname[@subtype='unused'] and not($move_complete_name)">
             <xsl:text> (</xsl:text>
             <xsl:if test="tei:surname/@type='taken'">
-                <xsl:text>d. i.:  </xsl:text>
+                <xsl:text>d. i.: </xsl:text>
             </xsl:if>
             <xsl:apply-templates select="tei:surname[@subtype='unused']">
                 <xsl:with-param name="brackets" select="false()" />
