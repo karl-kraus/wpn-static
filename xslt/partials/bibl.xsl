@@ -23,7 +23,7 @@
                         </button>
                     </div>
                     <div class="fs-6 text-dark-grey p-0">
-                        <div class="mb-2_5">
+                        <div data-testid="description_register_{@xml:id}" class="mb-2_5">
                             <xsl:apply-templates select="."/>
                         </div>
                         <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view_reg"/>
