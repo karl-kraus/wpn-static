@@ -2,7 +2,8 @@
 /* eslint-disable playwright/no-conditional-in-test */
 import { expect, test } from "@playwright/test";
 
-import { fetchCommentData, getListItems } from "../../utils/helpers.js";
+import type { TestDataObjectComment } from "../../src/interfaces.js";
+import { fetchTestData, getListItems } from "../../utils/helpers.js";
 
 const pathsToTest: Array<{ label: string; path: string }> = [
 	{
@@ -16,7 +17,7 @@ for (let i = 1; i <= 64; i++) {
 }
 
 for (const pathToTest of pathsToTest) {
-	const testData = await fetchCommentData(`comment_detail_view_${pathToTest.path}.json`);
+	const testData: Array<TestDataObjectComment> = await fetchTestData(`comment_detail_view_${pathToTest.path}.json`);
 
 	testData.forEach((detail_info) => {
 		test(`testing edition page for ${pathToTest.label} (${detail_info.id})`, async ({ page }) => {
