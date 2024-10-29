@@ -26,8 +26,13 @@
                         <div class="mb-2_5">
                             <xsl:apply-templates select="."/>
                         </div>
-                        <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view"/>
-                        <xsl:apply-templates select="@corresp" mode="detail_view"/>
+                        <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view_reg"/>
+                        <!--<xsl:apply-templates select="@corresp" mode="detail_view"/>-->
+                        <ul data-testid="scans_register_{@xml:id}" class="list-unstyled mb-0">
+                            <xsl:call-template name="scans">
+                                <xsl:with-param name="node_id" select="@xml:id"/>
+                            </xsl:call-template>
+                        </ul>
                         <xsl:apply-templates select="." mode="kwic"/>
                     </div>
                 </div>
@@ -723,6 +728,33 @@
                 </svg>
             </a>
         </li>
+    </xsl:template>
+    <xsl:template match="tei:ref[@type = 'gen']" mode="detail_view_reg">
+    <xsl:variable name="linktext">
+            <xsl:apply-templates select="ancestor::tei:bibl" mode="short"/>
+        </xsl:variable>
+        <xsl:variable name="linklabel">
+            <xsl:choose>
+                <xsl:when test="@subtype = 'specific'">
+                    <xsl:text>Link</xsl:text>
+                </xsl:when>
+                <xsl:when test="@subtype = 'example'">
+                    <xsl:text>Link (exempl.)</xsl:text>
+                </xsl:when>
+                <xsl:otherwise/>
+            </xsl:choose>
+        </xsl:variable>
+        <div class="py-1 border-bottom border-light-grey">
+            <a data-testid="external_link_register_{ancestor::tei:bibl/@xml:id}" class="text-decoration-none text-dark-grey" href="{@target}" target="_blank">
+                <span data-testid="external_link_label_register_{ancestor::tei:bibl/@xml:id}"><xsl:copy-of select="$linklabel"/></span>
+                <span data-testid="external_link_text_register_{ancestor::tei:bibl/@xml:id}" class="ps-2">
+                    <xsl:copy-of select="$linktext"/>
+                    <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                        <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                    </svg>
+                </span>
+            </a>
+        </div>
     </xsl:template>
     <xsl:template match="tei:lg" mode="excerpt">
         <span class="d-block lg {replace(@rendition,'#','')}"><xsl:apply-templates/></span>
