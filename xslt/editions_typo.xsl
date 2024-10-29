@@ -271,6 +271,11 @@
     <xsl:template match="tei:del[parent::tei:restore]">
         <del class="del connect entity text-decoration-underline-dotted" id="{@xml:id}"><xsl:apply-templates/></del>
     </xsl:template>
+    <xsl:template match="tei:del[parent::tei:subst[parent::tei:restore]]">
+        <del>
+            <span class="del text-decoration-underline-dotted"><xsl:apply-templates/></span>
+        </del>
+    </xsl:template>
     <xsl:template match="tei:del[not(parent::tei:subst) and contains(@rend, 'Left')]" mode="render">
         <div id="container-{@xml:id}" class="del connect {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div><span style="font-size:1.25em;">&#124;&#x20B0;</span><xsl:apply-templates/></div>
@@ -280,6 +285,9 @@
         <div id="container-{@xml:id}" class="del connect {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div><span style="font-size:1.25em;">&#124;&#x20B0;</span><xsl:apply-templates/></div>
         </div>
+    </xsl:template>
+    <xsl:template match="tei:add[parent::tei:subst[parent::tei:restore]]">
+        <del class="add connect entity" id="{@xml:id}"><xsl:apply-templates/></del>
     </xsl:template>
     <xsl:template match="tei:add[not(@rendition) and not(parent::tei:subst[@rend='overwritten']) and not(parent::tei:restore)]">
         <span class="add connect entity" id="{@xml:id}"></span>
