@@ -5,7 +5,6 @@
 
     <xsl:output encoding="UTF-8" media-type="text/html" method="html" version="5.0" indent="yes"
         omit-xml-declaration="yes"/>
-    <xsl:mode on-no-match="deep-skip"/>
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
@@ -74,7 +73,6 @@
                     <aside class="w-40 border-start border-light-grey">
                                 <wpn-detail-view class="d-block position-sticky">
                                     <xsl:apply-templates select="//tei:person[@xml:id]" mode="detail_view">
-                                        <xsl:with-param name="detail_view" select="true()" as="xs:boolean"/>
                                     </xsl:apply-templates>
                                 </wpn-detail-view>
                             </aside>
@@ -86,4 +84,8 @@
             </body>
         </html>
     </xsl:template>
+    <xsl:template match="text()">
+    <xsl:value-of 
+     select="translate(.,'&#xA;&#x9;','')"/>
+  </xsl:template>
 </xsl:stylesheet>

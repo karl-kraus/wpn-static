@@ -17,7 +17,7 @@
                         </button>
                     </div>
                     <div class="fs-6 text-dark-grey p-0">
-                        <div class="mb-2_5">
+                        <div data-testid="description_register_{@xml:id}" class="mb-2_5">
                             <xsl:apply-templates select="."/>
                         </div>
                         <div class="d-flex justify-content-end">
@@ -206,7 +206,7 @@
         <xsl:if test="tei:forename[@subtype='unused'] and not($move_complete_name)">
             <xsl:text> (</xsl:text>
             <xsl:if test="tei:forename/@type='taken'">
-                <xsl:text>d. i.:  </xsl:text>
+                <xsl:text>d. i.: </xsl:text>
             </xsl:if>
             <xsl:apply-templates select="tei:forename[@subtype='unused']">
                 <xsl:with-param name="brackets" select="false()" />
@@ -226,7 +226,7 @@
         <xsl:if test="tei:surname[@subtype='unused'] and not($move_complete_name)">
             <xsl:text> (</xsl:text>
             <xsl:if test="tei:surname/@type='taken'">
-                <xsl:text>d. i.:  </xsl:text>
+                <xsl:text>d. i.: </xsl:text>
             </xsl:if>
             <xsl:apply-templates select="tei:surname[@subtype='unused']">
                 <xsl:with-param name="brackets" select="false()" />
@@ -282,7 +282,7 @@
         <xsl:text>)</xsl:text>
     </xsl:template>
     <xsl:template match="tei:note[@type='source'][@subtype='publ']" mode="detail_view_reg">
-        <a href="#" data-bs-toggle="popover" data-bs-content="{.}"  data-bs-placement="left" data-bs-trigger="hover" data-bs-custom-class="ff-ubuntu">
+        <a data-testid="pub_note_{ancestor::tei:person/@xml:id}" href="#" data-bs-toggle="popover" data-bs-content="{.}"  data-bs-placement="left" data-bs-trigger="hover" data-bs-custom-class="ff-ubuntu">
             <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><g fill="none" stroke="#d8d8d8" stroke-width="1"><circle cx="12.5" cy="12.5" r="12.5" stroke="none"></circle><circle cx="12.5" cy="12.5" r="12" fill="none"></circle></g><g transform="translate(8.229 8.025)"><path d="M4253.114,129.086v-5.543h3.88" transform="translate(-4253.114 -123.543)" fill="none" stroke="#999" stroke-linejoin="round" stroke-width="1"></path><g transform="translate(2.5 4.5)"><line x2="6.041" fill="none" stroke="#999" stroke-width="1"></line><line x2="6.041" transform="translate(0 2.225)" fill="none" stroke="#999" stroke-width="1"></line><line x2="6.041" transform="translate(0 4.45)" fill="none" stroke="#999" stroke-width="1"></line></g></g></svg>
         </a>
     </xsl:template>
@@ -395,7 +395,7 @@
     <xsl:template match="tei:idno[@type='GND']" mode="detail_view_reg">
         <xsl:param name="id_in_text"/>
         <div class="border-bottom border-light-grey pb-1">
-            <a data-testid="gnd_link_{$id_in_text}" class="text-decoration-none text-dark-grey" target="_blank" href="{'http://d-nb.info/gnd/'||.}"><span class="pe-2">Link</span><span class="pe-2 text-blacker-grey-hover">GND</span></a>
+            <a data-testid="gnd_link_{if ($id_in_text) then $id_in_text else ancestor::tei:person/@xml:id}" class="text-decoration-none text-dark-grey" target="_blank" href="{'http://d-nb.info/gnd/'||.}"><span class="pe-2">Link</span><span class="pe-2 text-blacker-grey-hover">GND</span></a>
            <svg class="align-baseline" width="5" height="10"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
                         <defs>
