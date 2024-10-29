@@ -18,9 +18,12 @@ export interface TestDataObjectPerson extends TestDataObject {
 
 export interface TestDataObjectIntertextRegister extends TestDataObject {
 	sortkey: string;
+	scan?: Record<string, string>;
+	external_link?: Record<string, string>;
 };
 
 export interface TestDataObjectPersonRegister extends TestDataObject {
+	pub_note?: string;
 	gnd_link?: Record<string,string>;
 	sortkey: string;
 };
