@@ -13,6 +13,13 @@ NSMAP = {
     "tei": "http://www.tei-c.org/ns/1.0",
     "xml": "http://www.w3.org/XML/1998/namespace"
 }
+
+# Remove the original file
+# After the split it is not required anymore
+SOURCE_FILE = 'Gesamt_modified.xml'
+SOURE_PATH = os.path.join('data', 'editions', SOURCE_FILE)
+os.remove(SOURE_PATH)
+
 INPUT_DIR = 'output'
 INPUT_PROJECT_DIR = 'Gesamt_modified'
 OUTPUT_DIR = os.path.join('data', 'editions', 'tmp')

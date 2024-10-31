@@ -75,3 +75,4 @@ if __name__ == '__main__':
             os.path.basename(file).replace('_pb_lb.xml', '_modified.xml'))
         with open(output_path, 'w') as f:
             f.write(text)
+        os.remove(file)
