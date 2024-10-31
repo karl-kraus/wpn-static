@@ -8,7 +8,7 @@
     <xsl:template match="tei:person" mode="detail_view">
       <!--<xsl:result-document href="{@xml:id||'.html'}" method="html">-->
         <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2" id="{'details_'||@xml:id}">   
-            <div class="person_signet_background my-0 mw-100 top-18 px-2 ps-3 pt-2">
+            <div class="person_signet_background my-0 mw-100 top-18 px-2 ps-3 pt-2 bg-position-detail-view bg-size-detail-view bg-no-repeat">
                 <div class="border-0 d-flex flex-column">
                     <div class="d-flex justify-content-between">
                         <h2 class="fs-8_75 text-black-grey fw-normal">Registereintrag</h2>
@@ -44,7 +44,7 @@
         <xsl:variable name="reg_letter" select="substring(@sortKey,1,1)"/>
         <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2"
         id="{$elem_id}">
-            <div class="person_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1">
+            <div class="person_signet_background my-0 mw-100 top-18 px-2 ps-2 pt-1 bg-position-detail-view bg-size-detail-view bg-no-repeat">
                 <div class="border-0">
                 <button class="float-end border-0 bg-transparent close-button">
                     <svg class="align-top" width="10" height="10" xmlns="http://www.w3.org/2000/svg"
