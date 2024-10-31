@@ -8,3 +8,5 @@ python py/milestone.py -t pb -n {http://www.w3.org/XML/1998/namespace}id data/ed
 python py/cleanup.py
 # add original teiHeader to each file
 ant add-header-pb
+# add attributes
+./shellscripts/add-attributes.sh
