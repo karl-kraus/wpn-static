@@ -12,7 +12,7 @@
                 <div class="border-0 d-flex flex-column">
                     <div class="d-flex justify-content-between">
                         <h2 class="fs-8_75 text-black-grey fw-normal">Registereintrag</h2>
-                        <button class="border-0 bg-transparent">
+                        <button class="border-0 bg-transparent close-button">
                             <svg class="align-top" width="10" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.778 7.778"><defs><style>.a{fill:none;stroke:#d8d8d8;stroke-width:2px;}</style></defs><g transform="translate(0.707 0.707)"><line class="a" x2="9" transform="translate(0 0) rotate(45)"></line><line class="a" x2="9" transform="translate(0 6.364) rotate(-45)"></line></g></svg>
                         </button>
                     </div>
