@@ -30,9 +30,19 @@ class WPNTextView extends HTMLElement {
 		});
 	}
 
+	
+	onLoadFinished = (annotationSelectors: string): void =>{
+		this.positionElements(annotationSelectors);
+		window.removeEventListener('load',() => {
+			this.positionElements(annotationSelectors)
+		});
+	}
+
 	connectedCallback() {
 		const annotationSelectors = this.getAttribute("annotation-selectors") ?? "";
-		this.positionElements(annotationSelectors);
+		window.addEventListener('load',() => {
+			this.onLoadFinished(annotationSelectors);
+		});
 		[...document.getElementsByTagName("annotation-slider")].forEach((aos) => {
 			aos.addEventListener("click", () => {
 				const btnsToDisableAttr = aos.getAttribute("data-disable-btns");
@@ -54,7 +64,7 @@ class WPNTextView extends HTMLElement {
 						el.classList.add('d-none');
 					})
 				}
-				this.positionElements(".entity");
+				this.positionElements(annotationSelectors);
 			});
 		});
 
