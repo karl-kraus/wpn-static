@@ -31,6 +31,15 @@ def replace_namespace(text):
     return text
 
 
+def handle_pb_with_lb_break(file):
+    doc = TeiReader(file, xsl="./xslt/partials/typo-find-pb-lb-break.xsl")
+    file = file.replace('.xml', '_pb_lb.xml')
+    doc.tree_to_file(file)
+    doc = TeiReader(file, xsl="./xslt/partials/typo-add-lb-break.xsl")
+    doc.tree_to_file(file)
+    return file
+
+
 def add_graphic_url(file):
     doc = TeiReader(file)
     surface = doc.any_xpath('//tei:facsimile//tei:surface')
@@ -58,10 +67,11 @@ def add_graphic_url(file):
 if __name__ == '__main__':
     for file in tqdm.tqdm(source_glob, total=len(source_glob)):
         add_graphic_url(file)
+        file = handle_pb_with_lb_break(file)
         text = file_parser(file)
         text = replace_namespace(text)
         output_path = os.path.join(
             SOURCE_DIR,
-            os.path.basename(file).replace('.xml', '_modified.xml'))
+            os.path.basename(file).replace('_pb_lb.xml', '_modified.xml'))
         with open(output_path, 'w') as f:
             f.write(text)

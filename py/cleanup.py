@@ -186,7 +186,7 @@ def wrap_or_not(el, s, ancestor=False) -> ET.Element:
                 s = append_el(el, s)
         else:
             return s
-        print(type(el))
+        # print(type(el))
         el = next_el
     return s
 

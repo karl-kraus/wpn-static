@@ -257,20 +257,20 @@ class Milestone(object):
         """Get the parent tags of the milestone."""
         return [(parent.tag, parent.attrib)
                 for parent in milestone.iterancestors()]
-    
+
     @staticmethod
     def get_parents_print(milestone):
         """Get the parent tags of the milestone."""
         with open("parents.txt", "a") as f:
             f.write(str([(parent.tag, parent.attrib)
-                for parent in milestone.iterancestors()]))
+                    for parent in milestone.iterancestors()]))
             f.write("\n")
 
     @staticmethod
     def get_milestone(milestone):
         """Get the milestone tag and attributes."""
         return [(milestone.tag, milestone.attrib)]
-    
+
     def get_same_parents(self):
         """Check if the parents are the same."""
         for milestone_name, data in self.parts.items():
@@ -311,8 +311,7 @@ class Milestone(object):
                         #         self.parts[prev_milestone]['parents'][0][1]["next"] = 'true'
                         # except:
                         #     print("Error")
-        return prev_parent
-        
+        return prev_parent      
 
     def process_milestone(self, milestone):
         """Process the milestone."""
