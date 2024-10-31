@@ -151,3 +151,7 @@ annotation-slider[opt='cmts'] .i-slider::before {
 div.pbs,div.cmts {
   display:block !important;
 }
+
+wpn-text-view .pagebreaks.entity.pbs::after {
+  content:'||';
+}

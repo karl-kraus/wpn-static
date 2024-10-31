@@ -157,7 +157,7 @@
     </xsl:template>
     <xsl:template match="tei:pb[matches(@n,'.*_[a-z].*')]"/>
     <xsl:template match="tei:pb[not(matches(@n,'.*_[a-z].*'))]">
-        <span class="pagebreaks entity" id="{'pb'||@n}">||</span>
+        <span class="pagebreaks entity" id="{'pb'||@n}"/>
     </xsl:template>
     <xsl:template match="tei:pb" mode="raw">
         <ref target="{@xml:id}">
