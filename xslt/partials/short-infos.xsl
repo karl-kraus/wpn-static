@@ -9,6 +9,7 @@
 <xsl:import href="person.xsl"/>
 <xsl:import href="bibl.xsl"/>
 <xsl:import href="seg.xsl"/>
+<xsl:import href="icon.xsl"/>
 <xsl:template match="tei:quote" mode="short_info">
   <xsl:variable name="xmlid" select="@xml:id"/>
   <xsl:variable name="type" select="@type"/>
@@ -20,6 +21,9 @@
         <xsl:apply-templates select="$source_element" mode="short_info">
           <xsl:with-param name="quotetype" select="if ($source = 'DWbibl00211') then () else if ($type = 'exemp') then 'z. B. ' else if ($type = 'else') then 'Berichterstattung dazu z. B. in: ' else ()"/>
         </xsl:apply-templates>
+        <xsl:call-template name="icon">
+          <xsl:with-param name="icon_name" select="'expand_info'"/>
+        </xsl:call-template>
       </a>
     </div>
   </xsl:for-each>
@@ -33,6 +37,9 @@
       <a class="text-dark-grey text-decoration-none text-wpn-fackel-hover" href="{'#'||$xmlid||'_'||$corresp}">
       <xsl:apply-templates select="$source_element" mode="short_info">
       </xsl:apply-templates>
+      <xsl:call-template name="icon">
+        <xsl:with-param name="icon_name" select="'expand_info'"/>
+      </xsl:call-template>
       </a>
     </div>
   </xsl:for-each>
@@ -60,6 +67,9 @@
                   <xsl:apply-templates select="$referenced_element" mode="short_info">
                     <xsl:with-param name="ref_type" select="$type"/>
                   </xsl:apply-templates>
+                  <xsl:call-template name="icon">
+                    <xsl:with-param name="icon_name" select="'expand_info'"/>
+                  </xsl:call-template>
                 </a>
               </li>
             </xsl:for-each>
@@ -70,6 +80,9 @@
             <xsl:apply-templates select="$source_element" mode="short_info">
               <xsl:with-param name="ref_type" select="$type"/>
             </xsl:apply-templates>
+            <xsl:call-template name="icon">
+              <xsl:with-param name="icon_name" select="'expand_info'"/>
+            </xsl:call-template>
           </a>
         </xsl:otherwise>
       </xsl:choose>
@@ -145,6 +158,9 @@
         <xsl:apply-templates select="$source_element" mode="short_info">
           <xsl:with-param name="ref_type" select="$type"/>
         </xsl:apply-templates>
+        <xsl:call-template name="icon">
+          <xsl:with-param name="icon_name" select="'expand_info'"/>
+        </xsl:call-template>
       </a>
     </div>
   </xsl:for-each>
