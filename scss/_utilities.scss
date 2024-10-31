@@ -200,3 +200,31 @@ $utilities: map-merge(
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+
+.bg-position-short-info {
+  background-position: 10px 0px;
+}
+
+.bg-size-short-info {
+  background-size: 10px 12px;
+}
+
+.bg-position-detail-view {
+  background-position: 10px 10px;
+}
+
+.bg-size-detail-view {
+  background-size: 10px 12px;
+}
+
+.stroke-black-grey {
+  stroke: $wpn-black-grey;
+}
+
+.stroke-wpn-red-hover:hover {
+  stroke: $wpn-red;
+}

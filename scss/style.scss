@@ -534,20 +534,20 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .quote_signet_background {
-  background: url("../images/icon-signet-intertext.svg") 10px 10px/10px 12px no-repeat;
-}
-
+  background-image: url("../images/icon-signet-intertext.svg");
+ }
+ 
 .person_signet_background {
-  background: url("../images/icon-signet-person.svg") 10px 10px/10px 12px no-repeat;
-}
-
+  background-image: url("../images/icon-signet-person.svg");
+ }
+ 
 .comment_signet_background {
-  background: url("../images/icon-signet-comment.svg") 10px 10px/10px 12px no-repeat;
-}
-
+  background-image: url("../images/icon-signet-comment.svg");
+ }
+ 
 .fackel_signet_background {
-  background: url("../images/icon-signet-fackel.svg") 10px 10px/10px 12px no-repeat;
-}
+  background-image: url("../images/icon-signet-fackel.svg");
+ }
 
 /** detail view Dritter Publikationsschritt **/
 
