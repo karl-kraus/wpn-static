@@ -202,6 +202,10 @@ footer {
   mask-image:unset;
 }
 
+.wpn-expand .list-collapsable > li {
+  display: list-item;
+}
+
 /*** notizen app (mirador) ***/
 
 html[data-page="notes"] .container {

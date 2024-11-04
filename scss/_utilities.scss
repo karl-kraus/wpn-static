@@ -236,3 +236,19 @@ $utilities: map-merge(
 .inline-list-dash-separated li:not(:last-child)::after {
   content:"\00a0– ";
 }
+
+/*** needed for glossary in comment register view ***/
+
+.col-count-responsive {
+  column-count: 1;
+}
+
+@media (min-width: 768px) {
+  .col-count-responsive {
+    column-count: 2;
+  }
+}
+
+.list-collapsable li:nth-child(n+5) {
+  display: none;
+}
