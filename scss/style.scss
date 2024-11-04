@@ -613,6 +613,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-indent: 30px;
 }
 
+#textcontent-pb .longQuoteVerse {
+  word-spacing: .2rem;
+}
+
 #textcontent-pb .inkCenterAlignIndent1{
   text-align-last: center;
   text-align: center;
@@ -984,6 +988,17 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   position: relative !important;
 }
 
+#textcontent-pb .indent1 {
+  text-indent: 8rem;
+}
+
+#textcontent-pb .indent2 {
+  text-indent: 12rem;
+}
+
+#textcontent-pb .indent3 {
+  text-indent: 13.125rem;
+}
 
 // @rend
 
@@ -1005,11 +1020,13 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .below {
-  margin-bottom: -10pt;
+  position: absolute;
+  bottom: -5pt;
 }
 
 .above {
-  margin-top: -10pt;
+  position: absolute;
+  top: -5pt;
 }
 
 .topRight {
@@ -1018,13 +1035,13 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .marginRightAbove {
-  margin-left: 20%;
-  margin-bottom: 10pt;
+  margin-left: 10%;
+  position: relative;
 }
 
 .marginRightBelow {
-  margin-left: 20%;
-  margin-bottom: -10pt;
+  margin-left: 10%;
+  position: relative;
 }
 
 .marginRight {
@@ -1032,17 +1049,17 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .marginLeft {
-  margin-left: 30%;
+  margin-left: 20%;
 }
 
 .marginLeftAbove {
-  margin-left: 40%;
-  margin-bottom: 10pt;
+  margin-left: 20%;
+  position: relative;
 }
 
 .marginLeftBelow {
-  margin-left: 40%;
-  margin-bottom: -10pt;
+  margin-left: 20%;
+  position: relative;
 }
 
 .inline {
@@ -1094,6 +1111,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-decoration: underline;
 }
 
+.metamark.inkFont{
+  text-decoration: underline;
+}
+
 .typescriptFont {
   font-family: "monospace";
 }
@@ -1124,10 +1145,6 @@ wpn-time-line {
 
 .add.overwrite {
   font-size: 1em !important;
-}
-
-.indent2 {
-  text-indent: 12rem;
 }
 
 .mod.noUnderline {
