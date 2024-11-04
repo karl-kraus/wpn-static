@@ -280,6 +280,11 @@
             <span class="del text-decoration-underline-dotted"><xsl:apply-templates/></span>
         </del>
     </xsl:template>
+    <xsl:template match="tei:del[@rend=('below', 'above') or parent::tei:subst/@rend=('below', 'above')]">
+        <span class="position-relative">
+            <span class="del {@rend} {replace(@change,'#','')}"><xsl:apply-templates/></span>
+        </span>
+    </xsl:template>
     <xsl:template match="tei:del[not(parent::tei:subst) and contains(@rend, 'Left')]" mode="render">
         <div id="container-{@xml:id}" class="del connect {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div><span style="font-size:1.25em;">&#124;&#x20B0;</span></div>
@@ -306,7 +311,12 @@
         <span class="add connect entity" id="{@xml:id}"><span style="font-size:1.25em;">&#124;</span></span>
     </xsl:template>
     <xsl:template match="tei:add[@rend='inline' or parent::tei:subst/@rend = 'inline']">
-        <span class="{replace(@change,'#','')}"><xsl:apply-templates/></span>
+        <span class="add {replace(@change,'#','')}"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:add[@rend=('below', 'above') or parent::tei:subst/@rend=('below', 'above')]">
+        <span class="position-relative">
+            <span class="add {@rend} {replace(@change,'#','')}"><xsl:apply-templates/></span>
+        </span>
     </xsl:template>
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')]" mode="render">
         <div id="container-{@xml:id}" class="add connect {if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
@@ -462,17 +472,11 @@
             <div><span style="font-size:1.25em;">[</span></div>
         </div>
      </xsl:template>
-    <xsl:template match="tei:note[contains(@place, 'bottom')]">
-        <div class="note {@place} {replace(@change, '#', '')}" id="{@xml:id}">
+    <xsl:template match="tei:note[@place]">
+        <span class="note d-block {@place} {replace(@change, '#', '')}" id="{@xml:id}">
             <xsl:apply-templates/>
-        </div>
+        </span>
     </xsl:template>
-    <xsl:template match="tei:note[contains(@place, 'top')]">
-        <div class="note {@place} {replace(@change, '#', '')}" id="{@xml:id}">
-            <xsl:apply-templates/>
-        </div>
-    </xsl:template>
-    <!-- <xsl:template match="tei:note"/> -->
     <xsl:template match="tei:note[not(@place)]">
         <span class="note {replace(@change,'#','')}"><xsl:apply-templates/></span>
     </xsl:template>

@@ -1020,11 +1020,13 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .below {
-  margin-bottom: -10pt;
+  position: absolute;
+  bottom: -5pt;
 }
 
 .above {
-  margin-top: -10pt;
+  position: absolute;
+  top: -5pt;
 }
 
 .topRight {
