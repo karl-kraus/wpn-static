@@ -7,7 +7,10 @@
     
     <xsl:template match="tei:seg" mode="detail_view">
       <!--<xsl:result-document href="{@xml:id||'.html'}" method="html">-->
-        <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2" id="{'details_'||@xml:id}">   
+      <xsl:param name="topic_id"/>
+      <xsl:variable name="elem_id" select="'details_'||$topic_id||'_'||@xml:id"/>
+        
+        <div class="d-none p-1 ps-0 pt-0 overflow-visible ls-2" id="{$elem_id}">   
             <div class="comment_signet_background my-0 mw-100 top-18 px-2 ps-3 pt-2 bg-position-detail-view bg-size-detail-view bg-no-repeat">
                 <div class="border-0 d-flex flex-column">
                     <div class="d-flex justify-content-between">
@@ -18,8 +21,16 @@
                     </div>
                     <div class="fs-6 text-dark-grey p-0">
                         <div>
-                            <xsl:apply-templates select="."  mode="detail_view_textpage_seg"/>
+                            <xsl:apply-templates select="."  mode="detail_view_textpage_seg">
+                                <xsl:with-param name="register_view" select="true()"/>
+                                <xsl:with-param name="elem_id" select="$elem_id"/>
+                            </xsl:apply-templates>
                         </div>
+                        <xsl:apply-templates select="tei:note" mode="list_sources"/>
+                        <xsl:apply-templates select="." mode="list_events"/>
+                        <xsl:apply-templates select="." mode="link_list">
+                            <xsl:with-param name="elem_id" select="$elem_id"/>
+                        </xsl:apply-templates>
                         <xsl:apply-templates select="." mode="kwic"/>
                     </div>
                 </div>
@@ -111,11 +122,20 @@
     </div>
     </xsl:template>
     <xsl:template match="tei:seg" mode="list_view">
-    <div  id="{@xml:id}" class="lh-1625">
-         <a class="text-blacker-grey text-decoration-none fs-9" href="{'#'||@xml:id}">
+        <xsl:param name="topic_id"/>
+    <li id="{$topic_id||'_'||@xml:id}" class="lh-1625 list-unstyled mb-0">
+         <a class="text-blacker-grey text-decoration-none fs-9" href="#{$topic_id||'_'||@xml:id}">
                 <b><xsl:apply-templates select="." mode="short"/></b>
          </a>
-    </div>
+        <xsl:if test="descendant::tei:seg">
+            <ul class="list-unstyled fs-9 inline-list-dash-separated ms-2">
+                <li><xsl:apply-templates select="." mode="short"/></li>
+                <xsl:for-each select="descendant::tei:seg">
+                    <li><xsl:apply-templates select="current()" mode="short"/></li>
+                </xsl:for-each>
+            </ul>
+        </xsl:if>
+    </li>
     </xsl:template>
     <xsl:template match="tei:seg" mode="short">
         <xsl:apply-templates select="tei:label" mode="short"/>
@@ -124,13 +144,16 @@
         <span><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg" mode="detail_view_textpage_seg">
+        <xsl:param name="register_view" select="false()"/>
         <xsl:param name="elem_id"/>
         <p class="text-black-grey lh-0_9">
             <xsl:apply-templates select="tei:label">
                 <xsl:with-param name="elem_id" select="$elem_id"/>
             </xsl:apply-templates>
             <br/>
-            <xsl:apply-templates select="@corresp" mode="detail_view_textpage_seg"/>
+            <xsl:if test="not($register_view)">
+                <xsl:apply-templates select="@corresp" mode="detail_view_textpage_seg"/>
+            </xsl:if>
         </p>
         <div data-testid="description_long_{$elem_id}">
             <xsl:apply-templates select="tei:note" mode="detail_view_textpage_seg"/>
