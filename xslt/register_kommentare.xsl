@@ -10,6 +10,7 @@
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
     <xsl:import href="./partials/seg.xsl"/>
+    <xsl:import href="./partials/shared.xsl"/>
     <xsl:import href="./partials/scripts.xsl"/>
     <xsl:variable name="index_letters"
         select="sort(distinct-values(//tei:term/@key))"/>
@@ -42,15 +43,18 @@
             
                                     <div class="mt-7">
                                         <xsl:for-each select="head(//tei:body//tei:p)//tei:listRef">
-                                            <div>
-                                            <p class="text-primary ff-ubuntu"><xsl:value-of select="current()/tei:desc"/></p>
-                                            <xsl:for-each select="current()//tei:ptr">
-                                            <xsl:variable name="id" select="replace(@target,'#','')"/>
-                                            <xsl:apply-templates
-                                                    select="//tei:seg[@xml:id = $id]" mode="list_view">
-                                                    
-                                                </xsl:apply-templates>
-                                            </xsl:for-each>
+                                            <xsl:variable name="topic" select="current()"/>
+                                            <div class="mt-4">
+                                            <p class="text-primary ff-ubuntu"><xsl:value-of select="$topic/tei:desc"/></p>
+                                                <ul>
+                                                    <xsl:for-each select="current()//tei:ptr">
+                                                    <xsl:variable name="id" select="replace(@target,'#','')"/>
+                                                    <xsl:apply-templates
+                                                            select="//tei:seg[@xml:id = $id]" mode="list_view">
+                                                            <xsl:with-param name="topic_id" select="$topic/tei:desc/@xml:id"/>
+                                                        </xsl:apply-templates>
+                                                    </xsl:for-each>
+                                                </ul>
                                             </div>
                                         </xsl:for-each>
                                     </div>
@@ -59,9 +63,15 @@
                     </main>
                     <aside class="w-40 border-start border-light-grey">
                                 <wpn-detail-view class="d-block position-sticky">
-                                    <xsl:apply-templates select="//tei:seg" mode="detail_view">
-                                        <xsl:with-param name="detail_view" select="true()" as="xs:boolean"/>
-                                    </xsl:apply-templates>
+                                    <xsl:for-each select="//tei:seg[not(ancestor::tei:seg)]">
+                                        <xsl:variable name="cur_seg" select="current()"/>
+                                        <xsl:for-each select="tokenize(@corresp,' ')">    
+                                            <xsl:apply-templates select="$cur_seg" mode="detail_view">
+                                                <xsl:with-param name="detail_view" select="true()" as="xs:boolean"/>
+                                                <xsl:with-param name="topic_id" select="replace(current(),'#','')"/>
+                                            </xsl:apply-templates>
+                                        </xsl:for-each>
+                                    </xsl:for-each>
                                 </wpn-detail-view>
                             </aside>
                             </div>
