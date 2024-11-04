@@ -199,11 +199,6 @@
     <xsl:template match="tei:l">
         <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
 	</xsl:template>
-    <xsl:template match="tei:seg[@type='F890']">
-        <span class="fackelrefs entity {substring-after(@rendition, '#')} {if(@prev)then(' no-indent')else()}" id="{@xml:id}">
-            <xsl:apply-templates/>
-        </span>
-    </xsl:template>
     <xsl:template match="tei:quote">
         <wpn-entity class="quotes entity {substring-after(@rendition, '#')}" id="{@xml:id}">
             <xsl:apply-templates/>
@@ -231,9 +226,6 @@
     </xsl:template>
     <xsl:template match="tei:hi[@style='underline']">
         <span class="underline"><xsl:apply-templates/></span>
-    </xsl:template>
-    <xsl:template match="tei:seg[@rendition='#runningText1']">
-        <span class="d-block runningText1  {if(@prev)then(' no-indent')else()}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
         <xsl:apply-templates select="tei:sic" mode="render"/>
@@ -465,11 +457,30 @@
     <xsl:variable name="target" select="replace(@target,'#','')"/>
     <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:seg[@xml:id=$target]" mode="render"/>
     </xsl:template> -->
+    
     <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit') and not(parent::tei:restore)]">
         <span class="border rounded-pill"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit') and parent::tei:restore]">
         <span class="border-dotted rounded-pill"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:seg[@type='relocation']">
+        <span>
+            <xsl:if test="@rend='border'">
+                <xsl:attribute name="class">
+                    <xsl:text>border</xsl:text>
+                </xsl:attribute>
+            </xsl:if>
+            <xsl:if test="@rend='line'">&#124;</xsl:if><xsl:if test="@rend='arrow'">&#8592;</xsl:if><xsl:apply-templates/>
+        </span>
+    </xsl:template>
+    <xsl:template match="tei:seg[@rendition='#runningText1']">
+        <span class="d-block runningText1  {if(@prev)then(' no-indent')else()}"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:seg[@type='F890']">
+        <span class="fackelrefs entity {substring-after(@rendition, '#')} {if(@prev)then(' no-indent')else()}" id="{@xml:id}">
+            <xsl:apply-templates/>
+        </span>
     </xsl:template>
     <!-- <xsl:template match="tei:seg[@type=('transposition','relocation')]" mode="render">
     <xsl:apply-templates/>
