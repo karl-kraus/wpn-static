@@ -1033,13 +1033,13 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .marginRightAbove {
-  margin-left: 20%;
-  margin-bottom: 10pt;
+  margin-left: 10%;
+  position: relative;
 }
 
 .marginRightBelow {
-  margin-left: 20%;
-  margin-bottom: -10pt;
+  margin-left: 10%;
+  position: relative;
 }
 
 .marginRight {
@@ -1047,17 +1047,17 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .marginLeft {
-  margin-left: 30%;
+  margin-left: 20%;
 }
 
 .marginLeftAbove {
-  margin-left: 40%;
-  margin-bottom: 10pt;
+  margin-left: 20%;
+  position: relative;
 }
 
 .marginLeftBelow {
-  margin-left: 40%;
-  margin-bottom: -10pt;
+  margin-left: 20%;
+  position: relative;
 }
 
 .inline {
@@ -1106,6 +1106,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 .metamark.typescriptFont {
   position: relative !important;
   display: block;
+  text-decoration: underline;
+}
+
+.metamark.inkFont{
   text-decoration: underline;
 }
 
