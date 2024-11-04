@@ -36,7 +36,7 @@
                         <xsl:with-param name="logo_small" select="true()"/>
                     </xsl:call-template>
                                     <div class="d-flex flex-row mb-n10">
-                    <main class="text-black-grey ls-1 mb-4 w-60">
+                    <main class="text-black-grey ls-1 mb-10 w-60">
                             <div>
                                 <div class="m-5 text-black-grey">
                                     <h1>Register der Stellenkommentare</h1>
@@ -44,17 +44,21 @@
                                     <div class="mt-7">
                                         <xsl:for-each select="head(//tei:body//tei:p)//tei:listRef">
                                             <xsl:variable name="topic" select="current()"/>
-                                            <div class="mt-4">
+                                            <xsl:variable name="topic_id" select="$topic/tei:desc/@xml:id"/>
+                                            <div class="mt-2" id="topic_{$topic_id}">
                                             <p class="text-primary ff-ubuntu"><xsl:value-of select="$topic/tei:desc"/></p>
-                                                <ul>
+                                                <ul class="ps-0 mb-0 {if (count(current()//tei:ptr) > 4) then 'intro-text h-auto list-collapsable' else ()} {if ($topic_id = 'DWCtopic0004') then 'col-count-responsive' else ()}">
                                                     <xsl:for-each select="current()//tei:ptr">
                                                     <xsl:variable name="id" select="replace(@target,'#','')"/>
                                                     <xsl:apply-templates
                                                             select="//tei:seg[@xml:id = $id]" mode="list_view">
-                                                            <xsl:with-param name="topic_id" select="$topic/tei:desc/@xml:id"/>
+                                                            <xsl:with-param name="topic_id" select="$topic_id"/>
                                                         </xsl:apply-templates>
                                                     </xsl:for-each>
                                                 </ul>
+                                                <xsl:if test="count(current()//tei:ptr) > 4">
+                                                    <wpn-toggle-text-button role="button" target-element="topic_{$topic_id}" toggle-class="show-all" toggle-text="Weniger lesen" class="btn btn-link text-decoration-none text-blacker-grey border-blacker-grey border-start-0 border-end-0 border-top-0 border-bottom-1 rounded-0 px-0 pb-05 bottom-0 bg-white">Mehr lesen</wpn-toggle-text-button>
+                                                </xsl:if>
                                             </div>
                                         </xsl:for-each>
                                     </div>
