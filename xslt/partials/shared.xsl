@@ -616,8 +616,8 @@
     <xsl:template match="tei:seg|tei:event" mode="link_list">
         <xsl:param name="elem_id"/>
         <xsl:if test="tei:ref[@type='ext'] or tei:desc/tei:ref[@type='ext']">
-            <div>
-                <details class="py-1 border-light-grey">
+            <div class="py-1 border-bottom border-light-grey">
+                <details>
                     <summary class="d-flex align-items-baseline">Links</summary>
                         <ul data-testid="external_links_{$elem_id}" class="list-unstyled">
                             <xsl:for-each select="tei:ref[@type='ext'] | tei:desc/tei:ref[@type='ext']">
