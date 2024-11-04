@@ -35,13 +35,13 @@
             </text>
          </TEI>
     </xsl:template>
-    <xsl:template match="tei:seg">
+    <xsl:template match="tei:seg[not(ancestor::tei:seg)]">
             <xsl:element name="seg" namespace="http://www.tei-c.org/ns/1.0">
-            <xsl:variable name="id" select="@xml:id" as="xs:string"/>
+            <xsl:variable name="ids" select="(for $id in (@xml:id,descendant::tei:seg/@xml:id) return '#'||$id)" as="xs:string*"/>
                 <xsl:copy-of
                     select="@*| node()"
                 />
-                        <xsl:copy-of select="$ref_elements//*[@target='#'||$id]"/>
+                        <xsl:copy-of select="$ref_elements//*[@target=$ids]"/>
             </xsl:element>
     </xsl:template>
 </xsl:stylesheet>
