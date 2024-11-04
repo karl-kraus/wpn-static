@@ -1021,12 +1021,12 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 .below {
   position: absolute;
-  bottom: -5pt;
+  bottom: -10pt;
 }
 
 .above {
   position: absolute;
-  top: -5pt;
+  top: -10pt;
 }
 
 .topRight {
@@ -1036,12 +1036,14 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 .marginRightAbove {
   margin-left: 10%;
-  position: relative;
+  position: absolute;
+  top: -10pt;
 }
 
 .marginRightBelow {
   margin-left: 10%;
-  position: relative;
+  position: absolute;
+  bottom: -10pt;
 }
 
 .marginRight {
@@ -1054,12 +1056,14 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 .marginLeftAbove {
   margin-left: 20%;
-  position: relative;
+  position: absolute;
+  top: -10pt;
 }
 
 .marginLeftBelow {
   margin-left: 20%;
-  position: relative;
+  position: absolute;
+  bottom: -10pt;
 }
 
 .inline {
