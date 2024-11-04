@@ -16,7 +16,7 @@
             </xsl:for-each>
             <xsl:map-entry key="'biblindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry','wpn-reg-tabs','wpn-scans')"/>
             <xsl:map-entry key="'personindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry','wpn-reg-tabs')"/>
-            <xsl:map-entry key="'commentindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry')"/>
+            <xsl:map-entry key="'commentindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'eventindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry','wpn-timeline')"/>
             <xsl:map-entry key="'suche.xml'" select="('wpn-header','wpn-detail-view','init-typesense')"/>
             <xsl:for-each select="collection('../../data/editions?select=idPb*.xml')">
