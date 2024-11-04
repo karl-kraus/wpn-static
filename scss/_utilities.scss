@@ -228,3 +228,11 @@ $utilities: map-merge(
 .stroke-wpn-red-hover:hover {
   stroke: $wpn-red;
 }
+
+.inline-list-dash-separated li {
+  display: inline;
+}
+
+.inline-list-dash-separated li:not(:last-child)::after {
+  content:"\00a0– ";
+}
