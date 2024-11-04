@@ -143,6 +143,7 @@
                         | //tei:metamark[@function='progress' and contains(@rend, 'Left')]
                         | //tei:metamark[@function='transposition' and contains(@rend, 'Left')]
                         | //tei:metamark[@function='printInstruction' and contains(@rend, 'Left')]
+                        | //tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'Left')]
                         | //tei:mod[@rendition='#longQuote' and contains(@rend, 'Left')]
                         | //tei:mod[@rendition='#runningText1' and contains(@rend, 'Left')]" mode="render"/>
                 </div>
@@ -156,6 +157,7 @@
                         | //tei:metamark[@function='progress' and contains(@rend, 'Right')]
                         | //tei:metamark[@function='transposition' and contains(@rend, 'Right')]
                         | //tei:metamark[@function='printInstruction' and contains(@rend, 'Right')]
+                        | //tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'Right')]
                         | //tei:mod[@rendition='#longQuote' and contains(@rend, 'Right')]
                         | //tei:mod[@rendition='#runningText1' and contains(@rend, 'Right')]" mode="render"/>
                 </div>
@@ -342,6 +344,20 @@
      </xsl:template>
      <xsl:template match="tei:metamark[@function='printInstruction'][@rend]">
         <span class="metamark entity {replace(@change,'#','')}" id="{@xml:id}"></span>
+     </xsl:template>
+     <xsl:template match="tei:metamark[@function='relocation'][@change='#edACE']"/>
+     <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')]">
+        <span class="metamark">&#124;</span>
+     </xsl:template>
+     <xsl:template match="tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'Left')]" mode="render">
+        <div class="metamark {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><xsl:apply-templates/></div>
+        </div>
+     </xsl:template>
+     <xsl:template match="tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'Right')]" mode="render">
+        <div class="metamark {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><xsl:apply-templates/></div>
+        </div>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='printInstruction' and contains(@rend, 'Left')]" mode="render">
         <div class="metamark {@rend} {@style} {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
