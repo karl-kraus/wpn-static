@@ -387,18 +387,35 @@
         </span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='printInstruction' and contains(@rend, 'Left')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark {if(@spanTo)then('anchor')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
             <div class="position-relative">
-                <span class="{@rend} {@style}"><xsl:apply-templates/></span>
+                <span class="{@rend} {@style}">
+                    <xsl:if test="@spanTo">
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="concat('anchor-', substring-after(@spanTo, '#'))"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    &#8595;<xsl:apply-templates/>
+                </span>
             </div>
         </div>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='printInstruction' and contains(@rend, 'Right')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark {if(@spanTo)then('anchor')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
             <div class="position-relative">
-                <span class="{@rend} {@style}"><xsl:apply-templates/></span>
+                <span class="{@rend} {@style}">
+                    <xsl:if test="@spanTo">
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="concat('anchor-', substring-after(@spanTo, '#'))"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    &#8595;<xsl:apply-templates/>
+                </span>
             </div>
         </div>
+     </xsl:template>
+     <xsl:template match="tei:anchor[@type='metamark']">
+        <span class="anchor" id="{@xml:id}"></span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='transposition'][@place]">
         <span class="metamark {replace(@change,'#','')} {@place} {@style}" id="{@xml:id}"><xsl:apply-templates/></span>
