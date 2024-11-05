@@ -1050,12 +1050,12 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   bottom: -10pt;
 }
 
-.marginRight {
-  margin-left: 10%;
+.marginRight, .lineRight, .doubleLineRight  {
+  margin-left: 10%
 }
 
-.marginLeft {
-  margin-left: 20%;
+.marginLeft, .lineLeft, .doubleLineLeft {
+  margin-left: 20%
 }
 
 .marginLeftAbove {
@@ -1093,10 +1093,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   top: 4.5%;
 }
 
-.lineRight {
-  left: 82.5%;
-  top: 4.5%;
-}
 
 .fw {
   position: absolute;
