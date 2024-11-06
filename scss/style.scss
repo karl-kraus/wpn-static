@@ -1050,12 +1050,13 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   bottom: -10pt;
 }
 
-.marginRight, .lineRight, .doubleLineRight  {
-  margin-left: 10%
+div:has(> .marginRight), div:has(> .lineRight), div:has(> .doubleLineRight)  {
+  margin-left: 10%;
 }
 
-.marginLeft, .lineLeft, .doubleLineLeft {
-  margin-left: 20%
+div:has(> .marginLeft), div:has(> .lineLeft), div:has(> .doubleLineLeft) {
+  padding-right: 10%;
+  text-align: right;
 }
 
 .marginLeftAbove {
