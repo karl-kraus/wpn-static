@@ -602,4 +602,17 @@
         <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:listTranspose"/>
+    <xsl:template match="tei:gap">
+        <xsl:choose>
+        <xsl:when test="@extent">
+            <xsl:value-of select="string-join((for $i in 1 to @extent return '	'),'')"/>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:text>&#9618;</xsl:text>
+        </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    <xsl:template match="tei:unclear">
+        <span class="unclear"><xsl:apply-templates/></span>
+    </xsl:template>
 </xsl:stylesheet>

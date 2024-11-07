@@ -1008,6 +1008,14 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-indent: 13.125rem;
 }
 
+#textcontent-pb .unclear {
+  background-color: #d6d6d6;
+}
+
+#textcontent-pb .unclear:hover::after {
+  content: '?';
+}
+
 // @rend
 
 .typescriptFloatRight {
