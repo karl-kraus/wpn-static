@@ -575,6 +575,7 @@
         <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
     </xsl:template>
     <xsl:template match="tei:lb[@n='first']"/>
+    <xsl:template match="tei:lb[@n='firstLast']"/>
     <xsl:template match="tei:lb[@n='last']">
         <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
     </xsl:template>

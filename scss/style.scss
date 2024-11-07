@@ -930,7 +930,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #textcontent-pb .entity {
-  pointer-events: all !important;
+  pointer-events: auto !important;
+}
+
+#textcontent-pb wpn-entity[class*='quotes'] {
+  pointer-events: none !important;
 }
 
 #textcontent-pb .pencilOnTypescript,
