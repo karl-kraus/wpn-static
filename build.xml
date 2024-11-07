@@ -69,7 +69,7 @@
         </xslt>
     </target>
     <target name="build-meta-pages">
-        <xslt style="./xslt/meta.xsl"  basedir="./data/meta" destdir="${target}" includes="annotierte_lesefassung.xml,projekt.xml,nutzungsbedingungen.xml,impressum.xml">
+        <xslt style="./xslt/meta.xsl"  basedir="./data/meta" destdir="${target}" includes="annotierte_lesefassung.xml,projekt.xml,nutzungsbedingungen.xml,impressum.xml,topographical.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
