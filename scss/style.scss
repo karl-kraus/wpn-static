@@ -1054,14 +1054,45 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   bottom: -10pt;
 }
 
+/* uncomment and test when all new attr values are available in Gesamt.xml */
+
 div:has(> .marginRight), div:has(> .lineRight), div:has(> .doubleLineRight)  {
+  // position: absolute;
+  // top: -10pt;
+  // text-align: center;
+  text-align: left;
   margin-left: 10%;
 }
 
 div:has(> .marginLeft), div:has(> .lineLeft), div:has(> .doubleLineLeft) {
-  padding-right: 10%;
+  // position: absolute;
+  // top: -10pt;
+  // text-align: center;
   text-align: right;
+  margin-right: 10%;
 }
+
+// div:has(> .marginOuterRight)  {
+//   position: absolute;
+//   top: -10pt;
+//   text-align: right;
+// }
+
+// div:has(> .marginOuterLeft) {
+//   position: absolute;
+//   top: -10pt;
+//   text-align: left;
+// }
+
+// div:has(> .marginInnerRight)  {
+//   margin-left: 10%;
+//   text-align: left;
+// }
+
+// div:has(> .marginInnerLeft) {
+//   padding-right: 10%;
+//   text-align: right;
+// }
 
 .marginLeftAbove {
   margin-left: 20%;
