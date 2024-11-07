@@ -17,22 +17,27 @@ interface MomentDataItem {
 
 class WPNTimeLine extends HTMLElement {
 	private chart: anychart.charts.Timeline | null = null;
+	private rangeDataSet = anychart.data.set(
+		timeLineData.rangeData.filter((item) => item.categories.length > 0),
+	);
+	private momentDataSet = anychart.data.set(
+		timeLineData.momentData.filter((item) => item.categories.length > 0),
+	);
+	static get observedAttributes() {
+		return ['data-selected-categories', 'data-highlighted-category'];
+	}
 
 	connectedCallback() {
 		anychart.format.outputLocale("de-at");
 		this.chart = anychart.timeline();
-		const rangeDataSet = anychart.data.set(
-			timeLineData.rangeData.filter((item) => item.categories.length > 0),
-		);
-		const momentDataSet = anychart.data.set(
-			timeLineData.momentData.filter((item) => item.categories.length > 0),
-		);
 
 		// create a range series
-		const rangeSeries = this.chart.range(rangeDataSet);
+		const rangeSeries = this.chart.range(this.rangeDataSet);
+		rangeSeries.id("rangeSeries");
 
 		// create a moment series
-		const momentSeries = this.chart.moment(momentDataSet);
+		const momentSeries = this.chart.moment(this.momentDataSet);
+		momentSeries.id("momentSeries");
 
 		// no data label
 		const noDataLabel = this.chart.noData().label();
@@ -180,9 +185,76 @@ class WPNTimeLine extends HTMLElement {
 		//define intial zoom
 		this.chart.zoomTo(Date.UTC(1933, 0, 30), Date.UTC(1933, 6, 31));
 
+		//select event
+		this.chart.listen("pointsSelect", (e: any) => {
+			const point = e.point as anychart.core.Point;
+		 	window.location.hash = e.point.getStat("id");         
+		 	e.point.set('index', 10000);
+ 		})
+
 		this.chart.container(this.id);
 		this.chart.draw();
 	}
+	attributeChangedCallback(name, oldValue, newValue) {
+		if (name === 'data-selected-categories') {
+			const selectedCategories: unknown = JSON.parse(newValue as string);
+			if (Array.isArray(selectedCategories)) {
+				if (selectedCategories.length > 0) {
+					this.chart?.axis().enabled(true);
+					const filteredRangeDataSet = this.rangeDataSet.mapAs().filter("categories", function (cat: Array<string>) {
+						return cat.some(r => selectedCategories.includes(r));
+					});
+					const filteredMomentDataSet = this.momentDataSet.mapAs().filter("categories", function (cat: Array<string>) {
+						return cat.some(r => selectedCategories.includes(r));
+					});
+					this.chart?.getSeries("rangeSeries").data(filteredRangeDataSet);
+					this.chart?.getSeries("momentSeries").data(filteredMomentDataSet);
+					this.chart?.zoomTo(Date.UTC(1933, 0, 30), Date.UTC(1933, 6, 31));
+				}
+				else {
+					this.chart?.axis().enabled(false);
+					this.chart?.getSeries("rangeSeries").data([]);
+					this.chart?.getSeries("momentSeries").data([]);
+				}
+			}
+		}
+		if (name === 'data-highlighted-category') {
+			const highlightedCategory = String(newValue);
+			const filteredRangeDataSet = this.rangeDataSet.mapAs().filter("categories", function (cat: Array<string>) {
+				return cat.some(r => highlightedCategory === r);
+			});
+			const filteredMomentDataSet = this.momentDataSet.mapAs().filter("categories", function (cat: Array<string>) {
+				return cat.some(r => highlightedCategory === r);
+			});
+			const iteratorMoments = filteredMomentDataSet.getIterator();
+			const iteratorRanges = filteredRangeDataSet.getIterator();
+
+			const momentSeries = this.chart?.getSeries("momentSeries");
+			const rangeSeries = this.chart?.getSeries("rangeSeries");
+
+			const momentPointsIndexes = [];
+			const rangePointsIndexes = [];
+			
+			if (momentSeries && rangeSeries) {
+				while (iteratorMoments.advance()) {
+					const ptIndex = momentSeries.getPoint(momentSeries.data().find("id", iteratorMoments.get("id"))).getIndex();
+					momentPointsIndexes.push(ptIndex);
+				}
+				while (iteratorRanges.advance()) {
+					const ptIndex = rangeSeries.getPoint(rangeSeries.data().find("id", iteratorRanges.get("id"))).getIndex();
+					rangePointsIndexes.push(ptIndex);
+				}
+				if (highlightedCategory) {
+					momentSeries.hover(momentPointsIndexes);
+					rangeSeries.hover(rangePointsIndexes);
+				} else {
+					momentSeries.unhover();
+					rangeSeries.unhover();
+				}
+			}
+		}
+	}
+
 	disconntedCallback() {
 		if (this.chart) {
 			this.chart.dispose();
