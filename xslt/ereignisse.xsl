@@ -10,6 +10,7 @@
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
     <xsl:import href="./partials/seg.xsl"/>
+    <xsl:import href="./partials/bibl.xsl"/>
     <xsl:import href="./partials/event.xsl"/>
     <xsl:import href="./partials/scripts.xsl"/>
     <xsl:import href="./partials/shared.xsl"/> 
