@@ -192,6 +192,24 @@ $utilities: map-merge(
   )
 );
 
+$utilities: map-merge(
+  $utilities,
+  (
+    "bg-opacity": (
+      css-var: true,
+      class: bg-opacity,
+      values: (
+         5: .05,
+        10: .1,
+        25: .25,
+        50: .5,
+        75: .75,
+        100: 1
+      )
+    ),
+  )
+);
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -251,4 +269,8 @@ $utilities: map-merge(
 
 .list-collapsable li:nth-child(n+5) {
   display: none;
+}
+
+.accent-primary {
+  accent-color: $wpn-red;
 }
