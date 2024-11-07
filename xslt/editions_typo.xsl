@@ -187,7 +187,9 @@
         <span class="comments entity" id="{@xml:id}"></span>
     </xsl:template>
     <xsl:template match="tei:fw">
-        <span class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}"><xsl:apply-templates/></span>
+        <div class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}">
+            <span><xsl:apply-templates/></span>
+        </div>
     </xsl:template>
     <!-- <xsl:template match="tei:mod[@change='#pencilOnProof_KK'][not(@rendition='#pencilOnProof_rightAlignSmall')]"/> -->
     <xsl:template match="tei:app">
@@ -319,14 +321,14 @@
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')]" mode="render">
         <div id="container-{@xml:id}" class="add connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div class="position-relative">
-                <span class="{if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)}" style="font-size:1.25em;">&#124;</span><xsl:apply-templates/>
+                <span class="{if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)}" style="font-size:1.25em;">&#124;<xsl:apply-templates/></span>
             </div>
         </div>
     </xsl:template>
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Left')]" mode="render">
         <div id="container-{@xml:id}" class="add connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div class="position-relative">
-                <span class="{if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)}" style="font-size:1.25em;">&#124;</span><xsl:apply-templates/>
+                <span class="{if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)}" style="font-size:1.25em;">&#124;<xsl:apply-templates/></span>
             </div>
         </div>
     </xsl:template>
@@ -413,6 +415,9 @@
                 </span>
             </div>
         </div>
+     </xsl:template>
+     <xsl:template match="tei:metamark[@function='printInstruction'][@rendition]">
+        <span class="metamark {replace(@rendition,'#','')} {replace(@change,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
      </xsl:template>
      <xsl:template match="tei:anchor[@type='metamark']">
         <span class="anchor" id="{@xml:id}"></span>

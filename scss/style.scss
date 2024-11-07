@@ -1069,7 +1069,7 @@ div:has(> .marginLeft), div:has(> .lineLeft), div:has(> .doubleLineLeft) {
   // top: -10pt;
   // text-align: center;
   text-align: right;
-  margin-right: 10%;
+  padding-right: 10%;
 }
 
 // div:has(> .marginOuterRight)  {
@@ -1129,20 +1129,20 @@ div:has(> .marginLeft), div:has(> .lineLeft), div:has(> .doubleLineLeft) {
   top: 4.5%;
 }
 
-
 .fw {
   position: absolute;
+}
 
-  .typescriptInsertNum {
-    font-size: 10pt;
-    line-height: 13pt;
-    text-decoration: underline;
-  }
+.fw.typescriptInsertNum {
+  font-size: 10pt;
+  line-height: 13pt;
+  border-bottom: 1px solid #000;
+  padding: 5px 15px;
+}
 
-  .typescriptPageNum {
-    font-size: 10pt;
-    line-height: 13pt;
-  }
+.fw.typescriptPageNum {
+  font-size: 10pt;
+  line-height: 13pt;
 }
 
 .metamark.typescriptFont {
