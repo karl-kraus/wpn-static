@@ -630,10 +630,92 @@
     </xsl:template>
     <xsl:template match="tei:ref[@type='ext']" mode="link_list_item">
         <li><a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="{@target}" target="_blank">
-            <xsl:apply-templates/>
+            <xsl:apply-templates mode="ref_link"/>
             <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
                 <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
             </svg>
         </a></li>
+    </xsl:template>
+    <xsl:template name="list_bibliographic_data">
+        <xsl:param name="elem_id"/>
+        <xsl:param name="node"/>
+        <xsl:param name="type"/>
+        <xsl:variable name="index" select="if ($type='source') then 'SekLit_Kommentar' else 'Register'"/>
+        <div>
+            <details class="py-1 border-bottom border-light-grey">
+                <summary class="d-flex align-items-baseline summary-sources">
+                    <xsl:choose>
+                        <xsl:when test="$type = 'source'">
+                            <span>Quellen</span>
+                        </xsl:when>
+                        <xsl:when test="$type = 'int'">
+                            <span>Intertexte</span>
+                        </xsl:when>
+                    </xsl:choose>
+                </summary>
+                <ul class="list-unstyled" data-testid="{$type}_{$elem_id}">
+                    <xsl:for-each-group select="$node//tei:ref[@type=$type]/tokenize(@target,' ')" group-by="doc('../../data/indices/'||$index||'.xml')//(tei:citedRange|tei:bibl)[@xml:id=replace(current(),'#','')]/ancestor-or-self::tei:bibl/@xml:id">
+                        <xsl:sort select="doc('../../data/indices/'||$index||'.xml')//tei:bibl[@xml:id=current-grouping-key()]/@sortKey"/>
+                        <xsl:variable name="target_id" select="replace(current(),'#','')"/>
+                        <li class="my-05 lh-0_86">
+                            
+                                <xsl:choose>
+                                    <xsl:when test="$type = 'source'">
+                                        <span data-bibl-id="{current-grouping-key()}">
+                                            <xsl:apply-templates select="doc('../../data/indices/'||$index||'.xml')//(tei:bibl)[@xml:id=current-grouping-key()]/(text()|tei:ref)" mode="list_bibliographic_data"/>
+                                        </span>
+                                        <xsl:for-each select="current-group()">
+                                            <xsl:if test="position() = 1">
+                                                <xsl:text>, </xsl:text>
+                                            </xsl:if>
+                                            <span data-cited-range="{replace(current(),'#','')}">
+                                                <xsl:apply-templates select="doc('../../data/indices/'||$index||'.xml')//(tei:citedRange)[@xml:id=replace(current(),'#','')]/(text()|tei:ref)" mode="list_bibliographic_data"/>
+                                            </span>
+                                            <xsl:if test="not(position() = last())">
+                                                <xsl:text>, </xsl:text>
+                                            </xsl:if>
+                                        </xsl:for-each>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:variable name="bibl_node" select="doc('../../data/indices/'||$index||'.xml')//(tei:bibl)[@xml:id=current-grouping-key()]"/>
+                                        <xsl:variable name="ref_node" select="doc('../../data/indices/'||$index||'.xml')//(tei:bibl|tei:citedRange)[@xml:id=replace(current-group(),'#','')]"/>
+                                        <a class="text-decoration-none text-dark-grey" href="{'register_intertexte.html?letter='||substring($bibl_node/@sortKey,1,1)||'#'||$bibl_node/@xml:id}" target="_blank">    
+                                            <xsl:choose>
+                                                <xsl:when test="$ref_node/name() = 'citedRange'">
+                                                    <xsl:if test="$ref_node/tei:ref[@type='int']">
+                                                        <xsl:apply-templates select="$ref_node/tei:ref[@type='int']"/>
+                                                    </xsl:if>
+                                                    <xsl:apply-templates select="$bibl_node">
+                                                        <xsl:with-param name="render-cited-range" select="normalize-space(string-join($ref_node/text()))" />
+                                                    </xsl:apply-templates>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    <xsl:apply-templates select="$bibl_node">
+                                                        <xsl:with-param name="detail_view_textpage" select="true()"/>
+                                                    </xsl:apply-templates>
+                                                </xsl:otherwise>
+                                            </xsl:choose>
+                                        </a>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                        </li>
+                    </xsl:for-each-group>
+                </ul>
+            </details>
+        </div>
+    </xsl:template>
+    <xsl:template match="text()" mode="list_bibliographic_data">
+        <xsl:value-of select="normalize-space(.)"/>
+    </xsl:template>
+    <!-- trailing space in data -->
+    <xsl:template match="text()[last()][preceding-sibling::text()][not(following-sibling::*)]" mode="ref_link">
+            <xsl:value-of select="replace(.,'\s+$','')"/>
+    </xsl:template>
+    <xsl:template match="tei:title" mode="ref_link">
+        <i><xsl:value-of select="normalize-space(.)"/></i>
+    </xsl:template>
+    <xsl:template match="tei:ref" mode="list_bibliographic_data">
+        <xsl:text> </xsl:text>
+        <a href="{.}" target="_blank"><xsl:value-of select="."/></a>
     </xsl:template>
 </xsl:stylesheet>
