@@ -35,6 +35,11 @@
                                 <a role="button" class="btn btn-outline-black-grey" href="motti.html">Zum Text</a>
                             </section>
                         </xsl:if>
+                        <xsl:if test="tokenize(base-uri(),'/')[last()] = 'topographical.xml'">
+                            <section class="my-5_5">
+                                <a role="button" class="btn btn-outline-black-grey" href="idPb0001.html">Zum Text</a>
+                            </section>
+                        </xsl:if>
                         <xsl:apply-templates select=".//tei:body"></xsl:apply-templates>
                     </div>
                 </main>
