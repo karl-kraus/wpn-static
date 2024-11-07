@@ -18,8 +18,16 @@
                     </div>
                     <div class="fs-6 text-dark-grey p-0">
                         <div>
-                            <xsl:apply-templates select="."/>
+                           <xsl:apply-templates select=".">
+                                <xsl:with-param name="elem_id" select="@xml:id"/>
+                            </xsl:apply-templates>
                         </div>
+                         <xsl:apply-templates select="tei:desc[descendant::tei:ref[@type='source']]" mode="list_sources">
+                            <xsl:with-param name="elem_id" select="@xml:id"/>
+                        </xsl:apply-templates>
+                        <xsl:apply-templates select="tei:desc[descendant::tei:ref[@type='int']]" mode="list_intertexts">
+                            <xsl:with-param name="elem_id" select="@xml:id"/>
+                        </xsl:apply-templates>
                         <xsl:apply-templates select="." mode="kwic"/>
                     </div>
                 </div>
@@ -72,7 +80,12 @@
                             </svg>
                             </a>
                         </div>
-                        <xsl:apply-templates select="tei:desc" mode="list_sources"/>
+                        <xsl:apply-templates select="tei:desc[descendant::tei:ref[@type='source']]" mode="list_sources">
+                            <xsl:with-param name="elem_id" select="$elem_id"/>
+                        </xsl:apply-templates>
+                        <xsl:apply-templates select="tei:desc[descendant::tei:ref[@type='int']]" mode="list_intertexts">
+                            <xsl:with-param name="elem_id" select="$elem_id"/>
+                        </xsl:apply-templates>
                         <xsl:apply-templates select="tei:desc" mode="list_comments">
                             <xsl:with-param name="elem_id" select="$elem_id"/>
                         </xsl:apply-templates>
@@ -198,18 +211,20 @@
         <xsl:value-of select="preceding-sibling::tei:bibl[@type='short']"/><xsl:value-of select="', '||.||'.'"/>
     </xsl:template>
     <xsl:template match="tei:desc" mode="list_sources">
-        <xsl:if test="descendant::tei:ref[@type='source']">
-            <div>
-                <details class="py-1 border-bottom border-light-grey">
-                    <summary class="d-flex align-items-baseline">Quellen</summary>
-                    <xsl:for-each select="tei:ref[@type='source']/tokenize(@target,' ')">
-                        <xsl:sort select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=replace(current(),'#','')]/ancestor-or-self::tei:bibl/@sortKey"/>
-                        <xsl:variable name="target_id" select="replace(current(),'#','')"/>
-                        <xsl:apply-templates select="doc('../../data/indices/SekLit_Kommentar.xml')//(tei:citedRange|tei:bibl)[@xml:id=$target_id]" mode="list_sources"/>
-                    </xsl:for-each>
-                </details>
-            </div>
-        </xsl:if>
+        <xsl:param name="elem_id"/>
+        <xsl:call-template name="list_bibliographic_data">
+            <xsl:with-param name="elem_id" select="$elem_id"/>
+            <xsl:with-param name="node" select="."/>
+            <xsl:with-param name="type" select="'source'"/>
+        </xsl:call-template>
+    </xsl:template>
+    <xsl:template match="tei:desc" mode="list_intertexts">
+        <xsl:param name="elem_id"/>
+        <xsl:call-template name="list_bibliographic_data">
+            <xsl:with-param name="elem_id" select="$elem_id"/>
+            <xsl:with-param name="node" select="."/>
+            <xsl:with-param name="type" select="'int'"/>
+        </xsl:call-template>
     </xsl:template>
      <xsl:template match="tei:desc" mode="list_comments">
         <xsl:param name="elem_id"/>
@@ -217,7 +232,7 @@
             <div>
                 <details class="py-1 border-bottom border-light-grey">
                     <summary class="d-flex align-items-baseline">Kommentar</summary>
-                    <ul data-testid="comment_links_{$elem_id}">
+                    <ul class="list-unstyled" data-testid="comment_links_{$elem_id}">
                         <xsl:for-each select="tei:ref[@type='comment']">
                             <li><xsl:apply-templates select="current()" mode="detail_view_textpage_event"/></li>
                         </xsl:for-each>
@@ -226,23 +241,16 @@
             </div>
         </xsl:if>
     </xsl:template>
-    <xsl:template match="tei:citedRange" mode="list_sources">
+    <xsl:template match="tei:citedRange" mode="list_intertexts">
         <p class="my-05 lh-0_86">
             <span data-bibl-id="{ancestor::tei:bibl/@xml:id}">
-                <xsl:apply-templates select="ancestor::tei:bibl/(text()|tei:ref)" mode="list_sources"/>
+                <xsl:apply-templates select="ancestor::tei:bibl"/>
             </span>
             <xsl:text>, </xsl:text>
             <span data-cited-range="{@xml:id}">
-                <xsl:apply-templates select="./(text()|tei:ref)" mode="list_sources"/>
+                <xsl:apply-templates select="."/>
             </span>
         </p>
-    </xsl:template>
-    <xsl:template match="text()" mode="list_sources">
-        <xsl:value-of select="normalize-space(.)"/>
-    </xsl:template>
-    <xsl:template match="tei:ref" mode="list_sources">
-        <xsl:text> </xsl:text>
-        <a href="{.}" target="_blank"><xsl:value-of select="."/></a>
     </xsl:template>
     <xsl:template match="tei:ref[@type='comment']" mode="detail_view_textpage_event">
         <xsl:variable name="ref_id" select="replace(@target,'#','')"/>
