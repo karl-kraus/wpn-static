@@ -75,4 +75,7 @@
             </body>
         </html>
     </xsl:template>
+    <xsl:template match="text()">
+        <xsl:value-of select="translate(.,'&#xA;&#x9;','')"/>
+    </xsl:template>
 </xsl:stylesheet>
