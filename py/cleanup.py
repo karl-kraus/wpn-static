@@ -222,7 +222,7 @@ def wrap_last_sentence(file) -> None:
     # with open(file) as text_fp:
     #     text = text_fp.read()
     doc = ET.parse(file)
-    lb = doc.xpath('.//tei:lb[@n="last"]', namespaces=NSMAP)
+    lb = doc.xpath('.//tei:lb[@n="last" or @n="firstLast"]', namespaces=NSMAP)
     for x in lb:
         s = ET.Element('span')
         s.attrib["n"] = "last"
