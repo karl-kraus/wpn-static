@@ -481,10 +481,10 @@
     </xsl:template> -->
     
     <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit') and not(parent::tei:restore)]">
-        <span class="border rounded-pill"><xsl:apply-templates/></span>
+        <span class="border rounded-pill {replace(@change, '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit') and parent::tei:restore]">
-        <span class="border-dotted rounded-pill"><xsl:apply-templates/></span>
+        <span class="border-dotted rounded-pill {replace(@change, '#', '')} "><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@type='relocation']">
         <span>
