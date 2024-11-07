@@ -11,7 +11,8 @@
     <xsl:import href="./partials/html_footer.xsl"/>
     <xsl:import href="./partials/seg.xsl"/>
     <xsl:import href="./partials/event.xsl"/>
-    <xsl:import href="./partials/scripts.xsl"/> 
+    <xsl:import href="./partials/scripts.xsl"/>
+    <xsl:import href="./partials/shared.xsl"/> 
     <xsl:template match="/">
         <xsl:variable name="doc_title">
             <xsl:value-of select=".//tei:title[@type = 'main'][1]/text()"/>
