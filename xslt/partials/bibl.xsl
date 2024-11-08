@@ -407,7 +407,7 @@
                 <xsl:text>.</xsl:text>
             </xsl:when>
             </xsl:choose>
-            <xsl:if test="following-sibling::tei:title[not(@type='short')]">
+            <xsl:if test="following-sibling::tei:title[not(@type='short')][not(@level='j')]">
             <xsl:text> </xsl:text>
             </xsl:if>
         </span>
