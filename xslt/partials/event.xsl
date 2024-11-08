@@ -179,7 +179,7 @@
     </xsl:template>
     <xsl:template match="tei:label" mode="detail_view_textpage_event">
         <xsl:param name="elem_id"/>
-        <span class="fs-9"><b data-testid="comment_label_{$elem_id}">Ereignis: <xsl:apply-templates/></b></span>
+        <span class="fs-9"><b data-testid="comment_label_{$elem_id}">Ereignis: <xsl:apply-templates mode="label"/></b></span>
     </xsl:template>
     <!--<xsl:template match="text()">
         <xsl:value-of select="normalize-space(.)"/>
@@ -296,5 +296,8 @@
                 <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
             </svg>
         </a>
+    </xsl:template>
+    <xsl:template match="tei:title" mode="label">
+        <i><xsl:apply-templates/></i>
     </xsl:template>
 </xsl:stylesheet>
