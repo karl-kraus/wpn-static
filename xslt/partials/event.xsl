@@ -152,15 +152,17 @@
     <xsl:template match="tei:event">
         <xsl:param name="elem_id"/>
         <xsl:param name="render_categories" select="false()"/>
+         <p class="text-black-grey mb-0">
             <xsl:apply-templates select="tei:label" mode="detail_view_textpage_event">
                 <xsl:with-param name="elem_id" select="$elem_id"/>
             </xsl:apply-templates>
-            <br/>
+        </p>
+        <div>
             <xsl:apply-templates select="." mode="detail_view_textpage_event_date">
                 <xsl:with-param name="render_categories" select="$render_categories"/>
                 <xsl:with-param name="fs" select="fs-7"/>
             </xsl:apply-templates>
-        </p>
+        </div>
         <xsl:apply-templates select="tei:desc">
             <xsl:with-param name="elem_id" select="$elem_id"/>
         </xsl:apply-templates>
