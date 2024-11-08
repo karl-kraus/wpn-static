@@ -329,6 +329,8 @@ html[data-page="notes"] .container {
 .longQuoteVerse {
   margin-top: $spacer * 0.5;
   margin-bottom: $spacer * 0.5;
+  margin-left: $spacer * 3 !important;
+  text-indent:0;
 }
 
 .longQuoteEndIndent .longQuoteEndCenter {
@@ -362,9 +364,17 @@ html[data-page="notes"] .container {
 .longQuoteMiddleIndent,
 .longQuoteMarginMiddle {
   font-size: 0.75em;
-  text-indent: $spacer * 3;
   text-align: justify;
   display: block;
+}
+
+.longQuoteMiddleIndent {
+  text-indent: $spacer * 3;
+}
+
+.longQuoteMarginMiddle {
+  text-indent: 0;
+  margin-left: $spacer * 3;
 }
 
 .longQuoteEndIndent,
