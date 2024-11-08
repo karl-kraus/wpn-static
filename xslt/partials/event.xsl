@@ -28,6 +28,12 @@
                         <xsl:apply-templates select="tei:desc[descendant::tei:ref[@type='int']]" mode="list_intertexts">
                             <xsl:with-param name="elem_id" select="@xml:id"/>
                         </xsl:apply-templates>
+                        <xsl:apply-templates select="tei:desc" mode="list_comments">
+                            <xsl:with-param name="elem_id" select="@xml:id"/>
+                        </xsl:apply-templates>
+                        <xsl:apply-templates select="." mode="link_list">
+                            <xsl:with-param name="elem_id" select="@xml:id"/>
+                        </xsl:apply-templates>
                         <xsl:apply-templates select="." mode="kwic"/>
                     </div>
                 </div>
@@ -228,6 +234,18 @@
     </xsl:template>
      <xsl:template match="tei:desc" mode="list_comments">
         <xsl:param name="elem_id"/>
+        <xsl:if test="descendant::tei:ref[@type='event']">
+            <div>
+                <details class="py-1 border-bottom border-light-grey">
+                    <summary class="d-flex align-items-baseline">Weitere Ereignisse</summary>
+                    <ul class="list-unstyled mb-0" data-testid="event_links_{$elem_id}">
+                        <xsl:for-each select="tei:ref[@type='event']">
+                            <li><xsl:apply-templates select="current()" mode="detail_view_textpage_event"/></li>
+                        </xsl:for-each>
+                    </ul>
+                </details>
+            </div>
+        </xsl:if>
         <xsl:if test="descendant::tei:ref[@type='comment']">
             <div>
                 <details class="py-1 border-bottom border-light-grey">
@@ -257,6 +275,17 @@
         <xsl:variable name="ref_node" select="doc('../../data/indices/Kommentar.xml')//tei:seg[@xml:id = $ref_id]"/>
         <xsl:variable name="ref_node_topic_id" select="replace(tokenize($ref_node/@corresp,' ')[1],'#','')"/>
         <a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="{'register_kommentare.html#'||$ref_node_topic_id||'_'||replace(@target,'#','')}" target="_blank">
+            <xsl:apply-templates select="$ref_node/tei:label" mode="comment"/>
+            <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+            </svg>
+        </a>
+    </xsl:template>
+    <xsl:template match="tei:ref[@type='event']" mode="detail_view_textpage_event">
+        <xsl:variable name="ref_id" select="replace(@target,'#','')"/>
+        <xsl:variable name="ref_node" select="doc('../../data/indices/Events.xml')//tei:event[@xml:id = $ref_id]"/>
+        <xsl:variable name="ref_node_topic_id" select="replace(tokenize($ref_node/@corresp,' ')[1],'#','')"/>
+        <a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="{'ereignisse.html#'||replace(@target,'#','')}" target="_blank">
             <xsl:apply-templates select="$ref_node/tei:label" mode="comment"/>
             <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
                 <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
