@@ -193,6 +193,8 @@
     </xsl:template>
     <xsl:template match="tei:event" mode="detail_view_textpage_event_date">
         <xsl:param name="render_categories" select="false()"/>
+        <div class="fs-7 text-dark-grey">
+            <span><xsl:text>(</xsl:text></span>
             <xsl:choose>
                 <xsl:when test="@when">
                     <xsl:value-of select="wpn:date('[D]. [M]. [Y]', @when)"/>
@@ -202,6 +204,8 @@
                 <span><xsl:text>, </xsl:text></span>
                 <xsl:call-template name="category_list"/>
             </xsl:if>
+            <span><xsl:text>)</xsl:text></span>
+        </div>
     </xsl:template>
     <xsl:template match="tei:ref[@type='source']">
     <xsl:variable name="sources">
@@ -255,7 +259,7 @@
             <div>
                 <details class="py-1 border-bottom border-light-grey">
                     <summary class="d-flex align-items-baseline">Kommentar</summary>
-                    <ul class="list-unstyled" data-testid="comment_links_{$elem_id}">
+                    <ul class="list-unstyled mb-0" data-testid="comment_links_{$elem_id}">
                         <xsl:for-each select="tei:ref[@type='comment']">
                             <li><xsl:apply-templates select="current()" mode="detail_view_textpage_event"/></li>
                         </xsl:for-each>
