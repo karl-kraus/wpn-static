@@ -509,7 +509,7 @@
             <div class="py-1 border-bottom border-light-grey">
                 <details>
                     <summary class="d-flex align-items-baseline">Links</summary>
-                        <ul data-testid="external_links_{$elem_id}" class="list-unstyled">
+                        <ul data-testid="external_links_{$elem_id}" class="list-unstyled mb-0">
                             <xsl:for-each select="tei:ref[@type='ext'] | tei:desc/tei:ref[@type='ext']">
                                 <xsl:apply-templates select="current()" mode="link_list_item"/>
                             </xsl:for-each>
