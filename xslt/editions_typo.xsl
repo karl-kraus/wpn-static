@@ -430,7 +430,7 @@
                             <xsl:value-of select="for $i in $spanToList return concat('spanto-', substring-after($i, '#'))"/>
                         </xsl:attribute>
                     </xsl:if>
-                    &#8595;<xsl:apply-templates/>
+                    &#123;<xsl:apply-templates/>
                 </span>
             </div>
         </div>
@@ -445,7 +445,7 @@
                             <xsl:value-of select="for $i in $spanToList return concat('spanto-', substring-after($i, '#'))"/>
                         </xsl:attribute>
                     </xsl:if>
-                    &#8595;<xsl:apply-templates/>
+                    &#125;<xsl:apply-templates/>
                 </span>
             </div>
         </div>

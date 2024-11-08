@@ -74,7 +74,7 @@
         <xsl:copy>
             <xsl:if test="not(@xml:id)">
             <xsl:attribute name="xml:id">
-                <xsl:value-of select="concat(replace(tokenize(base-uri(), '/')[last()], '.xml', ''), '-mm-', generate-id())"/>
+                <xsl:value-of select="concat(replace(tokenize(base-uri(), '/')[last()], '.xml', ''), '-metam-', generate-id())"/>
             </xsl:attribute>
             </xsl:if>
             <xsl:apply-templates select="@*|node()"/>
