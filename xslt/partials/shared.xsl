@@ -594,6 +594,30 @@
             </details>
         </div>
     </xsl:template>
+    <xsl:template name="category_list">
+    <xsl:variable name="category_ids" select="tokenize(@corresp,' ')"/>
+    <xsl:variable name="categories_label">
+        <xsl:choose>
+            <xsl:when test="count($category_ids) = 1">
+                <xsl:text>Kategorie: </xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>Kategorien: </xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    <span><xsl:value-of select="$categories_label"/></span>
+    <ul data-testid="category_list_{@xml:id}" class="list-unstyled d-inline inline-list-comma-separated">
+        <xsl:for-each select="$category_ids">
+        <xsl:variable name="category" select="doc('../../data/indices/Events.xml')//(tei:desc)[@xml:id=replace(current(),'#','')]"/>
+            <li class="d-inline">
+                <span class="text-primary-hover cursor-default">
+                    <xsl:apply-templates select="$category" mode="ref_link"/>
+                </span>
+            </li>
+        </xsl:for-each>
+    </ul>
+    </xsl:template>
     <xsl:template match="text()" mode="list_bibliographic_data">
         <xsl:value-of select="normalize-space(.)"/>
     </xsl:template>

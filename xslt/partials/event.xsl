@@ -20,6 +20,7 @@
                         <div>
                            <xsl:apply-templates select=".">
                                 <xsl:with-param name="elem_id" select="@xml:id"/>
+                                <xsl:with-param name="render_categories" select="true()"/>
                             </xsl:apply-templates>
                         </div>
                          <xsl:apply-templates select="tei:desc[descendant::tei:ref[@type='source']]" mode="list_sources">
@@ -150,12 +151,13 @@
     </xsl:template>
     <xsl:template match="tei:event">
         <xsl:param name="elem_id"/>
-         <p class="text-black-grey">
+        <xsl:param name="render_categories" select="false()"/>
             <xsl:apply-templates select="tei:label" mode="detail_view_textpage_event">
                 <xsl:with-param name="elem_id" select="$elem_id"/>
             </xsl:apply-templates>
             <br/>
             <xsl:apply-templates select="." mode="detail_view_textpage_event_date">
+                <xsl:with-param name="render_categories" select="$render_categories"/>
                 <xsl:with-param name="fs" select="fs-7"/>
             </xsl:apply-templates>
         </p>
@@ -188,15 +190,16 @@
         <p data-testid="description_long_{$elem_id}" class="text-justify fs-8_5 lh-0_86 my-1 text-dark-grey"><xsl:apply-templates select="*[not(self::tei:ref[@type=('ext','int')])]|text()"/></p>
     </xsl:template>
     <xsl:template match="tei:event" mode="detail_view_textpage_event_date">
-        <span class="fs-7 text-dark-grey">
-            <xsl:text>(</xsl:text>
+        <xsl:param name="render_categories" select="false()"/>
             <xsl:choose>
                 <xsl:when test="@when">
                     <xsl:value-of select="wpn:date('[D]. [M]. [Y]', @when)"/>
                 </xsl:when>
             </xsl:choose>
-            <xsl:text>)</xsl:text>
-        </span>
+            <xsl:if test="$render_categories">
+                <span><xsl:text>, </xsl:text></span>
+                <xsl:call-template name="category_list"/>
+            </xsl:if>
     </xsl:template>
     <xsl:template match="tei:ref[@type='source']">
     <xsl:variable name="sources">
