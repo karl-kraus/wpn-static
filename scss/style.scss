@@ -1163,6 +1163,16 @@ div:has(> .marginLeft), div:has(> .lineLeft), div:has(> .doubleLineLeft) {
   text-decoration: underline;
 }
 
+/* metamark relocation inline*/
+.metamark.mm-inline.target {
+  position: relative;
+}
+
+.metamark.mm-inline.target span {
+  position: absolute;
+  right: -3px;
+}
+
 .typescriptFont {
   font-family: "monospace";
 }
