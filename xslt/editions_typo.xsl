@@ -281,6 +281,9 @@
             <span class="del {@rend} {replace(@change,'#','')}"><xsl:apply-templates/></span>
         </span>
     </xsl:template>
+    <xsl:template match="tei:del[parent::tei:add]">
+        <del id="{@xml:id}"><xsl:apply-templates/></del>
+    </xsl:template>
     <xsl:template match="tei:del[not(parent::tei:subst) and contains(@rend, 'Left')]" mode="render">
         <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div class="position-relative">
@@ -366,17 +369,46 @@
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@rend]">
         <span class="metamark connect entity" id="{@xml:id}">&#124;<xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if></span>
      </xsl:template>
+     <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][not(@rend) and not(@place)]">
+        <span class="metamark mm-inline connect entity {if(@target)then('target')else()}" id="{@xml:id}">
+            <span>
+                <xsl:if test="@target">
+                    <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                    <xsl:attribute name="data-target">
+                        <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
+                    </xsl:attribute>
+                </xsl:if>
+                &#124;<xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
+            </span>
+        </span>
+     </xsl:template>
      <xsl:template match="tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'Left')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div class="position-relative">
-                <span class="{@rend}">&#124;<xsl:apply-templates/></span>
+                <span class="{@rend}">
+                    <xsl:if test="@target">
+                        <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                        <xsl:attribute name="data-target">
+                            <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    &#124;<xsl:apply-templates/>
+                </span>
             </div>
         </div>
      </xsl:template>
      <xsl:template match="tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'Right')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div class="position-relative">
-                <span class="{@rend}">&#124;<xsl:apply-templates/></span>
+                <span class="{@rend}">
+                    <xsl:if test="@target">
+                        <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                        <xsl:attribute name="data-target">
+                            <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    &#124;<xsl:apply-templates/>
+                </span>
             </div>
         </div>
      </xsl:template>
@@ -389,12 +421,13 @@
         </span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='printInstruction' and contains(@rend, 'Left')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark {if(@spanTo)then('anchor')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark {if(@spanTo)then('spanto')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
             <div class="position-relative">
                 <span class="{@rend} {@style}">
                     <xsl:if test="@spanTo">
-                        <xsl:attribute name="id">
-                            <xsl:value-of select="concat('anchor-', substring-after(@spanTo, '#'))"/>
+                        <xsl:variable name="spanToList" select="tokenize(@spanTo, ' ')"/>
+                        <xsl:attribute name="data-spanto">
+                            <xsl:value-of select="for $i in $spanToList return concat('spanto-', substring-after($i, '#'))"/>
                         </xsl:attribute>
                     </xsl:if>
                     &#8595;<xsl:apply-templates/>
@@ -403,12 +436,13 @@
         </div>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='printInstruction' and contains(@rend, 'Right')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark {if(@spanTo)then('anchor')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark {if(@spanTo)then('spanto')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
             <div class="position-relative">
                 <span class="{@rend} {@style}">
                     <xsl:if test="@spanTo">
-                        <xsl:attribute name="id">
-                            <xsl:value-of select="concat('anchor-', substring-after(@spanTo, '#'))"/>
+                        <xsl:variable name="spanToList" select="tokenize(@spanTo, ' ')"/>
+                        <xsl:attribute name="data-spanto">
+                            <xsl:value-of select="for $i in $spanToList return concat('spanto-', substring-after($i, '#'))"/>
                         </xsl:attribute>
                     </xsl:if>
                     &#8595;<xsl:apply-templates/>
@@ -429,16 +463,32 @@
         <span class="metamark entity connect {replace(@change,'#','')}" id="{@xml:id}"><xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if></span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='transposition' and contains(@rend, 'Left')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div class="position-relative">
-                <span class="{@rend}" style="font-size:1.25em;">&#423;</span>
+                <span class="{@rend}" style="font-size:1.25em;">
+                    <xsl:if test="@target">
+                        <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                        <xsl:attribute name="data-target">
+                            <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    &#423;
+                </span>
             </div>
         </div>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='transposition' and contains(@rend, 'Right')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div class="position-relative">
-                <span class="{@rend}" style="font-size:1.25em;">&#423;</span>
+                <span class="{@rend}" style="font-size:1.25em;">
+                    <xsl:if test="@target">
+                        <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                        <xsl:attribute name="data-target">
+                            <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    &#423;
+                </span>
             </div>
         </div>
      </xsl:template>
@@ -449,16 +499,32 @@
         <span class="metamark connect entity" id="{@xml:id}">&#124;</span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='insertion' and contains(@rend, 'Left')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div class="position-relative">
-                <span class="{@rend}">&#124;<xsl:apply-templates/></span>
+                <span class="{@rend}">
+                    <xsl:if test="@target">
+                        <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                        <xsl:attribute name="data-target">
+                            <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    &#124;<xsl:apply-templates/>
+                </span>
             </div>
         </div>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='insertion' and contains(@rend, 'Right')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div class="position-relative">
-                <span class="{@rend}">&#124;<xsl:apply-templates/></span>
+                <span class="{@rend}">
+                    <xsl:if test="@target">
+                        <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                        <xsl:attribute name="data-target">
+                            <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    &#124;<xsl:apply-templates/>
+                </span>
             </div>
         </div>
      </xsl:template>
@@ -481,19 +547,19 @@
     </xsl:template> -->
     
     <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit') and not(parent::tei:restore)]">
-        <span class="border rounded-pill {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+        <span class="border rounded-pill {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit') and parent::tei:restore]">
-        <span class="border-dotted rounded-pill {replace(@change, '#', '')} "><xsl:apply-templates/></span>
+        <span class="border-dotted rounded-pill {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@type='relocation']">
-        <span>
+        <span id="{if(not(@rend='line') and not(@rend='arrow'))then(@xml:id)else(concat('parent-', @xml:id))}">
             <xsl:if test="@rend='border'">
                 <xsl:attribute name="class">
-                    <xsl:text>border</xsl:text>
+                    <xsl:text>border border-1 border-secondary-subtle</xsl:text>
                 </xsl:attribute>
             </xsl:if>
-            <xsl:if test="@rend='line'">&#124;</xsl:if><xsl:if test="@rend='arrow'">&#8592;</xsl:if><xsl:apply-templates/>
+            <xsl:if test="@rend='line'"><span id="{@xml:id}">&#124;</span></xsl:if><xsl:if test="@rend='arrow'"><span id="{@xml:id}">&#8592;</span></xsl:if><xsl:apply-templates/>
         </span>
     </xsl:template>
     <xsl:template match="tei:seg[@rendition='#runningText1']">
@@ -570,7 +636,7 @@
         </span>
     </xsl:template>
     <xsl:template match="tei:note[not(@place)]">
-        <span class="note {replace(@change,'#','')}"><xsl:apply-templates/></span>
+        <span class="note {replace(@change,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
     <!-- <xsl:template match="tei:lb[@type='req']">
         <br/>
@@ -605,7 +671,7 @@
     <xsl:template match="tei:gap">
         <xsl:choose>
         <xsl:when test="@extent">
-            <xsl:value-of select="string-join((for $i in 1 to @extent return '	'),'')"/>
+            <xsl:value-of select="string-join((for $i in 1 to @extent return '&#9618;'),'')"/>
         </xsl:when>
         <xsl:otherwise>
             <xsl:text>&#9618;</xsl:text>

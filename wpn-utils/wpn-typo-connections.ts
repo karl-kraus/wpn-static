@@ -11,45 +11,53 @@ const connectElements = (query: string, container: boolean) => {
         if (targetId.length > 0) {
 
             const color = targetId.includes("-mm-") ? "bg-danger-subtle" : targetId.includes("-add-") ? "bg-warning-subtle" : "bg-secondary-subtle";
-            const border = targetId.includes("-mm-") ? "border-danger-subtle" : targetId.includes("-add-") ? "border-danger-subtle" : "border-danger-subtle";
-
+            const border = targetId.includes("-mm-") ? "border-danger-subtle" : targetId.includes("-add-") ? "border-warning-subtle" : "border-secondary-subtle";
+            
             const target = document.getElementById(targetId);
 
-            if (target) {
+            const spanToElement = checkForConnections(el, "spanto");
+            const targetElement = checkForConnections(el, "target");
 
-                const anchor = el.classList.contains("anchor") ? el.childNodes[0].childNodes[0] as HTMLElement : null;
-    
-                const anchorId = anchor !== null ? anchor.id : "";
-    
-                const anchor_target_id = anchorId.length > 0 ? anchorId.replace("anchor-", "") : null;
-                const anchor_target = anchor_target_id !== null ? document.getElementById(anchor_target_id) : null;
+            el.onmouseover = () => {
+                // console.log(`Connecting ${el.id} to ${targetId}`);
+                target?.classList.add(...["border", border, "border-2", "border-dotted"]);
+                el.classList.add(color);
+
+                // console.log(`Connecting ${anchorId} to ${anchor_target_id ? anchor_target_id : "null"}`);
+                // anchor !== null ? console.log(anchor_target) : "";
+
+                spanToElement.map(el => el?.classList.add(...["border", border, "border-2", "border-dotted"]));
+                targetElement.map(el => el?.classList.add(...["border", border, "border-2", "border-dotted"]));     
                 
+            };
+            el.onmouseout = () => {
 
-                el.onmouseover = () => {
-                    // console.log(`Connecting ${el.id} to ${targetId}`);
-                    target.classList.add(...["border", "border-4", border, "border-dotted"]);
-                    el.classList.add(color);
+                target?.classList.remove(...["border", border, "border-2", "border-dotted"]);
+                el.classList.remove(color);
 
-                    // console.log(`Connecting ${anchorId} to ${anchor_target_id ? anchor_target_id : "null"}`);
-                    // anchor !== null ? console.log(anchor_target) : "";
+                spanToElement.map(el => el?.classList.remove(...["border", border, "border-2", "border-dotted"]));
+                targetElement.map(el => el?.classList.remove(...["border", border, "border-2", "border-dotted"]));   
 
-                    if (anchor_target) {
-                        anchor_target.classList.add(...["border", "border-4", "border-danger-subtle", "border-dotted"]);    
-                    }
-                    
-                };
-                el.onmouseout = () => {
-                    target.classList.remove(...["border", "border-4", border, "border-dotted"]);
-                    el.classList.remove(color);
-
-                    if (anchor_target) {
-                        anchor_target.classList.remove(...["border", "border-4", "border-danger-subtle", "border-dotted"]);    
-                    }
-
-                };
-            }
+            };
         }
     });
+};
+
+const checkForConnections = (element: HTMLElement, type: string) => {
+
+    const isConnected = element.classList.contains(type) && element.tagName === "div" ? element.childNodes[0].childNodes[0] as HTMLElement 
+                        : element.classList.contains(type) && element.tagName !== "div" ? element.childNodes[0] as HTMLElement
+                        : false;
+
+    const connectedDataValue = isConnected ? isConnected.dataset[type] : false;
+    const connectedIdList = connectedDataValue ? connectedDataValue.split(" ") : [];
+
+    const connectedElements = connectedIdList.map((connectedId) => {
+        const connectedIdNorm = connectedId.replace(type + "-", "");
+        const connectedElement = document.getElementById(connectedIdNorm);
+        return connectedElement;
+    });
+    return connectedElements;
 };
 
 connectElements("div.connect", true);
