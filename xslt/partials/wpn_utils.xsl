@@ -29,7 +29,12 @@
   <xsl:function name="wpn:date">
     <xsl:param name="format"/>
     <xsl:param name="input"/>
-    <xsl:value-of select="(if ($input castable as xs:date and not(starts-with($input,'-') or starts-with($input,'0'))) then format-date($input,$format) else if (starts-with($input, '-')) then (xs:integer(substring(substring-after($input,'-'),1,4)) || ' v. Chr.')             else if (starts-with($input, '0')) then (xs:integer(substring($input,1,4)) || ' n. Chr.')             else if (matches($input,'[0-9]{4}-[0-9]{2}$')) then if ($format = '[Y]') then substring($input,1,4) else (wpn:monthfromnumber(substring-after($input,'-'))||' '||substring-before($input,'-')) else substring($input, 1, 4))"/>
+    <xsl:value-of select="(if ($input castable as xs:date and not(starts-with($input,'-') or starts-with($input,'0'))) then format-date($input,$format) else if (starts-with($input, '-')) then (xs:integer(substring(substring-after($input,'-'),1,4)) || ' v. Chr.') else if (starts-with($input, '0')) then (xs:integer(substring($input,1,4)) || ' n. Chr.')             else if (matches($input,'[0-9]{4}-[0-9]{2}$')) then if ($format = '[Y]') then substring($input,1,4) else (wpn:monthfromnumber(substring-after($input,'-'))||' '||substring-before($input,'-')) else substring($input, 1, 4))"/>
+  </xsl:function>
+  <xsl:function name="wpn:date_full">
+    <xsl:param name="format"/>
+    <xsl:param name="input"/>
+    <xsl:value-of select="(if ($input castable as xs:date) then format-date($input,$format) else if (matches($input,'[0-9]{4}-[0-9]{2}$')) then if ($format = '[Y]') then substring($input,1,4) else (number(substring-after($input,'-'))||'. '||substring-before($input,'-')) else number(substring($input, 1, 4)))"/>
   </xsl:function>
   <xsl:function name="wpn:preposition">
     <xsl:param name="input"/>

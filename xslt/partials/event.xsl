@@ -197,8 +197,11 @@
             <span><xsl:text>(</xsl:text></span>
             <xsl:choose>
                 <xsl:when test="@when">
-                    <xsl:value-of select="wpn:date('[D]. [M]. [Y]', @when)"/>
+                    <span data-testid="event_date_{@xml:id}"><xsl:value-of select="wpn:date_full('[D]. [M]. [Y]', @when)"/></span>
                 </xsl:when>
+                <xsl:otherwise>
+                    <span data-testid="event_date_{@xml:id}"><xsl:value-of select="wpn:date_full('[D]. [M]. [Y]', @notBefore)"/><xsl:text> – </xsl:text><xsl:value-of select="wpn:date_full('[D]. [M]. [Y]', @notAfter)"/></span>
+                </xsl:otherwise>
             </xsl:choose>
             <xsl:if test="$render_categories">
                 <span><xsl:text>, </xsl:text></span>
