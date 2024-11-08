@@ -255,6 +255,10 @@ $utilities: map-merge(
   content:"\00a0– ";
 }
 
+.inline-list-comma-separated li:not(:last-child)::after {
+  content:", ";
+}
+
 /*** needed for glossary in comment register view ***/
 
 .col-count-responsive {
