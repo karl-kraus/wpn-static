@@ -581,7 +581,7 @@
                                                 </xsl:when>
                                                 <xsl:otherwise>
                                                     <xsl:apply-templates select="$bibl_node">
-                                                        <xsl:with-param name="detail_view_textpage" select="true()"/>
+                                                       <!-- <xsl:with-param name="detail_view_textpage" select="true()"/> -->
                                                     </xsl:apply-templates>
                                                 </xsl:otherwise>
                                             </xsl:choose>
