@@ -193,7 +193,7 @@
     </xsl:template>
     <xsl:template match="tei:event" mode="detail_view_textpage_event_date">
         <xsl:param name="render_categories" select="false()"/>
-        <div class="fs-7 text-dark-grey">
+        <div class="fs-7 text-dark-grey {if (not($render_categories)) then 'd-inline' else ()}">
             <span><xsl:text>(</xsl:text></span>
             <xsl:choose>
                 <xsl:when test="@when">
