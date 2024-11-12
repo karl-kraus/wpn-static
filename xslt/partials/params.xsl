@@ -6,10 +6,10 @@
     <xsl:param name="project_title">Dritte Walpurgisnacht Static Edition - Entwicklungsinstanz</xsl:param>
     <xsl:param name="redmine_id">18716</xsl:param>
     <xsl:param name="project_short_title">WPN Static-Site</xsl:param>
-    <xsl:param name="github_url">https://github.com/karl-kraus/dritte-walpurgisnacht-static</xsl:param>
+    <xsl:param name="github_url">https://github.com/karl-kraus/wpn-static</xsl:param>
     <xsl:param name="html_title">WPN Static-Site</xsl:param>
     <xsl:param name="project_logo">images/logo.png</xsl:param>
-    <xsl:param name="base_url">http://url-of-my-awesome-site</xsl:param>
+    <xsl:param name="base_url">karl-kraus.github.io/wpn-static/</xsl:param>
     <xsl:param name="data_repo"/>
     <xsl:param name="site_language">de</xsl:param>
 </xsl:stylesheet>
