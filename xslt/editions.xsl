@@ -41,7 +41,7 @@
     <xsl:template match="/">
 
     
-        <html id="edition-view">
+        <html id="edition-view" lang="{$site_language}">
     
             <head>
                 <xsl:call-template name="html_head">

@@ -21,7 +21,7 @@
         <xsl:variable name="events">
             <xsl:copy-of select="//tei:event[@xml:id]"/>
         </xsl:variable>
-        <html>
+        <html lang="{$site_language}">
             <head>
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"/>

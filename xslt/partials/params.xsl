@@ -11,4 +11,5 @@
     <xsl:param name="project_logo">images/logo.png</xsl:param>
     <xsl:param name="base_url">http://url-of-my-awesome-site</xsl:param>
     <xsl:param name="data_repo"/>
+    <xsl:param name="site_language">de</xsl:param>
 </xsl:stylesheet>

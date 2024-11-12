@@ -121,17 +121,17 @@ header {
   }
 }
 
+@include media-breakpoint-up(md) {
+  #navbarSupportedContent {
+    display: block;
+    min-height:300px;
+    transform: translateY(-100%);
+  }
 
-
-#navbarSupportedContent {
-  display: block;
-  min-height:300px;
-  transform: translateY(-100%);
-}
-
-#navbarSupportedContent.show {
-  transform: translateY($header-height);
-  animation: slide-in 1s ease;
+  #navbarSupportedContent.show {
+    transform: translateY($header-height);
+    animation: slide-in 1s ease;
+  }
 }
 
 .nav-link.project-link {
@@ -1239,4 +1239,10 @@ wpn-time-line {
 /*** nav tabs register view ***/
 .nav-tabs a.active {
   font-weight: bold;
+}
+
+/*** a11y ***/
+
+body.modal-open, body.modal-open main {
+  overflow: hidden !important;
 }
