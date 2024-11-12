@@ -13,7 +13,8 @@
                 <div class="{$container}">
                     <a class="navbar-brand" href="index.html">
                         <!--<xsl:value-of select="$project_short_title"/>-->
-                        <svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 123.47 106.97" width="{if ($logo_small) then 90 else 180}">
+                        <span class="visually-hidden">Karl Kraus 1933</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="logo" viewBox="0 0 123.47 106.97" width="{if ($logo_small) then 90 else 180}" aria-hidden="true" focusable="false">
                             <defs>
                                 <style>.cls-1{fill:#4a4a49;}.cls-2{fill:#a21a17;}</style>
                             </defs>
@@ -51,7 +52,7 @@
                         <a class="nav-link project-link pe-4 link-dark-grey link-hover-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a>
                         <button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <!--<span class="navbar-toggler-icon"></span>-->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12">
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="20" height="12" viewBox="0 0 20 12">
                                 <defs>
                                     <style>.a{fill:none}</style>
                                 </defs>
