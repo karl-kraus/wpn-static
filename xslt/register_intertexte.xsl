@@ -75,7 +75,7 @@
                         </div>
                     </main>
                     <aside class="w-40 border-start border-light-grey">
-                        <wpn-detail-view class="d-block position-sticky">
+                        <wpn-detail-view class="d-block position-sticky overflow-y-auto">
                             <xsl:apply-templates select="//tei:bibl[@xml:id]" mode="detail_view">
                                 <xsl:with-param name="detail_view" select="true()" as="xs:boolean"/>
                             </xsl:apply-templates>

@@ -15,13 +15,16 @@ class WPNHeader extends HTMLElement {
 				(wpnDetailView as HTMLElement).style.top = `${String(entry.target.clientHeight)}px`;
 				if (footer) {
 					(wpnDetailView as HTMLElement).style.maxHeight =
-						`calc(100% - ${String(entry.target.clientHeight + footer.clientHeight)}px`;
+						`calc(100vh - ${String(entry.target.clientHeight + footer.clientHeight)}px`;
 				}
 			}
 			if (isAnnotationView) {
 				const stickyElement = document.querySelector(".position-sticky");
 				if (stickyElement) {
 					(stickyElement as HTMLElement).style.top = `${String(entry.target.clientHeight)}px`;
+					if (footer) {
+						(stickyElement as HTMLElement).style.height = `calc(100vh - ${String(entry.target.clientHeight + footer.clientHeight)}px`;
+					}
 				}
 			}
 		}

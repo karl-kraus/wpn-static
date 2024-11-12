@@ -71,7 +71,7 @@
                             </div>
                     </main>
                     <aside class="w-40 border-start border-light-grey">
-                                <wpn-detail-view class="d-block position-sticky">
+                                <wpn-detail-view class="d-block position-sticky overflow-y-auto">
                                     <xsl:apply-templates select="//tei:person[@xml:id]" mode="detail_view">
                                     </xsl:apply-templates>
                                 </wpn-detail-view>

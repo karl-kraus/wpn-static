@@ -101,7 +101,7 @@
                                     </xsl:choose>
                                 </xsl:for-each>
                                 <wpn-detail-view class="d-none position-absolute top-0 h-100 bg-white w-100">
-                                    <div class="d-block position-sticky">
+                                    <div class="d-block position-sticky overflow-y-auto">
                                         <xsl:variable name="regrefs">
                                         <xsl:copy>
                                             <xsl:apply-templates mode="raw" />

@@ -66,7 +66,7 @@
                             </div>
                     </main>
                     <aside class="w-40 border-start border-light-grey">
-                                <wpn-detail-view class="d-block position-sticky">
+                                <wpn-detail-view class="d-block position-sticky overflow-y-auto">
                                     <xsl:for-each select="//tei:seg[not(ancestor::tei:seg)]">
                                         <xsl:variable name="cur_seg" select="current()"/>
                                         <xsl:for-each select="tokenize(@corresp,' ')">    
