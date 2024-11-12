@@ -59,7 +59,7 @@
                                             <h3 class="card-title mt-1"><a href="annotierte_lesefassung.html" class="stretched-link text-decoration-none text-blacker-grey">Annotierte Lesefassung</a></h3>
                                             <p class="card-subtitle text-black-grey">Dritte Walpurgisnacht</p>
                                         </div>
-                                        <img src="images/card_annotierte_lesefassung.png" class="d-block" alt="..."/>
+                                        <img src="images/card_annotierte_lesefassung.png" class="d-block" alt=""/>
                                     </div>
                                 </div>
                                 <div class="slide d-flex justify-content-stretch col-12 p-md-2_5 col-md-4 scroll-snap-align-start">
@@ -68,7 +68,7 @@
                                             <h3 class="card-title mt-1"><a href="kommentar.html" class="stretched-link text-decoration-none text-blacker-grey">Kommentar</a></h3>
                                             <p class="card-subtitle text-black-grey">Stellenkommentar und Zeitleiste</p>
                                         </div>
-                                        <img src="images/card_kommentar.png" class="d-block" alt="..."/>
+                                        <img src="images/card_kommentar.png" class="d-block" alt=""/>
                                     </div>
                                 </div>
                                 <div class="slide d-flex justify-content-stretch col-12 p-md-2_5 col-md-4 scroll-snap-align-start">
@@ -77,7 +77,7 @@
                                             <h3 class="card-title mt-1"><a href="register.html" class="stretched-link text-decoration-none text-blacker-grey">Register</a></h3>
                                             <p class="card-subtitle text-black-grey">Personen und Intertexte</p>
                                         </div>
-                                        <img src="images/card_register.png" class="d-block" alt="..."/>
+                                        <img src="images/card_register.png" class="d-block" alt=""/>
                                     </div>
                                 </div>
                                 <div class="slide d-flex justify-content-stretch col-12 p-md-2_5 col-md-4 scroll-snap-align-start">
@@ -86,7 +86,7 @@
                                             <h3 class="card-title mt-1"><a href="notizen.html" class="stretched-link text-decoration-none text-blacker-grey">Notizen</a></h3>
                                             <p class="card-subtitle text-black-grey">Dritte Walpurgisnacht</p>
                                         </div>
-                                        <img src="images/card_notizen.png" class="d-block" alt="..."/>
+                                        <img src="images/card_notizen.png" class="d-block" alt=""/>
                                     </div>
                                 </div>
                                 <div class="slide d-flex justify-content-stretch col-12 p-md-2_5 col-md-4 scroll-snap-align-start">
@@ -95,7 +95,7 @@
                                             <h3 class="card-title mt-1"><a href="topographical.html" class="stretched-link text-decoration-none text-blacker-grey">Topographische Umschrift</a></h3>
                                             <p class="card-subtitle text-black-grey">Dritte Walpurgisnacht</p>
                                         </div>
-                                        <img src="images/card_topographical.png" class="d-block" alt="..."/>
+                                        <img src="images/card_topographical.png" class="d-block" alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -121,23 +121,23 @@
                         <div class="row">
                             <div class="col">
                                 <div class="card border-0 align-items-start">
-                                    <img height="100" src="images/partner-logos/logo-oeaw.svg"/>
+                                    <img height="100" src="images/partner-logos/logo-oeaw.svg" alt="Österreichische Akademie der Wissenschaften"/>
                                     <div class="card-body p-0 pt-5">
-                                        <p class="fs-8_75"><a  href="https://www.oeaw.ac.at/" target="_blank" rel="noopener noreferrer" alt="Logo ÖAW" class="stretched-link text-decoration-none text-blacker-grey">Österreichische Akademie der Wissenschaften</a></p>
+                                        <p class="fs-8_75"><a  href="https://www.oeaw.ac.at/" target="_blank" rel="noopener noreferrer" alt="Österreichische Akademie der Wissenschaften" class="stretched-link text-decoration-none text-blacker-grey">Österreichische Akademie der Wissenschaften</a></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card border-0 align-items-start">
-                                    <img height="100" src="images/partner-logos/logo-acdh-ch.svg"/>
+                                    <img height="100" src="images/partner-logos/logo-acdh-ch.svg" alt="Austrian Centre for Digital Humanities and Cultural Heritage"/>
                                     <div class="card-body p-0  pt-5">
-                                        <p class="p-0 fs-8_75"><a  href="https://www.oeaw.ac.at/acdh/" target="_blank" rel="noopener noreferrer" alt="Logo ACDH-CH" class="stretched-link text-decoration-none text-blacker-grey">Austrian Centre for Digital Humanities and Cultural Heritage</a></p>
+                                        <p class="p-0 fs-8_75"><a  href="https://www.oeaw.ac.at/acdh/" target="_blank" rel="noopener noreferrer" alt="Austrian Centre for Digital Humanities and Cultural Heritage" class="stretched-link text-decoration-none text-blacker-grey">Austrian Centre for Digital Humanities and Cultural Heritage</a></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="card border-0 align-items-start">
-                                    <img height="50" src="images/partner-logos/logo-ace.svg"/>
+                                    <img height="50" src="images/partner-logos/logo-ace.svg" alt="ACE"/>
                                     <div class="card-body p-0 pt-10">
                                         <p class="p-0 fs-8_75">Austrian Corpora and Editions</p>
                                     </div>
@@ -145,9 +145,9 @@
                             </div>
                             <div class="col">
                                 <div class="card border-0 align-items-start">
-                                    <img height="100" src="images/partner-logos/logo-acdh-ch.svg"/>
+                                    <img height="100" src="images/partner-logos/logo-acdh-ch.svg"  alt="Austrian Centre for Digital Humanities and Cultural Heritage"/>
                                     <div class="card-body p-0  pt-5">
-                                        <p class="p-0 fs-8_75"><a  href="https://www.oeaw.ac.at/acdh/research-units/literarytextual-studies" target="_blank" rel="noopener noreferrer" alt="Logo ACDH-CH" class="stretched-link text-decoration-none text-blacker-grey">Literary&amp;Textual Studies<br/>Austrian Centre for Digital Humanities and Cultural Heritage<br/>Austrian Academy of Sciences</a></p>
+                                        <p class="p-0 fs-8_75"><a  href="https://www.oeaw.ac.at/acdh/research-units/literarytextual-studies" target="_blank" rel="noopener noreferrer" alt="Literatur- &amp; Textwissenschaft" class="stretched-link text-decoration-none text-blacker-grey">Literary&amp;Textual Studies<br/>Austrian Centre for Digital Humanities and Cultural Heritage<br/>Austrian Academy of Sciences</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -158,12 +158,12 @@
                          <div class="row">
                             <div class="col-md-4">
                                 <div class="card border-0 align-items-start">
-                                    <a href="https://www.wien.gv.at/kultur/abteilung/" title="Kulturabteilung der Stadt Wien" target="_blank" rel="noopener noreferrer"><img height="70" src="images/partner-logos/Wien-Kultur-Logo.png"/></a>
+                                    <a href="https://www.wien.gv.at/kultur/abteilung/" title="Kulturabteilung der Stadt Wien" target="_blank" rel="noopener noreferrer"><img height="70" src="images/partner-logos/Wien-Kultur-Logo.png" alt="Logo Wien Kultur"/></a>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="card border-0 align-items-start">
-                                    <a href="https://www.wienbibliothek.at/" title="Wienbibliothek im Rathaus" target="_blank" rel="noopener noreferrer"><img height="70" src="images/partner-logos/Wienbibliothek-Logo.png"/></a>
+                                    <a href="https://www.wienbibliothek.at/" title="Wienbibliothek im Rathaus" target="_blank" rel="noopener noreferrer"><img height="70" src="images/partner-logos/Wienbibliothek-Logo.png" alt="Logo Wienbibliothek"/></a>
                                 </div>
                             </div>
                         </div>
