@@ -74,7 +74,7 @@
     </xsl:template>
     <xsl:template match="tei:ref[@rend='iiifbutton']">
         <a class="text-dark-grey text-decoration-none fw-bold d-block mt-2_5" href="{@target}">
-        <img width="25" height="auto" class="align-top me-1" src="images/International_Image_Interoperability_Framework_logo_resized.png"/>
+        <img width="25" height="auto" alt="" class="align-top me-1" src="images/International_Image_Interoperability_Framework_logo_resized.png"/>
         <xsl:apply-templates/></a>
     </xsl:template>
      <xsl:template match="tei:div[parent::tei:div[parent::tei:body]]">
@@ -89,15 +89,15 @@
             <div class="col-md-4">
                 <div class="card rounded-0">
                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                        <h3 class="card-title mt-1"><a href="annotierte_lesefassung.html" class="stretched-link text-decoration-none text-blacker-grey">Notizen 1933</a></h3>
-                        <p class="card-subtitle text-black-grey"><xsl:value-of select="tei:head"/></p>
+                        <h3 class="card-title mt-1">Notizen 1933</h3>
+                        <p class="card-subtitle text-black-grey"><a href="{if (contains(tei:head,'Konvolut 1')) then 'notizen_konvolut_1.html' else 'notizen_konvolut_2.html'}" class="stretched-link text-decoration-none text-blacker-grey"><xsl:value-of select="tei:head"/></a></p>
                     </div>
                     <xsl:choose>
                         <xsl:when test="contains(tei:head,'Konvolut 1')">
-                            <img height="290" src="https://www.digital.wienbibliothek.at/i3f/v21/2583325/full/290,/0/default.jpg" class="object-fit-cover" alt="..."/>
+                            <img height="290" src="https://www.digital.wienbibliothek.at/i3f/v21/2583325/full/290,/0/default.jpg" class="object-fit-cover" alt=""/>
                         </xsl:when>
                         <xsl:when test="contains(tei:head,'Konvolut 2')">
-                            <img height="290" src="https://www.digital.wienbibliothek.at/i3f/v21/2583619/full/290,/0/default.jpg" class="object-fit-cover" alt="..."/>
+                            <img height="290" src="https://www.digital.wienbibliothek.at/i3f/v21/2583619/full/290,/0/default.jpg" class="object-fit-cover" alt=""/>
                         </xsl:when>
                     </xsl:choose>
                 </div>
