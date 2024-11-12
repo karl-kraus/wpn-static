@@ -49,8 +49,8 @@
                                 <input type="text" name="walpurgisnacht[query]" class="rounded-0 form-control border-top-0 border-start-0 border-end-0 border-bottom"></input>
                             </form>
                         </xsl:if>
-                        <a class="nav-link project-link pe-4 link-dark-grey link-hover-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a>
-                        <button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <a class="nav-link project-link pe-4 link-dark-grey text-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a>
+                        <button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="modal" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <!--<span class="navbar-toggler-icon"></span>-->
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="20" height="12" viewBox="0 0 20 12">
                                 <defs>
@@ -64,66 +64,75 @@
                             </svg>
                         </button>
                     </span>
-                    <div class="navbar position-fixed start-0 bg-black-grey w-100 opacity-97" id="navbarSupportedContent">
-                        <div class="container d-block">
-                            <div class="row">
-                                <div class="col-md-4">
-                                 <span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span>
-                                    <ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
-                                        <!--<li class="nav-item">
-                                            <a class="nav-link" href="projekt.html">Über das Projekt</a>
-                                        </li>-->
-                                        <li class="nav-item">
-                                            <xsl:call-template name="nav-link">
-                                                <xsl:with-param name="href" select="'projekt.html'"/>
-                                                <xsl:with-param name="label" select="'Über das Projekt'"/>
-                                            </xsl:call-template>
-                                        </li>
-                                        <li class="nav-item">
-                                            <xsl:call-template name="nav-link">
-                                                <xsl:with-param name="href" select="'nutzungsbedingungen.html'"/>
-                                                <xsl:with-param name="label" select="'Nutzungsbedingungen'"/>
-                                            </xsl:call-template>
-                                        </li>
-                                        <li class="nav-item">
-                                             <xsl:call-template name="nav-link">
-                                                <xsl:with-param name="href" select="'impressum.html'"/>
-                                                <xsl:with-param name="label" select="'Impressum'"/>
-                                            </xsl:call-template>
-                                        </li>
-                                    </ul>
+                    <div class="navbar start-0 bg-black-grey w-100 opacity-97 modal fade modal-xl h-auto" data-bs-backdrop="false" tabindex="-1" id="navbarSupportedContent">
+                        <div class="modal-dialog">
+                            <div class="modal-content bg-transparent border-0">
+                                <div class="modal-header text-end d-md-none border-0">
+                                    <button type="button" class="btn-close btn-close btn-close-white" data-bs-dismiss="modal">
+                                        <span class="visually-hidden">Navigation schließen</span>
+                                    </button>  
                                 </div>
-                                <div class="col-md-4">
-                                    <span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Dritte Walpurgisnacht</span>
-                                    <ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
-                                        <li class="nav-item">
-                                             <xsl:call-template name="nav-link">
-                                                <xsl:with-param name="href" select="'notizen.html'"/>
-                                                <xsl:with-param name="label" select="'Notizen'"/>
-                                            </xsl:call-template>
-                                        </li>
-                                        <li class="nav-item">
-                                            <xsl:call-template name="nav-link">
-                                                <xsl:with-param name="href" select="'annotierte_lesefassung.html'"/>
-                                                <xsl:with-param name="label" select="'Annotierte Lesefassung'"/>
-                                            </xsl:call-template>
-                                        </li>
-                                        <li class="nav-item">
-                                            <xsl:call-template name="nav-link">
-                                                <xsl:with-param name="href" select="'register.html'"/>
-                                                <xsl:with-param name="label" select="'Register'"/>
-                                            </xsl:call-template>
-                                        </li>
-                                         <!--<li class="nav-item">
-                                            <a class="nav-link" href="imprint.html">Textgenese</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="imprint.html">Faksimile</a>
-                                        </li>-->
-                                    </ul>
-                                </div>
-                                <div class="col-md-4">
-                                    <span class="d-block navbar-title text-dark-grey border-bottom border-light-grey pb-1">Kommentar</span>
+                                <div class="container d-block">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                        <span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span>
+                                            <ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
+                                                <!--<li class="nav-item">
+                                                    <a class="nav-link" href="projekt.html">Über das Projekt</a>
+                                                </li>-->
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'projekt.html'"/>
+                                                        <xsl:with-param name="label" select="'Über das Projekt'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'nutzungsbedingungen.html'"/>
+                                                        <xsl:with-param name="label" select="'Nutzungsbedingungen'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'impressum.html'"/>
+                                                        <xsl:with-param name="label" select="'Impressum'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Dritte Walpurgisnacht</span>
+                                            <ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'notizen.html'"/>
+                                                        <xsl:with-param name="label" select="'Notizen'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'annotierte_lesefassung.html'"/>
+                                                        <xsl:with-param name="label" select="'Annotierte Lesefassung'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'register.html'"/>
+                                                        <xsl:with-param name="label" select="'Register'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <!--<li class="nav-item">
+                                                    <a class="nav-link" href="imprint.html">Textgenese</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="imprint.html">Faksimile</a>
+                                                </li>-->
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span class="d-block navbar-title text-dark-grey border-bottom border-light-grey pb-1">Kommentar</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
