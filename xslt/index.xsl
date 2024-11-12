@@ -19,7 +19,7 @@
         </xsl:variable>
 
     
-        <html class="h-100">
+        <html class="h-100" lang="{$site_language}">
     
             <head>
                 <xsl:call-template name="html_head">

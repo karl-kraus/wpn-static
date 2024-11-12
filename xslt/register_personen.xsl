@@ -20,7 +20,7 @@
         <xsl:variable name="persons">
             <xsl:copy-of select="//tei:person[@xml:id]"/>
         </xsl:variable>
-        <html class="h-100">
+        <html class="h-100" lang="{$site_language}">
             <head>
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"/>

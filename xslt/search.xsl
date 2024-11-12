@@ -13,7 +13,7 @@
      <xsl:import href="./partials/scripts.xsl"/>
     <xsl:template match="/">
         <xsl:variable name="doc_title" select="'Volltextsuche'"/>
-        <html  class="h-100">
+        <html  class="h-100" lang="{$site_language}">
             <head>
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"></xsl:with-param>
