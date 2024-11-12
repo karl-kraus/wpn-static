@@ -19,14 +19,14 @@
         </xsl:variable>
 
     
-        <html class="h-100" lang="{$site_language}">
+        <html lang="{$site_language}">
     
             <head>
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"></xsl:with-param>
                 </xsl:call-template>
             </head>            
-            <body class="d-flex flex-column h-100 overflow-scroll">
+            <body class="d-flex flex-column overflow-scroll">
                 <xsl:call-template name="nav_bar">
                     <xsl:with-param name="logo_small" select="false()"/>
                     <xsl:with-param name="container" select="'container p-md-0'"/>
