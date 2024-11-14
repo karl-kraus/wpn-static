@@ -147,7 +147,7 @@ def wrap_or_not(el, s, ancestor=False) -> ET.Element:
         if el.tag not in EXCLUDE_TAGS:
             next_el = el.getnext()
             if el.tag == "{http://www.tei-c.org/ns/1.0}quote" or el.tag == "{http://www.tei-c.org/ns/1.0}seg":
-                breakpoint_els = el.xpath("./tei:p|./tei:lg|./tei:note",
+                breakpoint_els = el.xpath("./tei:p|./tei:lg|./tei:note|./tei:quote[tei:p]",
                                           namespaces=NSMAP)
                 # quote and seg are inline or block elements but
                 # (Breakpoints: p, lg, note)
