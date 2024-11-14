@@ -1,15 +1,20 @@
-import { find } from "instantsearch.js/es/lib/utils";
+// Description: This script is used to connect elements in 
+// left and right margin with their anchor in the text.
 
 const connectElements = (query: string, container: boolean) => {
+
     const elements = document.querySelectorAll<HTMLElement>(query);
-    // console.log([...elements]);
+
     [...elements].map((el) => {
+
         let targetId = el.id;
+        
         if (container) {
             targetId = el.id.replace("container-", "");
         } else {
             targetId = "container-" + el.id;
         }
+
         if (targetId.length > 0) {
 
             const color = targetId.includes("metam") ? "bg-danger-subtle" : targetId.includes("-add-") ? "bg-warning-subtle" : "bg-secondary-subtle";
@@ -23,7 +28,10 @@ const connectElements = (query: string, container: boolean) => {
             const spanToElement = checkForConnections(childS, "spanto");
             const targetElement = checkForConnections(childT, "target");
 
-            el.onmouseover = () => {
+            el.onmouseover = (e) => {
+
+                e.preventDefault();
+
                 // console.log(`Connecting ${el.id} to ${targetId}`);
                 target?.classList.add(...["border", border, "border-2", "border-dotted"]);
                 el.classList.add(color);
@@ -38,38 +46,50 @@ const connectElements = (query: string, container: boolean) => {
                     || childS && childS.classList.contains("doubleLineLeft") 
                     || childS && childS.classList.contains("doubleLineRight")
                 ) {
+
                     spanToElement
                         .map(span => {
                             createCanvas(el);
                             drawLine(el, span);
                             span?.classList.add(...["border", border, "border-2", "border-dotted"])
                         });
+
                 } else {
+
                     spanToElement
                         .map(span => span?.classList.add(...["border", border, "border-2", "border-dotted"]));
-                }
+                
+                    }
                 
             };
-            el.onmouseout = () => {
+
+            el.onmouseout = (e) => {
+
+                e.preventDefault();
 
                 target?.classList.remove(...["border", border, "border-2", "border-dotted"]);
                 el.classList.remove(color);
+
+                targetElement.map(target => target?.classList.remove(...["border", border, "border-2", "border-dotted"]));   
 
                 if (childS && childS.classList.contains("lineLeft") 
                     || childS && childS.classList.contains("lineRight") 
                     || childS && childS.classList.contains("doubleLineLeft") 
                     || childS && childS.classList.contains("doubleLineRight")
                 ) {
+
                     spanToElement
                         .map(span => {
                             removeCanvas(el);
                             span?.classList.remove(...["border", border, "border-2", "border-dotted"])
                         });
+
                 } else {
+
                     spanToElement
                         .map(span => span?.classList.remove(...["border", border, "border-2", "border-dotted"]));
+
                 }
-                targetElement.map(target => target?.classList.remove(...["border", border, "border-2", "border-dotted"]));   
 
             };
         }
@@ -77,9 +97,11 @@ const connectElements = (query: string, container: boolean) => {
 };
 
 const findChild = (element: HTMLElement, type: string) => {
+
     const child = element.classList.contains(type) && element.tagName === "DIV" ? element.childNodes[0].childNodes[0] as HTMLElement 
     : element.classList.contains(type) && element.tagName !== "DIV" ? element.childNodes[0] as HTMLElement
     : false;
+
     return child;
 }
 

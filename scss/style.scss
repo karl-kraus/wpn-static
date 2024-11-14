@@ -753,9 +753,9 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   // letter-spacing: 0.4pt;
 }
 
-// #textcontent-pb .spacing {
-//   letter-spacing: 1pt;
-// }
+#textcontent-pb .spacing {
+  letter-spacing: 1.5pt;
+}
 
 #infocontent-pb {
   font-size: 1em;
