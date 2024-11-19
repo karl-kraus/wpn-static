@@ -156,11 +156,17 @@
         <delete>
             <fileset dir="./data/editions" includes="idPb*.xml idPb*.html"/>
         </delete>
-        <xslt style="./xslt/partials/add-header-pb.xsl" basedir="./data/editions/tmp" destdir="./data/editions" includes="idPb*.xml" extension=".xml">
+        <mkdir dir="./data/editions/tmp2"/>
+        <xslt style="./xslt/partials/add-header-pb.xsl" basedir="./data/editions/tmp" destdir="./data/editions/tmp2" includes="idPb*.xml" extension=".xml">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+        <xslt style="./xslt/partials/add-rend-multiples.xsl" basedir="./data/editions/tmp2" destdir="./data/editions" includes="idPb*.xml" extension=".xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
         <delete dir="./data/editions/tmp"/>
+        <delete dir="./data/editions/tmp2"/>
     </target>
     <replace dir="${target}" value="">
         <include name="*.html"/>

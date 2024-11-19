@@ -285,17 +285,107 @@
         <del id="{@xml:id}"><xsl:apply-templates/></del>
     </xsl:template>
     <xsl:template match="tei:del[not(parent::tei:subst) and contains(@rend, 'Left')]" mode="render">
-        <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div class="position-relative">
-                <span class="{@rend}" style="font-size:1.25em;">&#124;&#x20B0;</span>
+        <div data-xmlid="{@xml:id}" class="d-flex ms-1">
+            <xsl:if test="not(@xml:rend)">
+            <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')} w-100">
+                <div class="position-relative">
+                    <span class="{@rend}" style="font-size:1.25em;">&#124;&#x20B0;</span>
+                </div>
             </div>
+            </xsl:if>
+            <xsl:if test="contains(@rend, 'marginInner')">
+                <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')}">
+                    <div class="position-relative">
+                        <span class="{@rend}" style="font-size:1.25em;">&#124;&#x20B0;</span>
+                    </div>
+                </div>
+                <xsl:variable name="xmldata" select="tokenize(@xml:data, '/')"/>
+                <xsl:variable name="tei" select="ancestor::tei:TEI"/>
+                <xsl:iterate select="$xmldata">
+                    <xsl:if test="string-length(current()) != 0">
+                    <xsl:variable name="next" select="$tei//tei:*[@xml:id=current()]" as="element()"/>
+                    <xsl:variable name="subornot" select="if(contains($next/@xml:id, '-sub-'))then($next/tei:add/@xml:id)else($next/@xml:id)"/>
+                    <div id="container-{$subornot}" class="ms-1 del connect {replace($next/@change,'#','')}">
+                        <div class="position-relative">
+                            <xsl:choose>
+                                <xsl:when test="contains($next/@xml:id, 'add')">
+                                    <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}" style="font-size:1.25em;">
+                                        &#124;<xsl:value-of select="$next"/>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="contains($next/@xml:id, 'del')">
+                                    <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}" style="font-size:1.25em;">
+                                        &#124;&#x20B0;<xsl:value-of select="$next"/>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="contains($next/@xml:id, 'sub')">
+                                    <span class="{$next/@rend}" style="font-size:1.25em;">
+                                        &#124;<xsl:value-of select="$next/tei:add"/>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="contains($next/@xml:id, 'metam')">
+                                    <span class="{$next/@rend}" style="font-size:1.25em;">
+                                        &#124;<xsl:value-of select="$next"/>
+                                    </span>
+                                </xsl:when>
+                            </xsl:choose>
+                        </div>
+                    </div>
+                    </xsl:if>
+                </xsl:iterate>
+            </xsl:if>
         </div>
     </xsl:template>
     <xsl:template match="tei:del[not(parent::tei:subst) and contains(@rend, 'Right')]" mode="render">
-        <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div class="position-relative">
-                <span class="{@rend}" style="font-size:1.25em;">&#124;&#x20B0;</span>
-            </div>
+        <div data-xmlid="{@xml:id}" class="d-flex ms-1">
+            <xsl:if test="not(@xml:rend)">
+                <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')} w-100">
+                    <div class="position-relative">
+                        <span class="{@rend}" style="font-size:1.25em;">&#124;&#x20B0;</span>
+                    </div>
+                </div>
+            </xsl:if>
+            <xsl:if test="contains(@rend, 'marginInner')">
+                <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')}">
+                    <div class="position-relative">
+                        <span class="{@rend}" style="font-size:1.25em;">&#124;&#x20B0;</span>
+                    </div>
+                </div>
+                <xsl:variable name="xmldata" select="tokenize(@xml:data, '/')"/>
+                <xsl:variable name="tei" select="ancestor::tei:TEI"/>
+                <xsl:iterate select="$xmldata">
+                    <xsl:if test="string-length(current()) != 0">
+                    <xsl:variable name="next" select="$tei//tei:*[@xml:id=current()]" as="element()"/>
+                    <xsl:variable name="subornot" select="if(contains($next/@xml:id, '-sub-'))then($next/tei:add/@xml:id)else($next/@xml:id)"/>
+                    <div id="container-{$subornot}" class="ms-1 del connect {replace($next/@change,'#','')}">
+                        <div class="position-relative">
+                            <xsl:choose>
+                                <xsl:when test="contains($next/@xml:id, 'add')">
+                                    <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}" style="font-size:1.25em;">
+                                        &#124;<xsl:value-of select="$next"/>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="contains($next/@xml:id, 'del')">
+                                    <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}" style="font-size:1.25em;">
+                                        &#124;&#x20B0;<xsl:value-of select="$next"/>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="contains($next/@xml:id, '-sub-')">
+                                    <span class="{$next/@rend}" style="font-size:1.25em;">
+                                        &#124;<xsl:value-of select="$next/tei:add"/>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="contains($next/@xml:id, 'metam')">
+                                    <span class="{$next/@rend}" style="font-size:1.25em;">
+                                        &#124;<xsl:value-of select="$next"/>
+                                    </span>
+                                </xsl:when>
+                            </xsl:choose>
+                        </div>
+                    </div>
+                    </xsl:if>
+                </xsl:iterate>
+            </xsl:if>
         </div>
     </xsl:template>
     <xsl:template match="tei:add[parent::tei:subst[parent::tei:restore]]">
@@ -322,17 +412,111 @@
         </span>
     </xsl:template>
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')]" mode="render">
-        <div id="container-{@xml:id}" class="add connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div class="position-relative">
-                <span class="{if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)}" style="font-size:1.25em;">&#124;<xsl:apply-templates/></span>
-            </div>
+        <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
+        <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
+        <div data-xmlid="{@xml:id}" class="d-flex ms-1">
+            <xsl:if test="not($xmlrend)">
+                <div id="container-{@xml:id}" class="add connect {replace(@change,'#','')} w-100" data-xmlid="{@xml:id}">
+                    <div class="position-relative">
+                        <span class="{$rend}" style="font-size:1.25em;">&#124;<xsl:apply-templates/></span>
+                    </div>
+                </div>
+            </xsl:if>
+            <xsl:if test="contains($rend, 'marginInner')">
+                <div id="container-{@xml:id}" class="add connect {replace(@change,'#','')}">
+                    <div class="position-relative">
+                        <span class="{$rend}" style="font-size:1.25em;">&#124;<xsl:apply-templates/></span>
+                    </div>
+                </div>
+                <xsl:variable name="xmldata" select="tokenize(@xml:data, '/')"/>
+                <xsl:variable name="tei" select="ancestor::tei:TEI"/>
+                <xsl:iterate select="$xmldata">
+                    <xsl:if test="string-length(current()) != 0">
+                    <xsl:variable name="next" select="$tei//tei:*[@xml:id=current()]" as="element()"/>
+                    <xsl:variable name="subornot" select="if(contains($next/@xml:id, '-sub-'))then($next/tei:add/@xml:id)else($next/@xml:id)"/>
+                    <div id="container-{$subornot}" class="ms-1 add connect {replace($next/@change,'#','')}">
+                        <div class="position-relative">
+                            <xsl:choose>
+                                <xsl:when test="contains($next/@xml:id, 'add')">
+                                    <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}" style="font-size:1.25em;">
+                                        &#124;<xsl:value-of select="$next"/>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="contains($next/@xml:id, 'del')">
+                                    <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}" style="font-size:1.25em;">
+                                        &#124;&#x20B0;<xsl:value-of select="$next"/>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="contains($next/@xml:id, 'sub')">
+                                    <span class="{$next/tei:add/@rend}" style="font-size:1.25em;">
+                                        &#124;<xsl:value-of select="$next/tei:add"/>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="contains($next/@xml:id, 'metam')">
+                                    <span class="{$next/@rend}" style="font-size:1.25em;">
+                                        &#124;<xsl:value-of select="$next"/>
+                                    </span>
+                                </xsl:when>
+                            </xsl:choose>
+                        </div>
+                    </div>
+                    </xsl:if>
+                </xsl:iterate>
+            </xsl:if>
         </div>
     </xsl:template>
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Left')]" mode="render">
-        <div id="container-{@xml:id}" class="add connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div class="position-relative">
-                <span class="{if(parent::tei:subst)then(parent::tei:subst/@rend)else(@rend)}" style="font-size:1.25em;">&#124;<xsl:apply-templates/></span>
-            </div>
+        <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
+        <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
+        <div data-xmlid="{@xml:id}" class="d-flex ms-1">
+            <xsl:if test="not($xmlrend)">
+                <div id="container-{@xml:id}" class="add connect {replace(@change,'#','')} w-100" data-xmlid="{@xml:id}">
+                    <div class="position-relative">
+                        <span class="{$rend}" style="font-size:1.25em;">&#124;<xsl:apply-templates/></span>
+                    </div>
+                </div>
+            </xsl:if>
+            <xsl:if test="contains($rend, 'marginInner')">
+                <div id="container-{@xml:id}" class="add connect {replace(@change,'#','')}">
+                    <div class="position-relative">
+                        <span class="{$rend}" style="font-size:1.25em;">&#124;<xsl:apply-templates/></span>
+                    </div>
+                </div>
+                <xsl:variable name="xmldata" select="tokenize(@xml:data, '/')"/>
+                <xsl:variable name="tei" select="ancestor::tei:TEI"/>
+                <xsl:iterate select="$xmldata">
+                    <xsl:if test="string-length(current()) != 0">
+                    <xsl:variable name="next" select="$tei//tei:*[@xml:id=current()]" as="element()"/>
+                    <xsl:variable name="subornot" select="if(contains($next/@xml:id, '-sub-'))then($next/tei:add/@xml:id)else($next/@xml:id)"/>
+                    <div id="container-{$subornot}" class="ms-1 add connect {replace($next/@change,'#','')}">
+                        <div class="position-relative">
+                            <xsl:choose>
+                                <xsl:when test="contains($next/@xml:id, 'add')">
+                                    <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}" style="font-size:1.25em;">
+                                        &#124;<xsl:value-of select="$next"/>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="contains($next/@xml:id, 'del')">
+                                    <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}" style="font-size:1.25em;">
+                                        &#124;&#x20B0;<xsl:value-of select="$next"/>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="contains($next/@xml:id, 'sub')">
+                                    <span class="{$next/tei:add/@rend}" style="font-size:1.25em;">
+                                        &#124;<xsl:value-of select="$next/tei:add"/>
+                                    </span>
+                                </xsl:when>
+                                <xsl:when test="contains($next/@xml:id, 'metam')">
+                                    <span class="{$next/@rend}" style="font-size:1.25em;">
+                                        &#124;<xsl:value-of select="$next"/>
+                                    </span>
+                                </xsl:when>
+                            </xsl:choose>
+                        </div>
+                    </div>
+                    </xsl:if>
+                </xsl:iterate>
+            </xsl:if>
         </div>
     </xsl:template>
     <xsl:template match="tei:add[@rendition]">
@@ -356,7 +540,7 @@
         </div>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='progress' and contains(@rend, 'Right')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark connect {replace(@change,'#','')} ms-1" data-xmlid="{@xml:id}">
             <div class="position-relative">
                 <span class="{@rend}"><xsl:apply-templates/></span>
             </div>
@@ -398,7 +582,7 @@
         </div>
      </xsl:template>
      <xsl:template match="tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'Right')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')} ms-1" data-xmlid="{@xml:id}">
             <div class="position-relative">
                 <span class="{@rend}">
                     <xsl:if test="@target">
@@ -436,7 +620,7 @@
         </div>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='printInstruction' and contains(@rend, 'Right')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark {if(@spanTo)then('spanto')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark {if(@spanTo)then('spanto')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')} ms-1" data-xmlid="{@xml:id}">
             <div class="position-relative">
                 <span class="{@rend} {@style}">
                     <xsl:if test="@spanTo">
@@ -478,7 +662,7 @@
         </div>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='transposition' and contains(@rend, 'Right')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')} ms-1" data-xmlid="{@xml:id}">
             <div class="position-relative">
                 <span class="{@rend}" style="font-size:1.25em;">
                     <xsl:if test="@target">
@@ -514,7 +698,7 @@
         </div>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='insertion' and contains(@rend, 'Right')]" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')} ms-1" data-xmlid="{@xml:id}">
             <div class="position-relative">
                 <span class="{@rend}">
                     <xsl:if test="@target">
