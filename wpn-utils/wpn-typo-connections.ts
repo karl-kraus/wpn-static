@@ -8,6 +8,7 @@ const connectElements = (query: string, container: boolean) => {
     [...elements].map((el) => {
 
         let targetId = el.id;
+        const targetClassList = el.classList;
         
         if (container) {
             targetId = el.id.replace("container-", "");
@@ -17,8 +18,8 @@ const connectElements = (query: string, container: boolean) => {
 
         if (targetId.length > 0) {
 
-            const color = targetId.includes("metam") ? "bg-danger-subtle" : targetId.includes("-add-") ? "bg-warning-subtle" : "bg-secondary-subtle";
-            const border = targetId.includes("metam") ? "border-danger-subtle" : targetId.includes("-add-") ? "border-warning-subtle" : "border-secondary-subtle";
+            const color = [...targetClassList].includes("metamark") ? "bg-danger-subtle" : [...targetClassList].includes("add") ? "bg-warning-subtle" : "bg-secondary-subtle";
+            const border = [...targetClassList].includes("metamark") ? "border-danger-subtle" : [...targetClassList].includes("add") ? "border-warning-subtle" : "border-secondary-subtle";
             
             const target = document.getElementById(targetId);
 
@@ -28,38 +29,40 @@ const connectElements = (query: string, container: boolean) => {
             const spanToElement = checkForConnections(childS, "spanto");
             const targetElement = checkForConnections(childT, "target");
 
+            // console.log(`Connecting ${anchorId} to ${anchor_target_id ? anchor_target_id : "null"}`);
+            // anchor !== null ? console.log(anchor_target) : "";
+            // filter out element that do not contain the class lineLeft, lineRight, doubleLineLeft, boubleLineRight
+
+            if (childS && childS.classList.contains("lineLeft") 
+                || childS && childS.classList.contains("lineRight") 
+                || childS && childS.classList.contains("doubleLineLeft") 
+                || childS && childS.classList.contains("doubleLineRight")
+            ) {
+
+                spanToElement
+                    .map(span => {
+                        createCanvas(el);
+                        drawLine(el, span);
+                        // span?.classList.add(...["border", border, "border-2", "border-dotted"])
+                    });
+
+            } else {
+
+                spanToElement
+                    .map(span => span?.classList.add(...["border", border, "border-2", "border-dotted"]));
+            
+            }
+
             el.onmouseover = (e) => {
 
                 e.preventDefault();
 
                 // console.log(`Connecting ${el.id} to ${targetId}`);
-                target?.classList.add(...["border", border, "border-2", "border-dotted"]);
+                target?.classList.add(color);
                 el.classList.add(color);
 
-                // console.log(`Connecting ${anchorId} to ${anchor_target_id ? anchor_target_id : "null"}`);
-                // anchor !== null ? console.log(anchor_target) : "";
                 targetElement.map(target => target?.classList.add(...["border", border, "border-2", "border-dotted"]));
-                // filter out element that do not contain the class lineLeft, lineRight, doubleLineLeft, boubleLineRight
 
-                if (childS && childS.classList.contains("lineLeft") 
-                    || childS && childS.classList.contains("lineRight") 
-                    || childS && childS.classList.contains("doubleLineLeft") 
-                    || childS && childS.classList.contains("doubleLineRight")
-                ) {
-
-                    spanToElement
-                        .map(span => {
-                            createCanvas(el);
-                            drawLine(el, span);
-                            span?.classList.add(...["border", border, "border-2", "border-dotted"])
-                        });
-
-                } else {
-
-                    spanToElement
-                        .map(span => span?.classList.add(...["border", border, "border-2", "border-dotted"]));
-                
-                    }
                 
             };
 
@@ -67,29 +70,11 @@ const connectElements = (query: string, container: boolean) => {
 
                 e.preventDefault();
 
-                target?.classList.remove(...["border", border, "border-2", "border-dotted"]);
+                target?.classList.remove(color);
                 el.classList.remove(color);
 
-                targetElement.map(target => target?.classList.remove(...["border", border, "border-2", "border-dotted"]));   
+                targetElement.map(target => target?.classList.remove(...["border", border, "border-2", "border-dotted"]));
 
-                if (childS && childS.classList.contains("lineLeft") 
-                    || childS && childS.classList.contains("lineRight") 
-                    || childS && childS.classList.contains("doubleLineLeft") 
-                    || childS && childS.classList.contains("doubleLineRight")
-                ) {
-
-                    spanToElement
-                        .map(span => {
-                            removeCanvas(el);
-                            span?.classList.remove(...["border", border, "border-2", "border-dotted"])
-                        });
-
-                } else {
-
-                    spanToElement
-                        .map(span => span?.classList.remove(...["border", border, "border-2", "border-dotted"]));
-
-                }
 
             };
         }
@@ -121,12 +106,12 @@ const checkForConnections = (element: HTMLElement | false, type: string) => {
     return connectedElements;
 };
 
-const removeCanvas = (element: HTMLElement) => {
-    const canvas = document.getElementById("canvas" + element.id);
-    if (canvas) {
-        canvas.remove();
-    }
-}
+// const removeCanvas = (element: HTMLElement) => {
+//     const canvas = document.getElementById("canvas" + element.id);
+//     if (canvas) {
+//         canvas.remove();
+//     }
+// }
 
 const createCanvas = (element: HTMLElement) => {
     const canvas = document.createElement("canvas");
