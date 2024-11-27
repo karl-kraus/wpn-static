@@ -107,9 +107,32 @@
                             </div>
                             <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
                                 <div id="infocontent-pb">
-                                <xsl:for-each select="//tei:TEI/tei:facsimile[1]/tei:surface/tei:note">
+                                <xsl:for-each select="//tei:TEI/tei:facsimile[@corresp='#DWkonJer']/tei:surface">
+                                    <xsl:variable name="corresp" select="substring-after(@corresp, '#')"/>
                                     <div class="note m-2 {replace(@corresp, '#', '')}">
-                                        <xsl:apply-templates/>
+                                        <h4><xsl:text>Jerusalemer Konvolut, fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto</xsl:text></h4>
+                                        <xsl:for-each select="./tei:note[@type='pagination']">
+                                        <p><xsl:value-of select="concat('Pagination ', ./text(), ' ', @corresp)"/></p>
+                                        </xsl:for-each>
+                                        <h5>Textträger</h5>
+                                        <p><xsl:text>Standort, Signatur: </xsl:text></p>
+                                        <p><xsl:text>Grundschicht, Material: </xsl:text><xsl:value-of select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp]/text()"/></p>
+                                        <h5>Zustand</h5>
+                                        <p><xsl:value-of select="./tei:note[@type='stamp']/text()"/></p>
+                                        <xsl:if test="./tei:note[@type='change'] or ./tei:note[@type='printInstruction']">
+                                        <h5>Weitere Textschichten</h5>
+                                        <a id="btn_more_text_layers">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-black-grey stroke-wpn-red-hover  align-baseline ms-2" width="10" height="10" viewBox="0 0 8 8"><g transform="translate(0.53 0.75)"><path style="fill:none;stroke-width:1.5px;stroke-linejoin:round;" d="M0,6V0H6" transform="translate(6) rotate(90)"></path><line style="fill:none;stroke-width:1.5px;" y1="6" x2="6"></line></g></svg>
+                                        </a>
+                                        <ul id="list_more_text_layers" class="fade">
+                                        <xsl:for-each select="./tei:note[@type='change']">
+                                            <li data-link="{@corresp}"><xsl:value-of select="@corresp"/></li>
+                                        </xsl:for-each>
+                                        <xsl:for-each select="./tei:note[@type='printInstruction']">
+                                            <li data-link="{@corresp}">Markierung für den Druck der Fackel Nr. 890: <xsl:value-of select="./text()"/></li>
+                                        </xsl:for-each>
+                                        </ul>
+                                        </xsl:if>
                                     </div>
                                 </xsl:for-each>
                                 </div>

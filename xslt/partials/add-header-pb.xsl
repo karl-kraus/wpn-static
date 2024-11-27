@@ -14,10 +14,11 @@
     </xsl:template>
 
     <xsl:template match="tei:TEI">
+        <xsl:variable name="doc" select="doc('../../data/editions/Gesamt.xml')"/>
         <xsl:copy>
-            <xsl:copy-of select="doc('../../data/editions/Gesamt.xml')//tei:teiHeader"/>
-            <facsimile xmlns="http://www.tei-c.org/ns/1.0">
-                <xsl:copy-of select="doc('../../data/editions/Gesamt.xml')//tei:facsimile/tei:surface[@xml:id = $facsimile]"/>
+            <xsl:copy-of select="$doc//tei:teiHeader"/>
+            <facsimile xmlns="http://www.tei-c.org/ns/1.0" corresp="{$doc//tei:facsimile/tei:surface[@xml:id = $facsimile]/parent::tei:facsimile/@corresp}">
+                <xsl:copy-of select="$doc//tei:facsimile/tei:surface[@xml:id = $facsimile]"/>
             </facsimile>
             <xsl:apply-templates />
         </xsl:copy> 
