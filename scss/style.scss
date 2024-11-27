@@ -615,16 +615,20 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   margin-bottom: $spacer * 0.5;
 }
 
-#textcontent-pb .longQuoteVerse,
-#textcontent-pb .inkLongQuoteVerse,
-#textcontent-pb .typescriptLongQuoteVerse,
-#textcontent-pb .typescriptLongQuoteVerseLeading,
 #textcontent-pb .longQuoteVerseStart,
 #textcontent-pb .longQuoteVerseEnd,
-#textcontent-pb .longQuoteVerseMiddle {
+#textcontent-pb .longQuoteVerseMiddle,
+#textcontent-pb .inkLongQuoteVerse,
+#textcontent-pb .typescriptLongQuoteVerse,
+#textcontent-pb .typescriptLongQuoteVerseLeading {
   text-align-last: left;
   text-align: left;
   text-indent: 30px;
+}
+
+#textcontent-pb .longQuoteVerse {
+  text-align-last: left;
+  text-align: left;
 }
 
 #textcontent-pb .longQuoteVerse {
@@ -638,7 +642,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #textcontent-pb .longQuoteMiddleCenter,
-#textcontent-pb .longQuoteVerseCenter,
 #textcontent-pb .typescriptLongQuoteTitle,
 #textcontent-pb .typescriptLongQuoteTitle2,
 #textcontent-pb .typescriptLongQuoteAdvInsert,
@@ -647,6 +650,21 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align-last: center;
   text-align: center;
 }
+
+#textcontent-pb .longQuoteVerseCenter {
+  margin-left: $spacer * 7 !important;
+  text-align: left;
+  text-align-last: left;
+}
+
+#textcontent-pb .longQuoteVerseCenter .l {
+  width:100%;
+  margin: 0;
+}
+
+// #textcontent-pb .longQuoteVerseStart .l,
+// #textcontent-pb .longQuoteVerseEnd .l,
+// #textcontent-pb .longQuoteVerseMiddle .l
 
 #edition-view #sub_grid_pb {
   display:grid;
