@@ -58,11 +58,12 @@ const connectElements = (query: string, container: boolean) => {
                 e.preventDefault();
 
                 // console.log(`Connecting ${el.id} to ${targetId}`);
-                target?.classList.add(color);
-                el.classList.add(color);
-
-                targetElement.map(target => target?.classList.add(...["border", border, "border-2", "border-dotted"]));
-
+                
+                if (!childS) {
+                    target?.classList.add(color);
+                    el.classList.add(color);
+                    targetElement.map(target => target?.classList.add(...["border", border, "border-2", "border-dotted"]));
+                }
                 
             };
 
@@ -70,11 +71,11 @@ const connectElements = (query: string, container: boolean) => {
 
                 e.preventDefault();
 
-                target?.classList.remove(color);
-                el.classList.remove(color);
-
-                targetElement.map(target => target?.classList.remove(...["border", border, "border-2", "border-dotted"]));
-
+                if (!childS) {
+                    target?.classList.remove(color);
+                    el.classList.remove(color);
+                    targetElement.map(target => target?.classList.remove(...["border", border, "border-2", "border-dotted"]));
+                }
 
             };
         }
