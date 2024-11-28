@@ -45,10 +45,16 @@ tpq.forEach((p) => {
         const corresp = p.dataset.link?.split(" ");
 
         corresp?.forEach((cor) => {
+
             const cor_class = cor.replace("#", "");
+
             const target = document.getElementById(cor_class);
-            target?.classList.toggle("bg-danger-subtle");   
-            target?.children[0].classList.toggle("bg-danger-subtle");            
+            target?.classList.toggle("bg-danger-subtle");
+
+            target?.querySelectorAll(".d-block").forEach((el) => {
+                el.classList.toggle("bg-danger-subtle");
+            });
+
         });
 
     });

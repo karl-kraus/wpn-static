@@ -310,7 +310,8 @@
             <span class="inline-text "><xsl:apply-templates/></span>
         </span>
     </xsl:template>
-    <xsl:template match="tei:c">
+    <xsl:template match="tei:c[@resp='#edACE']"/>
+    <xsl:template match="tei:c[not(@resp='#edACE')]">
         <xsl:value-of select="'&#x2060;&#x2009;&#x2060;'"/>
     </xsl:template>
     <xsl:template match="tei:corr"/>
