@@ -788,7 +788,8 @@
                             <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                         </xsl:attribute>
                     </xsl:if>
-                    &#124;<xsl:apply-templates/>
+                    <xsl:if test="not(.//text())">&#124;</xsl:if>
+                    <xsl:apply-templates/>
                 </span>
             </div>
         </div>
@@ -803,7 +804,8 @@
                             <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                         </xsl:attribute>
                     </xsl:if>
-                    &#124;<xsl:apply-templates/>
+                    <xsl:if test="not(.//text())">&#124;</xsl:if>
+                    <xsl:apply-templates/>
                 </span>
             </div>
         </div>
