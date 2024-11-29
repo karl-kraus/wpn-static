@@ -615,11 +615,12 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   margin-bottom: $spacer * 0.5;
 }
 
+#textcontent-pb .longQuoteVerse,
 #textcontent-pb .longQuoteVerseEnd,
 #textcontent-pb .longQuoteVerseMiddle,
 #textcontent-pb .longQuoteVerseStart {
-  text-align-last: left;
   text-align: left;
+  text-align-last: left;
 }
 
 #textcontent-pb .inkLongQuoteVerse,
@@ -628,11 +629,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align-last: left;
   text-align: left;
   text-indent: 30px;
-}
-
-#textcontent-pb .longQuoteVerse {
-  text-align-last: left;
-  text-align: left;
 }
 
 #textcontent-pb .longQuoteVerse {
