@@ -33,8 +33,13 @@
                     select="@*| node()"
                 />
                 <xsl:for-each select="tei:citedRange">
+                    <xsl:variable name="referenced">
+                        <xsl:apply-templates select="current()" mode="references"/>
+                    </xsl:variable>
                     <listRef>
-                        <xsl:copy-of select="$quotes//*[@source='#'||current()/@xml:id]"/>
+                        <xsl:for-each select="$referenced">
+                            <xsl:copy-of select="$quotes//*[@source='#'||current()]"/>
+                        </xsl:for-each>
                     </listRef>
                 </xsl:for-each>
                 <index>
@@ -43,5 +48,16 @@
                 </xsl:for-each>
                 </index>
             </xsl:element>
+    </xsl:template>
+    <xsl:template match="tei:citedRange" mode="references">
+        <xsl:variable name="id" select="@xml:id"/>
+        <xsl:choose>
+            <xsl:when test="root()//tei:citedRange[tei:ref[@target='#'||$id]]">
+                <xsl:apply-templates select="root()//tei:citedRange[tei:ref[@target='#'||$id]]" mode="references"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$id"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 </xsl:stylesheet>
