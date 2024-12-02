@@ -86,13 +86,15 @@
                                     <xsl:variable name="target" select="current()"/>
                                     <xsl:choose>
                                         <xsl:when test="starts-with($target,'insertionstart')">
-                                            <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@target=replace($target,'insertionstart_','#')]" mode="short_info">
+                                            <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[contains(@target,replace($target,'insertionstart_','#'))]" mode="short_info">
                                                 <xsl:with-param name="reftype" select="'insertionstart'"/>
+                                                <xsl:with-param name="target" select="$target"/>
                                             </xsl:apply-templates>
                                         </xsl:when>
                                         <xsl:when test="starts-with($target,'insertionend')">
-                                            <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@target=replace($target,'insertionend_','#')]" mode="short_info">
+                                            <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[contains(@target,replace($target,'insertionend_','#'))]" mode="short_info">
                                                 <xsl:with-param name="reftype" select="'insertionend'"/>
+                                                <xsl:with-param name="target" select="$target"/>
                                             </xsl:apply-templates>
                                         </xsl:when>
                                         <xsl:otherwise>
@@ -305,21 +307,50 @@
         <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//(tei:seg|tei:note)[@xml:id=$target]/*" mode="raw"/>
     </xsl:template>
     <xsl:template match="tei:metamark[@function=('insertion') and matches(@target,'(note)+.*([a-z])_')]">
-       <xsl:variable name="target" select="replace(@target,'#','')"/>
-       <span>
-       <span class="pagebreaks entity" id="{'insertionstart_'||$target}">||</span>
-            <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
-       <span class="pagebreaks entity" id="{'insertionend_'||$target}">||</span>
-       </span>
+       <xsl:choose>
+            <xsl:when test="contains(@target,' ')">
+                <xsl:for-each select="tokenize(@target,' ')">
+                    <xsl:variable name="target" select="replace(current(),'#','')"/>
+                    <span>
+                        <span class="pagebreaks entity" id="{'insertionstart_'||$target}">||</span>
+                                <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
+                        <span class="pagebreaks entity" id="{'insertionend_'||$target}">||</span>
+                    </span>
+                </xsl:for-each>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:variable name="target" select="replace(@target,'#','')"/>
+                <span>
+                    <span class="pagebreaks entity" id="{'insertionstart_'||$target}">||</span>
+                            <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
+                    <span class="pagebreaks entity" id="{'insertionend_'||$target}">||</span>
+                </span>
+            </xsl:otherwise>
+       </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:metamark[@function=('insertion') and matches(@target,'(note)+.*([a-z])_')]" mode="raw">
-         <xsl:variable name="target" select="replace(@target,'#','')"/>
-        <ref target="{'insertionstart_'||replace(@target,'#','')}">
-            <xsl:apply-templates  select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]/*" mode="raw"/>
-            <xsl:if test="@n='last'">
-                <ref target="{'insertionend_'||replace(@target,'#','')}"></ref>
-            </xsl:if>
-        </ref>
+        <xsl:choose>
+            <xsl:when test="contains(@target,' ')">
+                <xsl:for-each select="tokenize(@target,' ')">
+                    <xsl:variable name="target" select="replace(current(),'#','')"/>
+                   <ref target="{'insertionstart_'||replace(current(),'#','')}">
+                    <xsl:apply-templates  select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]/*" mode="raw"/>
+                    <xsl:if test="position()=last()">
+                        <ref target="{'insertionend_'||replace(current(),'#','')}"></ref>
+                    </xsl:if>
+                </ref>
+                </xsl:for-each>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:variable name="target" select="replace(@target,'#','')"/>
+                <ref target="{'insertionstart_'||replace(@target,'#','')}">
+                    <xsl:apply-templates  select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]/*" mode="raw"/>
+                    <xsl:if test="@n='last'">
+                        <ref target="{'insertionend_'||replace(@target,'#','')}"></ref>
+                    </xsl:if>
+                </ref>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
      <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]"/>
     <xsl:template match="tei:mod[@style=('noLetterSpacing') and not(parent::tei:restore)]">
