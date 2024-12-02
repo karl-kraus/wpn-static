@@ -307,6 +307,7 @@
         <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//(tei:seg|tei:note)[@xml:id=$target]/*" mode="raw"/>
     </xsl:template>
     <xsl:template match="tei:metamark[@function=('insertion') and matches(@target,'(note)+.*([a-z])_')]">
+    <xsl:variable name="n" select="@n"/>
        <xsl:choose>
             <xsl:when test="contains(@target,' ')">
                 <xsl:for-each select="tokenize(@target,' ')">
@@ -314,7 +315,9 @@
                     <span>
                         <span class="pagebreaks entity" id="{'insertionstart_'||$target}">||</span>
                                 <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
-                        <span class="pagebreaks entity" id="{'insertionend_'||$target}">||</span>
+                        <xsl:if test="$n='last' or position() = last()">
+                            <span class="pagebreaks entity" id="{'insertionend_'||$target}">||</span>
+                        </xsl:if>
                     </span>
                 </xsl:for-each>
             </xsl:when>
@@ -323,7 +326,9 @@
                 <span>
                     <span class="pagebreaks entity" id="{'insertionstart_'||$target}">||</span>
                             <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
-                    <span class="pagebreaks entity" id="{'insertionend_'||$target}">||</span>
+                    <xsl:if test="@n='last'">
+                        <span class="pagebreaks entity" id="{'insertionend_'||$target}">||</span>
+                    </xsl:if>
                 </span>
             </xsl:otherwise>
        </xsl:choose>

@@ -152,6 +152,6 @@ div.pbs,div.cmts {
   display:block !important;
 }
 
-wpn-text-view .pagebreaks.entity.pbs::after {
+wpn-text-view .pagebreaks.entity.pbs:not([id^='insertion'])::after {
   content:'||';
 }
