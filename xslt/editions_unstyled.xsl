@@ -157,10 +157,22 @@
         <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//(tei:seg|tei:note)[@xml:id=$target]" mode="render"/>
     </xsl:template>
     <xsl:template match="tei:metamark[@function=('insertion') and matches(@target,'(note)+.*([a-z])_')]">
-       <xsl:variable name="target" select="replace(@target,'#','')"/>
-       <span>
-            <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
-       </span>
+       <xsl:choose>
+        <xsl:when test="contains(@target,' ')">
+            <xsl:for-each select="tokenize(@target,' ')">
+                <xsl:variable name="target" select="replace(current(),'#','')"/>
+                <span>
+                    <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
+                </span>
+            </xsl:for-each>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:variable name="target" select="replace(@target,'#','')"/>
+            <span>
+                <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
+            </span>
+        </xsl:otherwise>
+       </xsl:choose>
     </xsl:template>
  <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]"/>
     <xsl:template match="tei:mod[@style=('noLetterSpacing') and not(parent::tei:restore)]">

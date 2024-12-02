@@ -96,6 +96,8 @@
 </xsl:template>
 <xsl:template match="tei:metamark[@function='insertion' and matches(@target,'(note)+.*([a-z])_')]" mode="short_info">
   <xsl:param name="reftype"/>
+  <xsl:param name="target"/>
+  <xsl:variable name="id" select="substring-after($target,$reftype||'_')"/>
   <xsl:variable name="description">
     <xsl:choose>
       <xsl:when test="$reftype='insertionstart'">
@@ -106,18 +108,18 @@
       </xsl:when>
     </xsl:choose>
   </xsl:variable>
-  <xsl:variable name="target" select="@target"/>
+  <!--<xsl:variable name="target" select="@target"/>-->
   <xsl:variable name="preceding_pb_val">
   <xsl:choose>
       <xsl:when test="$reftype='insertionstart'">
-        <xsl:value-of select="doc('../../data/editions/Gesamt.xml')//tei:note[@xml:id=replace($target,'#','')]/preceding::tei:pb[1]/replace(replace(@n,'_',' '),'^0+','')"/>
+        <xsl:value-of select="doc('../../data/editions/Gesamt.xml')//tei:note[@xml:id=replace($id,'#','')]/preceding::tei:pb[1]/replace(replace(@n,'_',' '),'^0+','')"/>
       </xsl:when>
       <xsl:when test="$reftype='insertionend'">
-        <xsl:value-of select="doc('../../data/editions/Gesamt.xml')//tei:metamark[@target=$target]/preceding::tei:pb[1]/replace(replace(@n,'_',' '),'^0+','')"/>
+        <xsl:value-of select="doc('../../data/editions/Gesamt.xml')//tei:metamark[contains(@target,$id)]/preceding::tei:pb[1]/replace(replace(@n,'_',' '),'^0+','')"/>
       </xsl:when>
     </xsl:choose>
   </xsl:variable>
-    <div class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="{$reftype||'_'||replace($target,'#','')}" style="display:none">
+    <div class="fs-6 ps-3 text-dark-grey pagebreaks" id="{$id}" data-xmlid="{replace($target,'#','')}" style="display:none">
       <span><xsl:value-of select="$description||' '||$preceding_pb_val"/></span>
     </div>
 </xsl:template>
