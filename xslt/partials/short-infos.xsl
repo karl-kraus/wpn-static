@@ -145,7 +145,9 @@
         </xsl:choose>
       </div>
       <div>
+      <xsl:if test="not(node()/name() = 'pb')">
         <xsl:apply-templates/>
+      </xsl:if>
       </div>
   </div>
 </xsl:template>
