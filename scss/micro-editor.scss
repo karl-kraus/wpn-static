@@ -110,6 +110,10 @@ input:checked+.i-slider:before {
   background-color: rgba($wpn-fackel,0.2);
 }
 
+.apps.annot_fackel > .l {
+  background-color: rgba($wpn-fackel,0.2);
+}
+
 #textcolumn span.annot_comment::after  {
   content: url("../images/icon-signet-comment-intext.svg");
     position: absolute;
