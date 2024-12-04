@@ -176,9 +176,6 @@
     </xsl:template>
     <xsl:template match="tei:fw"/>
     <xsl:template match="tei:mod[@change='#pencilOnProof_KK'][not(@rendition='#pencilOnProof_rightAlignSmall')]"/>
-    <xsl:template match="tei:app">
-        <span class="hidden"><xsl:apply-templates/></span>
-    </xsl:template>
     <xsl:template match="tei:lg">
         <span class="d-block lg {replace(@rendition,'#','')}"><xsl:apply-templates/></span>
     </xsl:template>
@@ -203,12 +200,15 @@
             <xsl:apply-templates mode="raw"/>
         </ref>
     </xsl:template>
-    <xsl:template match="tei:app[not(@prev)][not(@next)]">
+    <xsl:template match="tei:app">
         <wpn-entity bubble="false" class="apps fackel entity" id="{@xml:id}">
+            <xsl:if test="@prev">
+                <xsl:attribute name="data-prev" select="replace(@prev,'#','')"/>
+            </xsl:if>
             <xsl:apply-templates/>
         </wpn-entity>
     </xsl:template>
-    <xsl:template match="tei:app[not(@prev)][not(@next)]" mode="raw">
+    <xsl:template match="tei:app" mode="raw">
         <ref target="{@xml:id}">
             <xsl:apply-templates mode="raw"/>
         </ref>
