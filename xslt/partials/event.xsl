@@ -115,7 +115,7 @@
                     <xsl:variable name="following_text" select="string($kwic_hit/string-join(following::text()))"/>
                     <xsl:variable name="kwic_left" select="substring($prev_text, string-length($prev_text) - 78)"/>
                     <xsl:variable name="kwic_right" select="substring($following_text, 1, 78)"/>
-                    <div class="text-kwic-grey d-flex justify-content-between">
+                    <div class="text-kwic-grey d-flex justify-content-between gap-4">
                         <div class="kwic-wrapper">
                             <xsl:if test="string-length($kwic_left) > 0">
                                 <span><xsl:copy-of select="'...'||$kwic_left"/></span>
