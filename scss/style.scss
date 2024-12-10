@@ -1264,3 +1264,10 @@ wpn-time-line {
 body.modal-open, body.modal-open main {
   overflow: hidden !important;
 }
+
+
+/*** hide comment marks in register kwic view ***/
+
+.hide-comments .comments {
+  display:none;
+}
