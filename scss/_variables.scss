@@ -111,7 +111,7 @@ $link-shade-percentage: 0;
 $headings-color: $wpn-red;
 
 /*** header / navbar ***/
-$header-height: 250px;
+$header-height: min(250px,calc(100vh / 2));
 $navbar-brand-height: 12.5rem;
 $navbar-padding-y: 1.563rem;
 $navbar-toggler-focus-width: 0;
