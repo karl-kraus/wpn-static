@@ -64,8 +64,8 @@
                             </svg>
                         </button>
                     </span>
-                    <div class="navbar start-0 bg-black-grey w-100 opacity-97 modal fade modal-xl h-auto" data-bs-backdrop="false" tabindex="-1" id="navbarSupportedContent">
-                        <div class="modal-dialog">
+                    <div class="navbar start-0 bg-black-grey w-100 opacity-97 modal fade modal-xl mh-fit-content" data-bs-backdrop="false" tabindex="-1" id="navbarSupportedContent">
+                        <div class="modal-dialog mw-100">
                             <div class="modal-content bg-transparent border-0">
                                 <div class="modal-header text-end d-md-none border-0">
                                     <button type="button" class="btn-close btn-close btn-close-white" data-bs-dismiss="modal">
@@ -130,7 +130,27 @@
                                             </ul>
                                         </div>
                                         <div class="col-md-4">
-                                            <span class="d-block navbar-title text-dark-grey border-bottom border-light-grey pb-1">Kommentar</span>
+                                            <span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Kommentar</span>
+                                            <ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'kommentar.html'"/>
+                                                        <xsl:with-param name="label" select="'Zu Kommentar und Zeitleiste'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'register_kommentare.html'"/>
+                                                        <xsl:with-param name="label" select="'Register der Kommentare'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'ereignisse.html'"/>
+                                                        <xsl:with-param name="label" select="'Zeitleiste'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
