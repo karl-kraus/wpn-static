@@ -39,6 +39,8 @@ class WPNDetailView extends HTMLElement {
           detailElement.classList.add('d-none');
         })
       }
+    } else {
+      this.classList.add("d-none");
     }
   }
   

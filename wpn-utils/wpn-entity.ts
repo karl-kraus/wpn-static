@@ -5,7 +5,8 @@ class WPNEntity extends HTMLElement {
 		return attributeValue === 'false' ? false : true;
 	}
 
-  clickHandler = (e: MouseEvent) =>{ 
+  clickHandler = (e: MouseEvent) =>{
+    window.location.hash = "";
     const targetId = this.hasAttribute("data-prev") ? this.getAttribute("data-prev") : this.getAttribute("id");
     const annotationClassName = Array.from(this.classList).find(className => className.startsWith("annot_"));
     if (annotationClassName) {
