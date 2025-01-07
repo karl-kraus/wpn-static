@@ -267,9 +267,7 @@
             <span class="inline-text"><xsl:apply-templates/></span>
         </span>
     </xsl:template>
-    <xsl:template match="tei:c[@type='nnbsp']">
-        <span class="ls-0"><xsl:value-of select="'&#x2060;&#x2009;&#x2060;'"/></span>
-    </xsl:template>
+    <xsl:template match="tei:c[@type='nnbsp']"/>
      <xsl:template match="tei:sic"/>
      <xsl:template match="tei:sic" mode="render">
         <xsl:apply-templates/>
@@ -380,6 +378,9 @@
     </xsl:template>
     <xsl:template match="tei:lb[not(@break)][not(@type)]"><xsl:text> </xsl:text></xsl:template>
      <xsl:template match="text()">
+     <xsl:if test="matches(.,'[:;?!]')">
+        <span class="ls-0"><xsl:value-of select="'&#x2060;&#x2009;&#x2060;'"/></span>
+     </xsl:if>
     <xsl:value-of 
      select="translate(.,'&#xA;&#x9;','')"/>
   </xsl:template>
