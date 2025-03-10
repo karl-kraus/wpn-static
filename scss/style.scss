@@ -565,10 +565,26 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 /** detail view Dritter Publikationsschritt **/
 
-#textconent-pb .rightAlignSmall {
+#textcontent-pb .longQuoteRightAlign2, 
+#textcontent-pb .typescriptLongQuoteRightAlign2,
+#textcontent-pb .typescriptLongQuoteRightAlign {
+  font-size: 1em;
+}
+
+#textcontent-pb .typescriptLongQuoteVerse, 
+#textcontent-pb .typescriptLongQuoteVerseLeading {
+  font-size: 1em;
+}
+
+#textcontent-pb .rightAlignSmall {
   text-align: right;
   text-align-last: right;
   font-size: 8pt;
+}
+
+#textcontent-pb .typescriptLongQuoteTitle,
+#textcontent-pb .typescriptLongQuoteTitle2 {
+  font-size: 1em;
 }
 
 #textcontent-pb .runningText1,
@@ -613,6 +629,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align: left;
   text-align-last: left;
   margin-bottom: $spacer * 0.5;
+  font-size: 1em;
 }
 
 #textcontent-pb .longQuoteVerse,
@@ -939,6 +956,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   top: 17.6%;
 }
 
+.marginUpperRight {
+  right: 1.5%;
+  top: 7%;
+}
+
 .marginMiddleLeft {
   left: 1.5%;
   top: 53.2%;
@@ -957,6 +979,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-decoration: underline;
 }
 
+#textcontent-pb .noIndent {
+  text-indent: 0 !important;
+  margin-left: 0 !important;
+}
+
 #textcontent-pb .entity {
   pointer-events: auto !important;
 }
@@ -965,14 +992,14 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   pointer-events: none !important;
 }
 
-#textcontent-pb .pencilOnTypescript,
-#textcontent-pb .undefined,
-#textcontent-pb .redOnProof,
-#textcontent-pb .pencilOnProof,
-#textcontent-pb .pencilOnProofKK,
-#textcontent-pb .inkOnProofKK {
-  font-size: 8pt;
-}
+// #textcontent-pb .pencilOnTypescript,
+// #textcontent-pb .undefined,
+// #textcontent-pb .redOnProof,
+// #textcontent-pb .pencilOnProof,
+// #textcontent-pb .pencilOnProofKK,
+// #textcontent-pb .inkOnProofKK {
+//   font-size: 8pt;
+// }
 
 #textcontent-pb .pencilOnTypescript,
 #textcontent-pb .pencilOnProof,
@@ -1002,11 +1029,40 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 //   text-indent: 0 !important;
 // }
 
+#textcontent-pb .longQuoteVerseStart {
+  margin-left: $spacer * 3;
+  text-indent:0;
+}
+
+#textcontent-pb .longQuoteVerseMiddle {
+  margin-left: $spacer * 3;
+  text-indent:0;
+}
+
+#textcontent-pb .longQuoteVerseEnd {
+  margin-left: $spacer * 3;
+  text-indent: 0;
+}
+
+#textcontent-pb .longQuoteVerse .longQuoteVerseStart {
+  margin-left: 0 !important;
+}
+
+#textcontent-pb .longQuoteVerse .longQuoteVerseMiddle {
+  margin-left: 0 !important;
+}
+
+#textcontent-pb .longQuoteVerse .longQuoteVerseEnd {
+  margin-left: 0 !important;
+}
+
 #textcontent-pb .note {
   position: absolute;
   text-indent: 0 !important;
   text-align: left;
   text-align-last: left;
+  font-size: 8pt;
+  line-height: 8pt;
 }
 
 #textcontent-pb .add {
@@ -1044,6 +1100,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   content: '?';
 }
 
+#textcontent-pb .longQuoteCenter {
+  text-align: center !important;;
+  text-align-last: center !important;
+}
+
 // @rend
 
 .typescriptFloatRight {
@@ -1053,6 +1114,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 .overwritten,
 .x-edOut {
   color: #ffb922b5;
+}
+
+.rotate90 {
+  transform: rotate(90deg);
 }
 
 .rotate270 {
@@ -1197,6 +1262,19 @@ div:has(> .marginLeft), div:has(> .lineLeft), div:has(> .doubleLineLeft) {
 }
 
 .metamark.mm-inline.target span {
+  position: absolute;
+  right: -3px;
+}
+
+.metamark.mm-inline,
+.seg.seg-inline,
+.mod.mod-inline {
+  position: relative;
+}
+
+.metamark.mm-inline span,
+.seg.seg-inline span,
+.mod.mod-inline span {
   position: absolute;
   right: -3px;
 }

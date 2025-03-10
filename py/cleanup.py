@@ -224,8 +224,12 @@ def wrap_last_sentence(file) -> None:
     doc = ET.parse(file)
     lb = doc.xpath('.//tei:lb[@n="last" or @n="firstLast"]', namespaces=NSMAP)
     for x in lb:
+        x_n = x.attrib["n"]
         s = ET.Element('span')
-        s.attrib["n"] = "last"
+        if x_n == "firstLast":
+            s.attrib["n"] = "firstLast"
+        else:
+            s.attrib["n"] = "last"
         s.text = x.tail
         x.tail = ""
         s = wrap_or_not(x.getnext(), s)

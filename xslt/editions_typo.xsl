@@ -210,7 +210,8 @@
                         | //tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'Left')]
                         | //tei:metamark[@function='insertion' and contains(@rend, 'Left')]
                         | //tei:mod[@rendition='#longQuote' and contains(@rend, 'Left')]
-                        | //tei:mod[@rendition='#runningText1' and contains(@rend, 'Left')]" mode="render"/>
+                        | //tei:mod[@rendition='#runningText1' and contains(@rend, 'Left')]
+                        | //tei:mod[not(@rendition) and @style='noIndent' and contains(@rend, 'Left')]" mode="render"/>
                 </div>
                 <div class="body-main">
                     <xsl:apply-templates/>
@@ -225,7 +226,8 @@
                         | //tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'Right')]
                         | //tei:metamark[@function='insertion' and contains(@rend, 'Right')]
                         | //tei:mod[@rendition='#longQuote' and contains(@rend, 'Right')]
-                        | //tei:mod[@rendition='#runningText1' and contains(@rend, 'Right')]" mode="render"/>
+                        | //tei:mod[@rendition='#runningText1' and contains(@rend, 'Right')]
+                        | //tei:mod[not(@rendition) and @style='noIndent' and contains(@rend, 'Right')]" mode="render"/>
                 </div>
             </div>
             <div class="print-footer {$printType}">
@@ -234,7 +236,7 @@
         </div>
     </xsl:template>
     <xsl:template match="tei:p[@n]|tei:mod[@n]">
-        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')}  {if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}">
+        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')}{if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
@@ -251,9 +253,9 @@
         <span class="comments" id="{@xml:id}"></span>
     </xsl:template>
     <xsl:template match="tei:fw">
-        <div class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}">
+        <span class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}">
             <span><xsl:apply-templates/></span>
-        </div>
+        </span>
     </xsl:template>
     <!-- <xsl:template match="tei:mod[@change='#pencilOnProof_KK'][not(@rendition='#pencilOnProof_rightAlignSmall')]"/> -->
     <xsl:template match="tei:app">
@@ -504,7 +506,7 @@
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
         <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
         <xsl:variable name="containerID" select="if(parent::tei:subst)then(preceding-sibling::tei:del[1]/@xml:id)else(@xml:id)"/>
-        <div data-xmlid="{@xml:id}" class="d-flex ms-1 entity">
+        <div data-xmlid="{@xml:id}" class="d-flex ms-1">
             <xsl:if test="not($xmlrend)">
                 <div id="container-{$containerID}" class="add connect {replace(@change,'#','')} w-100">
                     <div class="position-relative">
@@ -619,8 +621,8 @@
         <span class="metamark {replace(@change,'#','')} {@place} {@style}" id="{@xml:id}"><xsl:apply-templates/></span>
      </xsl:template>
     <xsl:template match="tei:metamark[@function='progress'][@rend]">
-        <span class="metamark connect entity {replace(@change,'#','')}" id="{@xml:id}">
-            <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
+        <span class="metamark mm-inline connect entity {replace(@change,'#','')}" id="{@xml:id}">
+           <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
         </span>
      </xsl:template>
      <!-- margin container elements -->
@@ -640,10 +642,14 @@
      </xsl:template>
      <xsl:template match="tei:metamark[@function='relocation'][@change='#edACE']"/>
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@place]">
-        <span class="metamark {@place} {@style} {replace(@change, '#', '')}" id="{@xml:id}">&#124;</span>
+        <span class="metamark mm-inline {@place} {@style} {replace(@change, '#', '')}" id="{@xml:id}">
+            <span>&#124;</span>
+        </span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@rend]">
-        <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">&#124;<xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if></span>
+        <span class="metamark mm-inline connect entity {replace(@change, '#', '')}" id="{@xml:id}">
+            <span>&#124;<xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if></span>
+        </span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][not(@rend) and not(@place)]">
         <span class="metamark mm-inline connect {if(@target)then('target')else()} {replace(@change, '#', '')}" id="{@xml:id}">
@@ -841,7 +847,9 @@
                     <xsl:value-of select="concat('border border-1 border-secondary-subtle', replace(@change, '#', ''))"/>
                 </xsl:attribute>
             </xsl:if>
-            <xsl:if test="@rend='line'"><span id="{@xml:id}">&#124;</span></xsl:if><xsl:if test="@rend='arrow'"><span id="{@xml:id}">&#8592;</span></xsl:if><xsl:apply-templates/>
+            <xsl:if test="@rend='line'"><span class="seg seg-inline"><span id="{@xml:id}">&#124;</span></span></xsl:if>
+            <xsl:if test="@rend='arrow'"><span class="seg seg-inline"><span id="{@xml:id}">&#8592;</span></span></xsl:if>
+            <xsl:apply-templates/>
         </span>
     </xsl:template>
     <xsl:template match="tei:seg[@rendition='#runningText1']">
@@ -877,33 +885,47 @@
     <xsl:template match="tei:mod[@style='indent2']">
         <span class="mod {@style} {replace(@rendition,'#','')} {replace(@change, '#', '')}"><xsl:apply-templates/> <span style="font-size:1.25em;">&#8594;</span></span>
     </xsl:template>
+    <xsl:template match="tei:mod[@style='noIndent']">
+        <span id="{@xml:id}" class="mod connect entity {@style} {replace(@rendition,'#','')} {replace(@change, '#', '')}"><span style="font-size:1.25em;">&#8592;</span> <xsl:apply-templates/></span>
+    </xsl:template>
     <xsl:template match="tei:mod[@style='noUnderline']">
         <span class="mod {@style} {replace(@rendition,'#','')} {replace(@change, '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:mod[@style='italic']">
-        <span class="mod {@style} fst-italic {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+        <span class="mod {@style} underline {replace(@change, '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:mod[@rendition='#rightAlignSmall']">
         <span class="mod {@style} {replace(@change, '#', '')} longQuoteRightAlign my-05 d-block"><xsl:apply-templates/></span>
     </xsl:template>
-
     <xsl:template match="tei:mod[contains(@rendition,'Quote')]">
         <span class="mod connect entity {@style} {replace(@rendition,'#','')} {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
     <!-- container element -->
     <xsl:template match="tei:mod[@rendition='#longQuote' and contains(@rend, 'Right')]" mode="render">
-        <div id="container-{@xml:id}" class="mod connect ms-1 {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div><span style="font-size:1.25em;">&#124;</span></div>
+        <div class="d-flex ms-1" data-xmlid="{@xml:id}">
+            <div class="mod connect {@rend} {replace(@change,'#','')}" id="container-{@xml:id}"><span style="font-size:1.25em;">&#124;</span></div>
         </div>
      </xsl:template>
      <xsl:template match="tei:mod[@rendition='#longQuote' and contains(@rend, 'Left')]" mode="render">
-        <div id="container-{@xml:id}" class="mod connect ms-1 {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div><span style="font-size:1.25em;">&#124;</span></div>
+        <div class="d-flex ms-1" data-xmlid="{@xml:id}">
+            <div class="mod connect {@rend} {replace(@change,'#','')}" id="container-{@xml:id}"><span style="font-size:1.25em;">&#124;</span></div>
         </div>
      </xsl:template>
-    
+     <xsl:template match="tei:mod[not(@rendition) and @style='noIndent' and contains(@rend, 'Left')]" mode="render">
+        <div id="container-{@xml:id}" class="mod connect ms-1 {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><span>&#8592;</span></div>
+        </div>
+     </xsl:template>
+     <xsl:template match="tei:mod[not(@rendition) and @style='noIndent' and contains(@rend, 'Right')]" mode="render">
+        <div id="container-{@xml:id}" class="mod connect ms-1 {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div><span>&#8592;</span></div>
+        </div>
+     </xsl:template>
     <xsl:template match="tei:mod[@rendition='#runningText1']">
-        <span class="mod connect entity no-indent {@style} {replace(@rendition,'#','')} {replace(@change, '#', '')}" id="{@xml:id}">[<xsl:apply-templates/></span>
+        <span class="mod connect entity no-indent {@style} {replace(@rendition,'#','')} {replace(@change, '#', '')}" id="{@xml:id}">
+            <span class="mod mod-inline"><span>[</span></span>
+            <xsl:apply-templates/>
+        </span>
     </xsl:template>
     <!-- container element -->
      <xsl:template match="tei:mod[@rendition='#runningText1' and contains(@rend, 'Right')]" mode="render">
@@ -948,7 +970,19 @@
                 <span class="d-block text-align-left no-indent"><xsl:apply-templates/></span>
             </xsl:otherwise>
         </xsl:choose>
-        
+    </xsl:template>
+    <xsl:template match="tei:span[@n='firstLast']">
+        <xsl:choose>
+            <xsl:when test="ancestor::tei:del or parent::tei:del or preceding-sibling::*[1]/local-name() = ('del', 'add')">
+                <span class="d-table-row text-align-left">&#160;<xsl:apply-templates/></span>
+            </xsl:when>
+            <!-- <xsl:when test="preceding-sibling::*[1][@n='last']/local-name() = 'span'">
+                <span class="d-table-row text-align-left no-indent">&#160;<xsl:apply-templates/></span>
+            </xsl:when> -->
+            <xsl:otherwise>
+                <span class="d-block text-align-left"><xsl:apply-templates/></span>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:span[not(@n)]">
         <xsl:apply-templates/>
