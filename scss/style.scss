@@ -962,6 +962,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-decoration: underline;
 }
 
+#textcontent-pb .noIndent {
+  text-indent: 0 !important;
+  margin-left: 0 !important;
+}
+
 #textcontent-pb .entity {
   pointer-events: auto !important;
 }
