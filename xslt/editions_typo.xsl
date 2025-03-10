@@ -621,8 +621,8 @@
         <span class="metamark {replace(@change,'#','')} {@place} {@style}" id="{@xml:id}"><xsl:apply-templates/></span>
      </xsl:template>
     <xsl:template match="tei:metamark[@function='progress'][@rend]">
-        <span class="metamark connect entity {replace(@change,'#','')}" id="{@xml:id}">
-            <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
+        <span class="metamark mm-inline connect entity {replace(@change,'#','')}" id="{@xml:id}">
+           <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
         </span>
      </xsl:template>
      <!-- margin container elements -->
@@ -642,10 +642,14 @@
      </xsl:template>
      <xsl:template match="tei:metamark[@function='relocation'][@change='#edACE']"/>
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@place]">
-        <span class="metamark {@place} {@style} {replace(@change, '#', '')}" id="{@xml:id}">&#124;</span>
+        <span class="metamark mm-inline {@place} {@style} {replace(@change, '#', '')}" id="{@xml:id}">
+            <span>&#124;</span>
+        </span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@rend]">
-        <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">&#124;<xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if></span>
+        <span class="metamark mm-inline connect entity {replace(@change, '#', '')}" id="{@xml:id}">
+            <span>&#124;<xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if></span>
+        </span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][not(@rend) and not(@place)]">
         <span class="metamark mm-inline connect {if(@target)then('target')else()} {replace(@change, '#', '')}" id="{@xml:id}">
@@ -843,7 +847,9 @@
                     <xsl:value-of select="concat('border border-1 border-secondary-subtle', replace(@change, '#', ''))"/>
                 </xsl:attribute>
             </xsl:if>
-            <xsl:if test="@rend='line'"><span id="{@xml:id}">&#124;</span></xsl:if><xsl:if test="@rend='arrow'"><span id="{@xml:id}">&#8592;</span></xsl:if><xsl:apply-templates/>
+            <xsl:if test="@rend='line'"><span class="seg seg-inline"><span id="{@xml:id}">&#124;</span></span></xsl:if>
+            <xsl:if test="@rend='arrow'"><span class="seg seg-inline"><span id="{@xml:id}">&#8592;</span></span></xsl:if>
+            <xsl:apply-templates/>
         </span>
     </xsl:template>
     <xsl:template match="tei:seg[@rendition='#runningText1']">
@@ -916,7 +922,10 @@
         </div>
      </xsl:template>
     <xsl:template match="tei:mod[@rendition='#runningText1']">
-        <span class="mod connect entity no-indent {@style} {replace(@rendition,'#','')} {replace(@change, '#', '')}" id="{@xml:id}">[<xsl:apply-templates/></span>
+        <span class="mod connect entity no-indent {@style} {replace(@rendition,'#','')} {replace(@change, '#', '')}" id="{@xml:id}">
+            <span class="mod mod-inline"><span>[</span></span>
+            <xsl:apply-templates/>
+        </span>
     </xsl:template>
     <!-- container element -->
      <xsl:template match="tei:mod[@rendition='#runningText1' and contains(@rend, 'Right')]" mode="render">

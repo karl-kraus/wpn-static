@@ -1262,6 +1262,19 @@ div:has(> .marginLeft), div:has(> .lineLeft), div:has(> .doubleLineLeft) {
   right: -3px;
 }
 
+.metamark.mm-inline,
+.seg.seg-inline,
+.mod.mod-inline {
+  position: relative;
+}
+
+.metamark.mm-inline span,
+.seg.seg-inline span,
+.mod.mod-inline span {
+  position: absolute;
+  right: -3px;
+}
+
 .typescriptFont {
   font-family: "monospace";
 }
