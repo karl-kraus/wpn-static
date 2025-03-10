@@ -565,10 +565,26 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 /** detail view Dritter Publikationsschritt **/
 
-#textconent-pb .rightAlignSmall {
+#textcontent-pb .longQuoteRightAlign2, 
+#textcontent-pb .typescriptLongQuoteRightAlign2,
+#textcontent-pb .typescriptLongQuoteRightAlign {
+  font-size: 1em;
+}
+
+#textcontent-pb .typescriptLongQuoteVerse, 
+#textcontent-pb .typescriptLongQuoteVerseLeading {
+  font-size: 1em;
+}
+
+#textcontent-pb .rightAlignSmall {
   text-align: right;
   text-align-last: right;
   font-size: 8pt;
+}
+
+#textcontent-pb .typescriptLongQuoteTitle,
+#textcontent-pb .typescriptLongQuoteTitle2 {
+  font-size: 1em;
 }
 
 #textcontent-pb .runningText1,
@@ -613,6 +629,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align: left;
   text-align-last: left;
   margin-bottom: $spacer * 0.5;
+  font-size: 1em;
 }
 
 #textcontent-pb .longQuoteVerse,
