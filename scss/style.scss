@@ -939,6 +939,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   top: 17.6%;
 }
 
+.marginUpperRight {
+  right: 1.5%;
+  top: 7%;
+}
+
 .marginMiddleLeft {
   left: 1.5%;
   top: 53.2%;
@@ -1001,6 +1006,33 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 //   position: absolute;
 //   text-indent: 0 !important;
 // }
+
+#textcontent-pb .longQuoteVerseStart {
+  margin-left: $spacer * 3;
+  text-indent:0;
+}
+
+#textcontent-pb .longQuoteVerseMiddle {
+  margin-left: $spacer * 3;
+  text-indent:0;
+}
+
+#textcontent-pb .longQuoteVerseEnd {
+  margin-left: $spacer * 3;
+  text-indent: 0;
+}
+
+#textcontent-pb .longQuoteVerse .longQuoteVerseStart {
+  margin-left: 0 !important;
+}
+
+#textcontent-pb .longQuoteVerse .longQuoteVerseMiddle {
+  margin-left: 0 !important;
+}
+
+#textcontent-pb .longQuoteVerse .longQuoteVerseEnd {
+  margin-left: 0 !important;
+}
 
 #textcontent-pb .note {
   position: absolute;
