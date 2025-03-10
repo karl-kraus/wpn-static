@@ -1116,6 +1116,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   color: #ffb922b5;
 }
 
+.rotate90 {
+  transform: rotate(90deg);
+}
+
 .rotate270 {
   transform: rotate(270deg);
 }
