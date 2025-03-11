@@ -565,14 +565,38 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 /** detail view Dritter Publikationsschritt **/
 
-#textcontent-pb .longQuoteRightAlign2, 
-#textcontent-pb .typescriptLongQuoteRightAlign2,
-#textcontent-pb .typescriptLongQuoteRightAlign {
+#textcontent-pb {
+  font-size: 10pt;
+  line-height: 11pt;
+}
+
+#textcontent-pb .typescriptLongQuote,
+#textcontent-pb .typescriptLongQuoteLeading {
   font-size: 1em;
+  line-height: 1em;
+}
+
+#textcontent-pb .longQuote,
+#textcontent-pb .inkLongQuote
+ {
+  font-size: 7pt;
+  line-height: 8pt;
+}
+
+#infocontent-pb {
+  font-size: 1em;
+  line-height: 1.2em;
 }
 
 #textcontent-pb .typescriptLongQuoteVerse, 
-#textcontent-pb .typescriptLongQuoteVerseLeading {
+#textcontent-pb .typescriptLongQuoteVerseLeading,
+#textcontent-pb .typescriptLongQuoteTitle,
+#textcontent-pb .typescriptLongQuoteTitle2,
+#textcontent-pb .longQuoteRightAlign2, 
+#textcontent-pb .typescriptLongQuoteRightAlign2,
+#textcontent-pb .typescriptLongQuoteRightAlign,
+#textcontent-pb .typescriptLongQuoteIndent,
+#textcontent-pb .typescriptLongQuoteEnd {
   font-size: 1em;
 }
 
@@ -580,11 +604,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align: right;
   text-align-last: right;
   font-size: 8pt;
-}
-
-#textcontent-pb .typescriptLongQuoteTitle,
-#textcontent-pb .typescriptLongQuoteTitle2 {
-  font-size: 1em;
 }
 
 #textcontent-pb .runningText1,
@@ -604,15 +623,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align-last: justify;
 }
 
-
 #textcontent-pb .inkLongQuote,
 #textcontent-pb .FackelQuote_columnRight {
   text-align: left;
   text-align-last: left;
-}
-
-#textcontent-pb .typescriptLongQuoteIndent {
-  font-size: 1em;
 }
 
 #textcontent-pb .typescriptLongQuoteIndent,
@@ -629,7 +643,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align: left;
   text-align-last: left;
   margin-bottom: $spacer * 0.5;
-  font-size: 1em;
 }
 
 #textcontent-pb .longQuoteVerse,
@@ -759,24 +772,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   white-space: nowrap;
 }
 
-#textcontent-pb {
-  font-size: 10pt;
-  line-height: 11pt;
-}
-
-#textcontent-pb .typescriptLongQuote,
-#textcontent-pb .typescriptLongQuoteLeading {
-  font-size: 1em;
-  line-height: 1em;
-}
-
-#textcontent-pb .longQuote,
-#textcontent-pb .inkLongQuote
- {
-  font-size: 7pt;
-  line-height: 8pt;
-}
-
 #textcontent-pb .typescriptRunningText1,
 #textcontent-pb .typewriter,
 #textcontent-pb .typewriter2 {
@@ -790,11 +785,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 #textcontent-pb .spacing {
   letter-spacing: 1.5pt;
-}
-
-#infocontent-pb {
-  font-size: 1em;
-  line-height: 1.2em;
 }
 
 // .text-align-justify {
