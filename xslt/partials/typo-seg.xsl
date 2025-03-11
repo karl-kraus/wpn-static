@@ -14,6 +14,9 @@
     <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit') and parent::tei:restore]">
         <span class="border-dotted rounded-pill {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
+    <xsl:template match="tei:seg[@type='transposition' and @subtype='implicit']">
+        <span class="border-dashed rounded-pill {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+    </xsl:template>
     <xsl:template match="tei:seg[@type='relocation']">
         <span id="{if(not(@rend='line') and not(@rend='arrow'))then(@xml:id)else(concat('parent-', @xml:id))}">
             <xsl:if test="@rend='border'">

@@ -4,6 +4,7 @@
 const connectElements = (query: string, container: boolean) => {
 
     const elements = document.querySelectorAll<HTMLElement>(query);
+    let count = 0;
 
     [...elements].map((el) => {
 
@@ -33,24 +34,45 @@ const connectElements = (query: string, container: boolean) => {
             // anchor !== null ? console.log(anchor_target) : "";
             // filter out element that do not contain the class lineLeft, lineRight, doubleLineLeft, boubleLineRight
 
-            if (childS && childS.classList.contains("lineLeft") 
-                || childS && childS.classList.contains("lineRight") 
-                || childS && childS.classList.contains("doubleLineLeft") 
-                || childS && childS.classList.contains("doubleLineRight")
-            ) {
+            if (childS && childS.classList.contains("doubleLineLeft")
+                || childS && childS.classList.contains("doubleLineRight")) {
 
+                console.log(childS, "doubleLine");
+
+                const lineRight = childS.classList.contains("doubleLineRight") ? true : false;
+                
                 spanToElement
                     .map(span => {
-                        createCanvas(el);
-                        drawLine(el, span);
+                        const span_id = span?.id ? span.id : "";
+                        createCanvas(el, true, count, count, lineRight, targetId, span_id);
+                        drawLine(el, span, true, count);
                         // span?.classList.add(...["border", border, "border-2", "border-dotted"])
+                        count += 5;
                     });
 
+            } else if (childS && childS.classList.contains("lineLeft")
+                || childS && childS.classList.contains("lineRight")) {
+
+                console.log(childS, "single line");
+
+                const lineRight = childS.classList.contains("lineRight") ? true : false;
+                
+                spanToElement
+                    .map(span => {
+                        const span_id = span?.id ? span.id : "";
+                        createCanvas(el, false, count, count, lineRight, targetId, span_id);
+                        drawLine(el, span, false, count);
+                        // span?.classList.add(...["border", border, "border-2", "border-dotted"])
+                        count += 5;
+                    });
+            
             } else {
 
+                console.log(childS, "no line");
+
                 spanToElement
-                    .map(span => span?.classList.add(...["border", border, "border-2", "border-dotted"]));
-            
+                .map(span => span?.classList.add(...["border", border, "border-2", "border-dotted"]));
+
             }
 
             el.onmouseover = (e) => {
@@ -58,11 +80,14 @@ const connectElements = (query: string, container: boolean) => {
                 e.preventDefault();
 
                 // console.log(`Connecting ${el.id} to ${targetId}`);
+
+                target?.classList.add(...["border", border, "border-2", "border-dotted"]);
+                el.classList.add(color);
                 
                 if (!childS) {
-                    target?.classList.add(color);
-                    el.classList.add(color);
                     targetElement.map(target => target?.classList.add(...["border", border, "border-2", "border-dotted"]));
+                } else {
+                    spanToElement.map(span => span?.classList.add(...["border", border, "border-2", "border-dotted"]));
                 }
                 
             };
@@ -71,10 +96,13 @@ const connectElements = (query: string, container: boolean) => {
 
                 e.preventDefault();
 
+                target?.classList.remove(...["border", border, "border-2", "border-dotted"]);
+                el.classList.remove(color);
+
                 if (!childS) {
-                    target?.classList.remove(color);
-                    el.classList.remove(color);
                     targetElement.map(target => target?.classList.remove(...["border", border, "border-2", "border-dotted"]));
+                } else {
+                    spanToElement.map(span => span?.classList.remove(...["border", border, "border-2", "border-dotted"]));
                 }
 
             };
@@ -114,33 +142,61 @@ const checkForConnections = (element: HTMLElement | false, type: string) => {
 //     }
 // }
 
-const createCanvas = (element: HTMLElement) => {
+const createCanvas = (element: HTMLElement,
+                double: boolean,
+                x1: number,
+                x2: number,
+                lineRight: boolean,
+                targetId: string,
+                spanId: string) => {
     const canvas = document.createElement("canvas");
+    if (double) {
+        canvas.classList.add("double");
+    }
+    canvas.dataset.target = targetId;
+    canvas.dataset.span = spanId;
+    canvas.dataset.x1 = x1.toString();
+    canvas.dataset.x2 = x2.toString();
     canvas.id = "canvas" + element.id;
     canvas.style.position = "absolute";
+    if (lineRight) {
+        canvas.style.left = "5%";
+    } else {
+        canvas.style.left = "75%";
+    }
     element.childNodes[0].appendChild(canvas);
 }
 
-const drawLine = (element: HTMLElement, target: HTMLElement | null) => {
+const drawLine = (element: HTMLElement, target: HTMLElement | null, double: boolean, count: number) => {
     const canvas = document.getElementById("canvas" + element.id) as HTMLCanvasElement;
     const ctx = canvas.getContext("2d");
     const rect = element.getBoundingClientRect();
     const targetRect = target?.getBoundingClientRect();
-    const x1 = 0;
+    const x1 = count;
     const y1 = 0;
-    const x2 = 0;
+    const x2 = count;
     const y2 = targetRect ? targetRect.top - rect.top + 15 : 0;
 
     canvas.width = targetRect ? rect.width : 0;
     canvas.height = targetRect ? targetRect.top - rect.top + 15 : 0;
 
     if (ctx) {
+
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
         ctx.strokeStyle = "#ff8181";
-        ctx.lineWidth = 5;
         ctx.stroke();
+
+        if (double) {
+            // second line
+            ctx.beginPath();
+            ctx.moveTo(x1 + 5, y1);
+            ctx.lineTo(x2 + 5, y2);
+            ctx.strokeStyle = "#ff8181";
+            ctx.stroke();
+        }
+
     }
 }
 
