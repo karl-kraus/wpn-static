@@ -70,4 +70,4 @@
     
     <!-- <xsl:template match="tei:mod[@change='#pencilOnProof_KK'][not(@rendition='#pencilOnProof_rightAlignSmall')]"/> -->
 
-</stylesheet>
+</xsl:stylesheet>

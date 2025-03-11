@@ -155,4 +155,4 @@
     <xsl:template match="tei:add[ancestor::tei:restore[child::tei:seg]]">
     <xsl:apply-templates/>
     </xsl:template> -->
-</stylesheet>
+</xsl:stylesheet>

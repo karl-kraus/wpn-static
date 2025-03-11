@@ -215,4 +215,4 @@
      <!-- <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]">
         <span class="metamark {replace(@change, '#', '')} {@rend} {replace(@rendition, '#', '')} {@place}"><xsl:apply-templates/></span>
      </xsl:template> -->
-</stylesheet>
+</xsl:stylesheet>

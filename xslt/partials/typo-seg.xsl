@@ -37,4 +37,4 @@
     <!-- <xsl:template match="tei:seg[@type=('transposition','relocation')]" mode="render">
     <xsl:apply-templates/>
     </xsl:template> -->
-</stylesheet>
+</xsl:stylesheet>
