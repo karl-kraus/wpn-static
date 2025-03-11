@@ -6,14 +6,10 @@
     version="2.0" exclude-result-prefixes="#all">
 
     <xsl:template name="info-3rd-column">
+        <xsl:variable name="doc_type" select="//tei:pb/@type" />
         <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
             <div id="infocontent-pb">
             <xsl:for-each select="//tei:TEI/tei:facsimile[@corresp='#DWkonJer']/tei:surface">
-                <xsl:variable name="corresp">
-                    <xsl:call-template name="format_corresp">
-                        <xsl:with-param name="corresp" select="@corresp"/>
-                    </xsl:call-template>
-                </xsl:variable>
                 <xsl:variable name="corresp-id" select="replace(@corresp, '#', '')"/>
                 <div class="note m-2 {$corresp-id}">
                     <!-- ########### -->
@@ -21,7 +17,15 @@
                     <!-- ########### -->
                     <h5><xsl:text>Jerusalemer Konvolut, fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto</xsl:text></h5>
                     <xsl:for-each select="./tei:note[@type='pagination']">
-                        <p><xsl:value-of select="concat('Pagination ', ./text(), ' (', $corresp, ')')"/></p>
+                        <p id="paragraph-block-1" data-link="{@corresp}"> 
+                            <xsl:text>Pagination </xsl:text>
+                            <xsl:value-of select="./text()"/>
+                            <xsl:text> (</xsl:text>
+                            <xsl:call-template name="format_corresp">
+                                <xsl:with-param name="corresp" select="@corresp"/>
+                            </xsl:call-template>
+                            <xsl:text>)</xsl:text>
+                        </p>
                     </xsl:for-each>
 
                     <!-- ########### -->
@@ -52,16 +56,34 @@
                             </a>
                         </h6>
                     
-                        <ul id="list_more_text_layers" class="d-none list-unstyled ms-2">
+                        <ul id="list_more_layers_btn" class="d-none list-unstyled ms-2">
                             <xsl:for-each select="./tei:note[@type='change'][not(@corresp=('#edACE', '#typewriter2'))]">
-                                <li class="cursor-pointer my-1" data-link="{@corresp}">
+                                <xsl:variable name="change" select="tokenize(@corresp, ' ')"/>
+                                <xsl:variable name="corresp">
+                                    <xsl:choose>
+                                        <xsl:when test="$doc_type = 'witnessPrint'">
+                                            <xsl:value-of select="@corresp"/>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:for-each select="$change">
+                                                <xsl:if test=". != '#typewriter'">
+                                                    <xsl:value-of select="."/>
+                                                    <xsl:if test="position() != last()">
+                                                        <xsl:text> </xsl:text>
+                                                    </xsl:if>
+                                                </xsl:if>
+                                            </xsl:for-each>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:variable>
+                                <li class="cursor-pointer my-1 list_more_text_layers" data-link="{$corresp}">
                                     <xsl:call-template name="format_corresp">
                                         <xsl:with-param name="corresp" select="@corresp"/>
                                     </xsl:call-template>
                                 </li>
                             </xsl:for-each>
                             <xsl:if test="./tei:note[@type='printInstruction']">
-                            <li class="cursor-pointer my-1" data-link="{./tei:note[@type='printInstruction']/@corresp}">
+                            <li class="cursor-pointer my-1 list_more_text_layers_line" data-link="{./tei:note[@type='printInstruction']/@corresp}">
                                 <xsl:text>Markierung für den Druck der Fackel Nr. 890: </xsl:text>
                                 <xsl:choose>
                                     <xsl:when test="count(./tei:note[@type='printInstruction']) gt 1">

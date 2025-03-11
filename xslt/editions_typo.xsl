@@ -214,12 +214,11 @@
     <xsl:template match="tei:rdg[@source='DW']">
         <xsl:apply-templates/>
     </xsl:template>
-
     <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letterSpacing']">
-        <span class="spacing"><xsl:apply-templates/></span>
+        <span class="spacing {replace(@change, '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:hi[@style='underline']">
-        <span class="underline"><xsl:apply-templates/></span>
+        <span class="underline {replace(@change, '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
         <xsl:apply-templates select="tei:sic" mode="render"/>

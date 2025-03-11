@@ -58,22 +58,26 @@
             <xsl:choose>
                 <xsl:when test="@rendition = '#em'">
                     <xsl:attribute name="class">
-                        <xsl:text>italic</xsl:text>
+                        <xsl:text>italic </xsl:text>
+                        <xsl:value-of select="substring-after(@change, '#')"/>
                     </xsl:attribute>
                 </xsl:when>
                 <xsl:when test="@rendition = '#italic'">
                     <xsl:attribute name="class">
-                        <xsl:text>italic</xsl:text>
+                        <xsl:text>italic </xsl:text>
+                        <xsl:value-of select="substring-after(@change, '#')"/>
                     </xsl:attribute>
                 </xsl:when>
                 <xsl:when test="@rendition = '#smallcaps'">
                     <xsl:attribute name="class">
-                        <xsl:text>smallcaps</xsl:text>
+                        <xsl:text>smallcaps </xsl:text>
+                        <xsl:value-of select="substring-after(@change, '#')"/>
                     </xsl:attribute>
                 </xsl:when>
                 <xsl:when test="@rendition = '#bold'">
                     <xsl:attribute name="class">
-                        <xsl:text>bold</xsl:text>
+                        <xsl:text>bold </xsl:text>
+                        <xsl:value-of select="substring-after(@change, '#')"/>
                     </xsl:attribute>
                 </xsl:when>
             </xsl:choose>
