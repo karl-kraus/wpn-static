@@ -14,7 +14,23 @@ const list_layers = document.querySelectorAll<HTMLElement>("#list_more_text_laye
 
 list_layers.forEach((li) => {
 
-    li.addEventListener("click", (e) => {
+    li.addEventListener("mouseover", (e) => {
+
+        e.preventDefault();
+
+        li.classList.toggle("bg-danger-subtle");
+
+        const corresp = li.dataset.link?.split(" ");
+
+        corresp?.forEach((cor) => {
+            const cor_class = cor.replace("#", "");
+            const target = document.querySelectorAll<HTMLElement>(`.${cor_class}`);
+            [...target].map(target => target.classList.toggle("bg-danger-subtle"));
+        });
+
+    });
+
+    li.addEventListener("mouseout", (e) => {
 
         e.preventDefault();
 
@@ -36,7 +52,30 @@ const tpq = document.querySelectorAll<HTMLElement>(".tpq");
 
 tpq.forEach((p) => {
 
-    p.addEventListener("click", (e) => {
+    p.addEventListener("mouseover", (e) => {
+
+        e.preventDefault();
+
+        p.classList.toggle("bg-danger-subtle");
+
+        const corresp = p.dataset.link?.split(" ");
+
+        corresp?.forEach((cor) => {
+
+            const cor_class = cor.replace("#", "");
+
+            const target = document.getElementById(cor_class);
+            target?.classList.toggle("bg-danger-subtle");
+
+            target?.querySelectorAll(".d-block").forEach((el) => {
+                el.classList.toggle("bg-danger-subtle");
+            });
+
+        });
+
+    });
+
+    p.addEventListener("mouseout", (e) => {
 
         e.preventDefault();
 
@@ -65,7 +104,21 @@ const delQP = document.querySelectorAll<HTMLElement>(".delQP");
 
 delQP.forEach((p) => {
 
-    p.addEventListener("click", (e) => {
+    p.addEventListener("mouseover", (e) => {
+        e.preventDefault();
+
+        p.classList.toggle("bg-danger-subtle");
+
+        const corresp = p.dataset.link?.split(" ");
+
+        corresp?.forEach((cor) => {
+            const cor_class = cor.replace("#", "");
+            const target = document.getElementById(cor_class);
+            target?.classList.toggle("bg-danger-subtle");
+        });
+    });
+
+    p.addEventListener("mouseout", (e) => {
         e.preventDefault();
 
         p.classList.toggle("bg-danger-subtle");

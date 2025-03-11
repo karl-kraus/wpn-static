@@ -19,6 +19,7 @@
     <xsl:import href="./partials/typo-mod.xsl"/>
     <xsl:import href="./partials/typo-seg.xsl"/>
     <xsl:import href="./partials/typo-metamark.xsl"/>
+    <xsl:import href="./partials/typo-info-3rd-column.xsl"/>
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
