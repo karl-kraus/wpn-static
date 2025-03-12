@@ -17,7 +17,7 @@
                     <!-- ########### -->
                     <h5><xsl:text>Jerusalemer Konvolut, fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto</xsl:text></h5>
                     <xsl:for-each select="./tei:note[@type='pagination']">
-                        <p id="paragraph-block-1" data-link="{@corresp}"> 
+                        <p id="paragraph-block-{position()}" class="paragraph-block" data-link="{@corresp}"> 
                             <xsl:text>Pagination </xsl:text>
                             <xsl:value-of select="./text()"/>
                             <xsl:text> (</xsl:text>

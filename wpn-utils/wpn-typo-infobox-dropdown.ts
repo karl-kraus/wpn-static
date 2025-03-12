@@ -1,39 +1,44 @@
 // ######################################################
 // Text Block 1 in xsl/partials/typo-info-3rd-column.xsl
 // ######################################################
-const paragraph_block_1 = document.getElementById("paragraph-block-1");
+const paragraph_block_1 = document.querySelectorAll<HTMLElement>(".paragraph-block");
 
-paragraph_block_1?.addEventListener("mouseover", (e) => {
+[...paragraph_block_1].forEach((el) => {
 
-    e.preventDefault();
+    el.addEventListener("mouseover", (e) => {
 
-    paragraph_block_1.classList.toggle("bg-danger-subtle");
+        e.preventDefault();
 
-    const corresp = paragraph_block_1.dataset.link?.split(" ");
+        el.classList.toggle("bg-danger-subtle");
 
-    corresp?.forEach((cor) => {
-        const cor_class = cor.replace("#", "");
-        const target = document.querySelectorAll<HTMLElement>(`.fw.${cor_class}`);
-        [...target].map(target => target.classList.toggle("bg-danger-subtle"));
+        const corresp = el.dataset.link?.split(" ");
+
+        corresp?.forEach((cor) => {
+            const cor_class = cor.replace("#", "");
+            const target = document.querySelectorAll<HTMLElement>(`.fw.${cor_class}`);
+            [...target].map(target => target.classList.toggle("bg-danger-subtle"));
+        });
+
     });
 
-});
+    el.addEventListener("mouseout", (e) => {
 
-paragraph_block_1?.addEventListener("mouseout", (e) => {
-
-    e.preventDefault();
-
-    paragraph_block_1.classList.toggle("bg-danger-subtle");
-
-    const corresp = paragraph_block_1.dataset.link?.split(" ");
-
-    corresp?.forEach((cor) => {
-        const cor_class = cor.replace("#", "");
-        const target = document.querySelectorAll<HTMLElement>(`.fw.${cor_class}`);
-        [...target].map(target => target.classList.toggle("bg-danger-subtle"));
+        e.preventDefault();
+    
+        el.classList.toggle("bg-danger-subtle");
+    
+        const corresp = el.dataset.link?.split(" ");
+    
+        corresp?.forEach((cor) => {
+            const cor_class = cor.replace("#", "");
+            const target = document.querySelectorAll<HTMLElement>(`.fw.${cor_class}`);
+            [...target].map(target => target.classList.toggle("bg-danger-subtle"));
+        });
+    
     });
-
 });
+
+
 
 // ######################################################
 // Text Block 4 in xsl/partials/typo-info-3rd-column.xsl
