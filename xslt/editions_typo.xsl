@@ -84,7 +84,7 @@
                                                 <xsl:sort select=".//tei:pb/@xml:id[1]"/>
                                                 <xsl:variable name="page" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
                                                 <xsl:variable name="pageString" select="if(contains($page, '_'))then(xs:integer(replace(tokenize($page, '_')[1], 'F', ''))||'/'||tokenize($page, '_')[2])else(xs:integer(replace($page, 'F', '')))"/>
-                                                <xsl:if test="not(contains(tokenize(base-uri(current()),'/')[last()], '-'))"><!-- verify first and remove first (motti) two pages -->
+                                                <xsl:if test="not(.//tei:pb[@type='nonWitness'])">
                                                 <li>
                                                     <a class="dropdown-item fs-9_38 py-0" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}">
                                                         <xsl:value-of select="'Seite: '||$pageString"/>
