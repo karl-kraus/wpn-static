@@ -1014,6 +1014,34 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   color: #303030;
 }
 
+#textcontent-pb .subst.pencilOnTypescript .add,
+#textcontent-pb .subst.pencilOnProof .add,
+#textcontent-pb .subst.undefined .add,
+#textcontent-pb .subst.pencilOnProofKK .add,
+#textcontent-pb .subst.redOnProof .add,
+#textcontent-pb .subst.inkOnProofKK .add,
+#textcontent-pb .add.pencilOnTypescript,
+#textcontent-pb .add.pencilOnProof,
+#textcontent-pb .add.undefined,
+#textcontent-pb .add.pencilOnProofKK,
+#textcontent-pb .add.redOnProof,
+#textcontent-pb .add.inkOnProofKK,
+#textcontent-pb .note.pencilOnTypescript,
+#textcontent-pb .note.pencilOnProof,
+#textcontent-pb .note.undefined,
+#textcontent-pb .note.pencilOnProofKK,
+#textcontent-pb .note.redOnProof,
+#textcontent-pb .note.inkOnProofKK,
+#textcontent-pb .del.connect.pencilOnTypescript,
+#textcontent-pb .del.connect.pencilOnProof,
+#textcontent-pb .del.connect.undefined,
+#textcontent-pb .del.connect.pencilOnProofKK,
+#textcontent-pb .del.connect.redOnProof,
+#textcontent-pb .del.connect.inkOnProofKK  {
+  font-size: 8pt;
+  line-height: 8pt;
+}
+
 // #textcontent-pb .metamark  {
 //   position: absolute;
 //   text-indent: 0 !important;
@@ -1044,15 +1072,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 #textcontent-pb .longQuoteVerse .longQuoteVerseEnd {
   margin-left: 0 !important;
-}
-
-#textcontent-pb .note {
-  position: absolute;
-  text-indent: 0 !important;
-  text-align: left;
-  text-align-last: left;
-  font-size: 8pt;
-  line-height: 8pt;
 }
 
 #textcontent-pb .add {
