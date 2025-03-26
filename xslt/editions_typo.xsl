@@ -128,7 +128,7 @@
         <xsl:variable name="printType">
             <xsl:value-of select=".//tei:pb[1]/@type"/>
         </xsl:variable>
-        <div class="print-page {$printType} position-relative">
+        <div class="print-page {$printType}">
             <div class="print-header {$printType}">
                 <!-- <xsl:apply-templates select="//tei:fw" mode="render"/> -->
                 <!-- <xsl:apply-templates select="//tei:note[contains(@place, 'top')]" mode="render"/> -->
@@ -147,7 +147,7 @@
                         | //tei:mod[@rendition='#runningText1' and contains(@rend, 'Left')]
                         | //tei:mod[not(@rendition) and @style='noIndent' and contains(@rend, 'Left')]" mode="render"/>
                 </div>
-                <div class="body-main">
+                <div class="body-main position-relative">
                     <xsl:apply-templates/>
                 </div>
                 <div class="body-right">
