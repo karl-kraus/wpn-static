@@ -12,6 +12,8 @@ html/css/*.css
 html/js/wpn_utils/*.js
 /output
 parents.txt
+pyproject.toml
+uv.lock
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
