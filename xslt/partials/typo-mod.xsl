@@ -12,13 +12,13 @@
         <span class="mod {@style} underline {replace(@change, '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:mod[@style='indent2']">
-        <span class="mod {@style} {replace(@rendition,'#','')} {replace(@change, '#', '')}"><xsl:apply-templates/> <span style="font-size:1.25em;">&#8594;</span></span>
+        <span class="mod {@style} {replace(@change, '#', '')}"><xsl:apply-templates/> <span style="font-size:1.25em;">&#8594;</span></span>
     </xsl:template>
     <xsl:template match="tei:mod[@style='noIndent']">
-        <span id="{@xml:id}" class="mod connect entity {@style} {replace(@rendition,'#','')} {replace(@change, '#', '')}"><span style="font-size:1.25em;">&#8592;</span> <xsl:apply-templates/></span>
+        <span id="{@xml:id}" class="mod connect entity {@style} {replace(@change, '#', '')}"><span style="font-size:1.25em;">&#8592;</span> <xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:mod[@style='noUnderline']">
-        <span class="mod {@style} {replace(@rendition,'#','')} {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+        <span class="mod {@style} {replace(@change, '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:mod[@style='italic']">
         <span class="mod {@style} underline {replace(@change, '#', '')}"><xsl:apply-templates/></span>
@@ -27,7 +27,7 @@
         <span class="mod {@style} {replace(@change, '#', '')} longQuoteRightAlign my-05 d-block"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:mod[contains(@rendition,'Quote')]">
-        <span class="mod connect entity {@style} {replace(@rendition,'#','')} {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+        <span class="mod connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
     <!-- container element -->
     <xsl:template match="tei:mod[@rendition='#longQuote' and contains(@rend, 'Right')]" mode="render">
@@ -50,8 +50,9 @@
             <div><span>&#8592;</span></div>
         </div>
      </xsl:template>
+
     <xsl:template match="tei:mod[@rendition='#runningText1']">
-        <span class="mod connect entity no-indent {@style} {replace(@rendition,'#','')} {replace(@change, '#', '')}" id="{@xml:id}">
+        <span class="mod connect entity no-indent {@style} {replace(@change, '#', '')}" id="{@xml:id}">
             <span class="mod mod-inline"><span>[</span></span>
             <xsl:apply-templates/>
         </span>
