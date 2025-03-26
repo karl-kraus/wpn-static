@@ -170,7 +170,7 @@
         </div>
     </xsl:template>
     <xsl:template match="tei:p[@n]|tei:mod[@n]">
-        <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')}{if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}">
+        <div id="{local:makeId(.)}" class="yes-index {if(self::tei:p)then(replace(@rendition,'#',''))else()}{if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
