@@ -256,20 +256,15 @@
     <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:subst">
-        <span class="{replace(@change, '#', '')}"><xsl:apply-templates/></span>
+        <span class="subst {replace(@change, '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>
     
     <!-- <xsl:template match="tei:ptr[parent::tei:transpose]">
     <xsl:variable name="target" select="replace(@target,'#','')"/>
     <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:seg[@xml:id=$target]" mode="render"/>
     </xsl:template> -->
-    <xsl:template match="tei:note[@place]">
-        <span class="note d-block {@place} {replace(@change, '#', '')}" id="{@xml:id}">
-            <xsl:apply-templates/>
-        </span>
-    </xsl:template>
-    <xsl:template match="tei:note[not(@place)]">
-        <span class="note {replace(@change,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
+    <xsl:template match="tei:note">
+        <span class="note d-block text-align-left {@place} {replace(@change,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
     <!-- <xsl:template match="tei:lb[@type='req']">
         <br/>
