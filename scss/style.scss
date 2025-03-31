@@ -834,6 +834,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
     bottom: -9em;
 }
 
+.bottomLowerRight6 {
+    left: 18em;
+    bottom: -12em;
+}
+
 .bottom {
     left: 0em;
     bottom: -6em;
@@ -1171,6 +1176,13 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 .below {
   position: absolute;
   bottom: -10pt;
+}
+
+// experimental:
+.belowLeft {
+  position: absolute;
+  bottom: -10pt;
+  left: -6em;
 }
 
 .above {
