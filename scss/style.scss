@@ -846,7 +846,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 .bottomLeft3 {
     left: -9em;
-    bottom: -6em;
+    bottom: -7em;
 }
 
 .bottomLeft2 {
@@ -1311,6 +1311,11 @@ div:has(> .marginLeft), div:has(> .lineLeft), div:has(> .doubleLineLeft) {
 
 .metamark.inkFont{
   text-decoration: underline;
+}
+
+.metamark.inkFontCenter{
+  text-decoration: underline;
+  text-align: center;
 }
 
 /* metamark relocation inline*/
