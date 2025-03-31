@@ -1,3 +1,5 @@
+[![Build and publish](https://github.com/karl-kraus/wpn-static/actions/workflows/build.yml/badge.svg)](https://github.com/karl-kraus/wpn-static/actions/workflows/build.yml)
+
 >[!IMPORTANT] 
 >This repo is work in progress. Do not open issues (bug reports, feature requests) unless you are currently an active developler in this repo. If you are an active developer in this repo only open issues regarding your own work.
 
