@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # get gitlab token & define some vars
-export_script="./shellscripts/export_env_variables.sh"
-source $export_script
+# export_script="./shellscripts/export_env_variables.sh"
+# source $export_script
 if [ -z $GITLAB_SOURCE_TOKEN ]
 then
     echo "gitlab token not provided"
