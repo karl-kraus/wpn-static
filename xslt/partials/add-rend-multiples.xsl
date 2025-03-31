@@ -10,7 +10,7 @@
     </xsl:template>
     <xsl:template match="tei:*[@rend='marginInnerRight']">
         <xsl:variable name="page" select="preceding::tei:lb[1]/@xml:id"/>
-        <xsl:variable name="next" select="following::*[@rend='marginRight'][preceding::tei:lb[1]/@xml:id = $page]/@xml:id"/>
+        <xsl:variable name="next" select="following::*[@rend='marginRight'][preceding::tei:lb[1]/@xml:id = $page][1]/@xml:id"/>
         <xsl:variable name="outerNext" select="following::*[@rend='marginOuterRight'][preceding::tei:lb[1]/@xml:id = $page]/@xml:id"/>
         <xsl:copy>
             <xsl:attribute name="xml:data">
@@ -24,7 +24,7 @@
     </xsl:template>
     <xsl:template match="tei:*[@rend='marginInnerLeft']">
         <xsl:variable name="page" select="preceding::tei:lb[1]/@xml:id"/>
-        <xsl:variable name="next" select="following::*[@rend='marginLeft'][preceding::tei:lb[1]/@xml:id = $page]/@xml:id"/>
+        <xsl:variable name="next" select="following::*[@rend='marginLeft'][preceding::tei:lb[1]/@xml:id = $page][1]/@xml:id"/>
         <xsl:variable name="outerNext" select="following::*[@rend='marginOuterLeft'][preceding::tei:lb[1]/@xml:id = $page]/@xml:id"/>
         <xsl:copy>
             <xsl:attribute name="xml:data">
@@ -46,7 +46,7 @@
     </xsl:template>
     <xsl:template match="tei:*[@rend = 'marginLeft' or @rend = 'marginRight']">
         <xsl:variable name="page" select="preceding::tei:lb[1]/@xml:id"/>
-        <xsl:variable name="prev" select="preceding::*[contains(@rend, 'marginInner')][preceding::tei:lb[1]/@xml:id = $page]/@xml:id"/>
+        <xsl:variable name="prev" select="preceding::*[contains(@rend, 'marginInner')][preceding::tei:lb[1]/@xml:id = $page][1]/@xml:id"/>
         <xsl:copy>
             <xsl:if test="$prev">
                 <xsl:attribute name="xml:rend">
