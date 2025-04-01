@@ -81,7 +81,7 @@
                                 </xsl:when>
                                 <xsl:when test="contains($next/@xml:id, 'del')">
                                     <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}">
-                                        &#124;&#xA0;&#x20B0;<xsl:value-of select="$next"/>
+                                        &#124;&#x20B0;&#xA0;<xsl:value-of select="$next"/>
                                     </span>
                                 </xsl:when>
                                 <xsl:when test="contains($next/@xml:id, 'sub')">
@@ -133,7 +133,7 @@
                                 </xsl:when>
                                 <xsl:when test="contains($next/@xml:id, 'del')">
                                     <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}">
-                                        &#124;&#xA0;&#x20B0;<xsl:value-of select="$next"/>
+                                        &#124;&#x20B0;&#xA0;<xsl:value-of select="$next"/>
                                     </span>
                                 </xsl:when>
                                 <xsl:when test="contains($next/@xml:id, '-sub-')">
