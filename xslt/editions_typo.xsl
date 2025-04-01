@@ -26,10 +26,32 @@
     <xsl:import href="./partials/scripts.xsl"/>
 
     <xsl:variable name="prev">
-        <xsl:value-of select="substring-after(data(tei:TEI/@prev), 'https://id.acdh.oeaw.ac.at/')"/>
+        <xsl:choose>
+            <xsl:when test="contains(tei:TEI/@prev, 'idPb-000') or 
+                            contains(tei:TEI/@prev, 'idPbF')">
+                <!-- notWitness document, do not create a link -->
+            </xsl:when>
+            <xsl:when test="contains(tei:TEI/@prev, 'idPb0266_a')">
+                <xsl:text>idPb0266.xml</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="substring-after(data(tei:TEI/@prev), 'https://id.acdh.oeaw.ac.at/')"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:variable>
     <xsl:variable name="next">
-        <xsl:value-of select="substring-after(data(tei:TEI/@next), 'https://id.acdh.oeaw.ac.at/')"/>
+        <xsl:choose>
+            <xsl:when test="contains(tei:TEI/@next, 'idPb-000') or 
+                            contains(tei:TEI/@next, 'idPbF')">
+                <!-- notWitness document, do not create a link -->
+            </xsl:when>
+            <xsl:when test="contains(tei:TEI/@next, 'idPb0266_a')">
+                <xsl:text>idPb0267.xml</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="substring-after(data(tei:TEI/@next), 'https://id.acdh.oeaw.ac.at/')"/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:variable>
      <xsl:variable name="id">
         <xsl:value-of select="tei:TEI/@id"/>
@@ -73,9 +95,11 @@
                                         <xsl:variable name="currentPageString" select="if(contains($currentPage, '_') ) 
                                                                                        then(xs:integer(replace( tokenize( $currentPage, '_' )[1], 'F', '' ) )||'/'||tokenize( $currentPage, '_' )[2] ) 
                                                                                        else(xs:integer(replace($currentPage, 'F', '')))"/>
-                                        <a href="{replace($prev, '.xml', '.html')}" title="zu seite {replace($prev, '.xml', '.html')} gehen">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
-                                        </a>
+                                        <xsl:if test="string-length($prev) > 0">
+                                            <a href="{replace($prev, '.xml', '.html')}" title="zu seite {replace($prev, '.xml', '.html')} gehen">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
+                                            </a>
+                                        </xsl:if>
                                         <button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <xsl:value-of select="'Seite: '||$currentPageString"/>
                                         </button>
@@ -93,9 +117,11 @@
                                                 </xsl:if>
                                             </xsl:for-each>
                                         </ul>
-                                        <a href="{replace($next, '.xml', '.html')}" title="zu seite {replace($next, '.xml', '.html')} gehen">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
-                                        </a>
+                                        <xsl:if test="string-length($next) > 0">
+                                            <a href="{replace($next, '.xml', '.html')}" title="zu seite {replace($next, '.xml', '.html')} gehen">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
+                                            </a>
+                                        </xsl:if>
                                     </div>
                                 </div>
                             </div>
