@@ -36,10 +36,10 @@
                 <span class="del connect entity {replace(@change, '#', '')}" id="{@xml:id}">
                     <xsl:choose>
                         <xsl:when test="starts-with(., ' ')">
-                            <xsl:text>&#x20;</xsl:text><del><xsl:value-of select="normalize-space(.)"/></del>
+                            <xsl:text>&#xA0;</xsl:text><del><xsl:value-of select="normalize-space(.)"/></del>
                         </xsl:when>
                         <xsl:when test="ends-with(., ' ')">
-                            <del><xsl:value-of select="normalize-space(.)"/></del><xsl:text>&#x20;</xsl:text>
+                            <del><xsl:value-of select="normalize-space(.)"/></del><xsl:text>&#xA0;</xsl:text>
                         </xsl:when>
                         <xsl:otherwise>
                             <del><xsl:value-of select="normalize-space(.)"/></del>
@@ -55,14 +55,14 @@
             <xsl:if test="not(@xml:rend)">
             <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')} w-100">
                 <div class="position-relative">
-                    <span class="{@rend}">&#124;&#x20B0;</span>
+                    <span class="{@rend}">&#xA0;&#124;&#x20B0;</span>
                 </div>
             </div>
             </xsl:if>
             <xsl:if test="contains(@rend, 'marginInner')">
                 <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')}">
                     <div class="position-relative">
-                        <span class="{@rend}">&#124;&#x20B0;</span>
+                        <span class="{@rend}">&#xA0;&#124;&#x20B0;</span>
                     </div>
                 </div>
                 <xsl:variable name="xmldata" select="tokenize(@xml:data, '/')"/>
@@ -76,22 +76,22 @@
                             <xsl:choose>
                                 <xsl:when test="contains($next/@xml:id, 'add')">
                                     <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}">
-                                        &#124;<xsl:value-of select="$next"/>
+                                        &#xA0;&#124;<xsl:value-of select="$next"/>
                                     </span>
                                 </xsl:when>
                                 <xsl:when test="contains($next/@xml:id, 'del')">
                                     <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}">
-                                        &#124;&#x20B0;<xsl:value-of select="$next"/>
+                                        &#xA0;&#124;&#x20B0;<xsl:value-of select="$next"/>
                                     </span>
                                 </xsl:when>
                                 <xsl:when test="contains($next/@xml:id, 'sub')">
                                     <span class="{$next/@rend}">
-                                        &#124;<xsl:value-of select="$next/tei:add"/>
+                                        &#xA0;&#124;<xsl:value-of select="$next/tei:add"/>
                                     </span>
                                 </xsl:when>
                                 <xsl:when test="contains($next/@xml:id, 'metam')">
                                     <span class="{$next/@rend}">
-                                        &#124;<xsl:value-of select="$next"/>
+                                        &#xA0;&#124;<xsl:value-of select="$next"/>
                                     </span>
                                 </xsl:when>
                             </xsl:choose>
@@ -107,14 +107,14 @@
             <xsl:if test="not(@xml:rend)">
                 <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')} w-100">
                     <div class="position-relative">
-                        <span class="{@rend}">&#124;&#x20B0;</span>
+                        <span class="{@rend}">&#xA0;&#124;&#x20B0;</span>
                     </div>
                 </div>
             </xsl:if>
             <xsl:if test="contains(@rend, 'marginInner')">
                 <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')}">
                     <div class="position-relative">
-                        <span class="{@rend}">&#124;&#x20B0;</span>
+                        <span class="{@rend}">&#xA0;&#124;&#x20B0;</span>
                     </div>
                 </div>
                 <xsl:variable name="xmldata" select="tokenize(@xml:data, '/')"/>
@@ -128,22 +128,22 @@
                             <xsl:choose>
                                 <xsl:when test="contains($next/@xml:id, 'add')">
                                     <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}">
-                                        &#124;<xsl:value-of select="$next"/>
+                                        &#xA0;&#124;<xsl:value-of select="$next"/>
                                     </span>
                                 </xsl:when>
                                 <xsl:when test="contains($next/@xml:id, 'del')">
                                     <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}">
-                                        &#124;&#x20B0;<xsl:value-of select="$next"/>
+                                        &#xA0;&#124;&#x20B0;<xsl:value-of select="$next"/>
                                     </span>
                                 </xsl:when>
                                 <xsl:when test="contains($next/@xml:id, '-sub-')">
                                     <span class="{$next/@rend}">
-                                        &#124;<xsl:value-of select="$next/tei:add"/>
+                                        &#xA0;&#124;<xsl:value-of select="$next/tei:add"/>
                                     </span>
                                 </xsl:when>
                                 <xsl:when test="contains($next/@xml:id, 'metam')">
                                     <span class="{$next/@rend}">
-                                        &#124;<xsl:value-of select="$next"/>
+                                        &#xA0;&#124;<xsl:value-of select="$next"/>
                                     </span>
                                 </xsl:when>
                             </xsl:choose>
