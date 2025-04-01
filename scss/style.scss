@@ -1071,6 +1071,54 @@ handling del elments based on change type
 handling add elments based on change type
 handling del elements in maring left or right
 */
+#textcontent-pb .seg.border.pencilOnTypescript,
+#textcontent-pb .seg.border.pencilOnProof,
+#textcontent-pb .seg.border.undefined,
+#textcontent-pb .seg.border.pencilOnTypescript,
+#textcontent-pb .seg.border.pencilOnProof,
+#textcontent-pb .seg.border.undefined,
+#textcontent-pb .seg.border-dashed.pencilOnTypescript,
+#textcontent-pb .seg.border-dashed.pencilOnProof,
+#textcontent-pb .seg.border-dashed.undefined,
+#textcontent-pb .seg.border-dashed.pencilOnTypescript,
+#textcontent-pb .seg.border-dashed.pencilOnProof,
+#textcontent-pb .seg.border-dashed.undefined,
+#textcontent-pb .seg.border-dotted.pencilOnTypescript,
+#textcontent-pb .seg.border-dotted.pencilOnProof,
+#textcontent-pb .seg.border-dotted.undefined,
+#textcontent-pb .seg.border-dotted.pencilOnTypescript,
+#textcontent-pb .seg.border-dotted.pencilOnProof,
+#textcontent-pb .seg.border-dotted.undefined {
+  border-color: #b7b7b7;
+}
+
+#textcontent-pb .seg.border.pencilOnProofKK,
+#textcontent-pb .seg.border-dashed.pencilOnProofKK,
+#textcontent-pb .seg.border-dotted.pencilOnProofKK {
+  border-color: #5e5e5e;
+}
+
+#textcontent-pb .seg.border.redOnProof,
+#textcontent-pb .seg.border-dashed.redOnProof,
+#textcontent-pb .seg.border-dotted.redOnProof {
+  border-color: #ff7171b5;
+}
+
+#textcontent-pb .seg.border.inkOnProofKK,
+#textcontent-pb .seg.border-dashed.inkOnProofKK,
+#textcontent-pb .seg.border-dotted.inkOnProofKK {
+  border-color: #000;
+}
+
+#textcontent-pb .seg.border.typewriter2,
+#textcontent-pb .seg.border-dashed.typewriter2,
+#textcontent-pb .seg.border-dotted.typewriter2,
+#textcontent-pb .seg.border.typewriter,
+#textcontent-pb .seg.border-dashed.typewriter,
+#textcontent-pb .seg.border-dotted.typewriter {
+  border-color: #303030;
+}
+
 #textcontent-pb div.del.connect.pencilOnTypescript,
 #textcontent-pb div.del.connect.pencilOnProof,
 #textcontent-pb div.del.connect.undefined,
@@ -1128,6 +1176,12 @@ handling del elements in maring left or right
 #textcontent-pb .note.pencilOnProofKK,
 #textcontent-pb .note.redOnProof,
 #textcontent-pb .note.inkOnProofKK,
+#textcontent-pb .metamark.pencilOnTypescript,
+#textcontent-pb .metamark.pencilOnProof,
+#textcontent-pb .metamark.undefined,
+#textcontent-pb .metamark.pencilOnProofKK,
+#textcontent-pb .metamark.redOnProof,
+#textcontent-pb .metamark.inkOnProofKK,
 #textcontent-pb div.del.connect.pencilOnTypescript,
 #textcontent-pb div.del.connect.pencilOnProof,
 #textcontent-pb div.del.connect.undefined,
