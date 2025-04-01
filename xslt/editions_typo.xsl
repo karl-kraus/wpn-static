@@ -129,7 +129,7 @@
             <xsl:value-of select=".//tei:pb[1]/@type"/>
         </xsl:variable>
         <div class="print-page {$printType}">
-            <div class="print-header {$printType}">
+            <div class="print-header {$printType} zindex-99">
                 <!-- <xsl:apply-templates select="//tei:fw" mode="render"/> -->
                 <!-- <xsl:apply-templates select="//tei:note[contains(@place, 'top')]" mode="render"/> -->
             </div>
@@ -164,7 +164,7 @@
                         | //tei:mod[not(@rendition) and @style='noIndent' and contains(@rend, 'Right')]" mode="render"/>
                 </div>
             </div>
-            <div class="print-footer {$printType}">
+            <div class="print-footer {$printType} zindex-99">
                 <!-- <xsl:apply-templates select="//tei:note[contains(@place, 'bottom')]" mode="render"/> -->
             </div>
         </div>
