@@ -1127,30 +1127,45 @@ handling del elements in maring left or right
 #textcontent-pb .subst.undefined .add,
 #textcontent-pb .subst.pencilOnTypescript .add,
 #textcontent-pb .subst.pencilOnProof .add,
-#textcontent-pb .subst.undefined .add {
+#textcontent-pb .subst.undefined .add,
+#textcontent-pb .mod.pencilOnTypescript,
+#textcontent-pb .mod.pencilOnProof,
+#textcontent-pb .mod.undefined,
+#textcontent-pb .mod.pencilOnTypescript,
+#textcontent-pb .mod.pencilOnProof,
+#textcontent-pb .mod.undefined {
   color: #b7b7b7;
 }
 
 #textcontent-pb div.del.connect.pencilOnProofKK,
 #textcontent-pb .subst.pencilOnProofKK .add,
-#textcontent-pb .add.pencilOnProofKK {
+#textcontent-pb .add.pencilOnProofKK,
+#textcontent-pb .mod.pencilOnProofKK {
   color: #5e5e5e;
 }
 
 #textcontent-pb div.del.connect.redOnProof,
 #textcontent-pb .subst.redOnProof .add,
-#textcontent-pb .add.redOnProof {
+#textcontent-pb .add.redOnProof,
+#textcontent-pb .mod.redOnProof,
+#textcontent-pb div.del.connect.redOnProofKK,
+#textcontent-pb .subst.redOnProofKK .add,
+#textcontent-pb .add.redOnProofKK,
+#textcontent-pb .mod.redOnProofKK {
   color: #ff7171b5;
 }
 
 #textcontent-pb div.del.connect.inkOnProofKK,
 #textcontent-pb .subst.inkOnProofKK .add,
-#textcontent-pb .add.inkOnProofKK {
+#textcontent-pb .add.inkOnProofKK,
+#textcontent-pb .mod.inkOnProofKK {
   color: #000;
 }
 
 #textcontent-pb div.del.connect.typewriter,
 #textcontent-pb div.del.connect.typewriter2,
+#textcontent-pb .mod.typewriter,
+#textcontent-pb .mod.typewriter2,
 #textcontent-pb .subst.typewriter .add,
 #textcontent-pb .subst.typewriter2 .add,
 #textcontent-pb .add.typewriter,
@@ -1182,6 +1197,12 @@ handling del elements in maring left or right
 #textcontent-pb .metamark.pencilOnProofKK,
 #textcontent-pb .metamark.redOnProof,
 #textcontent-pb .metamark.inkOnProofKK,
+#textcontent-pb .mod.pencilOnTypescript,
+#textcontent-pb .mod.pencilOnProof,
+#textcontent-pb .mod.undefined,
+#textcontent-pb .mod.pencilOnProofKK,
+#textcontent-pb .mod.redOnProof,
+#textcontent-pb .mod.inkOnProofKK,
 #textcontent-pb div.del.connect.pencilOnTypescript,
 #textcontent-pb div.del.connect.pencilOnProof,
 #textcontent-pb div.del.connect.undefined,
