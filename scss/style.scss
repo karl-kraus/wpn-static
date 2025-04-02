@@ -902,75 +902,120 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 // top placements:
 
-.topUpper {
-  left: 18.3%;
-  top: 1.9%;
-}
-
-.topUpperCenter {
-  left: 26%;
-  top: 1.9%;
-}
-
-.topUpperLeft {
-  left: 10%;
-  top: 1.9%;
-}
-
-.topUpperRight {
-  left: 35.1%;
-  top: 1.9%;
-}
-
-.topCenter {
-  left: 26%;
-  top: 6.5%;
-}
-
-.topLeft {
-  left: 10%;
-  top: 6.5%;
-}
-
-.topRight {
-  left: 68.5%;
-  top: 6.5%;
-}
-
 .top {
-  left: 8.5%;
-  top: 6.5%;
+    top: -8em;
+}
+
+.topUpper {
+    top: -10em;
 }
 
 .topLower {
-  left: 8.5%;
-  top: 1%;
+    top: -6em;
 }
 
-.topLowerCenter {
-  left: 26%;
-  top: 11%;
+.topLeft1 {
+    top: -8em;
+    left: -3em;
 }
 
-.topLowerLeft {
-  left: 10%;
-  top: 11%;
+.topLeft2 {
+    top: -8em;
+    left: -6em;
 }
 
-.topLowerRight {
-  left: 68.6%;
-  top: 11%;
+.topUpperLeft1 {
+    top: -10em;
+    left: -3em;
 }
 
-.topRightCorner {
-  left: 87.9%;
-  top: 4.3%;
+.topUpperMostLeft2 {
+    top: -12em;
+    left: -6em;
+}
+
+.topUpperLeft3 {
+    top: -10em;
+    left: -9em;
+}
+
+.topUpperMostLeft3 {
+    top: -12em;
+    left: -9em;
+}
+
+.topLowerLeft1 {
+    top: -6em;
+    left: 3em;
+}
+
+.topLowerLeft2 {
+    top: -6em;
+    left: 6em;
+}
+
+.topRight2 {
+    top: -8em;
+    left: 6em;
+}
+
+.topRight4 {
+    top: -8em;
+    left: 12em;
+}
+
+.topRight6 {
+    top: -8em;
+    left: 18em;
+}
+
+.topUpperRight2 {
+    top: -10em;
+    left: 6em;
+}
+
+.topUpperRight5 {
+    top: -10em;
+    left: 15em;
+}
+
+.topUpperRight10 {
+    top: -10em;
+    left: 30em;
+}
+
+.topLowerRight1 {
+    top: -6em;
+    left: 3em;
+}
+
+.topLowerRight3 {
+    top: -6em;
+    left: 9em;
+}
+
+.topLowerRight4 {
+    top: -6em;
+    left: 12em;
+}
+
+.topLowerRight6 {
+    top: -6em;
+    left: 18em;
 }
 
 .topLeftCorner {
-  left: 6.4%;
-  top: 4.3%;
+    top: -7em;
+    left: -6em;
 }
+
+.topRightCorner {
+    top: -7em;
+    left: 36em;
+}
+
+
+// margin placements:
 
 .marginLowerLeft {
   left: 1.5%;
@@ -1412,8 +1457,8 @@ div:has(> .marginLeft), div:has(> .lineLeft), div:has(> .doubleLineLeft) {
 }
 
 .pageNumRight {
-  left: 82.5%;
-  top: 4.5%;
+  left: 100%;
+  top: -9em;
 }
 
 .pageNumLeft {
