@@ -797,237 +797,396 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align-last: left !important;  
 }
 
-// bottom placements:
-
-.bottomLowerLeft4 {
-    left: -10em;
-    bottom: -10em;
-}
-
-.bottomRight6 {
-    left: 20em;
-    bottom: -6em;
-}
-
-.bottomRight4 {
-    left: 12em;
-    bottom: -6em;
-}
-
-.bottomUpperLeft2 {
-    left: -6em;
-    bottom: -3em;
-}
-
-.bottomLeft4 {
-    left: -12em;
-    bottom: -6em;
-}
-
-.bottomLowerRight2 {
-    left: 6em;
-    bottom: -9em;
-}
-
-.bottomLowerRight4 {
-    left: 12em;
-    bottom: -9em;
-}
-
-.bottomLowerRight6 {
-    left: 18em;
-    bottom: -12em;
-}
-
-.bottom {
-    left: 0em;
-    bottom: -6em;
-}
-
-.bottomLeft3 {
-    left: -9em;
-    bottom: -7em;
-}
-
-.bottomLeft2 {
-    left: -6em;
-    bottom: -6em;
-}
-
-.bottomUpperRight6 {
-    left: 20em;
-    bottom: -3em;
-}
-
-.bottomUpper {
-    left: 0em;
-    bottom: -3em;
-}
-
-.bottomUpperRight1 {
-    left: 3em;
-    bottom: -3em;
-}
-
-.bottomLower {
-    left: 0em;
-    bottom: -9em;
-}
-
-.bottomLowerLeft3 {
-    left: -9em;
-    bottom: -9em;
-}
-
-.bottomLowerRight1 {
-    left: 3em;
-    bottom: -9em;
-}
-
-.bottomUpperLeft1 {
-    left: -3em;
-    bottom: -3em;
-}
-
-.bottomLeft1 {
-    left: -3em;
-    bottom: -6em;
-}
-
-.bottomLowerLeft2 {
-    left: -6em;
-    bottom: -9em;
-}
-
-
-// top placements:
-
-.top {
-    top: -8em;
-}
-
-.topUpper {
-    top: -10em;
-}
+// top placements
 
 .topLower {
-    top: -6em;
-}
-
-.topLeft1 {
-    top: -8em;
-    left: -3em;
-}
-
-.topLeft2 {
-    top: -8em;
-    left: -6em;
-}
-
-.topUpperLeft1 {
-    top: -10em;
-    left: -3em;
-}
-
-.topUpperLeft2 {
-    top: -10em;
-    left: -6em;
-}
-.topUpperMostLeft2 {
-    top: -12em;
-    left: -6em;
-}
-
-.topUpperLeft3 {
-    top: -10em;
-    left: -9em;
-}
-
-.topUpperMostLeft3 {
-    top: -12em;
-    left: -9em;
-}
-
-.topLowerLeft1 {
-    top: -6em;
-    left: 3em;
-}
-
-.topLowerLeft2 {
-    top: -6em;
-    left: 6em;
-}
-
-.topRight2 {
-    top: -8em;
-    left: 6em;
-}
-
-.topRight4 {
-    top: -8em;
-    left: 12em;
-}
-
-.topRight6 {
-    top: -8em;
-    left: 18em;
-}
-
-.topUpperRight2 {
-    top: -10em;
-    left: 6em;
-}
-
-.topUpperRight5 {
-    top: -10em;
-    left: 15em;
-}
-
-.topUpperRight8 {
-    top: -10em;
-    left: 24em;
-}
-
-.topUpperRight10 {
-    top: -10em;
-    left: 30em;
-}
-
-.topLowerRight1 {
-    top: -6em;
-    left: 3em;
-}
-
-.topLowerRight3 {
-    top: -6em;
+    top: 8em;
     left: 9em;
 }
 
-.topLowerRight4 {
-    top: -6em;
-    left: 12em;
+
+.topUpper {
+    top: 3em;
+    left: 9em;
+}
+
+.topLeft1 {
+    top: 1em;
+    left: 6em;
+}
+
+.topLeft2 {
+    top: 1em;
+    left: 3em;
+    text-indent: initial;
+}
+
+.topLeft3 {
+    top: 3em;
+    left: 6em;
+    text-indent: initial;
+}
+
+.topLeft4 {
+    top: 3em;
+    left: 14em;
+    text-indent: initial;
+}
+
+.topLeft5 {
+    top: 7em;
+    left: 4em;
+    text-indent: initial;
+}
+
+
+.topUpperLeft1 {
+    top: 1em;
+    left: 10em;
+    text-indent: initial;
+}
+
+.topUpperLeft2 {
+    top: 0.5em;
+    left: 3em;
+    text-indent: initial;
+}
+
+.topUpperLeft3 {
+    top: 0.5em;
+    left: 0.5em;
+    text-indent: initial;
+}
+
+.topUpperLeft4 {
+    top: 1em;
+    left: 8em;
+    text-indent: initial;
+}
+
+.topUpperLeft5 {
+    top: 7em;
+    left: 11em;
+    text-indent: initial;
+}
+
+.topUpperLeft6 {
+    top: 2em;
+    left: 8em;
+    text-indent: initial;
+}
+
+.topUpperLeft7 {
+    top: 5em;
+    left: 11em;
+    text-indent: initial;
+}
+
+.topUpperLeft8 {
+    top: 0em;
+    left: 5em;
+    text-indent: initial;
+}
+
+.topUpperLeft9 {
+    top: 5em;
+    left: 14em;
+    text-indent: initial;
+}
+
+
+.topLowerLeft1 {
+    top: 9em;
+    left: 5em;
+    text-indent: initial;
+}
+
+
+.topRight1 {
+    top: 6em;
+    left: 32em;
+    text-indent: initial;
+}
+
+.topRight2 {
+    top: 10em;
+    left: 24em;
+    text-indent: initial;
+}
+
+.topLowerRight5 {
+    top: 14em;
+    left: 37em;
+    text-indent: initial;
 }
 
 .topLowerRight6 {
-    top: -6em;
-    left: 18em;
+    top: 7em;
+    left: 39em;
+    text-indent: initial;
+}
+
+.topLowerRight7 {
+    top: 18em;
+    left: 39em;
+    text-indent: initial;
+}
+
+.topUpperRight1 {
+    top: 3em;
+    left: 30em;
+    text-indent: initial;
+}
+
+.topUpperRight2 {
+    top: 2em;
+    left: 22em;
+    text-indent: initial;
+}
+
+.topUpperRight3 {
+    top: 1em;
+    left: 37em;
+    text-indent: initial;
+}
+
+.topUpperRight4 {
+    top: 1em;
+    left: 15em;
+    text-indent: initial;
 }
 
 
-.topLowestRight6 {
-    top: -2em;
-    left: 18em;
+////////////////////////
+// bottom placements
+////////////////////////
+
+
+.bottomUpper {
+    left: 9em;
+    bottom: 8em;
 }
 
-.topLeftCorner {
-    top: -7em;
-    left: -6em;
+.bottomLower {
+    left: 10em;
+    bottom: 5em;
+    text-indent: initial;
+}
+
+.bottomLower2 {
+    left: 13em;
+    bottom: 3em;
+    text-indent: initial;
+}
+
+.bottomLeft1 {
+    left: 2em;
+    bottom: 2em;
+}
+
+.bottomLeft2 {
+    left: 2em;
+    bottom: 5em;
+}
+
+.bottomLeft3 {
+    left: 0.5em;
+    bottom: 3em;
+}
+
+.bottomLeft4 {
+    left: 4em;
+    bottom: 12em;
+    text-indent: initial;
+}
+
+.bottomLeft5 {
+    left: 7em;
+    bottom: 9em;
+    text-indent: initial;
+}
+
+.bottomLeft6 {
+    left: 1em;
+    bottom: 9em;
+    text-indent: initial;
+}
+
+.bottomLeft7 {
+    left: 3em;
+    bottom: 9em;
+    text-indent: initial;
+}
+
+.bottomLowerLeft1 {
+    left: 7em;
+    bottom: 4em;
+    text-indent: initial;
+}
+
+.bottomLowerLeft2 {
+    left: 3em;
+    bottom: 1em;
+    text-indent: initial;
+}
+
+.bottomUpperLeft2 {
+    left: 4em;
+    bottom: 3em;
+    text-indent: initial;
+}
+
+.bottomUpperLeft3 {
+    left: 4em;
+    bottom: 10em;
+    text-indent: initial;
+}
+
+.bottomUpperLeft4 {
+    left: 4em;
+    bottom: 8em;
+    text-indent: initial;
+}
+
+.bottomUpperLeft5 {
+    left: 4em;
+    bottom: 18em;
+    text-indent: initial;
+}
+
+.bottomUpperLeft6 {
+    left: 4em;
+    bottom: 5em;
+    text-indent: initial;
+}
+
+.bottomUpperLeft7 {
+    left: 8em;
+    bottom: 11em;
+    text-indent: initial;
+}
+
+.bottomUpperLeft8 {
+    left: 4em;
+    bottom: 21em;
+    text-indent: initial;
+}
+
+.bottomUpperLeft9 {
+    left: 5em;
+    bottom: 13em;
+    text-indent: initial;
+}
+
+.bottomRight4 {
+    left: 24em;
+    bottom: 7em;
+    text-indent: initial;
+}
+
+.bottomRight3 {
+    left: 28em;
+    bottom: 7em;
+    text-indent: initial;
+}
+
+
+.bottomUpperRight1 {
+    left: 11em;
+    bottom: 8em;
+}
+
+.bottomUpperRight2 {
+    left: 24em;
+    bottom: 18em;
+}
+
+.bottomUpperRight3 {
+    left: 38em;
+    bottom: 11em;
+}
+
+.bottomUpperRight4 {
+    left: 11em;
+    bottom: 18em;
+}
+
+.bottomLowerRight2 {
+    left: 7em;
+    bottom: 5em;
+    text-indent: initial;
+}
+
+.bottomLowerRight3 {
+    left: 37em;
+    bottom: 3em;
+}
+
+.bottomLowerRight4 {
+    left: 26em;
+    bottom: 4em;
+    text-indent: initial;
+}
+
+.bottomLowerRight5 {
+    left: 13em;
+    bottom: 5em;
+    text-indent: initial;
+}
+
+.bottomLowerRight6 {
+    left: 40em;
+    bottom: 5em;
+    text-indent: initial;
+}
+
+.bottomLowerRight7 {
+    left: 11em;
+    bottom: 3em;
+    text-indent: initial;
+}
+
+.bottomLowerRight8 {
+    left: 32em;
+    bottom: 6em;
+    text-indent: initial;
+}
+
+
+// corner and fixed placements
+
+.pageNumRight {
+    left: 80%;
+    top: 3em;
+    text-indent: initial;
+}
+
+.pageNumLeft {
+    left: 18%;
+    top: 3em;
+    text-indent: initial;
 }
 
 .topRightCorner {
-    top: -7em;
-    left: 36em;
+    top: 0.5em;
+    left: 95%;
+    position: absolute;
+    text-indent: initial;
 }
+
+.topLeftCorner {
+    top: 0.5em;
+    left: 5%;
+    position: absolute;
+    text-indent: initial;
+}
+
+.bottomLeftCorner {
+    left: 0.5em;
+    bottom: 0.5em;
+    text-indent: initial;
+}
+
 
 
 // margin placements:
