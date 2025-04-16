@@ -1,0 +1,12 @@
+[project]
+name = "wpn-static"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "acdh-cfts-pyutils>=0.2",
+    "acdh-tei-pyutils>=1.6",
+    "lxml>=5.3.2",
+    "tqdm>=4.67.1",
+]
