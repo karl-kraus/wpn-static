@@ -78,7 +78,7 @@ jobs:
       uses: actions/deploy-pages@v4
     - name: Build Typesense Index
       run: |
-        python ./py/make_ts_index.py
+        uv run ./py/make_ts_index.py
     - name: deploy report
       uses: peaceiris/actions-gh-pages@v4
       with:

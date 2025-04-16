@@ -9,7 +9,7 @@
         <del class="add connect entity {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></del>
     </xsl:template>
     <xsl:template match="tei:add[not(@rendition) and not(parent::tei:subst[@rend='overwritten']) and not(parent::tei:restore)]">
-        <span class="add connect entity {replace(@change, '#', '')}" id="{@xml:id}"></span>
+        <span class="add connect entity {replace(@change, '#', '')}" id="{@xml:id}">&#124;</span>
     </xsl:template>
     <xsl:template match="tei:add[parent::tei:restore]">
         <del class="add connect entity {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></del><span class="text-decoration-underline-dotted">&#124;&#xA0;</span>
@@ -25,7 +25,7 @@
     </xsl:template>
     <xsl:template match="tei:add[@rend=('below', 'above') or parent::tei:subst/@rend=('below', 'above')]">
         <span class="position-relative">
-            <span class="add {@rend} {replace(@change,'#','')}"><xsl:apply-templates/></span>
+            <span class="add {if(parent::tei:subst/@rend)then(parent::tei:subst/@rend)else(@rend)} {replace(@change,'#','')}"><xsl:apply-templates/></span>
         </span>
     </xsl:template>
     <!-- margin container elements -->
