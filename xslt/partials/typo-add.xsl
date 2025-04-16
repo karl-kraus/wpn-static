@@ -42,11 +42,11 @@
                     <div class="position-relative">
                         <xsl:choose>
                             <xsl:when test="parent::tei:subst[parent::tei:restore]">
-                                <xsl:variable name="restore-change" select="ancestor::tei:restore/@change"/>
+                                <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
                                 <del class="{$rend} {replace($restore-change,'#','')}">&#124;&#xA0;<xsl:apply-templates/></del>
                             </xsl:when>
                             <xsl:when test="parent::tei:restore">
-                                <xsl:variable name="restore-change" select="ancestor::tei:restore/@change"/>
+                                <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
                                 <del class="{$rend} {replace($restore-change,'#','')}">
                                     <span class="{replace(@change,'#','')}">&#124;&#xA0;<xsl:apply-templates/></span>
                                 </del>
@@ -113,11 +113,11 @@
                     <div class="position-relative">
                         <xsl:choose>
                             <xsl:when test="parent::tei:subst[parent::tei:restore]">
-                                <xsl:variable name="restore-change" select="ancestor::tei:restore/@change"/>
+                                <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
                                 <del class="{$rend} {replace($restore-change,'#','')}">&#124;&#xA0;<xsl:apply-templates/></del>
                             </xsl:when>
                             <xsl:when test="parent::tei:restore">
-                                <xsl:variable name="restore-change" select="ancestor::tei:restore/@change"/>
+                                <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
                                 <del class="{$rend} {replace($restore-change,'#','')}">
                                     <span class="{replace(@change,'#','')}">&#124;&#xA0;<xsl:apply-templates/></span>
                                 </del>
