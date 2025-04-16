@@ -337,7 +337,7 @@
     <xsl:template match="tei:gap">
         <xsl:choose>
         <xsl:when test="@extent">
-            <xsl:value-of select="string-join((for $i in 1 to @extent return '&#9618;'),'')"/>
+            <xsl:value-of select="string-join((for $i in 1 to @extent return '&#191;'),'')"/>
         </xsl:when>
         <xsl:otherwise>
             <xsl:text>&#9618;</xsl:text>
