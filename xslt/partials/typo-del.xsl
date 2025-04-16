@@ -15,7 +15,7 @@
     </xsl:template>
     <xsl:template match="tei:del[@rend=('below', 'above') or parent::tei:subst/@rend=('below', 'above')]">
         <span class="position-relative">
-            <span class="del {@rend} {replace(@change,'#','')}"><xsl:apply-templates/></span>
+            <span class="del {if(parent::tei:subst/@rend)then(parent::tei:subst/@rend)else(@rend)} {replace(@change,'#','')}"><xsl:apply-templates/></span>
         </span>
     </xsl:template>
     <xsl:template match="tei:del[parent::tei:add]">
