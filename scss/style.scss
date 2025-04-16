@@ -787,6 +787,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   letter-spacing: 1.5pt;
 }
 
+#textcontent-pb .mod.letterSpacing {
+  letter-spacing: 0pt;
+}
+
 // .text-align-justify {
 //   text-align: justify; /* For Edge */
 //   text-align-last: justify;
