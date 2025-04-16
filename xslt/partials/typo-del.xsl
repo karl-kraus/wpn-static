@@ -9,8 +9,9 @@
         <span class="del text-black-grey {replace(@change, '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:del[parent::tei:subst[parent::tei:restore]]">
-        <del>
-            <span class="del text-decoration-underline-dotted {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+        <xsl:variable name="subst-del-change" select="if(parent::tei:subst/@change)then(parent::tei:subst/@change)else(@change)"/>
+        <del class="{replace($subst-del-change, '#', '')}">
+            <span class="del text-decoration-underline-dotted {replace(ancestor::tei:restore/@change, '#', '')}"><xsl:apply-templates/></span>
         </del>
     </xsl:template>
     <xsl:template match="tei:del[@rend=('below', 'above') or parent::tei:subst/@rend=('below', 'above')]">
@@ -21,10 +22,9 @@
     <xsl:template match="tei:del[parent::tei:add]">
         <del id="{@xml:id}" class="{replace(@change, '#', '')}"><xsl:apply-templates/></del>
     </xsl:template>
-
     <xsl:template match="tei:del[parent::tei:restore]">
-        <del>
-            <span id="{@xml:id}" class="del connect entity text-decoration-underline-dotted {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+        <del class="{replace(@change, '#', '')}">
+            <span id="{@xml:id}" class="del connect entity text-decoration-underline-dotted {replace(parent::tei:restore/@change, '#', '')}"><xsl:apply-templates/></span>
         </del>
     </xsl:template>
     <xsl:template match="tei:del[not(parent::tei:subst[@rend='overwritten']) and not(parent::tei:restore)]">
@@ -53,9 +53,18 @@
     <xsl:template match="tei:del[not(parent::tei:subst) and contains(@rend, 'Left')]" mode="render">
         <div data-xmlid="{@xml:id}" class="d-flex ms-1">
             <xsl:if test="not(@xml:rend)">
-            <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')} w-100">
+            <div id="container-{@xml:id}" class="del connect w-100">
                 <div class="position-relative">
-                    <span class="{@rend}">&#124;&#x20B0;&#xA0;</span>
+                    <xsl:choose>
+                        <xsl:when test="parent::tei:restore">
+                            <del class="{replace(parent::tei:restore/@change,'#','')}">
+                                <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
+                            </del>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <span class="{@rend} {replace(@change,'#','')}">&#124;&#xA0;</span>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </div>
             </div>
             </xsl:if>
@@ -105,9 +114,18 @@
     <xsl:template match="tei:del[not(parent::tei:subst) and contains(@rend, 'Right')]" mode="render">
         <div data-xmlid="{@xml:id}" class="d-flex ms-1">
             <xsl:if test="not(@xml:rend)">
-                <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')} w-100">
+                <div id="container-{@xml:id}" class="del connect w-100">
                     <div class="position-relative">
-                        <span class="{@rend}">&#124;&#x20B0;&#xA0;</span>
+                        <xsl:choose>
+                            <xsl:when test="parent::tei:restore">
+                                <del class="{replace(parent::tei:restore/@change,'#','')}">
+                                    <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
+                                </del>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <span class="{@rend} {replace(@change,'#','')}">&#124;&#xA0;</span>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </div>
                 </div>
             </xsl:if>
