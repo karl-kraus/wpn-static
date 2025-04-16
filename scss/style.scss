@@ -1521,19 +1521,18 @@ handling del elements in maring left or right
 
 .below {
   position: absolute;
-  bottom: -10pt;
+  bottom: -8pt;
 }
 
-// experimental:
-.belowLeft {
+.belowFarLeft {
   position: absolute;
-  bottom: -10pt;
-  left: -6em;
+  bottom: -8pt;
+  left: -10em;
 }
 
 .above {
   position: absolute;
-  top: -10pt;
+  top: -8pt;
 }
 
 .topRight {
