@@ -47,18 +47,18 @@ mv $custom_output_dir/Events.xml data/indices/
 mv $custom_output_dir/Kommentar.xml data/indices/
 mv $custom_output_dir/SekLit_Kommentar.xml data/indices/
 
-curl "${gitlab_api_base_url}${gitlab_project_id}${gitlab_api_request}private_token=${GITLAB_SOURCE_TOKEN}&sha=${sha_commit}" --output $output_archive
-# find out, how the api named the parent folder in the archive
-top_level_folder_name="./"`tar -tzf $output_archive | head -1 | cut -f1 -d"/"`
-# unzip the archive
-tar -xvzf $output_archive
-# check if the predicted folder name exists
-if [ -d $top_level_folder_name ]
-then 
-    # move files from the archives parent folder to predictable custom folder
-    mv $top_level_folder_name/* $custom_output_dir
-    # remove parent folder from api dump
-    rm -r $top_level_folder_name
-fi
-# remove the archive file, if existing
-if [ -f $output_archive ]; then rm $output_archive; fi
+# curl "${gitlab_api_base_url}${gitlab_project_id}${gitlab_api_request}private_token=${GITLAB_SOURCE_TOKEN}&sha=${sha_commit}" --output $output_archive
+# # find out, how the api named the parent folder in the archive
+# top_level_folder_name="./"`tar -tzf $output_archive | head -1 | cut -f1 -d"/"`
+# # unzip the archive
+# tar -xvzf $output_archive
+# # check if the predicted folder name exists
+# if [ -d $top_level_folder_name ]
+# then 
+#     # move files from the archives parent folder to predictable custom folder
+#     mv $top_level_folder_name/* $custom_output_dir
+#     # remove parent folder from api dump
+#     rm -r $top_level_folder_name
+# fi
+# # remove the archive file, if existing
+# if [ -f $output_archive ]; then rm $output_archive; fi

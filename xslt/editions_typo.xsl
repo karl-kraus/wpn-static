@@ -276,13 +276,13 @@
         <xsl:apply-templates/>
     </xsl:template>
      <xsl:template match="tei:anchor[@type='metamark']">
-        <span class="anchor {replace(@change, '#', '')}" id="{@xml:id}"></span>
+        <span class="anchor {replace((@change)[1], '#', '')}" id="{@xml:id}"></span>
      </xsl:template>
     <xsl:template match="tei:restore">
-    <xsl:apply-templates/>
+        <span class="restore {replace((@change)[1], '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:subst">
-        <span class="subst {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+        <span class="subst {replace((@change)[1], '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
     
     <!-- <xsl:template match="tei:ptr[parent::tei:transpose]">

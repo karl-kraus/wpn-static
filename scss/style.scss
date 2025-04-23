@@ -1261,6 +1261,9 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 //   font-size: 8pt;
 // }
 
+.text-decoration-underline-dotted {
+  text-decoration: underline dotted;
+}
 
 /*
 handling del elments based on change type
@@ -1270,29 +1273,52 @@ handling del elments based on change type
 #textcontent-pb .subst.undefined .del del,
 #textcontent-pb .subst.pencilOnTypescript .del del,
 #textcontent-pb .subst.pencilOnProof .del del,
-#textcontent-pb .subst.undefined .del del {
+#textcontent-pb .restore.pencilOnTypescript .del,
+#textcontent-pb .restore.pencilOnProof .del,
+#textcontent-pb .restore.undefined .del,
+#textcontent-pb .restore.pencilOnTypescript .add,
+#textcontent-pb .restore.pencilOnProof .add,
+#textcontent-pb .restore.undefined .add,
+#textcontent-pb .restore.pencilOnTypescript .add del,
+#textcontent-pb .restore.pencilOnProof .add del,
+#textcontent-pb .restore.undefined .add del {
   text-decoration-color: #b7b7b7;
 }
 
 #textcontent-pb .subst.pencilOnProofKK .del del,
-#textcontent-pb .del.pencilOnProofKK del {
+#textcontent-pb .del.pencilOnProofKK del,
+#textcontent-pb .restore.pencilOnProofKK .del,
+#textcontent-pb .restore.pencilOnProofKK .add,
+#textcontent-pb .restore.pencilOnProofKK .add del {
   text-decoration-color: #5e5e5e;
 }
 
 #textcontent-pb .subst.redOnProof .del del,
-#textcontent-pb .del.redOnProof del {
+#textcontent-pb .del.redOnProof del,
+#textcontent-pb .restore.redOnProof .add,
+#textcontent-pb .restore.redOnProof .add del,
+#textcontent-pb .restore.redOnProof .del {
   text-decoration-color: #ff7171b5;
 }
 
 #textcontent-pb .subst.inkOnProofKK .del del,
-#textcontent-pb .del.inkOnProofKK del {
+#textcontent-pb .del.inkOnProofKK del,
+#textcontent-pb .restore.inkOnProofKK .add,
+#textcontent-pb .restore.inkOnProofKK .add del,
+#textcontent-pb .restore.inkOnProofKK .del {
   text-decoration-color: #000;
 }
 
 #textcontent-pb .subst.typewriter .del del,
 #textcontent-pb .subst.typewriter2 .del del,
 #textcontent-pb .del.typewriter del,
-#textcontent-pb .del.typewriter2 del {
+#textcontent-pb .del.typewriter2 del,
+#textcontent-pb .restore.typewriter .add,
+#textcontent-pb .restore.typewriter .add del,
+#textcontent-pb .restore.typewriter .del,
+#textcontent-pb .restore.typewriter2 .add,
+#textcontent-pb .restore.typewriter2 .add del,
+#textcontent-pb .restore.typewriter2 .del {
   text-decoration-color: #303030;
 }
 
@@ -1356,27 +1382,37 @@ handling del elements in maring left or right
 #textcontent-pb .subst.undefined .add,
 #textcontent-pb .subst.pencilOnTypescript .add,
 #textcontent-pb .subst.pencilOnProof .add,
-#textcontent-pb .subst.undefined .add {
+#textcontent-pb .subst.undefined .add,
+#textcontent-pb .restore.pencilOnTypescript .add,
+#textcontent-pb .restore.pencilOnProof .add,
+#textcontent-pb .restore.undefined .add,
+#textcontent-pb .restore.pencilOnTypescript .add,
+#textcontent-pb .restore.pencilOnProof .add,
+#textcontent-pb .restore.undefined .add {
   color: #b7b7b7;
 }
 
 #textcontent-pb div.del.connect.pencilOnProofKK,
 #textcontent-pb .subst.pencilOnProofKK .add,
+#textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .add.pencilOnProofKK {
   color: #5e5e5e;
 }
 
 #textcontent-pb div.del.connect.redOnProof,
 #textcontent-pb .subst.redOnProof .add,
+#textcontent-pb .restore.redOnProof .add,
 #textcontent-pb .add.redOnProof,
 #textcontent-pb div.del.connect.redOnProofKK,
 #textcontent-pb .subst.redOnProofKK .add,
+#textcontent-pb .restore.redOnProofKK .add,
 #textcontent-pb .add.redOnProofKK {
   color: #ff7171b5;
 }
 
 #textcontent-pb div.del.connect.inkOnProofKK,
 #textcontent-pb .subst.inkOnProofKK .add,
+#textcontent-pb .restore.inkOnProofKK .add,
 #textcontent-pb .add.inkOnProofKK {
   color: #000;
 }
@@ -1385,6 +1421,8 @@ handling del elements in maring left or right
 #textcontent-pb div.del.connect.typewriter2,
 #textcontent-pb .subst.typewriter .add,
 #textcontent-pb .subst.typewriter2 .add,
+#textcontent-pb .restore.typewriter .add,
+#textcontent-pb .restore.typewriter2 .add,
 #textcontent-pb .add.typewriter,
 #textcontent-pb .add.typewriter2 {
   color: #303030;
@@ -1396,6 +1434,12 @@ handling del elements in maring left or right
 #textcontent-pb .subst.pencilOnProofKK .add,
 #textcontent-pb .subst.redOnProof .add,
 #textcontent-pb .subst.inkOnProofKK .add,
+#textcontent-pb .restore.pencilOnTypescript .add,
+#textcontent-pb .restore.pencilOnProof .add,
+#textcontent-pb .restore.undefined .add,
+#textcontent-pb .restore.pencilOnProofKK .add,
+#textcontent-pb .restore.redOnProof .add,
+#textcontent-pb .restore.inkOnProofKK .add,
 #textcontent-pb .add.pencilOnTypescript,
 #textcontent-pb .add.pencilOnProof,
 #textcontent-pb .add.undefined,
@@ -1695,10 +1739,6 @@ wpn-time-line {
 
 .align-super {
   vertical-align: super;
-}
-
-.text-decoration-underline-dotted {
-  text-decoration: underline dotted;
 }
 
 .border-red-500 {

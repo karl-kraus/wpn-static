@@ -5,49 +5,96 @@
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
     version="2.0" exclude-result-prefixes="#all">
 
-    <xsl:template match="tei:del[parent::tei:subst[@rend='overwritten']]">
-        <span class="del text-black-grey {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+    <xsl:template match="tei:del[not(parent::tei:subst[not(parent::tei:restore)])]">
+        <xsl:variable name="rend" select="@rend"/>
+        <xsl:variable name="change" select="@change"/>
+        <xsl:choose>
+            <xsl:when test="@rend='overwritten'">
+                <span class="del text-black-grey" id="{@xml:id}"><xsl:apply-templates/></span>
+            </xsl:when>
+            <xsl:when test="@rend=('below', 'above')">
+                <span class="position-relative">
+                    <span class="del {@rend} {replace(($change)[1],'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:choose>
+                    <xsl:when test="child::tei:*">
+                        <span class="del connect entity {replace(($change)[1], '#', '')}" id="{@xml:id}">
+                            <del><xsl:apply-templates/></del>
+                        </span>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <span class="del connect entity {replace(($change)[1], '#', '')}" id="{@xml:id}">
+                            <xsl:choose>
+                                <xsl:when test="starts-with(., ' ')">
+                                    <xsl:text>&#xA0;</xsl:text><del><xsl:value-of select="normalize-space(.)"/></del>
+                                </xsl:when>
+                                <xsl:when test="ends-with(., ' ')">
+                                    <del><xsl:value-of select="normalize-space(.)"/></del><xsl:text>&#xA0;</xsl:text>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <del><xsl:value-of select="normalize-space(.)"/></del>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </span>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    <xsl:template match="tei:del[parent::tei:subst[not(parent::tei:restore)]]">
+        <xsl:variable name="rend" select="replace((parent::tei:subst/@rend)[1], '#', '')"/>
+        <!-- <xsl:variable name="change" select="replace((parent::tei:subst/@change)[1], '#', '')"/> -->
+        <xsl:choose>
+            <xsl:when test="$rend='overwritten'">
+                <span class="del text-black-grey" id="{@xml:id}"><xsl:apply-templates/></span>
+            </xsl:when>
+            <xsl:when test="$rend=('below', 'above')">
+                <span class="position-relative">
+                    <span class="del {$rend}" id="{@xml:id}"><xsl:apply-templates/></span>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:choose>
+                    <xsl:when test="child::tei:*">
+                        <span class="del connect entity" id="{@xml:id}">
+                            <del><xsl:apply-templates/></del>
+                        </span>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <span class="del connect entity" id="{@xml:id}">
+                            <xsl:choose>
+                                <xsl:when test="starts-with(., ' ')">
+                                    <xsl:text>&#xA0;</xsl:text><del><xsl:value-of select="normalize-space(.)"/></del>
+                                </xsl:when>
+                                <xsl:when test="ends-with(., ' ')">
+                                    <del><xsl:value-of select="normalize-space(.)"/></del><xsl:text>&#xA0;</xsl:text>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <del><xsl:value-of select="normalize-space(.)"/></del>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </span>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:del[parent::tei:subst[parent::tei:restore]]">
-        <xsl:variable name="subst-del-change" select="if(parent::tei:subst/@change)then(parent::tei:subst/@change)else(@change)"/>
-        <del class="{replace($subst-del-change, '#', '')}">
-            <span class="del text-decoration-underline-dotted {replace(ancestor::tei:restore/@change, '#', '')}"><xsl:apply-templates/></span>
-        </del>
-    </xsl:template>
-    <xsl:template match="tei:del[@rend=('below', 'above') or parent::tei:subst/@rend=('below', 'above')]">
-        <span class="position-relative">
-            <span class="del {if(parent::tei:subst/@rend)then(parent::tei:subst/@rend)else(@rend)} {replace(@change,'#','')}"><xsl:apply-templates/></span>
+        <span class="del text-decoration-underline-dotted" id="{@xml:id}">
+            <del><xsl:apply-templates/></del>
         </span>
     </xsl:template>
     <xsl:template match="tei:del[parent::tei:add]">
-        <del id="{@xml:id}" class="{replace(@change, '#', '')}"><xsl:apply-templates/></del>
+        <span id="{@xml:id}" class="{replace((@change)[1], '#', '')}">
+            <del><xsl:apply-templates/></del>
+        </span>
     </xsl:template>
     <xsl:template match="tei:del[parent::tei:restore]">
-        <del class="{replace(@change, '#', '')}">
-            <span id="{@xml:id}" class="del connect entity text-decoration-underline-dotted {replace(parent::tei:restore/@change, '#', '')}"><xsl:apply-templates/></span>
-        </del>
-    </xsl:template>
-    <xsl:template match="tei:del[not(parent::tei:subst[@rend='overwritten']) and not(parent::tei:restore)]">
-        <xsl:choose>
-            <xsl:when test="child::tei:*">
-                <del class="del connect entity {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></del>
-            </xsl:when>
-            <xsl:otherwise>
-                <span class="del connect entity {replace(@change, '#', '')}" id="{@xml:id}">
-                    <xsl:choose>
-                        <xsl:when test="starts-with(., ' ')">
-                            <xsl:text>&#xA0;</xsl:text><del><xsl:value-of select="normalize-space(.)"/></del>
-                        </xsl:when>
-                        <xsl:when test="ends-with(., ' ')">
-                            <del><xsl:value-of select="normalize-space(.)"/></del><xsl:text>&#xA0;</xsl:text>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <del><xsl:value-of select="normalize-space(.)"/></del>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </span>
-            </xsl:otherwise>
-        </xsl:choose>
+        <span id="{@xml:id}" class="del connect entity text-decoration-underline-dotted">
+            <del><xsl:apply-templates/></del>
+        </span>
     </xsl:template>
     <!-- margin container elements -->
     <xsl:template match="tei:del[not(parent::tei:subst) and contains(@rend, 'Left')]" mode="render">
@@ -57,7 +104,7 @@
                 <div class="position-relative">
                     <xsl:choose>
                         <xsl:when test="parent::tei:restore">
-                            <del class="{replace(parent::tei:restore/@change,'#','')}">
+                            <del class="{replace((parent::tei:restore/@change)[1],'#','')}">
                                 <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
                             </del>
                         </xsl:when>
@@ -118,7 +165,7 @@
                     <div class="position-relative">
                         <xsl:choose>
                             <xsl:when test="parent::tei:restore">
-                                <del class="{replace(parent::tei:restore/@change,'#','')}">
+                                <del class="{replace((parent::tei:restore/@change)[1],'#','')}">
                                     <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
                                 </del>
                             </xsl:when>
