@@ -6,28 +6,55 @@
     version="2.0" exclude-result-prefixes="#all">    
     
     <xsl:template match="tei:add[parent::tei:subst[parent::tei:restore]]">
-        <del class="add connect entity {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></del>
+        <span class="add connect entity text-decoration-underline-dotted" id="{@xml:id}">
+            <del><xsl:apply-templates/></del>
+        </span>
     </xsl:template>
-    <xsl:template match="tei:add[not(@rendition) and not(parent::tei:subst[@rend='overwritten']) and not(parent::tei:restore)]">
-        <span class="add connect entity {replace(@change, '#', '')}" id="{@xml:id}">&#124;</span>
+    <xsl:template match="tei:add[parent::tei:subst[not(parent::tei:restore)]]">
+        <xsl:choose>
+            <xsl:when test="@rend = 'inline'">
+                <span class="add" id="{@xml:id}"><xsl:apply-templates/></span>
+            </xsl:when>
+            <xsl:when test="@rend=('below', 'above')">
+                <span class="position-relative">
+                    <span class="add {parent::tei:subst/@rend}" id="{@xml:id}"><xsl:apply-templates/></span>
+                </span>
+            </xsl:when>
+            <xsl:when test="@rend='overwritten'">
+                <span class="add connect overwrite ms-n08" id="{@xml:id}"><xsl:apply-templates/></span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="add connect entity" id="{@xml:id}">&#124;</span>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    <xsl:template match="tei:add[not(parent::tei:subst[not(parent::tei:restore)])]">
+        <xsl:choose>
+            <xsl:when test="@rend = 'inline'">
+                <span class="add connect entity {replace(@change, '#', '')}" id="{@xml:id}">
+                    <xsl:apply-templates/>
+                </span>
+            </xsl:when>
+            <xsl:when test="@rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
+                <span class="position-relative">
+                    <span class="add {@rend} {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="add connect entity {replace(@change, '#', '')}" id="{@xml:id}">
+                    <span>&#124;&#xA0;</span>
+                </span>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:add[parent::tei:restore]">
-        <del class="add connect entity {replace(parent::tei:restore/@change, '#', '')}" id="{@xml:id}">
-            <span class="{replace(@change, '#', '')} text-decoration-underline-dotted">&#124;&#xA0;</span>
-        </del>
+        <span class="add connect entity text-decoration-underline-dotted" id="{@xml:id}">
+            <del>&#124;&#xA0;</del>
+        </span>
     </xsl:template>
-    <xsl:template match="tei:add[parent::tei:subst[@rend='overwritten']]">
-        <span class="add connect overwrite ms-n08 {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
-    </xsl:template>
-    <xsl:template match="tei:add[not(parent::tei:subst)]">
-        <span class="add connect entity {replace(@change, '#', '')}" id="{@xml:id}"><span>&#124;&#xA0;</span></span>
-    </xsl:template>
-    <xsl:template match="tei:add[@rend='inline' or parent::tei:subst/@rend = 'inline']">
-        <span class="add {replace(@change,'#','')}"><xsl:apply-templates/></span>
-    </xsl:template>
-    <xsl:template match="tei:add[@rend=('below', 'above') or parent::tei:subst/@rend=('below', 'above')]">
-        <span class="position-relative">
-            <span class="add {if(parent::tei:subst/@rend)then(parent::tei:subst/@rend)else(@rend)} {replace(@change,'#','')}"><xsl:apply-templates/></span>
+    <xsl:template match="tei:add[@rendition]">
+        <span class="add rendition {replace(@rendition,'#','')} {replace(@change,'#','')}">
+            <xsl:apply-templates/>
         </span>
     </xsl:template>
     <!-- margin container elements -->
@@ -172,12 +199,6 @@
                 </xsl:iterate>
             </xsl:if>
         </div>
-    </xsl:template>
-
-    <xsl:template match="tei:add[@rendition]">
-        <span class="add rendition {replace(@rendition,'#','')} {replace(@change,'#','')}">
-            <xsl:apply-templates/>
-        </span>
     </xsl:template>
 
     <!-- <xsl:template match="tei:add[@rend|parent::tei:subst[@rend] and contains((@rend|parent::tei:subst/@rend), 'Right')]">
