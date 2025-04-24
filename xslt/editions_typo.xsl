@@ -241,10 +241,30 @@
         <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letterSpacing']">
-        <span class="spacing {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+        <xsl:choose>
+            <xsl:when test="parent::tei:restore">
+                <span class="spacing underline {replace(@change, '#', '')}">
+                    <span class="underline-crossed-out"><xsl:apply-templates/></span>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="spacing {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:hi[@style='underline']">
-        <span class="underline {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+        <xsl:choose>
+            <xsl:when test="parent::tei:restore">
+                <span class="underline {replace(@change, '#', '')}">
+                    <span class="underline-crossed-out"><xsl:apply-templates/></span>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="underline {replace(@change, '#', '')}">
+                    <xsl:apply-templates/>
+                </span>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
         <xsl:apply-templates select="tei:sic" mode="render"/>

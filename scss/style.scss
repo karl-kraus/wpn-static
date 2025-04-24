@@ -1277,6 +1277,17 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   border: 1px dashed;
 }
 
+.border-crossed-out {
+  border-image: url('../images/crossed_out_typewriter_black.png') 100 1 / 8px / 3px space;
+}
+
+.underline-crossed-out {
+  background-image: url('../images/crossed_out_typewriter_black.png');
+  background-repeat: repeat-x;
+  background-size: 8px;
+  background-position-y: 4px;
+}
+
 /*
 handling del elments based on change type
 */

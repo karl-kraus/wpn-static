@@ -11,8 +11,8 @@
     <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit')]">
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
-                <span class="seg border-dotted rounded-pill {replace(@change, '#', '')}" id="{@xml:id}">
-                    <span class="border-dashed rounded-pill border-secondary-subtle"><xsl:apply-templates/></span>
+                <span class="seg border rounded-pill {replace(@change, '#', '')}" id="{@xml:id}">
+                    <span class="border-crossed-out"><xsl:apply-templates/></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
@@ -23,8 +23,8 @@
     <xsl:template match="tei:seg[@type='transposition' and @subtype='implicit']">
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
-                <span class="seg border-dashed-dotted rounded-pill {replace(@change, '#', '')}" id="{@xml:id}">
-                    <span class="border-dashed rounded-pill border-secondary-subtle"><xsl:apply-templates/></span>
+                <span class="seg border-dashed rounded-pill {replace(@change, '#', '')}" id="{@xml:id}">
+                    <span class="border-crossed-out"><xsl:apply-templates/></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
