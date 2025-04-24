@@ -1269,6 +1269,14 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-decoration-style: dotted;
 }
 
+.border-dotted {
+  border: 1px dotted;
+}
+
+.border-dashed {
+  border: 1px dashed;
+}
+
 /*
 handling del elments based on change type
 */

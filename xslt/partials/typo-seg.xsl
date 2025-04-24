@@ -8,20 +8,35 @@
     <xsl:template match="tei:seg">
         <xsl:apply-templates/>
     </xsl:template>
-    <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit') and not(parent::tei:restore)]">
-        <span class="seg border rounded-pill {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
-    </xsl:template>
-    <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit') and parent::tei:restore]">
-        <span class="seg border-dotted rounded-pill {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+    <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit')]">
+        <xsl:choose>
+            <xsl:when test="parent::tei:restore">
+                <span class="seg border-dotted rounded-pill {replace(@change, '#', '')}" id="{@xml:id}">
+                    <span class="border-dashed rounded-pill border-secondary-subtle"><xsl:apply-templates/></span>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="seg border rounded-pill {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:seg[@type='transposition' and @subtype='implicit']">
-        <span class="seg border-dashed rounded-pill {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+        <xsl:choose>
+            <xsl:when test="parent::tei:restore">
+                <span class="seg border-dashed-dotted rounded-pill {replace(@change, '#', '')}" id="{@xml:id}">
+                    <span class="border-dashed rounded-pill border-secondary-subtle"><xsl:apply-templates/></span>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="seg border-dashed rounded-pill {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:seg[@type='relocation']">
         <span id="{if(not(@rend='line') and not(@rend='arrow'))then(@xml:id)else(concat('parent-', @xml:id))}">
             <xsl:if test="@rend='border'">
                 <xsl:attribute name="class">
-                    <xsl:value-of select="concat('seg border border-1 border-secondary-subtle', replace(@change, '#', ''))"/>
+                    <xsl:value-of select="concat('seg border border-1 border-secondary-subtle', replace(@change, '#', ' '))"/>
                 </xsl:attribute>
             </xsl:if>
             <xsl:if test="@rend='line'"><span class="seg seg-inline"><span id="{@xml:id}">&#124;</span></span></xsl:if>
