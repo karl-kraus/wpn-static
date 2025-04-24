@@ -1269,6 +1269,25 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-decoration-style: dotted;
 }
 
+.border-dotted {
+  border: 1px dotted;
+}
+
+.border-dashed {
+  border: 1px dashed;
+}
+
+.border-crossed-out {
+  border-image: url('../images/crossed_out_typewriter_black.png') 100 1 / 8px / 3px space;
+}
+
+.underline-crossed-out {
+  background-image: url('../images/crossed_out_typewriter_black.png');
+  background-repeat: repeat-x;
+  background-size: 8px;
+  background-position-y: 4px;
+}
+
 /*
 handling del elments based on change type
 */
@@ -1289,7 +1308,13 @@ handling del elments based on change type
 #textcontent-pb .restore.undefined .add,
 #textcontent-pb .restore.pencilOnTypescript .mod del,
 #textcontent-pb .restore.pencilOnProof .mod del,
-#textcontent-pb .restore.undefined .mod del {
+#textcontent-pb .restore.undefined .mod del,
+#textcontent-pb .restore.pencilOnTypescript .metamark del,
+#textcontent-pb .restore.pencilOnProof .metamark del,
+#textcontent-pb .restore.undefined .metamark del,
+#textcontent-pb .metamark .restore.pencilOnTypescript del,
+#textcontent-pb .metamark .restore.pencilOnProof del,
+#textcontent-pb .metamark .restore.undefined del  {
   text-decoration-color: #b7b7b7;
 }
 
@@ -1298,7 +1323,9 @@ handling del elments based on change type
 #textcontent-pb .restore.pencilOnProofKK .del,
 #textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .restore.pencilOnProofKK .add del,
-#textcontent-pb .restore.pencilOnProofKK .mod del {
+#textcontent-pb .restore.pencilOnProofKK .mod del,
+#textcontent-pb .restore.pencilOnProofKK .metamark del,
+#textcontent-pb .metamark .restore.pencilOnProofKK del {
   text-decoration-color: #5e5e5e;
 }
 
@@ -1307,7 +1334,9 @@ handling del elments based on change type
 #textcontent-pb .restore.redOnProof .add,
 #textcontent-pb .restore.redOnProof .add del,
 #textcontent-pb .restore.redOnProof .del,
-#textcontent-pb .restore.redOnProof .mod del {
+#textcontent-pb .restore.redOnProof .mod del,
+#textcontent-pb .restore.redOnProof .metamark del,
+#textcontent-pb .metamark .restore.redOnProof del {
   text-decoration-color: #ff7171b5;
 }
 
@@ -1316,7 +1345,9 @@ handling del elments based on change type
 #textcontent-pb .restore.inkOnProofKK .add,
 #textcontent-pb .restore.inkOnProofKK .add del,
 #textcontent-pb .restore.inkOnProofKK .del,
-#textcontent-pb .restore.inkOnProofKK .mod del {
+#textcontent-pb .restore.inkOnProofKK .mod del,
+#textcontent-pb .restore.inkOnProofKK .metamark del,
+#textcontent-pb .metamark .restore.inkOnProofKK del {
   text-decoration-color: #000;
 }
 
@@ -1331,7 +1362,9 @@ handling del elments based on change type
 #textcontent-pb .restore.typewriter2 .add del,
 #textcontent-pb .restore.typewriter2 .del,
 #textcontent-pb .restore.typewriter .mod del,
-#textcontent-pb .restore.typewriter2 .mod del {
+#textcontent-pb .restore.typewriter2 .mod del,
+#textcontent-pb .restore.typewriter2 .metamark del,
+#textcontent-pb .metamark .restore.typewriter2 del {
   text-decoration-color: #303030;
 }
 
@@ -1401,14 +1434,18 @@ handling del elements in maring left or right
 #textcontent-pb .restore.undefined .add,
 #textcontent-pb .restore.pencilOnTypescript .add,
 #textcontent-pb .restore.pencilOnProof .add,
-#textcontent-pb .restore.undefined .add {
+#textcontent-pb .restore.undefined .add
+#textcontent-pb .metamark.pencilOnTypescript,
+#textcontent-pb .metamark.pencilOnProof,
+#textcontent-pb .metamark.undefined  {
   color: #b7b7b7;
 }
 
 #textcontent-pb div.del.connect.pencilOnProofKK,
 #textcontent-pb .subst.pencilOnProofKK .add,
 #textcontent-pb .restore.pencilOnProofKK .add,
-#textcontent-pb .add.pencilOnProofKK {
+#textcontent-pb .add.pencilOnProofKK,
+#textcontent-pb .metamark.pencilOnProofKK {
   color: #5e5e5e;
 }
 
@@ -1419,14 +1456,16 @@ handling del elements in maring left or right
 #textcontent-pb div.del.connect.redOnProofKK,
 #textcontent-pb .subst.redOnProofKK .add,
 #textcontent-pb .restore.redOnProofKK .add,
-#textcontent-pb .add.redOnProofKK {
+#textcontent-pb .add.redOnProofKK,
+#textcontent-pb .metamark.redOnProofKK  {
   color: #ff7171b5;
 }
 
 #textcontent-pb div.del.connect.inkOnProofKK,
 #textcontent-pb .subst.inkOnProofKK .add,
 #textcontent-pb .restore.inkOnProofKK .add,
-#textcontent-pb .add.inkOnProofKK {
+#textcontent-pb .add.inkOnProofKK,
+#textcontent-pb .metamark.inkOnProofKK {
   color: #000;
 }
 
@@ -1437,7 +1476,9 @@ handling del elements in maring left or right
 #textcontent-pb .restore.typewriter .add,
 #textcontent-pb .restore.typewriter2 .add,
 #textcontent-pb .add.typewriter,
-#textcontent-pb .add.typewriter2 {
+#textcontent-pb .add.typewriter2,
+#textcontent-pb .metamark.typewriter,
+#textcontent-pb .metamark.typewriter2 {
   color: #303030;
 }
 
