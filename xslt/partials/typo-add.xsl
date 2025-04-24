@@ -24,7 +24,7 @@
                 <span class="add connect overwrite ms-n08" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="add connect entity" id="{@xml:id}">&#124;</span>
+                <span class="add connect entity" id="{@xml:id}"></span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -97,7 +97,7 @@
                     <xsl:if test="string-length(current()) != 0">
                     <xsl:variable name="next" select="$tei//tei:*[@xml:id=current()]" as="element()"/>
                     <xsl:variable name="next-change" select="if($next/parent::tei:subst[@change])then($next/parent::tei:subst/@change)else($next/@change)"/>
-                    <xsl:variable name="subornot" select="if(contains($next/@xml:id, '-sub-'))then($next/tei:add/@xml:id)else($next/@xml:id)"/>
+                    <xsl:variable name="subornot" select="if(contains($next/@xml:id, '-sub-'))then($next/tei:del/@xml:id)else($next/@xml:id)"/>
                     <div id="container-{$subornot}" class="ms-1 add connect {replace($next-change,'#','')}">
                         <div class="position-relative">
                             <xsl:choose>
