@@ -15,7 +15,7 @@
             <xsl:when test="@rend = 'inline'">
                 <span class="add" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
-            <xsl:when test="@rend=('below', 'above')">
+            <xsl:when test="@rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <span class="position-relative">
                     <span class="add {parent::tei:subst/@rend}" id="{@xml:id}"><xsl:apply-templates/></span>
                 </span>
