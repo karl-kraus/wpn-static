@@ -1288,6 +1288,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   background-position-y: 4px;
 }
 
+.underline-wavy {
+  text-decoration: underline wavy;
+}
+
 /*
 handling del elments based on change type
 */
@@ -1306,15 +1310,18 @@ handling del elments based on change type
 #textcontent-pb .restore.pencilOnProof .add del,
 #textcontent-pb .restore.undefined .add del,
 #textcontent-pb .restore.undefined .add,
-#textcontent-pb .restore.pencilOnTypescript .mod del,
-#textcontent-pb .restore.pencilOnProof .mod del,
-#textcontent-pb .restore.undefined .mod del,
+#textcontent-pb .restore.pencilOnTypescript .mod span,
+#textcontent-pb .restore.pencilOnProof .mod span,
+#textcontent-pb .restore.undefined .mod span,
 #textcontent-pb .restore.pencilOnTypescript .metamark del,
 #textcontent-pb .restore.pencilOnProof .metamark del,
 #textcontent-pb .restore.undefined .metamark del,
 #textcontent-pb .metamark .restore.pencilOnTypescript del,
 #textcontent-pb .metamark .restore.pencilOnProof del,
-#textcontent-pb .metamark .restore.undefined del  {
+#textcontent-pb .metamark .restore.undefined del,
+#textcontent-pb .mod.pencilOnTypescript,
+#textcontent-pb .mod.pencilOnProof,
+#textcontent-pb .mod.undefined {
   text-decoration-color: #b7b7b7;
 }
 
@@ -1323,9 +1330,10 @@ handling del elments based on change type
 #textcontent-pb .restore.pencilOnProofKK .del,
 #textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .restore.pencilOnProofKK .add del,
-#textcontent-pb .restore.pencilOnProofKK .mod del,
+#textcontent-pb .restore.pencilOnProofKK .mod span,
 #textcontent-pb .restore.pencilOnProofKK .metamark del,
-#textcontent-pb .metamark .restore.pencilOnProofKK del {
+#textcontent-pb .metamark .restore.pencilOnProofKK del,
+#textcontent-pb .mod.pencilOnProofKK {
   text-decoration-color: #5e5e5e;
 }
 
@@ -1334,9 +1342,10 @@ handling del elments based on change type
 #textcontent-pb .restore.redOnProof .add,
 #textcontent-pb .restore.redOnProof .add del,
 #textcontent-pb .restore.redOnProof .del,
-#textcontent-pb .restore.redOnProof .mod del,
+#textcontent-pb .restore.redOnProof .mod span,
 #textcontent-pb .restore.redOnProof .metamark del,
-#textcontent-pb .metamark .restore.redOnProof del {
+#textcontent-pb .metamark .restore.redOnProof del,
+#textcontent-pb .mod.redOnProof {
   text-decoration-color: #ff7171b5;
 }
 
@@ -1345,9 +1354,10 @@ handling del elments based on change type
 #textcontent-pb .restore.inkOnProofKK .add,
 #textcontent-pb .restore.inkOnProofKK .add del,
 #textcontent-pb .restore.inkOnProofKK .del,
-#textcontent-pb .restore.inkOnProofKK .mod del,
+#textcontent-pb .restore.inkOnProofKK .mod span,
 #textcontent-pb .restore.inkOnProofKK .metamark del,
-#textcontent-pb .metamark .restore.inkOnProofKK del {
+#textcontent-pb .metamark .restore.inkOnProofKK del,
+#textcontent-pb .mod.inkOnProofKK {
   text-decoration-color: #000;
 }
 
@@ -1361,10 +1371,13 @@ handling del elments based on change type
 #textcontent-pb .restore.typewriter2 .add,
 #textcontent-pb .restore.typewriter2 .add del,
 #textcontent-pb .restore.typewriter2 .del,
-#textcontent-pb .restore.typewriter .mod del,
-#textcontent-pb .restore.typewriter2 .mod del,
+#textcontent-pb .restore.typewriter .mod span,
+#textcontent-pb .restore.typewriter2 .mod span,
 #textcontent-pb .restore.typewriter2 .metamark del,
-#textcontent-pb .metamark .restore.typewriter2 del {
+#textcontent-pb .metamark .restore.typewriter2 del,
+#textcontent-pb .metamark .restore.typewriter del, 
+#textcontent-pb .mod.typewriter,
+#textcontent-pb .mod.typewriter2 {
   text-decoration-color: #303030;
 }
 
@@ -1764,13 +1777,13 @@ div:has(> .marginLeft), div:has(> .lineLeft), div:has(> .doubleLineLeft) {
 
 .metamark.mm-inline,
 .seg.seg-inline,
-.mod.mod-inline {
+.mod-inline {
   position: relative;
 }
 
 .metamark.mm-inline span,
 .seg.seg-inline span,
-.mod.mod-inline span {
+.mod-inline span {
   position: absolute;
   right: -3px;
 }

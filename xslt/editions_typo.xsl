@@ -256,7 +256,7 @@
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="underline {replace(@change, '#', '')}">
-                    <span class="underline-crossed-out"><xsl:apply-templates/></span>
+                    <span class="underline-wavy"><xsl:apply-templates/></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
