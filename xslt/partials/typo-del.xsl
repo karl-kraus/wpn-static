@@ -109,7 +109,7 @@
                             </del>
                         </xsl:when>
                         <xsl:otherwise>
-                            <span class="{@rend} {replace(@change,'#','')}">&#124;&#xA0;</span>
+                            <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
                         </xsl:otherwise>
                     </xsl:choose>
                 </div>
@@ -170,7 +170,7 @@
                                 </del>
                             </xsl:when>
                             <xsl:otherwise>
-                                <span class="{@rend} {replace(@change,'#','')}">&#124;&#xA0;</span>
+                                <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
                             </xsl:otherwise>
                         </xsl:choose>
                     </div>
