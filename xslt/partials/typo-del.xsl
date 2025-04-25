@@ -12,7 +12,7 @@
             <xsl:when test="@rend='overwritten'">
                 <span class="del text-black-grey" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
-            <xsl:when test="@rend=('below', 'above')">
+            <xsl:when test="@rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <span class="position-relative">
                     <span class="del {@rend} {replace(($change)[1],'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
                 </span>
@@ -50,7 +50,7 @@
             <xsl:when test="$rend='overwritten'">
                 <span class="del text-black-grey" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
-            <xsl:when test="$rend=('below', 'above')">
+            <xsl:when test="$rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <span class="position-relative">
                     <span class="del {$rend}" id="{@xml:id}"><xsl:apply-templates/></span>
                 </span>
@@ -109,7 +109,7 @@
                             </del>
                         </xsl:when>
                         <xsl:otherwise>
-                            <span class="{@rend} {replace(@change,'#','')}">&#124;&#xA0;</span>
+                            <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
                         </xsl:otherwise>
                     </xsl:choose>
                 </div>
@@ -170,7 +170,7 @@
                                 </del>
                             </xsl:when>
                             <xsl:otherwise>
-                                <span class="{@rend} {replace(@change,'#','')}">&#124;&#xA0;</span>
+                                <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
                             </xsl:otherwise>
                         </xsl:choose>
                     </div>

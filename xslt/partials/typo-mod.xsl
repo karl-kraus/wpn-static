@@ -9,7 +9,7 @@
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="mod underline {@style} {replace(@change, '#', '')}">
-                    <del class="text-decoration-style-dotted"><xsl:apply-templates/></del>
+                    <span class="underline-wavy"><xsl:apply-templates/></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
@@ -21,7 +21,7 @@
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="mod underline {@style} {replace(@change, '#', '')}">
-                    <del class="text-decoration-style-dotted"><xsl:apply-templates/></del>
+                    <span class="underline-wavy"><xsl:apply-templates/></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
@@ -33,7 +33,7 @@
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="mod underline {@style} {replace(@change, '#', '')}">
-                    <del class="text-decoration-style-dotted"><xsl:apply-templates/> <span style="font-size:1.25em;">&#8594;</span></del>
+                    <span class="underline-wavy"><xsl:apply-templates/> <span style="font-size:1.25em;">&#8594;</span></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
@@ -47,7 +47,7 @@
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span id="{@xml:id}" class="mod underline connect entity {@style} {replace(@change, '#', '')}">
-                    <del class="text-decoration-style-dotted"><span style="font-size:1.25em;">&#8592;</span> <xsl:apply-templates/></del>
+                    <span class="underline-wavy"><span style="font-size:1.25em;">&#8592;</span> <xsl:apply-templates/></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
@@ -61,7 +61,7 @@
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="mod underline {@style} {replace(@change, '#', '')}">
-                    <de class="text-decoration-style-dotted"><xsl:apply-templates/></de>
+                    <span class="underline-wavy"><xsl:apply-templates/></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
@@ -75,7 +75,7 @@
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="mod underline {@style} {replace(@change, '#', '')}">
-                    <del class="text-decoration-style-dotted"><xsl:apply-templates/></del>
+                    <span class="underline-wavy"><xsl:apply-templates/></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
@@ -93,7 +93,7 @@
     </xsl:template>
     <xsl:template match="tei:mod[@rendition='#runningText1']">
         <span class="mod connect entity no-indent {@style} {replace(@change, '#', '')}" id="{@xml:id}">
-            <span class="mod mod-inline">
+            <span class="mod-inline">
                 <span>[</span><xsl:apply-templates/>
             </span>
         </span>
