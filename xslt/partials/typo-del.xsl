@@ -97,28 +97,19 @@
         </span>
     </xsl:template>
     <!-- margin container elements -->
-    <xsl:template match="tei:del[not(parent::tei:subst) and contains(@rend, 'Left')]" mode="render">
+    <xsl:template match="tei:del[not(parent::tei:subst)]" mode="render">
         <div data-xmlid="{@xml:id}" class="d-flex ms-1">
             <xsl:if test="not(@xml:rend)">
             <div id="container-{@xml:id}" class="del connect w-100">
                 <div class="position-relative">
-                    <xsl:choose>
-                        <xsl:when test="parent::tei:restore">
-                            <del class="{replace((parent::tei:restore/@change)[1],'#','')}">
-                                <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
-                            </del>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
-                        </xsl:otherwise>
-                    </xsl:choose>
+                    <xsl:apply-templates select="." mode="manual"/>
                 </div>
             </div>
             </xsl:if>
             <xsl:if test="contains(@rend, 'marginInner')">
                 <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')}">
                     <div class="position-relative">
-                        <span class="{@rend}">&#124;&#x20B0;&#xA0;</span>
+                        <xsl:apply-templates select="." mode="manual"/>
                     </div>
                 </div>
                 <xsl:variable name="xmldata" select="tokenize(@xml:data, '/')"/>
@@ -132,22 +123,22 @@
                             <xsl:choose>
                                 <xsl:when test="contains($next/@xml:id, 'add')">
                                     <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}">
-                                        &#124;&#xA0;<xsl:value-of select="$next"/>
+                                        &#124;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
                                     </span>
                                 </xsl:when>
                                 <xsl:when test="contains($next/@xml:id, 'del')">
                                     <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}">
-                                        &#124;&#x20B0;&#xA0;<xsl:value-of select="$next"/>
+                                        &#124;&#x20B0;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
                                     </span>
                                 </xsl:when>
-                                <xsl:when test="contains($next/@xml:id, 'sub')">
+                                <xsl:when test="contains($next/@xml:id, '-sub-')">
                                     <span class="{$next/@rend}">
-                                        &#124;&#xA0;<xsl:value-of select="$next/tei:add"/>
+                                        &#124;&#xA0;<xsl:apply-templates select="$next/tei:add" mode="manual_iter"/>
                                     </span>
                                 </xsl:when>
                                 <xsl:when test="contains($next/@xml:id, 'metam')">
                                     <span class="{$next/@rend}">
-                                        &#124;&#xA0;<xsl:value-of select="$next"/>
+                                        &#124;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
                                     </span>
                                 </xsl:when>
                             </xsl:choose>
@@ -158,66 +149,22 @@
             </xsl:if>
         </div>
     </xsl:template>
-    <xsl:template match="tei:del[not(parent::tei:subst) and contains(@rend, 'Right')]" mode="render">
-        <div data-xmlid="{@xml:id}" class="d-flex ms-1">
-            <xsl:if test="not(@xml:rend)">
-                <div id="container-{@xml:id}" class="del connect w-100">
-                    <div class="position-relative">
-                        <xsl:choose>
-                            <xsl:when test="parent::tei:restore">
-                                <del class="{replace((parent::tei:restore/@change)[1],'#','')}">
-                                    <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
-                                </del>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </div>
-                </div>
-            </xsl:if>
-            <xsl:if test="contains(@rend, 'marginInner')">
-                <div id="container-{@xml:id}" class="del connect {replace(@change,'#','')}">
-                    <div class="position-relative">
-                        <span class="{@rend}">&#124;&#x20B0;&#xA0;</span>
-                    </div>
-                </div>
-                <xsl:variable name="xmldata" select="tokenize(@xml:data, '/')"/>
-                <xsl:variable name="tei" select="ancestor::tei:TEI"/>
-                <xsl:iterate select="$xmldata">
-                    <xsl:if test="string-length(current()) != 0">
-                    <xsl:variable name="next" select="$tei//tei:*[@xml:id=current()]" as="element()"/>
-                    <xsl:variable name="subornot" select="if(contains($next/@xml:id, '-sub-'))then($next/tei:add/@xml:id)else($next/@xml:id)"/>
-                    <div id="container-{$subornot}" class="ms-1 del connect {replace($next/@change,'#','')}">
-                        <div class="position-relative">
-                            <xsl:choose>
-                                <xsl:when test="contains($next/@xml:id, 'add')">
-                                    <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}">
-                                        &#124;&#xA0;<xsl:value-of select="$next"/>
-                                    </span>
-                                </xsl:when>
-                                <xsl:when test="contains($next/@xml:id, 'del')">
-                                    <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}">
-                                        &#124;&#x20B0;&#xA0;<xsl:value-of select="$next"/>
-                                    </span>
-                                </xsl:when>
-                                <xsl:when test="contains($next/@xml:id, '-sub-')">
-                                    <span class="{$next/@rend}">
-                                        &#124;&#xA0;<xsl:value-of select="$next/tei:add"/>
-                                    </span>
-                                </xsl:when>
-                                <xsl:when test="contains($next/@xml:id, 'metam')">
-                                    <span class="{$next/@rend}">
-                                        &#124;&#xA0;<xsl:value-of select="$next"/>
-                                    </span>
-                                </xsl:when>
-                            </xsl:choose>
-                        </div>
-                    </div>
-                    </xsl:if>
-                </xsl:iterate>
-            </xsl:if>
-        </div>
+
+    <xsl:template match="tei:del" mode="manual">
+        <xsl:choose>
+            <xsl:when test="parent::tei:restore">
+                <del class="{replace((parent::tei:restore/@change)[1],'#','')}">
+                    <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
+                </del>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <xsl:template match="tei:del" mode="manual_iter">
+        <xsl:apply-templates/>
     </xsl:template>
     
     <!-- <xsl:template match="tei:del[ancestor::tei:restore[ancestor::tei:restore[child::tei:seg]]]">
