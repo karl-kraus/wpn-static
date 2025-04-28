@@ -128,7 +128,7 @@
                                 </xsl:when>
                                 <xsl:when test="contains($next/@xml:id, 'del')">
                                     <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}">
-                                        &#124;&#x20B0;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
+                                        &#124;&#xA0;&#x20B0;<xsl:apply-templates select="$next" mode="manual_iter"/>
                                     </span>
                                 </xsl:when>
                                 <xsl:when test="contains($next/@xml:id, '-sub-')">
@@ -154,11 +154,11 @@
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <del class="{replace((parent::tei:restore/@change)[1],'#','')}">
-                    <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
+                    <span class="{@rend} {replace(@change,'#','')}">&#124;&#xA0;&#x20B0;</span>
                 </del>
             </xsl:when>
             <xsl:otherwise>
-                <span class="{@rend} {replace(@change,'#','')}">&#124;&#x20B0;&#xA0;</span>
+                <span class="{@rend} {replace(@change,'#','')}">&#124;&#xA0;&#x20B0;</span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
