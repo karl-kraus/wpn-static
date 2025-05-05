@@ -1292,6 +1292,14 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 /*
+handling fw elements based on change type
+*/
+#textcontent-pb .fw.inkOnProofKK {
+  font-size: 8pt;
+  color: black;
+}
+
+/*
 handling del elments based on change type
 */
 #textcontent-pb .subst.pencilOnTypescript .del del,
