@@ -1296,13 +1296,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-decoration: underline wavy;
 }
 
-/*
-handling fw elements based on change type
-*/
-#textcontent-pb .fw.inkOnProofKK {
-  font-size: 8pt;
-  color: black;
-}
 
 /*
 handling del elments based on change type
@@ -1483,7 +1476,7 @@ handling del elements in maring left or right
 #textcontent-pb .restore.redOnProofKK .add,
 #textcontent-pb .add.redOnProofKK,
 #textcontent-pb .metamark.redOnProofKK  {
-  color: #ff7171b5;
+  color: #eb0505;
 }
 
 #textcontent-pb div.del.connect.inkOnProofKK,
@@ -1507,46 +1500,54 @@ handling del elements in maring left or right
   color: #303030;
 }
 
+// handwritten text (by KK) in black ink
+#textcontent-pb .subst.inkOnProofKK .add,
+#textcontent-pb .restore .inkOnProofKK.add,
+#textcontent-pb .add.inkOnProofKK,
+#textcontent-pb .note.inkOnProofKK,
+#textcontent-pb .metamark.inkOnProofKK,
+#textcontent-pb .fw.inkOnProofKK,
+#textcontent-pb .fw.pencilOnProof,
+#textcontent-pb div.del.connect.inkOnProofKK,
+#textcontent-pb .subst.redOnProof .add,
+#textcontent-pb .restore.redOnProof .add,
+#textcontent-pb .add.redOnProof,
+#textcontent-pb .note.redOnProof,
+#textcontent-pb .metamark.redOnProof,
+#textcontent-pb div.del.connect.redOnProof,
 #textcontent-pb .subst.pencilOnTypescript .add,
 #textcontent-pb .subst.pencilOnProof .add,
 #textcontent-pb .subst.undefined .add,
 #textcontent-pb .subst.pencilOnProofKK .add,
-#textcontent-pb .subst.redOnProof .add,
-#textcontent-pb .subst.inkOnProofKK .add,
 #textcontent-pb .restore.pencilOnTypescript .add,
 #textcontent-pb .restore.pencilOnProof .add,
 #textcontent-pb .restore.undefined .add,
 #textcontent-pb .restore.pencilOnProofKK .add,
-#textcontent-pb .restore.redOnProof .add,
-#textcontent-pb .restore.inkOnProofKK .add,
 #textcontent-pb .add.pencilOnTypescript,
 #textcontent-pb .add.pencilOnProof,
 #textcontent-pb .add.undefined,
 #textcontent-pb .add.pencilOnProofKK,
-#textcontent-pb .add.redOnProof,
-#textcontent-pb .add.inkOnProofKK,
 #textcontent-pb .note.pencilOnTypescript,
 #textcontent-pb .note.pencilOnProof,
 #textcontent-pb .note.undefined,
 #textcontent-pb .note.pencilOnProofKK,
-#textcontent-pb .note.redOnProof,
-#textcontent-pb .note.inkOnProofKK,
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb .metamark.undefined,
 #textcontent-pb .metamark.pencilOnProofKK,
-#textcontent-pb .metamark.redOnProof,
-#textcontent-pb .metamark.inkOnProofKK,
 #textcontent-pb div.del.connect.pencilOnTypescript,
 #textcontent-pb div.del.connect.pencilOnProof,
 #textcontent-pb div.del.connect.undefined,
-#textcontent-pb div.del.connect.pencilOnProofKK,
-#textcontent-pb div.del.connect.redOnProof,
-#textcontent-pb div.del.connect.inkOnProofKK  {
+#textcontent-pb div.del.connect.pencilOnProofKK {
   font-size: 8pt;
   line-height: 8pt;
   font-family: 'Ubuntu', 'Segoe UI Symbol', 'Noto Sans', sans-serif;
 }
+
+
+
+
+
 
 // #textcontent-pb .metamark  {
 //   position: absolute;
