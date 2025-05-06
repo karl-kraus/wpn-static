@@ -1441,18 +1441,19 @@ handling del elements in maring left or right
 #textcontent-pb div.del.connect.pencilOnTypescript,
 #textcontent-pb div.del.connect.pencilOnProof,
 #textcontent-pb div.del.connect.undefined,
+#textcontent-pb .note.undefined,
 #textcontent-pb .subst.pencilOnTypescript .add,
 #textcontent-pb .subst.pencilOnProof .add,
 #textcontent-pb .subst.undefined .add,
 #textcontent-pb .subst.pencilOnTypescript .add,
 #textcontent-pb .subst.pencilOnProof .add,
 #textcontent-pb .subst.undefined .add,
-#textcontent-pb .restore.pencilOnTypescript .add,
-#textcontent-pb .restore.pencilOnProof .add,
-#textcontent-pb .restore.undefined .add,
-#textcontent-pb .restore.pencilOnTypescript .add,
-#textcontent-pb .restore.pencilOnProof .add,
-#textcontent-pb .restore.undefined .add
+#textcontent-pb .restore .pencilOnTypescript.add,
+#textcontent-pb .restore .pencilOnProof.add,
+#textcontent-pb .restore .undefined.add,
+#textcontent-pb .restore .pencilOnTypescript.add,
+#textcontent-pb .restore .pencilOnProof.add,
+#textcontent-pb .restore .undefined.add
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb .metamark.undefined  {
@@ -1582,7 +1583,7 @@ handling del elements in maring left or right
 }
 
 #textcontent-pb .add {
-  font-size: 0.75em;
+  font-size: 8pt;
   text-indent: 0 !important;
 }
 
