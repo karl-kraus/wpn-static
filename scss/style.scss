@@ -1606,7 +1606,7 @@ handling del elements in maring left or right
 #textcontent-pb .add div {
   width: 100%;
   // word-break: break-word;
-  white-space: normal;
+  white-space: nowrap;
 }
 
 #textcontent-pb .add.rendition {
