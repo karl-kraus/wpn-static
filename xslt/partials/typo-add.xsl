@@ -9,16 +9,17 @@
         <span class="add connect entity text-decoration-underline-dotted" id="{@xml:id}"></span>
     </xsl:template>
     <xsl:template match="tei:add[parent::tei:subst[not(parent::tei:restore)]]">
+        <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
         <xsl:choose>
-            <xsl:when test="@rend = 'inline'">
+            <xsl:when test="$rend = 'inline'">
                 <span class="add" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
-            <xsl:when test="@rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
+            <xsl:when test="$rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <span class="position-relative">
-                    <span class="add {parent::tei:subst/@rend}" id="{@xml:id}"><xsl:apply-templates/></span>
+                    <span class="add {$rend}" id="{@xml:id}"><xsl:apply-templates/></span>
                 </span>
             </xsl:when>
-            <xsl:when test="@rend='overwritten'">
+            <xsl:when test="$rend='overwritten'">
                 <span class="add connect overwrite ms-n08" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:otherwise>
