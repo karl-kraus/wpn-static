@@ -58,22 +58,15 @@
     </xsl:template>
     <!-- margin container elements -->
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend]]" mode="render">
-        <xsl:variable name="change" select="if(parent::tei:subst[@change])then(parent::tei:subst/@change)else(@change)"/>
-        <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
         <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
-        <xsl:variable name="containerID" select="if(parent::tei:subst)then(preceding-sibling::tei:del[1]/@xml:id)else(@xml:id)"/>
-        <div data-xmlid="{@xml:id}" class="d-flex ms-1">
-            <xsl:if test="not($xmlrend)">
-                <div id="container-{$containerID}" class="add connect {replace($change,'#','')} w-100">
-                    <div class="position-relative">
-                        <xsl:apply-templates select="." mode="manual"/>
-                    </div>
-                </div>
-            </xsl:if>
-            <xsl:if test="contains($rend, 'marginInner')">
+        <xsl:if test="$xmlrend = 'yes'">
+            <xsl:variable name="change" select="if(parent::tei:subst[@change])then(parent::tei:subst/@change)else(@change)"/>
+            <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
+            <xsl:variable name="containerID" select="if(parent::tei:subst)then(preceding-sibling::tei:del[1]/@xml:id)else(@xml:id)"/>
+            <div data-xmlid="{@xml:id}" class="d-flex ms-1">
                 <div id="container-{$containerID}" class="add connect {replace($change,'#','')}">
                     <div class="position-relative">
-                        <xsl:apply-templates select="." mode="manual"/>
+                        <xsl:apply-templates select="current()" mode="manual"/>
                     </div>
                 </div>
                 <xsl:variable name="xmldata" select="tokenize(@xml:data, '/')"/>
@@ -82,17 +75,18 @@
                     <xsl:if test="string-length(current()) != 0">
                         <xsl:variable name="next" select="$tei//tei:*[@xml:id=current()]" as="element()"/>
                         <xsl:variable name="next-change" select="if($next/parent::tei:subst[@change])then($next/parent::tei:subst/@change)else($next/@change)"/>
+                        <xsl:variable name="next-rend" select="if($next/parent::tei:subst[@rend])then($next/parent::tei:subst/@rend)else($next/@rend)"/>
                         <xsl:variable name="subornot" select="if(contains($next/@xml:id, '-sub-'))then($next/tei:del/@xml:id)else($next/@xml:id)"/>
                         <div id="container-{$subornot}" class="ms-1 add connect {replace($next-change,'#','')}">
                             <div class="position-relative">
                                 <xsl:choose>
                                     <xsl:when test="contains($next/@xml:id, 'add')">
-                                        <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}">
+                                        <span class="{$next-rend}">
                                             &#124;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
                                         </span>
                                     </xsl:when>
                                     <xsl:when test="contains($next/@xml:id, 'del')">
-                                        <span class="{if($next/parent::tei:subst)then($next/parent::tei:subst/@rend)else($next/@rend)}">
+                                        <span class="{$next-rend}">
                                             &#124;&#x20B0;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
                                         </span>
                                     </xsl:when>
@@ -111,8 +105,8 @@
                         </div>
                     </xsl:if>
                 </xsl:iterate>
-            </xsl:if>
-        </div>
+            </div>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="tei:add" mode="manual">
