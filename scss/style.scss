@@ -808,6 +808,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align-last: left;  
 }
 
+.text-align-right {
+  text-align: right;
+  text-align-last: right;  
+}
+
 // top placements
 
 .topLower {
@@ -1693,68 +1698,65 @@ handling del elements in maring left or right
   right: 1.9%;
 }
 
-.marginRightAbove {
-  margin-left: 10%;
+div.position-relative .marginRightAbove {
+  left: 33%;
   position: absolute;
-  top: -10pt;
+  top: -2rem;
 }
 
-.marginRightBelow {
-  margin-left: 10%;
+div.position-relative .marginRightBelow {
+  left: 33%;
   position: absolute;
-  bottom: -10pt;
+  bottom: -2rem;
 }
 
 /* uncomment and test when all new attr values are available in Gesamt.xml */
 
-// div:has(> .marginRight), div:has(> .lineRight), div:has(> .doubleLineRight)  {
-//   // position: absolute;
-//   // top: -10pt;
-//   // text-align: center;
-//   text-align: left;
-//   margin-left: 10%;
-// }
+div.position-relative .marginRight, div.position-relative .lineRight, div.position-relative .doubleLineRight  {
+  position: absolute;
+  text-align: left;
+  left: 33%;
+}
 
-div:has(> .marginLeft), div:has(> .lineLeft), div:has(> .doubleLineLeft) {
-  // position: absolute;
-  // top: -10pt;
-  // text-align: center;
+div.position-relative .marginOuterRight  {
+  position: absolute;
+  left: 67%;
+  text-align: left;
+}
+div.position-relative .marginInnerRight  {
+  position: absolute;
+  left: 5%;
+  text-align: left;
+}
+
+div.position-relative .marginLeft, div.position-relative .lineLeft, div.position-relative .doubleLineLeft {
+  position: absolute;
   text-align: right;
-  padding-right: 10%;
+  right: 67%;
 }
 
-// div:has(> .marginOuterRight)  {
-//   position: absolute;
-//   top: -10pt;
-//   text-align: right;
-// }
-
-// div:has(> .marginOuterLeft) {
-//   position: absolute;
-//   top: -10pt;
-//   text-align: left;
-// }
-
-// div:has(> .marginInnerRight)  {
-//   margin-left: 10%;
-//   text-align: left;
-// }
-
-// div:has(> .marginInnerLeft) {
-//   padding-right: 10%;
-//   text-align: right;
-// }
-
-.marginLeftAbove {
-  margin-left: 20%;
+div.position-relative .marginOuterLeft {
   position: absolute;
-  top: -10pt;
+  right: 95%;
+  text-align: right;
 }
 
-.marginLeftBelow {
-  margin-left: 20%;
+div.position-relative .marginInnerLeft {
   position: absolute;
-  bottom: -10pt;
+  right: 33%;
+  text-align: right;
+}
+
+div.position-relative .marginLeftAbove {
+  position: absolute;
+  top: -2rem;
+  right: 67%;
+}
+
+div.position-relative .marginLeftBelow {
+  position: absolute;
+  right: 67%;
+  bottom: -2rem;
 }
 
 .inline {
