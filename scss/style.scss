@@ -615,12 +615,17 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .longQuoteMarginStart,
 #textcontent-pb .longQuoteMiddleIndent,
 #textcontent-pb .longQuoteMarginMiddle,
-#textcontent-pb .longQuoteEndIndent,
 #textcontent-pb .longQuoteMarginEnd,
 #textcontent-pb .longQuoteIndent
 #textcontent-pb .inkLongQuote{
   text-align: justify;
   text-align-last: justify;
+}
+
+#textcontent-pb .longQuoteEndIndent,
+#textcontent-pb .longQuoteStartIndent {
+  text-align-last: left !important;
+  text-indent: $spacer * 3 !important;
 }
 
 #textcontent-pb .inkLongQuote,
@@ -676,7 +681,9 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .typescriptLongQuoteTitle2,
 #textcontent-pb .typescriptLongQuoteAdvInsert,
 #textcontent-pb .typescriptLongQuoteRightAlign,
-#textcontent-pb .typescriptLongQuoteRightAlign2 {
+#textcontent-pb .typescriptLongQuoteRightAlign2,
+#textcontent-pb .longQuoteStartCenter,
+#textcontent-pb .longQuoteEndCenter {
   text-align-last: center;
   text-align: center;
 }
@@ -797,8 +804,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 // }
 
 .text-align-left {
-  text-align: left !important;
-  text-align-last: left !important;  
+  text-align: left;
+  text-align-last: left;  
 }
 
 // top placements
@@ -1760,9 +1767,8 @@ div:has(> .marginLeft), div:has(> .lineLeft), div:has(> .doubleLineLeft) {
 }
 
 .no-indent {
-  text-indent: 0 !important;
+  text-indent: 0;
 }
-
 
 .fw {
   position: absolute;
