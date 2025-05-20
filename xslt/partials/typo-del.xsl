@@ -101,49 +101,55 @@
         <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
         <xsl:if test="$xmlrend = 'yes'">
             <div data-xmlid="{@xml:id}" class="d-flex ms-1 w-100 position-relative">
-                <div id="container-{@xml:id}" class="del connect w-100">
+                <div id="container-{@xml:id}" class="del connect w-100 {replace(@change,'#','')}">
                     <div class="w-100">
-                        <xsl:apply-templates select="current()" mode="manual"/>
+                        <xsl:apply-templates select="." mode="manual"/>
                     </div>
                 </div>
-                <xsl:variable name="xmldata" select="tokenize(@xml:data, '/')"/>
-                <xsl:variable name="tei" select="ancestor::tei:TEI"/>
-                <xsl:iterate select="$xmldata">
-                    <xsl:if test="string-length(current()) != 0">
-                        <xsl:variable name="next" select="$tei//tei:*[@xml:id=current()]" as="element()"/>
-                        <xsl:variable name="next-change" select="if($next[parent::tei:subst[@change]])then($next/parent::tei:subst/@change)else($next/@change)"/>
-                        <xsl:variable name="next-rend" select="if($next[parent::tei:subst[@rend]])then($next/parent::tei:subst/@rend)else($next/@rend)"/>
-                        <xsl:variable name="subornot" select="if(contains($next/@xml:id, '-sub-'))then($next/tei:add/@xml:id)else($next/@xml:id)"/>
-                        <div id="container-{$subornot}" class="ms-1 del connect w-100 {replace($next/@change,'#','')}">
-                            <div class="w-100">
-                                <xsl:choose>
-                                    <xsl:when test="contains($next/@xml:id, 'add')">
-                                        <span class="{$next-rend}">
-                                            &#124;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
-                                        </span>
-                                    </xsl:when>
-                                    <xsl:when test="contains($next/@xml:id, 'del')">
-                                        <span class="{$next-rend}">
-                                            &#124;&#xA0;&#x20B0;<xsl:apply-templates select="$next" mode="manual_iter"/>
-                                        </span>
-                                    </xsl:when>
-                                    <xsl:when test="contains($next/@xml:id, '-sub-')">
-                                        <span class="{$next-rend}">
-                                            &#124;&#xA0;<xsl:apply-templates select="$next/tei:add" mode="manual_iter"/>
-                                        </span>
-                                    </xsl:when>
-                                    <xsl:when test="contains($next/@xml:id, 'metam')">
-                                        <span class="{$next-rend}">
-                                            &#124;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
-                                        </span>
-                                    </xsl:when>
-                                </xsl:choose>
-                            </div>
-                        </div>
-                    </xsl:if>
-                </xsl:iterate>
+                <xsl:call-template name="wrapper-iter">
+                    <xsl:with-param name="xmldata" select="tokenize(@xml:data, '/')"/>
+                </xsl:call-template>
             </div>
         </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="wrapper-iter">
+        <xsl:param name="xmldata" as="xs:string*"/>
+        <xsl:variable name="tei" select="ancestor::tei:TEI"/>
+        <xsl:iterate select="$xmldata">
+            <xsl:if test="string-length(current()) != 0">
+                <xsl:variable name="next" select="$tei//tei:*[@xml:id=current()]" as="element()"/>
+                <xsl:variable name="next-change" select="if($next[parent::tei:subst[@change]])then($next/parent::tei:subst/@change)else($next/@change)"/>
+                <xsl:variable name="next-rend" select="if($next[parent::tei:subst[@rend]])then($next/parent::tei:subst/@rend)else($next/@rend)"/>
+                <xsl:variable name="subornot" select="if(contains($next/@xml:id, '-sub-'))then($next/tei:add/@xml:id)else($next/@xml:id)"/>
+                <div id="container-{$subornot}" class="ms-1 del connect w-100 {replace($next-change,'#','')}">
+                    <div class="w-100">
+                        <xsl:choose>
+                            <xsl:when test="contains($next/@xml:id, 'add')">
+                                <span class="{$next-rend}">
+                                    &#124;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
+                                </span>
+                            </xsl:when>
+                            <xsl:when test="contains($next/@xml:id, 'del')">
+                                <span class="{$next-rend}">
+                                    &#124;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
+                                </span>
+                            </xsl:when>
+                            <xsl:when test="contains($next/@xml:id, '-sub-')">
+                                <span class="{$next-rend}">
+                                    &#124;&#xA0;<xsl:apply-templates select="$next/tei:add" mode="manual_iter"/>
+                                </span>
+                            </xsl:when>
+                            <xsl:when test="contains($next/@xml:id, 'metam')">
+                                <span class="{$next-rend}">
+                                    &#124;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
+                                </span>
+                            </xsl:when>
+                        </xsl:choose>
+                    </div>
+                </div>
+            </xsl:if>
+        </xsl:iterate>
     </xsl:template>
 
     <xsl:template match="tei:del" mode="manual">
