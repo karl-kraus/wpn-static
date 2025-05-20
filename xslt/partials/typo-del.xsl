@@ -44,15 +44,15 @@
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:del[parent::tei:subst[not(parent::tei:restore)]]">
-        <xsl:variable name="rend" select="replace((parent::tei:subst/@rend)[1], '#', '')"/>
+        <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
         <!-- <xsl:variable name="change" select="replace((parent::tei:subst/@change)[1], '#', '')"/> -->
         <xsl:choose>
             <xsl:when test="$rend='overwritten'">
                 <span class="del text-black-grey" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:when test="$rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
-                <span class="position-relative">
-                    <span class="del {$rend}" id="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="del" id="{@xml:id}">
+                    <del><xsl:apply-templates/></del>
                 </span>
             </xsl:when>
             <xsl:otherwise>
