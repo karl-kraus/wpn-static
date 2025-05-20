@@ -1698,18 +1698,6 @@ handling del elements in maring left or right
   right: 1.9%;
 }
 
-div.position-relative .marginRightAbove {
-  left: 33%;
-  position: absolute;
-  top: -2rem;
-}
-
-div.position-relative .marginRightBelow {
-  left: 33%;
-  position: absolute;
-  bottom: -2rem;
-}
-
 /* uncomment and test when all new attr values are available in Gesamt.xml */
 
 div.position-relative .marginRight, div.position-relative .lineRight, div.position-relative .doubleLineRight  {
@@ -1727,6 +1715,18 @@ div.position-relative .marginInnerRight  {
   position: absolute;
   left: 5%;
   text-align: left;
+}
+
+div.position-relative .marginRightAbove {
+  left: 33%;
+  position: absolute;
+  top: -2rem;
+}
+
+div.position-relative .marginRightBelow {
+  left: 33%;
+  position: absolute;
+  bottom: -2rem;
 }
 
 div.position-relative .marginLeft, div.position-relative .lineLeft, div.position-relative .doubleLineLeft {
