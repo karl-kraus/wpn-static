@@ -9,29 +9,69 @@
         </xsl:copy>
     </xsl:template>
     <xsl:template match="tei:*[contains(@rend, 'margin')]">
-        <xsl:variable name="page" select="preceding::tei:lb[1]/@xml:id"/>
+        <xsl:variable name="left-right">
+            <xsl:choose>
+                <xsl:when test="contains(@rend, 'Left')">
+                    <xsl:text>Left</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>Right</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="line" select="if(ancestor::tei:l[1])then(ancestor::tei:l[1]/@xml:id)else(preceding::tei:lb[1]/@xml:id)"/>
         <xsl:choose>
-            <xsl:when test="not(preceding::tei:*[contains(@rend, 'margin')][preceding::tei:lb[1]/@xml:id = $page])">
-                <xsl:variable name="next" select="following::tei:*[contains(@rend, 'margin')][preceding::tei:lb[1]/@xml:id = $page][1]/@xml:id"/>
-                <xsl:variable name="outerNext" select="following::tei:*[contains(@rend, 'margin')][preceding::tei:lb[1]/@xml:id = $page][2]/@xml:id"/>
-                <xsl:copy>
-                    <xsl:attribute name="xml:data">
-                        <xsl:value-of select="concat($next, '/', $outerNext)"/>
-                    </xsl:attribute>
-                    <xsl:attribute name="xml:rend">
-                        <xsl:text>yes</xsl:text>
-                    </xsl:attribute>
-                    <xsl:apply-templates select="@*|node()"/>
-                </xsl:copy>
+            <xsl:when test="ancestor::tei:l[1]">
+                <xsl:choose>
+                    <xsl:when test="not(preceding::tei:*[contains(@rend, 'margin') and contains(@rend, $left-right)][ancestor::tei:l[1]/@xml:id = $line])">
+                        <xsl:variable name="next" select="following::tei:*[contains(@rend, 'margin') and contains(@rend, $left-right)][ancestor::tei:l[1]/@xml:id = $line][1]/@xml:id"/>
+                        <xsl:variable name="outerNext" select="following::tei:*[contains(@rend, 'margin') and contains(@rend, $left-right)][ancestor::tei:l[1]/@xml:id = $line][2]/@xml:id"/>
+                        <xsl:copy>
+                            <xsl:attribute name="xml:data">
+                                <xsl:value-of select="concat($next, '/', $outerNext)"/>
+                            </xsl:attribute>
+                            <xsl:attribute name="xml:rend">
+                                <xsl:text>yes</xsl:text>
+                            </xsl:attribute>
+                            <xsl:apply-templates select="@*|node()"/>
+                        </xsl:copy>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:copy>
+                            <xsl:attribute name="xml:rend">
+                                <xsl:text>no</xsl:text>
+                            </xsl:attribute>
+                            <xsl:apply-templates select="@*|node()"/>
+                        </xsl:copy>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:copy>
-                    <xsl:attribute name="xml:rend">
-                        <xsl:text>no</xsl:text>
-                    </xsl:attribute>
-                    <xsl:apply-templates select="@*|node()"/>
-                </xsl:copy>
+                <xsl:choose>
+                    <xsl:when test="not(preceding::tei:*[contains(@rend, 'margin') and contains(@rend, $left-right)][preceding::tei:lb[1]/@xml:id = $line])">
+                        <xsl:variable name="next" select="following::tei:*[contains(@rend, 'margin') and contains(@rend, $left-right)][preceding::tei:lb[1]/@xml:id = $line][1]/@xml:id"/>
+                        <xsl:variable name="outerNext" select="following::tei:*[contains(@rend, 'margin') and contains(@rend, $left-right)][preceding::tei:lb[1]/@xml:id = $line][2]/@xml:id"/>
+                        <xsl:copy>
+                            <xsl:attribute name="xml:data">
+                                <xsl:value-of select="concat($next, '/', $outerNext)"/>
+                            </xsl:attribute>
+                            <xsl:attribute name="xml:rend">
+                                <xsl:text>yes</xsl:text>
+                            </xsl:attribute>
+                            <xsl:apply-templates select="@*|node()"/>
+                        </xsl:copy>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:copy>
+                            <xsl:attribute name="xml:rend">
+                                <xsl:text>no</xsl:text>
+                            </xsl:attribute>
+                            <xsl:apply-templates select="@*|node()"/>
+                        </xsl:copy>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:otherwise>
         </xsl:choose>
+        
     </xsl:template>
 </xsl:stylesheet>

@@ -15,8 +15,8 @@
      </xsl:template>
      <!-- margin container elements -->
      <xsl:template match="tei:metamark[@function='progress']" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div class="position-relative">
+        <div id="container-{@xml:id}" class="d-flex metamark connect ms-1 w-100 {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div class="position-relative w-100">
                 <span class="{@rend}"><xsl:apply-templates/></span>
             </div>
         </div>
@@ -47,8 +47,8 @@
      </xsl:template>
      <!-- margin container elements -->
      <xsl:template match="tei:metamark[not(@change='#edACE')][@function='relocation']" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div class="position-relative">
+        <div id="container-{@xml:id}" class="d-flex metamark connect ms-1 w-100 {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div class="position-relative w-100">
                 <span class="{@rend}">
                     <xsl:if test="@target">
                         <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
@@ -71,8 +71,8 @@
      </xsl:template>
      <!-- margin container elements -->
      <xsl:template match="tei:metamark[@function='printInstruction']" mode="render">
-        <div id="container-{@xml:id}" class="metamark {if(@spanTo)then('spanto')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
-            <div class="position-relative">
+        <div id="container-{@xml:id}" class="d-flex metamark ms-1 w-100 {if(@spanTo)then('spanto')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
+            <div class="position-relative w-100">
                 <span class="{@rend} {@style}">
                     <xsl:if test="@spanTo">
                         <xsl:variable name="spanToList" select="tokenize(@spanTo, ' ')"/>
@@ -115,8 +115,8 @@
      </xsl:template>
      <!-- margin container elements -->
      <xsl:template match="tei:metamark[@function='transposition']" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div class="position-relative">
+        <div id="container-{@xml:id}" class="d-flex metamark connect ms-1 w-100 {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div class="position-relative w-100">
                 <span class="{@rend}{if(parent::tei:restore)then(replace((parent::tei:restore/@change)[1], '#', ' restore '))else()}" style="font-size:1.25em;">
                     <xsl:if test="@target">
                         <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
@@ -164,8 +164,8 @@
      </xsl:template>
      <!-- margin container elements -->
      <xsl:template match="tei:metamark[@function='insertion']" mode="render">
-        <div id="container-{@xml:id}" class="metamark connect {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div class="position-relative">
+        <div id="container-{@xml:id}" class="d-flex metamark connect ms-1 w-100 {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div class="position-relative w-100">
                 <span class="{@rend}{if(parent::tei:restore)then(replace((parent::tei:restore/@change)[1], '#', ' restore '))else()}">
                     <xsl:if test="@target">
                         <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>

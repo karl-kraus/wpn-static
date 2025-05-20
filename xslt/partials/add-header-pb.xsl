@@ -119,4 +119,14 @@
             <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
     </xsl:template>
+    <xsl:template match="tei:l">
+        <xsl:copy>
+            <xsl:if test="not(@xml:id)">
+            <xsl:attribute name="xml:id">
+                <xsl:value-of select="concat(replace(tokenize(base-uri(), '/')[last()], '.xml', ''), '-line-', generate-id())"/>
+            </xsl:attribute>
+            </xsl:if>
+            <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
 </xsl:stylesheet>
