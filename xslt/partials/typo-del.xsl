@@ -157,11 +157,11 @@
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <del class="{replace((parent::tei:restore/@change)[1],'#','')}">
-                    <span class="{@rend} {replace(@change,'#','')}">&#124;&#xA0;&#x20B0;</span>
+                    <span class="{@rend} {replace(@change,'#','')}">&#124;&#xA0;&#8368;</span>
                 </del>
             </xsl:when>
             <xsl:otherwise>
-                <span class="{@rend} {replace(@change,'#','')}">&#124;&#xA0;&#x20B0;</span>
+                <span class="{@rend} {replace(@change,'#','')}">&#124;&#xA0;&#8368;</span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>

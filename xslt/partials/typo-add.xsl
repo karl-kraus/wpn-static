@@ -96,7 +96,7 @@
                             </xsl:when>
                             <xsl:when test="contains($next/@xml:id, 'del')">
                                 <span class="{$next-rend}">
-                                    &#124;&#x20B0;<xsl:apply-templates select="$next" mode="manual_iter"/>
+                                    &#124;&#8368;<xsl:apply-templates select="$next" mode="manual_iter"/>
                                 </span>
                             </xsl:when>
                             <xsl:when test="contains($next/@xml:id, 'sub')">
