@@ -4,11 +4,21 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+    inputs:
+      run_dev:
+        description: 'Deploy dev version'
+        required: true
+        type: choice
+        options: 
+          - 'true'
+          - 'false'
+        default: 'false'
 
 permissions:
   contents: read
   pages: write
   id-token: write
+
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -63,10 +73,11 @@ jobs:
     #   run: python update_favicons.py
     - name: Install Playwright Browsers
       run: pnpm exec playwright install --with-deps
+      if: github.event_name == 'workflow_dispatch' && ${{ github.event.inputs.run_dev == 'false' }}
     - name: run tests
       run: pnpm run e2e:run_all_tests
       continue-on-error: true
-      if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[run tests]')
+      if: github.event_name == 'workflow_dispatch' && ${{ github.event.inputs.run_dev == 'false' }} || contains(github.event.head_commit.message, '[run tests]')
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Upload artifact
