@@ -99,6 +99,7 @@
     <!-- margin container elements -->
     <xsl:template match="tei:del[not(parent::tei:subst)]" mode="render">
         <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
+        <xsl:variable name="xml-data" select="if(parent::tei:subst[@xml:data])then(parent::tei:subst/@xml:data)else(@xml:data)"/>
         <xsl:if test="$xmlrend = 'yes'">
             <div data-xmlid="{@xml:id}" class="d-flex ms-1 w-100 position-relative">
                 <div id="container-{@xml:id}" class="del connect w-100 {replace(@change,'#','')}">
@@ -107,7 +108,7 @@
                     </div>
                 </div>
                 <xsl:call-template name="wrapper-iter">
-                    <xsl:with-param name="xmldata" select="tokenize(@xml:data, '/')"/>
+                    <xsl:with-param name="xmldata" select="tokenize($xml-data, '/')"/>
                 </xsl:call-template>
             </div>
         </xsl:if>
