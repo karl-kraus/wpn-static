@@ -72,12 +72,12 @@ jobs:
     # - name: Update Favicons
     #   run: python update_favicons.py
     - name: Install Playwright Browsers
-      run: pnpm exec playwright install --with-deps
       if: github.event_name == 'workflow_dispatch' && ${{ github.event.inputs.run_dev == 'false' }}
+      run: pnpm exec playwright install --with-deps
     - name: run tests
+      if: github.event_name == 'workflow_dispatch' && ${{ github.event.inputs.run_dev == 'false' }} || contains(github.event.head_commit.message, '[run tests]')
       run: pnpm run e2e:run_all_tests
       continue-on-error: true
-      if: github.event_name == 'workflow_dispatch' && ${{ github.event.inputs.run_dev == 'false' }} || contains(github.event.head_commit.message, '[run tests]')
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Upload artifact
