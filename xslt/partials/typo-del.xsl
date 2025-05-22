@@ -101,7 +101,7 @@
         <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
         <xsl:variable name="xml-data" select="if(parent::tei:subst[@xml:data])then(parent::tei:subst/@xml:data)else(@xml:data)"/>
         <xsl:if test="$xmlrend = 'yes'">
-            <div data-xmlid="{@xml:id}" class="d-flex ms-1 w-100 position-relative">
+            <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
                 <div id="container-{@xml:id}" class="del connect w-100 {replace(@change,'#','')}">
                     <div class="w-100">
                         <xsl:apply-templates select="." mode="manual"/>
@@ -123,7 +123,7 @@
                 <xsl:variable name="next-change" select="if($next[parent::tei:subst[@change]])then($next/parent::tei:subst/@change)else($next/@change)"/>
                 <xsl:variable name="next-rend" select="if($next[parent::tei:subst[@rend]])then($next/parent::tei:subst/@rend)else($next/@rend)"/>
                 <xsl:variable name="subornot" select="if(contains($next/@xml:id, '-sub-'))then($next/tei:add/@xml:id)else($next/@xml:id)"/>
-                <div id="container-{$subornot}" class="ms-1 del connect w-100 {replace($next-change,'#','')}">
+                <div id="container-{$subornot}" class="del connect w-100 {replace($next-change,'#','')}">
                     <div class="w-100">
                         <xsl:choose>
                             <xsl:when test="contains($next/@xml:id, 'add')">
