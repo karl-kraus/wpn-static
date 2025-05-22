@@ -1700,10 +1700,15 @@ handling del elements in maring left or right
 
 /* uncomment and test when all new attr values are available in Gesamt.xml */
 
-div.position-relative .marginRight, div.position-relative .lineRight, div.position-relative .doubleLineRight  {
+div:has(> .lineRight), div:has(> .doubleLineRight)  {
+  text-align: left;
+  margin-left: 10%;
+}
+
+div.position-relative .marginRight  {
   position: absolute;
   text-align: left;
-  left: 33%;
+  left: 34%;
 }
 
 div.position-relative .marginOuterRight  {
@@ -1720,43 +1725,52 @@ div.position-relative .marginInnerRight  {
 div.position-relative .marginRightAbove {
   left: 33%;
   position: absolute;
-  top: -2rem;
+  bottom: 1rem;
+  text-align: left;
 }
 
 div.position-relative .marginRightBelow {
   left: 33%;
   position: absolute;
-  bottom: -2rem;
+  top: 1rem;
+  text-align: left;
 }
 
-div.position-relative .marginLeft, div.position-relative .lineLeft, div.position-relative .doubleLineLeft {
+div:has(> .lineLeft), div:has(> .doubleLineLeft) {
+  text-align: right;
+  margin-right: 10%;
+}
+
+div.position-relative .marginLeft {
   position: absolute;
   text-align: right;
-  right: 67%;
+  right: 34%
 }
 
 div.position-relative .marginOuterLeft {
   position: absolute;
-  right: 95%;
+  right: 67%;
   text-align: right;
 }
 
 div.position-relative .marginInnerLeft {
   position: absolute;
-  right: 33%;
+  right: 5%;
   text-align: right;
 }
 
 div.position-relative .marginLeftAbove {
   position: absolute;
-  top: -2rem;
-  right: 67%;
+  text-align: right;
+  bottom: 1rem;
+  right: 34%;
 }
 
 div.position-relative .marginLeftBelow {
   position: absolute;
-  right: 67%;
-  bottom: -2rem;
+  text-align: right;
+  right: 34%;
+  top: 1rem;
 }
 
 .inline {

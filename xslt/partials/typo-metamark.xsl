@@ -17,7 +17,7 @@
      <xsl:template match="tei:metamark[@function='progress']" mode="render">
         <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
         <xsl:if test="$xmlrend = 'yes'">
-            <div id="container-{@xml:id}" class="d-flex metamark connect ms-1 w-100 position-relative {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div id="container-{@xml:id}" class="d-flex metamark connect w-100 position-relative {replace(@change,'#','')}" data-xmlid="{@xml:id}">
                 <div class="w-100">
                     <span class="{@rend}"><xsl:apply-templates/></span>
                 </div>
@@ -56,7 +56,7 @@
      <xsl:template match="tei:metamark[not(@change='#edACE')][@function='relocation']" mode="render">
         <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
         <xsl:if test="$xmlrend = 'yes'">
-            <div id="container-{@xml:id}" class="d-flex metamark connect ms-1 w-100 position-relative  {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div id="container-{@xml:id}" class="d-flex metamark connect w-100 position-relative  {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
                 <div class="w-100">
                     <span class="{@rend}">
                         <xsl:if test="@target">
@@ -86,7 +86,7 @@
      <xsl:template match="tei:metamark[@function='printInstruction']" mode="render">
         <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
         <xsl:if test="$xmlrend = 'yes'">
-            <div id="container-{@xml:id}" class="d-flex metamark ms-1 w-100 position-relative {if(@spanTo)then('spanto')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
+            <div id="container-{@xml:id}" class="d-flex metamark w-100 position-relative {if(@spanTo)then('spanto')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
                 <div class="w-100">
                     <span class="{@rend} {@style}">
                         <xsl:if test="@spanTo">
@@ -136,7 +136,7 @@
      <xsl:template match="tei:metamark[@function='transposition']" mode="render">
         <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
         <xsl:if test="$xmlrend = 'yes'">
-            <div id="container-{@xml:id}" class="d-flex metamark connect ms-1 w-100 position-relative {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div id="container-{@xml:id}" class="d-flex metamark connect w-100 position-relative {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
                 <div class="w-100">
                     <span class="{@rend}{if(parent::tei:restore)then(replace((parent::tei:restore/@change)[1], '#', ' restore '))else()}" style="font-size:1.25em;">
                         <xsl:if test="@target">
@@ -191,7 +191,7 @@
      <xsl:template match="tei:metamark[@function='insertion']" mode="render">
         <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
         <xsl:if test="$xmlrend = 'yes'">
-            <div id="container-{@xml:id}" class="d-flex metamark connect ms-1 w-100 position-relative {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div id="container-{@xml:id}" class="d-flex metamark connect w-100 position-relative {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
                 <div class="w-100">
                     <span class="{@rend}{if(parent::tei:restore)then(replace((parent::tei:restore/@change)[1], '#', ' restore '))else()}">
                         <xsl:if test="@target">
