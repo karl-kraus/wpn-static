@@ -16,7 +16,7 @@
             </xsl:when>
             <xsl:when test="$rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <span class="position-relative">
-                    <span class="add {$rend}" id="{@xml:id}"><xsl:apply-templates/></span>
+                    <span class="add {$rend}" id="{@xml:id}">&#124;&#xA0;<xsl:apply-templates/></span>
                 </span>
             </xsl:when>
             <xsl:when test="$rend='overwritten'">
@@ -36,7 +36,7 @@
             </xsl:when>
             <xsl:when test="@rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <span class="position-relative">
-                    <span class="add {@rend} {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+                    <span class="add {@rend} {replace(@change, '#', '')}" id="{@xml:id}">&#124;&#xA0;<xsl:apply-templates/></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
