@@ -226,7 +226,7 @@
                         select="substring($prev_text, string-length($prev_text) - 56)"/>
                     <xsl:variable name="kwic_right" select="substring($following_text, 1, 56)"/>
                     <div class="text-kwic-grey d-flex justify-content-between align-items-end position-relative">
-                        <div class="kwic-wrapper w-80 ff-century-old-style p-08 hide-comments">
+                        <div class="kwic-wrapper w-80 ff-crimson-text p-08 hide-comments">
                             <xsl:if test="string-length($kwic_left) > 0">
                                 <span class="text-light-grey">
                                     <xsl:copy-of select="'...' || $kwic_left"/>
@@ -549,7 +549,7 @@
         <summary class="d-flex align-items-baseline">Textausschnitt <span class="ps-2">
             <xsl:apply-templates select="./ancestor::tei:bibl" mode="short" />
         </span></summary>
-        <div class="ff-century-old-style pt-1_5 px-1_5 pb-1">
+        <div class="ff-crimson-text pt-1_5 px-1_5 pb-1">
         <xsl:apply-templates />
         </div>
     </details>
@@ -672,7 +672,7 @@
                 <summary class="d-flex align-items-baseline"><span>Textausschnitt</span><span class="ps-2">
                     <xsl:apply-templates select="$ref_node/ancestor::tei:bibl" mode="short" />
                 </span></summary>
-                <div class="ff-century-old-style pt-1_5 px-1_5 pb-1">
+                <div class="ff-crimson-text pt-1_5 px-1_5 pb-1">
                     <xsl:apply-templates select="$ref_node/tei:note[@type='context']" mode="excerpt"/>
                 </div>
             </details></li>

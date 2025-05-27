@@ -70,7 +70,7 @@
                                 </div>
                             </aside>
                             <main>
-                                <div id="textcolumn" class="mx-auto ff-century-old-style">
+                                <div id="textcolumn" class="mx-auto ff-crimson-text">
                                         <div id="textcontent">
                                             <xsl:apply-templates/>
                                         </div>

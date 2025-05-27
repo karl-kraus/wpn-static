@@ -74,6 +74,13 @@
   src: url(../fonts/Arimo-Regular.woff2) format('woff2');
 }
 
+@font-face {
+  font-family: 'Crimson Text';
+  font-weight: '400';
+  src: url(../fonts/CrimsonText-Regular.woff2) format('woff2');
+}
+
+
 .ff-ubuntu-500-hover:hover {
   font-family: 'Ubuntu', sans-serif;
   font-weight:500;
@@ -83,8 +90,8 @@
   font-family: 'Ubuntu', sans-serif;
 }
 
-.ff-century-old-style {
-  font-family: "century-old-style-std", sans-serif;
+.ff-crimson-text {
+  font-family: "Crimson Text", sans-serif;
 }
 
 /*** helpers ***/
