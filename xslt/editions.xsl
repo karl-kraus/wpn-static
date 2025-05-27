@@ -377,12 +377,17 @@
         <br/>
     </xsl:template>
     <xsl:template match="tei:lb[not(@break)][not(@type)]"><xsl:text> </xsl:text></xsl:template>
-     <xsl:template match="text()">
-     <xsl:if test="matches(.,'[:;?!]')">
-        <span class="ls-0"><xsl:value-of select="'&#x2060;&#x2009;&#x2060;'"/></span>
-     </xsl:if>
-    <xsl:value-of 
-     select="translate(.,'&#xA;&#x9;','')"/>
-  </xsl:template>
-  <xsl:template match="text()" mode="raw"/>
+    <xsl:template match="text()">
+        <xsl:analyze-string select="." regex="[!:;?]">
+            <xsl:matching-substring>
+                <span class="ls-0">
+                    <xsl:value-of select="'&#x2060;&#x2009;&#x2060;'||."/>
+                </span>
+            </xsl:matching-substring>
+            <xsl:non-matching-substring>
+                <xsl:value-of select="translate(.,'&#xA;&#x9;','')"/>
+            </xsl:non-matching-substring>
+        </xsl:analyze-string>
+    </xsl:template>
+    <xsl:template match="text()" mode="raw"/>
 </xsl:stylesheet>
