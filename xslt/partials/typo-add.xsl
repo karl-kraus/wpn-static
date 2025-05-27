@@ -37,7 +37,23 @@
             <xsl:when test="@rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <span class="add {replace(@change, '#', '')}" id="{@xml:id}-inline">&#124;</span>
                 <span class="position-relative">
-                    <span class="add {@rend} {replace(@change, '#', '')}" id="{@xml:id}">&#124;&#xA0;<xsl:apply-templates/></span>
+                    <xsl:variable name="el">
+                        <xsl:choose>
+                            <xsl:when test="parent::tei:del">
+                                <xsl:text>del</xsl:text>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:text>span</xsl:text>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:variable>
+                    <xsl:element name="{$el}">
+                        <xsl:attribute name="class">
+                            <xsl:value-of select="concat('add ', @rend, ' ', replace(@change, '#', ''))"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="id" select="@xml:id"/>
+                        &#124;&#xA0;<xsl:apply-templates/>
+                    </xsl:element>
                 </span>
             </xsl:when>
             <xsl:otherwise>
