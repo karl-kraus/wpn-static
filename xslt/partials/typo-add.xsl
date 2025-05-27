@@ -35,6 +35,7 @@
                 </span>
             </xsl:when>
             <xsl:when test="@rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
+                <span class="add {replace(@change, '#', '')}" id="{@xml:id}-inline">&#124;</span>
                 <span class="position-relative">
                     <span class="add {@rend} {replace(@change, '#', '')}" id="{@xml:id}">&#124;&#xA0;<xsl:apply-templates/></span>
                 </span>
