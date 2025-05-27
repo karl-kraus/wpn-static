@@ -127,12 +127,12 @@
                             </div>
                         </div>
                         <wpn-page-view annotation-selectors=".entity" id="sub_grid_pb">
-                            <div id="facscolumn" class="mx-auto ff-century-old-style">
+                            <div id="facscolumn" class="mx-auto ff-crimson-text">
                                 <div id="facscontent" wpn-data="{$facsimile}" wpn-type="{.//tei:pb[1]/@type}">
                                     <!-- osd viewer container -->
                                 </div>                                
                             </div>
-                            <div id="textcolumn-pb" class="mx-auto ff-century-old-style">
+                            <div id="textcolumn-pb" class="mx-auto ff-crimson-text">
                                 <div id="textcontent-pb">
                                     <xsl:apply-templates select="//tei:text" />
                                 </div>

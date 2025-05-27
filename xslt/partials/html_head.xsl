@@ -17,7 +17,6 @@
         <meta name="apple-mobile-web-app-title" content="{$html_title}" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="{$project_logo}" />
-        <link rel="stylesheet" href="https://use.typekit.net/ckc0oka.css"/>
     <!-- favicon -->
         <link rel="icon" href="images/favicons/favicon.ico" sizes="32x32"/>
         <link rel="icon" href="images/favicons/icon.svg" type="image/svg+xml"/>
