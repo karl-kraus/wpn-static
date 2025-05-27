@@ -170,6 +170,7 @@
                         | //tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'Left')]
                         | //tei:metamark[@function='insertion' and contains(@rend, 'Left')]
                         | //tei:mod[@rendition='#longQuote' and contains(@rend, 'Left')]
+                        | //tei:mod[@rendition='#longQuoteEndCenter' and contains(@rend, 'Left')]
                         | //tei:mod[@rendition='#runningText1' and contains(@rend, 'Left')]
                         | //tei:mod[not(@rendition) and @style='noIndent' and contains(@rend, 'Left')]" mode="render"/>
                 </div>
@@ -186,6 +187,7 @@
                         | //tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'Right')]
                         | //tei:metamark[@function='insertion' and contains(@rend, 'Right')]
                         | //tei:mod[@rendition='#longQuote' and contains(@rend, 'Right')]
+                        | //tei:mod[@rendition='#longQuoteEndCenter' and contains(@rend, 'Right')]
                         | //tei:mod[@rendition='#runningText1' and contains(@rend, 'Right')]
                         | //tei:mod[not(@rendition) and @style='noIndent' and contains(@rend, 'Right')]" mode="render"/>
                 </div>
