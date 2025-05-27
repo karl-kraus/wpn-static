@@ -58,14 +58,14 @@
             </xsl:when>
             <xsl:otherwise>
                 <span class="add connect entity {replace(@change, '#', '')}" id="{@xml:id}">
-                    <span>&#124;&#xA0;</span>
+                    <span>&#124;</span>
                 </span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:add[parent::tei:restore]">
         <span class="add connect entity text-decoration-underline-dotted" id="{@xml:id}">
-            <del>&#124;&#xA0;</del>
+            <del>&#124;</del>
         </span>
     </xsl:template>
     <xsl:template match="tei:add[@rendition]">
