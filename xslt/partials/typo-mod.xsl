@@ -111,7 +111,7 @@
     <xsl:template match="tei:mod[@rendition='#longQuoteEndCenter']" mode="render">
         <div class="d-flex position-relative" data-xmlid="{@xml:id}">
             <div class="mod connect {@rend} {replace(@change,'#','')}">
-                <span>&#124;&#8594;</span>
+                <span>&#8594;</span>
             </div>
         </div>
     </xsl:template>
