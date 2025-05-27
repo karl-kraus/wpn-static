@@ -102,27 +102,31 @@
 
     <!-- container element -->
     <xsl:template match="tei:mod[@rendition='#longQuote']" mode="render">
-        <div class="d-flex ms-1" data-xmlid="{@xml:id}">
-            <div class="mod connect {@rend} {replace(@change,'#','')}" id="container-{@xml:id}">
-                <span style="font-size:1.25em;">&#124;</span>
+        <div class="d-flex position-relative" data-xmlid="{@xml:id}">
+            <div class="mod connect {@rend} {replace(@change,'#','')}">
+                <span>&#124;</span>
             </div>
         </div>
     </xsl:template>
     <xsl:template match="tei:mod[@rendition='#longQuoteEndCenter']" mode="render">
-        <div class="d-flex ms-1" data-xmlid="{@xml:id}">
-            <div class="mod connect {@rend} {replace(@change,'#','')}" id="container-{@xml:id}">
-                <span style="font-size:1.25em;">&#124;&#8594;</span>
+        <div class="d-flex position-relative" data-xmlid="{@xml:id}">
+            <div class="mod connect {@rend} {replace(@change,'#','')}">
+                <span>&#124;&#8594;</span>
             </div>
         </div>
     </xsl:template>
     <xsl:template match="tei:mod[not(@rendition) and @style='noIndent']" mode="render">
-        <div id="container-{@xml:id}" class="mod connect ms-1 {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div><span>&#8592;</span></div>
+        <div class="d-flex position-relative" data-xmlid="{@xml:id}">
+            <div id="container-{@xml:id}" class="mod connect {@rend} {replace(@change,'#','')}">
+                <div><span>&#8592;</span></div>
+            </div>
         </div>
     </xsl:template>
     <xsl:template match="tei:mod[@rendition='#runningText1']" mode="render">
-        <div id="container-{@xml:id}" class="mod connect ms-1 {@rend} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
-            <div><span style="font-size:1.25em;">[</span></div>
+        <div class="d-flex position-relative" data-xmlid="{@xml:id}">
+            <div id="container-{@xml:id}" class="mod connect {@rend} {replace(@change,'#','')}">
+                <div><span>[</span></div>
+            </div>
         </div>
     </xsl:template>
     

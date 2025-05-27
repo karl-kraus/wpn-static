@@ -1567,7 +1567,11 @@ handling del elements in maring left or right
 #textcontent-pb div.del.connect.pencilOnTypescript,
 #textcontent-pb div.del.connect.pencilOnProof,
 #textcontent-pb div.del.connect.undefined,
-#textcontent-pb div.del.connect.pencilOnProofKK {
+#textcontent-pb div.del.connect.pencilOnProofKK,
+#textcontent-pb div.mod.connect.pencilOnTypescript,
+#textcontent-pb div.mod.connect.pencilOnProof,
+#textcontent-pb div.mod.connect.undefined,
+#textcontent-pb div.mod.connect.pencilOnProofKK {
   font-size: 8pt;
   line-height: 8pt;
   font-family: 'Ubuntu', 'Segoe UI Symbol', 'Noto Sans', sans-serif;
