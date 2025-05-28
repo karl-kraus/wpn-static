@@ -1590,6 +1590,12 @@ handling del elements in maring left or right
   font-family: 'Ubuntu', sans-serif;
 }
 
+/* experimental: larger line spacing when there is something rend below - to avoid text overlap */
+#textcontent-pb span.note span.position-relative:has(> span.below.add),
+#textcontent-pb span.note span.position-relative:has(> span.below.subst) {
+  line-height: 2.4;
+}
+
 .arimo {
   font-family: 'Arimo', sans-serif !important;
 }
@@ -1696,7 +1702,7 @@ handling del elements in maring left or right
 
 .below {
   position: absolute;
-  bottom: -8pt;
+  bottom: -7pt;
 }
 
 .leftBelow {
