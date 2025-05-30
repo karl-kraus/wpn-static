@@ -637,7 +637,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 #textcontent-pb .longQuoteEndIndent,
 #textcontent-pb .longQuoteStartIndent {
-  text-align-last: left !important;
+  /*text-align-last: left !important; */
   text-indent: $spacer * 3 !important;
 }
 
