@@ -6,7 +6,23 @@
     version="2.0" exclude-result-prefixes="#all">    
     
     <xsl:template match="tei:add[parent::tei:subst[parent::tei:restore]]">
-        <span class="add connect entity text-decoration-underline-dotted" id="{@xml:id}"></span>
+        <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
+        <xsl:choose>
+            <xsl:when test="$rend = 'inline'">
+                <del class="add" id="{@xml:id}"><xsl:apply-templates/></del>
+            </xsl:when>
+            <xsl:when test="$rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
+                <span class="position-relative">
+                    <del class="add {$rend}" id="{@xml:id}">&#124;&#xA0;<xsl:apply-templates/></del>
+                </span>
+            </xsl:when>
+            <xsl:when test="$rend='overwritten'">
+                <del class="add connect overwrite ms-n08" id="{@xml:id}"><xsl:apply-templates/></del>
+            </xsl:when>
+            <xsl:otherwise>
+                <del class="add connect entity" id="{@xml:id}">&#124;&#xA0;</del>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:add[parent::tei:subst[not(parent::tei:restore)]]">
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
