@@ -26,7 +26,7 @@
                     </xsl:variable>
                     <xsl:element name="{$el}">
                         <xsl:attribute name="class">
-                            <xsl:value-of select="concat('add ', @rend, ' ', replace(@change, '#', ''))"/>
+                            <xsl:value-of select="concat('add ', $rend, ' ', replace(@change, '#', ''))"/>
                         </xsl:attribute>
                         <xsl:attribute name="id" select="@xml:id"/>
                         &#124;&#xA0;<xsl:apply-templates/>
@@ -62,7 +62,7 @@
                     </xsl:variable>
                     <xsl:element name="{$el}">
                         <xsl:attribute name="class">
-                            <xsl:value-of select="concat('add ', @rend, ' ', replace(@change, '#', ''))"/>
+                            <xsl:value-of select="concat('add ', $rend, ' ', replace(@change, '#', ''))"/>
                         </xsl:attribute>
                         <xsl:attribute name="id" select="@xml:id"/>
                         &#124;&#xA0;<xsl:apply-templates/>
