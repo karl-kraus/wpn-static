@@ -48,9 +48,9 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:choose>
-                    <xsl:when test="not(preceding::tei:*[contains(@rend, 'margin') and contains(@rend, $left-right)][preceding::tei:lb[1]/@xml:id = $line])">
-                        <xsl:variable name="next" select="following::tei:*[contains(@rend, 'margin') and contains(@rend, $left-right)][preceding::tei:lb[1]/@xml:id = $line][1]/@xml:id"/>
-                        <xsl:variable name="outerNext" select="following::tei:*[contains(@rend, 'margin') and contains(@rend, $left-right)][preceding::tei:lb[1]/@xml:id = $line][2]/@xml:id"/>
+                    <xsl:when test="not( preceding::tei:*[contains(@rend, 'margin') and contains(@rend, $left-right) ][ preceding::tei:lb[1]/@xml:id = $line ] )">
+                        <xsl:variable name="next" select="following::tei:*[contains(@rend, 'margin') and contains(@rend, $left-right)][preceding::tei:lb[1]/@xml:id = $line ][not(ancestor::tei:lg[@rendition='#longQuoteVerse'])][1]/@xml:id"/>
+                        <xsl:variable name="outerNext" select="following::tei:*[contains(@rend, 'margin') and contains(@rend, $left-right)][preceding::tei:lb[1]/@xml:id = $line][not(ancestor::tei:lg[@rendition='#longQuoteVerse'])][2]/@xml:id"/>
                         <xsl:copy>
                             <xsl:attribute name="xml:data">
                                 <xsl:value-of select="concat($next, '/', $outerNext)"/>
