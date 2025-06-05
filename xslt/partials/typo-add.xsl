@@ -37,7 +37,7 @@
                 <del class="add connect overwrite ms-n08" id="{@xml:id}"><xsl:apply-templates/></del>
             </xsl:when>
             <xsl:otherwise>
-                <del class="add connect entity" id="{@xml:id}">&#124;&#xA0;</del>
+                <del class="add connect entity" id="{@xml:id}"></del>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
