@@ -161,8 +161,8 @@
             </div>
             <div class="print-body {$printType}">
                 <div class="body-left">
-                    <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]
-                                                    and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Left')]
+                    <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]
+                                                    and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[ancestor::tei:subst[@rend]])then(ancestor::tei:subst/@rend)else(@rend)), 'Left')]
                         | //tei:del[not(parent::tei:subst) and contains(@rend, 'Left')]
                         | //tei:metamark[@function='progress' and contains(@rend, 'Left')]
                         | //tei:metamark[@function='transposition' and contains(@rend, 'Left')]
@@ -178,8 +178,8 @@
                     <xsl:apply-templates/>
                 </div>
                 <div class="body-right">
-                    <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]
-                                                    and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)), 'Right')]
+                    <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]
+                                                    and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[ancestor::tei:subst[@rend]])then(ancestor::tei:subst/@rend)else(@rend)), 'Right')]
                         | //tei:del[not(parent::tei:subst) and contains(@rend, 'Right')]
                         | //tei:metamark[@function='progress' and contains(@rend, 'Right')]
                         | //tei:metamark[@function='transposition' and contains(@rend, 'Right')]

@@ -242,8 +242,8 @@ def wrap_last_sentence(file) -> None:
         s, breakelement = wrap_or_not(x.getnext(), s)
         parent = x.getparent()
         if not breakelement:
-            if parent.tag in LB_WRAPPED:
-                ancestor = parent.getparent()
+            if parent.tag in LB_WRAPPED:  #quote
+                ancestor = parent.getparent() #del parent subst
                 if parent.tag == "{http://www.tei-c.org/ns/1.0}del":
                     if ancestor.tag == "{http://www.tei-c.org/ns/1.0}subst":
                         s2 = create_sub_el(ancestor)
