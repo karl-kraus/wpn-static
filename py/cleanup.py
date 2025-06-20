@@ -203,7 +203,10 @@ def wrap_or_not(el, s, ancestor=False) -> ET.Element:
 
 
 def create_sub_el(parent_or_ancestor, ancestor=False) -> ET._Element:
+    style_attr = parent_or_ancestor.get("style")
     s2 = ET.Element('span')
+    if style_attr is not None:
+        s2.attrib["style"] = f"no-{style_attr}"
     if parent_or_ancestor.tag == "{http://www.tei-c.org/ns/1.0}subst":
         s2.attrib["n"] = "last"
     s2.text = parent_or_ancestor.tail

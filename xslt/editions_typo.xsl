@@ -353,7 +353,7 @@
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:span[not(@n)]">
-        <xsl:apply-templates/>
+        <span class="{@style}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:listTranspose"/>
     <xsl:template match="tei:gap">
