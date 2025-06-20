@@ -168,6 +168,8 @@ def wrap_or_not(el, s, ancestor=False) -> ET.Element:
                                     s.text = el.tail
                             el.tail = ""
                         for childel in breakpoint_el.xpath("following-sibling::*"):
+                            if childel.tag in EXCLUDE_TAGS:
+                                continue
                             el.remove(childel)
                             s.append(childel)
                     else:
@@ -184,6 +186,8 @@ def wrap_or_not(el, s, ancestor=False) -> ET.Element:
                                     s.text = el.text
                             el.text = ""
                         for childel in breakpoint_el.xpath("preceding-sibling::*"):
+                            if childel.tag in EXCLUDE_TAGS:
+                                continue
                             el.remove(childel)
                             s.append(childel)
                     next_el = None
@@ -192,10 +196,10 @@ def wrap_or_not(el, s, ancestor=False) -> ET.Element:
             else:
                 s = append_el(el, s)
         else:
-            return s
+            return s, True
         # print(type(el))
         el = next_el
-    return s
+    return s, False
 
 
 def create_sub_el(parent_or_ancestor, ancestor=False) -> ET._Element:
@@ -204,7 +208,7 @@ def create_sub_el(parent_or_ancestor, ancestor=False) -> ET._Element:
         s2.attrib["n"] = "last"
     s2.text = parent_or_ancestor.tail
     parent_or_ancestor.tail = ""
-    s2 = wrap_or_not(parent_or_ancestor.getnext(), s2, ancestor)
+    s2, _ = wrap_or_not(parent_or_ancestor.getnext(), s2, ancestor)
     return s2
 
 
@@ -232,25 +236,28 @@ def wrap_last_sentence(file) -> None:
             s.attrib["n"] = "last"
         s.text = x.tail
         x.tail = ""
-        s = wrap_or_not(x.getnext(), s)
+        s, breakelement = wrap_or_not(x.getnext(), s)
         parent = x.getparent()
-        if parent.tag in LB_WRAPPED:
-            ancestor = parent.getparent()
-            if parent.tag == "{http://www.tei-c.org/ns/1.0}del":
-                if ancestor.tag == "{http://www.tei-c.org/ns/1.0}subst":
-                    s2 = create_sub_el(ancestor)
+        if not breakelement:
+            if parent.tag in LB_WRAPPED:
+                ancestor = parent.getparent()
+                if parent.tag == "{http://www.tei-c.org/ns/1.0}del":
+                    if ancestor.tag == "{http://www.tei-c.org/ns/1.0}subst":
+                        s2 = create_sub_el(ancestor)
+                        x.addnext(s)
+                        x.getparent().addnext(s2)
+                if parent.tag == "{http://www.tei-c.org/ns/1.0}quote":
+                    s2 = create_sub_el(ancestor, ancestor=True)
+                    s.append(s2)
                     x.addnext(s)
-                    x.getparent().addnext(s2)
-            if parent.tag == "{http://www.tei-c.org/ns/1.0}quote":
-                s2 = create_sub_el(ancestor, ancestor=True)
-                s.append(s2)
-                x.addnext(s)
-                if ancestor.tag == "{http://www.tei-c.org/ns/1.0}del" or ancestor.tag == "{http://www.tei-c.org/ns/1.0}add":
-                    s3 = create_sub_el(ancestor.getparent(), ancestor=True)
-                    ancestor.addnext(s3)
-            if parent.tag != "{http://www.tei-c.org/ns/1.0}del":
-                s2 = create_sub_el(parent)
-                s.append(s2)
+                    if ancestor.tag == "{http://www.tei-c.org/ns/1.0}del" or ancestor.tag == "{http://www.tei-c.org/ns/1.0}add":
+                        s3 = create_sub_el(ancestor.getparent(), ancestor=True)
+                        ancestor.addnext(s3)
+                if parent.tag != "{http://www.tei-c.org/ns/1.0}del":
+                    s2 = create_sub_el(parent)
+                    s.append(s2)
+                    x.addnext(s)
+            else:
                 x.addnext(s)
         else:
             x.addnext(s)
