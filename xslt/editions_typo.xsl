@@ -8,9 +8,9 @@
     
     <xsl:output encoding="UTF-8" media-type="text/html" method="html" version="5.0" indent="no" omit-xml-declaration="yes"/>
     
-    <!-- <xsl:strip-space elements="*"/> -->
-    <!-- <xsl:preserve-space elements="tei:p tei:mod tei:seg"/> -->
     <xsl:preserve-space elements="*"/>
+    <!-- <xsl:strip-space elements="tei:note"/> -->
+    <!-- <xsl:preserve-space elements="tei:p tei:mod tei:seg"/> -->
 
     <xsl:import href="./partials/shared.xsl"/>
     <xsl:import href="./partials/short-infos.xsl"/>
@@ -148,6 +148,20 @@
                 
             </body>
         </html>
+    </xsl:template>
+
+    <xsl:template match="text()">
+        <xsl:choose>
+            <xsl:when test="following-sibling::*[1]/local-name() = ('note', 'pb', 'lb')">
+                <xsl:value-of select="normalize-space(.)"/>
+            </xsl:when>
+            <xsl:when test="following-sibling::*[1][@n='lb-dash']">
+                <xsl:value-of select="normalize-space(.)"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="."/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="tei:body">
@@ -317,14 +331,10 @@
     <!-- <xsl:template match="tei:lb[@type='req']">
         <br/>
     </xsl:template> -->
-    <xsl:template match="tei:lb[not(@n)]">
-    <!-- [not(parent::tei:seg|tei:p[parent::tei:p|tei:seg|tei:body] and position() = 1 or preceding-sibling::*[1]/local-name() = 'fw')] -->
-        <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
-    </xsl:template>
     <xsl:template match="tei:lb[@n='first']"/>
     <xsl:template match="tei:lb[@n='firstLast']"/>
-    <xsl:template match="tei:lb[@n='last']">
-        <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
+    <xsl:template match="tei:lb[@n='last' or not(@n)]">
+    <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
     </xsl:template>
     <xsl:template match="tei:span[@n='last']">
         <xsl:choose>
