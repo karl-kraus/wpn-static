@@ -8,9 +8,11 @@
     </xsl:variable>
     
     <xsl:template match="@*|node()">
-        <xsl:copy>
-            <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
+        <xsl:if test="not(self::tei:rdg[@source = 'F890'])">
+            <xsl:copy>
+                <xsl:apply-templates select="@*|node()"/>
+            </xsl:copy>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="tei:TEI">

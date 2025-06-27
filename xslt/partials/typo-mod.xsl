@@ -101,28 +101,28 @@
 
 
     <!-- container element -->
-    <xsl:template match="tei:mod[@rendition='#longQuote']" mode="render">
+    <xsl:template match="tei:mod[@rendition='#longQuote' and not(@continued)]" mode="render">
         <div class="d-flex position-relative" data-xmlid="{@xml:id}">
             <div class="mod connect {@rend} {replace(@change,'#','')}">
                 <span>&#124;</span>
             </div>
         </div>
     </xsl:template>
-    <xsl:template match="tei:mod[@rendition='#longQuoteEndCenter']" mode="render">
+    <xsl:template match="tei:mod[@rendition='#longQuoteEndCenter' and not(@continued)]" mode="render">
         <div class="d-flex position-relative" data-xmlid="{@xml:id}">
             <div class="mod connect {@rend} {replace(@change,'#','')}">
                 <span>&#8594;</span>
             </div>
         </div>
     </xsl:template>
-    <xsl:template match="tei:mod[not(@rendition) and @style='noIndent']" mode="render">
+    <xsl:template match="tei:mod[not(@rendition) and @style='noIndent' and not(@continued)]" mode="render">
         <div class="d-flex position-relative" data-xmlid="{@xml:id}">
             <div id="container-{@xml:id}" class="mod connect {@rend} {replace(@change,'#','')}">
                 <div><span>&#8592;</span></div>
             </div>
         </div>
     </xsl:template>
-    <xsl:template match="tei:mod[@rendition='#runningText1']" mode="render">
+    <xsl:template match="tei:mod[@rendition='#runningText1' and not(@continued)]" mode="render">
         <div class="d-flex position-relative" data-xmlid="{@xml:id}">
             <div id="container-{@xml:id}" class="mod connect {@rend} {replace(@change,'#','')}">
                 <div><span>[</span></div>

@@ -8,9 +8,9 @@
     
     <xsl:output encoding="UTF-8" media-type="text/html" method="html" version="5.0" indent="no" omit-xml-declaration="yes"/>
     
-    <!-- <xsl:strip-space elements="*"/> -->
-    <!-- <xsl:preserve-space elements="tei:p tei:mod tei:seg"/> -->
     <xsl:preserve-space elements="*"/>
+    <!-- <xsl:strip-space elements="tei:note"/> -->
+    <!-- <xsl:preserve-space elements="tei:p tei:mod tei:seg"/> -->
 
     <xsl:import href="./partials/shared.xsl"/>
     <xsl:import href="./partials/short-infos.xsl"/>
@@ -150,6 +150,23 @@
         </html>
     </xsl:template>
 
+    <xsl:template match="text()">
+        <xsl:choose>
+            <xsl:when test="following-sibling::*[1]/local-name() = ('note', 'pb')">
+                <xsl:value-of select="normalize-space(.)"/>
+            </xsl:when>
+            <xsl:when test="following-sibling::*[1][@n='lb-dash']">
+                <xsl:value-of select="normalize-space(.)"/>
+            </xsl:when>
+            <xsl:when test="following-sibling::*[1][@n='first']">
+                <xsl:value-of select="normalize-space(.)"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="."/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
     <xsl:template match="tei:body">
         <xsl:variable name="printType">
             <xsl:value-of select=".//tei:pb[1]/@type"/>
@@ -169,10 +186,10 @@
                         | //tei:metamark[@function='printInstruction' and contains(@rend, 'Left')]
                         | //tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'Left')]
                         | //tei:metamark[@function='insertion' and contains(@rend, 'Left')]
-                        | //tei:mod[@rendition='#longQuote' and contains(@rend, 'Left')]
-                        | //tei:mod[@rendition='#longQuoteEndCenter' and contains(@rend, 'Left')]
-                        | //tei:mod[@rendition='#runningText1' and contains(@rend, 'Left')]
-                        | //tei:mod[not(@rendition) and @style='noIndent' and contains(@rend, 'Left')]" mode="render"/>
+                        | //tei:mod[@rendition='#longQuote' and not(@continued) and contains(@rend, 'Left')]
+                        | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and contains(@rend, 'Left')]
+                        | //tei:mod[@rendition='#runningText1' and not(@continued) and contains(@rend, 'Left')]
+                        | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'Left')]" mode="render"/>
                 </div>
                 <div class="body-main">
                     <xsl:apply-templates/>
@@ -186,10 +203,10 @@
                         | //tei:metamark[@function='printInstruction' and contains(@rend, 'Right')]
                         | //tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'Right')]
                         | //tei:metamark[@function='insertion' and contains(@rend, 'Right')]
-                        | //tei:mod[@rendition='#longQuote' and contains(@rend, 'Right')]
-                        | //tei:mod[@rendition='#longQuoteEndCenter' and contains(@rend, 'Right')]
-                        | //tei:mod[@rendition='#runningText1' and contains(@rend, 'Right')]
-                        | //tei:mod[not(@rendition) and @style='noIndent' and contains(@rend, 'Right')]" mode="render"/>
+                        | //tei:mod[@rendition='#longQuote' and not(@continued) and contains(@rend, 'Right')]
+                        | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and contains(@rend, 'Right')]
+                        | //tei:mod[@rendition='#runningText1' and not(@continued) and contains(@rend, 'Right')]
+                        | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'Right')]" mode="render"/>
                 </div>
             </div>
             <div class="print-footer {$printType} zindex-99">
@@ -317,14 +334,10 @@
     <!-- <xsl:template match="tei:lb[@type='req']">
         <br/>
     </xsl:template> -->
-    <xsl:template match="tei:lb[not(@n)]">
-    <!-- [not(parent::tei:seg|tei:p[parent::tei:p|tei:seg|tei:body] and position() = 1 or preceding-sibling::*[1]/local-name() = 'fw')] -->
-        <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
-    </xsl:template>
     <xsl:template match="tei:lb[@n='first']"/>
     <xsl:template match="tei:lb[@n='firstLast']"/>
-    <xsl:template match="tei:lb[@n='last']">
-        <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
+    <xsl:template match="tei:lb[@n='last' or not(@n)]">
+    <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
     </xsl:template>
     <xsl:template match="tei:span[@n='last']">
         <xsl:choose>

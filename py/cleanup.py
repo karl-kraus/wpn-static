@@ -147,7 +147,7 @@ def wrap_or_not(el, s, ancestor=False) -> ET.Element:
         if el.tag not in EXCLUDE_TAGS:
             next_el = el.getnext()
             if el.tag == "{http://www.tei-c.org/ns/1.0}quote" or el.tag == "{http://www.tei-c.org/ns/1.0}seg":
-                breakpoint_els = el.xpath("./tei:p|./tei:lg|./tei:note|./tei:quote[tei:p]",
+                breakpoint_els = el.xpath("./tei:p|./tei:lg|./tei:note|./tei:quote[tei:p]|./tei:seg[tei:lg]|./tei:quote[tei:lg]|./tei:seg[tei:p]",
                                           namespaces=NSMAP)
                 # quote and seg are inline or block elements but
                 # (Breakpoints: p, lg, note)
@@ -204,15 +204,15 @@ def wrap_or_not(el, s, ancestor=False) -> ET.Element:
 
 def create_sub_el(parent_or_ancestor, ancestor=False) -> ET._Element:
     style_attr = parent_or_ancestor.get("style")
-    s2 = ET.Element('span')
+    s = ET.Element('span')
     if style_attr is not None:
-        s2.attrib["style"] = f"no-{style_attr}"
+        s.attrib["style"] = f"no-{style_attr}"
     if parent_or_ancestor.tag == "{http://www.tei-c.org/ns/1.0}subst":
-        s2.attrib["n"] = "last"
-    s2.text = parent_or_ancestor.tail
+        s.attrib["n"] = "last"
+    s.text = parent_or_ancestor.tail
     parent_or_ancestor.tail = ""
-    s2, _ = wrap_or_not(parent_or_ancestor.getnext(), s2, ancestor)
-    return s2
+    s, breakpoint = wrap_or_not(parent_or_ancestor.getnext(), s, ancestor)
+    return s, breakpoint
 
 
 LB_WRAPPED = [
@@ -242,22 +242,36 @@ def wrap_last_sentence(file) -> None:
         s, breakelement = wrap_or_not(x.getnext(), s)
         parent = x.getparent()
         if not breakelement:
-            if parent.tag in LB_WRAPPED:  #quote
-                ancestor = parent.getparent() #del parent subst
+            if parent.tag in LB_WRAPPED:
+                ancestor = parent.getparent()
                 if parent.tag == "{http://www.tei-c.org/ns/1.0}del":
                     if ancestor.tag == "{http://www.tei-c.org/ns/1.0}subst":
-                        s2 = create_sub_el(ancestor)
+                        s2, _ = create_sub_el(ancestor)
                         x.addnext(s)
                         x.getparent().addnext(s2)
                 if parent.tag == "{http://www.tei-c.org/ns/1.0}quote":
-                    s2 = create_sub_el(ancestor, ancestor=True)
+                    s2, breakpoint = create_sub_el(ancestor, ancestor=True)
                     s.append(s2)
                     x.addnext(s)
                     if ancestor.tag == "{http://www.tei-c.org/ns/1.0}del" or ancestor.tag == "{http://www.tei-c.org/ns/1.0}add":
-                        s3 = create_sub_el(ancestor.getparent(), ancestor=True)
+                        s3, breakpoint = create_sub_el(ancestor.getparent(),
+                                                       ancestor=True)
                         ancestor.addnext(s3)
+                    if not breakpoint:
+                        if ancestor.tag == "{http://www.tei-c.org/ns/1.0}rdg":
+                            s3, breakpoint = create_sub_el(
+                                ancestor.getparent(),
+                                ancestor=True)
+                            s.append(s3)
+                            x.addnext(s)
+                            if not breakpoint:
+                                s4, breakpoint = create_sub_el(
+                                    ancestor.getparent().getparent(),
+                                    ancestor=True)
+                                s.append(s4)
+                                x.addnext(s)
                 if parent.tag != "{http://www.tei-c.org/ns/1.0}del":
-                    s2 = create_sub_el(parent)
+                    s2, _ = create_sub_el(parent)
                     s.append(s2)
                     x.addnext(s)
             else:
