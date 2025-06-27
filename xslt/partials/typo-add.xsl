@@ -3,8 +3,8 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:wpn="https://wpn.acdh.oeaw.ac.at"
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
-    version="2.0" exclude-result-prefixes="#all">    
-    
+    version="2.0" exclude-result-prefixes="#all">
+
     <xsl:template match="tei:add[parent::tei:subst[parent::tei:restore]]">
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
         <xsl:choose>
@@ -12,7 +12,7 @@
                 <del class="add" id="{@xml:id}"><xsl:apply-templates/></del>
             </xsl:when>
             <xsl:when test="$rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
-                <span class="add {replace(@change, '#', '')}" id="{@xml:id}-inline">&#124;</span>
+                <span class="add {replace(@change[1], '#', '')}" id="{@xml:id}-inline">&#124;</span>
                 <span class="position-relative">
                     <xsl:variable name="el">
                         <xsl:choose>
@@ -26,7 +26,7 @@
                     </xsl:variable>
                     <xsl:element name="{$el}">
                         <xsl:attribute name="class">
-                            <xsl:value-of select="concat('add ', $rend, ' ', replace(@change, '#', ''))"/>
+                            <xsl:value-of select="concat('add ', $rend, ' ', replace(@change[1], '#', ''))"/>
                         </xsl:attribute>
                         <xsl:attribute name="id" select="@xml:id"/>
                         &#124;&#xA0;<xsl:apply-templates/>
@@ -62,7 +62,7 @@
                     </xsl:variable>
                     <xsl:element name="{$el}">
                         <xsl:attribute name="class">
-                            <xsl:value-of select="concat('add ', $rend, ' ', replace(@change, '#', ''))"/>
+                            <xsl:value-of select="concat('add ', $rend, ' ', replace(@change[1], '#', ''))"/>
                         </xsl:attribute>
                         <xsl:attribute name="id" select="@xml:id"/>
                         &#124;&#xA0;<xsl:apply-templates/>
@@ -80,12 +80,12 @@
     <xsl:template match="tei:add[not(parent::tei:subst) and not(parent::tei:restore)]">
         <xsl:choose>
             <xsl:when test="@rend = 'inline'">
-                <span class="add connect entity {replace(@change, '#', '')}" id="{@xml:id}">
+                <span class="add connect entity {replace(@change[1], '#', '')}" id="{@xml:id}">
                     <xsl:apply-templates/>
                 </span>
             </xsl:when>
             <xsl:when test="@rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
-                <span class="add {replace(@change, '#', '')}" id="{@xml:id}-inline">&#124;</span>
+                <span class="add {replace(@change[1], '#', '')}" id="{@xml:id}-inline">&#124;</span>
                 <span class="position-relative">
                     <xsl:variable name="el">
                         <xsl:choose>
@@ -99,7 +99,7 @@
                     </xsl:variable>
                     <xsl:element name="{$el}">
                         <xsl:attribute name="class">
-                            <xsl:value-of select="concat('add ', @rend, ' ', replace(@change, '#', ''))"/>
+                            <xsl:value-of select="concat('add ', @rend, ' ', replace(@change[1], '#', ''))"/>
                         </xsl:attribute>
                         <xsl:attribute name="id" select="@xml:id"/>
                         &#124;&#xA0;<xsl:apply-templates/>
@@ -107,7 +107,7 @@
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="add connect entity {replace(@change, '#', '')}" id="{@xml:id}">
+                <span class="add connect entity {replace(@change[1], '#', '')}" id="{@xml:id}">
                     <span>&#124;</span>
                 </span>
             </xsl:otherwise>
@@ -119,7 +119,7 @@
         </span>
     </xsl:template>
     <xsl:template match="tei:add[@rendition]">
-        <span class="add rendition {replace(@rendition,'#','')} {replace(@change,'#','')}">
+        <span class="add rendition {replace(@rendition,'#','')} {replace(@change[1],'#','')}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
@@ -132,13 +132,13 @@
             <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(ancestor::tei:subst[@rend])then(ancestor::tei:subst/@rend)else(@rend)"/>
             <xsl:variable name="containerID" select="if(parent::tei:subst)then(preceding-sibling::tei:del[1]/@xml:id)else if(ancestor::tei:subst)then(preceding-sibling::tei:del[1])else(@xml:id)"/>
             <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
-                <div id="container-{$containerID}" class="add connect w-100 {replace($change,'#','')}">
+                <div id="container-{$containerID}" class="add connect w-100 {replace($change[1],'#','')}">
                     <div class="w-100">
                         <xsl:apply-templates select="." mode="manual"/>
                     </div>
                 </div>
                 <xsl:call-template name="wrapper-iter">
-                    <xsl:with-param name="xmldata" select="tokenize($xml-data, '/')"/>
+                    <xsl:with-param name="xmldata" select="tokenize($xml-data[1], '/')"/>
                 </xsl:call-template>
             </div>
         </xsl:if>
@@ -157,7 +157,7 @@
                     <div class="w-100">
                         <xsl:choose>
                             <xsl:when test="contains($next/@xml:id, 'add')">
-                                <span class="{$next-rend} {replace($next-change,'#','')}">
+                                <span class="{$next-rend} {replace($next-change[1],'#','')}">
                                     &#124;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
                                 </span>
                             </xsl:when>
@@ -165,7 +165,7 @@
                                 <xsl:choose>
                                     <xsl:when test="$next[parent::tei:restore]">
                                         <del class="{$next-rend} {replace(($next/parent::tei:restore/@change)[1],'#','')}">
-                                            <span class="{replace($next-change,'#','')}">
+                                            <span class="{replace($next-change[1],'#','')}">
                                                 &#124;&#xA0;<span class="arimo">&#8368;</span>
                                                 <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fill="currentColor" viewBox="0 0 8.99 16.04">
                                                     <metadata>
@@ -179,7 +179,7 @@
                                         </del>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <span class="{$next-rend} {replace($next-change,'#','')}">
+                                        <span class="{$next-rend} {replace($next-change[1],'#','')}">
                                             &#124;&#xA0;<span class="arimo">&#8368;</span>
                                             <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fill="currentColor" viewBox="0 0 8.99 16.04">
                                                 <metadata>
@@ -216,19 +216,19 @@
         <xsl:choose>
             <xsl:when test="parent::tei:subst[parent::tei:restore]">
                 <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
-                <del class="{$rend} {replace($restore-change,'#','')}">&#124;&#xA0;<xsl:apply-templates/></del>
+                <del class="{$rend} {replace($restore-change[1],'#','')}">&#124;&#xA0;<xsl:apply-templates/></del>
             </xsl:when>
             <xsl:when test="parent::tei:restore">
                 <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
                 <del class="{$rend} {replace($restore-change,'#','')}">
-                    <span class="{replace(@change,'#','')}">&#124;&#xA0;<xsl:apply-templates/></span>
+                    <span class="{replace(@change[1],'#','')}">&#124;&#xA0;<xsl:apply-templates/></span>
                 </del>
             </xsl:when>
             <xsl:when test="parent::tei:subst[not(parent::tei:restore)]">
-                <span class="{$rend} {replace($change,'#','')}">&#124;&#xA0;<xsl:apply-templates/></span>
+                <span class="{$rend} {replace($change[1],'#','')}">&#124;&#xA0;<xsl:apply-templates/></span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="{$rend} {replace($change,'#','')}">&#124;&#xA0;<xsl:apply-templates/></span>
+                <span class="{$rend} {replace($change[1],'#','')}">&#124;&#xA0;<xsl:apply-templates/></span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
