@@ -41,8 +41,8 @@
                     <xsl:value-of select="concat('seg border border-1 border-secondary-subtle', replace(@change, '#', ' '))"/>
                 </xsl:attribute>
             </xsl:if>
-            <xsl:if test="@rend='line'"><span class="seg seg-inline"><span id="{@xml:id}">&#124;</span></span></xsl:if>
-            <xsl:if test="@rend='arrow'"><span class="seg seg-inline"><span id="{@xml:id}">&#8592;</span></span></xsl:if>
+            <xsl:if test="@rend='line' and not(@prev)"><span class="seg seg-inline"><span id="{@xml:id}">&#124;</span></span></xsl:if>
+            <xsl:if test="@rend='arrow' and not(@prev)"><span class="seg seg-inline"><span id="{@xml:id}">&#8592;</span></span></xsl:if>
             <xsl:apply-templates/>
         </span>
     </xsl:template>
