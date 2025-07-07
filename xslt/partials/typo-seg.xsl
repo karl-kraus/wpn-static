@@ -46,6 +46,13 @@
             <xsl:apply-templates/>
         </span>
     </xsl:template>
+    <xsl:template match="tei:seg[@type='relocation' and @rend='arrow']" mode="render">
+        <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
+            <div class="seg connect w-100">
+                <span class="seg seg-inline">&#124;</span>
+            </div>
+        </div>
+    </xsl:template>
     <xsl:template match="tei:seg[@rendition='#runningText1']">
         <span class="seg d-block runningText1  {if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>

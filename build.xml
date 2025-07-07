@@ -63,7 +63,7 @@
         <delete>
             <fileset dir="${target}" includes="idPb*.html"/>
         </delete>
-        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions" destdir="${target}" includes="idPb*.xml">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions" destdir="${target}" includes="idPb*.xml" excludes="Gesamt.xml idPb0266_a.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>

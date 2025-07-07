@@ -1604,6 +1604,9 @@ handling del elements in maring left or right
   font-family: 'Arimo', sans-serif !important;
 }
 
+#textcontent-pb .longQuoteRightAlign {
+  font-size: 1em !important;
+}
 
 // #textcontent-pb .metamark  {
 //   position: absolute;
@@ -1860,8 +1863,8 @@ div.position-relative .marginLeftBelow {
   position: relative;
 }
 
+/* .seg.seg-inline span */
 .metamark.mm-inline span,
-.seg.seg-inline span,
 .mod-inline span {
   position: absolute;
   right: -3px;

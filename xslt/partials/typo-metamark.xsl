@@ -178,12 +178,16 @@
      <xsl:template match="tei:metamark[@function='insertion'][@rend]">
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
-                <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">
-                    <del>&#124;</del>
-                </span>
+                <xsl:if test="not(contains(@rend, 'Only'))">
+                    <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">
+                        <del>&#124;</del>
+                    </span>
+                </xsl:if>
             </xsl:when>
             <xsl:otherwise>
-                <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">&#124;</span>
+                <xsl:if test="not(contains(@rend, 'Only'))">
+                    <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">&#124;</span>
+                </xsl:if>
             </xsl:otherwise>
         </xsl:choose>
      </xsl:template>
