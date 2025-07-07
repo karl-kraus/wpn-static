@@ -189,7 +189,8 @@
                         | //tei:mod[@rendition='#longQuote' and not(@continued) and contains(@rend, 'Left')]
                         | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and contains(@rend, 'Left')]
                         | //tei:mod[@rendition='#runningText1' and not(@continued) and contains(@rend, 'Left')]
-                        | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'Left')]" mode="render"/>
+                        | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'Left')]
+                        | //tei:seg[@type='relocation' and @rend='arrow']" mode="render"/>
                 </div>
                 <div class="body-main">
                     <xsl:apply-templates/>
