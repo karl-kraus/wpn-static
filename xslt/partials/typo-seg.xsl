@@ -49,7 +49,7 @@
     <xsl:template match="tei:seg[@type='relocation' and @rend='arrow']" mode="render">
         <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
             <div class="seg connect w-100">
-                <span class="seg seg-inline">&#124;</span>
+                <span class="seg seg-inline">&#8592;</span>
             </div>
         </div>
     </xsl:template>
