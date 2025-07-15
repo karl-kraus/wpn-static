@@ -42,14 +42,15 @@
                 </xsl:attribute>
             </xsl:if>
             <xsl:if test="@rend='line' and not(@prev)"><span class="seg seg-inline"><span id="{@xml:id}">&#124;</span></span></xsl:if>
-            <xsl:if test="@rend='arrow' and not(@prev)"><span class="seg seg-inline"><span id="{@xml:id}">&#8592;</span></span></xsl:if>
+            <!-- special handling (rendered via span firstLast) for page 111 for arrow seg see https://github.com/karl-kraus/wpn-static/issues/208  -->
+            <xsl:if test="@rend='arrow' and not(@prev) and not(@xml:id='seg0111_01')"><span class="seg seg-inline"><span id="{@xml:id}">&#8592;</span></span></xsl:if>
             <xsl:apply-templates/>
         </span>
     </xsl:template>
     <xsl:template match="tei:seg[@type='relocation' and @rend='arrow']" mode="render">
         <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
             <div class="seg connect w-100">
-                <span class="seg seg-inline">&#124;</span>
+                <span class="seg seg-inline">&#8592;</span>
             </div>
         </div>
     </xsl:template>

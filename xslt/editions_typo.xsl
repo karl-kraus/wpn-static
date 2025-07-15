@@ -215,7 +215,7 @@
             </div>
         </div>
     </xsl:template>
-    <xsl:template match="tei:p[@n]|tei:mod[@n]">
+    <xsl:template match="tei:p[@n]">
         <div id="{local:makeId(.)}" class="yes-index {if(self::tei:p)then(replace(@rendition,'#',''))else()}{if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}">
             <xsl:apply-templates/>
         </div>
@@ -362,7 +362,12 @@
                 <span class="d-table-row text-align-left no-indent">&#160;<xsl:apply-templates/></span>
             </xsl:when> -->
             <xsl:otherwise>
-                <span class="d-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')}"><xsl:apply-templates/></span>
+                <span class="d-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')}">
+                    <xsl:if test="parent::tei:seg[@rend='arrow'] and parent::tei:seg[@xml:id='seg0111_01']">
+                        <span class="seg seg-inline"><span id="{@xml:id}">&#8592;</span></span>
+                    </xsl:if>
+                    <xsl:apply-templates/>
+                </span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>

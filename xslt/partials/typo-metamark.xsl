@@ -31,12 +31,17 @@
      <xsl:template match="tei:metamark[@function='relocation'][@change='#edACE']"/>
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@place]">
         <span class="metamark mm-inline {@place} {@style} {replace(@change, '#', '')}" id="{@xml:id}">
-            <span>&#124;</span>
+            <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
+                <span>&#124;</span>
+            </xsl:if>
         </span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@rend]">
         <span class="metamark mm-inline connect entity {replace(@change, '#', '')}" id="{@xml:id}">
-            <span>&#124;<xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if></span>
+            <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
+                <span>&#124;</span>
+            </xsl:if>
+            <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
         </span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][not(@rend) and not(@place)]">
@@ -48,7 +53,12 @@
                         <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                     </xsl:attribute>
                 </xsl:if>
-                &#124;<xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
+                <span class="metamark mm-inline connect entity {replace(@change, '#', '')}" id="{@xml:id}">
+                    <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
+                        <span>&#124;</span>
+                    </xsl:if>
+                    <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
+                </span>
             </span>
         </span>
      </xsl:template>
@@ -65,7 +75,10 @@
                                 <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                             </xsl:attribute>
                         </xsl:if>
-                        &#124;<xsl:apply-templates/>
+                        <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
+                            <span>&#124;</span>
+                        </xsl:if>
+                        <xsl:apply-templates/>
                     </span>
                 </div>
                 <xsl:call-template name="wrapper-iter">
