@@ -3,8 +3,21 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:wpn="https://wpn.acdh.oeaw.ac.at"
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
+    xmlns:local="http://dse-static.foo.bar"
     version="2.0" exclude-result-prefixes="#all">
 
+    <xsl:template match="tei:mod[@n]">
+        <div id="{local:makeId(.)}" class="yes-index {if(self::tei:p)then(replace(@rendition,'#',''))else()}{if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}">
+            <xsl:if test="@rendition='#runningText1'">
+                <span class="mod connect entity no-indent position-relative {@style} {replace(@change, '#', '')}" id="{@xml:id}">
+                    <span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">
+                        <xsl:if test="not(@continued)"><span>[</span></xsl:if>
+                    </span>
+                </span>
+            </xsl:if>
+            <xsl:apply-templates/>
+        </div>
+    </xsl:template>
     <xsl:template match="tei:mod[@style='noLetterSpacing']">
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
@@ -91,10 +104,10 @@
     <xsl:template match="tei:mod[contains(@rendition,'Quote')]">
         <span class="mod connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
-    <xsl:template match="tei:mod[@rendition='#runningText1']">
-        <span class="mod connect entity no-indent {@style} {replace(@change, '#', '')}" id="{@xml:id}">
-            <span class="mod-inline">
-                <span>[</span><xsl:apply-templates/>
+    <xsl:template match="tei:mod[@rendition='#runningText1' and not(@n)]">
+        <span class="mod connect entity no-indent position-relative {@style} {replace(@change, '#', '')}" id="{@xml:id}">
+            <span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">
+                <xsl:if test="not(@continued)"><span>[</span></xsl:if><xsl:apply-templates/>
             </span>
         </span>
     </xsl:template>
@@ -125,7 +138,7 @@
     <xsl:template match="tei:mod[@rendition='#runningText1' and not(@continued)]" mode="render">
         <div class="d-flex position-relative" data-xmlid="{@xml:id}">
             <div id="container-{@xml:id}" class="mod connect {@rend} {replace(@change,'#','')}">
-                <div><span>[</span></div>
+                <div><span>&#124;&#124;</span></div>
             </div>
         </div>
     </xsl:template>
