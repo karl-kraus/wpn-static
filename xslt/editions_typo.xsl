@@ -286,13 +286,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
-        <xsl:apply-templates select="tei:sic" mode="render"/>
-    </xsl:template>
-    <xsl:template match="tei:choice[not(child::tei:corr[@type='comment'])]">
-        <span><xsl:apply-templates select="tei:sic"/></span>
-    </xsl:template>
-     <xsl:template match="tei:p[not(@n)]">
+    <xsl:template match="tei:p[not(@n)]">
         <!-- <xsl:variable name="string" select="count(tokenize(string-join(.//text(), ''), '.'))"/> -->
         <!-- <span style="color:red;display:block;"><xsl:value-of select="$string"/></span> -->
         <!-- <xsl:variable name="spacing-string" select="count(tokenize(string-join(./tei:hi[@style='letterSpacing']/text(), ''), '.'))"/> -->
@@ -308,7 +302,20 @@
     <xsl:template match="tei:c[not(@resp='#edACE')]">
         <xsl:value-of select="'&#x2060;&#x2009;&#x2060;'"/>
     </xsl:template>
-    <xsl:template match="tei:corr"/>
+    <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
+        <xsl:apply-templates select="tei:sic" mode="render"/>
+        <xsl:apply-templates select="tei:corr" mode="render"/>
+    </xsl:template>
+    <xsl:template match="tei:choice[not(child::tei:corr[@type='comment'])]">
+        <span><xsl:apply-templates /></span>
+    </xsl:template>
+    <xsl:template match="tei:corr">
+        <xsl:for-each select="tei:add">
+            <span class="add connect entity {replace(@change[1], '#', '')}" id="{@xml:id}">
+                <!-- <span>&#124;</span> -->
+            </span>
+        </xsl:for-each>
+    </xsl:template>
     <xsl:template match="tei:sic">
         <xsl:apply-templates/>
     </xsl:template>
