@@ -1367,6 +1367,9 @@ handling del elments based on change type
 #textcontent-pb .metamark .restore.pencilOnTypescript del,
 #textcontent-pb .metamark .restore.pencilOnProof del,
 #textcontent-pb .metamark .restore.undefined del,
+#textcontent-pb .metamark .del.pencilOnTypescript del,
+#textcontent-pb .metamark .del.pencilOnProof del,
+#textcontent-pb .metamark .del.undefined del,
 #textcontent-pb .mod.pencilOnTypescript,
 #textcontent-pb .mod.pencilOnProof,
 #textcontent-pb .mod.undefined {
@@ -1381,6 +1384,7 @@ handling del elments based on change type
 #textcontent-pb .restore.pencilOnProofKK .mod span,
 #textcontent-pb .restore.pencilOnProofKK .metamark del,
 #textcontent-pb .metamark .restore.pencilOnProofKK del,
+#textcontent-pb .metamark .del.pencilOnProofKK del,
 #textcontent-pb .mod.pencilOnProofKK {
   text-decoration-color: #5e5e5e;
 }
@@ -1393,6 +1397,7 @@ handling del elments based on change type
 #textcontent-pb .restore.redOnProof .mod span,
 #textcontent-pb .restore.redOnProof .metamark del,
 #textcontent-pb .metamark .restore.redOnProof del,
+#textcontent-pb .metamark .del.redOnProof del,
 #textcontent-pb .mod.redOnProof {
   text-decoration-color: #ff7171b5;
 }
@@ -1405,6 +1410,7 @@ handling del elments based on change type
 #textcontent-pb .restore.inkOnProofKK .mod span,
 #textcontent-pb .restore.inkOnProofKK .metamark del,
 #textcontent-pb .metamark .restore.inkOnProofKK del,
+#textcontent-pb .metamark .del.inkOnProofKK del,
 #textcontent-pb .mod.inkOnProofKK {
   text-decoration-color: #000;
 }
@@ -1423,7 +1429,9 @@ handling del elments based on change type
 #textcontent-pb .restore.typewriter2 .mod span,
 #textcontent-pb .restore.typewriter2 .metamark del,
 #textcontent-pb .metamark .restore.typewriter2 del,
-#textcontent-pb .metamark .restore.typewriter del, 
+#textcontent-pb .metamark .restore.typewriter del,
+#textcontent-pb .metamark .del.typewriter2 del,
+#textcontent-pb .metamark .del.typewriter del, 
 #textcontent-pb .mod.typewriter,
 #textcontent-pb .mod.typewriter2 {
   text-decoration-color: #303030;
