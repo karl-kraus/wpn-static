@@ -1338,6 +1338,60 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-decoration: underline wavy;
 }
 
+#textcontent-pb .longQuoteVerse, 
+#textcontent-pb .inkLongQuoteVerse, 
+#textcontent-pb .typescriptLongQuoteVerse, 
+#textcontent-pb .typescriptLongQuoteVerseLeading {
+  font-size: 8pt;
+}
+
+// handwritten text (by KK) in black ink
+#textcontent-pb .subst.inkOnProofKK .add,
+#textcontent-pb .restore .inkOnProofKK.add,
+#textcontent-pb .add.inkOnProofKK,
+#textcontent-pb .note.inkOnProofKK,
+#textcontent-pb .metamark.inkOnProofKK,
+#textcontent-pb .fw.inkOnProofKK,
+#textcontent-pb .fw.pencilOnProof,
+#textcontent-pb div.del.connect.inkOnProofKK,
+#textcontent-pb .subst.redOnProof .add,
+#textcontent-pb .restore.redOnProof .add,
+#textcontent-pb .add.redOnProof,
+#textcontent-pb .note.redOnProof,
+#textcontent-pb .metamark.redOnProof,
+#textcontent-pb div.del.connect.redOnProof,
+#textcontent-pb .subst.pencilOnTypescript .add,
+#textcontent-pb .subst.pencilOnProof .add,
+#textcontent-pb .subst.undefined .add,
+#textcontent-pb .subst.pencilOnProofKK .add,
+#textcontent-pb .restore.pencilOnTypescript .add,
+#textcontent-pb .restore.pencilOnProof .add,
+#textcontent-pb .restore.undefined .add,
+#textcontent-pb .restore.pencilOnProofKK .add,
+#textcontent-pb .add.pencilOnTypescript,
+#textcontent-pb .add.pencilOnProof,
+#textcontent-pb .add.undefined,
+#textcontent-pb .add.pencilOnProofKK,
+#textcontent-pb .note.pencilOnTypescript,
+#textcontent-pb .note.pencilOnProof,
+#textcontent-pb .note.undefined,
+#textcontent-pb .note.pencilOnProofKK,
+#textcontent-pb .metamark.pencilOnTypescript,
+#textcontent-pb .metamark.pencilOnProof,
+#textcontent-pb .metamark.undefined,
+#textcontent-pb .metamark.pencilOnProofKK,
+#textcontent-pb div.del.connect.pencilOnTypescript,
+#textcontent-pb div.del.connect.pencilOnProof,
+#textcontent-pb div.del.connect.undefined,
+#textcontent-pb div.del.connect.pencilOnProofKK,
+#textcontent-pb div.mod.connect.pencilOnTypescript,
+#textcontent-pb div.mod.connect.pencilOnProof,
+#textcontent-pb div.mod.connect.undefined,
+#textcontent-pb div.mod.connect.pencilOnProofKK {
+  font-size: 8pt;
+  line-height: 8pt;
+  font-family: 'Ubuntu', sans-serif;
+}
 
 /*
 handling del elments based on change type
@@ -1367,6 +1421,9 @@ handling del elments based on change type
 #textcontent-pb .metamark .restore.pencilOnTypescript del,
 #textcontent-pb .metamark .restore.pencilOnProof del,
 #textcontent-pb .metamark .restore.undefined del,
+#textcontent-pb .metamark .del.pencilOnTypescript del,
+#textcontent-pb .metamark .del.pencilOnProof del,
+#textcontent-pb .metamark .del.undefined del,
 #textcontent-pb .mod.pencilOnTypescript,
 #textcontent-pb .mod.pencilOnProof,
 #textcontent-pb .mod.undefined {
@@ -1381,6 +1438,7 @@ handling del elments based on change type
 #textcontent-pb .restore.pencilOnProofKK .mod span,
 #textcontent-pb .restore.pencilOnProofKK .metamark del,
 #textcontent-pb .metamark .restore.pencilOnProofKK del,
+#textcontent-pb .metamark .del.pencilOnProofKK del,
 #textcontent-pb .mod.pencilOnProofKK {
   text-decoration-color: #5e5e5e;
 }
@@ -1393,6 +1451,7 @@ handling del elments based on change type
 #textcontent-pb .restore.redOnProof .mod span,
 #textcontent-pb .restore.redOnProof .metamark del,
 #textcontent-pb .metamark .restore.redOnProof del,
+#textcontent-pb .metamark .del.redOnProof del,
 #textcontent-pb .mod.redOnProof {
   text-decoration-color: #ff7171b5;
 }
@@ -1405,6 +1464,7 @@ handling del elments based on change type
 #textcontent-pb .restore.inkOnProofKK .mod span,
 #textcontent-pb .restore.inkOnProofKK .metamark del,
 #textcontent-pb .metamark .restore.inkOnProofKK del,
+#textcontent-pb .metamark .del.inkOnProofKK del,
 #textcontent-pb .mod.inkOnProofKK {
   text-decoration-color: #000;
 }
@@ -1423,7 +1483,9 @@ handling del elments based on change type
 #textcontent-pb .restore.typewriter2 .mod span,
 #textcontent-pb .restore.typewriter2 .metamark del,
 #textcontent-pb .metamark .restore.typewriter2 del,
-#textcontent-pb .metamark .restore.typewriter del, 
+#textcontent-pb .metamark .restore.typewriter del,
+#textcontent-pb .metamark .del.typewriter2 del,
+#textcontent-pb .metamark .del.typewriter del, 
 #textcontent-pb .mod.typewriter,
 #textcontent-pb .mod.typewriter2 {
   text-decoration-color: #303030;
@@ -1484,6 +1546,9 @@ handling del elements in maring left or right
 #textcontent-pb div.del.connect.pencilOnTypescript,
 #textcontent-pb div.del.connect.pencilOnProof,
 #textcontent-pb div.del.connect.undefined,
+#textcontent-pb div.add.connect.pencilOnTypescript,
+#textcontent-pb div.add.connect.pencilOnProof,
+#textcontent-pb div.add.connect.undefined,
 #textcontent-pb .note.undefined,
 #textcontent-pb .add.undefined,
 #textcontent-pb .subst.pencilOnTypescript .add,
@@ -1497,11 +1562,11 @@ handling del elements in maring left or right
 #textcontent-pb .restore .undefined.add,
 #textcontent-pb .restore .pencilOnTypescript.add,
 #textcontent-pb .restore .pencilOnProof.add,
-#textcontent-pb .restore .undefined.add
+#textcontent-pb .restore .undefined.add,
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb .metamark.undefined  {
-  color: #b7b7b7;
+  color: #b7b7b7 !important;
 }
 
 #textcontent-pb div.del.connect.pencilOnProofKK,
@@ -1509,7 +1574,7 @@ handling del elements in maring left or right
 #textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .add.pencilOnProofKK,
 #textcontent-pb .metamark.pencilOnProofKK {
-  color: #5e5e5e;
+  color: #5e5e5e !important;
 }
 
 #textcontent-pb div.del.connect.redOnProof,
@@ -1522,7 +1587,7 @@ handling del elements in maring left or right
 #textcontent-pb .restore.redOnProofKK .add,
 #textcontent-pb .add.redOnProofKK,
 #textcontent-pb .metamark.redOnProofKK  {
-  color: #eb0505;
+  color: #eb0505 !important;
 }
 
 #textcontent-pb div.del.connect.inkOnProofKK,
@@ -1530,7 +1595,7 @@ handling del elements in maring left or right
 #textcontent-pb .restore.inkOnProofKK .add,
 #textcontent-pb .add.inkOnProofKK,
 #textcontent-pb .metamark.inkOnProofKK {
-  color: #000;
+  color: #000 !important;
 }
 
 #textcontent-pb div.del.connect.typewriter,
@@ -1543,55 +1608,7 @@ handling del elements in maring left or right
 #textcontent-pb .add.typewriter2,
 #textcontent-pb .metamark.typewriter,
 #textcontent-pb .metamark.typewriter2 {
-  color: #303030;
-}
-
-// handwritten text (by KK) in black ink
-#textcontent-pb .subst.inkOnProofKK .add,
-#textcontent-pb .restore .inkOnProofKK.add,
-#textcontent-pb .add.inkOnProofKK,
-#textcontent-pb .note.inkOnProofKK,
-#textcontent-pb .metamark.inkOnProofKK,
-#textcontent-pb .fw.inkOnProofKK,
-#textcontent-pb .fw.pencilOnProof,
-#textcontent-pb div.del.connect.inkOnProofKK,
-#textcontent-pb .subst.redOnProof .add,
-#textcontent-pb .restore.redOnProof .add,
-#textcontent-pb .add.redOnProof,
-#textcontent-pb .note.redOnProof,
-#textcontent-pb .metamark.redOnProof,
-#textcontent-pb div.del.connect.redOnProof,
-#textcontent-pb .subst.pencilOnTypescript .add,
-#textcontent-pb .subst.pencilOnProof .add,
-#textcontent-pb .subst.undefined .add,
-#textcontent-pb .subst.pencilOnProofKK .add,
-#textcontent-pb .restore.pencilOnTypescript .add,
-#textcontent-pb .restore.pencilOnProof .add,
-#textcontent-pb .restore.undefined .add,
-#textcontent-pb .restore.pencilOnProofKK .add,
-#textcontent-pb .add.pencilOnTypescript,
-#textcontent-pb .add.pencilOnProof,
-#textcontent-pb .add.undefined,
-#textcontent-pb .add.pencilOnProofKK,
-#textcontent-pb .note.pencilOnTypescript,
-#textcontent-pb .note.pencilOnProof,
-#textcontent-pb .note.undefined,
-#textcontent-pb .note.pencilOnProofKK,
-#textcontent-pb .metamark.pencilOnTypescript,
-#textcontent-pb .metamark.pencilOnProof,
-#textcontent-pb .metamark.undefined,
-#textcontent-pb .metamark.pencilOnProofKK,
-#textcontent-pb div.del.connect.pencilOnTypescript,
-#textcontent-pb div.del.connect.pencilOnProof,
-#textcontent-pb div.del.connect.undefined,
-#textcontent-pb div.del.connect.pencilOnProofKK,
-#textcontent-pb div.mod.connect.pencilOnTypescript,
-#textcontent-pb div.mod.connect.pencilOnProof,
-#textcontent-pb div.mod.connect.undefined,
-#textcontent-pb div.mod.connect.pencilOnProofKK {
-  font-size: 8pt;
-  line-height: 8pt;
-  font-family: 'Ubuntu', sans-serif;
+  color: #303030 !important;
 }
 
 /* experimental: larger line spacing when there is something rend below - to avoid text overlap */

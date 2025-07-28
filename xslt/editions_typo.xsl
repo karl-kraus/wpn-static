@@ -286,13 +286,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
-        <xsl:apply-templates select="tei:sic" mode="render"/>
-    </xsl:template>
-    <xsl:template match="tei:choice[not(child::tei:corr[@type='comment'])]">
-        <span><xsl:apply-templates select="tei:sic"/></span>
-    </xsl:template>
-     <xsl:template match="tei:p[not(@n)]">
+    <xsl:template match="tei:p[not(@n)]">
         <!-- <xsl:variable name="string" select="count(tokenize(string-join(.//text(), ''), '.'))"/> -->
         <!-- <span style="color:red;display:block;"><xsl:value-of select="$string"/></span> -->
         <!-- <xsl:variable name="spacing-string" select="count(tokenize(string-join(./tei:hi[@style='letterSpacing']/text(), ''), '.'))"/> -->
@@ -308,7 +302,20 @@
     <xsl:template match="tei:c[not(@resp='#edACE')]">
         <xsl:value-of select="'&#x2060;&#x2009;&#x2060;'"/>
     </xsl:template>
-    <xsl:template match="tei:corr"/>
+    <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
+        <xsl:apply-templates select="tei:sic" mode="render"/>
+        <xsl:apply-templates select="tei:corr" mode="render"/>
+    </xsl:template>
+    <xsl:template match="tei:choice[not(child::tei:corr[@type='comment'])]">
+        <span><xsl:apply-templates /></span>
+    </xsl:template>
+    <xsl:template match="tei:corr">
+        <xsl:for-each select="tei:add">
+            <span class="add connect entity {replace(@change[1], '#', '')}" id="{@xml:id}">
+                <!-- <span>&#124;</span> -->
+            </span>
+        </xsl:for-each>
+    </xsl:template>
     <xsl:template match="tei:sic">
         <xsl:apply-templates/>
     </xsl:template>
@@ -356,13 +363,13 @@
     <xsl:template match="tei:span[@n='firstLast']">
         <xsl:choose>
             <xsl:when test="ancestor::tei:del or parent::tei:del or preceding-sibling::*[1]/local-name() = ('del', 'add')">
-                <span class="d-table-row {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')}">&#160;<xsl:apply-templates/></span>
+                <span class="d-table-row {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">&#160;<xsl:apply-templates/></span>
             </xsl:when>
             <!-- <xsl:when test="preceding-sibling::*[1][@n='last']/local-name() = 'span'">
                 <span class="d-table-row text-align-left no-indent">&#160;<xsl:apply-templates/></span>
             </xsl:when> -->
             <xsl:otherwise>
-                <span class="d-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')}">
+                <span class="d-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">
                     <xsl:if test="parent::tei:seg[@rend='arrow'] and parent::tei:seg[@xml:id='seg0111_01']">
                         <span class="seg seg-inline"><span id="{parent::tei:seg/@xml:id}" class="{parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span></span>
                     </xsl:if>
