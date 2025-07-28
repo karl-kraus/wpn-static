@@ -1338,6 +1338,13 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-decoration: underline wavy;
 }
 
+#textcontent-pb .longQuoteVerse, 
+#textcontent-pb .inkLongQuoteVerse, 
+#textcontent-pb .typescriptLongQuoteVerse, 
+#textcontent-pb .typescriptLongQuoteVerseLeading {
+  font-size: 8pt;
+}
+
 // handwritten text (by KK) in black ink
 #textcontent-pb .subst.inkOnProofKK .add,
 #textcontent-pb .restore .inkOnProofKK.add,
