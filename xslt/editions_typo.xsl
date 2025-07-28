@@ -356,13 +356,13 @@
     <xsl:template match="tei:span[@n='firstLast']">
         <xsl:choose>
             <xsl:when test="ancestor::tei:del or parent::tei:del or preceding-sibling::*[1]/local-name() = ('del', 'add')">
-                <span class="d-table-row {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')}">&#160;<xsl:apply-templates/></span>
+                <span class="d-table-row {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">&#160;<xsl:apply-templates/></span>
             </xsl:when>
             <!-- <xsl:when test="preceding-sibling::*[1][@n='last']/local-name() = 'span'">
                 <span class="d-table-row text-align-left no-indent">&#160;<xsl:apply-templates/></span>
             </xsl:when> -->
             <xsl:otherwise>
-                <span class="d-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')}">
+                <span class="d-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">
                     <xsl:if test="parent::tei:seg[@rend='arrow'] and parent::tei:seg[@xml:id='seg0111_01']">
                         <span class="seg seg-inline"><span id="{parent::tei:seg/@xml:id}" class="{parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span></span>
                     </xsl:if>
