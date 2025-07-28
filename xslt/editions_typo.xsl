@@ -364,7 +364,7 @@
             <xsl:otherwise>
                 <span class="d-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')}">
                     <xsl:if test="parent::tei:seg[@rend='arrow'] and parent::tei:seg[@xml:id='seg0111_01']">
-                        <span class="seg seg-inline"><span id="{@xml:id}">&#8592;</span></span>
+                        <span class="seg seg-inline"><span id="{parent::tei:seg/@xml:id}" class="{parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span></span>
                     </xsl:if>
                     <xsl:apply-templates/>
                 </span>

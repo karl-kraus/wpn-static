@@ -1771,6 +1771,16 @@ div:has(> .lineLeft), div:has(> .doubleLineLeft) {
   margin-right: 10%;
 }
 
+.seg.seg-inline .arrow {
+  margin-right: .5rem;
+}
+
+div.position-relative .arrow {
+  position: absolute;
+  text-align: right;
+  right: 34%;
+}
+
 div.position-relative .marginLeft {
   position: absolute;
   text-align: right;
