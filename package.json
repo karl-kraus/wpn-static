@@ -10,14 +10,14 @@
     "build": "pnpm run compile-scss && vite build -l info && mv html/js/wpn_utils/manifest.json manifest.json",
     "e2e:run_all_tests": "npx playwright test --project=chromium",
     "e2e:test_edition_view": "npx playwright test e2e/specs/edition_view.spec.ts --project=chromium",
-    "e2e:test_edition_short_info_comment": "npx playwright test e2e/specs/edition_view_short_infos/edition_view_short_info_comment.spec.ts --project=chromium", 
+    "e2e:test_edition_short_info_comment": "npx playwright test e2e/specs/edition_view_short_infos/edition_view_short_info_comment.spec.ts --project=chromium",
     "e2e:test_edition_short_info_person": "npx playwright test e2e/specs/edition_view_short_infos/edition_view_short_info_person.spec.ts --project=chromium",
     "e2e:test_edition_short_info_quote": "npx playwright test e2e/specs/edition_view_short_infos/edition_view_short_info_quote.spec.ts --project=chromium",
-    "e2e:test_edition_detail_view_comment": "npx playwright test e2e/specs/edition_view_details/edition_view_detail_info_comment.spec.ts --project=chromium", 
+    "e2e:test_edition_detail_view_comment": "npx playwright test e2e/specs/edition_view_details/edition_view_detail_info_comment.spec.ts --project=chromium",
     "e2e:test_edition_detail_view_person": "npx playwright test e2e/specs/edition_view_details/edition_view_detail_info_person.spec.ts --project=chromium",
     "e2e:test_edition_detail_view_quote": "npx playwright test e2e/specs/edition_view_details/edition_view_detail_info_quote.spec.ts --project=chromium",
     "e2e:test_register_list_view_person": "npx playwright test e2e/specs/register_views/register_list_view_person.spec.ts --project=chromium",
-    "e2e:test_register_list_view_quote": "npx playwright test e2e/specs/register_views/register_list_view_quote.spec.ts --project=chromium"   
+    "e2e:test_register_list_view_quote": "npx playwright test e2e/specs/register_views/register_list_view_quote.spec.ts --project=chromium"
   },
   "keywords": [],
   "author": "",
@@ -29,12 +29,12 @@
     "glob": "^11.0.0",
     "instantsearch.js": "^4.74.0",
     "mark.js": "^8.11.1",
-    "mirador": "3.3.0",
+    "mirador": "3.4.3",
     "openseadragon": "^5.0.0",
     "typesense-instantsearch-adapter": "^2.8.0"
   },
   "devDependencies": {
-    "@acdh-oeaw/eslint-config": "^1.0.9",
+    "@acdh-oeaw/eslint-config": "^2.0.9",
     "@acdh-oeaw/eslint-config-playwright": "^1.0.9",
     "@acdh-oeaw/prettier-config": "^2.0.0",
     "@playwright/test": "^1.45.1",
@@ -44,7 +44,7 @@
     "ci-info": "^4.0.0",
     "sass": "^1.75.0",
     "typescript": "^5.4.5",
-    "vite": "^5.3.3"
+    "vite": "^7.0.6"
   },
   "eslintConfig": {
     "extends": [
@@ -61,7 +61,14 @@
       "micromatch@<4.0.8": ">=4.0.8",
       "vite@>=5.3.0 <5.3.6": ">=5.3.6",
       "vite@>=5.3.0 <=5.3.5": ">=5.3.6",
-      "rollup@>=4.0.0 <4.22.4": ">=4.22.4"
+      "rollup@>=4.0.0 <4.22.4": ">=4.22.4",
+      "axios@>=1.0.0 <1.8.2": ">=1.8.2",
+      "@babel/runtime@<7.26.10": ">=7.26.10",
+      "cross-spawn@>=7.0.0 <7.0.5": ">=7.0.5",
+      "brace-expansion@>=1.0.0 <=1.1.11": ">=1.1.12",
+      "brace-expansion@>=2.0.0 <=2.0.1": ">=2.0.2",
+      "dompurify@<3.2.4": ">=3.2.4",
+      "form-data@>=4.0.0 <4.0.4": ">=4.0.4"
     }
   }
 }
