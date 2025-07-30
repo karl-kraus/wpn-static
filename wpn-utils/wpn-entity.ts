@@ -1,4 +1,11 @@
 class WPNEntity extends HTMLElement {
+
+  constructor() {
+    super();
+    this.tabIndex = 0;
+    this.setAttribute('role', 'button');
+  }
+
   get shouldBubble(): boolean {
     const attributeValue = this.getAttribute("bubble");
     
@@ -6,10 +13,19 @@ class WPNEntity extends HTMLElement {
 	}
 
   clickHandler = (e: MouseEvent) =>{
-    window.location.hash = "";
+    history.replaceState(null, '', window.location.pathname + window.location.search);
     const targetId = this.hasAttribute("data-prev") ? this.getAttribute("data-prev") : this.getAttribute("id");
+    document.querySelectorAll("wpn-entity[class*='_active']").forEach(el=>{
+      const annotationActiveClassName = [...el.classList].find(cn => cn.endsWith("_active"));
+      const annotationClassName = annotationActiveClassName?.replace("_active","");
+      if (annotationActiveClassName && annotationClassName) {
+        el.classList.replace(annotationActiveClassName,annotationClassName);
+      }
+    })
     const annotationClassName = Array.from(this.classList).find(className => className.startsWith("annot_"));
+    const annotationActiveClassName = `${annotationClassName}_active`;
     if (annotationClassName) {
+      this.classList.replace(annotationClassName, annotationActiveClassName);
       if (document.querySelector(`annotation-slider .${annotationClassName}`)) {
         Array.from(document.querySelectorAll(`div[data-xmlid=${targetId ?? ''}]`)).forEach((el)=> {
           if (el.classList.contains("d-none")) {
@@ -24,12 +40,21 @@ class WPNEntity extends HTMLElement {
     this.notifyTextView();
     
   }
+
+  keyDownHandler = (e: KeyboardEvent) => {
+     if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+  }
 	
 	connectedCallback() {
-    this.addEventListener("click", this.clickHandler)
+    this.addEventListener("click", this.clickHandler);
+    this.addEventListener('keydown', this.keyDownHandler);
   }
   disconntedCallback() {
-    this.removeEventListener("click",this.clickHandler)
+    this.removeEventListener("click",this.clickHandler);
+    this.removeEventListener("keydown",this.keyDownHandler);
   }
   notifyTextView = () => {
     this.dispatchEvent(new Event('stateChange',{ bubbles: true}));

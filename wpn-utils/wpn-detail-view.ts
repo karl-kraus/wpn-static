@@ -35,8 +35,16 @@ class WPNDetailView extends HTMLElement {
       })
       if (detailElement) {
         detailElement.querySelector(".close-button")?.addEventListener("click", () => {
+          history.pushState(null, '', window.location.pathname + window.location.search);
           this.classList.add('d-none');
           detailElement.classList.add('d-none');
+          document.querySelectorAll("wpn-entity[class*='_active']").forEach(el=>{
+            const annotationActiveClassName = [...el.classList].find(cn => cn.endsWith("_active"));
+            const annotationClassName = annotationActiveClassName?.replace("_active","");
+            if (annotationActiveClassName && annotationClassName) {
+            el.classList.replace(annotationActiveClassName,annotationClassName);
+            }
+          })
         })
       }
     } else {
@@ -53,8 +61,6 @@ class WPNDetailView extends HTMLElement {
     window.removeEventListener("hashchange", this.updateDetailView)
   }
 
-  attributeChangedCallback(name, oldValue, newValue) {
-  }
 }
 
 
