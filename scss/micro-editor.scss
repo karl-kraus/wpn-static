@@ -1,6 +1,7 @@
 @import "variables";
 
 $entity-highlighted-background-opacity: 0.2;
+$entity-highlighted-active-background-opacity: 0.4;
 $entity-highlighted-border-radius: 3px;
 $entity-highlighted-border-radius-start: $entity-highlighted-border-radius 0 0 $entity-highlighted-border-radius; 
 $entity-highlighted-border-radius-end: 0 $entity-highlighted-border-radius $entity-highlighted-border-radius 0; 
@@ -73,7 +74,11 @@ input:checked+.i-slider:before {
 .annot_quote, 
 .annot_quote .inline-text {
  background: rgba($wpn-quote, $entity-highlighted-background-opacity);
- 
+}
+
+.annot_quote_active, 
+.annot_quote_active .inline-text {
+ background: rgba($wpn-quote, $entity-highlighted-active-background-opacity);
 }
 
 .annot_quote.d-block {
@@ -82,6 +87,11 @@ input:checked+.i-slider:before {
 
 .annot_person {
   background: rgba($wpn-person, $entity-highlighted-background-opacity);
+  border-radius: $entity-highlighted-border-radius;
+ }
+
+ .annot_person_active {
+  background: rgba($wpn-person, $entity-highlighted-active-background-opacity);
   border-radius: $entity-highlighted-border-radius;
  }
 
@@ -99,7 +109,11 @@ input:checked+.i-slider:before {
 }
 
 .annot_fackel {
-  background-color: rgba($wpn-fackel,0.2);
+  background-color: rgba($wpn-fackel,$entity-highlighted-background-opacity);
+}
+
+.annot_fackel_active {
+  background-color: rgba($wpn-fackel,$entity-highlighted-active-background-opacity);
 }
 
 .annot_fackel:not(.app):not(.d-block) {
@@ -107,12 +121,21 @@ input:checked+.i-slider:before {
 }
 
 .annot_fackel:not(.d-block) * > .d-block:not(.l) {
-  background-color: rgba($wpn-fackel,0.2);
+  background-color: rgba($wpn-fackel,$entity-highlighted-background-opacity);
+}
+
+.annot_fackel_active:not(.d-block) * > .d-block:not(.l) {
+  background-color: rgba($wpn-fackel,$entity-highlighted-active-background-opacity);
 }
 
 .apps.annot_fackel > .l {
-  background-color: rgba($wpn-fackel,0.2);
+  background-color: rgba($wpn-fackel,$entity-highlighted-background-opacity);
 }
+
+.apps.annot_fackel_active > .l {
+  background-color: rgba($wpn-fackel,$entity-highlighted-active-background-opacity);
+}
+
 
 #textcolumn span.annot_comment::after  {
   content: url("../images/icon-signet-comment-intext.svg");
