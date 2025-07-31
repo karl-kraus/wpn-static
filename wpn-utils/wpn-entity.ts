@@ -15,18 +15,18 @@ class WPNEntity extends HTMLElement {
   clickHandler = (e: MouseEvent) =>{
     history.replaceState(null, '', window.location.pathname + window.location.search);
     const targetId = this.hasAttribute("data-prev") ? this.getAttribute("data-prev") : this.getAttribute("id");
-    document.querySelectorAll("wpn-entity[class*='_active']").forEach(el=>{
-      const annotationActiveClassName = [...el.classList].find(cn => cn.endsWith("_active"));
-      const annotationClassName = annotationActiveClassName?.replace("_active","");
-      if (annotationActiveClassName && annotationClassName) {
-        el.classList.replace(annotationActiveClassName,annotationClassName);
-      }
-    })
     const annotationClassName = Array.from(this.classList).find(className => className.startsWith("annot_"));
     const annotationActiveClassName = `${annotationClassName}_active`;
     if (annotationClassName) {
-      this.classList.replace(annotationClassName, annotationActiveClassName);
       if (document.querySelector(`annotation-slider .${annotationClassName}`)) {
+        document.querySelectorAll("wpn-entity[class*='_active']").forEach(el=>{
+          const annotationActiveClassName = [...el.classList].find(cn => cn.endsWith("_active"));
+          const annotationClassName = annotationActiveClassName?.replace("_active","");
+          if (annotationActiveClassName && annotationClassName) {
+            el.classList.replace(annotationActiveClassName,annotationClassName);
+          }
+        })
+        this.classList.replace(annotationClassName, annotationActiveClassName);
         Array.from(document.querySelectorAll(`div[data-xmlid=${targetId ?? ''}]`)).forEach((el)=> {
           if (el.classList.contains("d-none")) {
             el.classList.remove("d-none");

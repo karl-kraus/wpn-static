@@ -81,7 +81,9 @@ input:checked+.i-slider:before {
  background: rgba($wpn-quote, $entity-highlighted-active-background-opacity);
 }
 
-.annot_quote.d-block {
+.annot_quote.d-block,
+.annot_quote_active.d-block
+ {
   background: unset;
 }
 

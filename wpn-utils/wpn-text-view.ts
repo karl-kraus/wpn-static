@@ -55,6 +55,12 @@ class WPNTextView extends HTMLElement {
 		});
 		[...document.getElementsByTagName("annotation-slider")].forEach((aos) => {
 			aos.addEventListener("click", () => {
+				 document.querySelectorAll("wpn-entity[class*='_active']").forEach(el=>{
+          const annotationActiveClassName = [...el.classList].find(cn => cn.endsWith("_active"));
+          if (annotationActiveClassName) {
+            el.classList.remove(annotationActiveClassName);
+          }
+        })
 				const btnsToDisableAttr = aos.getAttribute("data-disable-btns");
 				const aosInput = aos.querySelector("input");
 				if (btnsToDisableAttr) {
