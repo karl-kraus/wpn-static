@@ -1218,7 +1218,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .pageNumLeft {
-    left: 18%;
+    left: 11%;
     top: 3em;
     text-indent: initial;
 }
@@ -1569,11 +1569,16 @@ handling del elements in maring left or right
   color: #b7b7b7 !important;
 }
 
+/*
+pencil text color
+*/
 #textcontent-pb div.del.connect.pencilOnProofKK,
 #textcontent-pb .subst.pencilOnProofKK .add,
 #textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .add.pencilOnProofKK,
-#textcontent-pb .metamark.pencilOnProofKK {
+#textcontent-pb .metamark.pencilOnProofKK,
+#textcontent-pb .fw.pencilOnProofKK,
+#textcontent-pb .note.pencilOnProofKK {
   color: #5e5e5e !important;
 }
 
