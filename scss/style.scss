@@ -1357,6 +1357,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 // handwritten text (by KK) in black ink
 #textcontent-pb .subst.inkOnProofKK .add,
+#textcontent-pb .subst.inkOnProofUndefined .add,
 #textcontent-pb .restore .inkOnProofKK.add,
 #textcontent-pb .add.inkOnProofKK,
 #textcontent-pb .note.inkOnProofKK,
@@ -1608,6 +1609,7 @@ pencil text color
 
 #textcontent-pb div.del.connect.inkOnProofKK,
 #textcontent-pb .subst.inkOnProofKK .add,
+#textcontent-pb .subst.inkOnProofUndefined .add,
 #textcontent-pb .restore.inkOnProofKK .add,
 #textcontent-pb .add.inkOnProofKK,
 #textcontent-pb .metamark.inkOnProofKK {
