@@ -1248,6 +1248,12 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
     text-indent: initial;
 }
 
+.bottomRightCorner {
+    right: 7em;
+    bottom: 6em;
+    text-indent: initial;
+}
+
 
 
 // margin placements:
