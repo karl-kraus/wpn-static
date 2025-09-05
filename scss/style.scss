@@ -1795,6 +1795,13 @@ div.position-relative .marginInnerRight  {
   text-align: left;
 }
 
+div.position-relative .marginInnerRightAbove  {
+  position: absolute;
+  left: 5%;
+  bottom: 1rem;
+  text-align: left;
+}
+
 div.position-relative .marginRightAbove {
   left: 33%;
   position: absolute;
