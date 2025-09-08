@@ -1896,6 +1896,13 @@ div.position-relative .marginInnerLeft {
   text-align: right;
 }
 
+div.position-relative .marginInnerLeftAbove {
+  position: absolute;
+  right: 5%;
+  bottom: 1rem;
+  text-align: right;
+}
+
 div.position-relative .marginLeftAbove {
   position: absolute;
   text-align: right;
