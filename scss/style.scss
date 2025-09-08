@@ -1784,6 +1784,11 @@ pencil text color
   bottom: -14pt;
 }
 
+.add.below:has(.add.below) {
+  position: absolute;
+  bottom: -14pt;
+}
+
 /* uncomment and test when all new attr values are available in Gesamt.xml */
 
 div:has(> .lineRight), div:has(> .doubleLineRight)  {
