@@ -1777,13 +1777,13 @@ pencil text color
   right: 1.9%;
 }
 
-/* nested below placements */
+/* nested below placements, one rule omitted for testing: 
 
 .add.below .add.below {
   position: absolute;
   bottom: -14pt;
 }
-
+*/
 .add.below:has(.add.below) {
   position: absolute;
   bottom: -14pt;
