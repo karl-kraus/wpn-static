@@ -1803,6 +1803,12 @@ div.position-relative .marginOuterRight  {
   text-align: left;
 }
 
+div.position-relative .marginOuterMostRight  {
+  position: absolute;
+  left: 80%;
+  text-align: left;
+}
+
 div.position-relative .marginOuterRightBelow  {
   position: absolute;
   left: 67%;
