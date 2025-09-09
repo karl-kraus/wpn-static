@@ -1075,8 +1075,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .bottomLeft8 {
-    left: 0.5em;
-    bottom: 6em;
+    left: 0em;
+    bottom: 5.5em;
     text-indent: initial;
 }
 
@@ -1184,7 +1184,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
     bottom: 18em;
 }
 
-.bottomLowerRight2 {
+.bottomLowerRight1 {
     left: 33em;
     bottom: 2em;
     text-indent: initial;
@@ -1782,8 +1782,8 @@ pencil text color
 
 .leftBelow {
   position: absolute;
-  top: 10pt;
-  left: -10em;
+  top: 14pt;
+  left: -8em;
 }
 
 .above {
