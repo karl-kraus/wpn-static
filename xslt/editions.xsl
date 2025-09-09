@@ -179,7 +179,7 @@
     <xsl:template match="tei:lg">
         <span class="d-block lg {replace(@rendition,'#','')}"><xsl:apply-templates/></span>
     </xsl:template>
-    <xsl:template match="tei:l">
+    <xsl:template match="tei:l|tei:mod[@rendition='#verseLine']">
         <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
 	</xsl:template>
     <xsl:template match="tei:seg[@rendition='#typescriptFloatRight']">
