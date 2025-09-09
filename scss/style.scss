@@ -1074,6 +1074,12 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
     text-indent: initial;
 }
 
+.bottomLeft8 {
+    left: 0.5em;
+    bottom: 6em;
+    text-indent: initial;
+}
+
 .bottomLowerLeft1 {
     left: 7em;
     bottom: 4em;
@@ -1083,6 +1089,12 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 .bottomLowerLeft2 {
     left: 3em;
     bottom: 1em;
+    text-indent: initial;
+}
+
+.bottomUpperLeft1 {
+    left: 7em;
+    bottom: 7em;
     text-indent: initial;
 }
 
@@ -1170,6 +1182,12 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 .bottomUpperRight4 {
     left: 11em;
     bottom: 18em;
+}
+
+.bottomLowerRight2 {
+    left: 33em;
+    bottom: 2em;
+    text-indent: initial;
 }
 
 .bottomLowerRight2 {
@@ -1756,7 +1774,7 @@ pencil text color
   transform: rotate(315deg);
 }
 
-/* experimental change */
+
 .below {
   position: absolute;
   top: 10pt;
@@ -1764,7 +1782,7 @@ pencil text color
 
 .leftBelow {
   position: absolute;
-  bottom: -8pt;
+  top: 10pt;
   left: -10em;
 }
 
@@ -1785,7 +1803,8 @@ pencil text color
   bottom: -14pt;
 }
 */
-.add.below:has(.add.below) {
+
+.add:is(.below, .leftBelow):has(.add:is(.below, .leftBelow)) {
   position: absolute;
   bottom: -14pt;
 }
