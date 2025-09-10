@@ -1663,7 +1663,7 @@ pencil text color
 /* experimental: larger line spacing when there is something rend below - to avoid text overlap in add and note (see, i. a., p 133) */
 #textcontent-pb span.note span.position-relative:has(> span.below.add),
 #textcontent-pb span.note span.position-relative:has(> span.below.subst),
-#textcontent-pb span.add span.position-relative:has(> span.below.subst) {
+#textcontent-pb span.add span.position-relative:has(> span.below.add) {
   line-height: 2.4;
 }
 
