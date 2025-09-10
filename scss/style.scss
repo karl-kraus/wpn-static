@@ -1665,6 +1665,7 @@ pencil text color
 #textcontent-pb span.note span.position-relative:has(> span.below.subst),
 #textcontent-pb span.marginInnerRight span.add + span.position-relative:has(> span.below.add) {
   line-height: 2.4;
+  vertical-align: top;
 }
 
 .arimo {
