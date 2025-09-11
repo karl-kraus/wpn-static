@@ -1660,13 +1660,6 @@ pencil text color
   color: #303030 !important;
 }
 
-/* experimental: larger line spacing when there is something rend below - to avoid text overlap in add and note (see, i. a., p 133) */
-#textcontent-pb span.note span.position-relative:has(> span.below.add),
-#textcontent-pb span.note span.position-relative:has(> span.below.subst),
-#textcontent-pb span.marginInnerRight span.add + span.position-relative:has(> span.below.add) {
-  line-height: 2.4;
-  vertical-align: top;
-}
 
 .arimo {
   font-family: 'Arimo', sans-serif !important;
@@ -1779,7 +1772,7 @@ pencil text color
 
 .below {
   position: absolute;
-  bottom: -6pt;
+  bottom: -10pt;
 }
 
 .furtherBelow {
@@ -1820,6 +1813,34 @@ pencil text color
 .add:is(.below, .leftBelow):has(.add:is(.below, .leftBelow)) {
   position: absolute;
   bottom: -14pt;
+}
+
+
+/* experimental: larger line spacing when there is something rend below or above in multiline notes or add - to avoid text overlap (see, i. a., p 133, 163) */
+
+#textcontent-pb span.note span.position-relative:has(> span.below.add),
+#textcontent-pb span.note span.position-relative:has(> span.below.subst),
+#textcontent-pb span.marginInnerRight span.add + span.position-relative:has(> span.below.add) {
+  line-height: 2.4;
+  vertical-align: top;
+}
+
+#textcontent-pb span.note span.position-relative span.below.add,
+#textcontent-pb span.note span.position-relative span.below.subst {
+  position: absolute;
+  bottom: -5pt;
+}
+
+#textcontent-pb span.note span.position-relative:has(> span.above.subst),
+#textcontent-pb span.note span.position-relative:has(> span.above.add) {
+  line-height: 2.4;
+  vertical-align: super;
+}
+
+#textcontent-pb span.note span.position-relative span.above.subst,
+#textcontent-pb span.note span.position-relative span.above.add {
+  position: absolute;
+  top: -5pt;
 }
 
 /* uncomment and test when all new attr values are available in Gesamt.xml */
