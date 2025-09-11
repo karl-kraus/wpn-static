@@ -1831,14 +1831,14 @@ pencil text color
   bottom: -5pt;
 }
 
-#textcontent-pb span.note span.position-relative:has(> span.above.subst),
-#textcontent-pb span.note span.position-relative:has(> span.above.add) {
+#textcontent-pb span.note span.position-relative:has(> .above.subst),
+#textcontent-pb span.note span.position-relative:has(> .above.add) {
   line-height: 2.4;
   vertical-align: super;
 }
 
-#textcontent-pb span.note span.position-relative span.above.subst,
-#textcontent-pb span.note span.position-relative span.above.add {
+#textcontent-pb span.note span.position-relative .above.subst,
+#textcontent-pb span.note span.position-relative .above.add {
   position: absolute;
   top: -5pt;
 }
