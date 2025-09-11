@@ -1826,10 +1826,17 @@ pencil text color
 }
 
 #textcontent-pb span.note span.position-relative span.below.add,
-#textcontent-pb span.note span.position-relative span.below.subst {
+#textcontent-pb span.note span.position-relative span.below.subst,
+#textcontent-pb span.marginInnerRight span.add + span.position-relative span.below.add {
   position: absolute;
   bottom: -5pt;
 }
+
+#textcontent-pb span.note span.position-relative span.below.add:has(span.add.above) {
+  position: absolute;
+  bottom: -20pt;
+}
+
 
 #textcontent-pb span.note span.position-relative:has(> .above.subst),
 #textcontent-pb span.note span.position-relative:has(> .above.add) {
