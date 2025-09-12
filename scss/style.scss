@@ -1857,9 +1857,14 @@ pencil text color
   vertical-align: top;
 }
 
-#textcontent-pb span.note span.add+span.position-relative .add.below span.position-relative .add.below {
+#textcontent-pb span.note span.add+span.position-relative .add.below:has(span.position-relative .add.below) {
   position: absolute;
   bottom: 0pt;
+}
+
+#textcontent-pb span.note span.add+span.position-relative .add.below span.position-relative .add.below {
+  position: absolute;
+  bottom: -8pt;
 }
 
 
