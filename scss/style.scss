@@ -1815,8 +1815,40 @@ pencil text color
   bottom: -14pt;
 }
 
+/* cleaned version for nested below positionings on p. 133, 163, 179, 187 */
 
-/* experimental: larger line spacing when there is something rend below or above in multiline notes or add - to avoid text overlap (see, i. a., p 133, 163) */
+/* single added line below */
+
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(.below) {
+  line-height: 2;
+  vertical-align: top;
+}
+
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below {
+  position: absolute;
+  bottom: -4pt;
+}
+
+/* double added line below */
+
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(.below .below) {
+  line-height: 3;
+  vertical-align: top;
+}
+
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below:has(.below) {
+  position: absolute;
+  bottom: 0pt;
+}
+
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below .below {
+  position: absolute;
+  bottom: -8pt;
+}
+
+
+/* experimental: larger line spacing when there is something rend below or above in multiline notes or add - to avoid 
+text overlap (see, i. a., p 133, 163) 
 
 #textcontent-pb span.note span.position-relative:has(> span.below.add),
 #textcontent-pb span.note span.position-relative:has(> span.below.subst),
@@ -1836,7 +1868,7 @@ pencil text color
   position: absolute;
   bottom: -20pt;
 }
-
+*/
 
 #textcontent-pb span.note span.position-relative:has(> .above.subst),
 #textcontent-pb span.note span.position-relative:has(> .above.add) {
@@ -1850,7 +1882,7 @@ pencil text color
   top: -5pt;
 }
 
-/* Another crazy selector to add double line spacing below a line with two additions rend=below, p 176 */
+/* Another crazy selector to add double line spacing below a line with two additions rend=below, p 176 
 
 #textcontent-pb span.note span.add + span.position-relative:has(.add.below span.position-relative .add.below) {
   line-height: 3;
@@ -1866,7 +1898,7 @@ pencil text color
   position: absolute;
   bottom: -8pt;
 }
-
+*/
 
 /* uncomment and test when all new attr values are available in Gesamt.xml */
 
