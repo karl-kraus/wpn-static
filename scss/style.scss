@@ -1841,6 +1841,10 @@ pencil text color
   bottom: 0pt;
 }
 
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(.below .below) .position-relative:has(.below) {
+  line-height: 1;
+}
+
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below .below {
   position: absolute;
   bottom: -8pt;
