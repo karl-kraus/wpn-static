@@ -1850,6 +1850,19 @@ pencil text color
   top: -5pt;
 }
 
+/* Another crazy selector to add double line spacing below a line with two additions rend=below, p 176 */
+
+#textcontent-pb span.note span.add + span.position-relative:has(.add.below span.position-relative .add.below) {
+  line-height: 3;
+  vertical-align: top;
+}
+
+#textcontent-pb span.note span.add+span.position-relative .add.below span.position-relative .add.below {
+  position: absolute;
+  bottom: 0pt;
+}
+
+
 /* uncomment and test when all new attr values are available in Gesamt.xml */
 
 div:has(> .lineRight), div:has(> .doubleLineRight)  {
