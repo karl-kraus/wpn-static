@@ -1819,29 +1819,29 @@ pencil text color
 
 /* single added line below */
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(.below) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below) {
   line-height: 2;
   vertical-align: top;
 }
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative>.below {
   position: absolute;
   bottom: -4pt;
 }
 
 /* double added line below */
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(.below .below) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below .below) {
   line-height: 3;
   vertical-align: top;
 }
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below:has(.below) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below:has(>.below) {
   position: absolute;
   bottom: 0pt;
 }
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(.below .below) .position-relative:has(.below) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below .below) .position-relative:has(>.below) {
   line-height: 1;
 }
 
