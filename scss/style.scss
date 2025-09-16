@@ -1871,6 +1871,19 @@ pencil text color
   top: -8pt;
 }
 
+/* below-add in note with br (=2 lines) on p. 89 */
+
+#textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .below):has(br) .position-relative:has(>.above) {
+  line-height: 2;
+  vertical-align: bottom;
+}
+
+#textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .below):has(br) >.below {
+  position: absolute;
+  bottom: -16pt;
+}
+
+
 /* experimental: larger line spacing when there is something rend below or above in multiline notes or add - to avoid 
 text overlap (see, i. a., p 133, 163) 
 
