@@ -1861,12 +1861,12 @@ pencil text color
   vertical-align: middle;
 }
 
-#textcontent-pb span:is(.note):has(.position-relative:has(>.above)):has(.position-relative:has(>.below)) .position-relative > .below {
+#textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(>.above, >.below) > .below {
   position: absolute;
   bottom: -8pt;
 }
 
-#textcontent-pb span:is(.note):has(.position-relative:has(>.above)):has(.position-relative:has(>.below)) .position-relative > .above {
+#textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(>.above, >.below) > .above {
   position: absolute;
   top: -8pt;
 }
