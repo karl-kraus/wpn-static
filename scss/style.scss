@@ -1855,6 +1855,22 @@ pencil text color
   bottom: -8pt;
 }
 
+/* line in note with below and above additions -  p. 244 */
+
+#textcontent-pb span:is(.note) :has(.position-relative:has(>.above)) :has(.position-relative:has(>.below)) .position-relative {
+  line-height: 3;
+  vertical-align: middle;
+}
+
+#textcontent-pb span:is(.note) :has(.position-relative:has(>.above)) :has(.position-relative:has(>.below)) .position-relative .below {
+  position: absolute;
+  bottom: -8pt;
+}
+
+#textcontent-pb span:is(.note) :has(.position-relative:has(>.above)) :has(.position-relative:has(>.below)) .position-relative .above {
+  position: absolute;
+  top: -8pt;
+}
 
 /* experimental: larger line spacing when there is something rend below or above in multiline notes or add - to avoid 
 text overlap (see, i. a., p 133, 163) 
