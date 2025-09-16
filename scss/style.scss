@@ -1242,6 +1242,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
     text-indent: initial;
 }
 
+.bottomLowerRight10 {
+  left: 44em;
+  bottom: 2em;
+  text-indent: initial;
+}
 
 // corner and fixed placements
 
@@ -2006,6 +2011,13 @@ div.position-relative .marginRightAbove {
   left: 33%;
   position: absolute;
   top: -10pt;
+  text-align: left;
+}
+
+div.position-relative .marginInnerRightFurtherAbove {
+  left: 5%;
+  position: absolute;
+  top: -20pt;
   text-align: left;
 }
 
