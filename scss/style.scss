@@ -1871,7 +1871,7 @@ pencil text color
   top: -8pt;
 }
 
-/* below-add in note with br (=2 lines) on p. 89 */
+/* below-add in note with br (=2 lines) on p. 98 */
 
 #textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .below):has(br) .position-relative:has(>.above) {
   line-height: 2;
@@ -1881,6 +1881,13 @@ pencil text color
 #textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .below):has(br) >.below {
   position: absolute;
   bottom: -16pt;
+}
+
+/* above-add in note, p. 98 */
+
+#textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .below):has(br) .position-relative:has(> .above) .above {
+  position: absolute;
+  top: -5pt;
 }
 
 
@@ -1909,14 +1916,14 @@ text overlap (see, i. a., p 133, 163)
 
 #textcontent-pb span.note span.position-relative:has(> .above.subst),
 #textcontent-pb span.note span.position-relative:has(> .above.add) {
-  line-height: 2.4;
-  vertical-align: super;
+  line-height: 2;
+  vertical-align: bottom;
 }
 
 #textcontent-pb span.note span.position-relative .above.subst,
 #textcontent-pb span.note span.position-relative .above.add {
   position: absolute;
-  top: -5pt;
+  top: -4pt;
 }
 
 /* Another crazy selector to add double line spacing below a line with two additions rend=below, p 176 
