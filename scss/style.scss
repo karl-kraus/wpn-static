@@ -1797,13 +1797,13 @@ pencil text color
 
 .leftBelow {
   position: absolute;
-  top: 14pt;
+  top: 10pt;
   left: -8em;
 }
 
 .rightBelow {
   position: absolute;
-  top: 14pt;
+  top: 10pt;
   right: -8em;
 }
 
@@ -1823,17 +1823,11 @@ pencil text color
   right: 1.9%;
 }
 
-/* nested below placements, one rule omitted for testing: 
-
-.add.below .add.below {
-  position: absolute;
-  bottom: -14pt;
-}
-*/
+/* nested below placements, e.g. p 86: */
 
 .add:is(.below, .leftBelow):has(.add:is(.below, .leftBelow)) {
   position: absolute;
-  bottom: -14pt;
+  bottom: -16pt;
 }
 
 /* cleaned version for nested below positionings on p. 133, 163, 179, 187 */
@@ -1885,6 +1879,11 @@ pencil text color
 #textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(>.above, >.below) > .above {
   position: absolute;
   top: -8pt;
+}
+
+#textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(>.above, >.below) > .below:has(.below) {
+  position: absolute;
+  bottom: -16pt;
 }
 
 /* below-add in note with br (=2 lines) on p. 98 */
