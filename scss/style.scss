@@ -1379,7 +1379,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .border-crossed-out {
-  border-image: url('../images/crossed_out_typewriter_black.png') 100 1 / 8px / 3px space;
+  background: repeating-linear-gradient(90deg, white, white 3px, lightgrey 3px, lightgrey 6px);
 }
 
 .underline-crossed-out {
