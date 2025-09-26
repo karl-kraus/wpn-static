@@ -721,14 +721,18 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 #textcontent-pb .longQuoteMiddleCenter,
 #textcontent-pb .typescriptLongQuoteTitle,
-#textcontent-pb .typescriptLongQuoteTitle2,
 #textcontent-pb .typescriptLongQuoteAdvInsert,
 #textcontent-pb .typescriptLongQuoteRightAlign,
-#textcontent-pb .typescriptLongQuoteRightAlign2,
+#textcontent-pb .typescriptLongQuoteRightAlign2 .text-align-left,
 #textcontent-pb .longQuoteStartCenter,
 #textcontent-pb .longQuoteEndCenter {
   text-align-last: center;
   text-align: center;
+}
+
+#textcontent-pb .typescriptLongQuoteTitle2 .text-align-left {
+    position: relative;
+    left: 6rem;
 }
 
 #textcontent-pb .longQuoteVerseCenter {
