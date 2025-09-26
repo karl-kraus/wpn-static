@@ -721,7 +721,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #textcontent-pb .longQuoteMiddleCenter,
-#textcontent-pb .typescriptLongQuoteTitle,
 #textcontent-pb .typescriptLongQuoteAdvInsert,
 #textcontent-pb .typescriptLongQuoteRightAlign,
 #textcontent-pb .typescriptLongQuoteRightAlign2,
@@ -737,9 +736,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align-last: right;
 }
 
-#textcontent-pb .typescriptLongQuoteTitle2 .text-align-left {
+#textcontent-pb .typescriptLongQuoteTitle2 .text-align-left,
+#textcontent-pb .typescriptLongQuoteTitle .text-align-left {
     position: relative;
-    left: 6rem;
+    left: 5rem;
 }
 
 #textcontent-pb .longQuoteVerseCenter {
