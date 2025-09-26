@@ -1499,7 +1499,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb div.del.connect.undefined,
 #textcontent-pb div.mod.connect.pencilOnTypescript,
 #textcontent-pb div.mod.connect.pencilOnProof,
-#textcontent-pb div.mod.connect.undefined {
+#textcontent-pb div.mod.connect.undefined,
+#textcontent-pb .add .blueInkOnProof {
   font-size: 0.667rem;
   line-height: 0.75rem;
   font-family: 'Ubuntu', sans-serif;
@@ -1719,7 +1720,8 @@ pencil text color
 #textcontent-pb .subst.inkOnProof .add,
 #textcontent-pb .restore.inkOnProof .add,
 #textcontent-pb .add.inkOnProof,
-#textcontent-pb .metamark.inkOnProof{
+#textcontent-pb .metamark.inkOnProof,
+#textcontent-pb .note.inkOnProofKK {
   color: #000 !important;
 }
 
@@ -1736,6 +1738,9 @@ pencil text color
   color: #303030 !important;
 }
 
+#textcontent-pb .blueInkOnProof {
+  color: #00008B !important;
+}
 
 .arimo {
   font-family: 'Arimo', sans-serif !important;
