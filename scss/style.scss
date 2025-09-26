@@ -579,21 +579,16 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 /** detail view Dritter Publikationsschritt **/
 
-#textcontent-pb {
-  font-size: 9.8pt;
-  line-height: 10pt;
+#textcontent-pb .runningText1, 
+#textcontent-pb [class^="typescript"] {
+  font-size: 0.833rem;
+  line-height: 0.833rem;
 }
 
-#textcontent-pb .typescriptLongQuote,
-#textcontent-pb .typescriptLongQuoteLeading {
-  font-size: 1em;
-  line-height: 1em;
-}
-
-#textcontent-pb .longQuote
- {
-  font-size: 7pt;
-  line-height: 8pt;
+#textcontent-pb [class^="longQuote"],
+#textcontent-pb [class^="inkLongQuote"], {
+  font-size: 0.667rem;
+  line-height: 0.75rem;
 }
 
 #infocontent-pb {
@@ -601,6 +596,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   line-height: 1.2em;
 }
 
+/*
 #textcontent-pb .typescriptLongQuoteVerse, 
 #textcontent-pb .typescriptLongQuoteVerseLeading,
 #textcontent-pb .typescriptLongQuoteTitle,
@@ -608,15 +604,15 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .typescriptLongQuoteRightAlign2,
 #textcontent-pb .typescriptLongQuoteRightAlign,
 #textcontent-pb .typescriptLongQuoteIndent,
-#textcontent-pb .typescriptLongQuoteEnd,
-#textcontent-pb .inkLongQuote {
+#textcontent-pb .typescriptLongQuoteEnd {
   font-size: 1em;
 }
+*/
 
 #textcontent-pb .rightAlignSmall {
   text-align: right;
   text-align-last: right;
-  font-size: 8pt;
+  font-size: 0.667rem;
 }
 
 #textcontent-pb .runningText1,
@@ -1405,12 +1401,14 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-decoration: underline wavy;
 }
 
+/*
 #textcontent-pb .longQuoteVerse, 
 #textcontent-pb .inkLongQuoteVerse, 
 #textcontent-pb .typescriptLongQuoteVerse, 
 #textcontent-pb .typescriptLongQuoteVerseLeading {
   font-size: 8pt;
 }
+*/
 
 // handwritten text (by KK) in black ink
 #textcontent-pb .subst.inkOnProofKK .add,
@@ -1456,8 +1454,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb div.mod.connect.pencilOnProof,
 #textcontent-pb div.mod.connect.undefined,
 #textcontent-pb div.mod.connect.pencilOnProofKK {
-  font-size: 8pt;
-  line-height: 8pt;
+  font-size: 0.667rem;
+  line-height: 0.667rem;
   font-family: 'Ubuntu', sans-serif;
 }
 
@@ -1693,7 +1691,7 @@ pencil text color
 }
 
 #textcontent-pb .longQuoteRightAlign {
-  font-size: 1em !important;
+  font-size: 0.667rem !important;
 }
 
 // #textcontent-pb .metamark  {
@@ -1729,7 +1727,7 @@ pencil text color
 }
 
 #textcontent-pb .add {
-  font-size: 8pt;
+  font-size: 0.677rem;
   text-indent: 0 !important;
 }
 
@@ -2083,15 +2081,15 @@ div.position-relative .marginLeftBelow {
 }
 
 .fw.typescriptInsertNum {
-  font-size: 10pt;
-  line-height: 13pt;
+  font-size: 0.833rem;
+  line-height: 1.083rem;
   border-bottom: 1px solid #000;
   padding: 5px 15px;
 }
 
 .fw.typescriptPageNum {
-  font-size: 10pt;
-  line-height: 13pt;
+  font-size: 0.833rem;
+  line-height: 1.083rem;
 }
 
 .metamark.typescriptFont {
