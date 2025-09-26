@@ -825,6 +825,12 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align-last: left;  
 }
 
+/* fix for single-line-paragraphs that miss their indentation (because last lines aren't indented). */
+
+#textcontent-pb [class*='Indent'] .text-align-left.no-indent:only-child {
+  text-indent: 1.875rem !important;
+}
+
 .text-align-right {
   text-align: right;
   text-align-last: right;  
