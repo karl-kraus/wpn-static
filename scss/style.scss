@@ -1385,10 +1385,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   right: 1.5%;
 }
 
-// #textcontent-pb .letterSpacing {
-//   letter-spacing: 1pt;
-// }
-
 #textcontent-pb .underline {
   text-decoration: underline;
 }
@@ -1405,15 +1401,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb wpn-entity[class*='quotes'] {
   pointer-events: none !important;
 }
-
-// #textcontent-pb .pencilOnTypescript,
-// #textcontent-pb .undefined,
-// #textcontent-pb .redOnProof,
-// #textcontent-pb .pencilOnProof,
-// #textcontent-pb .pencilOnProofKK,
-// #textcontent-pb .inkOnProofKK {
-//   font-size: 8pt;
-// }
 
 .text-decoration-underline-dotted {
   text-decoration: underline dotted;
@@ -1446,18 +1433,9 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-decoration: underline wavy;
 }
 
-/*
-#textcontent-pb .longQuoteVerse, 
-#textcontent-pb .inkLongQuoteVerse, 
-#textcontent-pb .typescriptLongQuoteVerse, 
-#textcontent-pb .typescriptLongQuoteVerseLeading {
-  font-size: 8pt;
-}
-*/
-
 // handwritten text
-#textcontent-pb .inkLongQuote,
-#textcontent-pb .inkLongQuoteVerse,
+#textcontent-pb .inkOnProofKK .inkLongQuote,
+#textcontent-pb .inkOnProofKK .inkLongQuoteVerse,
 #textcontent-pb .subst.inkOnProofKK .add,
 #textcontent-pb .subst.inkOnProofUndefined .add,
 #textcontent-pb .restore .inkOnProofKK.add,
@@ -1465,8 +1443,35 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .note.inkOnProofKK,
 #textcontent-pb .metamark.inkOnProofKK,
 #textcontent-pb .fw.inkOnProofKK,
-#textcontent-pb .fw.pencilOnProof,
 #textcontent-pb div.del.connect.inkOnProofKK,
+#textcontent-pb .add.pencilOnProofKK,
+#textcontent-pb .note.pencilOnProofKK,
+#textcontent-pb .metamark.pencilOnProofKK,
+#textcontent-pb div.del.connect.pencilOnProofKK,
+#textcontent-pb div.mod.connect.pencilOnProofKK,
+#textcontent-pb .subst.pencilOnProofKK .add,
+#textcontent-pb .restore.pencilOnProofKK .add {
+  font-size: 0.667rem;
+  font-style: italic;
+  line-height: 0.75rem;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#textcontent-pb .subst.inkOnProof .add,
+#textcontent-pb .subst.inkOnProofUndefined .add,
+#textcontent-pb .restore .inkOnProof.add,
+#textcontent-pb .add.inkOnProof,
+#textcontent-pb .note.inkOnProof,
+#textcontent-pb .metamark.inkOnProof,
+#textcontent-pb .fw.inkOnProof,
+#textcontent-pb div.del.connect.inkOnProof,
+#textcontent-pb .add.pencilOnProof,
+#textcontent-pb .note.pencilOnProof,
+#textcontent-pb .metamark.pencilOnProof,
+#textcontent-pb div.del.connect.pencilOnProof,
+#textcontent-pb div.mod.connect.pencilOnProof,
+#textcontent-pb .subst.pencilOnProof .add,
+#textcontent-pb .restore.pencilOnProof .add
 #textcontent-pb .subst.redOnProof .add,
 #textcontent-pb .restore.redOnProof .add,
 #textcontent-pb .add.redOnProof,
@@ -1476,31 +1481,25 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .subst.pencilOnTypescript .add,
 #textcontent-pb .subst.pencilOnProof .add,
 #textcontent-pb .subst.undefined .add,
-#textcontent-pb .subst.pencilOnProofKK .add,
 #textcontent-pb .restore.pencilOnTypescript .add,
 #textcontent-pb .restore.pencilOnProof .add,
 #textcontent-pb .restore.undefined .add,
-#textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .add.pencilOnTypescript,
 #textcontent-pb .add.pencilOnProof,
+#textcontent-pb .fw.pencilOnProof,
 #textcontent-pb .add.undefined,
-#textcontent-pb .add.pencilOnProofKK,
 #textcontent-pb .note.pencilOnTypescript,
 #textcontent-pb .note.pencilOnProof,
 #textcontent-pb .note.undefined,
-#textcontent-pb .note.pencilOnProofKK,
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb .metamark.undefined,
-#textcontent-pb .metamark.pencilOnProofKK,
 #textcontent-pb div.del.connect.pencilOnTypescript,
 #textcontent-pb div.del.connect.pencilOnProof,
 #textcontent-pb div.del.connect.undefined,
-#textcontent-pb div.del.connect.pencilOnProofKK,
 #textcontent-pb div.mod.connect.pencilOnTypescript,
 #textcontent-pb div.mod.connect.pencilOnProof,
-#textcontent-pb div.mod.connect.undefined,
-#textcontent-pb div.mod.connect.pencilOnProofKK {
+#textcontent-pb div.mod.connect.undefined {
   font-size: 0.667rem;
   line-height: 0.75rem;
   font-family: 'Ubuntu', sans-serif;
@@ -1715,7 +1714,12 @@ pencil text color
 #textcontent-pb .subst.inkOnProofUndefined .add,
 #textcontent-pb .restore.inkOnProofKK .add,
 #textcontent-pb .add.inkOnProofKK,
-#textcontent-pb .metamark.inkOnProofKK {
+#textcontent-pb .metamark.inkOnProofKK,
+#textcontent-pb div.del.connect.inkOnProof,
+#textcontent-pb .subst.inkOnProof .add,
+#textcontent-pb .restore.inkOnProof .add,
+#textcontent-pb .add.inkOnProof,
+#textcontent-pb .metamark.inkOnProof{
   color: #000 !important;
 }
 
