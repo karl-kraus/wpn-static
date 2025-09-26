@@ -580,6 +580,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 /** detail view Dritter Publikationsschritt **/
 
 #textcontent-pb .runningText1,
+#textcontent-pb .runningText2,
 #textcontent-pb .typescriptInsertNum,
 #textcontent-pb .typescriptFont,
 #textcontent-pb .typescriptLongQuote,
@@ -723,11 +724,17 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .typescriptLongQuoteTitle,
 #textcontent-pb .typescriptLongQuoteAdvInsert,
 #textcontent-pb .typescriptLongQuoteRightAlign,
+#textcontent-pb .typescriptLongQuoteRightAlign2,
 #textcontent-pb .typescriptLongQuoteRightAlign2 .text-align-left,
 #textcontent-pb .longQuoteStartCenter,
 #textcontent-pb .longQuoteEndCenter {
   text-align-last: center;
   text-align: center;
+}
+
+#textcontent-pb .longQuoteEndRightAlign2 .text-align-left {
+  text-align: right;
+  text-align-last: right;
 }
 
 #textcontent-pb .typescriptLongQuoteTitle2 .text-align-left {
