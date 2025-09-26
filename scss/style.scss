@@ -1912,29 +1912,6 @@ pencil text color
 }
 
 
-/* experimental: larger line spacing when there is something rend below or above in multiline notes or add - to avoid 
-text overlap (see, i. a., p 133, 163) 
-
-#textcontent-pb span.note span.position-relative:has(> span.below.add),
-#textcontent-pb span.note span.position-relative:has(> span.below.subst),
-#textcontent-pb span.marginInnerRight span.add + span.position-relative:has(> span.below.add) {
-  line-height: 2.4;
-  vertical-align: top;
-}
-
-#textcontent-pb span.note span.position-relative span.below.add,
-#textcontent-pb span.note span.position-relative span.below.subst,
-#textcontent-pb span.marginInnerRight span.add + span.position-relative span.below.add {
-  position: absolute;
-  bottom: -5pt;
-}
-
-#textcontent-pb span.note span.position-relative span.below.add:has(span.add.above) {
-  position: absolute;
-  bottom: -20pt;
-}
-*/
-
 #textcontent-pb span.note span.position-relative:has(> .above.subst),
 #textcontent-pb span.note span.position-relative:has(> .above.add) {
   line-height: 2;
@@ -1947,23 +1924,6 @@ text overlap (see, i. a., p 133, 163)
   top: -4pt;
 }
 
-/* Another crazy selector to add double line spacing below a line with two additions rend=below, p 176 
-
-#textcontent-pb span.note span.add + span.position-relative:has(.add.below span.position-relative .add.below) {
-  line-height: 3;
-  vertical-align: top;
-}
-
-#textcontent-pb span.note span.add+span.position-relative .add.below:has(span.position-relative .add.below) {
-  position: absolute;
-  bottom: 0pt;
-}
-
-#textcontent-pb span.note span.add+span.position-relative .add.below span.position-relative .add.below {
-  position: absolute;
-  bottom: -8pt;
-}
-*/
 
 /* uncomment and test when all new attr values are available in Gesamt.xml */
 
