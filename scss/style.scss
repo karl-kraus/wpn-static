@@ -1437,7 +1437,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .inkOnProofKK .inkLongQuote,
 #textcontent-pb .inkOnProofKK .inkLongQuoteVerse,
 #textcontent-pb .subst.inkOnProofKK .add,
-#textcontent-pb .subst.inkOnProofUndefined .add,
 #textcontent-pb .restore .inkOnProofKK.add,
 #textcontent-pb .add.inkOnProofKK,
 #textcontent-pb .note.inkOnProofKK,
@@ -1458,7 +1457,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #textcontent-pb .subst.inkOnProof .add,
-#textcontent-pb .subst.inkOnProofUndefined .add,
 #textcontent-pb .restore .inkOnProof.add,
 #textcontent-pb .add.inkOnProof,
 #textcontent-pb .note.inkOnProof,
@@ -1480,26 +1478,19 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb div.del.connect.redOnProof,
 #textcontent-pb .subst.pencilOnTypescript .add,
 #textcontent-pb .subst.pencilOnProof .add,
-#textcontent-pb .subst.undefined .add,
 #textcontent-pb .restore.pencilOnTypescript .add,
 #textcontent-pb .restore.pencilOnProof .add,
-#textcontent-pb .restore.undefined .add,
 #textcontent-pb .add.pencilOnTypescript,
 #textcontent-pb .add.pencilOnProof,
 #textcontent-pb .fw.pencilOnProof,
-#textcontent-pb .add.undefined,
 #textcontent-pb .note.pencilOnTypescript,
 #textcontent-pb .note.pencilOnProof,
-#textcontent-pb .note.undefined,
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
-#textcontent-pb .metamark.undefined,
 #textcontent-pb div.del.connect.pencilOnTypescript,
 #textcontent-pb div.del.connect.pencilOnProof,
-#textcontent-pb div.del.connect.undefined,
 #textcontent-pb div.mod.connect.pencilOnTypescript,
 #textcontent-pb div.mod.connect.pencilOnProof,
-#textcontent-pb div.mod.connect.undefined,
 #textcontent-pb .add .blueInkOnProof {
   font-size: 0.667rem;
   line-height: 0.75rem;
@@ -1739,7 +1730,7 @@ pencil text color
 }
 
 #textcontent-pb .blueInkOnProof {
-  color: #00008B !important;
+  color: #3333A2 !important;
 }
 
 .arimo {
