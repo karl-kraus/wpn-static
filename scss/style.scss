@@ -579,14 +579,48 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 /** detail view Dritter Publikationsschritt **/
 
-#textcontent-pb .runningText1, 
-#textcontent-pb [class^="typescript"] {
+#textcontent-pb .runningText1,
+#textcontent-pb .typescriptInsertNum,
+#textcontent-pb .typescriptFont,
+#textcontent-pb .typescriptLongQuote,
+#textcontent-pb .typescriptLongQuoteIndent,
+#textcontent-pb .typescriptFloatRight,
+#textcontent-pb .typescriptLongQuoteTitle2,
+#textcontent-pb .typescriptLongQuoteEnd,
+#textcontent-pb .typescriptLongQuoteRightAlign2,
+#textcontent-pb .typescriptLongQuoteVerse,
+#textcontent-pb .typescriptLongQuoteTitle,
+#textcontent-pb .typescriptRunningText1,
+#textcontent-pb .typescriptPageNum,
+#textcontent-pb .typescriptLongQuoteVerseLeading,
+#textcontent-pb .typescriptLongQuoteLeading,
+#textcontent-pb .typescriptLongQuoteRightAlign,
+#textcontent-pb .typescriptLongQuoteAdvInsert {
   font-size: 0.833rem;
   line-height: 0.833rem;
 }
 
-#textcontent-pb [class^="longQuote"],
-#textcontent-pb [class^="inkLongQuote"], {
+#textcontent-pb .longQuoteVerseStart,
+#textcontent-pb .longQuoteVerseMiddle,
+#textcontent-pb .longQuoteVerseEnd,
+#textcontent-pb .longQuoteIndent,
+#textcontent-pb .longQuoteVerseCenter,
+#textcontent-pb .longQuote,
+#textcontent-pb .longQuoteVerse,
+#textcontent-pb .longQuoteCenter,
+#textcontent-pb .longQuoteStartIndent,
+#textcontent-pb .longQuoteMiddleIndent,
+#textcontent-pb .longQuoteEndIndent,
+#textcontent-pb .longQuoteStart,
+#textcontent-pb .longQuoteStartCenter,
+#textcontent-pb .longQuoteEndCenter,
+#textcontent-pb .longQuoteEnd,
+#textcontent-pb .longQuoteRightAlign2,
+#textcontent-pb .longQuoteEndRightAlign2,
+#textcontent-pb .longQuoteMiddleCenter,
+#textcontent-pb .longQuoteMarginStart,
+#textcontent-pb .longQuoteMarginMiddle,
+#textcontent-pb .longQuoteMarginEnd {
   font-size: 0.667rem;
   line-height: 0.75rem;
 }
@@ -679,7 +713,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   word-spacing: .2rem;
 }
 
-#textcontent-pb .inkCenterAlignIndent1{
+#textcontent-pb .inkCenterAlignIndent1 {
   text-align-last: center;
   text-align: center;
   text-indent: 30px;
@@ -1387,7 +1421,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .border-crossed-out {
-  background: repeating-linear-gradient(90deg, white, white 3px, lightgrey 3px, lightgrey 6px);
+  background: repeating-linear-gradient(330deg, white, white 3px, lightgrey 3px, lightgrey 6px);
 }
 
 .underline-crossed-out {
@@ -1410,7 +1444,9 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 */
 
-// handwritten text (by KK) in black ink
+// handwritten text
+#textcontent-pb .inkLongQuote,
+#textcontent-pb .inkLongQuoteVerse,
 #textcontent-pb .subst.inkOnProofKK .add,
 #textcontent-pb .subst.inkOnProofUndefined .add,
 #textcontent-pb .restore .inkOnProofKK.add,
