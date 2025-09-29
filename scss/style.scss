@@ -1486,6 +1486,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .fw.pencilOnProof,
 #textcontent-pb .note.pencilOnTypescript,
 #textcontent-pb .note.pencilOnProof,
+#textcontent-pb .note.pencilOnProofLibrary,
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb div.del.connect.pencilOnTypescript,
@@ -1531,10 +1532,7 @@ handling del elments based on change type
 #textcontent-pb .metamark .del.undefined del,
 #textcontent-pb .mod.pencilOnTypescript,
 #textcontent-pb .mod.pencilOnProof,
-#textcontent-pb .mod.undefined {
-  text-decoration-color: #b7b7b7;
-}
-
+#textcontent-pb .mod.undefined,
 #textcontent-pb .subst.pencilOnProofKK .del del,
 #textcontent-pb .del.pencilOnProofKK del,
 #textcontent-pb .del.pencilOnProof del,
@@ -1618,13 +1616,10 @@ handling del elements in maring left or right
 #textcontent-pb .seg.border-dotted.undefined,
 #textcontent-pb .seg.border-dotted.pencilOnTypescript,
 #textcontent-pb .seg.border-dotted.pencilOnProof,
-#textcontent-pb .seg.border-dotted.undefined {
-  border-color: #b7b7b7;
-}
-
+#textcontent-pb .seg.border-dotted.undefined,
 #textcontent-pb .seg.border.pencilOnProofKK,
 #textcontent-pb .seg.border-dashed.pencilOnProofKK,
-#textcontent-pb .seg.border-dotted.pencilOnProofKK {
+#textcontent-pb .seg.border-dotted.pencilOnProofKK{
   border-color: #5e5e5e;
 }
 
@@ -1672,7 +1667,7 @@ handling del elements in maring left or right
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb .metamark.undefined  {
-  color: #b7b7b7 !important;
+  color: #e5e5e5 !important;
 }
 
 /*
@@ -1685,7 +1680,8 @@ pencil text color
 #textcontent-pb .metamark.pencilOnProofKK,
 #textcontent-pb .fw.pencilOnProofKK,
 #textcontent-pb .fw.pencilOnProof,
-#textcontent-pb .note.pencilOnProofKK {
+#textcontent-pb .note.pencilOnProofKK,
+#textcontent-pb .note.pencilOnProofLibrary {
   color: #5e5e5e !important;
 }
 
