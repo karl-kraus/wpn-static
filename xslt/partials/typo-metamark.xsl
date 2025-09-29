@@ -151,7 +151,7 @@
         <xsl:if test="$xmlrend = 'yes'">
             <div id="container-{@xml:id}" class="d-flex metamark connect w-100 position-relative {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
                 <div class="w-100">
-                    <span class="rotate90 {@rend} {if(parent::tei:restore)then(replace((parent::tei:restore/@change)[1], '#', ' restore '))else()}" style="font-size:1.25em;">
+                    <span class="{@rend} {if(parent::tei:restore)then(replace((parent::tei:restore/@change)[1], '#', ' restore '))else()}" style="font-size:1.25em;">
                         <xsl:if test="@target">
                             <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
                             <xsl:attribute name="data-target">
@@ -160,10 +160,10 @@
                         </xsl:if>
                         <xsl:choose>
                             <xsl:when test="parent::tei:restore">
-                                <del><xsl:text>&#423;</xsl:text></del>
+                                <del><xsl:text>&#8766;</xsl:text></del>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:text>&#423;</xsl:text>
+                                <xsl:text>&#8766;</xsl:text>
                             </xsl:otherwise>
                         </xsl:choose>
                     </span>
