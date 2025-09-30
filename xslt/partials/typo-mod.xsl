@@ -116,7 +116,17 @@
     <xsl:template match="tei:mod[@rendition='#runningText1' and not(@n)]">
         <span class="mod connect entity no-indent position-relative {@style} {replace(@change, '#', '')}" id="{@xml:id}">
             <span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">
-                <xsl:if test="not(@continued)"><span>[</span></xsl:if><xsl:apply-templates/>
+                <xsl:if test="not(@continued)">
+                            <xsl:choose>
+                                <xsl:when test="ancestor::tei:restore">
+                                  <del>[</del>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                  <span>[</span>
+                                </xsl:otherwise>
+                             </xsl:choose>
+                        </xsl:if>
+                 <xsl:apply-templates/>
             </span>
         </span>
     </xsl:template>
