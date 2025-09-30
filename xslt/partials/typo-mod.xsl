@@ -137,8 +137,15 @@
     </xsl:template>
     <xsl:template match="tei:mod[@rendition='#runningText1' and not(@continued)]" mode="render">
         <div class="d-flex position-relative" data-xmlid="{@xml:id}">
-            <div id="container-{@xml:id}" class="mod connect {@rend} {replace(@change,'#','')}{if (ancestor::tei:restore) then ' restore' else ''}">
-                <div><span>[</span></div>
+            <div id="container-{@xml:id}" class="mod connect {@rend} {replace(@change,'#','')}">
+                <xsl:choose>
+                    <xsl:when test="ancestor::tei:restore">
+                      <del><span>[</span></del>
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <div><span>[</span></div>
+                    </xsl:otherwise>
+              </xsl:choose>
             </div>
         </div>
     </xsl:template>
