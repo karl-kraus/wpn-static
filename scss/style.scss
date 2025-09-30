@@ -2126,6 +2126,13 @@ div.position-relative .marginLeftBelow {
   top: 1rem;
 }
 
+div.position-relative .marginLeftFurtherBelow {
+  position: absolute;
+  text-align: right;
+  right: 34%;
+  top: 3rem;
+}
+
 .inline {
   display: inline;
 }
