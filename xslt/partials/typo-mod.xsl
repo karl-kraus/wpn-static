@@ -11,7 +11,16 @@
             <xsl:if test="@rendition='#runningText1'">
                 <span class="mod connect entity no-indent position-relative {@style} {replace(@change, '#', '')}" id="{@xml:id}">
                     <span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">
-                        <xsl:if test="not(@continued)"><span>[</span></xsl:if>
+                        <xsl:if test="not(@continued)">
+                            <xsl:choose>
+                                <xsl:when test="ancestor::tei:restore">
+                                  <del>[</del>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                  <span>[</span>
+                                </xsl:otherwise>
+                             </xsl:choose>
+                        </xsl:if>
                     </span>
                 </span>
             </xsl:if>
