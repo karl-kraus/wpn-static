@@ -138,7 +138,7 @@
     <xsl:template match="tei:mod[@rendition='#runningText1' and not(@continued)]" mode="render">
         <div class="d-flex position-relative" data-xmlid="{@xml:id}">
             <div id="container-{@xml:id}" class="mod connect {@rend} {replace(@change,'#','')}">
-                <div><span>&#124;&#124;</span></div>
+                <div><span>[</span></div>
             </div>
         </div>
     </xsl:template>
