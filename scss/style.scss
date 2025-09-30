@@ -1419,7 +1419,12 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   border: 1px dashed;
 }
 
-.border-crossed-out {
+#textcontent-pb .seg.border {
+  background: lightgrey;
+}
+
+.border-crossed-out,
+#textcontent-pb .restore>.seg.border {
   background: repeating-linear-gradient(330deg, white, white 3px, lightgrey 3px, lightgrey 6px);
 }
 
