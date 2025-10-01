@@ -6,7 +6,11 @@
     version="2.0" exclude-result-prefixes="#all">
 
     <xsl:template match="tei:metamark[@function='progress'][@place]">
-        <span class="metamark {replace(@change,'#','')} {@place} {@style}" id="{@xml:id}"><xsl:apply-templates/></span>
+        <span class="position-relative">
+            <span class="metamark position-absolute {replace(@change,'#','')} {@place} {@style}" id="{@xml:id}">
+                <xsl:apply-templates/>
+            </span>
+        </span>
      </xsl:template>
     <xsl:template match="tei:metamark[@function='progress'][@rend]">
         <span class="metamark mm-inline connect entity {replace(@change,'#','')}" id="{@xml:id}">
@@ -220,12 +224,12 @@
                         <xsl:choose>
                             <xsl:when test="parent::tei:restore">
                                 <del>
-                                    <xsl:if test="not(.//text())">&#124;</xsl:if>
+                                    <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])">&#124;</xsl:if>
                                     <xsl:apply-templates/>
                                 </del>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:if test="not(.//text())">&#124;</xsl:if>
+                                <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])">&#124;</xsl:if>
                                 <xsl:apply-templates/>
                             </xsl:otherwise>
                         </xsl:choose>
@@ -294,7 +298,7 @@
                             </xsl:when>
                             <xsl:when test="contains($next/@xml:id, 'metam')">
                                 <span class="{$next-rend} {replace($next-change,'#','')}">
-                                    &#124;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
+                                    <xsl:apply-templates select="$next" mode="manual_iter"/>
                                 </span>
                             </xsl:when>
                         </xsl:choose>
@@ -305,6 +309,9 @@
     </xsl:template>
 
     <xsl:template match="tei:metamark" mode="manual_iter">
+        <xsl:if test="not(@function='progress')">
+            &#124;&#xA0;
+        </xsl:if>
         <xsl:apply-templates/>
     </xsl:template>
 

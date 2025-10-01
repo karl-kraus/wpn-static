@@ -171,7 +171,7 @@
                             </xsl:when>
                             <xsl:when test="contains($next/@xml:id, 'metam')">
                                 <span class="{$next-rend} {replace($next-change,'#','')}">
-                                    &#124;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
+                                    <xsl:apply-templates select="$next" mode="manual_iter"/>
                                 </span>
                             </xsl:when>
                         </xsl:choose>
@@ -213,6 +213,9 @@
     </xsl:template>
 
     <xsl:template match="tei:del" mode="manual_iter">
+        <xsl:if test="not(@function='progress')">
+            &#124;&#xA0;
+        </xsl:if>
         <xsl:apply-templates/>
     </xsl:template>
     
