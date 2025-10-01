@@ -1867,6 +1867,12 @@ pencil text color
   left: -8em;
 }
 
+.leftFurtherBelow {
+  position: absolute;
+  top: 16pt;
+  left: -8em;
+}
+
 .rightBelow {
   position: absolute;
   top: 10pt;
@@ -2178,11 +2184,6 @@ div.position-relative .marginLeftFurtherBelow {
   text-decoration: underline;
   margin-left: 1rem;
   margin-right: 1rem;
-}
-
-.metamark.inkFontCenter{
-  text-decoration: underline;
-  text-align: center;
 }
 
 /* metamark relocation inline*/
