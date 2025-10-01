@@ -671,6 +671,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-indent: $spacer * 3 !important;
 }
 
+#textcontent-pb .inkLongQuoteVerse,
 #textcontent-pb .inkLongQuote,
 #textcontent-pb .FackelQuote_columnRight {
   text-align: left;
@@ -702,7 +703,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align-last: left;
 }
 
-#textcontent-pb .inkLongQuoteVerse,
 #textcontent-pb .typescriptLongQuoteVerse,
 #textcontent-pb .typescriptLongQuoteVerseLeading {
   text-align-last: left;
@@ -1310,6 +1310,12 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
     text-indent: initial;
 }
 
+.pageNumRight2 {
+    left: 80%;
+    top: 0.8em;
+    text-indent: initial;
+}
+
 .pageNumLeft {
     left: 11%;
     top: 3em;
@@ -1861,6 +1867,12 @@ pencil text color
   left: -8em;
 }
 
+.leftFurtherBelow {
+  position: absolute;
+  top: 16pt;
+  left: -8em;
+}
+
 .rightBelow {
   position: absolute;
   top: 10pt;
@@ -2105,6 +2117,13 @@ div.position-relative .marginInnerLeftAbove {
   text-align: right;
 }
 
+div.position-relative .marginInnerLeftBelow {
+  position: absolute;
+  right: 5%;
+  top: 1rem;
+  text-align: right;
+}
+
 div.position-relative .marginLeftAbove {
   position: absolute;
   text-align: right;
@@ -2117,6 +2136,13 @@ div.position-relative .marginLeftBelow {
   text-align: right;
   right: 34%;
   top: 1rem;
+}
+
+div.position-relative .marginLeftFurtherBelow {
+  position: absolute;
+  text-align: right;
+  right: 34%;
+  top: 3rem;
 }
 
 .inline {
@@ -2156,11 +2182,8 @@ div.position-relative .marginLeftBelow {
 
 .metamark.inkFont{
   text-decoration: underline;
-}
-
-.metamark.inkFontCenter{
-  text-decoration: underline;
-  text-align: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 /* metamark relocation inline*/
