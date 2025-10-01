@@ -241,18 +241,17 @@
         <span class="hidden"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:lg">
-		<xsl:choose>
-			<xsl:when test="parent::tei:mod[@rendition=('#longQuoteVerseStart', '#longQuoteVerseEnd')]">
-				<span style="margin-left: -0.5em;"><span class="{replace(parent::tei:mod/@change, '#', '')}">[ </span><xsl:apply-templates/></span>
-			</xsl:when>
-			<xsl:otherwise>
-			   <span class="d-block lg {replace(@rendition,'#','')}"><xsl:apply-templates/></span>
-			</xsl:otherwise>
-		</xsl:choose>
-        
+			<span class="d-block lg {replace(@rendition,'#','')}"><xsl:apply-templates/></span>      
     </xsl:template>
     <xsl:template match="tei:l">
-        <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
+		<xsl:choose>
+			<xsl:when test="ancestor::tei:mod[@rendition=('#longQuoteVerseStart', '#longQuoteVerseEnd')]">
+				<span style="margin-left: -0.5em;" class="d-block l {@style}"><span class="{replace(ancestor::tei:mod/@change, '#', '')}">[ </span><span class="inline-text"><xsl:apply-templates/></span></span>
+			</xsl:when>
+			<xsl:otherwise>
+			    <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
     <xsl:template match="tei:quote">
         <span class="quotes {substring-after(@rendition, '#')} {substring-after(@change, '#')}" id="{@xml:id}">
@@ -382,7 +381,7 @@
                         <span class="seg seg-inline"><span id="{parent::tei:seg/@xml:id}" class="{parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span></span>
                     </xsl:if>
                     <xsl:choose>
-                        <xsl:when test="parent::tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#longQuoteVerseStart', '#longQuoteVerseEnd')]">
+                        <xsl:when test="parent::tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent')]">
                             <span style="margin-left: -0.5em;"><span class="{replace(parent::tei:mod/@change, '#', '')}">[ </span><xsl:apply-templates/></span>
                         </xsl:when>
                         <xsl:otherwise>
