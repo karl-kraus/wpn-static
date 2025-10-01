@@ -241,7 +241,15 @@
         <span class="hidden"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:lg">
-        <span class="d-block lg {replace(@rendition,'#','')}"><xsl:apply-templates/></span>
+		<xsl:choose>
+			<xsl:when test="parent::tei:mod[@rendition=('#longQuoteVerseStart', '#longQuoteVerseEnd')]">
+				<span style="margin-left: -0.5em;"><span class="{replace(parent::tei:mod/@change, '#', '')}">[ </span><xsl:apply-templates/></span>
+			</xsl:when>
+			<xsl:otherwise>
+			   <span class="d-block lg {replace(@rendition,'#','')}"><xsl:apply-templates/></span>
+			</xsl:otherwise>
+		</xsl:choose>
+        
     </xsl:template>
     <xsl:template match="tei:l">
         <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
@@ -375,7 +383,7 @@
                     </xsl:if>
                     <xsl:choose>
                         <xsl:when test="parent::tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#longQuoteVerseStart', '#longQuoteVerseEnd')]">
-                            <span style="margin-left: -0.5em;"><span>[ </span><xsl:apply-templates/></span>
+                            <span style="margin-left: -0.5em;"><span class="{replace(parent::tei:mod/@change, '#', '')}">[ </span><xsl:apply-templates/></span>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:apply-templates/>
