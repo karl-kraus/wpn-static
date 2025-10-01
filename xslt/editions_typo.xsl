@@ -374,7 +374,7 @@
                         <span class="seg seg-inline"><span id="{parent::tei:seg/@xml:id}" class="{parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span></span>
                     </xsl:if>
                     <xsl:choose>
-                        <xsl:when test="parent::tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent')]">
+                        <xsl:when test="parent::tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#longQuoteVerseStart', '#longQuoteVerseEnd')]">
                             <span style="margin-left: -0.5em;"><span>[ </span><xsl:apply-templates/></span>
                         </xsl:when>
                         <xsl:otherwise>
