@@ -189,7 +189,7 @@
                         | //tei:mod[@rendition='#longQuote' and not(@continued) and contains(@rend, 'Left')]
                         | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and contains(@rend, 'Left')]
                         | //tei:mod[@rendition='#runningText1' and not(@continued) and contains(@rend, 'Left')]
-                        | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'Left')]
+                        | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#runningText1') and not(@continued) and contains(@rend, 'Left')]
                         | //tei:seg[@type='relocation' and @rend='arrow']" mode="render"/>
                 </div>
                 <div class="body-main">
@@ -206,7 +206,7 @@
                         | //tei:metamark[@function='insertion' and contains(@rend, 'Right')]
                         | //tei:mod[@rendition='#longQuote' and not(@continued) and contains(@rend, 'Right')]
                         | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and contains(@rend, 'Right')]
-                        | //tei:mod[@rendition='#runningText1' and not(@continued) and contains(@rend, 'Right')]
+                        | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#runningText1') and not(@continued) and contains(@rend, 'Right')]
                         | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'Right')]" mode="render"/>
                 </div>
             </div>
@@ -373,7 +373,14 @@
                     <xsl:if test="parent::tei:seg[@rend='arrow'] and parent::tei:seg[@xml:id='seg0111_01']">
                         <span class="seg seg-inline"><span id="{parent::tei:seg/@xml:id}" class="{parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span></span>
                     </xsl:if>
-                    <xsl:apply-templates/>
+                    <xsl:choose>
+                        <xsl:when test="parent::tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent')]">
+                            <span style="margin-left: -0.5em;"><span>[ </span><xsl:apply-templates/></span>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:apply-templates/>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </span>
             </xsl:otherwise>
         </xsl:choose>

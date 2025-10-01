@@ -101,8 +101,18 @@
     <xsl:template match="tei:mod[@rendition='#rightAlignSmall']">
         <span class="mod {@style} {replace(@change, '#', '')} longQuoteRightAlign my-05 d-block"><xsl:apply-templates/></span>
     </xsl:template>
-    <xsl:template match="tei:mod[contains(@rendition,'Quote')]">
-        <span class="mod connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+    <xsl:template match="tei:mod[contains(@rendition,'Quote') and not(@resp='#edACE')]">
+        <xsl:choose>
+            <xsl:when test="@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent') and not(child::tei:span[@n='firstLast'])">
+                <span class="mod connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}"
+                    style="margin-left: -0.5em;">
+                    <span>[ </span><xsl:apply-templates/>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="mod connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:mod[@rendition='#runningText1' and not(@n)]">
         <span class="mod connect entity no-indent position-relative {@style} {replace(@change, '#', '')}" id="{@xml:id}">
@@ -135,7 +145,7 @@
             </div>
         </div>
     </xsl:template>
-    <xsl:template match="tei:mod[@rendition='#runningText1' and not(@continued)]" mode="render">
+    <xsl:template match="tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#runningText1') and not(@continued)]" mode="render">
         <div class="d-flex position-relative" data-xmlid="{@xml:id}">
             <div id="container-{@xml:id}" class="mod connect {@rend} {replace(@change,'#','')}">
                 <xsl:choose>
