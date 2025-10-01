@@ -671,6 +671,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-indent: $spacer * 3 !important;
 }
 
+#textcontent-pb .inkLongQuoteVerse,
 #textcontent-pb .inkLongQuote,
 #textcontent-pb .FackelQuote_columnRight {
   text-align: left;
@@ -702,7 +703,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align-last: left;
 }
 
-#textcontent-pb .inkLongQuoteVerse,
 #textcontent-pb .typescriptLongQuoteVerse,
 #textcontent-pb .typescriptLongQuoteVerseLeading {
   text-align-last: left;
@@ -2176,6 +2176,8 @@ div.position-relative .marginLeftFurtherBelow {
 
 .metamark.inkFont{
   text-decoration: underline;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .metamark.inkFontCenter{
