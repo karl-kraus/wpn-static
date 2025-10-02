@@ -113,10 +113,20 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:add[parent::tei:restore[not[@rend='marginOnly']]]">
-        <span class="add connect entity text-decoration-underline-dotted" id="{@xml:id}">
-            <del>&#124;</del>
-        </span>
+    <xsl:template match="tei:add[parent::tei:restore]">
+        <xsl:choose>
+            <xsl:when test="parent::tei:restore[not(@rend='marginOnly')]">
+                <span class="add connect entity text-decoration-underline-dotted" id="{@xml:id}">
+                    <del>&#124;</del>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="add connect entity" id="{@xml:id}">
+                    <del>&#124;</del>
+                </span>
+            </xsl:otherwise>
+        </xsl:choose>
+        
     </xsl:template>
     <xsl:template match="tei:add[@rendition]">
         <span class="add rendition {replace(@rendition,'#','')} {replace(@change[1],'#','')}">
