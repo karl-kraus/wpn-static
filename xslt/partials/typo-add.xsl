@@ -121,9 +121,7 @@
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="add connect entity" id="{@xml:id}">
-                    <del>&#124;</del>
-                </span>
+                <span class="add connect entity" id="{@xml:id}"/>
             </xsl:otherwise>
         </xsl:choose>
         
