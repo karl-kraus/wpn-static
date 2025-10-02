@@ -851,7 +851,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .typewriter,
 #textcontent-pb .typewriter2 {
   // font-size: 11pt;
-  // line-height: 16pt;
+  line-height: 1.2rem;
   text-align: left;
   text-align-last: left;
   font-family: monospace;
