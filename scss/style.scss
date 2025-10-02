@@ -725,14 +725,24 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #textcontent-pb .longQuoteMiddleCenter,
-#textcontent-pb .typescriptLongQuoteAdvInsert,
-#textcontent-pb .typescriptLongQuoteRightAlign,
 #textcontent-pb .typescriptLongQuoteRightAlign2,
 #textcontent-pb .typescriptLongQuoteRightAlign2 .text-align-left,
 #textcontent-pb .longQuoteStartCenter,
 #textcontent-pb .longQuoteEndCenter {
   text-align-last: center;
   text-align: center;
+}
+
+#textcontent-pb .typescriptLongQuoteRightAlign {
+  margin-left: 11rem;
+}
+
+#textcontent-pb .typescriptLongQuoteAdvInsert {
+  width: 27rem;
+}
+
+#textcontent-pb .typescriptLongQuoteAdvInsert .inline-text .text-align-left {
+  margin-left: 7rem;
 }
 
 #textcontent-pb .longQuoteEndRightAlign2 .text-align-left {
