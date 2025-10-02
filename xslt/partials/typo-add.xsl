@@ -113,7 +113,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:add[parent::tei:restore]">
+    <xsl:template match="tei:add[parent::tei:restore[not[@rend="marginOnly"]]]">
         <span class="add connect entity text-decoration-underline-dotted" id="{@xml:id}">
             <del>&#124;</del>
         </span>
