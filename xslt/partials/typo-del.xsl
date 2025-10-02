@@ -81,7 +81,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:del[parent::tei:subst[parent::tei:restore[not(@rend="marginOnly")]]]">
+    <xsl:template match="tei:del[parent::tei:subst[parent::tei:restore[not(@rend='marginOnly')]]]">
         <span class="del text-decoration-underline-dotted" id="{@xml:id}">
             <del><xsl:apply-templates/></del>
         </span>
@@ -91,7 +91,7 @@
             <del><xsl:apply-templates/></del>
         </span>
     </xsl:template>
-    <xsl:template match="tei:del[parent::tei:restore[not(@rend="marginOnly")]]">
+    <xsl:template match="tei:del[parent::tei:restore[not(@rend='marginOnly')]]">
         <span id="{@xml:id}" class="del connect entity text-decoration-underline-dotted">
             <del><xsl:apply-templates/></del>
         </span>
