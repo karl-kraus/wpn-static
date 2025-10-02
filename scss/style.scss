@@ -1750,10 +1750,9 @@ pencil text color
   font-size: 0.667rem !important;
 }
 
-// #textcontent-pb .metamark  {
-//   position: absolute;
-//   text-indent: 0 !important;
-// }
+#textcontent-pb .metamark.linespace  {
+  position: absolute;
+}
 
 #textcontent-pb .longQuoteVerseStart {
   margin-left: $spacer * 3;
