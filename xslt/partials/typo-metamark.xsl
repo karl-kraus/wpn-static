@@ -203,7 +203,15 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:if test="not(contains(@rend, 'Only'))">
-                    <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">&#124;</span>
+                    <xsl:choose>
+                        <xsl:when test="@rend='lineSpace'">
+                            <span class="metamark connect linespace entity {replace(@change, '#', '')}" id="{@xml:id}">&#9146;&#9146;&#9146;</span>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">&#124;</span>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    
                 </xsl:if>
             </xsl:otherwise>
         </xsl:choose>
