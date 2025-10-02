@@ -81,21 +81,40 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:del[parent::tei:subst[parent::tei:restore[not(@rend='marginOnly')]]]">
-        <span class="del text-decoration-underline-dotted" id="{@xml:id}">
-            <del><xsl:apply-templates/></del>
-        </span>
+    <xsl:template match="tei:del[parent::tei:subst[parent::tei:restore]]">
+        <xsl:choose>
+            <xsl:when test="parent::tei:subst[parent::tei:restore[not(@rend='marginOnly')]]">
+               <span class="del text-decoration-underline-dotted" id="{@xml:id}">
+                    <del><xsl:apply-templates/></del>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="del" id="{@xml:id}">
+                    <del><xsl:apply-templates/></del>
+                </span>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:del[parent::tei:add]">
         <span id="{@xml:id}" class="{replace((@change)[1], '#', '')}">
             <del><xsl:apply-templates/></del>
         </span>
     </xsl:template>
-    <xsl:template match="tei:del[parent::tei:restore[not(@rend='marginOnly')]]">
-        <span id="{@xml:id}" class="del connect entity text-decoration-underline-dotted">
-            <del><xsl:apply-templates/></del>
-        </span>
+    <xsl:template match="tei:del[parent::tei:restore]">
+         <xsl:choose>
+            <xsl:when test="parent::tei:restore[not(@rend='marginOnly')]">
+               <span id="{@xml:id}" class="del connect entity text-decoration-underline-dotted">
+                    <del><xsl:apply-templates/></del>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span id="{@xml:id}" class="del connect entity ">
+                    <del><xsl:apply-templates/></del>
+                </span>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
+    
     <!-- margin container elements -->
     <xsl:template match="tei:del[not(parent::tei:subst)]" mode="render">
         <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
