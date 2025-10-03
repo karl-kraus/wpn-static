@@ -1489,7 +1489,9 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb div.del.connect.pencilOnProofKK,
 #textcontent-pb div.mod.connect.pencilOnProofKK,
 #textcontent-pb .subst.pencilOnProofKK .add,
-#textcontent-pb .restore.pencilOnProofKK .add {
+#textcontent-pb .restore.pencilOnProofKK .add,
+#textcontent-pb .arrow.inkOnProofKK,
+#textcontent-pb .mod.connect.marginLeft.inkOnProofKK {
   font-size: 0.667rem;
   font-style: italic;
   line-height: 0.75rem;
