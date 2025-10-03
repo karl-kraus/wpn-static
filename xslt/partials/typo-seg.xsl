@@ -67,4 +67,8 @@
     <!-- <xsl:template match="tei:seg[@type=('transposition','relocation')]" mode="render">
     <xsl:apply-templates/>
     </xsl:template> -->
+    <xsl:template match="tei:seg[@rendition='#typescriptFloatRight']">
+        <span class="{replace(@rendition, '#', '')}"><xsl:apply-templates/></span>
+    </xsl:template>
+    
 </xsl:stylesheet>
