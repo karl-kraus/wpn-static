@@ -1440,13 +1440,24 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #textcontent-pb .seg.border {
-  background: lightgrey;
+  background-image: linear-gradient(lightgrey, lightgrey);
+  background-repeat: no-repeat;
+  background-size: 100% 1em;
+  background-position: 0 60%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   border: none !important;
 }
 
 .border-crossed-out,
 #textcontent-pb .restore>.seg.border {
-  background: repeating-linear-gradient(330deg, white, white 3px, lightgrey 3px, lightgrey 6px);
+    background-image: repeating-linear-gradient(330deg, white, white 3px, lightgrey 3px, lightgrey 6px);
+    border: none;
+    background-repeat: no-repeat;
+    background-size: 100% 1.05em;
+    background-position: 0 60%;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   border: none !important;
 }
 
