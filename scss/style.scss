@@ -1518,7 +1518,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb div.del.connect.pencilOnProof,
 #textcontent-pb div.mod.connect.pencilOnTypescript,
 #textcontent-pb div.mod.connect.pencilOnProof,
-#textcontent-pb .add .blueInkOnProof {
+#textcontent-pb .add .blueInkOnProof,
+#textcontent-pb .bluePencilOnProof {
   font-size: 0.667rem;
   line-height: 0.75rem;
   font-family: 'Ubuntu', sans-serif;
