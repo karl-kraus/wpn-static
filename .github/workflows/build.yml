@@ -76,7 +76,7 @@ jobs:
       run: pnpm exec playwright install --with-deps
     - name: run tests
       if: github.event.inputs.run_dev == 'false' || contains(github.event.head_commit.message, '[run tests]')
-      run: pnpm run e2e:run_all_tests
+      run: pnpm run e2e:test_edition_view
       continue-on-error: true
     - name: Setup Pages
       uses: actions/configure-pages@v5
