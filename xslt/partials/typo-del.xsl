@@ -167,6 +167,11 @@
                                             </span>
                                         </del>
                                     </xsl:when>
+                                    <xsl:when test="count(node())=1 and text()=' ' and not(@resp)">
+                                        <span class="{$next-rend} {replace($next-change,'#','')}">
+                                            &#124;&#xA0;<span class="arimo">&#8256;</span>
+                                        </span>
+                                    </xsl:when>
                                     <xsl:otherwise>
                                         <span class="{$next-rend} {replace($next-change,'#','')}">
                                             &#124;&#xA0;<span class="arimo">&#8368;</span>
