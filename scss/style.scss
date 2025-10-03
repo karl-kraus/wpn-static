@@ -1441,13 +1441,13 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 #textcontent-pb .seg.border {
   background: lightgrey;
-  border: none;
+  border: none !important;
 }
 
 .border-crossed-out,
 #textcontent-pb .restore>.seg.border {
   background: repeating-linear-gradient(330deg, white, white 3px, lightgrey 3px, lightgrey 6px);
-  border: none;
+  border: none !important;
 }
 
 .underline-crossed-out {
