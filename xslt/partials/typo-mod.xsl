@@ -74,7 +74,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <span id="{@xml:id}" class="mod connect entity {@style} {replace(@change, '#', '')}">
-                    <span style="font-size:1.25em;">&#8592;</span> <xsl:apply-templates/>
+                    <span style="font-size:1.25em; margin-right: 1em;">&#8592;</span> <xsl:apply-templates/>
                 </span>
             </xsl:otherwise>
         </xsl:choose>
