@@ -1595,7 +1595,12 @@ handling del elments based on change type
 #textcontent-pb .restore.inkOnProofKK .metamark del,
 #textcontent-pb .metamark .restore.inkOnProofKK del,
 #textcontent-pb .metamark .del.inkOnProofKK del,
-#textcontent-pb .mod.inkOnProofKK {
+#textcontent-pb .mod.inkOnProofKK,
+#textcontent-pb .subst.inkOnProof .del del,
+#textcontent-pb .del.inkOnProof del,
+#textcontent-pb .restore.inkOnProof del,
+#textcontent-pb .restore.inkOnTypescript del,
+#textcontent-pb .subst.inkOnTypescript del {
   text-decoration-color: #000;
 }
 
@@ -1693,7 +1698,7 @@ handling del elements in maring left or right
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb .metamark.undefined  {
-  color: #e5e5e5 !important;
+  color: #5e5e5e !important;
 }
 
 /*
@@ -1754,6 +1759,10 @@ pencil text color
 
 #textcontent-pb .blueInkOnProof {
   color: #3333A2 !important;
+}
+
+#textcontent-pb .bluePencilOnProof {
+  color: #4444c4 !important;
 }
 
 .arimo {
