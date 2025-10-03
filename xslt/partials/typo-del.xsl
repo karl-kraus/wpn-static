@@ -29,7 +29,7 @@
                         <span class="del connect entity {replace(($change)[1], '#', '')}" id="{@xml:id}">
                             <xsl:choose>
                                 <xsl:when test="count(node())=1 and text()=' '">
-                                    <xsl:text>&#8256;</xsl:text>
+                                    <span class="whitespace-del"><xsl:text>&#8256;</xsl:text></span>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <xsl:choose>
