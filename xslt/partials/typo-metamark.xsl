@@ -129,6 +129,7 @@
             <xsl:otherwise>
                 <span class="metamark {replace(@rendition,'#','')} {replace(@change,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:otherwise>
+         </xsl:choose>
      </xsl:template>
 
      <xsl:template match="tei:metamark[@function='transposition'][@place]">
