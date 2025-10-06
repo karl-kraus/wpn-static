@@ -121,7 +121,7 @@
                     <xsl:when test="@rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                         <span class="add {replace(@change[1], '#', '')}" id="{@xml:id}-inline">&#124;</span> <!-- note: eliminate these add pipes if subst and with these rend values -->
                         <span class="position-relative">
-                            <del class="add {@rend} {replace(@change[1], '#', '')}" id="{@xml:id}>
+                            <del class="add {@rend} {replace(@change[1], '#', '')}" id="{@xml:id}">
                                 &#124;&#xA0;<xsl:apply-templates/>
                             </del>
                         </span>
