@@ -122,7 +122,13 @@
         </xsl:if>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='printInstruction'][@rendition]">
-        <span class="metamark {replace(@rendition,'#','')} {replace(@change,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
+         <xsl:choose>
+            <xsl:when test="@change='#typewriter'">
+                <span class="metamark {replace(@rendition,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="metamark {replace(@rendition,'#','')} {replace(@change,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
+            </xsl:otherwise>
      </xsl:template>
 
      <xsl:template match="tei:metamark[@function='transposition'][@place]">
