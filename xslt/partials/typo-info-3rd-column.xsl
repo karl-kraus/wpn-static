@@ -35,7 +35,7 @@
                     <h6 class="mt-2">Textträger</h6>
                     <p>
                         <xsl:text>Standort, Signatur: </xsl:text>
-                        <xsl:value-of select="concat(//tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier/tei:institution/text(), ', ', //tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier/tei:collection/text(), ', ' //tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier/tei:idno[@type='signature']/text()"/>
+                        <xsl:value-of select="concat(//tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier/tei:institution/text(), ', ', //tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier/tei:collection/text(), ', ' //tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier/tei:idno[@type='signature']/text())"/>
                     </p>
                     <p><xsl:text>Grundschicht, Material: </xsl:text><xsl:value-of select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/text()"/></p>
                     
