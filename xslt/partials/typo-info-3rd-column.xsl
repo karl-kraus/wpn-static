@@ -10,6 +10,7 @@
         <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
             <div id="infocontent-pb">
             <xsl:for-each select="//tei:TEI/tei:facsimile[@corresp='#DWkonJer']/tei:surface">
+                <xsl:variable name="convolute-id" select="./parent::tei:facsimile/@xml:id"/>
                 <xsl:variable name="corresp-id" select="replace(@corresp, '#', '')"/>
                 <div class="note m-2 {$corresp-id}">
                     <!-- ########### -->
@@ -32,7 +33,10 @@
                     <!-- textblock 2 -->
                     <!-- ########### -->
                     <h6 class="mt-2">Textträger</h6>
-                    <p><xsl:text>Standort, Signatur: </xsl:text></p>
+                    <p>
+                        <xsl:text>Standort, Signatur: </xsl:text>
+                        <xsl:value-of select="concat(//tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier/tei:institution/text(), ', ', //tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier/tei:collection/text(), ', ' //tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier/tei:idno[@type='signature']/text()"/>
+                    </p>
                     <p><xsl:text>Grundschicht, Material: </xsl:text><xsl:value-of select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/text()"/></p>
                     
                     <!-- ########### -->
