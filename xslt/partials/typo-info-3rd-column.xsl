@@ -14,7 +14,7 @@
                 <xsl:variable name="corresp-id" select="replace(@corresp, '#', '')"/>
                 <div class="note m-2 {$corresp-id}">
                     <!-- ########### -->
-                    <!-- textblock 1 -->
+                    <!-- 1 - GENERAL INFO, IDENTIFICATION -->
                     <!-- ########### -->
                     <h5><xsl:text>Jerusalemer Konvolut, fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto</xsl:text></h5>
                     <xsl:for-each select="./tei:note[@type='pagination']">
@@ -28,22 +28,31 @@
                             <xsl:text>)</xsl:text>
                         </p>
                     </xsl:for-each>
-
-                    <!-- ########### -->
-                    <!-- textblock 2 -->
-                    <!-- ########### -->
-                    <h6 class="mt-2">Textträger</h6>
                     <p>
                         <xsl:text>Standort, Signatur: </xsl:text>
-                        <xsl:value-of select="concat(//tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier/tei:institution/text(), ', ', //tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier/tei:collection/text(), ', ' //tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier/tei:idno[@type='signature']/text())"/>
+                       <xsl:value-of
+                          select="
+                            let $id := //tei:sourceDesc[@xml:id='DWkonJer']/tei:msDesc/tei:msIdentifier
+                            return string-join((
+                              $id/tei:institution,
+                              $id/tei:collection,
+                              $id/tei:idno[@type='signature']
+                            ), ', ')
+                          "/>
+
                     </p>
-                    <p><xsl:text>Grundschicht, Material: </xsl:text><xsl:value-of select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/text()"/></p>
-                    
-                    <!-- ########### -->
-                    <!-- textblock 3 -->
-                    <!-- ########### -->
-                    <h6 class="mt-2">Zustand</h6>
                     <p><xsl:value-of select="./tei:note[@type='stamp']/text()"/></p>
+
+                    <!-- ########### -->
+                    <!-- 2 - CARRIER INFO -->
+                    <!-- ########### -->
+                    <h6 class="mt-2">Textträger, Grundschicht: </h6>
+                    
+                    <p><xsl:text></xsl:text><xsl:value-of select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/text()"/></p>
+                    <xsl:if test="./tei:note[@type='condition']">
+                    </xsl:if> 
+                    
+                    
 
                     <!-- ########### -->
                     <!-- textblock 4 -->
