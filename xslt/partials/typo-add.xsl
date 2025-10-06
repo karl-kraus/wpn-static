@@ -42,7 +42,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:add[parent::tei:subst[not(parent::tei:restore)]]|tei:add[parent::tei:span[ancestor::tei:subst]]">
+    <xsl:template match="tei:add[parent::tei:subst[not(ancestor::tei:restore[not(./tei:seg)])]]|tei:add[parent::tei:span[ancestor::tei:subst[not(ancestor::tei:restore[not(./tei:seg)])]]]">
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[parent::tei:span[parent::tei:subst]])then(ancestor::tei:subst/@rend)else(@rend)"/>
         <xsl:choose>
             <xsl:when test="$rend = 'inline'">
