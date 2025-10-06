@@ -117,12 +117,24 @@
     <xsl:template match="tei:add[parent::tei:restore]">
         <xsl:choose>
             <xsl:when test="parent::tei:restore[not(@rend='marginOnly')]">
-                <span class="add connect entity text-decoration-underline-dotted" id="{@xml:id}">
-                    <del>&#124;</del>
-                </span>
+                <xsl:choose>
+                    <xsl:when test="@rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
+                        <span class="add {replace(@change[1], '#', '')}" id="{@xml:id}-inline">&#124;</span> <!-- note: eliminate these add pipes if subst and with these rend values -->
+                        <span class="position-relative">
+                            <del class="add {@rend} {replace(@change[1], '#', '')}" id="{@xml:id}>
+                                &#124;&#xA0;<xsl:apply-templates/>
+                            </del>
+                        </span>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <span class="add connect entity text-decoration-underline-dotted" id="{@xml:id}">
+                            <del>&#124;</del>
+                        </span>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
-                <span class="add connect entity" id="{@xml:id}"/>
+                <span class="add connect entity" id="{@xml:id}">&#124;</span>
             </xsl:otherwise>
         </xsl:choose>
         
