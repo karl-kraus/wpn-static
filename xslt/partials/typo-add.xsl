@@ -5,15 +5,16 @@
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
     version="2.0" exclude-result-prefixes="#all">
 
-    <xsl:template match="tei:add[parent::tei:subst[parent::tei:restore]]">
+    <xsl:template match="tei:add[parent::tei:subst[ancestor::tei:restore[not(./tei:seg)]]]">
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
         <xsl:choose>
             <xsl:when test="$rend = 'inline'">
                 <del class="add" id="{@xml:id}"><xsl:apply-templates/></del>
             </xsl:when>
             <xsl:when test="$rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
-                <span class="add {replace(@change[1], '#', '')}" id="{@xml:id}-inline">&#124;</span>
+                <span class="add {replace(@change[1], '#', '')}" id="{@xml:id}-inline">&#124;</span> <!-- note: eliminate these add pipes if subst and with these rend values -->
                 <span class="position-relative">
+                    <!-- test: aren't they all supposed to be del?
                     <xsl:variable name="el">
                         <xsl:choose>
                             <xsl:when test="ancestor::tei:del">
@@ -23,8 +24,8 @@
                                 <xsl:text>span</xsl:text>
                             </xsl:otherwise>
                         </xsl:choose>
-                    </xsl:variable>
-                    <xsl:element name="{$el}">
+                    </xsl:variable> -->
+                    <xsl:element name="del">
                         <xsl:attribute name="class">
                             <xsl:value-of select="concat('add ', $rend, ' ', replace(@change[1], '#', ''))"/>
                         </xsl:attribute>
