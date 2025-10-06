@@ -223,7 +223,7 @@
         <xsl:variable name="change" select="if(parent::tei:subst[@change])then(parent::tei:subst/@change)else if(ancestor::tei:subst[@change])then(ancestor::tei:subst/@change)else(@change)"/>
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(ancestor::tei:subst[@rend])then(ancestor::tei:subst/@rend)else(@rend)"/>
         <xsl:choose>
-            <xsl:when test="parent::tei:subst[parent::tei:restore]">
+            <xsl:when test="parent::tei:subst[ancestor::tei:restore[not(./tei:seg)]]">
                 <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
                 <del class="{$rend} {replace($restore-change[1],'#','')}">&#124;&#xA0;<xsl:apply-templates/></del>
             </xsl:when>
