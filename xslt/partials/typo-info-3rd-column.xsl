@@ -50,6 +50,7 @@
                     
                     <p><xsl:text></xsl:text><xsl:value-of select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/text()"/></p>
                     <xsl:if test="./tei:note[@type='condition']">
+                        <p>Zustand: <xsl:value-of select="./tei:note[@type='condition']"/></p>
                     </xsl:if> 
                     
                     
