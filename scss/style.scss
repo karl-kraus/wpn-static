@@ -849,7 +849,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 #textcontent-pb .typescriptRunningText1,
 #textcontent-pb .typewriter,
-#textcontent-pb .typewriter2 {
+#textcontent-pb .typewriter2,
+#textcontent-pb .metamark.typescriptFont {
   // font-size: 11pt;
   line-height: 1.2rem;
   text-align: left;
