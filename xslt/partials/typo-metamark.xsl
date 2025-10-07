@@ -141,7 +141,10 @@
                 <del class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">&#124;</del>
             </xsl:when>
             <xsl:otherwise>
-                 <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">&#124;</span>
+                 <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">
+                     <xsl:if test="not(.//text())">&#124;</xsl:if>
+                     <xsl:apply-templates/>
+                 </span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
