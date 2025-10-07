@@ -212,7 +212,7 @@
 				<xsl:text>Tinte, blau</xsl:text>
 			</xsl:when>
 			<xsl:when test="contains($corresp, 'pencilOnProof') or contains($corresp, 'pencilOnTypescript')">
-				<xsl:text>Bleistift (ev. Druckerei Jahoda & Siegel)</xsl:text>
+				<xsl:text>Bleistift (ev. Druckerei Jahoda &amp; Siegel)</xsl:text>
 			</xsl:when>
 			<xsl:when test="contains($corresp, 'redOnProof')">
 				<xsl:text>Buntstift, rot</xsl:text>
