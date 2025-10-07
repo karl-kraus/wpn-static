@@ -2054,66 +2054,76 @@ div:has(> .lineRight), div:has(> .doubleLineRight)  {
   margin-left: 10%;
 }
 
-div.position-relative .marginRight  {
+div.position-relative .marginRight,
+div.position-relative .marginRightOnly {
   position: absolute;
   text-align: left;
   left: 34%;
 }
 
-div.position-relative .marginOuterRight  {
+div.position-relative .marginOuterRight,
+div.position-relative .marginOuterRightOnly {
   position: absolute;
   left: 67%;
   text-align: left;
 }
 
-div.position-relative .marginOutermostRight  {
+div.position-relative .marginOutermostRight,
+div.position-relative .marginOutermostRightOnly {
   position: absolute;
   left: 80%;
   text-align: left;
 }
 
-div.position-relative .marginOuterRightBelow  {
+div.position-relative .marginOuterRightBelow,
+div.position-relative .marginOuterRightBelowOnly {
   position: absolute;
   left: 67%;
   top: 1rem;
   text-align: left;
 }
 
-div.position-relative .marginInnerRight  {
+div.position-relative .marginInnerRight,
+div.position-relative .marginInnerRightOnly {
   position: absolute;
   left: 5%;
   text-align: left;
 }
 
-div.position-relative .marginInnerRightAbove  {
+div.position-relative .marginInnerRightAbove,
+div.position-relative .marginInnerRightAboveOnly {
   position: absolute;
   left: 5%;
   top: -10pt;
   text-align: left;
 }
 
-div.position-relative .marginInnerRightBelow  {
+div.position-relative .marginInnerRightBelow,
+div.position-relative .marginInnerRightBelowOnly {
   position: absolute;
   left: 5%;
   top: 1rem;
   text-align: left;
 }
 
-div.position-relative .marginRightAbove {
+div.position-relative .marginRightAbove,
+div.position-relative .marginRightAboveOnly {
   left: 33%;
   position: absolute;
   top: -10pt;
   text-align: left;
 }
 
-div.position-relative .marginInnerRightFurtherAbove {
+div.position-relative .marginInnerRightFurtherAbove,
+div.position-relative .marginInnerRightFurtherAboveOnly {
   left: 5%;
   position: absolute;
   top: -20pt;
   text-align: left;
 }
 
-div.position-relative .marginRightBelow {
+div.position-relative .marginRightBelow,
+div.position-relative .marginRightBelowOnly {
   left: 33%;
   position: absolute;
   top: 1rem;
