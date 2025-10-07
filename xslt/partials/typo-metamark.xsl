@@ -132,6 +132,41 @@
          </xsl:choose>
      </xsl:template>
 
+    <xsl:template match="tei:metamark[@function='modification']">
+       <span class="metamark entity connect {replace(@change,'#','')}" id="{@xml:id}"/>
+    </xsl:template>
+     <!-- margin container elements -->
+    <xsl:template match="tei:metamark[@function='modification']" mode="render">
+        <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
+        <xsl:if test="$xmlrend = 'yes'">
+            <div id="container-{@xml:id}" class="d-flex metamark connect w-100 position-relative {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+                <div class="w-100">
+                    <span class="{@rend}{if(parent::tei:restore)then(replace((parent::tei:restore/@change)[1], '#', ' restore '))else()}">
+                        <xsl:if test="@target">
+                            <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                            <xsl:attribute name="data-target">
+                                <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
+                            </xsl:attribute>
+                        </xsl:if>
+                        <xsl:choose>
+                            <xsl:when test="parent::tei:restore">
+                                <del>
+                                    <xsl:apply-templates/>
+                                </del>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:apply-templates/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </span>
+                </div>
+                <xsl:call-template name="wrapper-iter">
+                    <xsl:with-param name="xmldata" select="tokenize(@xml:data, '/')"/>
+                </xsl:call-template>
+            </div>
+        </xsl:if>
+    </xsl:template>
+    
     <xsl:template match="tei:metamark[@function='undefined']">
         <xsl:choose>
             <xsl:when test="contains(@rend, 'Only')">
