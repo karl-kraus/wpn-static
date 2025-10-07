@@ -202,24 +202,29 @@
      <xsl:template match="tei:metamark[@function='insertion'][@rend]">
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
-                <xsl:if test="not(contains(@rend, 'Only'))">
-                    <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">
-                        <del>&#124;</del>
-                    </span>
-                </xsl:if>
+                <xsl:choose>
+                    <xsl:when test="not(contains(@rend, 'Only'))">
+                        <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">
+                            <del>&#124;</del>
+                        </span>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}"/>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:if test="not(contains(@rend, 'Only'))">
-                    <xsl:choose>
+                <xsl:choose>
                         <xsl:when test="@rend='lineSpace'">
                             <span class="metamark connect linespace entity {replace(@change, '#', '')}" id="{@xml:id}">&#9146;&#9146;&#9146;</span>
+                        </xsl:when>
+                        <xsl:when test="contains(@rend, 'Only')">
+                            <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}"/>
                         </xsl:when>
                         <xsl:otherwise>
                             <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">&#124;</span>
                         </xsl:otherwise>
                     </xsl:choose>
-                    
-                </xsl:if>
             </xsl:otherwise>
         </xsl:choose>
      </xsl:template>
