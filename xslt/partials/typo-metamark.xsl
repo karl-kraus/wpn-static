@@ -40,12 +40,17 @@
             </xsl:if>
         </span>
      </xsl:template>
-     <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@rend]">
+     <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@rend][not(parent::tei:restore)]">
         <span class="metamark mm-inline connect entity {replace(@change, '#', '')}" id="{@xml:id}">
             <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
                 <span>&#124;</span>
             </xsl:if>
             <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
+        </span>
+     </xsl:template>
+    <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@rend][parent::tei:restore]">
+        <span class="metamark mm-inline connect entity {replace(@change, '#', '')}" id="{@xml:id}">
+            <del>&#124;</del>
         </span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][not(@rend) and not(@place)]">
