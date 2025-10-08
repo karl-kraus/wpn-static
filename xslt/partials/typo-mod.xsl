@@ -6,8 +6,7 @@
     xmlns:local="http://dse-static.foo.bar"
     version="2.0" exclude-result-prefixes="#all">
 
-	<!-- maybe we don't need this
-    <xsl:template match="tei:mod[@n]">
+    <xsl:template match="tei:mod[@n and parent::tei:p[@rendition='#runningText2']]">
         <div id="{local:makeId(.)}" class="yes-index {if(self::tei:p)then(replace(@rendition,'#',''))else()}{if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}">
             <xsl:if test="@rendition='#runningText1'">
                 <span class="mod connect entity no-indent position-relative {@style} {replace(@change, '#', '')}" id="{@xml:id}">
@@ -28,7 +27,7 @@
             <xsl:apply-templates/>
         </div>
     </xsl:template>
--->
+
     
     <xsl:template match="tei:mod[@style='noLetterSpacing']">
         <xsl:choose>
@@ -143,7 +142,7 @@
             </span>
         </span>
     </xsl:template>
-	 <xsl:template match="tei:mod[@rendition=('#runningText1') and @n]">
+	 <xsl:template match="tei:mod[@rendition=('#runningText1') and @n and not(parent::tei:p[@rendition='#runningText2'])]">
         <span class="mod connect entity running-text-1 no-indent position-relative {replace(@change, '#', '')}" id="{@xml:id}">
             <span class="mod-inline {replace(@change, '#', '')}"><span>[</span></span>
 		</span>
