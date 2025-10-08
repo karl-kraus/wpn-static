@@ -1542,6 +1542,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   font-family: 'Ubuntu', sans-serif;
 }
 
+#textcontent-pb del {
+  font-variant-ligatures: none;
+}
+
 /*
 handling del elments based on change type
 */
