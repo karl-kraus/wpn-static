@@ -28,9 +28,6 @@
         </div>
     </xsl:template>
 
-    <xsl:template match="tei:mod[@rendition='#longQuoteVerseRightAlign' and @rend='inlineArrows']">
-		<span class="mod inline-arrows {replace(@change, '#', '')}" id="{@xml:id}"><span style="margin-left: -0.5rem;">&#8594;</span><xsl:apply-templates/><span>&#8594;</span></span>
-	</xsl:template>
     
     <xsl:template match="tei:mod[@style='noLetterSpacing']">
         <xsl:choose>
@@ -146,10 +143,15 @@
         </span>
     </xsl:template>
 	<xsl:template match="tei:mod[@rendition='#verseLine' and not(@resp='#edACE') and not(@rend='none')]">
-		<span class="mod connect entity no-indent position-relative {replace(@change, '#', '')}" id="{@xml:id}">
-            <span class="mod-inline {replace(@change, '#', '')}"><span>[</span><xsl:apply-templates/></span>
+		<span class="mod connect entity verseline no-indent position-relative {replace(@change, '#', '')}" id="{@xml:id}">
+            <span class="mod-inline {replace(@change, '#', '')}"><span>[</span></span>
 		</span>
+		<xsl:apply-templates/>
 	</xsl:template>
+	<xsl:template match="tei:mod[@rendition='#longQuoteVerseRightAlign' and @rend='inlineArrows']">
+		<span class="mod inline-arrows {replace(@change, '#', '')}" id="{@xml:id}"><span style="margin-left: -0.5rem;">&#8594;</span><xsl:apply-templates/><span>&#8594;</span></span>
+	</xsl:template>
+    
 
 
     <!-- container element -->
