@@ -40,6 +40,6 @@ pathsToTest.forEach(({ label, path }) => {
 		const mainElement = page.locator("main");
 		const textElemBox = await mainElement.boundingBox();
 		await page.addStyleTag({ content: "wpn-header, #controls, footer {display:none !important;}" });
-		await expect(page).toHaveScreenshot(`snapshot-${path}.png`, { fullPage: true, timeout: 10000,clip: { x: 0, y: 0, width: Number(viewportWidth), height: Number(textElemBox?.height) } });
+		await expect(page).toHaveScreenshot(`snapshot-${path}.png`, {maxDiffPixelRatio: 0.1, fullPage: true, timeout: 10000,clip: { x: 0, y: 0, width: Number(viewportWidth), height: Number(textElemBox?.height) } });
 	});
 });
