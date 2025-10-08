@@ -428,7 +428,31 @@
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:span[not(@n)]">
-        <span class="{@style}"><xsl:apply-templates/></span>
+        <xsl:choose>
+            <xsl:when test="child::tei:*">
+                <span>
+                    <xsl:if test="@style">
+                        <xsl:attribute name="style">
+                            <xsl:value-of select="@style"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:apply-templates/>
+                </span>
+            </xsl:when>
+            <xsl:when test="string-length(normalize-space(.)) > 0">
+                <span>
+                    <xsl:if test="@style">
+                        <xsl:attribute name="style">
+                            <xsl:value-of select="@style"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:value-of select="normalize-space(.)"/>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <!-- do not render empty elements -->
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:listTranspose"/>
     <xsl:template match="tei:gap">
