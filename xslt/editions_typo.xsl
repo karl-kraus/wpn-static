@@ -356,9 +356,24 @@
     </xsl:template> -->
     <xsl:template match="tei:lb[@n='first']"/>
     <xsl:template match="tei:lb[@n='firstLast']"/>
-    <xsl:template match="tei:lb[@n='last' or not(@n)]">
-    <xsl:if test="@break"><xsl:text>-</xsl:text></xsl:if><br/>
+    
+	<xsl:template match="tei:lb[@n='last' or not(@n)]">
+		<xsl:choose>
+			<xsl:when test="@break and not(@type='noHyphen')">
+				<xsl:text>-</xsl:text><br/>
+			</xsl:when>
+			<xsl:when test="@type='forced'">
+				<br class="forced"/>
+			</xsl:when>
+			<xsl:when test="@type='forcedRight'">
+				<br class="forcedRight"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<br/>
+			</xsl:otherwise>
+		</xsl:choose>
     </xsl:template>
+	
     <xsl:template match="tei:span[@n='last']">
         <xsl:choose>
             <xsl:when test="ancestor::tei:del or parent::tei:del or preceding-sibling::*[1]/local-name() = ('del', 'add')">
@@ -367,7 +382,13 @@
             <!-- <xsl:when test="preceding-sibling::*[1][@n='last']/local-name() = 'span'">
                 <span class="d-table-row text-align-left no-indent">&#160;<xsl:apply-templates/></span>
             </xsl:when> -->
-            <xsl:otherwise>
+            <xsl:when test="preceding-sibling::tei:lb[1][@type='forced']">
+				<span class="d-block text-align-left lb-forced"><xsl:apply-templates/></span>
+			</xsl:when>
+			<xsl:when test="preceding-sibling::tei:lb[1][@type='forcedRight']">
+				<span class="d-block text-align-left lb-forced-right"><xsl:apply-templates/></span>
+			</xsl:when>
+			<xsl:otherwise>
                 <span class="d-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent"><xsl:apply-templates/></span>
             </xsl:otherwise>
         </xsl:choose>
