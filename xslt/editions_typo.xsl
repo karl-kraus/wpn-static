@@ -211,7 +211,7 @@
 						| //tei:metamark[@function='undefined' and contains(@rend, 'Right')]
                         | //tei:mod[@rendition='#longQuote' and not(@continued) and contains(@rend, 'Right')]
                         | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and contains(@rend, 'Right')]
-                        | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#runningText1') and not(@continued) and contains(@rend, 'Right')]
+                        | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#verseLine', '#runningText1') and not(@continued) and contains(@rend, 'Right')]
                         | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'Right')]" mode="render"/>
                 </div>
             </div>
