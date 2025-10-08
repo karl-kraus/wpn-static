@@ -27,6 +27,11 @@
             <xsl:apply-templates/>
         </div>
     </xsl:template>
+
+    <xsl:template match="tei:mod[@rendition='#longQuoteVerseRightAlign' and @rend='inlineArrows']">
+		<span class="mod inline-arrows {replace(@change, '#', '')}" id="{@xml:id}"><span style="margin-left: -0.5rem;">&#8594;</span><xsl:apply-templates/><span>&#8594;</span></span>
+	</xsl:template>
+    
     <xsl:template match="tei:mod[@style='noLetterSpacing']">
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
