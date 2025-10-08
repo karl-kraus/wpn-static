@@ -326,7 +326,6 @@
     <xsl:template match="tei:corr">
         <xsl:for-each select="tei:add">
             <span class="add connect entity {replace(@change[1], '#', '')}" id="{@xml:id}">
-                <!-- <span>&#124;</span> -->
             </span>
         </xsl:for-each>
     </xsl:template>
