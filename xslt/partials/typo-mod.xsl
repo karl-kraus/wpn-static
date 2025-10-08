@@ -6,6 +6,7 @@
     xmlns:local="http://dse-static.foo.bar"
     version="2.0" exclude-result-prefixes="#all">
 
+	<!-- maybe we don't need this
     <xsl:template match="tei:mod[@n]">
         <div id="{local:makeId(.)}" class="yes-index {if(self::tei:p)then(replace(@rendition,'#',''))else()}{if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}">
             <xsl:if test="@rendition='#runningText1'">
@@ -27,7 +28,7 @@
             <xsl:apply-templates/>
         </div>
     </xsl:template>
-
+-->
     
     <xsl:template match="tei:mod[@style='noLetterSpacing']">
         <xsl:choose>
@@ -125,7 +126,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:mod[@rendition=('#runningText1') and not(@n)]">
+    <xsl:template match="tei:mod[@rendition=('#runningText1')]"> <!-- eliminated " and not(@n)" -->
         <span class="mod connect entity no-indent position-relative {@style} {replace(@change, '#', '')}" id="{@xml:id}">
             <span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">
                 <xsl:if test="not(@continued)">
