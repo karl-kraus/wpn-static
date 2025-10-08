@@ -314,7 +314,9 @@
     <xsl:template match="tei:c[not(@resp='#edACE')]">
         <xsl:value-of select="'&#x2060;&#x2009;&#x2060;'"/>
     </xsl:template>
-    <xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
+	
+    <!-- SIC/CORR TEST
+	<xsl:template match="tei:choice[child::tei:corr[@type='comment']]">
         <xsl:apply-templates select="tei:sic" mode="render"/>
         <xsl:apply-templates select="tei:corr" mode="render"/>
     </xsl:template>
@@ -334,6 +336,12 @@
     <xsl:template match="tei:sic" mode="render">
         <xsl:apply-templates/>
     </xsl:template>
+	INSTEAD SIMPLY: -->
+	<xsl:template match="tei:sic">
+		<xsl:apply-templates/>
+	</xsl:template>
+	<xsl:template match="tei:corr"/>
+	
      <xsl:template match="tei:anchor[@type='metamark']">
         <span class="anchor {replace((@change)[1], '#', '')}" id="{@xml:id}"></span>
      </xsl:template>
