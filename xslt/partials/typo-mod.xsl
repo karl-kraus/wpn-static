@@ -128,7 +128,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:mod[@rendition=('#runningText1', '#verseLine') and not(@n)]">
+    <xsl:template match="tei:mod[@rendition=('#runningText1') and not(@n)]">
         <span class="mod connect entity no-indent position-relative {@style} {replace(@change, '#', '')}" id="{@xml:id}">
             <span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">
                 <xsl:if test="not(@continued)">
@@ -145,6 +145,11 @@
             </span>
         </span>
     </xsl:template>
+	<xsl:template match="tei:mod[@rendition='#verseLine' and not(@resp='#edACE') and not(@rend='none')]">
+		<span class="mod connect entity no-indent position-relative {replace(@change, '#', '')}" id="{@xml:id}">
+            <span class="mod-inline {replace(@change, '#', '')}"><span>[</span><xsl:apply-templates/></span>
+		</span>
+	</xsl:template>
 
 
     <!-- container element -->
