@@ -153,7 +153,11 @@
 		<xsl:apply-templates/>
 		<span class="mod inline-arrows {replace(@change, '#', '')}">&#xA0;&#8594;</span>
 	</xsl:template>
-    
+    <xsl:template match="tei:mod[@rend and not(@rendition)]">
+        <span class="mod connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}">
+            <xsl:apply-templates/>
+        </span>
+    </xsl:template>
 
 
     <!-- container element -->
@@ -191,6 +195,99 @@
               </xsl:choose>
             </div>
         </div>
+    </xsl:template>
+
+    <xsl:template match="tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued)]" mode="render">
+        <xsl:variable name="xmlrend" select="@xml:rend"/>
+        <xsl:if test="$xmlrend = 'yes'">
+            <xsl:variable name="xml-data" select="@xml:data"/>
+            <xsl:variable name="change" select="@change"/>
+            <xsl:variable name="rend" select="@rend"/>
+            <xsl:variable name="containerID" select="@xml:id"/>
+            <div data-xmlid="{@xml:id}" class="d-flex position-relative">
+                <div id="container-{$containerID}" class="mod connect {replace($change[1],'#','')}">
+                    <div class="w-100">
+                        <xsl:call-template name="manual"/>
+                    </div>
+                </div>
+                <xsl:call-template name="wrapper-iter">
+                    <xsl:with-param name="xmldata" select="tokenize($xml-data[1], '/')"/>
+                </xsl:call-template>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="wrapper-iter">
+        <xsl:param name="xmldata" as="xs:string*"/>
+        <xsl:variable name="tei" select="ancestor::tei:TEI"/>
+        <xsl:iterate select="$xmldata">
+            <xsl:if test="string-length(current()) != 0">
+                <xsl:variable name="next" select="$tei//tei:*[@xml:id=current()]" as="element()"/>
+                <xsl:variable name="next-change" select="if($next[parent::tei:subst[@change]])then($next/parent::tei:subst/@change)else($next/@change)"/>
+                <xsl:variable name="next-rend" select="if($next[parent::tei:subst[@rend]])then($next/parent::tei:subst/@rend)else($next/@rend)"/>
+                <xsl:variable name="subornot" select="if(contains($next/@xml:id, '-sub-'))then($next/tei:del/@xml:id)else($next/@xml:id)"/>
+                <div id="container-{$subornot}" class="{$next/local-name()} connect {replace($next-change,'#','')}">
+                    <div class="w-100">
+                        <xsl:choose>
+                            <xsl:when test="contains($next/@xml:id, 'add')">
+                                <span class="{$next-rend} {replace($next-change[1],'#','')}">
+                                    &#124;&#xA0;<xsl:apply-templates select="$next/tei:add" mode="manual_iter"/>
+                                </span>
+                            </xsl:when>
+                            <xsl:when test="contains($next/@xml:id, 'del')">
+                                <xsl:choose>
+                                    <xsl:when test="$next[parent::tei:restore]">
+                                        <del class="{$next-rend} {replace(($next/parent::tei:restore/@change)[1],'#','')}">
+                                            <span class="{replace($next-change[1],'#','')}">
+                                                &#124;&#xA0;<span class="arimo">&#8368;</span>
+                                            </span>
+                                        </del>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <span class="{$next-rend} {replace($next-change[1],'#','')}">
+                                            &#124;&#xA0;<span class="arimo">&#8368;</span>
+                                        </span>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:when>
+                            <xsl:when test="contains($next/@xml:id, 'sub')">
+                                <span class="{$next-rend} {replace($next-change,'#','')}">
+                                    &#124;&#xA0;<xsl:apply-templates select="$next/tei:add" mode="manual_iter"/>
+                                </span>
+                            </xsl:when>
+                            <xsl:when test="contains($next/@xml:id, 'metam')">
+                                <span class="{$next-rend} {replace($next-change,'#','')}">
+                                    <xsl:apply-templates select="$next" mode="manual_iter"/>
+                                </span>
+                            </xsl:when>
+                        </xsl:choose>
+                    </div>
+                </div>
+            </xsl:if>
+        </xsl:iterate>
+    </xsl:template>
+
+    <xsl:template name="manual">
+        <xsl:variable name="change" select="@change"/>
+        <xsl:variable name="rend" select="@rend"/>
+        <xsl:choose>
+            <xsl:when test="parent::tei:restore">
+                <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
+                <del class="{$rend} {replace($restore-change,'#','')}">
+                    <span class="{replace(@change[1],'#','')}">&#124;&#xA0;</span>
+                </del>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="{$rend} {replace($change[1],'#','')}">&#124;&#xA0;</span>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <xsl:template match="tei:add" mode="manual_iter">
+        <xsl:if test="self::tei:metamark[not(@function='progress')]">
+            &#124;&#xA0;
+        </xsl:if>
+        <xsl:apply-templates/>
     </xsl:template>
     
     <!-- <xsl:template match="tei:mod[@change='#pencilOnProof_KK'][not(@rendition='#pencilOnProof_rightAlignSmall')]"/> -->

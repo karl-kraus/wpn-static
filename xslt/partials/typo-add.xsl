@@ -224,6 +224,11 @@
                                     <xsl:apply-templates select="$next" mode="manual_iter"/>
                                 </span>
                             </xsl:when>
+                            <xsl:when test="contains($next/@xml:id, 'mod')">
+                                <span class="{$next-rend} {replace($next-change,'#','')}">
+                                    <xsl:apply-templates select="$next" mode="manual_iter"/>
+                                </span>
+                            </xsl:when>
                         </xsl:choose>
                     </div>
                 </div>
@@ -255,10 +260,9 @@
     </xsl:template>
 
     <xsl:template match="tei:add" mode="manual_iter">
-        <xsl:if test="not(@function='progress')">
+        <xsl:if test="self::tei:metamark[not(@function='progress')]">
             &#124;&#xA0;
         </xsl:if>
-        <xsl:value-of select="name(.)"/>
         <xsl:apply-templates/>
     </xsl:template>
 

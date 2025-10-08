@@ -414,7 +414,7 @@
     </xsl:template>
 
     <xsl:template match="tei:metamark" mode="manual_iter">
-        <xsl:if test="not(@function='progress')">
+        <xsl:if test="self::tei:metamark[not(@function='progress')]">
             &#124;&#xA0;
         </xsl:if>
         <xsl:apply-templates/>

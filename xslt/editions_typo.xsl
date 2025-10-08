@@ -193,7 +193,8 @@
                         | //tei:mod[@rendition='#runningText1' and not(@continued) and contains(@rend, 'Left')]
                         | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#runningText1') and not(@continued) and contains(@rend, 'Left')]
                         | //tei:seg[@type='relocation' and @rend='arrow']
-						| //tei:mod[@style='noIndent' and contains(@rend, 'Left')]" mode="render"/>
+						| //tei:mod[@style='noIndent' and contains(@rend, 'Left')]
+                        | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'Left')]" mode="render"/>
                 </div>
                 <div class="body-main">
                     <xsl:apply-templates/>
@@ -212,7 +213,8 @@
                         | //tei:mod[@rendition='#longQuote' and not(@continued) and contains(@rend, 'Right')]
                         | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and contains(@rend, 'Right')]
                         | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#verseLine', '#runningText1') and not(@continued) and contains(@rend, 'Right')]
-                        | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'Right')]" mode="render"/>
+                        | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'Right')]
+                        | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'Right')]" mode="render"/>
                 </div>
             </div>
             <div class="print-footer {$printType} zindex-99">
