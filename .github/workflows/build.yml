@@ -91,6 +91,7 @@ jobs:
       run: |
         uv run ./py/make_ts_index.py
     - name: deploy report
+      if: github.event.inputs.run_dev == 'false' || contains(github.event.head_commit.message, '[run tests]')
       uses: peaceiris/actions-gh-pages@v4
       with:
         deploy_key: ${{ secrets.REPORT_REPO_KEY }}
