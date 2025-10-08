@@ -85,7 +85,14 @@
                             </xsl:attribute>
                         </xsl:if>
                         <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
-                            <span>&#124;</span>
+                            <xsl:choose>
+                                <xsl:when test="parent::tei:restore">
+                                    <del>&#124;</del>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <span>&#124;</span>
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </xsl:if>
                         <xsl:apply-templates/>
                     </span>
