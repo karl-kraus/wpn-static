@@ -124,7 +124,7 @@
     </xsl:template>
     <xsl:template match="tei:del[@resp and @type='implicit']">
         <xsl:apply-templates/>
-    </xsl:templates>
+    </xsl:template>
     
     <!-- margin container elements -->
     <xsl:template match="tei:del[not(parent::tei:subst)]" mode="render">
