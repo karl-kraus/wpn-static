@@ -205,25 +205,25 @@
 			<xsl:when test="contains($corresp, 'pencilOnProofKK')">
 				<xsl:text>Bleistift (vermutl. Karl Kraus)</xsl:text>
 			</xsl:when>
-			<xsl:when test="contains($corresp, 'inkOnProof') or contains($corresp, 'inkOnTypescript')">
+			<xsl:when test="$corresp='#inkOnProof' or $corresp='#inkOnTypescript'">
 				<xsl:text>Tinte, schwarz</xsl:text>
 			</xsl:when>
 			<xsl:when test="contains($corresp, 'blueInkOnProof')">
 				<xsl:text>Tinte, blau</xsl:text>
 			</xsl:when>
-			<xsl:when test="contains($corresp, 'pencilOnProof') or contains($corresp, 'pencilOnTypescript')">
+			<xsl:when test="$corresp='#pencilOnProof' or $corresp='#pencilOnTypescript'">
 				<xsl:text>Bleistift (ev. Druckerei Jahoda &amp; Siegel)</xsl:text>
 			</xsl:when>
-			<xsl:when test="contains($corresp, 'redOnProof')">
+			<xsl:when test="$corresp='#redOnProof'">
 				<xsl:text>Buntstift, rot</xsl:text>
 			</xsl:when>
-			<xsl:when test="contains($corresp, 'bluePencilOnProof')">
+			<xsl:when test="$corresp='#bluePencilOnProof'">
 				<xsl:text>Buntstift, blau</xsl:text>
 			</xsl:when>
-			<xsl:when test="contains($corresp, 'pencilOnProofLibrary')">
+			<xsl:when test="$corresp='pencilOnProofLibrary'">
 				<xsl:text>Bleistift (National Library of Israel)</xsl:text>
 			</xsl:when>
-			<xsl:when test="contains($corresp, 'typewriter')">
+			<xsl:when test="$corresp='typewriter'">
 				<xsl:text>Schreibmaschine</xsl:text>
 			</xsl:when>
 			<xsl:otherwise>
