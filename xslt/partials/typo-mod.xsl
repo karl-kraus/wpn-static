@@ -149,7 +149,9 @@
 		<xsl:apply-templates/>
 	</xsl:template>
 	<xsl:template match="tei:mod[@rendition='#longQuoteVerseRightAlign' and @rend='inlineArrows']">
-		<span class="mod inline-arrows {replace(@change, '#', '')}" id="{@xml:id}"><span style="margin-left: -0.5rem;">&#8594;</span><xsl:apply-templates/><span>&#8594;</span></span>
+		<span class="mod inline-arrows {replace(@change, '#', '')}" id="{@xml:id}" style="margin-left: -1rem;">&#8594;&#xA0;</span>
+		<xsl:apply-templates/>
+		<span class="mod inline-arrows {replace(@change, '#', '')}">&#xA0;&#8594;</span>
 	</xsl:template>
     
 
