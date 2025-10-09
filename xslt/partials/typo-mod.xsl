@@ -204,23 +204,19 @@
     </xsl:template>
 
     <xsl:template match="tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued)]" mode="render">
-        <xsl:variable name="xmlrend" select="@xml:rend"/>
-        <xsl:if test="$xmlrend = 'yes'">
-            <xsl:variable name="xml-data" select="@xml:data"/>
-            <xsl:variable name="change" select="@change"/>
-            <xsl:variable name="rend" select="@rend"/>
-            <xsl:variable name="containerID" select="@xml:id"/>
-            <div data-xmlid="{@xml:id}" class="d-flex position-relative">
-                <div id="container-{$containerID}" class="mod connect {replace($change[1],'#','')}">
-                    <div class="w-100">
-                        <xsl:call-template name="manual"/>
-                    </div>
+        <xsl:variable name="change" select="@change"/>
+        <xsl:variable name="rend" select="@rend"/>
+        <xsl:variable name="containerID" select="@xml:id"/>
+        <div data-xmlid="{@xml:id}" class="d-flex position-relative">
+            <div id="container-{$containerID}" class="mod connect {replace($change[1],'#','')}">
+                <div class="w-100">
+                    <xsl:call-template name="manual"/>
                 </div>
-                <xsl:call-template name="wrapper-iter">
-                    <xsl:with-param name="xmldata" select="tokenize($xml-data[1], '/')"/>
-                </xsl:call-template>
             </div>
-        </xsl:if>
+            <!-- <xsl:call-template name="wrapper-iter">
+                <xsl:with-param name="xmldata" select="tokenize($xml-data[1], '/')"/>
+            </xsl:call-template> -->
+        </div>
     </xsl:template>
 
     <xsl:template name="wrapper-iter">

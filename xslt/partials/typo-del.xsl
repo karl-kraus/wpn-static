@@ -128,20 +128,16 @@
     
     <!-- margin container elements -->
     <xsl:template match="tei:del[not(parent::tei:subst)]" mode="render">
-        <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
-        <xsl:variable name="xml-data" select="if(parent::tei:subst[@xml:data])then(parent::tei:subst/@xml:data)else(@xml:data)"/>
-        <xsl:if test="$xmlrend = 'yes'">
-            <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
-                <div id="container-{@xml:id}" class="del connect w-100 {replace(@change,'#','')}">
-                    <div class="w-100">
-                        <xsl:apply-templates select="self::tei:del" mode="manual"/>
-                    </div>
+        <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
+            <div id="container-{@xml:id}" class="del connect w-100 {replace(@change,'#','')}">
+                <div class="w-100">
+                    <xsl:apply-templates select="self::tei:del" mode="manual"/>
                 </div>
-                <xsl:call-template name="wrapper-iter">
-                    <xsl:with-param name="xmldata" select="tokenize($xml-data, '/')"/>
-                </xsl:call-template>
             </div>
-        </xsl:if>
+            <!-- <xsl:call-template name="wrapper-iter">
+                <xsl:with-param name="xmldata" select="tokenize($xml-data, '/')"/>
+            </xsl:call-template> -->
+        </div>
     </xsl:template>
 
     <xsl:template name="wrapper-iter">

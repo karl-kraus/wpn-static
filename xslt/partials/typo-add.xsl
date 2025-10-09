@@ -146,23 +146,19 @@
     </xsl:template>
     <!-- margin container elements -->
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]]" mode="render">
-        <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else if(ancestor::tei:subst[@xml:rend])then(ancestor::tei:subst/@xml:rend)else(@xml:rend)"/>
-        <xsl:if test="$xmlrend = 'yes'">
-            <xsl:variable name="xml-data" select="if(parent::tei:subst[@xml:data])then(parent::tei:subst/@xml:data)else if(ancestor::tei:subst[@xml:data])then(ancestor::tei:subst/@xml:data)else(@xml:data)"/>
-            <xsl:variable name="change" select="if(parent::tei:subst[@change])then(parent::tei:subst/@change)else if(ancestor::tei:subst[@change])then(ancestor::tei:subst/@change)else(@change)"/>
-            <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(ancestor::tei:subst[@rend])then(ancestor::tei:subst/@rend)else(@rend)"/>
-            <xsl:variable name="containerID" select="if(parent::tei:subst)then(preceding-sibling::tei:del[1]/@xml:id)else if(ancestor::tei:subst)then(preceding-sibling::tei:del[1])else(@xml:id)"/>
-            <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
-                <div id="container-{$containerID}" class="add connect w-100 {replace($change[1],'#','')}">
-                    <div class="w-100">
-                        <xsl:apply-templates select="." mode="manual"/>
-                    </div>
+        <xsl:variable name="change" select="if(parent::tei:subst[@change])then(parent::tei:subst/@change)else if(ancestor::tei:subst[@change])then(ancestor::tei:subst/@change)else(@change)"/>
+        <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(ancestor::tei:subst[@rend])then(ancestor::tei:subst/@rend)else(@rend)"/>
+        <xsl:variable name="containerID" select="if(parent::tei:subst)then(preceding-sibling::tei:del[1]/@xml:id)else if(ancestor::tei:subst)then(preceding-sibling::tei:del[1])else(@xml:id)"/>
+        <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
+            <div id="container-{$containerID}" class="add connect w-100 {replace($change[1],'#','')}">
+                <div class="w-100">
+                    <xsl:apply-templates select="." mode="manual"/>
                 </div>
-                <xsl:call-template name="wrapper-iter">
-                    <xsl:with-param name="xmldata" select="tokenize($xml-data[1], '/')"/>
-                </xsl:call-template>
             </div>
-        </xsl:if>
+            <!-- <xsl:call-template name="wrapper-iter">
+                <xsl:with-param name="xmldata" select="tokenize($xml-data[1], '/')"/>
+            </xsl:call-template> -->
+        </div>
     </xsl:template>
 
     <xsl:template name="wrapper-iter">
