@@ -1492,7 +1492,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .subst.pencilOnProofKK .add,
 #textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .arrow.inkOnProofKK,
-#textcontent-pb .mod.connect.marginLeft.inkOnProofKK {
+#textcontent-pb .mod.connect.marginLeft.inkOnProofKK,
+#textcontent-pb .restore.inkOnProofKK .seg-inline {
   font-size: 0.667rem;
   font-style: italic;
   line-height: 0.75rem;
@@ -1616,6 +1617,7 @@ handling del elments based on change type
 #textcontent-pb .restore.inkOnProofKK .mod span,
 #textcontent-pb .restore.mod.inkOnProofKK,
 #textcontent-pb .restore.inkOnProofKK .metamark del,
+#textcontent-pb .restore.inkOnProofKK .seg-inline del,
 #textcontent-pb .metamark .restore.inkOnProofKK del,
 #textcontent-pb .metamark .del.inkOnProofKK del,
 #textcontent-pb .mod.inkOnProofKK,
