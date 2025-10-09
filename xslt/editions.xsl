@@ -72,7 +72,7 @@
                             <main>
                                 <div id="textcolumn" class="mx-auto ff-crimson-text">
                                         <div id="textcontent">
-                                            <xsl:apply-templates/>
+                                            <xsl:apply-templates select="tei:TEI/tei:p[@n]|tei:TEI/tei:mod[@n]"/>
                                         </div>
                                 </div>
                             </main>
@@ -149,11 +149,7 @@
     </xsl:template>
     <xsl:template match="tei:p[@n]|tei:mod[@n]">
         <div id="{local:makeId(.)}" class="yes-index {replace(@rendition,'#','')}">
-			<!-- test, sorry in advance: -->
-			<xsl:if test="self::tei:p and @n and preceding-sibling::*[1][self::tei:fw] and preceding-sibling::*[2][self::tei:pb]">
-				<span class="pagebreaks entity" id="{'pb'||preceding-sibling::*[2][self::tei:pb]/@n}"/>
-			</xsl:if>
-			
+			<xsl:apply-templates select="preceding-sibling::tei:pb"/>
             <xsl:apply-templates/>
         </div>
     </xsl:template>
