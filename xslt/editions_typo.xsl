@@ -179,7 +179,8 @@
             <div class="print-body {$printType}">
                 <div class="body-left row">
                     <div class="body-left-inner col px-1 m-0">
-                        <xsl:apply-templates select="//tei:add[contains(@rend,'marginInnerLeft') or contains(parent::tei:subst/@rend, 'marginInnerLeft') or contains(ancestor::tei:subst/@rend, 'marginInnerLeft')]
+                        <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]
+                                                    and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[ancestor::tei:subst[@rend]])then(ancestor::tei:subst/@rend)else(@rend)), 'marginInnerLeft')]
                         | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginInnerLeft')]
                         | //tei:metamark[@function='progress' and contains(@rend, 'marginInnerLeft')]
                         | //tei:metamark[@function='transposition' and contains(@rend, 'marginInnerLeft')]
@@ -195,7 +196,8 @@
                         | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginInnerLeft')]" mode="render"/>
                     </div>
                     <div class="body-left-middle col px-0 m-0">
-                        <xsl:apply-templates select="//tei:add[contains(@rend,'marginLeft') or contains(parent::tei:subst/@rend, 'marginLeft') or contains(ancestor::tei:subst/@rend, 'marginLeft')]
+                        <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]
+                                                    and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[ancestor::tei:subst[@rend]])then(ancestor::tei:subst/@rend)else(@rend)), 'marginLeft')]
                         | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginLeft')]
                         | //tei:metamark[@function='progress' and contains(@rend, 'marginLeft')]
                         | //tei:metamark[@function='transposition' and contains(@rend, 'marginLeft')]
@@ -211,7 +213,8 @@
                         | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginLeft')]" mode="render"/>
                     </div>
                     <div class="body-left-outer col px-0 m-0">
-                        <xsl:apply-templates select="//tei:add[contains(@rend,'marginOuterLeft') or contains(parent::tei:subst/@rend, 'marginOuterLeft') or contains(ancestor::tei:subst/@rend, 'marginOuterLeft')]
+                        <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]
+                                                    and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[ancestor::tei:subst[@rend]])then(ancestor::tei:subst/@rend)else(@rend)), 'marginOuterLeft')]
                         | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginOuterLeft')]
                         | //tei:metamark[@function='progress' and contains(@rend, 'marginOuterLeft')]
                         | //tei:metamark[@function='transposition' and contains(@rend, 'marginOuterLeft')]
@@ -232,7 +235,8 @@
                 </div>
                 <div class="body-right row m-0">
                     <div class="body-right-inner col px-0">
-                        <xsl:apply-templates select="//tei:add[contains(@rend,'marginInnerRight') or contains(parent::tei:subst/@rend, 'marginInnerRight') or contains(ancestor::tei:subst/@rend, 'marginInnerRight')]
+                        <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]
+                                                    and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[ancestor::tei:subst[@rend]])then(ancestor::tei:subst/@rend)else(@rend)), 'marginInnerRight')]
                         | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginInnerRight')]
                         | //tei:metamark[@function='progress' and contains(@rend, 'marginInnerRight')]
                         | //tei:metamark[@function='transposition' and contains(@rend, 'marginInnerRight')]
@@ -248,7 +252,8 @@
                         | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginInnerRight')]" mode="render"/>
                     </div>
                     <div class="body-right-middle col px-0 m-0">
-                        <xsl:apply-templates select="//tei:add[contains(@rend,'marginRight') or contains(parent::tei:subst/@rend, 'marginRight') or contains(ancestor::tei:subst/@rend, 'marginRight')]
+                        <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]
+                                                    and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[ancestor::tei:subst[@rend]])then(ancestor::tei:subst/@rend)else(@rend)), 'marginRight')]
                         | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginRight')]
                         | //tei:metamark[@function='progress' and contains(@rend, 'marginRight')]
                         | //tei:metamark[@function='transposition' and contains(@rend, 'marginRight')]
@@ -264,7 +269,8 @@
                         | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginRight')]" mode="render"/>
                     </div>
                     <div class="body-right-outer col px-0 m-0">
-                        <xsl:apply-templates select="//tei:add[contains(@rend,'marginOuterRight') or contains(parent::tei:subst/@rend, 'marginOuterRight') or contains(ancestor::tei:subst/@rend, 'marginOuterRight')]
+                        <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]
+                                                    and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[ancestor::tei:subst[@rend]])then(ancestor::tei:subst/@rend)else(@rend)), 'marginOuterRight')]
                         | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginOuterRight')]
                         | //tei:metamark[@function='progress' and contains(@rend, 'marginOuterRight')]
                         | //tei:metamark[@function='transposition' and contains(@rend, 'marginOuterRight')]
