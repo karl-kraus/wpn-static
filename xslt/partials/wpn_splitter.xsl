@@ -32,6 +32,9 @@
             <xsl:attribute name="prev" select="wpn:normalizePagename($prev/@n,'link')"/>
             <xsl:attribute name="id" select="wpn:normalizePagename(@n,'link')"/>
             <xsl:attribute name="next" select="wpn:normalizePagename($next/@n,'link')"/>
+            <xsl:if test="self::tei:p and @n and preceding-sibling::*[1][self::tei:fw] and preceding-sibling::*[2][self::tei:pb]">
+				<xsl:copy-of select="preceding-sibling::*[2][self::tei:pb]"/>
+			</xsl:if>
             <xsl:copy select=".">
             <xsl:attribute name="rendition" select="@rendition"/>
              <xsl:attribute name="n" select="@n"/>
