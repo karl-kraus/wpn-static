@@ -12,7 +12,7 @@
             <xsl:when test="@rend='overwritten'">
                 <span class="del text-black-grey" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
-            <xsl:when test="@rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove', 'left')">
+            <xsl:when test="@rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <del><xsl:value-of select="normalize-space(.)"/></del>
                 <span class="position-relative">
                    <span class="del {@rend} {replace($change, '#', '')}">&#124;&#xA0;<span class="arimo">&#8368;</span></span>
@@ -58,7 +58,7 @@
             <xsl:when test="$rend='overwritten'">
                 <span class="del text-black-grey" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
-            <xsl:when test="$rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
+            <xsl:when test="$rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <span class="del" id="{@xml:id}">
                     <del><xsl:apply-templates/></del>
                 </span>

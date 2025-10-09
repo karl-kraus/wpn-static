@@ -11,8 +11,8 @@
             <xsl:when test="$rend = 'inline'">
                 <del class="add" id="{@xml:id}"><xsl:apply-templates/></del>
             </xsl:when>
-            <xsl:when test="$rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
-                <span class="add {replace(@change[1], '#', '')}" id="{@xml:id}-inline">&#124;</span> <!-- note: eliminate these add pipes if subst and with these rend values -->
+            <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
+            
                 <span class="position-relative">
                     <!-- test: aren't they all supposed to be del?
                     <xsl:variable name="el">
@@ -48,8 +48,12 @@
             <xsl:when test="$rend = 'inline'">
                 <span class="add" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
-            <xsl:when test="$rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
-                <span class="add {replace(@change, '#', '')}" id="{@xml:id}-inline">&#124;</span>
+            <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
+                
+                <xsl:if test="not(parent::tei:subst)">
+                    <span class="add {replace(@change, '#', '')}" id="{@xml:id}-inline">&#124;</span>
+                </xsl:if>
+                
                 <span class="position-relative">
                     <xsl:variable name="el">
                         <xsl:choose>
@@ -85,8 +89,10 @@
                     <xsl:apply-templates/>
                 </span>
             </xsl:when>
-            <xsl:when test="@rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
-                <span class="add {replace(@change[1], '#', '')}" id="{@xml:id}-inline">&#124;</span>
+            <xsl:when test="@rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
+                <xsl:if test="not(parent::tei:subst)">
+                    <span class="add {replace(@change[1], '#', '')}" id="{@xml:id}-inline">&#124;</span>
+                </xsl:if>
                 <span class="position-relative">
                     <xsl:variable name="el">
                         <xsl:choose>
@@ -118,8 +124,12 @@
         <xsl:choose>
             <xsl:when test="parent::tei:restore[not(@rend='marginOnly')]">
                 <xsl:choose>
-                    <xsl:when test="@rend=('below', 'above', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
-                        <span class="add {replace(@change[1], '#', '')}" id="{@xml:id}-inline">&#124;</span> <!-- note: eliminate these add pipes if subst and with these rend values -->
+                    <xsl:when test="@rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
+                        
+                        <xsl:if test="not(parent::tei:subst)">
+                           <span class="add {replace(@change[1], '#', '')}" id="{@xml:id}-inline">&#124;</span>
+                        </xsl:if>
+                        
                         <span class="position-relative">
                             <del class="add {@rend} {replace(@change[1], '#', '')}" id="{@xml:id}">
                                 &#124;&#xA0;<xsl:apply-templates/>

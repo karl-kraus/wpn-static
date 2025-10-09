@@ -53,19 +53,11 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:mod[@style='indent2']">
-        <xsl:choose>
-            <xsl:when test="parent::tei:restore">
-                <span class="mod underline {@style} {replace(@change, '#', '')}">
-                    <span class="underline-wavy"><xsl:apply-templates/> <span style="font-size:1.25em;">&#8594;</span></span>
-                </span>
-            </xsl:when>
-            <xsl:otherwise>
-                <span class="mod {@style} {replace(@change, '#', '')}">
-                    <xsl:apply-templates/> <span style="font-size:1.25em;">&#8594;</span>
-                </span>
-            </xsl:otherwise>
-        </xsl:choose>
+    <xsl:template match="tei:mod[@style='indent2' and @rend='arrow']">
+		<xsl:apply-templates/>
+		<span class="mod {@style} {@rend} {replace(@change, '#', '')}">
+			<span style="font-size:1.25em;">&#8594;</span>
+		</span>
     </xsl:template>
     <xsl:template match="tei:mod[@style='noIndent']">
         <xsl:choose>

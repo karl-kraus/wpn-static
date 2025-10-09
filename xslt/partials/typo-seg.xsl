@@ -41,7 +41,17 @@
                     <xsl:value-of select="concat('seg border border-1 border-secondary-subtle', replace(@change, '#', ' '))"/>
                 </xsl:attribute>
             </xsl:if>
-            <xsl:if test="@rend='line' and not((@prev, @continued))"><span class="seg seg-inline"><span id="{@xml:id}" class="{replace(@change, '#', '')}">&#124;</span></span></xsl:if>
+            <xsl:if test="@rend='line' and not((@prev, @continued))">
+                <xsl:choose>
+                    <xsl:when test="parent::tei:restore">
+                        <span class="seg seg-inline"><del id="{@xml:id}" class="{replace(@change, '#', '')}">&#124;</del></span>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <span class="seg seg-inline"><span id="{@xml:id}" class="{replace(@change, '#', '')}">&#124;</span></span>
+                    </xsl:otherwise>
+                </xsl:choose>
+                
+            </xsl:if>
             <!-- special handling (rendered via span firstLast) for page 111 for arrow seg see https://github.com/karl-kraus/wpn-static/issues/208  -->
             <xsl:if test="@rend='arrow' and not((@prev, @continued)) and not(@xml:id='seg0111_01')"><span class="seg seg-inline"><span id="{@xml:id}" class="{@rend} {replace(@change, '#', '')}">&#8592;</span></span></xsl:if>
             <xsl:apply-templates/>

@@ -1542,6 +1542,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   font-family: 'Ubuntu', sans-serif;
 }
 
+#textcontent-pb del {
+  font-variant-ligatures: none;
+}
+
 /*
 handling del elments based on change type
 */
@@ -1839,7 +1843,7 @@ pencil text color
 }
 
 #textcontent-pb .indent1 {
-  text-indent: 8rem;
+  text-indent: 6rem;
 }
 
 #textcontent-pb .indent2 {

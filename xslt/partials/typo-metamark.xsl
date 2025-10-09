@@ -7,13 +7,13 @@
 
     <xsl:template match="tei:metamark[@function='progress'][@place]">
         <span class="position-relative">
-            <span class="metamark position-absolute {replace(@change,'#','')} {@place} {@style}" id="{@xml:id}">
+            <span class="metamark progress position-absolute {replace(@change,'#','')} {@place} {@style}" id="{@xml:id}">
                 <xsl:apply-templates/>
             </span>
         </span>
      </xsl:template>
     <xsl:template match="tei:metamark[@function='progress'][@rend]">
-        <span class="metamark mm-inline connect entity {replace(@change,'#','')}" id="{@xml:id}">
+        <span class="metamark progress mm-inline connect entity {replace(@change,'#','')}" id="{@xml:id}">
            <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
         </span>
      </xsl:template>
@@ -21,7 +21,7 @@
      <xsl:template match="tei:metamark[@function='progress']" mode="render">
         <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
         <xsl:if test="$xmlrend = 'yes'">
-            <div id="container-{@xml:id}" class="d-flex metamark connect w-100 position-relative {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div id="container-{@xml:id}" class="d-flex metamark progress connect w-100 position-relative {replace(@change,'#','')}" data-xmlid="{@xml:id}">
                 <div class="w-100">
                     <span class="{@rend}"><xsl:apply-templates/></span>
                 </div>
@@ -40,12 +40,17 @@
             </xsl:if>
         </span>
      </xsl:template>
-     <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@rend]">
+     <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@rend][not(parent::tei:restore)]">
         <span class="metamark mm-inline connect entity {replace(@change, '#', '')}" id="{@xml:id}">
             <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
                 <span>&#124;</span>
             </xsl:if>
             <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
+        </span>
+     </xsl:template>
+    <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@rend][parent::tei:restore]">
+        <span class="metamark mm-inline connect entity {replace(@change, '#', '')}" id="{@xml:id}">
+            <del>&#124;</del>
         </span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][not(@rend) and not(@place)]">
@@ -80,7 +85,14 @@
                             </xsl:attribute>
                         </xsl:if>
                         <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
-                            <span>&#124;</span>
+                            <xsl:choose>
+                                <xsl:when test="parent::tei:restore">
+                                    <del>&#124;</del>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <span>&#124;</span>
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </xsl:if>
                         <xsl:apply-templates/>
                     </span>
