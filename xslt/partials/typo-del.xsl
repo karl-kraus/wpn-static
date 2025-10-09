@@ -134,9 +134,6 @@
                     <xsl:apply-templates select="self::tei:del" mode="manual"/>
                 </div>
             </div>
-            <!-- <xsl:call-template name="wrapper-iter">
-                <xsl:with-param name="xmldata" select="tokenize($xml-data, '/')"/>
-            </xsl:call-template> -->
         </div>
     </xsl:template>
 

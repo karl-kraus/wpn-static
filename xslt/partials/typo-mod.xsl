@@ -205,9 +205,6 @@
                     <xsl:call-template name="manual"/>
                 </div>
             </div>
-            <!-- <xsl:call-template name="wrapper-iter">
-                <xsl:with-param name="xmldata" select="tokenize($xml-data[1], '/')"/>
-            </xsl:call-template> -->
         </div>
     </xsl:template>
 
