@@ -177,8 +177,8 @@
                 <!-- <xsl:apply-templates select="//tei:note[contains(@place, 'top')]" mode="render"/> -->
             </div>
             <div class="print-body {$printType}">
-                <div class="body-left row">
-                    <div class="body-left-inner col px-1 m-0">
+                <div class="body-left row m-0">
+                    <div class="body-left-outer col px-0">
                         <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]
                                                     and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[ancestor::tei:subst[@rend]])then(ancestor::tei:subst/@rend)else(@rend)), 'marginOuterLeft')]
                         | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginOuterLeft')]
@@ -195,7 +195,7 @@
                         | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'marginOuterLeft')]
                         | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginOuterLeft')]" mode="render"/>
                     </div>
-                    <div class="body-left-middle col px-0 m-0">
+                    <div class="body-left-middle col px-0">
                         <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]
                                                     and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[ancestor::tei:subst[@rend]])then(ancestor::tei:subst/@rend)else(@rend)), 'marginLeft')]
                         | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginLeft')]
@@ -212,7 +212,7 @@
                         | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'marginLeft')]
                         | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginLeft')]" mode="render"/>
                     </div>
-                    <div class="body-left-outer col px-0 m-0">
+                    <div class="body-left-inner col px-0">
                         <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]
                                                     and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[ancestor::tei:subst[@rend]])then(ancestor::tei:subst/@rend)else(@rend)), 'marginInnerLeft')]
                         | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginInnerLeft')]
@@ -251,7 +251,7 @@
                         | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'marginInnerRight')]
                         | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginInnerRight')]" mode="render"/>
                     </div>
-                    <div class="body-right-middle col px-0 m-0">
+                    <div class="body-right-middle col px-0">
                         <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]
                                                     and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[ancestor::tei:subst[@rend]])then(ancestor::tei:subst/@rend)else(@rend)), 'marginRight')]
                         | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginRight')]
@@ -268,7 +268,7 @@
                         | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'marginRight')]
                         | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginRight')]" mode="render"/>
                     </div>
-                    <div class="body-right-outer col px-0 m-0">
+                    <div class="body-right-outer col px-0">
                         <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]
                                                     and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[ancestor::tei:subst[@rend]])then(ancestor::tei:subst/@rend)else(@rend)), 'marginOuterRight')]
                         | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginOuterRight')]
@@ -285,7 +285,7 @@
                         | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'marginOuterRight')]
                         | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginOuterRight')]" mode="render"/>
                     </div>
-                    <div class="body-right-outermost col px-0 m-0">
+                    <div class="body-right-outermost col px-0">
                         <xsl:apply-templates select="//tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]
                                                     and contains((if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[ancestor::tei:subst[@rend]])then(ancestor::tei:subst/@rend)else(@rend)), 'marginOutermostRight')]
                         | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginOutermostRight')]
