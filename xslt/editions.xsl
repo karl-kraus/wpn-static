@@ -356,7 +356,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-     <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]"/>
+     <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress', 'modification')]"/>
     <xsl:template match="tei:mod[@style=('noLetterSpacing') and not(parent::tei:restore)]">
         <span class="ls-0"><xsl:apply-templates/></span>
     </xsl:template>
