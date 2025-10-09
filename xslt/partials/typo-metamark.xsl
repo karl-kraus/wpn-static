@@ -7,13 +7,13 @@
 
     <xsl:template match="tei:metamark[@function='progress'][@place]">
         <span class="position-relative">
-            <span class="metamark position-absolute {replace(@change,'#','')} {@place} {@style}" id="{@xml:id}">
+            <span class="metamark progress position-absolute {replace(@change,'#','')} {@place} {@style}" id="{@xml:id}">
                 <xsl:apply-templates/>
             </span>
         </span>
      </xsl:template>
     <xsl:template match="tei:metamark[@function='progress'][@rend]">
-        <span class="metamark mm-inline connect entity {replace(@change,'#','')}" id="{@xml:id}">
+        <span class="metamark progress mm-inline connect entity {replace(@change,'#','')}" id="{@xml:id}">
            <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
         </span>
      </xsl:template>
@@ -21,7 +21,7 @@
      <xsl:template match="tei:metamark[@function='progress']" mode="render">
         <xsl:variable name="xmlrend" select="if(parent::tei:subst[@xml:rend])then(parent::tei:subst/@xml:rend)else(@xml:rend)"/>
         <xsl:if test="$xmlrend = 'yes'">
-            <div id="container-{@xml:id}" class="d-flex metamark connect w-100 position-relative {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div id="container-{@xml:id}" class="d-flex metamark progress connect w-100 position-relative {replace(@change,'#','')}" data-xmlid="{@xml:id}">
                 <div class="w-100">
                     <span class="{@rend}"><xsl:apply-templates/></span>
                 </div>
