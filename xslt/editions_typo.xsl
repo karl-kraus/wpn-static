@@ -179,20 +179,20 @@
             <div class="print-body {$printType}">
                 <div class="body-left row">
                     <div class="body-left-inner col px-1 m-0">
-                        <xsl:apply-templates select="//tei:add[ @rend='marginInnerLeft' or parent::tei:subst[@rend='marginInnerLeft'] or ancestor::tei:subst[@rend='marginInnerLeft'] ]
-                        | //tei:del[not(parent::tei:subst) and @rend='marginInnerLeft']
-                        | //tei:metamark[@function='progress' and @rend='marginInnerLeft']
-                        | //tei:metamark[@function='transposition' and @rend='marginInnerLeft']
-                        | //tei:metamark[@function='printInstruction' and @rend='marginInnerLeft']
-                        | //tei:metamark[not(@change='#edACE')][@function='relocation' and @rend='marginInnerLeft']
-                        | //tei:metamark[@function='insertion' and @rend='marginInnerLeft']
-						| //tei:metamark[@function='modification' and @rend='marginInnerLeft']
-						| //tei:metamark[@function='undefined' and @rend='marginInnerLeft']
-                        | //tei:mod[@rendition='#longQuote' and not(@continued) and @rend='marginInnerLeft']
-                        | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and @rend='marginInnerLeft']
-                        | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#verseLine', '#runningText1') and not(@continued) and @rend='marginInnerLeft']
-                        | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and @rend='marginInnerLeft']
-                        | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and @rend='marginInnerLeft']" mode="render"/>
+                        <xsl:apply-templates select="//tei:add[contains(@rend,'marginInnerLeft') or contains(parent::tei:subst/@rend, 'marginInnerLeft') or contains(ancestor::tei:subst/@rend, 'marginInnerLeft')]
+                        | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginInnerLeft')]
+                        | //tei:metamark[@function='progress' and contains(@rend, 'marginInnerLeft')]
+                        | //tei:metamark[@function='transposition' and contains(@rend, 'marginInnerLeft')]
+                        | //tei:metamark[@function='printInstruction' and contains(@rend, 'marginInnerLeft')]
+                        | //tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'marginInnerLeft')]
+                        | //tei:metamark[@function='insertion' and contains(@rend, 'marginInnerLeft')]
+						| //tei:metamark[@function='modification' and contains(@rend, 'marginInnerLeft')]
+						| //tei:metamark[@function='undefined' and contains(@rend, 'marginInnerLeft')]
+                        | //tei:mod[@rendition='#longQuote' and not(@continued) and contains(@rend, 'marginInnerLeft')]
+                        | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and contains(@rend, 'marginInnerLeft')]
+                        | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#verseLine', '#runningText1') and not(@continued) and contains(@rend, 'marginInnerLeft')]
+                        | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'marginInnerLeft')]
+                        | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginInnerLeft')]" mode="render"/>
                     </div>
                     <div class="body-left-middle col px-0 m-0">
                         <xsl:apply-templates select="//tei:add[contains(@rend,'marginLeft') or contains(parent::tei:subst/@rend, 'marginLeft') or contains(ancestor::tei:subst/@rend, 'marginLeft')]
@@ -211,22 +211,20 @@
                         | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginLeft')]" mode="render"/>
                     </div>
                     <div class="body-left-outer col px-0 m-0">
-                        <xsl:apply-templates select="//tei:add[@rend='marginOuterLeft' or parent::tei:subst[@rend='marginOuterLeft'] or ancestor::tei:subst[@rend='marginOuterLeft']]
-                        | //tei:del[not(parent::tei:subst) and @rend='marginOuterLeft']
-                        | //tei:metamark[@function='progress' and @rend='marginOuterLeft']
-                        | //tei:metamark[@function='transposition' and @rend='marginOuterLeft']
-                        | //tei:metamark[@function='printInstruction' and @rend='marginOuterLeft']
-                        | //tei:metamark[not(@change='#edACE')][@function='relocation' and @rend='marginOuterLeft']
-                        | //tei:metamark[@function='insertion' and @rend='marginOuterLeft']
-						| //tei:metamark[@function='modification' and @rend='marginOuterLeft']
-						| //tei:metamark[@function='undefined' and @rend='marginOuterLeft']
-                        | //tei:mod[@rendition='#longQuote' and not(@continued) and @rend='marginOuterLeft']
-                        | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and @rend='marginOuterLeft']
-                        | //tei:mod[@rendition='#runningText1' and not(@continued) and @rend='marginOuterLeft']
-                        | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#runningText1') and not(@continued) and @rend='marginOuterLeft']
-                        | //tei:seg[@type='relocation' and @rend='arrow']
-						| //tei:mod[@style='noIndent' and @rend='marginOuterLeft']
-                        | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and @rend='marginOuterLeft']" mode="render"/>
+                        <xsl:apply-templates select="//tei:add[contains(@rend,'marginOuterLeft') or contains(parent::tei:subst/@rend, 'marginOuterLeft') or contains(ancestor::tei:subst/@rend, 'marginOuterLeft')]
+                        | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginOuterLeft')]
+                        | //tei:metamark[@function='progress' and contains(@rend, 'marginOuterLeft')]
+                        | //tei:metamark[@function='transposition' and contains(@rend, 'marginOuterLeft')]
+                        | //tei:metamark[@function='printInstruction' and contains(@rend, 'marginOuterLeft')]
+                        | //tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'marginOuterLeft')]
+                        | //tei:metamark[@function='insertion' and contains(@rend, 'marginOuterLeft')]
+						| //tei:metamark[@function='modification' and contains(@rend, 'marginOuterLeft')]
+						| //tei:metamark[@function='undefined' and contains(@rend, 'marginOuterLeft')]
+                        | //tei:mod[@rendition='#longQuote' and not(@continued) and contains(@rend, 'marginOuterLeft')]
+                        | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and contains(@rend, 'marginOuterLeft')]
+                        | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#verseLine', '#runningText1') and not(@continued) and contains(@rend, 'marginOuterLeft')]
+                        | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'marginOuterLeft')]
+                        | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginOuterLeft')]" mode="render"/>
                     </div>
                 </div>
                 <div class="body-main">
@@ -234,20 +232,20 @@
                 </div>
                 <div class="body-right row m-0">
                     <div class="body-right-inner col px-0">
-                        <xsl:apply-templates select="//tei:add[@rend='marginInnerRight' or parent::tei:subst[@rend='marginInnerRight'] or ancestor::tei:subst[@rend='marginInnerRight']]
-                        | //tei:del[not(parent::tei:subst) and @rend='marginInnerRight']
-                        | //tei:metamark[@function='progress' and @rend='marginInnerRight']
-                        | //tei:metamark[@function='transposition' and @rend='marginInnerRight']
-                        | //tei:metamark[@function='printInstruction' and @rend='marginInnerRight']
-                        | //tei:metamark[not(@change='#edACE')][@function='relocation' and @rend='marginInnerRight']
-                        | //tei:metamark[@function='insertion' and @rend='marginInnerRight']
-						| //tei:metamark[@function='modification' and @rend='marginInnerRight']
-						| //tei:metamark[@function='undefined' and @rend='marginInnerRight']
-                        | //tei:mod[@rendition='#longQuote' and not(@continued) and @rend='marginInnerRight']
-                        | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and @rend='marginInnerRight']
-                        | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#verseLine', '#runningText1') and not(@continued) and @rend='marginInnerRight']
-                        | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and @rend='marginInnerRight']
-                        | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and @rend='marginInnerRight']" mode="render"/>
+                        <xsl:apply-templates select="//tei:add[contains(@rend,'marginInnerRight') or contains(parent::tei:subst/@rend, 'marginInnerRight') or contains(ancestor::tei:subst/@rend, 'marginInnerRight')]
+                        | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginInnerRight')]
+                        | //tei:metamark[@function='progress' and contains(@rend, 'marginInnerRight')]
+                        | //tei:metamark[@function='transposition' and contains(@rend, 'marginInnerRight')]
+                        | //tei:metamark[@function='printInstruction' and contains(@rend, 'marginInnerRight')]
+                        | //tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'marginInnerRight')]
+                        | //tei:metamark[@function='insertion' and contains(@rend, 'marginInnerRight')]
+						| //tei:metamark[@function='modification' and contains(@rend, 'marginInnerRight')]
+						| //tei:metamark[@function='undefined' and contains(@rend, 'marginInnerRight')]
+                        | //tei:mod[@rendition='#longQuote' and not(@continued) and contains(@rend, 'marginInnerRight')]
+                        | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and contains(@rend, 'marginInnerRight')]
+                        | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#verseLine', '#runningText1') and not(@continued) and contains(@rend, 'marginInnerRight')]
+                        | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'marginInnerRight')]
+                        | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginInnerRight')]" mode="render"/>
                     </div>
                     <div class="body-right-middle col px-0 m-0">
                         <xsl:apply-templates select="//tei:add[contains(@rend,'marginRight') or contains(parent::tei:subst/@rend, 'marginRight') or contains(ancestor::tei:subst/@rend, 'marginRight')]
@@ -266,20 +264,20 @@
                         | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginRight')]" mode="render"/>
                     </div>
                     <div class="body-right-outer col px-0 m-0">
-                        <xsl:apply-templates select="//tei:add[@rend='marginOuterRight' or parent::tei:subst[@rend='marginOuterRight'] or ancestor::tei:subst[@rend='marginOuterRight']]
-                        | //tei:del[not(parent::tei:subst) and @rend='marginOuterRight']
-                        | //tei:metamark[@function='progress' and @rend='marginOuterRight']
-                        | //tei:metamark[@function='transposition' and @rend='marginOuterRight']
-                        | //tei:metamark[@function='printInstruction' and @rend='marginOuterRight']
-                        | //tei:metamark[not(@change='#edACE')][@function='relocation' and @rend='marginOuterRight']
-                        | //tei:metamark[@function='insertion' and @rend='marginOuterRight']
-						| //tei:metamark[@function='modification' and @rend='marginOuterRight']
-						| //tei:metamark[@function='undefined' and @rend='marginOuterRight']
-                        | //tei:mod[@rendition='#longQuote' and not(@continued) and @rend='marginOuterRight']
-                        | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and @rend='marginOuterRight']
-                        | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#verseLine', '#runningText1') and not(@continued) and @rend='marginOuterRight']
-                        | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and @rend='marginOuterRight']
-                        | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and @rend='marginOuterRight']" mode="render"/>
+                        <xsl:apply-templates select="//tei:add[contains(@rend,'marginOuterRight') or contains(parent::tei:subst/@rend, 'marginOuterRight') or contains(ancestor::tei:subst/@rend, 'marginOuterRight')]
+                        | //tei:del[not(parent::tei:subst) and contains(@rend, 'marginOuterRight')]
+                        | //tei:metamark[@function='progress' and contains(@rend, 'marginOuterRight')]
+                        | //tei:metamark[@function='transposition' and contains(@rend, 'marginOuterRight')]
+                        | //tei:metamark[@function='printInstruction' and contains(@rend, 'marginOuterRight')]
+                        | //tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'marginOuterRight')]
+                        | //tei:metamark[@function='insertion' and contains(@rend, 'marginOuterRight')]
+						| //tei:metamark[@function='modification' and contains(@rend, 'marginOuterRight')]
+						| //tei:metamark[@function='undefined' and contains(@rend, 'marginOuterRight')]
+                        | //tei:mod[@rendition='#longQuote' and not(@continued) and contains(@rend, 'marginOuterRight')]
+                        | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and contains(@rend, 'marginOuterRight')]
+                        | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#verseLine', '#runningText1') and not(@continued) and contains(@rend, 'marginOuterRight')]
+                        | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'marginOuterRight')]
+                        | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginOuterRight')]" mode="render"/>
                     </div>
                 </div>
             </div>
