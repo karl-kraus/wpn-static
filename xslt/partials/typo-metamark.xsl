@@ -6,11 +6,11 @@
     version="2.0" exclude-result-prefixes="#all">
 
     <xsl:template match="tei:metamark[@function='progress'][@place]">
-        <span class="position-relative">
+
             <span class="metamark progress position-absolute {replace(@change,'#','')} {@place} {@style}" id="{@xml:id}">
                 <xsl:apply-templates/>
             </span>
-        </span>
+        
      </xsl:template>
     <xsl:template match="tei:metamark[@function='progress'][@rend]">
         <span class="metamark progress mm-inline connect entity {replace(@change,'#','')}" id="{@xml:id}">
