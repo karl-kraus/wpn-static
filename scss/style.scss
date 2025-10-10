@@ -738,6 +738,16 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   margin-left: 11rem;
 }
 
+#textcontent-pb .lb-forced {
+  margin-left: 2rem;
+}
+
+#textcontent-pb .lb-forced-right {
+  text-align: right !important;
+  text-align-last: right !important;
+}
+
+
 #textcontent-pb .typescriptLongQuoteAdvInsert {
   width: 27rem;
 }
