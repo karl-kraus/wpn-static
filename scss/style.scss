@@ -1475,6 +1475,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   border: none !important;
 }
 
+#textcontent-pb .seg.border.transposition {
+  border: grey !important;
+}
+
 .underline-crossed-out {
   background-image: url('../images/crossed_out_typewriter_black.png');
   background-repeat: repeat-x;
