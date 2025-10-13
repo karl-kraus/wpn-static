@@ -588,6 +588,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .typescriptInsertNum,
 #textcontent-pb .typescriptPageNum,
 #textcontent-pb .typescriptFont,
+#textcontent-pb .metamark.typescriptFont,
 #textcontent-pb .typescriptLongQuote,
 #textcontent-pb .typescriptLongQuoteIndent,
 #textcontent-pb .typescriptFloatRight,
@@ -601,9 +602,32 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .typescriptLongQuoteVerseLeading,
 #textcontent-pb .typescriptLongQuoteLeading,
 #textcontent-pb .typescriptLongQuoteRightAlign,
-#textcontent-pb .typescriptLongQuoteAdvInsert {
+#textcontent-pb .typescriptLongQuoteAdvInsert,
+#textcontent-pb .typewriter,
+#textcontent-pb .typewriter2 {
   font-size: 0.833rem;
   line-height: 1.2rem;
+}
+
+#textcontent-pb .witnessTypescriptInsert .typescriptInsertNum,
+#textcontent-pb .witnessTypescriptInsert .typescriptPageNum,
+#textcontent-pb .witnessTypescriptInsert .typescriptLongQuote,
+#textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteIndent,
+#textcontent-pb .witnessTypescriptInsert .typescriptFloatRight,
+#textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteTitle2,
+#textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteEnd,
+#textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteRightAlign2,
+#textcontent-pb .typescriptLongQuoteVerse,
+#textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteTitle,
+#textcontent-pb .witnessTypescriptInsert .typescriptRunningText1,
+#textcontent-pb .witnessTypescriptInsert .typescriptPageNum,
+#textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteVerseLeading,
+#textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteLeading,
+#textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteRightAlign,
+#textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteAdvInsert,
+#textcontent-pb .witnessTypescriptInsert .typewriter,
+#textcontent-pb .witnessTypescriptInsert .typewriter2 {
+  line-height: 1rem;
 }
 
 #textcontent-pb .longQuoteVerseStart,
@@ -857,19 +881,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   // max-width: calc(90% + 40px);
   // padding-right: 40px;
   white-space: nowrap;
-}
-
-#textcontent-pb .typescriptRunningText1,
-#textcontent-pb .typewriter,
-#textcontent-pb .typewriter2,
-#textcontent-pb .typescriptPageNum,
-#textcontent-pb .metamark.typescriptFont {
-  // font-size: 11pt;
-  line-height: 1.2rem;
-  text-align: left;
-  text-align-last: left;
-  font-family: monospace;
-  // letter-spacing: 0.4pt;
 }
 
 #textcontent-pb .spacing {
