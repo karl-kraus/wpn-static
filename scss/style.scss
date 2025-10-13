@@ -2362,6 +2362,11 @@ wpn-time-line {
   font-size: 1em !important;
 }
 
+#textcontent-pb .subst:has(>.overwrite) .del {
+  display: inline-block;
+  width: 0.5em;
+}
+
 .mod.noUnderline {
   text-decoration-line: underline;
   text-decoration-style: wavy;
