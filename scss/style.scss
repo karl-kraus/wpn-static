@@ -2005,7 +2005,7 @@ pencil text color
 
 /* cleaned version for nested below positionings on p. 133, 163, 179, 187 */
 
-/* single added line below (p 119) */
+/* single added line below (p 119, 259, etc) */
 
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below) {
   line-height: 1.5rem;
@@ -2014,7 +2014,7 @@ pencil text color
 
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative>.below {
   position: absolute;
-  bottom: 0rem;
+  bottom: -0.375rem;
 }
 
 /* double added line below */
