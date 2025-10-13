@@ -692,13 +692,13 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .typescriptLongQuoteStart {
   text-align: left;
   text-align-last: left;
-  /* margin: $spacer * 0.5 0; */
+  margin: none !important;
 }
 
 #textcontent-pb .typescriptLongQuoteEnd {
   text-align: left;
   text-align-last: left;
-  margin-bottom: $spacer * 0.5;
+  margin: none !important;
 }
 
 #textcontent-pb .longQuoteVerse,
