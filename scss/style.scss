@@ -1949,7 +1949,7 @@ pencil text color
 
 .leftBelow {
   position: absolute;
-  top: 10pt;
+  bottom: -10pt;
   left: -8em;
 }
 
@@ -1997,23 +1997,23 @@ pencil text color
   right: 1.9%;
 }
 
-/* nested below placements, e.g. p 86: */
+/* nested below placements, e.g. p 86: 
 
-.add:is(.below, .leftBelow):has(.add:is(.below, .leftBelow)) {
+#textcontent-pb span.add:is(.below, .leftBelow):has(>.add:is(.below, .leftBelow)) {
   position: absolute;
   bottom: -16pt;
-}
+}*/
 
 /* cleaned version for nested below positionings on p. 133, 163, 179, 187 */
 
 /* single added line below (p 119, 259, etc) */
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below:not(:has(.below, .leftBelow))) {
   line-height: 1.5rem;
   vertical-align: top;
 }
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative>.below {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative>.below:not(:has(.below, .leftBelow)) {
   position: absolute;
   bottom: -0.375rem;
 }
@@ -2021,7 +2021,8 @@ pencil text color
 /* double added line below */
 
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below .below),
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.leftBelow .below) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.leftBelow .below),
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.leftBelow .leftBelow){
   line-height: 2.25rem;
   vertical-align: top;
 }
@@ -2038,7 +2039,8 @@ pencil text color
 }
 
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below .below,
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .leftBelow .below {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .leftBelow .below,
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .leftBelow .leftBelow {
   position: absolute;
   bottom: -0.75rem;
 }
