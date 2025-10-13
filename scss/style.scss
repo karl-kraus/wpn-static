@@ -2005,16 +2005,16 @@ pencil text color
 
 /* cleaned version for nested below positionings on p. 133, 163, 179, 187 */
 
-/* single added line below */
+/* single added line below (p 119) */
 
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below) {
-  line-height: 1.5rem;
-  vertical-align: top;
+  line-height: 0.75rem;
+  vertical-align: middle;
 }
 
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative>.below {
   position: absolute;
-  bottom: -4pt;
+  bottom: -75rem;
 }
 
 /* double added line below */
