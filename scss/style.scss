@@ -2008,7 +2008,7 @@ pencil text color
 /* single added line below */
 
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below) {
-  line-height: 2;
+  line-height: 1.5rem;
   vertical-align: top;
 }
 
@@ -2020,7 +2020,7 @@ pencil text color
 /* double added line below */
 
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below .below) {
-  line-height: 3;
+  line-height: 2.25rem;
   vertical-align: top;
 }
 
@@ -2030,45 +2030,45 @@ pencil text color
 }
 
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below .below) .position-relative:has(>.below) {
-  line-height: 1;
+  line-height: 0.75rem;
 }
 
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below .below {
   position: absolute;
-  bottom: -8pt;
+  bottom: -0.75rem;
 }
 
 /* line in note with below and above additions -  p. 244 */
 #textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(>.above, >.below) {
-  line-height: 3;
+  line-height: 2.25rem;
   vertical-align: middle;
 }
 
 #textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(>.above, >.below) > .below {
   position: absolute;
-  bottom: -8pt;
+  bottom: -0.75rem;
 }
 
 #textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(>.above, >.below) > .above {
   position: absolute;
-  top: -8pt;
+  top: -0.75rem;
 }
 
 #textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(>.above, >.below) > .below:has(.below) {
   position: absolute;
-  bottom: -16pt;
+  bottom: -1.5rem;
 }
 
 /* below-add in note with br (=2 lines) on p. 98 */
 
 #textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .below):has(br) .position-relative:has(>.above) {
-  line-height: 2;
+  line-height: 1.5rem;
   vertical-align: bottom;
 }
 
 #textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .below):has(br) >.below {
   position: absolute;
-  bottom: -16pt;
+  bottom: -1.5rem;
 }
 
 /* above-add in note, p. 98 */
@@ -2081,7 +2081,7 @@ pencil text color
 
 #textcontent-pb span.note span.position-relative:has(> .above.subst),
 #textcontent-pb span.note span.position-relative:has(> .above.add) {
-  line-height: 2;
+  line-height: 1.5rem;
   vertical-align: bottom;
 }
 
