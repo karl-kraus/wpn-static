@@ -2028,13 +2028,16 @@ pencil text color
 }
 
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below:has(.below),
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below:has(.leftBelow) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below:has(.leftBelow),
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .leftBelow:has(.below),
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .leftBelow:has(.leftBelow){
   position: absolute;
   bottom: 0pt;
 }
 
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below .below) .position-relative:has(>.below),
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.leftBelow .below) .position-relative:has(>.below) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.leftBelow .below) .position-relative:has(>.below),
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.leftBelow .leftBelow) .position-relative:has(>.leftBelow) {
   line-height: 0.75rem;
 }
 
