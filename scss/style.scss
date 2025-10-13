@@ -1524,6 +1524,9 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .metamark.inkOnProof,
 #textcontent-pb .fw.inkOnProof,
 #textcontent-pb div.del.connect.inkOnProof,
+#textcontent-pb .subst.inkOnTypescript .add,
+#textcontent-pb .restore.inkOnTypescript .add,
+#textcontent-pb .add.inkOnTypescript,
 #textcontent-pb .add.pencilOnProof,
 #textcontent-pb .note.pencilOnProof,
 #textcontent-pb .metamark.pencilOnProof,
@@ -1782,6 +1785,9 @@ pencil text color
 #textcontent-pb .restore.inkOnProof .add,
 #textcontent-pb .add.inkOnProof,
 #textcontent-pb .metamark.inkOnProof,
+#textcontent-pb .subst.inkOnTypescript .add,
+#textcontent-pb .restore.inkOnTypescript .add,
+#textcontent-pb .add.inkOnTypescript,
 #textcontent-pb .note.inkOnProofKK {
   color: #000 !important;
 }
