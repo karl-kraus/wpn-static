@@ -235,10 +235,10 @@
                         </xsl:if>
                         <xsl:choose>
                             <xsl:when test="parent::tei:restore">
-                                <del><xsl:text>&#8766;</xsl:text></del>
+                                <del><xsl:text>&#x2E0A;</xsl:text></del>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:text>&#8766;</xsl:text>
+                                <xsl:text>&#x2E0A;</xsl:text>
                             </xsl:otherwise>
                         </xsl:choose>
                     </span>
