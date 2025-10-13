@@ -11,28 +11,17 @@
     <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit')]">
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
-                <span class="seg border {replace(@change, '#', '')}" id="{@xml:id}">
+                <span class="seg transposition border {replace(@change, '#', '')}" id="{@xml:id}">
                     <span class="border-crossed-out"><xsl:apply-templates/></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="seg border {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="seg transposition border {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:seg[@type='transposition' and @subtype='implicit']">
-        <xsl:choose>
-            <xsl:when test="parent::tei:restore">
-                <span class="seg {replace(@change, '#', '')}" id="{@xml:id}">
-                <!--<span class="seg border-dashed rounded-pill {replace(@change, '#', '')}" id="{@xml:id}">
-                    <span class="border-crossed-out"><xsl:apply-templates/></span>-->
-                </span>
-            </xsl:when>
-            <xsl:otherwise>
-                <span class="seg {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
-                <!-- <span class="seg border-dashed rounded-pill {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span> -->
-            </xsl:otherwise>
-        </xsl:choose>
+       <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:seg[@type='relocation']">
         <span id="{if(not(@rend='line') and not(@rend='arrow'))then(@xml:id)else(concat('parent-', @xml:id))}">
