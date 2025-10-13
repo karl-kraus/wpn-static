@@ -238,7 +238,7 @@
                                 <del><xsl:text>&#x2E0A;</xsl:text></del>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:text>&#x2E0A;</xsl:text>
+                                <span style="font-size: 2.5em; top: 0.1em;"><xsl:text>&#x2E0A;</xsl:text></span>
                             </xsl:otherwise>
                         </xsl:choose>
                     </span>
