@@ -692,7 +692,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .typescriptLongQuoteStart {
   text-align: left;
   text-align-last: left;
-  margin: $spacer * 0.5 0;
+  /* margin: $spacer * 0.5 0; */
 }
 
 #textcontent-pb .typescriptLongQuoteEnd {
