@@ -2027,8 +2027,8 @@ pencil text color
   vertical-align: top;
 }
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below:has(>.below),
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below:has(>.leftBelow) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below:has(.below),
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below:has(.leftBelow) {
   position: absolute;
   bottom: 0pt;
 }
