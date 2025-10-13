@@ -2019,21 +2019,25 @@ pencil text color
 
 /* double added line below */
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below .below) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below .below),
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.leftBelow .below) {
   line-height: 2.25rem;
   vertical-align: top;
 }
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below:has(>.below) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below:has(>.below),
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below:has(>.leftBelow) {
   position: absolute;
   bottom: 0pt;
 }
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below .below) .position-relative:has(>.below) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below .below) .position-relative:has(>.below),
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.leftBelow .below) .position-relative:has(>.below) {
   line-height: 0.75rem;
 }
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below .below {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .below .below,
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative .leftBelow .below {
   position: absolute;
   bottom: -0.75rem;
 }
