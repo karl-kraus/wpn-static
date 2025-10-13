@@ -2008,7 +2008,7 @@ pencil text color
 
 /* single added line below (p 119, 259, etc) */
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(.below, .leftBelow))) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(.below, .leftBelow) {
   line-height: 1.5rem;
   vertical-align: top;
 }
