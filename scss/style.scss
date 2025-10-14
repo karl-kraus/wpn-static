@@ -2018,6 +2018,13 @@ pencil text color
   bottom: -0.375rem;
 }
 
+/* same, two-line add below (e.g., 119) */
+
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative>:is(.below, .leftBelow):not(:has(.below, .leftBelow)):has(br) {
+  position: absolute;
+  bottom: -1.125rem;
+}
+
 /* double added line below */
 
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below .below),
@@ -2090,7 +2097,7 @@ pencil text color
   top: -0.375rem;
 }
 
-/* multi-line not with an above add and two lines later a below add (p 163) */
+/* multi-line note with an above add and two lines later a below add (p 163) */
 
 #textcontent-pb span:is(.note) br~span:has(.subst .position-relative .above)~br~span~br:not(:has(~br)) ~span:is(.d-block):has(.subst .below) .position-relative:has(.below) {
   line-height: 1.5rem;
