@@ -16,8 +16,8 @@
 						<!-- ########### -->
 						<!-- 1 - GENERAL INFO, IDENTIFICATION -->
 						<!-- ########### -->
-						<h5><xsl:text>Jerusalemer Konvolut, fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto</xsl:text></h5>
-						<h6 class="mt-2">Identifikation</h6>
+						<h4><xsl:text>Jerusalemer Konvolut, fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto.</xsl:text></h4>
+						<h5 class="mt-2">Identifikation</h5>
 						<p>
 							<xsl:text>Standort, Signatur: </xsl:text>
 							<xsl:value-of
@@ -46,12 +46,13 @@
 						<!-- ########### -->
 						<!-- 2 - CARRIER INFO -->
 						<!-- ########### -->
-						<h6 class="mt-2">Textträger, Grundschicht, Digitalisat</h6>
+						<h5 class="mt-2">Textträger, Grundschicht, Digitalisat</h5>
 						<p><xsl:value-of select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/text()"/></p>
-						<xsl:if test="./tei:note[@type='carrierCondition']">
+						<xsl:if test="./tei:note[@type='state']">
+							<h6>Anmerkung:</h6>
 							<p>
-								<xsl:for-each select="./tei:note[@type='carrierCondition']">
-									<xsl:value-of select="./tei:note[@type='carrierCondition']"/>
+								<xsl:for-each select="./tei:note[@type='state']">
+									<xsl:value-of select="./tei:note[@type='state']"/>
 								</xsl:for-each>
 							</p>
 						</xsl:if> 
@@ -62,7 +63,7 @@
 						<!-- textblock 4 -->
 						<!-- ########### -->
 						<xsl:if test="./tei:note[@type=('change', 'printInstruction')]">
-							<h6 class="mt-2">Weitere Textschichten
+							<h5 class="mt-2">Weitere Textschichten
 								<a id="btn_more_text_layers" class="cursor-pointer" role="button" aria-expanded="false" aria-controls="#list_more_text_layers">
 									<svg xmlns="http://www.w3.org/2000/svg" class="stroke-black-grey stroke-wpn-red-hover align-baseline ms-2" width="10" height="10" viewBox="0 0 8 8">
 										<g transform="translate(0.53 0.75)">
@@ -71,7 +72,7 @@
 										</g>
 									</svg>
 								</a>
-							</h6>
+							</h5>
 							
 							<ul id="list_more_layers_btn" class="d-none list-unstyled ms-2">
 								<xsl:for-each select="./tei:note[@type='change'][not(@corresp=('#edACE', '#typewriter2'))]">
@@ -123,7 +124,7 @@
 						<!-- textblock 5 -->
 						<!-- ########### -->
 						<xsl:if test="./tei:note[starts-with(@type, 'tpq')]/text()">
-							<h6 class="mt-2">Datierung (terminus post quem)</h6>
+							<h5 class="mt-2">Datierung (terminus post quem)</h5>
 							<xsl:for-each select="./tei:note[@type='tpqBase']">
 								<p class="tpq cursor-pointer" data-link="{@corresp}">
 									<xsl:text>Grundschicht: </xsl:text>
@@ -133,7 +134,6 @@
 									<xsl:text> (zitierter Text)</xsl:text>
 								</p>
 							</xsl:for-each>
-							
 							<xsl:for-each select="./tei:note[@type='tpqAdd']">
 								<p class="tpq cursor-pointer" data-link="{@corresp}">
 									<xsl:text>Hs. Ergänzung: </xsl:text>
@@ -149,19 +149,19 @@
 						<!-- textblock 6 -->
 						<!-- ########### -->
 						<xsl:if test="./tei:note[@type=('delQuote', 'delPers')]">
-							<h6 class="mt-2">Anmerkung</h6>
+							<h5 class="mt-2">Inhaltliche Anmerkung</h5>
 							<xsl:for-each select="./tei:note[@type=('delQuote', 'delPers')]">
 								<div class="delQP cursor-pointer" data-link="{@target}" data-register="{@corresp}">
-									<p>Eliminierter Verweis auf</p>
-									
 									<xsl:variable name="regrefs">
-										<xsl:value-of select="tokenize(@target, ' ')"/>
-									</xsl:variable>
-									<xsl:for-each select="$regrefs">
-										<xsl:variable name="target" select="replace(current(), '#', '')"/>
-										<xsl:apply-templates select="doc('../../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="short_info"/>
-										<!-- <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="detail_view_textpage" /> -->
-									</xsl:for-each>
+											<xsl:value-of select="tokenize(@target, ' ')"/>
+										</xsl:variable>
+									<p>Eliminierter Verweis auf 
+										<xsl:for-each select="$regrefs">
+											<xsl:variable name="target" select="replace(current(), '#', '')"/>
+											<xsl:apply-templates select="doc('../../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="short_info"/>
+											<!-- <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="detail_view_textpage" /> -->
+										</xsl:for-each>
+									</p>
 								</div>
 							</xsl:for-each>
 						</xsl:if>
