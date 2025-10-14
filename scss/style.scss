@@ -2409,7 +2409,7 @@ wpn-time-line {
   border-color: rgb(255, 92, 92) !important;
 }
 
-.add.overwrite {
+#textcontent-pb .add.overwrite {
   font-size: 1em !important;
   margin-left: -0.5em;
 }
@@ -2417,6 +2417,10 @@ wpn-time-line {
 #textcontent-pb .subst:has(>.overwrite) .del {
   display: inline-block;
   width: 0.5em;
+}
+
+#textcontent-pb .subst:has(>.overwrite) {
+  text-indent: 0;
 }
 
 .mod.noUnderline {
