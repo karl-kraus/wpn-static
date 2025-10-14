@@ -23,11 +23,11 @@
 							<xsl:value-of
 								select="
 								let $id := //tei:sourceDesc[@xml:id='DWkonJer']/tei:msDesc/tei:msIdentifier
-								return string-join((
+								return concat(string-join((
 								$id/tei:institution,
 								$id/tei:collection,
 								$id/tei:idno[@type='signature']
-								), ', ')
+								), ', '), '.')
 								"/>
 						</p>
 						<xsl:for-each select="./tei:note[@type='pagination']">
@@ -48,7 +48,7 @@
 						<!-- ########### -->
 						<h5 class="mt-2">Textträger, Grundschicht, Digitalisat</h5>
 						<h6>Gehört zu:</h6>
-						<xsl:for-each select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/p">
+						<xsl:for-each select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/tei:p">
 							<p><xsl:value-of select="./text()"/></p>
 						</xsl:for-each>
 						<xsl:if test="./tei:note[@type='state']">
@@ -62,8 +62,8 @@
 						<!-- textblock 4 -->
 						<!-- ########### -->
 						<xsl:if test="./tei:note[@type=('change', 'printInstruction')]">
-							<h5 class="mt-2">Weitere Textschichten
-								<a id="btn_more_text_layers" class="cursor-pointer" role="button" aria-expanded="false" aria-controls="#list_more_text_layers">
+							<h5 class="mt-2">Weitere Textschichten</h5>
+								<!-- <a id="btn_more_text_layers" class="cursor-pointer" role="button" aria-expanded="false" aria-controls="#list_more_text_layers">
 									<svg xmlns="http://www.w3.org/2000/svg" class="stroke-black-grey stroke-wpn-red-hover align-baseline ms-2" width="10" height="10" viewBox="0 0 8 8">
 										<g transform="translate(0.53 0.75)">
 											<path style="fill:none;stroke-width:1.5px;stroke-linejoin:round;" d="M0,6V0H6" transform="translate(6) rotate(90)"></path>
@@ -71,7 +71,7 @@
 										</g>
 									</svg>
 								</a>
-							</h5>
+							</h5>-->
 							
 							<ul id="list_more_layers_btn" class="d-none list-unstyled ms-2">
 								<xsl:for-each select="./tei:note[@type='change'][not(@corresp=('#edACE', '#typewriter2'))]">
