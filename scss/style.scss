@@ -2079,6 +2079,17 @@ pencil text color
   bottom: -0.75rem;
 }
 
+/* multi-line note with an above add in a line followed by another line (p 163) */
+
+#textcontent-pb span:is(.note) br ~span:has(~br):has(del .position-relative .above) .position-relative {
+  line-height: 1.5rem;
+  vertical-align: bottom;
+}
+
+#textcontent-pb span:is(.note) br ~span:has(~br):has(del .position-relative .above) .position-relative .above {
+  top: -0.375rem;
+}
+
 /* below-add in note with br (=2 lines) on p. 98 */
 
 #textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .below):has(br) .position-relative:has(>.above) {
