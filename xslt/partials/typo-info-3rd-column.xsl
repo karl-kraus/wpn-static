@@ -47,14 +47,13 @@
 						<!-- 2 - CARRIER INFO -->
 						<!-- ########### -->
 						<h5 class="mt-2">Textträger, Grundschicht, Digitalisat</h5>
-						<p><xsl:value-of select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/text()"/></p>
+						<h6>Gehört zu:</h6>
+						<xsl:for-each select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/p">
+							<p><xsl:value-of select="./text()"/></p>
+						</xsl:for-each>
 						<xsl:if test="./tei:note[@type='state']">
 							<h6>Anmerkung:</h6>
-							<p>
-								<xsl:for-each select="./tei:note[@type='state']">
-									<xsl:value-of select="./tei:note[@type='state']"/>
-								</xsl:for-each>
-							</p>
+							<p><xsl:value-of select="./tei:note[@type='state']/text()"/></p>
 						</xsl:if> 
 						
 						
