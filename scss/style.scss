@@ -2069,6 +2069,12 @@ pencil text color
   bottom: -1.5rem;
 }
 
+/* two-line note, with an .above in line 1 and a two-line .(left)below in line 2 (p 137) */ 
+
+#textcontent-pb span.note .subst:has(.position-relative):has(.above):has(~br~span.d-block .subst .leftBelow) .position-relative:has(.above) {
+  line-height: 0.75rem;
+}
+
 /* below-add in note with br (=2 lines) on p. 98 */
 
 #textcontent-pb span.note:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .below):has(br) .position-relative:has(>.above) {
