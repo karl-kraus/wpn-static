@@ -1010,7 +1010,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .topUpperLeft8 {
-    top: 0em;
+    top: -1em;
     left: 5em;
     text-indent: initial;
 }
@@ -1188,8 +1188,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .bottomUpperLeft1 {
-    left: 7em;
-    bottom: 7em;
+    left: 10em;
+    bottom: 4em;
     text-indent: initial;
 }
 
