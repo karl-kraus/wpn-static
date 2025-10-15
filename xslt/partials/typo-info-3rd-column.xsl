@@ -73,7 +73,7 @@
 								</a>
 							</h5>-->
 							
-							<ul id="list_more_layers_btn" class="d-none list-unstyled ms-2">
+							<ul id="list_more_layers_btn" class="list-unstyled ms-2"><!-- removed class d-none -->
 								<xsl:for-each select="./tei:note[@type='change'][not(@corresp=('#edACE', '#typewriter2'))]">
 									<xsl:variable name="change" select="tokenize(@corresp, ' ')"/>
 									<xsl:variable name="corresp">
