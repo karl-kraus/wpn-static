@@ -1886,8 +1886,9 @@ pencil text color
 #textcontent-pb div.del.pencilOnProof.inkOnProof span.pencilOnProof.inkOnProof,
 #textcontent-pb .pencilOnProofKK.inkOnProofKK.metamark,
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK,
+#textcontent-pb .note.inkOnProofKK.pencilOnProofKK .inkLongQuote,
 #textcontent-pb .inkOnProofKK.pencilOnProofKK .inkLongQuoteVerse {
-  text-shadow: 1px 2px lightgrey;
+  text-shadow: 2px 3px lightgrey;
   color: #000;
 }
 
