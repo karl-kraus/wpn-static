@@ -1835,7 +1835,10 @@ pencil text color
   color: #4444c4 !important;
 }
 
-#textcontent-pb .pencilOnProofKK.inkOnProofKK.add {
+#textcontent-pb .pencilOnProofKK.inkOnProofKK.add,
+#textcontent-pb .pencilOnProof.inkOnProof.add,
+#textcontent-pb div.del.pencilOnProofKK.inkOnProofKK span.pencilOnProofKK.inkOnProofKK,
+#textcontent-pb div.del.pencilOnProof.inkOnProof span.pencilOnProof.inkOnProof {
   text-shadow: 1px 2px lightgrey;
 }
 
