@@ -1673,14 +1673,14 @@ handling del elments based on change type
 }
 
 /* double line through for double change values */
-#textcontent-pb .del.inkOnProofKK.pencilOnProofKK del,
-#textcontent-pb .del.inkOnProof.pencilOnProof del {
+#textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del,
+#textcontent-pb .subst.inkOnProof.pencilOnProof del {
   position: relative;          
   display: inline-block;
 }
 
-#textcontent-pb .del.inkOnProofKK.pencilOnProofKK del::after,
-#textcontent-pb .del.inkOnProof.pencilOnProof del::after {
+#textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del::after,
+#textcontent-pb .subst.inkOnProof.pencilOnProof del::after {
   content: "";
   position: absolute;
   left: 0;
