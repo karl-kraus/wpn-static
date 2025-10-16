@@ -1537,6 +1537,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   font-style: italic;
   line-height: 0.75rem;
   font-family: 'Ubuntu', sans-serif;
+  text-shadow: none;
 }
 
 #textcontent-pb .subst.inkOnProof .add,
@@ -1669,6 +1670,27 @@ handling del elments based on change type
 #textcontent-pb .restore.inkOnTypescript del,
 #textcontent-pb .subst.inkOnTypescript del {
   text-decoration-color: #000;
+}
+
+/* double line through for double change values */
+#textcontent-pb .del.inkOnProofKK.pencilOnProofKK del,
+#textcontent-pb .del.inkOnProof.pencilOnProof del {
+  position: relative;          
+  display: inline-block;
+}
+
+#textcontent-pb .del.inkOnProofKK.pencilOnProofKK del::after,
+#textcontent-pb .del.inkOnProof.pencilOnProof del::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: lightgrey;
+  top: 0.58em;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 #textcontent-pb .subst.typewriter .del del,
@@ -1839,7 +1861,8 @@ pencil text color
 #textcontent-pb .pencilOnProof.inkOnProof.add,
 #textcontent-pb div.del.pencilOnProofKK.inkOnProofKK span.pencilOnProofKK.inkOnProofKK,
 #textcontent-pb div.del.pencilOnProof.inkOnProof span.pencilOnProof.inkOnProof,
-#textcontent-pb .note.inkOnProofKK.pencilOnProofKK {
+#textcontent-pb .note.inkOnProofKK.pencilOnProofKK,
+#textcontent-pb .inkOnProofKK.pencilOnProofKK .inkLongQuoteVerse {
   text-shadow: 1px 2px lightgrey;
 }
 
