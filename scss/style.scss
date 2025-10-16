@@ -1677,6 +1677,7 @@ handling del elments based on change type
 #textcontent-pb .subst.inkOnProof.pencilOnProof del {
   position: relative;          
   display: inline-block;
+  text-indent: initial;
 }
 
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del::after,
