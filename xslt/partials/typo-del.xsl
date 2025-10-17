@@ -116,7 +116,7 @@
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span id="{@xml:id}" class="del connect entity ">
+                <span id="{@xml:id}" class="del connect entity">
                     <del><xsl:apply-templates/></del>
                 </span>
             </xsl:otherwise>
