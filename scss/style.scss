@@ -2083,6 +2083,11 @@ pencil text color
 
 /* single added line below following a line with interfering stuff (p 97, etc) */
 
+#textcontent-pb span:is(.marginLeftAbove):has(.subst .add.overwrite .subst .add.below) {
+  text-align: left !important;
+}
+
+/*
 #textcontent-pb span:is(.marginLeftAbove) br~.position-relative:has(.below, .leftBelow) {
   line-height: 1.5rem;
   vertical-align: top;
@@ -2091,7 +2096,7 @@ pencil text color
 #textcontent-pb span:is(.note, .marginInnerRight) br~.position-relative>:is(.below, .leftBelow):not(:has(.below, .leftBelow)) {
   position: absolute;
   bottom: -0.375rem;
-}
+}*/
 
 /* same, two-line add below (e.g., 119) */
 
