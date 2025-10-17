@@ -219,10 +219,10 @@
 			<xsl:when test="$corresp='#bluePencilOnProof'">
 				<xsl:text>Buntstift, blau</xsl:text>
 			</xsl:when>
-			<xsl:when test="$corresp='pencilOnProofLibrary'">
+			<xsl:when test="$corresp='#pencilOnProofLibrary'">
 				<xsl:text>Bleistift (National Library of Israel)</xsl:text>
 			</xsl:when>
-			<xsl:when test="$corresp='typewriter'">
+			<xsl:when test="$corresp='#typewriter'">
 				<xsl:text>Schreibmaschine</xsl:text>
 			</xsl:when>
 			<xsl:otherwise>
