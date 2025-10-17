@@ -2467,14 +2467,19 @@ wpn-time-line {
 }
 
 #textcontent-pb .add.overwrite {
-  font-size: 1em !important;
-  margin-left: -0.5em;
+  // font-size: 1em !important;
+  // margin-left: -0.5em;
+  font-size: 0.667rem;
+  font-style: italic;
+  line-height: 0.75rem;
+  font-family: 'Ubuntu', sans-serif;
+  text-shadow: none;
 }
 
-#textcontent-pb .subst:has(>.overwrite) .del {
-  display: inline-block;
-  width: 0.5em;
-}
+// #textcontent-pb .subst:has(>.overwrite) .del {
+//   display: inline-block;
+//   width: 0.5em;
+// }
 
 #textcontent-pb .subst:has(>.overwrite) {
   text-indent: 0;

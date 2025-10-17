@@ -437,7 +437,8 @@
         <span class="restore {replace((@change)[1], '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:subst">
-        <span class="subst {replace((@change)[1], '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+        <xsl:variable name="rend" select="if(@rend)then(@rend)else(if(tei:del[@rend])then(tei:del/@rend)else(tei:add/@rend))"/>
+        <span class="subst {replace((@change)[1], '#', '')}{if(child::*[$rend='overwritten'])then(' position-relative')else()}" id="{@xml:id}"><xsl:apply-templates/></span>
     </xsl:template>
     
     <!-- <xsl:template match="tei:ptr[parent::tei:transpose]">

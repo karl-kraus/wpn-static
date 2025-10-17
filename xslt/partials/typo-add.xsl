@@ -35,7 +35,7 @@
                 </span>
             </xsl:when>
             <xsl:when test="$rend='overwritten'">
-                <del class="add connect overwrite" id="{@xml:id}"><xsl:apply-templates/></del>
+                <del class="add connect overwrite position-absolute" id="{@xml:id}"><xsl:apply-templates/></del>
             </xsl:when>
             <xsl:otherwise>
                 <del class="add connect entity" id="{@xml:id}"></del>
@@ -75,7 +75,7 @@
                 </span>
             </xsl:when>
             <xsl:when test="$rend='overwritten'">
-                <span class="add connect overwrite" id="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="add connect overwrite position-absolute" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:otherwise>
                 <span class="add connect entity" id="{@xml:id}"></span>
