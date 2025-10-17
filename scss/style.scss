@@ -2067,18 +2067,11 @@ pencil text color
   right: 1.9%;
 }
 
-/* nested below placements, e.g. p 86: 
-
-#textcontent-pb span.add:is(.below, .leftBelow, .marginLeft):has(>.add:is(.below, .leftBelow)) {
-  position: absolute;
-  bottom: -16pt;
-}*/
-
 /* cleaned version for nested below positionings on p. 133, 163, 179, 187 */
 
 /* single added line below (p 119, 259, 97, etc) */
 
-#textcontent-pb span:is(.note, .marginInnerRight, .marginLeft) .position-relative:has(.below, .leftBelow) {
+#textcontent-pb span:is(.note, .marginInnerRight, .marginLeftAbove) .position-relative:has(.below, .leftBelow) {
   line-height: 1.5rem;
   vertical-align: top;
 }
