@@ -1892,7 +1892,7 @@ pencil text color
   color: #000;
 }
 
-#textcontent-pb :is(.add, .note).pencilOnProofKK.inkOnProofKK .subst.inkOnProofKK:not(:is(.pencilOnProof)):has(.add.overwrite) .del {
+#textcontent-pb :is(.add, .note).pencilOnProofKK.inkOnProofKK .subst.inkOnProofKK:not(:is(.pencilOnProof)):has(.add.overwrite)>.del {
   left: 2px;
   top: 3px;
   position: relative;
@@ -2076,7 +2076,7 @@ pencil text color
   vertical-align: top;
 }
 
-#textcontent-pb span:is(.note, .marginInnerRight, .marginLeft) .position-relative>:is(.below, .leftBelow):not(:has(.below, .leftBelow)) {
+#textcontent-pb span:is(.note, .marginInnerRight, .marginLeftAbove) .position-relative>:is(.below, .leftBelow):not(:has(.below, .leftBelow)) {
   position: absolute;
   bottom: -0.375rem;
 }
