@@ -1892,6 +1892,13 @@ pencil text color
   color: #000;
 }
 
+#textcontent-pb :is(.add, .note).pencilOnProofKK.inkOnProofKK .subst.inkOnProofKK:not(:is(.pencilOnProof)):has(.add.overwrite) .del {
+  left: 2px;
+  top: 3px;
+  position: relative;
+  text-shadow: none;
+}
+
 .arimo {
   font-family: 'Arimo', sans-serif !important;
 }
