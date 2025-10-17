@@ -1696,13 +1696,15 @@ handling del elments based on change type
 
 /* single line through, when only ink layer is deleted, e.g., p. 108*/
 
-#textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK>.del>del {
+#textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK>.del>del,
+#textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del {
   position: relative;          
   display: inline-block;
   text-decoration: none !important;
 }
 
-#textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK>.del>del::after {
+#textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK>.del>del::after,
+#textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del::after {
   content: "";
   position: absolute;
   left: 0;
