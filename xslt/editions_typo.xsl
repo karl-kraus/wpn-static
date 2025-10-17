@@ -519,7 +519,7 @@
             <xsl:when test="child::tei:*">
                 <span>
                     <xsl:if test="@style">
-                        <xsl:attribute name="style">
+                        <xsl:attribute name="class">
                             <xsl:value-of select="@style"/>
                         </xsl:attribute>
                     </xsl:if>
@@ -529,7 +529,7 @@
             <xsl:when test="string-length(normalize-space(.)) > 0">
                 <span>
                     <xsl:if test="@style">
-                        <xsl:attribute name="style">
+                        <xsl:attribute name="class">
                             <xsl:value-of select="@style"/>
                         </xsl:attribute>
                     </xsl:if>
