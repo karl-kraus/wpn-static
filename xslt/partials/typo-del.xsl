@@ -10,7 +10,7 @@
         <xsl:variable name="change" select="@change"/>
         <xsl:choose>
             <xsl:when test="@rend='overwritten'">
-                <span class="del text-black-grey position-absolute" id="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="del text-black-grey" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:when test="@rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <del><xsl:value-of select="normalize-space(.)"/></del>
@@ -56,7 +56,7 @@
         <!-- <xsl:variable name="change" select="replace((parent::tei:subst/@change)[1], '#', '')"/> -->
         <xsl:choose>
             <xsl:when test="$rend='overwritten'">
-                <span class="del text-black-grey position-absolute" id="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="del text-black-grey" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:when test="$rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <span class="del" id="{@xml:id}">
