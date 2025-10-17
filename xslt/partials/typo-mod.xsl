@@ -28,7 +28,12 @@
         </div>
     </xsl:template>
 
-    
+	<xsl:template match="tei:mod[@rend and not(@rendition)]">
+        <span class="mod connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}">
+            <xsl:apply-templates/>
+        </span>
+    </xsl:template>
+	
     <xsl:template match="tei:mod[@style='noLetterSpacing']">
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
@@ -151,12 +156,6 @@
 		<xsl:apply-templates/>
 		<span class="mod inline-arrows {replace(@change, '#', '')}">&#xA0;&#8594;</span>
 	</xsl:template>
-    <xsl:template match="tei:mod[@rend and not(@rendition)]">
-        <span class="mod connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}">
-            <xsl:apply-templates/>
-        </span>
-    </xsl:template>
-
 
     <!-- container element -->
     <xsl:template match="tei:mod[@rendition='#longQuote' and not(@continued)]" mode="render">
