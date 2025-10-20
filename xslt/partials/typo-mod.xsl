@@ -126,28 +126,36 @@
         <span class="mod connect entity no-indent position-relative {@style} {replace(@change, '#', '')}" id="{@xml:id}">
             <span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">
                 <xsl:if test="not(@continued)">
-                            <xsl:choose>
-                                <xsl:when test="ancestor::tei:restore">
-                                  <del>[</del>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                  <span>[</span>
-                                </xsl:otherwise>
-                             </xsl:choose>
-                        </xsl:if>
+                    <xsl:choose>
+                        <xsl:when test="ancestor::tei:restore">
+                            <del>[</del>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <span>[</span>
+                        </xsl:otherwise>
+                        </xsl:choose>
+                </xsl:if>
                  <xsl:apply-templates/>
             </span>
         </span>
     </xsl:template>
 	 <xsl:template match="tei:mod[@rendition=('#runningText1') and @n and not(parent::tei:p[@rendition='#runningText2'])]">
         <span class="mod connect entity running-text-1 no-indent position-relative {replace(@change, '#', '')}" id="{@xml:id}">
-            <span class="mod-inline {replace(@change, '#', '')}"><span>[</span></span>
+            <span class="mod-inline {replace(@change, '#', '')}">
+                <xsl:if test="not(@continued)">
+                    <span>[</span>
+                </xsl:if>
+            </span>
 		</span>
 		<xsl:apply-templates/>
     </xsl:template>
 	<xsl:template match="tei:mod[@rendition='#verseLine' and not(@resp='#edACE') and not(@rend='none')]">
 		<span class="mod connect entity verseline no-indent position-relative {replace(@change, '#', '')}" id="{@xml:id}">
-            <span class="mod-inline {replace(@change, '#', '')}"><span>[</span></span>
+            <span class="mod-inline {replace(@change, '#', '')}">
+                <xsl:if test="not(@continued)">
+                    <span>[</span>
+                </xsl:if>
+            </span>
 		</span>
 		<xsl:apply-templates/>
 	</xsl:template>
