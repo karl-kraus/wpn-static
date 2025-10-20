@@ -1892,7 +1892,9 @@ pencil text color
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK,
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK .inkLongQuote,
 #textcontent-pb .inkOnProofKK.pencilOnProofKK .inkLongQuoteVerse,
-#textcontent-pb .inkOnProofKK.pencilOnProofKK.mod .inkOnProofKK.pencilOnProofKK {
+#textcontent-pb .inkOnProofKK.pencilOnProofKK.mod .inkOnProofKK.pencilOnProofKK,
+#textcontent-pb .mod.connect.inkOnProofKK.pencilOnProofKK .inkOnProofKK.pencilOnProofKK,
+#textcontent-pb .mod.connect.marginLeft.pencilOnProofKK.inkOnProofKK {
   text-shadow: 2px 3px lightgrey;
   color: #000;
 }
