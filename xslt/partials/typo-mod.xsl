@@ -113,12 +113,14 @@
         <xsl:choose>
             <xsl:when test="@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent') and not(child::tei:span[@n='firstLast'])">
                 <span class="mod connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}"
-                    style="margin-left: -0.5em;">
-                    <span>[ </span><xsl:apply-templates/>
+                    style="margin-left: -0.5em; top: 0.2em;">
+                    <span>[ </span>
                 </span>
+				<xsl:apply-templates/>
             </xsl:when>
             <xsl:otherwise>
-                <span class="mod connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="mod connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}"></span>
+				<xsl:apply-templates/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -128,15 +130,15 @@
                 <xsl:if test="not(@continued)">
                     <xsl:choose>
                         <xsl:when test="ancestor::tei:restore">
-                            <del>[</del>
+                            <del>[ </del>
                         </xsl:when>
                         <xsl:otherwise>
-                            <span>[</span>
+                            <span>[ </span>
                         </xsl:otherwise>
                         </xsl:choose>
                 </xsl:if>
-                 <xsl:apply-templates/>
-            </span>
+            </span>		
+        	<xsl:apply-templates/>
         </span>
     </xsl:template>
 	 <xsl:template match="tei:mod[@rendition=('#runningText1') and @n and not(parent::tei:p[@rendition='#runningText2'])]">
