@@ -1696,9 +1696,10 @@ handling del elments based on change type
   z-index: 1;
 }
 
-/* single line through, when only ink layer is deleted, e.g., p. 108*/
+/* single line through, when only ink layer is deleted, e.g., p. 108 */
 
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK>.del>del,
+#textcontent-pb .restore.inkOnProofKK .add.inkOnProofKK.pencilOnProofKK,
 #textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del {
   position: relative;          
   display: inline-block;
@@ -1706,6 +1707,7 @@ handling del elments based on change type
 }
 
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK>.del>del::after,
+#textcontent-pb .restore.inkOnProofKK .add.inkOnProofKK.pencilOnProofKK::after,
 #textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del::after {
   content: "";
   position: absolute;
@@ -1893,7 +1895,7 @@ pencil text color
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK .inkLongQuote,
 #textcontent-pb .inkOnProofKK.pencilOnProofKK .inkLongQuoteVerse,
 #textcontent-pb .inkOnProofKK.pencilOnProofKK.mod .inkOnProofKK.pencilOnProofKK,
-#textcontent-pb .mod.connect.inkOnProofKK.pencilOnProofKK .inkOnProofKK.pencilOnProofKK,
+#textcontent-pb .mod.inkOnProofKK.pencilOnProofKK,
 #textcontent-pb .mod.connect.marginLeft.pencilOnProofKK.inkOnProofKK,
 #textcontent-pb .metamark.inkOnProofKK.pencilOnProofKK {
   text-shadow: 2px 3px lightgrey;
