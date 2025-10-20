@@ -2484,6 +2484,11 @@ wpn-time-line {
   font-style: italic;
   font-family: 'Ubuntu', sans-serif;
   text-shadow: none;
+  cursor: url(../images/cursor-circle.svg) 15 15, auto;
+}
+
+#textcontent-pb .add.overwrite:hover {
+  opacity: 0;
 }
 
 // #textcontent-pb .subst:has(>.overwrite) .del {
