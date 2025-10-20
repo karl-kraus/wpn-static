@@ -137,14 +137,14 @@
                         </span>
                     </xsl:when>
                     <xsl:otherwise>
-                        <span class="add connect entity text-decoration-underline-dotted" id="{@xml:id}">
+                        <span class="add connect entity text-decoration-underline-dotted {replace(@change[1], '#', '')}" id="{@xml:id}">
                             <del>&#124;</del>
                         </span>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
-                <span class="add connect entity" id="{@xml:id}">&#124;</span>
+                <span class="add connect entity {replace(@change[1], '#', '')}" id="{@xml:id}">&#124;</span>
             </xsl:otherwise>
         </xsl:choose>
         
