@@ -119,7 +119,7 @@
 				<xsl:apply-templates/>
             </xsl:when>
             <xsl:otherwise>
-                <span class="mod connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}"></span>
+                <!-- <span class="mod connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}"></span> -->
 				<xsl:apply-templates/>
             </xsl:otherwise>
         </xsl:choose>
