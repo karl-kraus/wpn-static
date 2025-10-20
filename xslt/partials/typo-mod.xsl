@@ -112,7 +112,7 @@
     <xsl:template match="tei:mod[contains(@rendition,'Quote') and not(@resp='#edACE')]">
         <xsl:choose>
             <xsl:when test="@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent') and not(child::tei:span[@n='firstLast'])">
-                <span class="mod connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}"
+                <span class="mod quote-indent connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}"
                     style="margin-left: -0.5em; top: 0.2em;">
                     <span>[ </span>
                 </span>
