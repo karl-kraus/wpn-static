@@ -1528,6 +1528,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .metamark.pencilOnProofKK,
 #textcontent-pb div.del.connect.pencilOnProofKK,
 #textcontent-pb div.mod.connect.pencilOnProofKK,
+#textcontent-pb .mod.connect.pencilOnProofKK .pencilOnProofKK,
+#textcontent-pb .mod.connect.inkOnProofKK .inkOnProofKK,
 #textcontent-pb .subst.pencilOnProofKK .add,
 #textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .arrow.inkOnProofKK,
@@ -1889,7 +1891,8 @@ pencil text color
 #textcontent-pb .pencilOnProofKK.inkOnProofKK.metamark,
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK,
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK .inkLongQuote,
-#textcontent-pb .inkOnProofKK.pencilOnProofKK .inkLongQuoteVerse {
+#textcontent-pb .inkOnProofKK.pencilOnProofKK .inkLongQuoteVerse,
+#textcontent-pb .inkOnProofKK.pencilOnProofKK.mod .inkOnProofKK.pencilOnProofKK {
   text-shadow: 2px 3px lightgrey;
   color: #000;
 }
