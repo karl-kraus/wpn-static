@@ -252,7 +252,7 @@
             </xsl:when>
             <xsl:when test="parent::tei:restore">
                 <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
-                <del class="{$rend} {replace($restore-change,'#','')}">
+                <del class="restore {$rend} {replace($restore-change,'#','')}">
                     <span class="{replace(@change[1],'#','')}">&#124;&#xA0;<xsl:apply-templates/></span>
                 </del>
             </xsl:when>
