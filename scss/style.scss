@@ -1910,8 +1910,14 @@ pencil text color
 }
 
 #textcontent-pb .metamark.linespace  {
-  position: absolute;
+  position: relative;
 }
+#textcontent-pb .metamark.linespace::after  {
+  position: absolute;
+  content: '–––';
+  top: -0.5rem;
+}
+
 
 #textcontent-pb .longQuoteVerseStart {
   margin-left: $spacer * 3;
