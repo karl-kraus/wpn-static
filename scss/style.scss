@@ -1696,13 +1696,15 @@ handling del elments based on change type
 
 /* single line through, when only ink layer is deleted, e.g., p. 108*/
 
-#textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK>.del>del {
+#textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK>.del>del,
+#textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del {
   position: relative;          
   display: inline-block;
   text-decoration: none !important;
 }
 
-#textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK>.del>del::after {
+#textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK>.del>del::after,
+#textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del::after {
   content: "";
   position: absolute;
   left: 0;
@@ -2083,6 +2085,11 @@ pencil text color
 
 /* single added line below following a line with interfering stuff (p 97, etc) */
 
+#textcontent-pb span:is(.marginLeftAbove):has(.subst .add.overwrite .subst .add.below) {
+  text-align: left !important;
+}
+
+/*
 #textcontent-pb span:is(.marginLeftAbove) br~.position-relative:has(.below, .leftBelow) {
   line-height: 1.5rem;
   vertical-align: top;
@@ -2091,7 +2098,7 @@ pencil text color
 #textcontent-pb span:is(.note, .marginInnerRight) br~.position-relative>:is(.below, .leftBelow):not(:has(.below, .leftBelow)) {
   position: absolute;
   bottom: -0.375rem;
-}
+}*/
 
 /* same, two-line add below (e.g., 119) */
 
@@ -2481,7 +2488,7 @@ wpn-time-line {
 #textcontent-pb .add.overwrite {
   // font-size: 1em !important;
   // margin-left: -0.5em;
-  font-style: italic;
+  // font-style: italic;
   font-family: 'Ubuntu', sans-serif;
   text-shadow: none;
   cursor: url(../images/cursor-circle.svg) 15 15, auto;
