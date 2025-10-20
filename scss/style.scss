@@ -1478,7 +1478,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   border: 1px dashed;
 }
 
-#textcontent-pb .seg.border {
+#textcontent-pb .seg.border,
+#textcontent-pb .mod.longQuote.inkOnProofKK {
   background-image: linear-gradient(lightgrey, lightgrey);
   background-repeat: no-repeat;
   background-size: calc(100% - 1px) 1em;
