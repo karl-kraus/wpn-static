@@ -505,7 +505,7 @@
                     </xsl:if>
                     <xsl:choose>
                         <xsl:when test="parent::tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent')]">
-                            <span style="margin-left: -0.5em;"><span class="{replace(parent::tei:mod/@change, '#', '')}">[ </span><xsl:apply-templates/></span>
+                            <span style="margin-left: -0.5em;"><span class="{replace(parent::tei:mod/@change, '#', '')}">[ </span></span><xsl:apply-templates/>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:apply-templates/>
