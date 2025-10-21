@@ -480,10 +480,10 @@
                 <span class="d-table-row text-align-left no-indent">&#160;<xsl:apply-templates/></span>
             </xsl:when> -->
             <xsl:when test="preceding-sibling::tei:lb[1][@type='forced']">
-				<span class="d-block text-align-left lb-forced"><xsl:apply-templates/></span>
+				<span class="d-inline-block text-align-left lb-forced"><xsl:apply-templates/></span>
 			</xsl:when>
 			<xsl:when test="preceding-sibling::tei:lb[1][@type='forcedRight']">
-				<span class="d-block text-align-left lb-forced-right"><xsl:apply-templates/></span>
+				<span class="d-inline-block text-align-left lb-forced-right"><xsl:apply-templates/></span>
 			</xsl:when>
 			<xsl:otherwise>
                 <span class="d-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent"><xsl:apply-templates/></span>
@@ -499,9 +499,11 @@
                 <span class="d-table-row text-align-left no-indent">&#160;<xsl:apply-templates/></span>
             </xsl:when> -->
             <xsl:otherwise>
-                <span class="d-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">
+                <span class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">
                     <xsl:if test="parent::tei:seg[@rend='arrow'] and parent::tei:seg[@xml:id='seg0111_01']">
-                        <span class="seg seg-inline"><span id="{parent::tei:seg/@xml:id}" class="{parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span></span>
+                        <span class="seg seg-inline">
+                            <span id="{parent::tei:seg/@xml:id}" class="{parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span>
+                        </span>
                     </xsl:if>
                     <xsl:choose>
                         <xsl:when test="parent::tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent')]">
