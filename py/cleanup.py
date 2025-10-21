@@ -242,6 +242,9 @@ def wrap_last_sentence(file) -> None:
         s, breakelement = wrap_or_not(x.getnext(), s)
         parent = x.getparent()
         if not breakelement:
+            # when line has not ended but x is wrapped in LB_WRAPPED elements
+            # check parents and ancestors for next elments and also wrap them
+            # if conditions are met
             if parent.tag in LB_WRAPPED:
                 ancestor = parent.getparent()
                 if parent.tag == "{http://www.tei-c.org/ns/1.0}del":
@@ -254,6 +257,8 @@ def wrap_last_sentence(file) -> None:
                     s.append(s2)
                     x.addnext(s)
                 if parent.tag == "{http://www.tei-c.org/ns/1.0}quote":
+                    # this covers additional nested elements and is executed
+                    # together with the previous check for parent is not del
                     s2, breakpoint = create_sub_el(ancestor, ancestor=True)
                     s.append(s2)
                     x.addnext(s)
