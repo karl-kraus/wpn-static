@@ -486,7 +486,7 @@
 				<span class="d-inline-block text-align-left lb-forced-right"><xsl:apply-templates/></span>
 			</xsl:when>
 			<xsl:otherwise>
-                <span class="d-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent"><xsl:apply-templates/></span>
+                <span class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent"><xsl:apply-templates/></span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
