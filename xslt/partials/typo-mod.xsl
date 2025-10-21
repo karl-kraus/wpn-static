@@ -121,9 +121,7 @@
 			<xsl:when test="@rendition='#longQuote'">
 				<xsl:choose>
 					<xsl:when test="@rend='line'">
-						<span class="mod line entity {replace(@change, '#', '')}"  id="{@xml:id}">
-							<xsl:apply-templates/>
-						</span>
+						<span class="mod line entity {replace(@change, '#', '')}"  id="{@xml:id}">&#124;</span><xsl:apply-templates/>
 					</xsl:when>
 					<xsl:otherwise>
 						<span class="mod border entity {replace(@change, '#', '')}"  id="{@xml:id}">
