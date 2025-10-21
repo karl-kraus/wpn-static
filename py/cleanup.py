@@ -249,6 +249,10 @@ def wrap_last_sentence(file) -> None:
                         s2, _ = create_sub_el(ancestor)
                         x.addnext(s)
                         x.getparent().addnext(s2)
+                if parent.tag != "{http://www.tei-c.org/ns/1.0}del":
+                    s2, _ = create_sub_el(parent)
+                    s.append(s2)
+                    x.addnext(s)
                 if parent.tag == "{http://www.tei-c.org/ns/1.0}quote":
                     s2, breakpoint = create_sub_el(ancestor, ancestor=True)
                     s.append(s2)
@@ -270,10 +274,6 @@ def wrap_last_sentence(file) -> None:
                                     ancestor=True)
                                 s.append(s4)
                                 x.addnext(s)
-                if parent.tag != "{http://www.tei-c.org/ns/1.0}del":
-                    s2, _ = create_sub_el(parent)
-                    s.append(s2)
-                    x.addnext(s)
             else:
                 x.addnext(s)
         else:
