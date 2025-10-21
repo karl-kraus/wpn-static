@@ -222,6 +222,8 @@ LB_WRAPPED = [
     "{http://www.tei-c.org/ns/1.0}quote",
     "{http://www.tei-c.org/ns/1.0}foreign",
     "{http://www.tei-c.org/ns/1.0}mod",
+    "{http://www.tei-c.org/ns/1.0}sic",
+    "{http://www.tei-c.org/ns/1.0}corr"
 ]
 
 
@@ -256,7 +258,7 @@ def wrap_last_sentence(file) -> None:
                     s2, _ = create_sub_el(parent)
                     s.append(s2)
                     x.addnext(s)
-                if parent.tag == "{http://www.tei-c.org/ns/1.0}quote":
+                if parent.tag == "{http://www.tei-c.org/ns/1.0}quote" or parent.tag == "{http://www.tei-c.org/ns/1.0}sic" or parent.tag == "{http://www.tei-c.org/ns/1.0}corr":
                     # this covers additional nested elements and is executed
                     # together with the previous check for parent is not del
                     s2, breakpoint = create_sub_el(ancestor, ancestor=True)
@@ -279,6 +281,12 @@ def wrap_last_sentence(file) -> None:
                                     ancestor=True)
                                 s.append(s4)
                                 x.addnext(s)
+                        if ancestor.getparent().tag == "{http://www.tei-c.org/ns/1.0}rdg":
+                            s3, breakpoint = create_sub_el(
+                                ancestor.getparent().getparent(),
+                                ancestor=True)
+                            s.append(s3)
+                            x.addnext(s)
             else:
                 x.addnext(s)
         else:
