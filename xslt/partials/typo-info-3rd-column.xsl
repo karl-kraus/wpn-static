@@ -12,7 +12,7 @@
             <div id="infocontent-pb">
                 <xsl:for-each select="//tei:TEI/tei:facsimile[@corresp='#DWkonJer']/tei:surface">
                     <xsl:variable name="text" select="../following-sibling::tei:text"/>
-                    <xsl:variable name="creation" select="ancestor::tei:TEI//creation"/>
+                    <xsl:variable name="creation" select="ancestor::tei:TEI//tei:creation"/>
                     <xsl:variable name="convolute-id" select="replace(./parent::tei:facsimile/@corresp, '#', '')"/>
                     <xsl:variable name="corresp-id" select="replace(@corresp, '#', '')"/>
                     <div class="note m-2 {$corresp-id}">
