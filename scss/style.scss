@@ -1744,6 +1744,26 @@ handling del elments based on change type
   z-index: 1;
 }
 
+/* single grey underline when only underline needs shadow, e.g. p. 161, 167, 184 */
+#textcontent-pb .mod.letterSpacing.pencilOnProofKK.inkOnProofKK {
+    display: inline-block;
+    text-shadow: none;
+    position: relative;
+}
+
+#textcontent-pb .mod.letterSpacing.pencilOnProofKK.inkOnProofKK::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: lightgrey;
+    bottom: -1px;
+    pointer-events: none;
+    z-index: 1;
+    left: 1px;
+}
+
+
 #textcontent-pb .subst.typewriter .del del,
 #textcontent-pb .subst.typewriter2 .del del,
 #textcontent-pb .del.typewriter del,
