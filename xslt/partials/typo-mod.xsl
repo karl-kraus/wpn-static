@@ -114,7 +114,7 @@
             <xsl:when test="@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent') and not(child::tei:span[@n='firstLast'])">
                 <span class="mod quote-indent connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}"
                     style="margin-left: -0.5em; top: 0.2em;">
-                    <span>[ </span>
+                    <span>[&#160;</span>
                 </span>
 				<xsl:apply-templates/>
             </xsl:when>
@@ -142,10 +142,10 @@
                 <xsl:if test="not(@continued)">
                     <xsl:choose>
                         <xsl:when test="ancestor::tei:restore">
-                            <del>[ </del>
+                            <del>[&#160;</del>
                         </xsl:when>
                         <xsl:otherwise>
-                            <span>[ </span>
+                            <span>[&#160;</span>
                         </xsl:otherwise>
                         </xsl:choose>
                 </xsl:if>
