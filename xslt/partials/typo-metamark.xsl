@@ -226,7 +226,7 @@
      <xsl:template match="tei:metamark[@function='transposition']" mode="render">
         <div id="container-{@xml:id}" class="d-flex metamark connect w-100 position-relative {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
                 <div class="w-100">
-                    <span class="{@rend} {if(parent::tei:restore)then(replace((parent::tei:restore/@change)[1], '#', ' restore '))else()}" style="font-size:1.5rem;">
+                    <span class="{@rend} {if(parent::tei:restore)then(replace((parent::tei:restore/@change)[1], '#', ' restore '))else()}" style="font-size:1.5rem; top:-0.2rem">
                         <xsl:if test="@target">
                             <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
                             <xsl:attribute name="data-target">
