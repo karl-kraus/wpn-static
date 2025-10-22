@@ -113,8 +113,8 @@
         <xsl:choose>
             <xsl:when test="@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent') and not(child::tei:span[@n='firstLast'])">
                 <span class="mod quote-indent connect entity {@style} {replace(@change, '#', '')}" id="{@xml:id}"
-                    style="margin-left: -0.5em; top: 0.2em;">
-                    <span>[&#160;</span>
+                    style="margin-left: -0.25rem; top: 0.2em;">
+                    <span>[</span>
                 </span>
 				<xsl:apply-templates/>
             </xsl:when>
