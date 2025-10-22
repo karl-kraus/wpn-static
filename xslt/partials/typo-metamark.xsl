@@ -94,9 +94,20 @@
         <span class="metamark position-absolute {replace(@rendition,'#','')} {replace(@change,'#','')} {@place} {@style}" id="{@xml:id}"><xsl:apply-templates/></span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='printInstruction'][@rend]">
-        <span class="metamark connect entity {replace(@change,'#','')}" id="{@xml:id}">
-            <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
-        </span>
+         <xsl:choose>
+             <xsl:when test="@rend='above'">
+                 <span class="position-relative">
+                     <span class="metamark connect {@rend} {replace(@change,'#','')}" id="{@xml:id}">
+                         <xsl:apply-templates/>
+                     </span>
+                 </span>
+             </xsl:when>
+             <xsl:otherwise>
+                <span class="metamark connect entity {replace(@change,'#','')}" id="{@xml:id}">
+                    <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
+                </span>
+             </xsl:otherwise>
+         </xsl:choose>
      </xsl:template>
      <!-- margin container elements -->
      <xsl:template match="tei:metamark[@function='printInstruction']" mode="render">
