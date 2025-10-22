@@ -1455,6 +1455,14 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-decoration: underline;
 }
 
+#textcontent-pb .underline .d-inline-block {
+  text-decoration: inherit; /* lb last - issue: inline block didnt show text decoration */
+}
+
+#textcontent-pb .spacing .d-inline-block {
+  text-decoration: inherit; /* lb last - issue, same, just to make sure. */
+}
+
 #textcontent-pb .noIndent {
   text-indent: 0 !important;
   margin-left: 0 !important;
