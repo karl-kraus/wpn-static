@@ -1460,7 +1460,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #textcontent-pb .spacing .d-inline-block {
-  text-decoration: inherit; /* lb last - issue, same, just to make sure. */
+  text-decoration: inherit; /* lb last - same issue, just to make sure. */
+}
+
+#textcontent-pb .metamark.typescriptFont .d-inline-block {
+  text-decoration: inherit; /* lb last - same issue. */
 }
 
 #textcontent-pb .noIndent {
