@@ -2499,10 +2499,15 @@ div.position-relative .marginLeftFurtherBelowOnly {
   text-decoration: underline;
 }
 
-.metamark.inkFont {
+#textcontent-pb .metamark.inkFont {
   text-decoration: underline;
   margin-left: 1rem;
   margin-right: 1rem;
+  display: block !important;
+}
+
+#textcontent-pb .metamark.inkFont span {
+  text-decoration: inherit;
 }
 
 /* metamark relocation inline*/
