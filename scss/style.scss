@@ -767,6 +767,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-align: center;
 }
 
+#textcontent-pb  .longQuoteRightAlign2 .d-inline-block:nth-of-type(2) {
+  margin-left: 1rem;
+}
+
 #textcontent-pb .typescriptLongQuoteRightAlign {
   margin-left: 11rem;
 }
@@ -792,8 +796,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #textcontent-pb .longQuoteEndRightAlign2 .text-align-left {
-  text-align: right;
-  text-align-last: right;
+  margin-left: 14rem;
 }
 
 #textcontent-pb .typescriptLongQuoteTitle2 .text-align-left,
@@ -2465,11 +2468,13 @@ div.position-relative .marginLeftFurtherBelowOnly {
   text-indent: 0;
 }
 
+/*
 .longQuoteMarginStart .no-indent,
 .longQuoteMarginMiddle .no-indent,
 .longQuoteMarginEnd .no-indent {
   text-indent: inherit !important;
 }
+*/
 
 .fw {
   position: absolute;
