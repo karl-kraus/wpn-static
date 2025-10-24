@@ -485,6 +485,9 @@
 			<xsl:when test="preceding-sibling::tei:lb[1][@type='forcedRight']">
 				<span class="d-inline-block text-align-left lb-forced-right"><xsl:apply-templates/></span>
 			</xsl:when>
+			<xsl:when test="preceding-sibling::tei:lb[1][@type='forcedRight2']">
+				<span class="d-inline-block text-align-left lb-forced-right2"><xsl:apply-templates/></span>
+			</xsl:when>
 			<xsl:otherwise>
                 <span class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent"><xsl:apply-templates/></span>
             </xsl:otherwise>
