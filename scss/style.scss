@@ -2487,7 +2487,8 @@ div.position-relative .marginLeftFurtherBelowOnly {
   line-height: 1.083rem;
 }
 
-.metamark.typescriptFont {
+.metamark.typescriptFont,
+.metamark.pencilFont {
   position: relative !important;
   display: block;
   text-decoration: underline;
@@ -2559,7 +2560,7 @@ wpn-time-line {
   opacity: 0;
 }
 
-#textcontent-pb .subst:has(.add.overwrite) .del {
+#textcontent-pb .subst:has(>.add.overwrite)>.del {
   color: #8c8c8c;
 }
 
