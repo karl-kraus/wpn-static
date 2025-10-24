@@ -82,6 +82,7 @@ from lxml import etree
 
 __version__ = "0.2"
 
+DEBUG = False
 CLOSING_TAG = "</%s>"
 OPENING_TAG = '<%s%s>'
 ATTRIBUTE = ' %s="%s"'
@@ -172,6 +173,7 @@ class Milestone(object):
             self.process_milestone(milestone)
         self.split_raw(filename)
         self.get_same_parents()
+        # self.get_lb_break_no_after_pb()
         self.create_all_closing_tags()
         self.create_all_opening_tags()
         if self.transform_without_split:
@@ -210,6 +212,27 @@ class Milestone(object):
 
     def write_file(self, name, output_file):
         """Write a single file."""
+        if DEBUG:
+            import json
+            # Create a copy to avoid modifying original
+            json_data = self.parts[name].copy()
+
+            # Convert lxml _Attrib objects to regular
+            # dicts for JSON serialization
+            if 'parents' in json_data:
+                parents_list = []
+                for tag, attrib in json_data['parents']:
+                    parents_list.append((tag, dict(attrib)))
+                json_data['parents'] = parents_list
+            if 'milestone' in json_data:
+                milestone_list = []
+                for tag, attrib in json_data['milestone']:
+                    milestone_list.append((tag, dict(attrib)))
+                json_data['milestone'] = milestone_list
+
+            with open(output_file.replace(".xml", "_debug.json"), 'w') as f:
+                json.dump(json_data, f, indent=4)
+            print("Writing file:", output_file.replace(".xml", "_debug.json"))
         text = self.combine_part(name)
         with open(output_file, 'w') as output_fp:
             output_fp.write(text)
@@ -226,7 +249,7 @@ class Milestone(object):
             else:
                 raise
         return target_name
-    
+
     def get_prev_milestone_name(self, name):
         """Get prev milestone_name"""
         keys = list(self.parts.keys())
@@ -289,29 +312,35 @@ class Milestone(object):
                         except KeyError:
                             current_parents_id = False
                     if current_parents and current_parents in prev_parents:
-                        print(milestone_name, True, "Current parent in prev parents")
+                        print(milestone_name, True,
+                              "Current parent in prev parents")
                         prev_parent = True
-                    elif current_parents and current_parents_id and current_parents_id in prev_text:
-                        print(milestone_name, True, "Current parent in prev text")
+                    elif current_parents and current_parents_id and\
+                            current_parents_id in prev_text:
+                        print(milestone_name, True,
+                              "Current parent in prev text")
                         prev_parent = True
                     else:
-                        print(milestone_name, False, "Current parent not in prev parents")
+                        print(milestone_name, False,
+                              "Current parent not in prev parents")
                         prev_parent = False
                     if prev_parent:
                         try:
                             for x in self.parts[milestone_name]['parents']:
                                 if x[0] == "p" or x[0] == "seg":
                                     x[1]["prev"] = 'true'
-                        except:
-                            print("Error")
-                        # try:
-                        #     if self.parts[prev_milestone]['parents'][0] == "p":
-                        #         self.parts[prev_milestone]['parents'][0][1]["next"] = 'true'
-                        #     else:
-                        #         self.parts[prev_milestone]['parents'][0][1]["next"] = 'true'
-                        # except:
-                        #     print("Error")
-        return prev_parent      
+                        except Exception as e:
+                            print("Error:", e)
+        return prev_parent
+
+    def get_lb_break_no_after_pb(self):
+        """Get if there is a line break after pb."""
+        for milestone_name, data in self.parts.items():
+            text = data['text']
+            prev_milestone = self.get_prev_milestone_name(milestone_name)
+            if prev_milestone != -1:
+                if text.contains('\n<lb n="first" break="no"/>'):
+                    self.parts[prev_milestone]['text'] += '<lb break="no"/>'
 
     def process_milestone(self, milestone):
         """Process the milestone."""
