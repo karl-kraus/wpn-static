@@ -792,8 +792,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #textcontent-pb .longQuoteEndRightAlign2 .text-align-left {
-  text-align: right;
-  text-align-last: right;
+  margin-left: 14rem;
 }
 
 #textcontent-pb .typescriptLongQuoteTitle2 .text-align-left,
