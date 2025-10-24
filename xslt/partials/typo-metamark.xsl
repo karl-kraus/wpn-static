@@ -246,7 +246,7 @@
                         </xsl:if>
                         <xsl:choose>
                             <xsl:when test="parent::tei:restore">
-                                <del><xsl:text>&#8766;</xsl:text></del>
+                                <del style="text-decoration-thickness: 1px;"><xsl:text>&#8766;</xsl:text></del>
                             </xsl:when>
                             <xsl:otherwise>
                                 <span><xsl:text>&#8766;</xsl:text></span>
