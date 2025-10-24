@@ -629,7 +629,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteRightAlign,
 #textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteAdvInsert,
 #textcontent-pb .witnessTypescriptInsert .typewriter,
-#textcontent-pb .witnessTypescriptInsert .typewriter2 {
+#textcontent-pb .witnessTypescriptInsert .typewriter2,
+#textcontent-pb .subst.typewriter .add.overwrite {
   font-size: 0.833rem;
   line-height: 1rem;
   font-family: monospace;
@@ -2558,10 +2559,9 @@ wpn-time-line {
   opacity: 0;
 }
 
-// #textcontent-pb .subst:has(>.overwrite) .del {
-//   display: inline-block;
-//   width: 0.5em;
-// }
+#textcontent-pb .subst:has(.add.overwrite) .del {
+  color: #8c8c8c;
+}
 
 #textcontent-pb .subst:has(>.overwrite) {
   text-indent: 0;
