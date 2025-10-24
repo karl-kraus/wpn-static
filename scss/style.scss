@@ -2559,7 +2559,7 @@ wpn-time-line {
   opacity: 0;
 }
 
-#textcontent-pb .subst:has(.add.overwrite) .del {
+#textcontent-pb .subst:has(>.add.overwrite)>.del {
   color: #8c8c8c;
 }
 
