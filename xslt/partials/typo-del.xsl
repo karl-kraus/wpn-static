@@ -108,7 +108,7 @@
             <xsl:when test="@rend='left'">
                 <del><xsl:value-of select="normalize-space(.)"/></del>
                 <span class="position-relative">
-                   <span class="del {@rend} {replace($change, '#', '')}">&#124;&#xA0;<span class="arimo">&#8368;</span></span>
+                   <span class="del {@rend} {replace(@change, '#', '')}">&#124;&#xA0;<span class="arimo">&#8368;</span></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
