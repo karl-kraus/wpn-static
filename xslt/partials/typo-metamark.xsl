@@ -133,6 +133,9 @@
              <xsl:when test="@rend='inline'">
                 <span class="metamark inline {replace(@rendition,'#','')} {replace(@change,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
+             <xsl:when test="@place">
+                <span class="metamark position-absolute {replace(@rendition,'#','')} {replace(@change,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
+            </xsl:when>
             <xsl:otherwise>
                 <span class="metamark {replace(@rendition,'#','')} {replace(@change,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:otherwise>
