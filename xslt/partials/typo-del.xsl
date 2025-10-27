@@ -106,7 +106,9 @@
     <xsl:template match="tei:del[parent::tei:add]">
         <xsl:choose>
             <xsl:when test="@rend='left'">
-                <del><xsl:value-of select="normalize-space(.)"/></del>
+                <span id="{@xml:id}" class="{replace((@change)[1], '#', '')}">
+                    <del><xsl:value-of select="normalize-space(.)"/></del>
+                </span>
                 <span class="position-relative">
                    <span class="del {@rend} {replace(@change, '#', '')}">&#124;&#xA0;<span class="arimo">&#8368;</span></span>
                 </span>
