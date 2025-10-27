@@ -2503,6 +2503,9 @@ div.position-relative .marginLeftFurtherBelowOnly {
   text-decoration: underline;
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+#textcontent-pb .metamark.inkFont:not(:is(.inline)) {
   display: block !important;
 }
 
