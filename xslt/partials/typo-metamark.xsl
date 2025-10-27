@@ -265,12 +265,12 @@
      <xsl:template match="tei:metamark[@function='insertion'][@place]">
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
-                <span class="metamark {@style} {@place} {replace(@change, '#', '')}" id="{@xml:id}">
+                <span class="metamark position-absolute {@style} {@place} {replace(@change, '#', '')}" id="{@xml:id}">
                     <del><xsl:apply-templates/></del>
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="metamark {@style} {@place} {replace(@change, '#', '')}" id="{@xml:id}">
+                <span class="metamark position-absolute {@style} {@place} {replace(@change, '#', '')}" id="{@xml:id}">
                     <xsl:apply-templates/>
                 </span>
             </xsl:otherwise>
