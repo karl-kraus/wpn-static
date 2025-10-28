@@ -10,9 +10,9 @@
         
         <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
             <div id="infocontent-pb">
+                <xsl:variable name="creation" select="//tei:creation"/>
                 <xsl:for-each select="//tei:TEI/tei:facsimile[@corresp='#DWkonJer']/tei:surface">
                     <xsl:variable name="text" select="../following-sibling::tei:text"/>
-                    <xsl:variable name="creation" select="ancestor::tei:TEI//tei:creation"/>
                     <xsl:variable name="convolute-id" select="replace(./parent::tei:facsimile/@corresp, '#', '')"/>
                     <xsl:variable name="corresp-id" select="replace(@corresp, '#', '')"/>
                     <div class="note m-2 {$corresp-id}">
@@ -34,14 +34,14 @@
                                 "/>
                         </p>
                         <xsl:for-each select="./tei:note[@type='pagination']">
-                            <p id="paragraph-block-{position()}" class="paragraph-block" data-link="{@corresp}"> 
+                            <p id="paragraph-block-{position()}" class="paragraph-block" data-link="{@corresp}">
+                                <xsl:variable name="corresp">
+                                    <xsl:value-of select="substring-after(@corresp, '#')"/>
+                                </xsl:variable>
                                 <xsl:text>Pagination </xsl:text>
                                 <xsl:value-of select="./text()"/>
                                 <xsl:text> (</xsl:text>
-                                <xsl:value-of select="$creation//id(substring-after(@corresp, '#'))"/>
-                                <!--<xsl:call-template name="format_corresp">
-                                    <xsl:with-param name="corresp" select="@corresp"/>
-                                </xsl:call-template>-->
+                                <xsl:value-of select="$creation//id(data($corresp))"/>
                                 <xsl:text>)</xsl:text>
                             </p>
                         </xsl:for-each>
