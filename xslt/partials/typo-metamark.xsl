@@ -111,13 +111,19 @@
      </xsl:template>
      <!-- margin container elements -->
      <xsl:template match="tei:metamark[@function='printInstruction'][@rend]" mode="render">
-        <div id="container-{@xml:id}" class="d-flex metamark w-100 position-relative {if(@spanTo)then('spanto')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
+        <div id="container-{@xml:id}" class="d-flex metamark w-100 position-relative {if(@spanTo)then('spanto')else()} {if(@target)then('target')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
             <div class="w-100">
                 <span class="{@rend} {@style}">
                     <xsl:if test="@spanTo">
                         <xsl:variable name="spanToList" select="tokenize(@spanTo, ' ')"/>
                         <xsl:attribute name="data-spanto">
                             <xsl:value-of select="for $i in $spanToList return concat('spanto-', substring-after($i, '#'))"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:if test="@target">
+                        <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                        <xsl:attribute name="data-target">
+                            <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                         </xsl:attribute>
                     </xsl:if>
                     <span class="fade">&#124;</span><xsl:apply-templates/>

@@ -5,6 +5,28 @@ const paragraph_block_1 = document.querySelectorAll<HTMLElement>(".paragraph-blo
 
 [...paragraph_block_1].forEach((el) => {
 
+    const correspList = el.dataset.link?.split(" ");
+
+    correspList?.forEach((cor) => {
+        const cor_class = cor.replace("#", "");
+        const cor_target = document.querySelector(`.fw.${cor_class}`);
+        const targetMarker = document.querySelectorAll<HTMLElement>(`[data-link~="#${cor_class}"]`);
+        cor_target!.addEventListener("mouseover", (e) => {
+            e.preventDefault();
+            cor_target!.classList.toggle("connection-color");
+            targetMarker.forEach((marker) => {
+                marker.classList.toggle("connection-color");
+            });
+        });
+        cor_target!.addEventListener("mouseout", (e) => {
+            e.preventDefault();
+            cor_target!.classList.toggle("connection-color");
+            targetMarker.forEach((marker) => {
+                marker.classList.toggle("connection-color");
+            });
+        });
+    });
+
     el.addEventListener("mouseover", (e) => {
 
         e.preventDefault();
@@ -59,6 +81,32 @@ const list_layers = document.querySelectorAll<HTMLElement>(".list_more_text_laye
 
 list_layers.forEach((li) => {
 
+    const correspList = li.dataset.link?.split(" ");
+
+    correspList?.forEach((cor) => {
+        const cor_class = cor.replace("#", "");
+        const cor_target = document.getElementsByClassName(cor_class);
+        const targetMarker = document.querySelectorAll<HTMLElement>(`[data-link~="#${cor_class}"]`);
+        [...cor_target].forEach(target => {
+            target.addEventListener("mouseover", (e) => {
+                e.preventDefault();
+                target.classList.toggle("connection-color");
+                targetMarker.forEach((marker) => {
+                    marker.classList.toggle("connection-color");
+                });
+            });
+        });
+        [...cor_target].forEach(target => {
+            target.addEventListener("mouseout", (e) => {
+                e.preventDefault();
+                target.classList.toggle("connection-color");
+                targetMarker.forEach((marker) => {
+                    marker.classList.toggle("connection-color");
+                });
+            });
+        });
+    });
+
     li.addEventListener("mouseover", (e) => {
 
         e.preventDefault();
@@ -96,6 +144,32 @@ list_layers.forEach((li) => {
 const list_layers_line = document.querySelectorAll<HTMLElement>(".list_more_text_layers_line");
 
 list_layers_line.forEach((li) => {
+
+    const correspList = li.dataset.link?.split(" ");
+
+    correspList?.forEach((cor) => {
+        const cor_class = cor.replace("#", "");
+        const cor_target = document.querySelectorAll(`.${cor_class} canvas`);
+        const targetMarker = document.querySelectorAll<HTMLElement>(`[data-link~="#${cor_class}"]`);
+        [...cor_target].forEach(target => {
+            target.addEventListener("mouseover", (e) => {
+                e.preventDefault();
+                target.classList.toggle("connection-color");
+                targetMarker.forEach((marker) => {
+                    marker.classList.toggle("connection-color");
+                });
+            });
+        });
+        [...cor_target].forEach(target => {
+            target.addEventListener("mouseout", (e) => {
+                e.preventDefault();
+                target.classList.toggle("connection-color");
+                targetMarker.forEach((marker) => {
+                    marker.classList.toggle("connection-color");
+                });
+            });
+        });
+    });
 
     li.addEventListener("mouseover", (e) => {
 
@@ -232,6 +306,28 @@ const tpq = document.querySelectorAll<HTMLElement>(".tpq");
 
 tpq.forEach((p) => {
 
+    const correspList = p.dataset.link?.split(" ");
+
+    correspList?.forEach((cor) => {
+        const cor_class = cor.replace("#", "");
+        const cor_target = document.getElementById(cor_class);
+        const targetMarker = document.querySelectorAll<HTMLElement>(`[data-link~="${cor_class}"]`);
+        cor_target!.addEventListener("mouseover", (e) => {
+            e.preventDefault();
+            cor_target!.classList.toggle("connection-color");
+            targetMarker.forEach((marker) => {
+                marker.classList.toggle("connection-color");
+            });
+        });
+        cor_target!.addEventListener("mouseout", (e) => {
+            e.preventDefault();
+            cor_target!.classList.toggle("connection-color");
+            targetMarker.forEach((marker) => {
+                marker.classList.toggle("connection-color");
+            });
+        });
+    });
+
     p.addEventListener("mouseover", (e) => {
 
         e.preventDefault();
@@ -286,6 +382,28 @@ tpq.forEach((p) => {
 const delQP = document.querySelectorAll<HTMLElement>(".delQP");
 
 delQP.forEach((p) => {
+
+    const correspList = p.dataset.link?.split(" ");
+
+    correspList?.forEach((cor) => {
+        const cor_class = cor.replace("#", "");
+        const cor_target = document.getElementById(cor_class);
+        const targetMarker = document.querySelectorAll<HTMLElement>(`[data-link~="#${cor_class}"]`);
+        cor_target!.addEventListener("mouseover", (e) => {
+            e.preventDefault();
+            cor_target!.classList.toggle("connection-color");
+            targetMarker.forEach((marker) => {
+                marker.classList.toggle("connection-color");
+            });
+        });
+        cor_target!!.addEventListener("mouseout", (e) => {
+            e.preventDefault();
+            cor_target!.classList.toggle("connection-color");
+            targetMarker.forEach((marker) => {
+                marker.classList.toggle("connection-color");
+            });
+        });
+    });
 
     p.addEventListener("mouseover", (e) => {
         e.preventDefault();

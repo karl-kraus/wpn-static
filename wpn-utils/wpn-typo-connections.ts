@@ -9,13 +9,15 @@ const connectElements = (query: string, container: boolean) => {
     [...elements].map((el) => {
 
         let targetId = el.id;
-        const targetClassList = el.classList;
+        // const targetClassList = el.classList;
         
         if (container) {
             targetId = el.id.replace("container-", "");
         } else {
             targetId = "container-" + el.id;
         }
+
+        const targetMarker = document.querySelectorAll<HTMLElement>(`[data-target~="target-${el.id}"]`);
 
         if (targetId.length > 0) {
 
@@ -89,6 +91,12 @@ const connectElements = (query: string, container: boolean) => {
                 } else {
                     spanToElement.map(span => span?.classList.add(color));
                 }
+
+                if (targetMarker.length > 0) {
+                    targetMarker.forEach((marker) => {
+                        marker.classList.add(color);
+                    });
+                }
                 
             };
 
@@ -104,6 +112,13 @@ const connectElements = (query: string, container: boolean) => {
                 } else {
                     spanToElement.map(span => span?.classList.remove(color));
                 }
+
+                if (targetMarker.length > 0) {
+                    targetMarker.forEach((marker) => {
+                        marker.classList.remove(color);
+                    });
+                }
+                
 
             };
         }

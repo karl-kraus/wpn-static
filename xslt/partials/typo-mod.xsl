@@ -124,7 +124,7 @@
 						<span class="mod line entity {replace(@change, '#', '')}"  id="{@xml:id}">&#124;</span><xsl:apply-templates/>
 					</xsl:when>
 					<xsl:otherwise>
-						<span class="mod border entity {replace(@change, '#', '')}"  id="{@xml:id}">
+						<span class="mod connect border entity {replace(@change, '#', '')}"  id="{@xml:id}">
 							<xsl:apply-templates/>
 						</span>
 					</xsl:otherwise>

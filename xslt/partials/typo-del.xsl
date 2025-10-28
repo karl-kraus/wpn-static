@@ -92,7 +92,7 @@
     <xsl:template match="tei:del[parent::tei:subst[parent::tei:restore]]">
         <xsl:choose>
             <xsl:when test="parent::tei:subst[parent::tei:restore[not(@rend='marginOnly')]]">
-               <span class="del text-decoration-underline-dotted" id="{@xml:id}">
+               <span class="del connect text-decoration-underline-dotted" id="{@xml:id}">
                     <del><xsl:apply-templates/></del>
                 </span>
             </xsl:when>

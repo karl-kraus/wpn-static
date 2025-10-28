@@ -16,7 +16,7 @@
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="seg transposition border {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="seg connect transposition border {replace(@change, '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -25,11 +25,13 @@
     </xsl:template>
     <xsl:template match="tei:seg[@type='relocation']">
         <span id="{if(not(@rend='line') and not(@rend='arrow'))then(@xml:id)else(concat('parent-', @xml:id))}">
-            <xsl:if test="@rend='border'">
-                <xsl:attribute name="class">
-                    <xsl:value-of select="concat('seg border border-1 border-secondary-subtle', replace(@change, '#', ' '))"/>
+            <xsl:attribute name="class">
+                    <xsl:text>seg connect</xsl:text>
+                    <xsl:if test="@rend='border'">
+                        <xsl:text> border border-1 border-secondary-subtle</xsl:text>
+                    </xsl:if>
+                    <xsl:value-of select="replace(@change, '#', ' ')"/>
                 </xsl:attribute>
-            </xsl:if>
             <xsl:if test="@rend='line' and not((@prev, @continued))">
                 <xsl:choose>
                     <xsl:when test="parent::tei:restore">
