@@ -9,14 +9,14 @@ const paragraph_block_1 = document.querySelectorAll<HTMLElement>(".paragraph-blo
 
         e.preventDefault();
 
-        el.classList.toggle("bg-danger-subtle");
+        el.classList.toggle("connection-color");
 
         const corresp = el.dataset.link?.split(" ");
 
         corresp?.forEach((cor) => {
             const cor_class = cor.replace("#", "");
             const target = document.querySelectorAll<HTMLElement>(`.fw.${cor_class}`);
-            [...target].map(target => target.classList.toggle("bg-danger-subtle"));
+            [...target].map(target => target.classList.toggle("connection-color"));
         });
 
     });
@@ -25,14 +25,14 @@ const paragraph_block_1 = document.querySelectorAll<HTMLElement>(".paragraph-blo
 
         e.preventDefault();
     
-        el.classList.toggle("bg-danger-subtle");
+        el.classList.toggle("connection-color");
     
         const corresp = el.dataset.link?.split(" ");
     
         corresp?.forEach((cor) => {
             const cor_class = cor.replace("#", "");
             const target = document.querySelectorAll<HTMLElement>(`.fw.${cor_class}`);
-            [...target].map(target => target.classList.toggle("bg-danger-subtle"));
+            [...target].map(target => target.classList.toggle("connection-color"));
         });
     
     });
@@ -63,14 +63,14 @@ list_layers.forEach((li) => {
 
         e.preventDefault();
 
-        li.classList.toggle("bg-danger-subtle");
+        li.classList.toggle("connection-color");
 
         const corresp = li.dataset.link?.split(" ");
 
         corresp?.forEach((cor) => {
             const cor_class = cor.replace("#", "");
             const target = document.querySelectorAll<HTMLElement>(`.${cor_class}`);
-            [...target].map(target => target.classList.toggle("bg-danger-subtle"));
+            [...target].map(target => target.classList.toggle("connection-color"));
         });
 
     });
@@ -79,14 +79,14 @@ list_layers.forEach((li) => {
 
         e.preventDefault();
 
-        li.classList.toggle("bg-danger-subtle");
+        li.classList.toggle("connection-color");
 
         const corresp = li.dataset.link?.split(" ");
 
         corresp?.forEach((cor) => {
             const cor_class = cor.replace("#", "");
             const target = document.querySelectorAll<HTMLElement>(`.${cor_class}`);
-            [...target].map(target => target.classList.toggle("bg-danger-subtle"));
+            [...target].map(target => target.classList.toggle("connection-color"));
         });
 
     });
@@ -101,7 +101,7 @@ list_layers_line.forEach((li) => {
 
         e.preventDefault();
 
-        li.classList.toggle("bg-danger-subtle");
+        li.classList.toggle("connection-color");
 
         const corresp = li.dataset.link?.split(" ");
         const unique: Array<string> = [];
@@ -151,7 +151,7 @@ list_layers_line.forEach((li) => {
 
         e.preventDefault();
 
-        li.classList.toggle("bg-danger-subtle");
+        li.classList.toggle("connection-color");
 
         const corresp = li.dataset.link?.split(" ");
         const unique: Array<string> = [];
@@ -174,12 +174,12 @@ list_layers_line.forEach((li) => {
 
                     if (target) {
                         const targetElement = document.getElementById(target);
-                        targetElement?.classList.remove(...["border", "border-danger-subtle", "border-2", "border-dotted"]);
+                        targetElement?.classList.remove("connection-color");
                     }
 
                     if (span) {
                         const spanElement = document.getElementById(span);
-                        spanElement?.classList.remove(...["border", "border-danger-subtle", "border-2", "border-dotted"]);
+                        spanElement?.classList.remove("connection-color");
                     }
 
                     if (ctx) {
@@ -236,7 +236,7 @@ tpq.forEach((p) => {
 
         e.preventDefault();
 
-        p.classList.toggle("bg-danger-subtle");
+        p.classList.toggle("connection-color");
 
         const corresp = p.dataset.link?.split(" ");
 
@@ -245,10 +245,10 @@ tpq.forEach((p) => {
             const cor_class = cor.replace("#", "");
 
             const target = document.getElementById(cor_class);
-            target?.classList.toggle("bg-danger-subtle");
+            target?.classList.toggle("connection-color");
 
             target?.querySelectorAll(".d-block").forEach((el) => {
-                el.classList.toggle("bg-danger-subtle");
+                el.classList.toggle("connection-color");
             });
 
         });
@@ -259,7 +259,7 @@ tpq.forEach((p) => {
 
         e.preventDefault();
 
-        p.classList.toggle("bg-danger-subtle");
+        p.classList.toggle("connection-color");
 
         const corresp = p.dataset.link?.split(" ");
 
@@ -268,10 +268,10 @@ tpq.forEach((p) => {
             const cor_class = cor.replace("#", "");
 
             const target = document.getElementById(cor_class);
-            target?.classList.toggle("bg-danger-subtle");
+            target?.classList.toggle("connection-color");
 
             target?.querySelectorAll(".d-block").forEach((el) => {
-                el.classList.toggle("bg-danger-subtle");
+                el.classList.toggle("connection-color");
             });
 
         });
@@ -290,28 +290,28 @@ delQP.forEach((p) => {
     p.addEventListener("mouseover", (e) => {
         e.preventDefault();
 
-        p.classList.toggle("bg-danger-subtle");
+        p.classList.toggle("connection-color");
 
         const corresp = p.dataset.link?.split(" ");
 
         corresp?.forEach((cor) => {
             const cor_class = cor.replace("#", "");
             const target = document.getElementById(cor_class);
-            target?.classList.toggle("bg-danger-subtle");
+            target?.classList.toggle("connection-color");
         });
     });
 
     p.addEventListener("mouseout", (e) => {
         e.preventDefault();
 
-        p.classList.toggle("bg-danger-subtle");
+        p.classList.toggle("connection-color");
 
         const corresp = p.dataset.link?.split(" ");
 
         corresp?.forEach((cor) => {
             const cor_class = cor.replace("#", "");
             const target = document.getElementById(cor_class);
-            target?.classList.toggle("bg-danger-subtle");
+            target?.classList.toggle("connection-color");
         });
     });
 

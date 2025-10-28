@@ -19,8 +19,8 @@ const connectElements = (query: string, container: boolean) => {
 
         if (targetId.length > 0) {
 
-            const color = [...targetClassList].includes("metamark") ? "bg-danger-subtle" : [...targetClassList].includes("add") ? "bg-warning-subtle" : "bg-secondary-subtle";
-            const border = [...targetClassList].includes("metamark") ? "border-danger-subtle" : [...targetClassList].includes("add") ? "border-warning-subtle" : "border-secondary-subtle";
+            const color = "connection-color";
+            // const border = "connection-color";
             
             const target = document.getElementById(targetId);
 
@@ -71,7 +71,7 @@ const connectElements = (query: string, container: boolean) => {
                 console.log(childS, "no line");
 
                 spanToElement
-                .map(span => span?.classList.add(...["border", border, "border-2", "border-dotted"]));
+                .map(span => span?.classList.add(color));
 
             }
 
@@ -81,13 +81,13 @@ const connectElements = (query: string, container: boolean) => {
 
                 // console.log(`Connecting ${el.id} to ${targetId}`);
 
-                target?.classList.add(...["border", border, "border-2", "border-dotted"]);
+                target?.classList.add(color);
                 el.classList.add(color);
                 
                 if (!childS) {
-                    targetElement.map(target => target?.classList.add(...["border", border, "border-2", "border-dotted"]));
+                    targetElement.map(target => target?.classList.add(color));
                 } else {
-                    spanToElement.map(span => span?.classList.add(...["border", border, "border-2", "border-dotted"]));
+                    spanToElement.map(span => span?.classList.add(color));
                 }
                 
             };
@@ -96,13 +96,13 @@ const connectElements = (query: string, container: boolean) => {
 
                 e.preventDefault();
 
-                target?.classList.remove(...["border", border, "border-2", "border-dotted"]);
+                target?.classList.remove(color);
                 el.classList.remove(color);
 
                 if (!childS) {
-                    targetElement.map(target => target?.classList.remove(...["border", border, "border-2", "border-dotted"]));
+                    targetElement.map(target => target?.classList.remove(color));
                 } else {
-                    spanToElement.map(span => span?.classList.remove(...["border", border, "border-2", "border-dotted"]));
+                    spanToElement.map(span => span?.classList.remove(color));
                 }
 
             };
