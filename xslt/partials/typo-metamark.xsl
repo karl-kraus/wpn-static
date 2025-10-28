@@ -295,6 +295,11 @@
                         <xsl:when test="@rend='lineSpace'">
                             <span class="metamark connect linespace entity {replace(@change, '#', '')}" id="{@xml:id}"></span>
                         </xsl:when>
+                        <xsl:when test="@rend='inlineRight'">
+                            <span class="metamark {@rend} {@style} {replace(@change, '#', '')}" id="{@xml:id}">
+                                <xsl:apply-templates/>
+                            </span>
+                        </xsl:when>
                         <xsl:when test="contains(@rend, 'Only')">
                             <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}"/>
                         </xsl:when>
@@ -306,7 +311,7 @@
         </xsl:choose>
      </xsl:template>
      <!-- margin container elements -->
-     <xsl:template match="tei:metamark[@function='insertion']" mode="render">
+     <xsl:template match="tei:metamark[@function='insertion' and not(@rend='inlineRight')]" mode="render">
         <div id="container-{@xml:id}" class="d-flex metamark connect w-100 position-relative {if(@target)then('target')else()} {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div class="w-100">
                 <span class="{@rend}{if(parent::tei:restore)then(replace((parent::tei:restore/@change)[1], '#', ' restore '))else()}">
