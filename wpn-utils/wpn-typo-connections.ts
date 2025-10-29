@@ -93,6 +93,11 @@ const connectElements = (query: string, container: boolean) => {
                 if (targetMarker.length > 0) {
                     targetMarker.forEach((marker) => {
                         marker.classList.add(color);
+                        const parentId = marker.parentElement?.parentElement?.id.replace("container-", "");
+                        if (parentId) {
+                            const parentInlineElement = document.getElementById(parentId);
+                            parentInlineElement?.classList.add(color);
+                        }
                     });
                 }
                 
@@ -114,6 +119,11 @@ const connectElements = (query: string, container: boolean) => {
                 if (targetMarker.length > 0) {
                     targetMarker.forEach((marker) => {
                         marker.classList.remove(color);
+                        const parentId = marker.parentElement?.parentElement?.id.replace("container-", "");
+                        if (parentId) {
+                            const parentInlineElement = document.getElementById(parentId);
+                            parentInlineElement?.classList.remove(color);
+                        }
                     });
                 }
                 
