@@ -27,8 +27,21 @@ const connectElements = (query: string, container: boolean) => {
             const childT = findChild(el, "target");
             const childS = findChild(el, "spanto");
 
+            let childT3: HTMLElement | boolean = false;
+            let childS3: HTMLElement | boolean = false;
+            let spanToElement3: (HTMLElement | null)[] = [];
+            let targetElement3: (HTMLElement | null)[] = [];
+
+            if (target) {
+                console.log("targetid: ", targetId, "targetel: ", target, "element: ", el, "marker: ", targetMarker);
+                childT3 = findChild(target, "target");
+                childS3 = findChild(target, "spanto");
+                spanToElement3 = checkForConnections(childS3, "spanto");
+                targetElement3 = checkForConnections(childT3, "target");
+            }
+
             const spanToElement = checkForConnections(childS, "spanto");
-            const targetElement = checkForConnections(childT, "target");
+            const targetElement = checkForConnections(childT, "target");            
 
             // console.log(`Connecting ${anchorId} to ${anchor_target_id ? anchor_target_id : "null"}`);
             // anchor !== null ? console.log(anchor_target) : "";
@@ -84,10 +97,18 @@ const connectElements = (query: string, container: boolean) => {
                 target?.classList.add(color);
                 el.classList.add(color);
                 
-                if (!childS) {
+                if (childT) {
                     targetElement.map(target => target?.classList.add(color));
-                } else {
+                }
+                if (childS) {
                     spanToElement.map(span => span?.classList.add(color));
+                }
+
+                if (childT3) {
+                    targetElement3.map(target => target?.classList.add(color));
+                }
+                if (childS3) {
+                    spanToElement3.map(span => span?.classList.add(color));
                 }
 
                 if (targetMarker.length > 0) {
@@ -110,10 +131,18 @@ const connectElements = (query: string, container: boolean) => {
                 target?.classList.remove(color);
                 el.classList.remove(color);
 
-                if (!childS) {
+                if (childT) {
                     targetElement.map(target => target?.classList.remove(color));
-                } else {
+                }
+                if (childS) {
                     spanToElement.map(span => span?.classList.remove(color));
+                }
+
+                if (childT3) {
+                    targetElement3.map(target => target?.classList.remove(color));
+                }
+                if (childS3) {
+                    spanToElement3.map(span => span?.classList.remove(color));
                 }
 
                 if (targetMarker.length > 0) {
