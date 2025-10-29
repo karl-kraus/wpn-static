@@ -160,7 +160,7 @@
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(ancestor::tei:subst[@rend])then(ancestor::tei:subst/@rend)else(@rend)"/>
         <xsl:variable name="containerID" select="if(parent::tei:subst)then(preceding-sibling::tei:del[1]/@xml:id)else if(ancestor::tei:subst)then(preceding-sibling::tei:del[1])else(@xml:id)"/>
         <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
-            <div id="container-{$containerID}" class="add connect w-100 {replace($change[1],'#','')}">
+            <div id="container-{if(string-length($containerID) gt 0)then($containerID)else(@xml:id)}" class="add connect w-100 {replace($change[1],'#','')}">
                 <div class="w-100">
                     <xsl:apply-templates select="." mode="manual"/>
                 </div>

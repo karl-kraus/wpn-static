@@ -3,6 +3,8 @@
 
 const connectElements = (query: string, container: boolean) => {
 
+    const color = "connection-color";
+    // const border = "connection-color";
     const elements = document.querySelectorAll<HTMLElement>(query);
     let count = 0;
 
@@ -17,14 +19,10 @@ const connectElements = (query: string, container: boolean) => {
             targetId = "container-" + el.id;
         }
 
+        const target = document.getElementById(targetId);
         const targetMarker = document.querySelectorAll<HTMLElement>(`[data-target~="target-${el.id}"]`);
 
-        if (targetId.length > 0) {
-
-            const color = "connection-color";
-            // const border = "connection-color";
-            
-            const target = document.getElementById(targetId);
+        if (target || targetMarker.length > 0) {
 
             const childT = findChild(el, "target");
             const childS = findChild(el, "spanto");
