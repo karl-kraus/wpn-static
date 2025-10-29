@@ -242,6 +242,13 @@ html[data-page="notes"] .container {
   min-height:calc(100vh - $edition-view-header-height)
 }
 
+.pagination-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 0;
+  border: none;
+}
+
 #edition-view .entity {
   pointer-events: none;
 }
@@ -2630,4 +2637,19 @@ body.modal-open, body.modal-open main {
   color: $wpn-fackel !important;
   text-shadow: $wpn-fackel 1px 0 10px !important;
   text-decoration-color: $wpn-fackel !important;
+}
+
+/** pagination **/
+.dropdown-toggle::after {
+  border: solid white;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 4px;
+  margin-left:1rem;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.hidden {
+  display: none !important;
 }

@@ -117,6 +117,12 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'topographical.html'"/>
+                                                        <xsl:with-param name="label" select="'Topographische Umschrift'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'register.html'"/>
                                                         <xsl:with-param name="label" select="'Register'"/>
                                                     </xsl:call-template>

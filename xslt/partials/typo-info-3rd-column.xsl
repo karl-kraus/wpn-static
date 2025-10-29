@@ -8,7 +8,84 @@
     <xsl:template name="info-3rd-column">
         <xsl:variable name="doc_type" select="//tei:pb/@type" />
         
-        <div id="infocolumn" class="bg-white px-0 border-start border-light-grey">
+        <div id="infocolumn" class="bg-white px-0 border border-light-grey">
+            <div id="infocontent-header" class="row flex-row text-center m-0">
+                <div class="col px-1 py-3 border-end border-bottom border-light-grey bg-primary">
+                    <div class="dropdown ff-ubuntu">
+                        <xsl:variable name="currentPage" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
+                        <xsl:variable name="currentPageString" select="if(contains($currentPage, '_') ) 
+                                                                        then(xs:integer(replace( tokenize( $currentPage, '_' )[1], 'F', '' ) )||'/'||tokenize( $currentPage, '_' )[2] ) 
+                                                                        else(xs:integer(replace($currentPage, 'F', '')))"/>
+                        <!-- <xsl:if test="string-length($prev) > 0">
+                            <a href="{replace($prev, '.xml', '.html')}" title="zu seite {replace($prev, '.xml', '.html')} gehen">
+                                <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
+                            </a>
+                        </xsl:if> -->
+                        <button id="dropdownMenuButton1" class="btn btn-secondary dropdown-toggle text-white fs-9_38 border-0 m-0" type="button">
+                            <xsl:value-of select="'Seite: '||$currentPageString"/>
+                        </button>
+                        <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>
+                        <label class="text-white fs-7 fw-light" for="dropdownMenuButton1">
+                            <xsl:text>von </xsl:text><xsl:value-of select="count($pages[not(.//tei:pb[@type='nonWitness'])])"/>
+                        </label>
+                        <!-- <ul class="dropdown-menu z-3 rounded-0 overflow-scroll" style="height: 200px;">
+                            <xsl:for-each select="$pages">
+                                <xsl:sort select=".//tei:pb/@xml:id[1]"/>
+                                <xsl:variable name="page" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
+                                <xsl:variable name="pageString" select="if(contains($page, '_'))then(xs:integer(replace(tokenize($page, '_')[1], 'F', ''))||'/'||tokenize($page, '_')[2])else(xs:integer(replace($page, 'F', '')))"/>
+                                <xsl:if test="not(.//tei:pb[@type='nonWitness'])">
+                                <li>
+                                    <a class="dropdown-item fs-9_38 py-0" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}">
+                                        <xsl:value-of select="'Seite: '||$pageString"/>
+                                    </a>
+                                </li>
+                                </xsl:if>
+                            </xsl:for-each>
+                        </ul> -->
+                        
+                        <!-- <xsl:if test="string-length($next) > 0">
+                            <a href="{replace($next, '.xml', '.html')}" title="zu seite {replace($next, '.xml', '.html')} gehen">
+                                <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
+                            </a>
+                        </xsl:if> -->
+                    </div>
+                </div>
+                <div class="col px-1 py-3 border-end border-bottom border-light-grey">
+                    <img src="images/view-stacked.svg" alt="Synoptic View: Facsimile, Text Columns and Info Column" class="view-icon"/>
+                </div>
+                <div class="col px-1 py-3 border-end border-bottom border-light-grey">
+                    <img src="images/view-stacked.svg" alt="Synoptic View: Text and Info Column" class="view-icon"/>
+                </div>
+                <div class="col px-1 py-3 border-end border-bottom border-light-grey">
+                    <img src="images/view-stacked.svg" alt="Synoptic View: Facsimile and Info Column" class="view-icon"/>
+                </div>
+                <div class="col px-1 py-3 border-end border-bottom border-light-grey">
+                    <img src="images/view-stacked.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"/>
+                </div>
+            </div>
+            <div id="pagination-pb" class="hidden bg-primary text-white">
+                <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>
+                <div class="pagination-grid w-100 h-100 text-center m-0 p-2">
+                    <xsl:for-each select="$pages">
+                        <xsl:sort select=".//tei:pb/@xml:id[1]"/>
+                        <xsl:variable name="page" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
+                        <xsl:variable name="pageString" select="if(contains($page, '_'))then(xs:integer(replace(tokenize($page, '_')[1], 'F', ''))||'/'||tokenize($page, '_')[2])else(xs:integer(replace($page, 'F', '')))"/>
+                        <xsl:if test="not(.//tei:pb[@type='nonWitness'])">
+                            <a class="fs-9_38 text-white text-decoration-none d-block px-0 my-1 text-center hover:bg-white hover:text-primary" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}">
+                                <xsl:value-of select="$pageString"/>
+                            </a>
+                        </xsl:if>
+                    </xsl:for-each>
+                </div>
+            </div>
+            <script>
+                document.getElementById('dropdownMenuButton1').addEventListener('click', function() {
+                    const paginationPb = document.getElementById('pagination-pb');
+                    paginationPb.classList.toggle('hidden');
+                    const infocontentPb = document.getElementById('infocontent-pb');
+                    infocontentPb.classList.toggle('hidden');
+                });
+            </script>
             <div id="infocontent-pb">
                 <xsl:variable name="creation" select="//tei:creation"/>
                 <xsl:for-each select="//tei:TEI/tei:facsimile[@corresp='#DWkonJer']/tei:surface">

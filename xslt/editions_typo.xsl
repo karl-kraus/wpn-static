@@ -87,45 +87,6 @@
                 </xsl:call-template>
                 <main class="flex-shrink-0 mt-18">
                     <div class="container-fluid px-0">
-                        <div class="d-flex flex-column mb-4">
-                            <div class="mx-auto">
-                                <div class="p-0 d-flex flex-column align-items-center">
-                                    <div class="dropdown ff-ubuntu">
-                                        <xsl:variable name="currentPage" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
-                                        <xsl:variable name="currentPageString" select="if(contains($currentPage, '_') ) 
-                                                                                       then(xs:integer(replace( tokenize( $currentPage, '_' )[1], 'F', '' ) )||'/'||tokenize( $currentPage, '_' )[2] ) 
-                                                                                       else(xs:integer(replace($currentPage, 'F', '')))"/>
-                                        <xsl:if test="string-length($prev) > 0">
-                                            <a href="{replace($prev, '.xml', '.html')}" title="zu seite {replace($prev, '.xml', '.html')} gehen">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
-                                            </a>
-                                        </xsl:if>
-                                        <button class="btn btn-secondary dropdown-toggle fs-9_38 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <xsl:value-of select="'Seite: '||$currentPageString"/>
-                                        </button>
-                                        <ul class="dropdown-menu z-3 rounded-0 overflow-scroll" style="height: 400px;">
-                                            <xsl:for-each select="collection('../data/editions?select=idPb*.xml')">
-                                                <xsl:sort select=".//tei:pb/@xml:id[1]"/>
-                                                <xsl:variable name="page" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
-                                                <xsl:variable name="pageString" select="if(contains($page, '_'))then(xs:integer(replace(tokenize($page, '_')[1], 'F', ''))||'/'||tokenize($page, '_')[2])else(xs:integer(replace($page, 'F', '')))"/>
-                                                <xsl:if test="not(.//tei:pb[@type='nonWitness'])">
-                                                <li>
-                                                    <a class="dropdown-item fs-9_38 py-0" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}">
-                                                        <xsl:value-of select="'Seite: '||$pageString"/>
-                                                    </a>
-                                                </li>
-                                                </xsl:if>
-                                            </xsl:for-each>
-                                        </ul>
-                                        <xsl:if test="string-length($next) > 0">
-                                            <a href="{replace($next, '.xml', '.html')}" title="zu seite {replace($next, '.xml', '.html')} gehen">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
-                                            </a>
-                                        </xsl:if>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <wpn-page-view annotation-selectors=".entity" id="sub_grid_pb">
                             <div id="facscolumn" class="mx-auto ff-crimson-text">
                                 <div id="facscontent" wpn-data="{$facsimile}" wpn-type="{.//tei:pb[1]/@type}">
