@@ -63,7 +63,7 @@
                     <img src="images/view-stacked.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"/>
                 </div>
             </div>
-            <div id="pagination-pb" class="hidden bg-primary text-white">
+            <div id="pagination-pb" class="visually-hidden bg-primary text-white">
                 <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>
                 <div class="pagination-grid w-100 h-100 text-center m-0 p-2">
                     <xsl:for-each select="$pages">
@@ -81,9 +81,9 @@
             <script>
                 document.getElementById('dropdownMenuButton1').addEventListener('click', function() {
                     const paginationPb = document.getElementById('pagination-pb');
-                    paginationPb.classList.toggle('hidden');
+                    paginationPb.classList.toggle('visually-hidden');
                     const infocontentPb = document.getElementById('infocontent-pb');
-                    infocontentPb.classList.toggle('hidden');
+                    infocontentPb.classList.toggle('visually-hidden');
                 });
             </script>
             <div id="infocontent-pb">
