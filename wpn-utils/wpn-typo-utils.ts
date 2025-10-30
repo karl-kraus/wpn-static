@@ -17,6 +17,7 @@ const textcolumn = document.getElementById('textcolumn-pb') as HTMLDivElement | 
 const facscolumn = document.getElementById('facscolumn') as HTMLDivElement | null;
 const prevPageLink = document.getElementById('prevPageLink') as HTMLAnchorElement | null;
 const nextPageLink = document.getElementById('nextPageLink') as HTMLAnchorElement | null;
+const pagination = document.querySelectorAll('#pagination-pb div a') as NodeListOf<HTMLAnchorElement> | null;
 
 function initializeView1() {
     facscolumnBtn!.addEventListener('click', function() {
@@ -38,8 +39,7 @@ function initializeView1() {
         myUrl.search = params.toString();
         window.history.pushState({}, '', myUrl);
 
-        prevPageLink!.href = prevPageLink!.href.replace(/view=.+/, 'view=facs-only');
-        nextPageLink!.href = nextPageLink!.href.replace(/view=.+/, 'view=facs-only');
+        updateLinksView('facs-only');
     });
 }
 
@@ -63,8 +63,7 @@ function initializeView2() {
         myUrl.search = params.toString();
         window.history.pushState({}, '', myUrl);
 
-        prevPageLink!.href = prevPageLink!.href.replace(/view=.+/, 'view=text-only');
-        nextPageLink!.href = nextPageLink!.href.replace(/view=.+/, 'view=text-only');
+        updateLinksView('text-only');
     });
 }
 
@@ -90,8 +89,7 @@ function initializeView3() {
         myUrl.search = params.toString();
         window.history.pushState({}, '', myUrl);
 
-        prevPageLink!.href = prevPageLink!.href.replace(/view=.+/, 'view=all-columns');
-        nextPageLink!.href = nextPageLink!.href.replace(/view=.+/, 'view=all-columns');
+        updateLinksView('all-columns');
     });
 }
 
@@ -116,10 +114,21 @@ function initializeView4() {
         params.set('view', 'vertical');
         myUrl.search = params.toString();
         window.history.pushState({}, '', myUrl);
-
-        prevPageLink!.href = prevPageLink!.href.replace(/view=.+/, 'view=vertical');
-        nextPageLink!.href = nextPageLink!.href.replace(/view=.+/, 'view=vertical');
+        updateLinksView('vertical');
     });
+}
+
+function updateLinksView(view: string) {
+
+    prevPageLink!.href = prevPageLink!.href.replace(/view=.+/, `view=${view}`);
+    nextPageLink!.href = nextPageLink!.href.replace(/view=.+/, `view=${view}`);
+
+    pagination!.forEach((link) => {
+
+        link.href = link.href.replace(/view=.+/, `view=${view}`);
+
+    });
+
 }
 
 // Initialize views basedon clicked button
@@ -134,26 +143,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (initialView === 'facs-only') {
 
         facscolumnBtn!.click();
-        prevPageLink!.href = prevPageLink!.href.replace(/view=.+/, 'view=facs-only');
-        nextPageLink!.href = nextPageLink!.href.replace(/view=.+/, 'view=facs-only');
+        updateLinksView('facs-only');
 
     } else if (initialView === 'text-only') {
 
         textcolumnBtn!.click();
-        prevPageLink!.href = prevPageLink!.href.replace(/view=.+/, 'view=text-only');
-        nextPageLink!.href = nextPageLink!.href.replace(/view=.+/, 'view=text-only');
+        updateLinksView('text-only');
 
     } else if (initialView === 'vertical') {
 
         allcolumnRowBtn!.click();
-        prevPageLink!.href = prevPageLink!.href.replace(/view=.+/, 'view=vertical');
-        nextPageLink!.href = nextPageLink!.href.replace(/view=.+/, 'view=vertical');
+        updateLinksView('vertical');
 
     } else if (initialView === 'all-columns' || !initialView) {
 
         allcolumnBtn!.click();
-        prevPageLink!.href = prevPageLink!.href.replace(/view=.+/, 'view=all-columns');
-        nextPageLink!.href = nextPageLink!.href.replace(/view=.+/, 'view=all-columns');
+        updateLinksView('all-columns');
 
     }
 });
