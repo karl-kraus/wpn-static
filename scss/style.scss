@@ -875,6 +875,9 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
   .grid-box-3 {
     grid-area: box3;
+    max-height: calc((100vh - $edition-view-header-height));
+    height: calc((100vh - $edition-view-header-height));
+    overflow-y: scroll;
   }
 }
 

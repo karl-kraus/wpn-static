@@ -108,13 +108,16 @@
                     <xsl:with-param name="include_scroll_script" select="false()"/>
                 </xsl:call-template>
                 <xsl:call-template name="scripts"/>
-                <script type="text/javascript">
+                <!-- <script type="text/javascript">
                     document.getElementById('dropdownMenuButton1').addEventListener('click', function() {
                         const paginationPb = document.getElementById('pagination-pb');
                         paginationPb.classList.toggle('visually-hidden');
                         const infocontentPb = document.getElementById('infocontent-pb');
                         infocontentPb.classList.toggle('visually-hidden');
                     });
+
+                    const url = new URL(window.location);
+                    const params = new URLSearchParams(url.search);
 
                     const allcolumnBtn = document.getElementById('allcolumnBtn');
                     const facscolumnBtn = document.getElementById('facscolumnBtn');
@@ -138,6 +141,10 @@
                         grid.classList.remove('sub_grid_pb_three');
                         grid.classList.remove('sub_grid_pb_vertical');
                         grid.classList.add('sub_grid_pb_two');
+
+                        params.set('view', 'facs-only');
+                        url.search = params.toString();
+                        window.history.pushState({}, '', url);
                     });
                     
                     textcolumnBtn.addEventListener('click', function() {
@@ -154,6 +161,10 @@
                         grid.classList.remove('sub_grid_pb_three');
                         grid.classList.remove('sub_grid_pb_vertical');
                         grid.classList.add('sub_grid_pb_two');
+
+                        params.set('view', 'text-only');
+                        url.search = params.toString();
+                        window.history.pushState({}, '', url);
                     });
 
                     allcolumnBtn.addEventListener('click', function() {
@@ -172,6 +183,10 @@
                         grid.classList.remove('sub_grid_pb_two');
                         grid.classList.remove('sub_grid_pb_vertical');
                         grid.classList.add('sub_grid_pb_three');
+
+                        params.set('view', 'all-columns');
+                        url.search = params.toString();
+                        window.history.pushState({}, '', url);
                     });
 
                     allcomlumnRowBtn.addEventListener('click', function() {
@@ -190,8 +205,12 @@
                         grid.classList.remove('sub_grid_pb_two');
                         grid.classList.remove('sub_grid_pb_three');
                         grid.classList.add('sub_grid_pb_vertical');
+
+                        params.set('view', 'vertical');
+                        url.search = params.toString();
+                        window.history.pushState({}, '', url);
                     });
-                </script>
+                </script> -->
             </body>
         </html>
     </xsl:template>
