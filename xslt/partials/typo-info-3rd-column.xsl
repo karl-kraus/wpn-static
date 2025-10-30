@@ -10,17 +10,12 @@
         
         <div id="infocolumn" class="bg-white px-0 border border-light-grey">
             <div id="infocontent-header" class="row flex-row text-center m-0">
-                <div class="col px-1 py-3 border-end border-bottom border-light-grey bg-primary">
+                <div class="col px-1 py-1 border-end border-bottom border-light-grey bg-primary">
                     <div class="dropdown ff-ubuntu">
                         <xsl:variable name="currentPage" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
                         <xsl:variable name="currentPageString" select="if(contains($currentPage, '_') ) 
                                                                         then(xs:integer(replace( tokenize( $currentPage, '_' )[1], 'F', '' ) )||'/'||tokenize( $currentPage, '_' )[2] ) 
                                                                         else(xs:integer(replace($currentPage, 'F', '')))"/>
-                        <!-- <xsl:if test="string-length($prev) > 0">
-                            <a href="{replace($prev, '.xml', '.html')}" title="zu seite {replace($prev, '.xml', '.html')} gehen">
-                                <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
-                            </a>
-                        </xsl:if> -->
                         <button id="dropdownMenuButton1" class="btn btn-secondary dropdown-toggle text-white fs-9_38 border-0 m-0" type="button">
                             <xsl:value-of select="'Seite: '||$currentPageString"/>
                         </button>
@@ -28,26 +23,17 @@
                         <label class="text-white fs-7 fw-light" for="dropdownMenuButton1">
                             <xsl:text>von </xsl:text><xsl:value-of select="count($pages[not(.//tei:pb[@type='nonWitness'])])"/>
                         </label>
-                        <!-- <ul class="dropdown-menu z-3 rounded-0 overflow-scroll" style="height: 200px;">
-                            <xsl:for-each select="$pages">
-                                <xsl:sort select=".//tei:pb/@xml:id[1]"/>
-                                <xsl:variable name="page" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
-                                <xsl:variable name="pageString" select="if(contains($page, '_'))then(xs:integer(replace(tokenize($page, '_')[1], 'F', ''))||'/'||tokenize($page, '_')[2])else(xs:integer(replace($page, 'F', '')))"/>
-                                <xsl:if test="not(.//tei:pb[@type='nonWitness'])">
-                                <li>
-                                    <a class="dropdown-item fs-9_38 py-0" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}">
-                                        <xsl:value-of select="'Seite: '||$pageString"/>
-                                    </a>
-                                </li>
-                                </xsl:if>
-                            </xsl:for-each>
-                        </ul> -->
-                        
-                        <!-- <xsl:if test="string-length($next) > 0">
-                            <a href="{replace($next, '.xml', '.html')}" title="zu seite {replace($next, '.xml', '.html')} gehen">
+                        <br/>
+                        <xsl:if test="string-length($prev) > 0">
+                            <a style="stroke:white;fill:white;" href="{replace($prev, '.xml', '.html')}" title="zu seite {replace($prev, '.xml', '.html')} gehen">
+                                <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
+                            </a>
+                        </xsl:if>
+                        <xsl:if test="string-length($next) > 0">
+                            <a style="stroke:white;fill:white;" href="{replace($next, '.xml', '.html')}" title="zu seite {replace($next, '.xml', '.html')} gehen">
                                 <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
                             </a>
-                        </xsl:if> -->
+                        </xsl:if>
                     </div>
                 </div>
                 <div class="col px-1 py-3 border-end border-bottom border-light-grey">
@@ -65,27 +51,19 @@
             </div>
             <div id="pagination-pb" class="visually-hidden bg-primary text-white">
                 <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>
-                <div class="pagination-grid w-100 h-100 text-center m-0 p-2">
+                <div class="pagination-grid w-100 h-100 text-center m-0 p-1">
                     <xsl:for-each select="$pages">
                         <xsl:sort select=".//tei:pb/@xml:id[1]"/>
                         <xsl:variable name="page" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
                         <xsl:variable name="pageString" select="if(contains($page, '_'))then(xs:integer(replace(tokenize($page, '_')[1], 'F', ''))||'/'||tokenize($page, '_')[2])else(xs:integer(replace($page, 'F', '')))"/>
                         <xsl:if test="not(.//tei:pb[@type='nonWitness'])">
-                            <a class="fs-9_38 text-white text-decoration-none d-block px-0 my-1 text-center hover:bg-white hover:text-primary" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}">
+                            <a class="fs-9_38 text-white text-decoration-none d-block px-0 my-1 mx-0 py-0 text-center hover:bg-white hover:text-primary" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}">
                                 <xsl:value-of select="$pageString"/>
                             </a>
                         </xsl:if>
                     </xsl:for-each>
                 </div>
             </div>
-            <script>
-                document.getElementById('dropdownMenuButton1').addEventListener('click', function() {
-                    const paginationPb = document.getElementById('pagination-pb');
-                    paginationPb.classList.toggle('visually-hidden');
-                    const infocontentPb = document.getElementById('infocontent-pb');
-                    infocontentPb.classList.toggle('visually-hidden');
-                });
-            </script>
             <div id="infocontent-pb">
                 <xsl:variable name="creation" select="//tei:creation"/>
                 <xsl:for-each select="//tei:TEI/tei:facsimile[@corresp='#DWkonJer']/tei:surface">
@@ -111,7 +89,7 @@
                                 "/>
                         </p>
                         <xsl:for-each select="./tei:note[@type='pagination']">
-                            <p id="paragraph-block-{position()}" class="paragraph-block" data-link="{@corresp}">
+                            <p id="paragraph-block-{position()}" class="paragraph-block" data-link="{replace(@corresp, '#', '')}">
                                 <xsl:variable name="corresp">
                                     <xsl:value-of select="substring-after(@corresp, '#')"/>
                                 </xsl:variable>
@@ -155,7 +133,7 @@
 							</h5>-->
                             
                             <ul id="list_more_layers_btn" class="list-unstyled ms-2"><!-- removed class d-none -->
-                                <xsl:if test="$text//@change[not('#edACE')]">
+                                <!-- <xsl:if test="$text//@change[not('#edACE')]">
                                         <xsl:if test="$text//*[contains(@change, '#inkOnProofKK')]">
                                             <li class="cursor-pointer my-1 list_more_text_layers" data-link="#inkOnProofKK">
                                                 <xsl:value-of select="$creation//id('inkOnProofKK')/text()"/>
@@ -211,20 +189,20 @@
                                                 <xsl:value-of select="$creation//id('bluePencilOnProof')/text()"/>
                                             </li>
                                         </xsl:if>                        
-                                </xsl:if>
+                                </xsl:if> -->
                                
                                 
-                                <!-- <xsl:for-each select="./tei:note[@type='change'][not(@corresp=('#edACE', '#typewriter2'))]">
+                                <xsl:for-each select="./tei:note[@type='change'][not(@corresp=('#edACE', '#typewriter2'))]">
                                     <xsl:variable name="change" select="tokenize(@corresp, ' ')"/>
                                     <xsl:variable name="corresp">
                                         <xsl:choose>
                                             <xsl:when test="$doc_type = 'witnessPrint'">
-                                                <xsl:value-of select="@corresp"/>
+                                                <xsl:value-of select="replace(@corresp, '#', '')"/>
                                             </xsl:when>
                                             <xsl:otherwise>
                                                 <xsl:for-each select="$change">
                                                     <xsl:if test=". != '#typewriter'">
-                                                        <xsl:value-of select="."/>
+                                                        <xsl:value-of select="replace(., '#', '')"/>
                                                         <xsl:if test="position() != last()">
                                                             <xsl:text> </xsl:text>
                                                         </xsl:if>
@@ -234,13 +212,16 @@
                                         </xsl:choose>
                                     </xsl:variable>
                                     <li class="cursor-pointer my-1 list_more_text_layers" data-link="{$corresp}">
-                                        <xsl:call-template name="format_corresp">
-                                            <xsl:with-param name="corresp" select="@corresp"/>
-                                        </xsl:call-template>
+                                        <xsl:value-of select="$creation//id(data($corresp))"/>
                                     </li>
-                                </xsl:for-each>-->
+                                </xsl:for-each>
                                 <xsl:if test="./tei:note[@type='printInstruction']">
-                                    <li class="cursor-pointer my-1 list_more_text_layers_line" data-link="{./tei:note[@type='printInstruction']/@corresp}">
+                                    <xsl:variable name="corresp">
+                                        <xsl:value-of select="replace(./tei:note[@type='printInstruction']/@corresp, '#', '')"/>
+                                    </xsl:variable>
+                                    <!--  add data link with corresp -->
+                                    <!-- currently removed until new implementation -->
+                                    <li class="cursor-pointer my-1 list_more_text_layers_line">
                                         <xsl:text>Markierung für den Druck der Fackel Nr. 890: </xsl:text>
                                         <xsl:choose>
                                             <xsl:when test="count(./tei:note[@type='printInstruction']) gt 1">
@@ -265,7 +246,7 @@
                         <xsl:if test="./tei:note[starts-with(@type, 'tpq')]/text()">
                             <h5 class="mt-2">Datierung (terminus post quem)</h5>
                             <xsl:for-each select="./tei:note[@type='tpqBase']">
-                                <p class="tpq cursor-pointer" data-link="{@corresp}">
+                                <p class="tpq cursor-pointer" data-link="{replace(@corresp, '#', '')}">
                                     <xsl:text>Grundschicht: </xsl:text>
                                     <xsl:call-template name="note_date">
                                         <xsl:with-param name="input" select="./text()"/>
@@ -274,7 +255,7 @@
                                 </p>
                             </xsl:for-each>
                             <xsl:for-each select="./tei:note[@type='tpqAdd']">
-                                <p class="tpq cursor-pointer" data-link="{@corresp}">
+                                <p class="tpq cursor-pointer" data-link="{replace(@corresp, '#', '')}">
                                     <xsl:text>Hs. Ergänzung: </xsl:text>
                                     <xsl:call-template name="note_date">
                                         <xsl:with-param name="input" select="./text()"/>
@@ -290,7 +271,7 @@
                         <xsl:if test="./tei:note[@type=('delQuote', 'delPers')]">
                             <h5 class="mt-2">Inhaltliche Anmerkung</h5>
                             <xsl:for-each select="./tei:note[@type=('delQuote', 'delPers')]">
-                                <div class="delQP cursor-pointer" data-link="{@target}" data-register="{@corresp}">
+                                <div class="delQP cursor-pointer" data-link="{@target}" data-register="{replace(@corresp, '#', '')}">
                                     <xsl:variable name="regrefs">
                                         <xsl:value-of select="tokenize(@target, ' ')"/>
                                     </xsl:variable>

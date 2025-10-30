@@ -26,12 +26,14 @@
     <xsl:template match="tei:seg[@type='relocation']">
         <span id="{if(not(@rend='line') and not(@rend='arrow'))then(@xml:id)else(concat('parent-', @xml:id))}">
             <xsl:attribute name="class">
-                    <xsl:text>seg connect</xsl:text>
-                    <xsl:if test="@rend='border'">
-                        <xsl:text> border border-1 border-secondary-subtle</xsl:text>
-                    </xsl:if>
+                <xsl:text>seg connect</xsl:text>
+                <xsl:if test="@rend='border'">
+                    <xsl:text> border border-1 border-secondary-subtle</xsl:text>
+                </xsl:if>
+                <xsl:if test="not(@rend='line') and not(@rend='arrow')">
                     <xsl:value-of select="replace(@change, '#', ' ')"/>
-                </xsl:attribute>
+                </xsl:if>
+            </xsl:attribute>
             <xsl:if test="@rend='line' and not((@prev, @continued))">
                 <xsl:choose>
                     <xsl:when test="parent::tei:restore">
@@ -41,7 +43,6 @@
                         <span class="seg seg-inline"><span id="{@xml:id}" class="{replace(@change, '#', '')}">&#124;</span></span>
                     </xsl:otherwise>
                 </xsl:choose>
-                
             </xsl:if>
             <!-- special handling (rendered via span firstLast) for page 111 for arrow seg see https://github.com/karl-kraus/wpn-static/issues/208  -->
             <xsl:if test="@rend='arrow' and not((@prev, @continued)) and not(@xml:id='seg0111_01')"><span class="seg seg-inline"><span id="{@xml:id}" class="{@rend} {replace(@change, '#', '')}">&#8592;</span></span></xsl:if>
