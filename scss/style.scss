@@ -244,7 +244,7 @@ html[data-page="notes"] .container {
 
 .pagination-grid {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(9, 1fr);
   gap: 0;
   border: none;
 }
@@ -2633,7 +2633,9 @@ body.modal-open, body.modal-open main {
   display:none;
 }
 
-.connection-color, .connection-color del, del > .connection-color  {
+.connection-color,
+.connection-color del, 
+del > .connection-color  {
   color: $wpn-fackel !important;
   text-shadow: $wpn-fackel 1px 0 10px !important;
   text-decoration-color: $wpn-fackel !important;
