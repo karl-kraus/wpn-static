@@ -106,7 +106,14 @@
                     <xsl:with-param name="include_scroll_script" select="false()"/>
                 </xsl:call-template>
                 <xsl:call-template name="scripts"/>
-                
+                <script type="text/javascript">
+                    document.getElementById('dropdownMenuButton1').addEventListener('click', function() {
+                        const paginationPb = document.getElementById('pagination-pb');
+                        paginationPb.classList.toggle('visually-hidden');
+                        const infocontentPb = document.getElementById('infocontent-pb');
+                        infocontentPb.classList.toggle('visually-hidden');
+                    });
+                </script>
             </body>
         </html>
     </xsl:template>
@@ -288,7 +295,7 @@
         <span class="comments" id="{@xml:id}"></span>
     </xsl:template>
     <xsl:template match="tei:fw">
-        <span class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}">
+        <span style="z-index:9999;" class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}">
             <span><xsl:apply-templates/></span>
         </span>
     </xsl:template>
