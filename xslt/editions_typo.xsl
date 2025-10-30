@@ -87,18 +87,20 @@
                 </xsl:call-template>
                 <main class="flex-shrink-0 mt-18">
                     <div class="container-fluid px-0">
-                        <wpn-page-view annotation-selectors=".entity" id="sub_grid_pb">
-                            <div id="facscolumn" class="mx-auto ff-crimson-text">
-                                <div id="facscontent" wpn-data="{$facsimile}" wpn-type="{.//tei:pb[1]/@type}">
-                                    <!-- osd viewer container -->
-                                </div>                                
-                            </div>
-                            <div id="textcolumn-pb" class="mx-auto ff-crimson-text">
-                                <div id="textcontent-pb">
-                                    <xsl:apply-templates select="//tei:text" />
+                        <wpn-page-view annotation-selectors=".entity">
+                            <div id="sub_grid_pb" class="sub_grid_pb_three">
+                                <div id="facscolumn" class="grid-box-1 mx-auto ff-crimson-text">
+                                    <div id="facscontent" wpn-data="{$facsimile}" wpn-type="{.//tei:pb[1]/@type}">
+                                        <!-- osd viewer container -->
+                                    </div>                                
                                 </div>
+                                <div id="textcolumn-pb" class="grid-box-2 mx-auto ff-crimson-text">
+                                    <div id="textcontent-pb">
+                                        <xsl:apply-templates select="//tei:text" />
+                                    </div>
+                                </div>
+                                <xsl:call-template name="info-3rd-column"/>
                             </div>
-                            <xsl:call-template name="info-3rd-column"/>
                         </wpn-page-view>
                     </div>
                 </main>
@@ -112,6 +114,82 @@
                         paginationPb.classList.toggle('visually-hidden');
                         const infocontentPb = document.getElementById('infocontent-pb');
                         infocontentPb.classList.toggle('visually-hidden');
+                    });
+
+                    const allcolumnBtn = document.getElementById('allcolumnBtn');
+                    const facscolumnBtn = document.getElementById('facscolumnBtn');
+                    const textcolumnBtn = document.getElementById('textcolumnBtn');
+                    const allcolumnRowBtn = document.getElementById('allcolumnRowBtn');
+                    const grid = document.getElementById('sub_grid_pb');
+                    const textcolumn = document.getElementById('textcolumn-pb');
+                    const facscolumn = document.getElementById('facscolumn');
+
+                    facscolumnBtn.addEventListener('click', function() {
+                        allcolumnBtn.classList.remove('active-view-icon');
+                        facscolumnBtn.classList.add('active-view-icon');
+                        if (allcomlumnRowBtn.classList.contains('active-view-icon')) {
+                            allcomlumnRowBtn.classList.remove('active-view-icon');
+                        }
+                        if (textcolumnBtn.classList.contains('active-view-icon')) {
+                            textcolumnBtn.classList.remove('active-view-icon');
+                            textcolumn.classList.remove('visually-hidden');
+                        }
+                        facscolumn.classList.add('visually-hidden');
+                        grid.classList.remove('sub_grid_pb_three');
+                        grid.classList.remove('sub_grid_pb_vertical');
+                        grid.classList.add('sub_grid_pb_two');
+                    });
+                    
+                    textcolumnBtn.addEventListener('click', function() {
+                        allcolumnBtn.classList.remove('active-view-icon');
+                        textcolumnBtn.classList.add('active-view-icon');
+                        if (allcomlumnRowBtn.classList.contains('active-view-icon')) {
+                            allcomlumnRowBtn.classList.remove('active-view-icon');
+                        }
+                        if (facscolumnBtn.classList.contains('active-view-icon')) {
+                            facscolumnBtn.classList.remove('active-view-icon');
+                            facscolumn.classList.remove('visually-hidden');
+                        }
+                        textcolumn.classList.add('visually-hidden');
+                        grid.classList.remove('sub_grid_pb_three');
+                        grid.classList.remove('sub_grid_pb_vertical');
+                        grid.classList.add('sub_grid_pb_two');
+                    });
+
+                    allcolumnBtn.addEventListener('click', function() {
+                        allcolumnBtn.classList.add('active-view-icon');
+                        if (facscolumnBtn.classList.contains('active-view-icon')) {
+                            facscolumnBtn.classList.remove('active-view-icon');
+                            facscolumn.classList.remove('visually-hidden');
+                        }
+                        if (textcolumnBtn.classList.contains('active-view-icon')) {
+                            textcolumnBtn.classList.remove('active-view-icon');
+                            textcolumn.classList.remove('visually-hidden');
+                        }
+                        if (allcomlumnRowBtn.classList.contains('active-view-icon')) {
+                            allcomlumnRowBtn.classList.remove('active-view-icon');
+                        }
+                        grid.classList.remove('sub_grid_pb_two');
+                        grid.classList.remove('sub_grid_pb_vertical');
+                        grid.classList.add('sub_grid_pb_three');
+                    });
+
+                    allcomlumnRowBtn.addEventListener('click', function() {
+                        allcomlumnRowBtn.classList.add('active-view-icon');
+                        if (facscolumnBtn.classList.contains('active-view-icon')) {
+                            facscolumnBtn.classList.remove('active-view-icon');
+                            facscolumn.classList.remove('visually-hidden');
+                        }
+                        if (textcolumnBtn.classList.contains('active-view-icon')) {
+                            textcolumnBtn.classList.remove('active-view-icon');
+                            textcolumn.classList.remove('visually-hidden');
+                        }
+                        if (allcolumnBtn.classList.contains('active-view-icon')) {
+                            allcolumnBtn.classList.remove('active-view-icon');
+                        }
+                        grid.classList.remove('sub_grid_pb_two');
+                        grid.classList.remove('sub_grid_pb_three');
+                        grid.classList.add('sub_grid_pb_vertical');
                     });
                 </script>
             </body>

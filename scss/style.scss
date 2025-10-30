@@ -827,11 +827,55 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 // #textcontent-pb .longQuoteVerseEnd .l,
 // #textcontent-pb .longQuoteVerseMiddle .l
 
-#edition-view #sub_grid_pb {
+#edition-view .sub_grid_pb_three {
   display:grid;
   grid-template-columns: calc(100% * 0.4) calc(100% * 0.4) calc(100% * 0.2);
   gap:0;
   min-height:calc(100vh - $edition-view-header-height)
+}
+
+#edition-view .sub_grid_pb_two {
+  display:grid;
+  grid-template-columns: calc(100% * 0.8) calc(100% * 0.2);
+  gap:0;
+  min-height:calc(100vh - $edition-view-header-height)
+}
+
+#edition-view .sub_grid_pb_vertical {
+  display:grid;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: calc((100vh - $edition-view-header-height) * 0.5) calc((100vh - $edition-view-header-height) * 0.5);
+  grid-template-areas: 
+    "box1 box3"
+    "box2 box3";
+  gap:0;
+  min-height:calc(100vh - $edition-view-header-height);
+
+  .grid-box-1 {
+    grid-area: box1;
+    max-height: calc((100vh - $edition-view-header-height) * 0.5);
+    height: calc((100vh - $edition-view-header-height) * 0.5);
+    overflow-y: scroll;
+    position: relative;
+    
+    // Force OpenSeadragon to respect container dimensions
+    .openseadragon-container,
+    .openseadragon-canvas {
+      max-height: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  .grid-box-2 {
+    grid-area: box2;
+    max-height: calc((100vh - $edition-view-header-height) * 0.5);
+    height: calc((100vh - $edition-view-header-height) * 0.5);
+    overflow-y: scroll;
+  }
+
+  .grid-box-3 {
+    grid-area: box3;
+  }
 }
 
 .print-page.witnessPrint {
@@ -2650,4 +2694,12 @@ del > .connection-color  {
   margin-left:1rem;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+.active-view-icon {
+  background-color: $wpn-red !important;
+}
+
+#facscolumnBtn, #textcolumnBtn {
+  cursor: pointer;
 }

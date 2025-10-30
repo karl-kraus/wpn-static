@@ -8,7 +8,7 @@
     <xsl:template name="info-3rd-column">
         <xsl:variable name="doc_type" select="//tei:pb/@type" />
         
-        <div id="infocolumn" class="bg-white px-0 border border-light-grey">
+        <div id="infocolumn" class="grid-box-3 bg-white px-0 border border-light-grey">
             <div id="infocontent-header" class="row flex-row text-center m-0">
                 <div class="col px-1 py-1 border-end border-bottom border-light-grey bg-primary">
                     <div class="dropdown ff-ubuntu">
@@ -36,16 +36,16 @@
                         </xsl:if>
                     </div>
                 </div>
-                <div class="col px-1 py-3 border-end border-bottom border-light-grey">
-                    <img src="images/view-stacked.svg" alt="Synoptic View: Facsimile, Text Columns and Info Column" class="view-icon"/>
-                </div>
-                <div class="col px-1 py-3 border-end border-bottom border-light-grey">
-                    <img src="images/view-stacked.svg" alt="Synoptic View: Text and Info Column" class="view-icon"/>
-                </div>
-                <div class="col px-1 py-3 border-end border-bottom border-light-grey">
+                <div id="allcolumnBtn" class="active-view-icon col px-1 py-3 border-end border-bottom border-light-grey">
                     <img src="images/view-stacked.svg" alt="Synoptic View: Facsimile and Info Column" class="view-icon"/>
                 </div>
-                <div class="col px-1 py-3 border-end border-bottom border-light-grey">
+                <div id="textcolumnBtn" class="col px-1 py-3 border-end border-bottom border-light-grey">
+                    <img src="images/view-stacked.svg" alt="Synoptic View: Text and Info Column" class="view-icon"/>
+                </div>
+                <div id="facscolumnBtn" class="col px-1 py-3 border-end border-bottom border-light-grey">
+                    <img src="images/view-stacked.svg" alt="Synoptic View: Facsimile, Text Columns and Info Column" class="view-icon"/>
+                </div>
+                <div id="allcomlumnRowBtn" class="col px-1 py-3 border-end border-bottom border-light-grey">
                     <img src="images/view-stacked.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"/>
                 </div>
             </div>
