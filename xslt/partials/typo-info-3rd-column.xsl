@@ -16,7 +16,7 @@
                         <xsl:variable name="currentPageString" select="if(contains($currentPage, '_') ) 
                                                                         then(xs:integer(replace( tokenize( $currentPage, '_' )[1], 'F', '' ) )||'/'||tokenize( $currentPage, '_' )[2] ) 
                                                                         else(xs:integer(replace($currentPage, 'F', '')))"/>
-                        <button id="dropdownMenuButton1" class="btn btn-secondary dropdown-toggle text-white fs-9_38 border-0 m-0" type="button">
+                        <button id="dropdownMenuButton1" class="btn btn-secondary dropdown-toggle text-white fs-9_38 border-0 m-0" type="button" aria-controls="pagination-pb" aria-expanded="false">
                             <xsl:value-of select="'Seite: '||$currentPageString"/>
                         </button>
                         <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>
@@ -74,124 +74,61 @@
                         <!-- ########### -->
                         <!-- 1 - GENERAL INFO, IDENTIFICATION -->
                         <!-- ########### -->
-                        <h4><xsl:text>Jerusalemer Konvolut, fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto.</xsl:text></h4>
-                        <h5 class="mt-2">Identifikation</h5>
-                        <p>
-                            <xsl:text>Standort, Signatur: </xsl:text>
-                            <xsl:value-of
-                                select="
-                                let $id := //tei:sourceDesc[@xml:id='DWkonJer']/tei:msDesc/tei:msIdentifier
-                                return concat(string-join((
-                                $id/tei:institution,
-                                $id/tei:collection,
-                                $id/tei:idno[@type='signature']
-                                ), ', '), '.')
-                                "/>
-                        </p>
-                        <xsl:for-each select="./tei:note[@type='pagination']">
-                            <p id="paragraph-block-{position()}" class="paragraph-block" data-link="{replace(@corresp, '#', '')}">
-                                <xsl:variable name="corresp">
-                                    <xsl:value-of select="substring-after(@corresp, '#')"/>
-                                </xsl:variable>
-                                <xsl:text>Pagination </xsl:text>
-                                <xsl:value-of select="./text()"/>
-                                <xsl:text> (</xsl:text>
-                                <xsl:value-of select="$creation//id(data($corresp))"/>
-                                <xsl:text>)</xsl:text>
+                        <h4 id="btn_general_info" class="mt-2 cursor-pointer dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_general_info">
+                            <xsl:text>Jerusalemer Konvolut, fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto.</xsl:text></h4>
+                        <div id="list_general_info" class="visually-hidden"><!-- removed class d-none -->
+                            <h5 class="mt-2">Identifikation</h5>
+                            <p>
+                                <xsl:text>Standort, Signatur: </xsl:text>
+                                <xsl:value-of
+                                    select="
+                                    let $id := //tei:sourceDesc[@xml:id='DWkonJer']/tei:msDesc/tei:msIdentifier
+                                    return concat(string-join((
+                                    $id/tei:institution,
+                                    $id/tei:collection,
+                                    $id/tei:idno[@type='signature']
+                                    ), ', '), '.')
+                                    "/>
                             </p>
-                        </xsl:for-each>
-                        <p><xsl:value-of select="./tei:note[@type='stamp']/text()"/></p>
-                        
+                            <xsl:for-each select="./tei:note[@type='pagination']">
+                                <p id="paragraph-block-{position()}" class="paragraph-block" data-link="{replace(@corresp, '#', '')}">
+                                    <xsl:variable name="corresp">
+                                        <xsl:value-of select="substring-after(@corresp, '#')"/>
+                                    </xsl:variable>
+                                    <xsl:text>Pagination </xsl:text>
+                                    <xsl:value-of select="./text()"/>
+                                    <xsl:text> (</xsl:text>
+                                    <xsl:value-of select="$creation//id(data($corresp))"/>
+                                    <xsl:text>)</xsl:text>
+                                </p>
+                            </xsl:for-each>
+                            <p><xsl:value-of select="./tei:note[@type='stamp']/text()"/></p>
+                        </div>
+
                         <!-- ########### -->
                         <!-- 2 - CARRIER INFO -->
                         <!-- ########### -->
-                        <h5 class="mt-2">Textträger, Grundschicht, Digitalisat</h5>
-                        <h6>Gehört zu:</h6>
-                        <xsl:for-each select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/tei:p">
-                            <p><xsl:value-of select="./text()"/></p>
-                        </xsl:for-each>
-                        <xsl:if test="./tei:note[@type='state']">
-                            <h6>Anmerkung:</h6>
-                            <p><xsl:value-of select="./tei:note[@type='state']/text()"/></p>
-                        </xsl:if> 
-                        
+                        <h5 id="btn_carrier_info" class="mt-2 cursor-pointer dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_carrier_info">Textträger, Grundschicht, Digitalisat</h5>
+                        <div id="list_carrier_info" class="visually-hidden"><!-- removed class d-none -->
+                            <h6>Gehört zu:</h6>
+                            <xsl:for-each select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/tei:p">
+                                <p><xsl:value-of select="./text()"/></p>
+                            </xsl:for-each>
+                            <xsl:if test="./tei:note[@type='state']">
+                                <h6>Anmerkung:</h6>
+                                <p><xsl:value-of select="./tei:note[@type='state']/text()"/></p>
+                            </xsl:if> 
+                        </div>
                         
                         
                         <!-- ########### -->
                         <!-- textblock 4 -->
                         <!-- ########### -->
                         <xsl:if test="./tei:note[@type=('change', 'printInstruction')]">
-                            <h5 class="mt-2">Weitere Textschichten</h5>
-                            <!-- <a id="btn_more_text_layers" class="cursor-pointer" role="button" aria-expanded="false" aria-controls="#list_more_text_layers">
-									<svg xmlns="http://www.w3.org/2000/svg" class="stroke-black-grey stroke-wpn-red-hover align-baseline ms-2" width="10" height="10" viewBox="0 0 8 8">
-										<g transform="translate(0.53 0.75)">
-											<path style="fill:none;stroke-width:1.5px;stroke-linejoin:round;" d="M0,6V0H6" transform="translate(6) rotate(90)"></path>
-											<line style="fill:none;stroke-width:1.5px;" y1="6" x2="6"></line>
-										</g>
-									</svg>
-								</a>
-							</h5>-->
+                            <h5 id="btn_more_text_layers" class="mt-2 cursor-pointer dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_more_text_layers">
+                                Weitere Textschichten</h5>
                             
-                            <ul id="list_more_layers_btn" class="list-unstyled ms-2"><!-- removed class d-none -->
-                                <!-- <xsl:if test="$text//@change[not('#edACE')]">
-                                        <xsl:if test="$text//*[contains(@change, '#inkOnProofKK')]">
-                                            <li class="cursor-pointer my-1 list_more_text_layers" data-link="#inkOnProofKK">
-                                                <xsl:value-of select="$creation//id('inkOnProofKK')/text()"/>
-                                            </li>
-                                        </xsl:if>
-                                    <xsl:if test="$text//*[contains(@change, '#pencilOnProofKK')]">
-                                            <li class="cursor-pointer my-1 list_more_text_layers" data-link="#pencilOnProofKK">
-                                                <xsl:value-of select="$creation//id('pencilOnProofKK')/text()"/>
-                                            </li>
-                                        </xsl:if>
-                                    <xsl:if test="$text//*[contains(@change, '#inkOnProof')]">
-                                            <li class="cursor-pointer my-1 list_more_text_layers" data-link="#inkOnProof">
-                                                <xsl:value-of select="$creation//id('inkOnProof')/text()"/>
-                                            </li>q
-                                        </xsl:if>
-                                    <xsl:if test="$text//*[contains(@change, '#inkOnTypescript')]">
-                                            <li class="cursor-pointer my-1 list_more_text_layers" data-link="#inkOnTypescript">
-                                                <xsl:value-of select="$creation//id('inkOnTypescript')/text()"/>
-                                            </li>
-                                        </xsl:if>
-                                    <xsl:if test="$text//*[contains(@change, '#pencilOnProof')]">
-                                            <li class="cursor-pointer my-1 list_more_text_layers" data-link="#pencilOnProof">
-                                                <xsl:value-of select="$creation//id('pencilOnProof')/text()"/>
-                                            </li>
-                                        </xsl:if>
-                                    <xsl:if test="$text//*[contains(@change, '#pencilOnTypescript')]">
-                                            <li class="cursor-pointer my-1 list_more_text_layers" data-link="#pencilOnTypescript">
-                                                <xsl:value-of select="$creation//id('pencilOnTypescript')/text()"/>
-                                            </li>
-                                        </xsl:if>
-                                    <xsl:if test="$text//*[contains(@change, '#typewriter2')]">
-                                            <li class="cursor-pointer my-1 list_more_text_layers" data-link="#typewriter2">
-                                                <xsl:value-of select="$creation//id('typewriter2')/text()"/>
-                                            </li>
-                                        </xsl:if>
-                                    <xsl:if test="$text//*[contains(@change, '#redOnProof')]">
-                                            <li class="cursor-pointer my-1 list_more_text_layers" data-link="#redOnProof">
-                                                <xsl:value-of select="$creation//id('redOnProof')/text()"/>
-                                            </li>
-                                        </xsl:if>
-                                    <xsl:if test="$text//*[contains(@change, '#pencilOnProofLibrary')]">
-                                            <li class="cursor-pointer my-1 list_more_text_layers" data-link="#pencilOnProofLibrary">
-                                                <xsl:value-of select="$creation//id('pencilOnProofLibrary')/text()"/>
-                                            </li>
-                                        </xsl:if>
-                                    <xsl:if test="$text//*[contains(@change, '#blueInkOnProof')]">
-                                            <li class="cursor-pointer my-1 list_more_text_layers" data-link="#blueInkOnProof">
-                                                <xsl:value-of select="$creation//id('blueInkOnProof')/text()"/>
-                                            </li>
-                                        </xsl:if>
-                                    <xsl:if test="$text//*[contains(@change, '#bluePencilOnProof')]">
-                                            <li class="cursor-pointer my-1 list_more_text_layers" data-link="#bluePencilOnProof">
-                                                <xsl:value-of select="$creation//id('bluePencilOnProof')/text()"/>
-                                            </li>
-                                        </xsl:if>                        
-                                </xsl:if> -->
-                               
-                                
+                            <ul id="list_more_layers" class="list-unstyled visually-hidden"><!-- removed class d-none -->
                                 <xsl:for-each select="./tei:note[@type='change'][not(@corresp=('#edACE', '#typewriter2'))]">
                                     <xsl:variable name="change" select="tokenize(@corresp, ' ')"/>
                                     <xsl:variable name="corresp">
@@ -244,47 +181,52 @@
                         <!-- textblock 5 -->
                         <!-- ########### -->
                         <xsl:if test="./tei:note[starts-with(@type, 'tpq')]/text()">
-                            <h5 class="mt-2">Datierung (terminus post quem)</h5>
-                            <xsl:for-each select="./tei:note[@type='tpqBase']">
-                                <p class="tpq cursor-pointer" data-link="{replace(@corresp, '#', '')}">
-                                    <xsl:text>Grundschicht: </xsl:text>
-                                    <xsl:call-template name="note_date">
-                                        <xsl:with-param name="input" select="./text()"/>
-                                    </xsl:call-template>
-                                    <xsl:text> (zitierter Text)</xsl:text>
-                                </p>
-                            </xsl:for-each>
-                            <xsl:for-each select="./tei:note[@type='tpqAdd']">
-                                <p class="tpq cursor-pointer" data-link="{replace(@corresp, '#', '')}">
-                                    <xsl:text>Hs. Ergänzung: </xsl:text>
-                                    <xsl:call-template name="note_date">
-                                        <xsl:with-param name="input" select="./text()"/>
-                                    </xsl:call-template>
-                                    <xsl:text> (zitierter Text)</xsl:text>
-                                </p>
-                            </xsl:for-each>
+                            <h5 id="btn_tpq_info" class="mt-2 cursor-pointer dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_tpq_info">Datierung (terminus post quem)</h5>
+                            <div id="list_tpq_info" class="visually-hidden"><!-- removed class d-none -->
+                                <xsl:for-each select="./tei:note[@type='tpqBase']">
+                                    <p class="tpq cursor-pointer" data-link="{replace(@corresp, '#', '')}">
+                                        <xsl:text>Grundschicht: </xsl:text>
+                                        <xsl:call-template name="note_date">
+                                            <xsl:with-param name="input" select="./text()"/>
+                                        </xsl:call-template>
+                                        <xsl:text> (zitierter Text)</xsl:text>
+                                    </p>
+                                </xsl:for-each>
+                                <xsl:for-each select="./tei:note[@type='tpqAdd']">
+                                    <p class="tpq cursor-pointer" data-link="{replace(@corresp, '#', '')}">
+                                        <xsl:text>Hs. Ergänzung: </xsl:text>
+                                        <xsl:call-template name="note_date">
+                                            <xsl:with-param name="input" select="./text()"/>
+                                        </xsl:call-template>
+                                        <xsl:text> (zitierter Text)</xsl:text>
+                                    </p>
+                                </xsl:for-each>
+                            </div>
                         </xsl:if>
                         
                         <!-- ########### -->
                         <!-- textblock 6 -->
                         <!-- ########### -->
                         <xsl:if test="./tei:note[@type=('delQuote', 'delPers')]">
-                            <h5 class="mt-2">Inhaltliche Anmerkung</h5>
-                            <xsl:for-each select="./tei:note[@type=('delQuote', 'delPers')]">
-                                <div class="delQP cursor-pointer" data-link="{@target}" data-register="{replace(@corresp, '#', '')}">
-                                    <xsl:variable name="regrefs">
-                                        <xsl:value-of select="tokenize(@target, ' ')"/>
-                                    </xsl:variable>
-                                    <p>Eliminierter Verweis auf 
-                                        <xsl:for-each select="$regrefs">
-                                            <xsl:variable name="target" select="replace(current(), '#', '')"/>
-                                            <xsl:apply-templates select="doc('../../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="short_info"/>
-                                            <!-- <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="detail_view_textpage" /> -->
-                                        </xsl:for-each>
-                                    </p>
-                                </div>
-                            </xsl:for-each>
+                            <h5 id="btn_delQP_info" class="mt-2 cursor-pointer dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_delQP_info">Inhaltliche Anmerkung</h5>
+                            <div id="list_delQP_info" class="visually-hidden"><!-- removed class d-none -->
+                                <xsl:for-each select="./tei:note[@type=('delQuote', 'delPers')]">
+                                    <div class="delQP cursor-pointer" data-link="{@target}" data-register="{replace(@corresp, '#', '')}">
+                                        <xsl:variable name="regrefs">
+                                            <xsl:value-of select="tokenize(@target, ' ')"/>
+                                        </xsl:variable>
+                                        <p>Eliminierter Verweis auf 
+                                            <xsl:for-each select="$regrefs">
+                                                <xsl:variable name="target" select="replace(current(), '#', '')"/>
+                                                <xsl:apply-templates select="doc('../../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="short_info"/>
+                                                <!-- <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="detail_view_textpage" /> -->
+                                            </xsl:for-each>
+                                        </p>
+                                    </div>
+                                </xsl:for-each>
+                            </div>
                         </xsl:if>
+                        
                     </div>
                 </xsl:for-each>
             </div>
