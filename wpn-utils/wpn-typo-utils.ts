@@ -1,3 +1,4 @@
+// Toggle visibility of pagination and info content on dropdown button click
 document.getElementById('dropdownMenuButton1')!.addEventListener('click', function() {
     const paginationPb = document.getElementById('pagination-pb');
     paginationPb!.classList.toggle('visually-hidden');
@@ -5,6 +6,27 @@ document.getElementById('dropdownMenuButton1')!.addEventListener('click', functi
     infocontentPb!.classList.toggle('visually-hidden');
 });
 
+const initializeDropdown = (button: string, content: string) => {
+    const dropdownButton = document.getElementById(button) as HTMLButtonElement | null;
+    const dropdownContent = document.getElementById(content) as HTMLDivElement | HTMLUListElement | null;
+
+    if (dropdownButton && dropdownContent) {
+        
+        dropdownButton.addEventListener('click', function() {
+            dropdownContent.classList.toggle('visually-hidden');
+            dropdownButton.ariaExpanded = dropdownContent.classList.contains('visually-hidden') ? 'false' : 'true';
+        });
+    }
+};
+
+initializeDropdown('btn_general_info', 'list_general_info');
+initializeDropdown('btn_carrier_info', 'list_carrier_info');
+initializeDropdown('btn_more_text_layers', 'list_more_layers');
+initializeDropdown('btn_tpq_info', 'list_tpq_info');
+initializeDropdown('btn_delQP_info', 'list_delQP_info');
+
+
+// View toggle buttons and content columns
 const myUrl = new URL(window.location.href);
 const params = new URLSearchParams(myUrl.search);
 
@@ -12,9 +34,11 @@ const allcolumnBtn = document.getElementById('allcolumnBtn') as HTMLDivElement |
 const facscolumnBtn = document.getElementById('facscolumnBtn') as HTMLDivElement | null;
 const textcolumnBtn = document.getElementById('textcolumnBtn') as HTMLDivElement | null;
 const allcolumnRowBtn = document.getElementById('allcolumnRowBtn') as HTMLDivElement | null;
+
 const grid = document.getElementById('sub_grid_pb') as HTMLDivElement | null;
 const textcolumn = document.getElementById('textcolumn-pb') as HTMLDivElement | null;
 const facscolumn = document.getElementById('facscolumn') as HTMLDivElement | null;
+
 const prevPageLink = document.getElementById('prevPageLink') as HTMLAnchorElement | null;
 const nextPageLink = document.getElementById('nextPageLink') as HTMLAnchorElement | null;
 const pagination = document.querySelectorAll('#pagination-pb div a') as NodeListOf<HTMLAnchorElement> | null;
@@ -35,11 +59,11 @@ function initializeView1() {
         grid!.classList.remove('sub_grid_pb_vertical');
         grid!.classList.add('sub_grid_pb_two');
 
-        params.set('view', 'facs-only');
+        params.set('view', 'text-only');
         myUrl.search = params.toString();
         window.history.pushState({}, '', myUrl);
 
-        updateLinksView('facs-only');
+        updateLinksView('text-only');
     });
 }
 
@@ -59,11 +83,11 @@ function initializeView2() {
         grid!.classList.remove('sub_grid_pb_vertical');
         grid!.classList.add('sub_grid_pb_two');
 
-        params.set('view', 'text-only');
+        params.set('view', 'facs-only');
         myUrl.search = params.toString();
         window.history.pushState({}, '', myUrl);
 
-        updateLinksView('text-only');
+        updateLinksView('facs-only');
     });
 }
 
@@ -120,14 +144,21 @@ function initializeView4() {
 
 function updateLinksView(view: string) {
 
-    prevPageLink!.href = prevPageLink!.href.replace(/view=.+/, `view=${view}`);
-    nextPageLink!.href = nextPageLink!.href.replace(/view=.+/, `view=${view}`);
+    if (prevPageLink) {
+        prevPageLink.href = prevPageLink.href.replace(/view=.+/, `view=${view}`);
+    }
 
-    pagination!.forEach((link) => {
+    if (nextPageLink) {
+        nextPageLink.href = nextPageLink.href.replace(/view=.+/, `view=${view}`);
+    }
+
+    if (pagination) {
+        pagination!.forEach((link) => {
 
         link.href = link.href.replace(/view=.+/, `view=${view}`);
 
-    });
+        });
+    }
 
 }
 
@@ -140,15 +171,15 @@ initializeView4();
 document.addEventListener('DOMContentLoaded', () => {
     // Set initial view based on URL parameter
     const initialView = params.get('view');
-    if (initialView === 'facs-only') {
+    if (initialView === 'text-only') {
 
         facscolumnBtn!.click();
-        updateLinksView('facs-only');
+        updateLinksView('text-only');
 
-    } else if (initialView === 'text-only') {
+    } else if (initialView === 'facs-only') {
 
         textcolumnBtn!.click();
-        updateLinksView('text-only');
+        updateLinksView('facs-only');
 
     } else if (initialView === 'vertical') {
 
