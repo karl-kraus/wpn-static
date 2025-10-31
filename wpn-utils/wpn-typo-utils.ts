@@ -2,6 +2,7 @@
 document.getElementById('dropdownMenuButton1')!.addEventListener('click', function() {
     const paginationPb = document.getElementById('pagination-pb');
     paginationPb!.classList.toggle('visually-hidden');
+    paginationPb!.ariaExpanded = paginationPb!.classList.contains('visually-hidden') ? 'false' : 'true';
     const infocontentPb = document.getElementById('infocontent-pb');
     infocontentPb!.classList.toggle('visually-hidden');
 });

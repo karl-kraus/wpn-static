@@ -16,7 +16,7 @@
                         <xsl:variable name="currentPageString" select="if(contains($currentPage, '_') ) 
                                                                         then(xs:integer(replace( tokenize( $currentPage, '_' )[1], 'F', '' ) )||'/'||tokenize( $currentPage, '_' )[2] ) 
                                                                         else(xs:integer(replace($currentPage, 'F', '')))"/>
-                        <button id="dropdownMenuButton1" class="btn btn-secondary dropdown-toggle text-white fs-9_38 border-0 m-0" type="button" aria-controls="pagination-pb" aria-expanded="false">
+                        <button id="dropdownMenuButton1" class="btn btn-secondary dropdown-toggle text-white fs-9_38 border-0 m-0" type="button" aria-controls="#pagination-pb" aria-expanded="false">
                             <xsl:value-of select="'Seite: '||$currentPageString"/>
                         </button>
                         <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>
