@@ -364,7 +364,18 @@
         <span class="spacing"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:mod[contains(@rendition,'Quote')]">
-        <span class="{replace(@rendition,'#','')}"><xsl:apply-templates/></span>
+        <span class="{replace(@rendition,'#','')}">
+            <xsl:choose>
+                <xsl:when test="contains(@rendition,'Verse')">
+                    <xsl:apply-templates/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <span class="inline-text">
+                        <xsl:apply-templates/>
+                    </span>
+                </xsl:otherwise>
+            </xsl:choose>
+        </span>
     </xsl:template>
     <xsl:template match="tei:note"/>
     <xsl:template match="tei:note" mode="raw"/>
