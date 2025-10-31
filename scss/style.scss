@@ -2762,9 +2762,14 @@ del > .connection-color  {
   -webkit-transform: rotate(45deg);
 }
 
-h4.dropdown-toggle::after, h5.dropdown-toggle::after {
+.text-dropdown-toggle::after {
   border: solid $wpn-red;
   border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 4px;
+  margin-left:1rem;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
 
 .active-view-icon {

@@ -74,7 +74,7 @@
                         <!-- ########### -->
                         <!-- 1 - GENERAL INFO, IDENTIFICATION -->
                         <!-- ########### -->
-                        <h4 id="btn_general_info" class="mt-2 cursor-pointer dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_general_info">
+                        <h4 id="btn_general_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_general_info">
                             <xsl:text>Jerusalemer Konvolut, fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto.</xsl:text></h4>
                         <div id="list_general_info" class="visually-hidden"><!-- removed class d-none -->
                             <h5 class="mt-2">Identifikation</h5>
@@ -108,7 +108,7 @@
                         <!-- ########### -->
                         <!-- 2 - CARRIER INFO -->
                         <!-- ########### -->
-                        <h5 id="btn_carrier_info" class="mt-2 cursor-pointer dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_carrier_info">Textträger, Grundschicht, Digitalisat</h5>
+                        <h5 id="btn_carrier_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_carrier_info">Textträger, Grundschicht, Digitalisat</h5>
                         <div id="list_carrier_info" class="visually-hidden"><!-- removed class d-none -->
                             <h6>Gehört zu:</h6>
                             <xsl:for-each select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/tei:p">
@@ -125,7 +125,7 @@
                         <!-- textblock 4 -->
                         <!-- ########### -->
                         <xsl:if test="./tei:note[@type=('change', 'printInstruction')]">
-                            <h5 id="btn_more_text_layers" class="mt-2 cursor-pointer dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_more_text_layers">
+                            <h5 id="btn_more_text_layers" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_more_text_layers">
                                 Weitere Textschichten</h5>
                             
                             <ul id="list_more_layers" class="list-unstyled visually-hidden"><!-- removed class d-none -->
@@ -181,7 +181,7 @@
                         <!-- textblock 5 -->
                         <!-- ########### -->
                         <xsl:if test="./tei:note[starts-with(@type, 'tpq')]/text()">
-                            <h5 id="btn_tpq_info" class="mt-2 cursor-pointer dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_tpq_info">Datierung (terminus post quem)</h5>
+                            <h5 id="btn_tpq_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_tpq_info">Datierung (terminus post quem)</h5>
                             <div id="list_tpq_info" class="visually-hidden"><!-- removed class d-none -->
                                 <xsl:for-each select="./tei:note[@type='tpqBase']">
                                     <p class="tpq cursor-pointer" data-link="{replace(@corresp, '#', '')}">
@@ -208,7 +208,7 @@
                         <!-- textblock 6 -->
                         <!-- ########### -->
                         <xsl:if test="./tei:note[@type=('delQuote', 'delPers')]">
-                            <h5 id="btn_delQP_info" class="mt-2 cursor-pointer dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_delQP_info">Inhaltliche Anmerkung</h5>
+                            <h5 id="btn_delQP_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_delQP_info">Inhaltliche Anmerkung</h5>
                             <div id="list_delQP_info" class="visually-hidden"><!-- removed class d-none -->
                                 <xsl:for-each select="./tei:note[@type=('delQuote', 'delPers')]">
                                     <div class="delQP cursor-pointer" data-link="{@target}" data-register="{replace(@corresp, '#', '')}">
