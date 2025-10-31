@@ -76,7 +76,7 @@
                         <!-- ########### -->
                         <h4 id="btn_general_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_general_info">
                             <xsl:text>Jerusalemer Konvolut, fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto.</xsl:text></h4>
-                        <div id="list_general_info" class="visually-hidden"><!-- removed class d-none -->
+                        <div id="list_general_info">
                             <h5 class="mt-2">Identifikation</h5>
                             <p>
                                 <xsl:text>Standort, Signatur: </xsl:text>
