@@ -9,13 +9,10 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match="tei:lb[@break='no'][ancestor::tei:body]">
+    <xsl:template match="tei:lb[@break='no'][ancestor::tei:body][@n='first']">
         <xsl:choose>
-            <xsl:when test="preceding-sibling::tei:*[1]/@type='pageNum'">
+            <xsl:when test="preceding-sibling::tei:*[not(self::tei:metamark)][not(self::tei:note)][1]/@type='pageNum'">
                 <xsl:copy>
-                    <xsl:attribute name="n">
-                        <xsl:text>first</xsl:text>
-                    </xsl:attribute>
                     <xsl:attribute name="rendition">
                         <xsl:text>no</xsl:text>
                     </xsl:attribute>
