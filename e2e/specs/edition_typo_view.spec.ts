@@ -17,6 +17,6 @@ pathsToTest.forEach((path ) => {
 		const mainElement = page.locator("main");
 		const textElemBox = await mainElement.boundingBox();
     await page.addStyleTag({ content: "wpn-header, #facscolumn, footer {display:none !important;}" });
-    await expect(page).toHaveScreenshot(`snapshot-${path}.png`, {maxDiffPixelRatio: 0.1, fullPage: true, timeout: 10000,clip: { x: 0, y: 0, width: Number(viewportWidth), height: Number(textElemBox?.height) } });
+    await expect(page).toHaveScreenshot({maxDiffPixelRatio: 0.1, fullPage: true, timeout: 10000,clip: { x: 0, y: 0, width: Number(viewportWidth), height: Number(textElemBox?.height) } });
   });
 });
