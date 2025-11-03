@@ -142,10 +142,6 @@ const connectElements = (query: string, container: boolean) => {
 
         } else if (!target && el && datasetTargets.length > 0) {
 
-            console.log("no target, but dataset targets");
-            console.log(el);
-            console.log(datasetTargets);
-
             // if connection is a add element it should connect to previous and next del element
             const prevSibling = el.previousElementSibling as HTMLElement | null;
             const prevSiblingClassList = prevSibling ? prevSibling.classList : null;
@@ -285,19 +281,29 @@ const connectElements = (query: string, container: boolean) => {
 
 const findChild = (element: HTMLElement, type: string) => {
 
-    const child = element.classList.contains(type) && element.tagName === "DIV" ? element.childNodes[0].childNodes[0] as HTMLElement 
-    : element.classList.contains(type) && element.tagName !== "DIV" ? element.childNodes[0] as HTMLElement
-    : false;
+    let child: HTMLElement | false = false;
+
+    if (element.classList.contains(type) && element.tagName === "DIV") {
+        child = element.childNodes[0].childNodes[0] as HTMLElement;
+    } else if (element.classList.contains(type) && element.tagName !== "DIV") {
+        child = element.childNodes[0] as HTMLElement;
+    }
+
+    if (child === null || child === undefined) {
+        console.log("Child was null: ", child);
+        child = false;
+    }
 
     return child;
 }
 
 const checkForConnections = (element: HTMLElement | false, type: string) => {
 
-    const isConnected = element ? element : false;
+    if (!element) return [];
+    const connectedDataValue = element.dataset[type] ? element.dataset[type] : false;
 
-    const connectedDataValue = isConnected ? isConnected.dataset[type] : false;
-    const connectedIdList = connectedDataValue ? connectedDataValue.split(" ") : [];
+    if (!connectedDataValue) return [];
+    const connectedIdList = connectedDataValue.split(" ");
 
     const connectedElements = connectedIdList.map((connectedId) => {
         const connectedIdNorm = connectedId.replace(type + "-", "");

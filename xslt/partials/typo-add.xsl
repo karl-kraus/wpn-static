@@ -78,10 +78,10 @@
                 <span class="add connect overwrite position-absolute start-0{if(ancestor::tei:note)then(' top-0 bottom-0')else()}" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="add connect entity{if(./tei:metamark[@rend='other' and @target])then(' target')else()}" id="{@xml:id}">
-                <xsl:if test="./tei:metamark[@rend='other' and @target]">
+                <span class="add connect entity{if(./tei:metamark[@target])then(' target')else()}" id="{@xml:id}">
+                <xsl:if test="./tei:metamark[@target]">
                     <span>
-                        <xsl:variable name="targetList" select="tokenize(./tei:metamark[@rend='other']/@target, ' ')"/>
+                        <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
                             <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                         </xsl:attribute>
@@ -123,10 +123,10 @@
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="add connect entity {replace(@change[1], '#', '')} {if(./tei:metamark[@rend='other' and @target])then(' target')else()}" id="{@xml:id}">
+                <span class="add connect entity {replace(@change[1], '#', '')} {if(./tei:metamark[@target])then(' target')else()}" id="{@xml:id}">
                     <span>
-                        <xsl:if test="./tei:metamark[@rend='other' and @target]">
-                            <xsl:variable name="targetList" select="tokenize(./tei:metamark[@rend='other']/@target, ' ')"/>
+                        <xsl:if test="./tei:metamark[@target]">
+                            <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                             <xsl:attribute name="data-target">
                                 <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                             </xsl:attribute>
@@ -177,7 +177,7 @@
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(ancestor::tei:subst[@rend])then(ancestor::tei:subst/@rend)else(@rend)"/>
         <xsl:variable name="containerID" select="if(parent::tei:subst)then(preceding-sibling::tei:del[1]/@xml:id)else if(ancestor::tei:subst)then(preceding-sibling::tei:del[1])else(@xml:id)"/>
         <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
-            <div id="container-{if(string-length($containerID) gt 0)then($containerID)else(@xml:id)}" class="add connect w-100 {replace($change[1],'#','')} {if(./tei:metamark[@target and @rend='other']) then ('target') else ()}">
+            <div id="container-{if(string-length($containerID) gt 0)then($containerID)else(@xml:id)}" class="add connect w-100 {replace($change[1],'#','')} {if(./tei:metamark[@target]) then ('target') else ()}">
                 <div class="w-100">
                     <xsl:apply-templates select="." mode="manual"/>
                 </div>
@@ -192,8 +192,8 @@
             <xsl:when test="parent::tei:subst[ancestor::tei:restore[not(./tei:seg)]]">
                 <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
                 <del class="{$rend} {replace($restore-change[1],'#','')}">
-                    <xsl:if test="./tei:metamark[@rend='other' and @target]">
-                        <xsl:variable name="targetList" select="tokenize(./tei:metamark[@rend='other']/@target, ' ')"/>
+                    <xsl:if test="./tei:metamark[@target]">
+                        <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
                             <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                         </xsl:attribute>
@@ -204,8 +204,8 @@
             <xsl:when test="parent::tei:restore">
                 <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
                 <del class="restore {$rend} {replace($restore-change,'#','')}">
-                    <xsl:if test="./tei:metamark[@rend='other' and @target]">
-                        <xsl:variable name="targetList" select="tokenize(./tei:metamark[@rend='other']/@target, ' ')"/>
+                    <xsl:if test="./tei:metamark[@target]">
+                        <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
                             <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                         </xsl:attribute>
@@ -215,8 +215,8 @@
             </xsl:when>
             <xsl:when test="parent::tei:subst[not(parent::tei:restore)]">
                 <span class="{$rend} {replace($change[1],'#','')}">
-                    <xsl:if test="./tei:metamark[@rend='other' and @target]">
-                        <xsl:variable name="targetList" select="tokenize(./tei:metamark[@rend='other']/@target, ' ')"/>
+                    <xsl:if test="./tei:metamark[@target]">
+                        <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
                             <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                         </xsl:attribute>
@@ -226,8 +226,8 @@
             </xsl:when>
             <xsl:otherwise>
                 <span class="{$rend} {replace($change[1],'#','')}">
-                    <xsl:if test="./tei:metamark[@rend='other' and @target]">
-                        <xsl:variable name="targetList" select="tokenize(./tei:metamark[@rend='other']/@target, ' ')"/>
+                    <xsl:if test="./tei:metamark[@target]">
+                        <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
                             <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                         </xsl:attribute>
