@@ -78,15 +78,15 @@
                 <span class="add connect overwrite position-absolute start-0{if(ancestor::tei:note)then(' top-0 bottom-0')else()}" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="add connect entity {if(./tei:metamark[@rend='other' and @target])then(' target')else()}" id="{@xml:id}">
+                <span class="add connect entity{if(./tei:metamark[@rend='other' and @target])then(' target')else()}" id="{@xml:id}">
+                <xsl:if test="./tei:metamark[@rend='other' and @target]">
                     <span>
-                        <xsl:if test="./tei:metamark[@rend='other' and @target]">
-                            <xsl:variable name="targetList" select="tokenize(./tei:metamark[@rend='other']/@target, ' ')"/>
-                            <xsl:attribute name="data-target">
-                                <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
-                            </xsl:attribute>
-                        </xsl:if>
+                        <xsl:variable name="targetList" select="tokenize(./tei:metamark[@rend='other']/@target, ' ')"/>
+                        <xsl:attribute name="data-target">
+                            <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
+                        </xsl:attribute>
                     </span>
+                </xsl:if>
                 </span>
             </xsl:otherwise>
         </xsl:choose>
