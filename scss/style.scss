@@ -2742,13 +2742,12 @@ body.modal-open, body.modal-open main {
   display:none;
 }
 
-.connection-color,
-.connection-color del, 
-del > .connection-color  {
+.connection-color {
   /* color: $wpn-fackel !important; 
   text-shadow: $wpn-fackel 1px 0 10px !important;
   text-decoration-color: $wpn-fackel !important; */
-  filter: drop-shadow(0 0 4px $wpn-fackel);
+  // filter: drop-shadow(0 0 4px $wpn-fackel);
+  text-shadow: $wpn-fackel 0 0 4px !important;
 }
 
 /** pagination **/

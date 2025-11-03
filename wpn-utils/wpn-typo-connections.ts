@@ -6,13 +6,23 @@ const connectElements = (query: string, container: boolean) => {
     const color = "connection-color";
     // const border = "connection-color";
     const elements = document.querySelectorAll<HTMLElement>(query);
-    let count = 0;
 
     [...elements].map((el) => {
 
-        let targetId = el.id;
-        // const targetClassList = el.classList;
-        
+        // margin element connection to text anchor
+        // or text anchor connection to margin element
+        var targetId: string = el.id;
+        const targetClassList: DOMTokenList = el.classList;
+
+        // elements can have multiple connections via data-target
+        var datasetTargets: (HTMLElement | null)[] = [];
+        var datasetTargetElement: HTMLElement | false = false;
+
+        if (targetClassList.contains("target")) {
+            datasetTargetElement = findChild(el, "target");
+        }
+
+        // inline text elements hold true ids, while margin containers have "container-" prefix
         if (container) {
             targetId = el.id.replace("container-", "");
         } else {
@@ -20,107 +30,18 @@ const connectElements = (query: string, container: boolean) => {
         }
 
         const target = document.getElementById(targetId);
-        const targetMarker = document.querySelectorAll<HTMLElement>(`[data-target~="target-${el.id}"]`);
+        if (datasetTargetElement) {
+            datasetTargets = checkForConnections(datasetTargetElement, "target");
+        }
 
-        if (target || targetMarker.length > 0) {
-
-            const childT = findChild(el, "target");
-            // const childS = findChild(el, "spanto");
-
-            let childT3: HTMLElement | boolean = false;
-            let childS3: HTMLElement | boolean = false;
-            let spanToElement3: (HTMLElement | null)[] = [];
-            let targetElement3: (HTMLElement | null)[] = [];
-
-            if (target) {
-                // console.log("targetid: ", targetId, "targetel: ", target, "element: ", el, "marker: ", targetMarker);
-                childT3 = findChild(target, "target");
-                // childS3 = findChild(target, "spanto");
-                spanToElement3 = checkForConnections(childS3, "spanto");
-                targetElement3 = checkForConnections(childT3, "target");
-            }
-
-            // const spanToElement = checkForConnections(childS, "spanto");
-            const targetElement = checkForConnections(childT, "target");            
-
-            // console.log(`Connecting ${anchorId} to ${anchor_target_id ? anchor_target_id : "null"}`);
-            // anchor !== null ? console.log(anchor_target) : "";
-            // filter out element that do not contain the class lineLeft, lineRight, doubleLineLeft, boubleLineRight
-
-            // if (childS && childS.classList.contains("doubleLineLeft")
-            //     || childS && childS.classList.contains("doubleLineRight")) {
-
-            //     console.log(childS, "doubleLine");
-
-            //     const lineRight = childS.classList.contains("doubleLineRight") ? true : false;
-                
-            //     spanToElement
-            //         .map(span => {
-            //             const span_id = span?.id ? span.id : "";
-            //             createCanvas(el, true, count, count, lineRight, targetId, span_id);
-            //             drawLine(el, span, true, count);
-            //             // span?.classList.add(...["border", border, "border-2", "border-dotted"])
-            //             count += 5;
-            //         });
-
-            // } else if (childS && childS.classList.contains("lineLeft")
-            //     || childS && childS.classList.contains("lineRight")) {
-
-            //     console.log(childS, "single line");
-
-            //     const lineRight = childS.classList.contains("lineRight") ? true : false;
-                
-            //     spanToElement
-            //         .map(span => {
-            //             const span_id = span?.id ? span.id : "";
-            //             createCanvas(el, false, count, count, lineRight, targetId, span_id);
-            //             drawLine(el, span, false, count);
-            //             // span?.classList.add(...["border", border, "border-2", "border-dotted"])
-            //             count += 5;
-            //         });
+        if (target && el && datasetTargets.length === 0) {
             
-            // } else {
-
-            //     console.log(childS, "no line");
-
-            //     spanToElement
-            //     .map(span => span?.classList.add(color));
-
-            // }
-
             el.onmouseover = (e) => {
 
                 e.preventDefault();
 
-                // console.log(`Connecting ${el.id} to ${targetId}`);
-
-                target?.classList.add(color);
+                target.classList.add(color);
                 el.classList.add(color);
-                
-                if (childT) {
-                    targetElement.map(target => target?.classList.add(color));
-                }
-                // if (childS) {
-                //     spanToElement.map(span => span?.classList.add(color));
-                // }
-
-                if (childT3) {
-                    targetElement3.map(target => target?.classList.add(color));
-                }
-                if (childS3) {
-                    spanToElement3.map(span => span?.classList.add(color));
-                }
-
-                if (targetMarker.length > 0) {
-                    targetMarker.forEach((marker) => {
-                        marker.classList.add(color);
-                        const parentId = marker.parentElement?.parentElement?.id.replace("container-", "");
-                        if (parentId) {
-                            const parentInlineElement = document.getElementById(parentId);
-                            parentInlineElement?.classList.add(color);
-                        }
-                    });
-                }
                 
             };
 
@@ -128,37 +49,237 @@ const connectElements = (query: string, container: boolean) => {
 
                 e.preventDefault();
 
-                target?.classList.remove(color);
+                target.classList.remove(color);
                 el.classList.remove(color);
 
-                if (childT) {
-                    targetElement.map(target => target?.classList.remove(color));
-                }
-                // if (childS) {
-                //     spanToElement.map(span => span?.classList.remove(color));
-                // }
+            };
 
-                if (childT3) {
-                    targetElement3.map(target => target?.classList.remove(color));
-                }
-                if (childS3) {
-                    spanToElement3.map(span => span?.classList.remove(color));
-                }
+            target.onmouseover = (e) => {
 
-                if (targetMarker.length > 0) {
-                    targetMarker.forEach((marker) => {
-                        marker.classList.remove(color);
-                        const parentId = marker.parentElement?.parentElement?.id.replace("container-", "");
-                        if (parentId) {
-                            const parentInlineElement = document.getElementById(parentId);
-                            parentInlineElement?.classList.remove(color);
-                        }
-                    });
-                }
+                e.preventDefault();
+
+                target.classList.add(color);
+                el.classList.add(color);
                 
+            };
+
+            target.onmouseout = (e) => {
+                
+                e.preventDefault();
+                target.classList.remove(color);
+                el.classList.remove(color);
+                
+            };
+        } else if (target && el && datasetTargets.length > 0) {
+
+
+            el.onmouseover = (e) => {
+
+                e.preventDefault();
+
+                target.classList.add(color);
+                el.classList.add(color);
+                datasetTargets.map(dt => dt?.classList.add(color));
+                
+            };
+
+            el.onmouseout = (e) => {
+
+                e.preventDefault();
+
+                target.classList.remove(color);
+                el.classList.remove(color);
+                datasetTargets.map(dt => dt?.classList.remove(color));                
 
             };
+
+            target.onmouseover = (e) => {
+
+                e.preventDefault();
+
+                target.classList.add(color);
+                el.classList.add(color);
+                datasetTargets.map(target => target?.classList.add(color));
+                
+            };
+
+            target.onmouseout = (e) => {
+                
+                e.preventDefault();
+                target.classList.remove(color);
+                el.classList.remove(color);
+                datasetTargets.map(dt => dt?.classList.remove(color));
+                
+            };
+
+            datasetTargets.forEach((dt) => {
+
+                if (!dt) return;
+
+                dt.onmouseover = (e) => {
+
+                    e.preventDefault();
+                    
+                    target.classList.add(color);
+                    el.classList.add(color);
+                    dt.classList.add(color);
+                }
+            });
+
+            datasetTargets.forEach((dt) => {
+
+                if (!dt) return;
+
+                dt.onmouseout = (e) => {
+
+                    e.preventDefault();
+                    
+                    target.classList.remove(color);
+                    el.classList.remove(color);
+                    dt.classList.remove(color);
+                }
+            });
+
+        } else if (!target && el && datasetTargets.length > 0) {
+
+            console.log("no target, but dataset targets");
+            console.log(el);
+            console.log(datasetTargets);
+
+            // if connection is a add element it should connect to previous and next del element
+            const prevSibling = el.previousElementSibling as HTMLElement | null;
+            const prevSiblingClassList = prevSibling ? prevSibling.classList : null;
+            const nextSibling = el.nextElementSibling as HTMLElement | null;
+            const nextSiblingClassList = nextSibling ? nextSibling.classList : null;
+
+            if (prevSibling && prevSiblingClassList && prevSiblingClassList.contains("del")) {
+                prevSibling.onmouseover = (e) => {
+
+                    e.preventDefault();
+
+                    prevSibling.classList.add(color);
+                    datasetTargets.map(dt => dt?.classList.add(color));
+                    
+                };
+
+                prevSibling.onmouseout = (e) => {
+
+                    e.preventDefault();
+
+                    prevSibling.classList.remove(color);
+                    datasetTargets.map(dt => dt?.classList.remove(color));                
+
+                };
+
+                datasetTargets.forEach((dt) => {
+
+                    if (!dt) return;
+
+                    dt.onmouseover = (e) => {
+
+                        e.preventDefault();
+                        
+                        prevSibling.classList.add(color);
+                        dt.classList.add(color);
+                    }
+                });
+
+                datasetTargets.forEach((dt) => {
+
+                    if (!dt) return;
+
+                    dt.onmouseout = (e) => {
+
+                        e.preventDefault();
+                        
+                        prevSibling.classList.remove(color);
+                        dt.classList.remove(color);
+                    }
+                });
+            }
+
+            if (nextSibling && nextSiblingClassList && nextSiblingClassList.contains("del")) {
+                nextSibling.onmouseover = (e) => {
+
+                    e.preventDefault();
+
+                    nextSibling.classList.add(color);
+                    datasetTargets.map(dt => dt?.classList.add(color));
+                    
+                };
+
+                nextSibling.onmouseout = (e) => {
+
+                    e.preventDefault();
+
+                    nextSibling.classList.remove(color);
+                    datasetTargets.map(dt => dt?.classList.remove(color));
+                };
+
+            }
+
+            // other elements or most likely mod and metamark elements
+            el.onmouseover = (e) => {
+
+                e.preventDefault();
+
+                el.classList.add(color);
+                datasetTargets.map(dt => dt?.classList.add(color));
+                
+            };
+
+            el.onmouseout = (e) => {
+
+                e.preventDefault();
+
+                el.classList.remove(color);
+                datasetTargets.map(dt => dt?.classList.remove(color));                
+
+            };
+
+            datasetTargets.forEach((dt) => {
+
+                if (!dt) return;
+
+                dt.onmouseover = (e) => {
+
+                    e.preventDefault();
+                    
+                    el.classList.add(color);
+                    dt.classList.add(color);
+
+                    if (prevSibling && prevSiblingClassList && prevSiblingClassList.contains("del")) {
+                        prevSibling.classList.add(color);
+                    }
+
+                    if (nextSibling && nextSiblingClassList && nextSiblingClassList.contains("del")) {
+                        nextSibling.classList.add(color);
+                    }
+                }
+            });
+
+            datasetTargets.forEach((dt) => {
+
+                if (!dt) return;
+
+                dt.onmouseout = (e) => {
+
+                    e.preventDefault();
+                    
+                    el.classList.remove(color);
+                    dt.classList.remove(color);
+
+                    if (prevSibling && prevSiblingClassList && prevSiblingClassList.contains("del")) {
+                        prevSibling.classList.remove(color);
+                    }
+
+                    if (nextSibling && nextSiblingClassList && nextSiblingClassList.contains("del")) {
+                        nextSibling.classList.remove(color);
+                    }
+                }
+            });
         }
+
     });
 };
 
@@ -194,63 +315,63 @@ const checkForConnections = (element: HTMLElement | false, type: string) => {
 //     }
 // }
 
-const createCanvas = (element: HTMLElement,
-                double: boolean,
-                x1: number,
-                x2: number,
-                lineRight: boolean,
-                targetId: string,
-                spanId: string) => {
-    const canvas = document.createElement("canvas");
-    if (double) {
-        canvas.classList.add("double");
-    }
-    canvas.dataset.target = targetId;
-    canvas.dataset.span = spanId;
-    canvas.dataset.x1 = x1.toString();
-    canvas.dataset.x2 = x2.toString();
-    canvas.id = "canvas" + element.id;
-    canvas.style.position = "absolute";
-    if (lineRight) {
-        canvas.style.left = "5%";
-    } else {
-        canvas.style.left = "75%";
-    }
-    element.childNodes[0].appendChild(canvas);
-}
+// const createCanvas = (element: HTMLElement,
+//                 double: boolean,
+//                 x1: number,
+//                 x2: number,
+//                 lineRight: boolean,
+//                 targetId: string,
+//                 spanId: string) => {
+//     const canvas = document.createElement("canvas");
+//     if (double) {
+//         canvas.classList.add("double");
+//     }
+//     canvas.dataset.target = targetId;
+//     canvas.dataset.span = spanId;
+//     canvas.dataset.x1 = x1.toString();
+//     canvas.dataset.x2 = x2.toString();
+//     canvas.id = "canvas" + element.id;
+//     canvas.style.position = "absolute";
+//     if (lineRight) {
+//         canvas.style.left = "5%";
+//     } else {
+//         canvas.style.left = "75%";
+//     }
+//     element.childNodes[0].appendChild(canvas);
+// }
 
-const drawLine = (element: HTMLElement, target: HTMLElement | null, double: boolean, count: number) => {
-    const canvas = document.getElementById("canvas" + element.id) as HTMLCanvasElement;
-    const ctx = canvas.getContext("2d");
-    const rect = element.getBoundingClientRect();
-    const targetRect = target?.getBoundingClientRect();
-    const x1 = count;
-    const y1 = 0;
-    const x2 = count;
-    const y2 = targetRect ? targetRect.top - rect.top + 15 : 0;
+// const drawLine = (element: HTMLElement, target: HTMLElement | null, double: boolean, count: number) => {
+//     const canvas = document.getElementById("canvas" + element.id) as HTMLCanvasElement;
+//     const ctx = canvas.getContext("2d");
+//     const rect = element.getBoundingClientRect();
+//     const targetRect = target?.getBoundingClientRect();
+//     const x1 = count;
+//     const y1 = 0;
+//     const x2 = count;
+//     const y2 = targetRect ? targetRect.top - rect.top + 15 : 0;
 
-    canvas.width = targetRect ? rect.width : 0;
-    canvas.height = targetRect ? targetRect.top - rect.top + 15 : 0;
+//     canvas.width = targetRect ? rect.width : 0;
+//     canvas.height = targetRect ? targetRect.top - rect.top + 15 : 0;
 
-    if (ctx) {
+//     if (ctx) {
 
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.lineTo(x2, y2);
-        ctx.strokeStyle = "#ff8181";
-        ctx.stroke();
+//         ctx.beginPath();
+//         ctx.moveTo(x1, y1);
+//         ctx.lineTo(x2, y2);
+//         ctx.strokeStyle = "#ff8181";
+//         ctx.stroke();
 
-        if (double) {
-            // second line
-            ctx.beginPath();
-            ctx.moveTo(x1 + 5, y1);
-            ctx.lineTo(x2 + 5, y2);
-            ctx.strokeStyle = "#ff8181";
-            ctx.stroke();
-        }
+//         if (double) {
+//             // second line
+//             ctx.beginPath();
+//             ctx.moveTo(x1 + 5, y1);
+//             ctx.lineTo(x2 + 5, y2);
+//             ctx.strokeStyle = "#ff8181";
+//             ctx.stroke();
+//         }
 
-    }
-}
+//     }
+// }
 
 connectElements("div.connect", true);
 connectElements("span.connect", false);
