@@ -25,68 +25,17 @@ const connectElements = (query: string, container: boolean) => {
         if (target || targetMarker.length > 0) {
 
             const childT = findChild(el, "target");
-            // const childS = findChild(el, "spanto");
 
             let childT3: HTMLElement | boolean = false;
-            let childS3: HTMLElement | boolean = false;
-            let spanToElement3: (HTMLElement | null)[] = [];
             let targetElement3: (HTMLElement | null)[] = [];
 
             if (target) {
                 // console.log("targetid: ", targetId, "targetel: ", target, "element: ", el, "marker: ", targetMarker);
                 childT3 = findChild(target, "target");
-                // childS3 = findChild(target, "spanto");
-                spanToElement3 = checkForConnections(childS3, "spanto");
                 targetElement3 = checkForConnections(childT3, "target");
             }
 
-            // const spanToElement = checkForConnections(childS, "spanto");
-            const targetElement = checkForConnections(childT, "target");            
-
-            // console.log(`Connecting ${anchorId} to ${anchor_target_id ? anchor_target_id : "null"}`);
-            // anchor !== null ? console.log(anchor_target) : "";
-            // filter out element that do not contain the class lineLeft, lineRight, doubleLineLeft, boubleLineRight
-
-            // if (childS && childS.classList.contains("doubleLineLeft")
-            //     || childS && childS.classList.contains("doubleLineRight")) {
-
-            //     console.log(childS, "doubleLine");
-
-            //     const lineRight = childS.classList.contains("doubleLineRight") ? true : false;
-                
-            //     spanToElement
-            //         .map(span => {
-            //             const span_id = span?.id ? span.id : "";
-            //             createCanvas(el, true, count, count, lineRight, targetId, span_id);
-            //             drawLine(el, span, true, count);
-            //             // span?.classList.add(...["border", border, "border-2", "border-dotted"])
-            //             count += 5;
-            //         });
-
-            // } else if (childS && childS.classList.contains("lineLeft")
-            //     || childS && childS.classList.contains("lineRight")) {
-
-            //     console.log(childS, "single line");
-
-            //     const lineRight = childS.classList.contains("lineRight") ? true : false;
-                
-            //     spanToElement
-            //         .map(span => {
-            //             const span_id = span?.id ? span.id : "";
-            //             createCanvas(el, false, count, count, lineRight, targetId, span_id);
-            //             drawLine(el, span, false, count);
-            //             // span?.classList.add(...["border", border, "border-2", "border-dotted"])
-            //             count += 5;
-            //         });
-            
-            // } else {
-
-            //     console.log(childS, "no line");
-
-            //     spanToElement
-            //     .map(span => span?.classList.add(color));
-
-            // }
+            const targetElement = checkForConnections(childT, "target");
 
             el.onmouseover = (e) => {
 
@@ -100,15 +49,9 @@ const connectElements = (query: string, container: boolean) => {
                 if (childT) {
                     targetElement.map(target => target?.classList.add(color));
                 }
-                // if (childS) {
-                //     spanToElement.map(span => span?.classList.add(color));
-                // }
 
                 if (childT3) {
                     targetElement3.map(target => target?.classList.add(color));
-                }
-                if (childS3) {
-                    spanToElement3.map(span => span?.classList.add(color));
                 }
 
                 if (targetMarker.length > 0) {
@@ -134,15 +77,9 @@ const connectElements = (query: string, container: boolean) => {
                 if (childT) {
                     targetElement.map(target => target?.classList.remove(color));
                 }
-                // if (childS) {
-                //     spanToElement.map(span => span?.classList.remove(color));
-                // }
 
                 if (childT3) {
                     targetElement3.map(target => target?.classList.remove(color));
-                }
-                if (childS3) {
-                    spanToElement3.map(span => span?.classList.remove(color));
                 }
 
                 if (targetMarker.length > 0) {
