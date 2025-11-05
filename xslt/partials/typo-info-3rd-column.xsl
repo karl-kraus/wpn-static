@@ -95,7 +95,7 @@
                                     <xsl:variable name="corresp">
                                         <xsl:value-of select="substring-after(@corresp, '#')"/>
                                     </xsl:variable>
-                                    <xsl:text>Pagination </xsl:text>
+                                    <xsl:text>Paginierung </xsl:text>
                                     <xsl:value-of select="./text()"/>
                                     <xsl:text> (</xsl:text>
                                     <xsl:value-of select="$creation//id(data($corresp))"/>
