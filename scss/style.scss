@@ -1724,7 +1724,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .mod.inkOnProofKK.quote-indent,
 #textcontent-pb .mod.inkOnProofKK .mod-inline,
 #textcontent-pb .mod.connect.marginLeft.inkOnProofKK,
-#textcontent-pb .restore.inkOnProofKK .seg-inline {
+#textcontent-pb .restore.inkOnProofKK .seg-inline,
+#textcontent-pb .mod.noIndent.inkOnProofKK {
   font-size: 0.667rem;
   font-style: italic;
   line-height: 0.75rem;
