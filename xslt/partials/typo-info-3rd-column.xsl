@@ -74,12 +74,12 @@
                         <!-- ########### -->
                         <!-- 1 - GENERAL INFO, IDENTIFICATION -->
                         <!-- ########### -->
-                        <h4 id="btn_general_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_general_info">
+                        <h4 class="mt-2">
                             <xsl:text>Jerusalemer Konvolut,</xsl:text><br/><xsl:text>fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto.</xsl:text></h4>
+                        
+                        <h5 id="btn_general_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_general_info">Standort, Signatur</h5>
                         <div id="list_general_info">
-                            <h5 class="mt-2">Identifikation</h5>
                             <p>
-                                <xsl:text>Standort, Signatur: </xsl:text>
                                 <xsl:value-of
                                     select="
                                     let $id := //tei:sourceDesc[@xml:id='DWkonJer']/tei:msDesc/tei:msIdentifier

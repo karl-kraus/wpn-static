@@ -831,17 +831,17 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   display:grid;
   grid-template-columns: calc(100% * 0.4) calc(100% * 0.4) calc(100% * 0.2);
   gap:0;
-  min-height:calc(120vh - $edition-view-header-height);
+  min-height:calc(100vh - $edition-view-header-height);
   
-  .grid-box-1 {
-    transform-origin: top;
-    transform: scale(1.2);
-  }
+  // .grid-box-1 {
+  //   transform-origin: top;
+  //   transform: scale(1.2);
+  // }
 
-  .grid-box-2 {
-    transform-origin: top;
-    transform: scale(1.2);
-  }
+  // .grid-box-2 {
+  //   transform-origin: top;
+  //   transform: scale(1.2);
+  // }
 }
 
 #edition-view .sub_grid_pb_two {
@@ -855,9 +855,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
     max-height: calc((100vh - $edition-view-header-height));
     height: calc((100vh - $edition-view-header-height));
     overflow-y: scroll;
-    // transform-origin: top;
-    // transform: scale(2.5);
-
     position: relative;
     
     // Force OpenSeadragon to respect container dimensions
@@ -873,17 +870,16 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
     max-height: calc((100vh - $edition-view-header-height));
     height: calc((100vh - $edition-view-header-height));
     overflow-y: scroll;
-    // transform-origin: top;
-    // transform: scale(2.5);
   }
 
-  .grid-box-1 #facscontent .openseadragon-container {
-    transform: scale(1.5);
-    transform-origin: top;
-    width: calc(14.2cm * 2.3) !important;
-  }
+  // handled via wpn-typo-utils on osd initialization
+  // .grid-box-1 #facscontent .openseadragon-container {
+  //   transform: scale(1.5);
+  //   transform-origin: top;
+  //   width: calc(14.2cm * 2.3) !important;
+  // }
 
-  .grid-box-2 #textcontent-pb .print-page {
+  #textcontent-pb .print-page {
     transform: scale(2.5);
     transform-origin: top;
   }
@@ -931,13 +927,13 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
     overflow-y: scroll;
   }
 
-  .grid-box-1 #facscontent .openseadragon-container {
-    transform: scale(1.5);
-    transform-origin: top;
-    width: calc(14.2cm * 2.3) !important;
-  }
+  // .grid-box-1 #facscontent .openseadragon-container {
+  //   transform: scale(1.5);
+  //   transform-origin: top;
+  //   width: calc(14.2cm * 2.3) !important;
+  // }
 
-  .grid-box-2 #textcontent-pb .print-page{
+  #textcontent-pb .print-page{
     transform: scale(2.5);
     transform-origin: top;
   }
