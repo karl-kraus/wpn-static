@@ -2150,12 +2150,13 @@ pencil text color
   text-indent: 13.125rem;
 }
 
-#textcontent-pb .unclear {
-  background-color: #d6d6d6;
+#textcontent-pb .unclear::after {
+  content: '[?]';
+  font-style: normal;
 }
 
-#textcontent-pb .unclear:hover::after {
-  content: '?';
+#textcontent-pb .unclear:hover, #textcontent-pb .unclear:hover::after {
+  color: #A21A17;
 }
 
 #textcontent-pb .longQuoteCenter {
