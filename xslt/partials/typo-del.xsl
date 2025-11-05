@@ -73,14 +73,21 @@
                     <xsl:otherwise>
                         <span class="del connect entity" id="{@xml:id}">
                             <xsl:choose>
-                                <xsl:when test="starts-with(., ' ')">
-                                    <xsl:text>&#xA0;</xsl:text><del><xsl:value-of select="normalize-space(.)"/></del>
-                                </xsl:when>
-                                <xsl:when test="ends-with(., ' ')">
-                                    <del><xsl:value-of select="normalize-space(.)"/></del><xsl:text>&#xA0;</xsl:text>
+                                <xsl:when test="count(node())=1 and text()=' ' and not(@resp)">
+                                    <del> </del>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <del><xsl:value-of select="normalize-space(.)"/></del>
+                                    <xsl:choose>
+                                        <xsl:when test="starts-with(., ' ')">
+                                            <xsl:text>&#xA0;</xsl:text><del><xsl:value-of select="normalize-space(.)"/></del>
+                                        </xsl:when>
+                                        <xsl:when test="ends-with(., ' ')">
+                                            <del><xsl:value-of select="normalize-space(.)"/></del><xsl:text>&#xA0;</xsl:text>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <del><xsl:value-of select="normalize-space(.)"/></del>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </span>
