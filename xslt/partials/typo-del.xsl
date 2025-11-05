@@ -74,7 +74,7 @@
                         <span class="del connect entity" id="{@xml:id}">
                             <xsl:choose>
                                 <xsl:when test="count(node())=1 and text()=' ' and not(@resp)">
-                                    <del> </del>
+                                    <del>&#x20;</del>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <xsl:choose>
