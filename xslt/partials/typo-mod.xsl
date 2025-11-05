@@ -7,7 +7,7 @@
     version="2.0" exclude-result-prefixes="#all">
 
     <xsl:template match="tei:mod[@n and parent::tei:p[@rendition='#runningText2']]">
-        <div id="{local:makeId(.)}" class="yes-index {if(self::tei:p)then(replace(@rendition,'#',''))else()}{if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}">
+        <div id="{@xml:id}" class="yes-index {if(self::tei:p)then(replace(@rendition,'#',''))else()}{if(@prev)then(' no-indent')else()}">
             <xsl:if test="@rendition='#runningText1'">
                 <span class="mod connect entity no-indent position-relative {@style} {replace(@change, '#', '')}" id="{@xml:id}">
                     <span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">

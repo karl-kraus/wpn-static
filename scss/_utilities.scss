@@ -258,6 +258,10 @@ $utilities: map-merge(
   stroke: $wpn-black-grey;
 }
 
+.stroke-white {
+  stroke: rgba(255, 255, 255, 1);
+}
+
 .stroke-wpn-red-hover:hover {
   stroke: $wpn-red;
 }

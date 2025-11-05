@@ -9,6 +9,21 @@ document.getElementById('dropdownMenuButton1')!.addEventListener('click', functi
     infocontentPb!.classList.toggle('visually-hidden');
 });
 
+// Toggle visibility of info content column on hide button click
+const hideBtn = document.getElementById('infocontent-hide-btn')
+
+hideBtn!.addEventListener('click', function() {
+    hideBtn!.classList.toggle('active');
+
+    const grid = document.getElementById('sub_grid_pb');
+    grid!.classList.toggle('hide_btn');
+
+    const infocontent = document.getElementById('infocontent');
+    infocontent!.classList.toggle('visually-hidden');
+});
+
+// Dropdown buttons and content lists
+
 const initializeDropdown = (button: string, content: string) => {
     const dropdownButton = document.getElementById(button) as HTMLButtonElement | null;
     const dropdownContent = document.getElementById(content) as HTMLDivElement | HTMLUListElement | null;
