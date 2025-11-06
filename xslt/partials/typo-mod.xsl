@@ -179,6 +179,10 @@
 		<xsl:apply-templates/>
 		<span class="mod inline-arrows {replace(@change, '#', '')}">&#xA0;&#8594;</span>
 	</xsl:template>
+	<xsl:template match="tei:mod[@rendition='#inkLongQuote' and @rend='inline']">
+		<span class="mod inline inkLongQuote {replace(@change, '#', '')}" id="{@xml:id}">&#124;</span><xsl:apply-templates/>
+	</xsl:template>
+	
 
     <!-- container element -->
     <xsl:template match="tei:mod[@rendition='#longQuote' and not(@continued)]" mode="render">
