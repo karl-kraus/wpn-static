@@ -50,10 +50,6 @@
             </xsl:when>
             <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
                 
-                <xsl:if test="not(parent::tei:subst)">
-                    <span class="add {replace(@change, '#', '')}" id="{@xml:id}-inline">&#124;</span>
-                </xsl:if>
-                
                 <span class="position-relative">
                     <xsl:variable name="el">
                         <xsl:choose>
@@ -100,9 +96,7 @@
                 </span>
             </xsl:when>
             <xsl:when test="@rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
-                <xsl:if test="not(parent::tei:subst)">
-                    <span class="add {replace(@change[1], '#', '')}" id="{@xml:id}-inline">&#124;</span>
-                </xsl:if>
+                <span class="add {replace(@change[1], '#', '')}" id="{@xml:id}-inline">&#124;</span>
                 <span class="position-relative">
                     <xsl:variable name="el">
                         <xsl:choose>
@@ -116,7 +110,7 @@
                     </xsl:variable>
                     <xsl:element name="{$el}">
                         <xsl:attribute name="class">
-                            <xsl:value-of select="concat('add ', @rend, ' ', replace(@change[1], '#', ''))"/>
+                            <xsl:value-of select="concat('add connect inline ', @rend, ' ', replace(@change[1], '#', ''))"/>
                         </xsl:attribute>
                         <xsl:attribute name="id" select="@xml:id"/>
                         &#124;&#xA0;<xsl:apply-templates/>
@@ -179,8 +173,8 @@
     </xsl:template>
     <!-- margin container elements -->
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]]" mode="render">
+        <!-- potentially remove change but check with Bernhard-->
         <xsl:variable name="change" select="if(parent::tei:subst[@change])then(parent::tei:subst/@change)else if(ancestor::tei:subst[@change])then(ancestor::tei:subst/@change)else(@change)"/>
-        <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(ancestor::tei:subst[@rend])then(ancestor::tei:subst/@rend)else(@rend)"/>
         <xsl:variable name="containerID" select="if(parent::tei:subst)then(preceding-sibling::tei:del[1]/@xml:id)else if(ancestor::tei:subst)then(preceding-sibling::tei:del[1])else(@xml:id)"/>
         <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
             <div id="container-{if(string-length($containerID) gt 0)then($containerID)else(@xml:id)}" class="add connect w-100 {replace($change[1],'#','')} {if(./tei:metamark[@target]) then ('target') else ()}">

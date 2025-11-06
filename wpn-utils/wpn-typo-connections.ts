@@ -1,9 +1,9 @@
 // Description: This script is used to connect elements in 
 // left and right margin with their anchor in the text.
 
-const connectElements = (query: string, container: boolean) => {
+const connectElements = (query: string, container: boolean, inline: boolean = false) => {
 
-    const color = "connection-color";
+    var color = "connection-color";
     // const border = "connection-color";
     const elements = document.querySelectorAll<HTMLElement>(query);
 
@@ -27,6 +27,11 @@ const connectElements = (query: string, container: boolean) => {
             targetId = el.id.replace("container-", "");
         } else {
             targetId = "container-" + el.id;
+        }
+
+        if (inline) {
+            targetId = el.id + "-inline";
+            color = "connection-color-inline";
         }
 
         const target = document.getElementById(targetId);
@@ -469,3 +474,4 @@ const checkForConnections = (element: HTMLElement | false, type: string) => {
 
 connectElements("div.connect", true);
 connectElements("span.connect.target", false);
+connectElements("span.connect.inline", false, true);
