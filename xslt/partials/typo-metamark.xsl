@@ -133,7 +133,7 @@
      </xsl:template>
      <xsl:template match="tei:metamark[@function='printInstruction'][@rendition]">
          <xsl:choose>
-            <xsl:when test="@change='#typewriter'">
+            <xsl:when test="@rendition='#typescriptFont'">
                 <span class="metamark {replace(@rendition,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
              <xsl:when test="@rend='inline'">
