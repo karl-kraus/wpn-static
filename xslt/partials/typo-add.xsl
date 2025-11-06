@@ -77,17 +77,18 @@
             <xsl:when test="$rend='overwritten'">
                 <span class="add connect overwrite position-absolute start-0{if(ancestor::tei:note)then(' top-0 bottom-0')else()}" id="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
-            <xsl:otherwise>
+            <xsl:when test="not($rend)">
                 <span class="add connect entity{if(./tei:metamark[@target])then(' target')else()}" id="{@xml:id}">
-                <xsl:if test="./tei:metamark[@target]">
-                    <span>
+                    <xsl:if test="./tei:metamark[@target]">
                         <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
                             <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                         </xsl:attribute>
-                    </span>
-                </xsl:if>
+                    </xsl:if>
                 </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="add connect entity" id="{@xml:id}"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -122,8 +123,8 @@
                     </xsl:element>
                 </span>
             </xsl:when>
-            <xsl:otherwise>
-                <span class="add connect entity {replace(@change[1], '#', '')} {if(./tei:metamark[@target])then(' target')else()}" id="{@xml:id}">
+            <xsl:when test="not(@rend)">
+                <span class="add connect entity {replace(@change[1], '#', '')} {if(./tei:metamark[@target])then('target')else()}" id="{@xml:id}">
                     <span>
                         <xsl:if test="./tei:metamark[@target]">
                             <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
@@ -133,6 +134,11 @@
                         </xsl:if>
                         &#124;
                     </span>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="add connect entity {replace(@change[1], '#', '')}" id="{@xml:id}">
+                    &#124;
                 </span>
             </xsl:otherwise>
         </xsl:choose>

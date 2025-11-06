@@ -35,6 +35,48 @@ const connectElements = (query: string, container: boolean) => {
         }
 
         if (target && el && datasetTargets.length === 0) {
+
+            // if connection is a add element it should connect to previous and next del element
+            const prevSibling = el.previousElementSibling as HTMLElement | null;
+            const prevSiblingClassList = prevSibling ? prevSibling.classList : null;
+            const nextSibling = el.nextElementSibling as HTMLElement | null;
+            const nextSiblingClassList = nextSibling ? nextSibling.classList : null;
+
+            if (prevSibling && prevSiblingClassList && prevSiblingClassList.contains("del")) {
+                prevSibling.onmouseover = (e) => {
+
+                    e.preventDefault();
+
+                    prevSibling.classList.add(color);
+                    
+                };
+
+                prevSibling.onmouseout = (e) => {
+
+                    e.preventDefault();
+
+                    prevSibling.classList.remove(color);          
+
+                };
+            }
+
+            if (nextSibling && nextSiblingClassList && nextSiblingClassList.contains("del")) {
+                nextSibling.onmouseover = (e) => {
+
+                    e.preventDefault();
+
+                    nextSibling.classList.add(color);
+                    
+                };
+
+                nextSibling.onmouseout = (e) => {
+
+                    e.preventDefault();
+
+                    nextSibling.classList.remove(color);
+                };
+
+            }
             
             el.onmouseover = (e) => {
 
@@ -71,6 +113,48 @@ const connectElements = (query: string, container: boolean) => {
                 
             };
         } else if (target && el && datasetTargets.length > 0) {
+
+            // if connection is a add element it should connect to previous and next del element
+            const prevSibling = el.previousElementSibling as HTMLElement | null;
+            const prevSiblingClassList = prevSibling ? prevSibling.classList : null;
+            const nextSibling = el.nextElementSibling as HTMLElement | null;
+            const nextSiblingClassList = nextSibling ? nextSibling.classList : null;
+
+            if (prevSibling && prevSiblingClassList && prevSiblingClassList.contains("del")) {
+                prevSibling.onmouseover = (e) => {
+
+                    e.preventDefault();
+
+                    prevSibling.classList.add(color);
+                    
+                };
+
+                prevSibling.onmouseout = (e) => {
+
+                    e.preventDefault();
+
+                    prevSibling.classList.remove(color);          
+
+                };
+            }
+
+            if (nextSibling && nextSiblingClassList && nextSiblingClassList.contains("del")) {
+                nextSibling.onmouseover = (e) => {
+
+                    e.preventDefault();
+
+                    nextSibling.classList.add(color);
+                    
+                };
+
+                nextSibling.onmouseout = (e) => {
+
+                    e.preventDefault();
+
+                    nextSibling.classList.remove(color);
+                };
+
+            }
 
 
             el.onmouseover = (e) => {
@@ -281,13 +365,17 @@ const connectElements = (query: string, container: boolean) => {
 
 const findChild = (element: HTMLElement, type: string) => {
 
+    if (!element) return false;
+
     let child: HTMLElement | false = false;
 
     if (element.classList.contains(type) && element.tagName === "DIV") {
         child = element.childNodes[0].childNodes[0] as HTMLElement;
+    } else if (element.classList.contains(type) && element.dataset[type]) {
+        child = element;
     } else if (element.classList.contains(type) && element.tagName !== "DIV") {
         child = element.childNodes[0] as HTMLElement;
-    }
+    } 
 
     if (child === null || child === undefined) {
         console.log("Child was null: ", child);
