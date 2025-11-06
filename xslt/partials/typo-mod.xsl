@@ -7,7 +7,7 @@
     version="2.0" exclude-result-prefixes="#all">
 
     <xsl:template match="tei:mod[@n and parent::tei:p[@rendition='#runningText2']]">
-        <div id="{@xml:id}" class="yes-index {if(self::tei:p)then(replace(@rendition,'#',''))else()}{if(@prev)then(' no-indent')else()}">
+        <div id="{local:makeId(.)}" class="yes-index {if(self::tei:p)then(replace(@rendition,'#',''))else()}{if(@prev)then(' no-indent')else()}">
             <xsl:if test="@rendition='#runningText1'">
                 <span class="mod connect entity no-indent position-relative {@style} {replace(@change, '#', '')}" id="{@xml:id}">
                     <span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">
@@ -228,56 +228,6 @@
                 </div>
             </div>
         </div>
-    </xsl:template>
-
-    <xsl:template name="wrapper-iter">
-        <xsl:param name="xmldata" as="xs:string*"/>
-        <xsl:variable name="tei" select="ancestor::tei:TEI"/>
-        <xsl:iterate select="$xmldata">
-            <xsl:if test="string-length(current()) != 0">
-                <xsl:variable name="next" select="$tei//tei:*[@xml:id=current()]" as="element()"/>
-                <xsl:variable name="next-change" select="if($next[parent::tei:subst[@change]])then($next/parent::tei:subst/@change)else($next/@change)"/>
-                <xsl:variable name="next-rend" select="if($next[parent::tei:subst[@rend]])then($next/parent::tei:subst/@rend)else($next/@rend)"/>
-                <xsl:variable name="subornot" select="if(contains($next/@xml:id, '-sub-'))then($next/tei:del/@xml:id)else($next/@xml:id)"/>
-                <div id="container-{$subornot}" class="{$next/local-name()} connect {replace($next-change,'#','')}">
-                    <div class="w-100">
-                        <xsl:choose>
-                            <xsl:when test="contains($next/@xml:id, 'add')">
-                                <span class="{$next-rend} {replace($next-change[1],'#','')}">
-                                    &#124;&#xA0;<xsl:apply-templates select="$next/tei:add" mode="manual_iter"/>
-                                </span>
-                            </xsl:when>
-                            <xsl:when test="contains($next/@xml:id, 'del')">
-                                <xsl:choose>
-                                    <xsl:when test="$next[parent::tei:restore]">
-                                        <del class="{$next-rend} {replace(($next/parent::tei:restore/@change)[1],'#','')}">
-                                            <span class="{replace($next-change[1],'#','')}">
-                                                &#124;&#xA0;<span class="arimo">&#8368;</span>
-                                            </span>
-                                        </del>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <span class="{$next-rend} {replace($next-change[1],'#','')}">
-                                            &#124;&#xA0;<span class="arimo">&#8368;</span>
-                                        </span>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:when>
-                            <xsl:when test="contains($next/@xml:id, 'sub')">
-                                <span class="{$next-rend} {replace($next-change,'#','')}">
-                                    &#124;&#xA0;<xsl:apply-templates select="$next/tei:add" mode="manual_iter"/>
-                                </span>
-                            </xsl:when>
-                            <xsl:when test="contains($next/@xml:id, 'metam')">
-                                <span class="{$next-rend} {replace($next-change,'#','')}">
-                                    <xsl:apply-templates select="$next" mode="manual_iter"/>
-                                </span>
-                            </xsl:when>
-                        </xsl:choose>
-                    </div>
-                </div>
-            </xsl:if>
-        </xsl:iterate>
     </xsl:template>
 
     <xsl:template name="manual">

@@ -380,4 +380,4 @@ const checkForConnections = (element: HTMLElement | false, type: string) => {
 // }
 
 connectElements("div.connect", true);
-connectElements("span.connect", false);
+connectElements("span.connect.target", false);
