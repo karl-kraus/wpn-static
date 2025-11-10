@@ -1,9 +1,11 @@
 const visualize_connections = (
-    color: string, 
+    color: string,
+    target_color: string,
     class_selector: string[],
     selector: string = "class",
     query_prefix: string = "", 
     prefix_pos: number | false = false,
+    bidirectional: boolean = true
 ) => {
 
     class_selector.forEach((className, idx) => {
@@ -27,12 +29,12 @@ const visualize_connections = (
                     if (selector === "class") {
 
                         const target = document.querySelectorAll<HTMLElement>(`${prefix}.${cor}`);
-                        [...target].map(target => target.classList.add("connection-color"));
+                        [...target].map(target => target.classList.add(target_color));
 
                     } else if (selector === "id") {
 
                         const target = document.getElementById(cor);
-                        target?.classList.add("connection-color");
+                        target?.classList.add(target_color);
 
                     }
 
@@ -50,12 +52,12 @@ const visualize_connections = (
                     if (selector === "class") {
 
                         const target = document.querySelectorAll<HTMLElement>(`${prefix}.${cor}`);
-                        [...target].map(target => target.classList.remove("connection-color"));
+                        [...target].map(target => target.classList.remove(target_color));
 
                     } else if (selector === "id") {
 
                         const target = document.getElementById(cor);
-                        target?.classList.remove("connection-color");
+                        target?.classList.remove(target_color);
 
                     }
 
@@ -63,54 +65,56 @@ const visualize_connections = (
 
             });
 
-            corresp?.forEach((cor) => {
+            if (bidirectional) {
+                corresp?.forEach((cor) => {
 
-                if (selector === "class") {
-                    const target = document.querySelectorAll<HTMLElement>(`${prefix}.${cor}`);
-                    // const targetMarker = document.querySelectorAll<HTMLElement>(`[data-link~="${cor_class}"]`);
+                    if (selector === "class") {
+                        const target = document.querySelectorAll<HTMLElement>(`${prefix}.${cor}`);
+                        // const targetMarker = document.querySelectorAll<HTMLElement>(`[data-link~="${cor_class}"]`);
 
-                    [...target].forEach(target => {
+                        [...target].forEach(target => {
 
-                        target.addEventListener("mouseover", (e) => {
+                            target.addEventListener("mouseover", (e) => {
 
-                            e.preventDefault();
-                            target.classList.add("connection-color");
-                            el.classList.add("connection-color");
+                                e.preventDefault();
+                                target.classList.add(target_color);
+                                el.classList.add(color);
+
+                            });
+
+                            target.addEventListener("mouseout", (e) => {
+
+                                e.preventDefault();
+                                target.classList.remove(target_color);
+                                el.classList.remove(color);
+
+                            });
 
                         });
 
-                        target.addEventListener("mouseout", (e) => {
+                    } else if (selector === "id") {
+
+                        const target = document.getElementById(cor);
+                        target?.addEventListener("mouseover", (e) => {
 
                             e.preventDefault();
-                            target.classList.remove("connection-color");
-                            el.classList.remove("connection-color");
+                            target.classList.add(target_color);
+                            el.classList.add(color);
 
                         });
 
-                    });
+                        target?.addEventListener("mouseout", (e) => {
 
-                } else if (selector === "id") {
+                            e.preventDefault();
+                            target.classList.remove(target_color);
+                            el.classList.remove(color);
 
-                    const target = document.getElementById(cor);
-                    target?.addEventListener("mouseover", (e) => {
+                        });
 
-                        e.preventDefault();
-                        target.classList.add("connection-color");
-                        el.classList.add("connection-color");
+                    }
 
-                    });
-
-                    target?.addEventListener("mouseout", (e) => {
-
-                        e.preventDefault();
-                        target.classList.remove("connection-color");
-                        el.classList.remove("connection-color");
-
-                    });
-
-                }
-
-            });
+                });
+            };
         });
     });
 };
@@ -123,6 +127,7 @@ const paragraph_block = "paragraph-block";
 // Text Block 4 in xsl/partials/typo-info-3rd-column.xsl
 // ######################################################
 const list_more_text_layers = "list_more_text_layers";
+const list_more_text_layers_line = "list_more_text_layers_line";
 // ######################################################
 // Text Block 5 in xsl/partials/typo-info-3rd-column.xsl
 // ######################################################
@@ -134,15 +139,30 @@ const delQP = "delQP";
 
 visualize_connections(
     "connection-color", 
+    "connection-color", 
     [paragraph_block, list_more_text_layers],
     "class",
     ".fw",
-    0
+    0,
+    true
 );
 visualize_connections(
+    "connection-color",
     "connection-color", 
     [tpq, delQP],
-    "id"
+    "id",
+    "",
+    false,
+    false
+);
+visualize_connections(
+    "connection-color",
+    "connection-color-line", 
+    [list_more_text_layers_line],
+    "id",
+    "",
+    false,
+    false
 );
 
 // ######################################################

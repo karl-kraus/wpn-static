@@ -169,7 +169,7 @@
                                             <xsl:text>Markierung für den Druck der Fackel Nr. 890: </xsl:text>
                                             <xsl:choose>
                                                 <xsl:when test="count(./tei:note[@type='printInstruction']) gt 1">
-                                                    <ul>
+                                                    <ul class="list-unstyled visually-hidden">
                                                         <xsl:for-each select="./tei:note[@type='printInstruction']">
                                                             <li><xsl:value-of select="./text()"/></li>
                                                         </xsl:for-each>
@@ -179,6 +179,31 @@
                                                     <xsl:value-of select="./tei:note[@type='printInstruction']/text()"/>
                                                 </xsl:otherwise>
                                             </xsl:choose>
+                                        </li>
+                                    </xsl:if>
+                                    <xsl:if test="./tei:note[@type='printF890']">
+                                        <li class="cursor-pointer my-1">
+                                            <label id="btn-corresp-fackel" class="cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#corresp-fackel-list">
+                                                <xsl:text>Markierung für die Fackel Nr. 890-905</xsl:text>
+                                            </label>
+                                            <ul id="corresp-fackel-list">
+                                                <xsl:for-each select="./tei:note[@type='printF890']">
+                                                    <li class="list_more_text_layers_line" data-link="{replace(@corresp, '#', '')}">
+                                                        <xsl:value-of select="./text()"/>
+                                                    </li>
+                                                    <xsl:variable name="regrefs">
+                                                        <xsl:value-of select="tokenize(@corresp, ' ')"/>
+                                                    </xsl:variable>
+                                                    <xsl:if test="count($regrefs) gt 0">
+                                                    <li class="list-unstyled">
+                                                        <xsl:for-each select="$regrefs">
+                                                            <xsl:variable name="corresp" select="replace(current(), '#', '')"/>
+                                                            <xsl:apply-templates select="doc('../../data/indices/Register.xml')//*[@xml:id=$corresp]" mode="typo_short_info"/>
+                                                        </xsl:for-each>
+                                                    </li>
+                                                    </xsl:if>
+                                                </xsl:for-each>
+                                            </ul>
                                         </li>
                                     </xsl:if>
                                 </ul>

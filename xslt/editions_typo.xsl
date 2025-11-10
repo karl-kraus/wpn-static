@@ -164,6 +164,7 @@
                         | //tei:metamark[@function='progress' and contains(@rend, 'marginLeft')]
                         | //tei:metamark[@function='transposition' and contains(@rend, 'marginLeft')]
                         | //tei:metamark[@function='printInstruction' and contains(@rend, 'marginLeft')]
+                        | //tei:metamark[@function='printInstruction' and contains(@rend, 'lineLeft') or contains(@rend, 'doubleLineLeft')]
                         | //tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'marginLeft')]
                         | //tei:metamark[@function='insertion' and contains(@rend, 'marginLeft')]
 						| //tei:metamark[@function='modification' and contains(@rend, 'marginLeft')]
@@ -221,6 +222,7 @@
                         | //tei:metamark[@function='progress' and contains(@rend, 'marginRight')]
                         | //tei:metamark[@function='transposition' and contains(@rend, 'marginRight')]
                         | //tei:metamark[@function='printInstruction' and contains(@rend, 'marginRight')]
+                        | //tei:metamark[@function='printInstruction' and contains(@rend, 'lineRight') or contains(@rend, 'doubleLineRight')]
                         | //tei:metamark[not(@change='#edACE')][@function='relocation' and contains(@rend, 'marginRight')]
                         | //tei:metamark[@function='insertion' and contains(@rend, 'marginRight')]
 						| //tei:metamark[@function='modification' and contains(@rend, 'marginRight')]
@@ -523,5 +525,16 @@
     </xsl:template>
     <xsl:template match="tei:unclear">
         <span class="unclear"><xsl:apply-templates/></span>
+    </xsl:template>
+    <xsl:template match="tei:citedRange" mode="typo_short_info">
+        <span class="d-inline-block fs-6 ps-3 text-dark-grey d-none quote_signet_background bg-no-repeat bg-position-short-info" data-entity-type="quts">
+            <xsl:text>Die Fackel Nr. 890-905, hier </xsl:text>
+            <xsl:apply-templates/>
+            <a class="text-dark-grey text-decoration-none text-wpn-quote-hover" href="{./tei:ref[@type='ext']/@target}">
+                <xsl:call-template name="icon">
+                    <xsl:with-param name="icon_name" select="'expand_info'"/>
+                </xsl:call-template>
+            </a>
+        </span>
     </xsl:template>
 </xsl:stylesheet>

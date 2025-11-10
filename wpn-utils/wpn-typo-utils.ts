@@ -42,6 +42,7 @@ initializeDropdown('btn_carrier_info', 'list_carrier_info');
 initializeDropdown('btn_more_text_layers', 'list_more_layers');
 initializeDropdown('btn_tpq_info', 'list_tpq_info');
 initializeDropdown('btn_delQP_info', 'list_delQP_info');
+initializeDropdown('btn-corresp-fackel', 'corresp-fackel-list');
 
 
 // View toggle buttons and content columns
