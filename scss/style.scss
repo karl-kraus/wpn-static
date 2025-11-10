@@ -39,13 +39,12 @@
 @import "../node_modules/bootstrap/scss/utilities/api";
 @import "../node_modules/bootstrap/scss/bootstrap-grid";
 
-
 :root {
   --bs-highlight-bg: white;
   --bs-highlight-color: var(--bs-primary);
-  
+  --bs-handwritten-font-family-italic: 'Ubuntu Light Italic';
+  --bs-handwritten-font-family: 'Ubuntu Light Normal';
 }
-
 
 /*** fonts ***/
 @font-face {
@@ -59,6 +58,16 @@
   font-family: 'Ubuntu Light';
   font-weight: '300';
   src: url(../fonts/Ubuntu_Light.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Ubuntu Light Normal';
+  src: url(../fonts/Ubuntu-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Ubuntu Light Italic';
+  src: url(../fonts/Ubuntu-LightItalic.ttf) format('truetype');
 }
 
 @font-face {
@@ -79,7 +88,6 @@
   font-weight: '400';
   src: url(../fonts/CrimsonText-Regular.woff2) format('woff2');
 }
-
 
 .ff-ubuntu-500-hover:hover {
   font-family: 'Ubuntu', sans-serif;
@@ -1727,9 +1735,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .restore.inkOnProofKK .seg-inline,
 #textcontent-pb .mod.noIndent.inkOnProofKK {
   font-size: 0.667rem;
-  font-style: italic;
   line-height: 0.75rem;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--bs-handwritten-font-family-italic);
   text-shadow: none;
 }
 
@@ -1776,7 +1783,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .bluePencilOnProof {
   font-size: 0.667rem;
   line-height: 0.75rem;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--bs-handwritten-font-family);
 }
 
 #textcontent-pb del {
@@ -2736,8 +2743,7 @@ wpn-time-line {
 #textcontent-pb .add.overwrite {
   // font-size: 1em !important;
   // margin-left: -0.5em;
-  // font-style: italic;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--bs-handwritten-font-family-italic);
   text-shadow: none;
   cursor: url(../images/cursor-circle.svg) 15 15, auto;
 }
