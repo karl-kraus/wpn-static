@@ -189,7 +189,8 @@
                         | //tei:mod[@rendition='#longQuoteEndCenter' and not(@continued) and contains(@rend, 'marginInnerLeft')]
                         | //tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#verseLine', '#runningText1') and not(@continued) and contains(@rend, 'marginInnerLeft')]
                         | //tei:mod[not(@rendition) and @style='noIndent' and not(@continued) and contains(@rend, 'marginInnerLeft')]
-                        | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginInnerLeft')]" mode="render"/>
+                        | //tei:mod[@rend and not(@rendition) and not(@style='noIndent') and not(@continued) and contains(@rend, 'marginInnerLeft')]
+                        | //tei:seg[@type='relocation' and @rend='arrow']" mode="render"/>
                     </div>
                 </div>
                 <div class="body-main">

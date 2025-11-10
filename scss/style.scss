@@ -2794,7 +2794,9 @@ body.modal-open, body.modal-open main {
 }
 
 .connection-color,
-.connection-color .subst * {
+.connection-color .subst *,
+.connection-color .seg-inline,
+.connection-color.seg-inline * {
   /* color: $wpn-fackel !important; 
   text-shadow: $wpn-fackel 1px 0 10px !important;
   text-decoration-color: $wpn-fackel !important; */
