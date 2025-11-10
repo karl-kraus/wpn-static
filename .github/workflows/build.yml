@@ -57,7 +57,6 @@ jobs:
     - name: Install Saxon, Ant and Python
       run: |
         apt-get update && apt-get install openjdk-11-jre-headless ant -y --no-install-recommend
-        ./shellscripts/dl_saxon.sh
         pip install -U pip
         pip install uv
     - name: Fetch data
