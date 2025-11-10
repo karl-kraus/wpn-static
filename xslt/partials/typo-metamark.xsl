@@ -111,7 +111,7 @@
      <xsl:template match="tei:metamark[@function='printInstruction'][@rend]" mode="render">
         <div id="container-{@xml:id}" class="d-flex metamark w-100 position-relative {if(@spanTo)then('spanto')else()} {if(@target)then('target')else()} connect {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
             <div class="w-100">
-                <span class="{@rend} {@style}">
+                <span class="{@rend} {@style} connection-color-line">
                     <xsl:if test="@corresp">
                         <xsl:attribute name="id">
                             <xsl:value-of select="replace(@corresp, '#', '')"/>

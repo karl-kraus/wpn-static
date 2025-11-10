@@ -2820,10 +2820,12 @@ body.modal-open, body.modal-open main {
   width: 0.5rem;
   height: 2rem;
   display: block;
-  position: absolute;
+  background: transparent;
+}
+
+.connection-color-line.active {
   background: linear-gradient(#A21A17, transparent);
   z-index: -1;
-  // right: 28rem; /* when @rend ends with "Right"; when it ends with "Left" – left: 5rem; */ 
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   clip-path: polygon(0 0, 100% 0, 100% 15%, 50% 100%, 0 15%);

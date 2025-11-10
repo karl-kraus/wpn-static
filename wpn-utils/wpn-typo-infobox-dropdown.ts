@@ -157,7 +157,7 @@ visualize_connections(
 );
 visualize_connections(
     "connection-color",
-    "connection-color-line", 
+    "active",
     [list_more_text_layers_line],
     "id",
     "",
