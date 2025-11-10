@@ -37,15 +37,15 @@
             <xsl:if test="@rend='line' and not((@prev, @continued))">
                 <xsl:choose>
                     <xsl:when test="parent::tei:restore">
-                        <span class="seg seg-inline"><del id="{@xml:id}" class="{replace(@change, '#', '')}">&#124;</del></span>
+                        <span class="seg seg-inline"><del id="{@xml:id}" class="{replace(@change, '#', '')}"><xsl:text>&#124;</xsl:text></del></span>
                     </xsl:when>
                     <xsl:otherwise>
-                        <span class="seg seg-inline"><span id="{@xml:id}" class="{replace(@change, '#', '')}">&#124;</span></span>
+                        <span class="seg seg-inline"><span id="{@xml:id}" class="{replace(@change, '#', '')}"><xsl:text>&#124;</xsl:text></span></span>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:if>
             <!-- special handling (rendered via span firstLast) for page 111 for arrow seg see https://github.com/karl-kraus/wpn-static/issues/208  -->
-            <xsl:if test="@rend='arrow' and not((@prev, @continued)) and not(@xml:id='seg0111_01')"><span id="{@xml:id}" class="seg seg-inline connect entity"><span class="{@rend} {replace(@change, '#', '')}">&#8592;</span></span></xsl:if>
+            <xsl:if test="@rend='arrow' and not((@prev, @continued)) and not(@xml:id='seg0111_01')"><span id="{@xml:id}" class="seg seg-inline connect entity"><span class="{@rend} {replace(@change, '#', '')}"><xsl:text>&#8592;</xsl:text></span></span></xsl:if>
             <xsl:apply-templates/>
         </span>
     </xsl:template>
@@ -53,7 +53,7 @@
         <xsl:if test="not((@prev, @continued))">
             <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
                 <div id="container-{@xml:id}" class="seg connect w-100">
-                    <span class="seg seg-inline {replace(@change, '#', '')} {@rend}">&#8592;</span>
+                    <span class="seg seg-inline {replace(@change, '#', '')} {@rend}"><xsl:text>&#8592;</xsl:text></span>
                 </div>
             </div>
         </xsl:if>

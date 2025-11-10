@@ -8,13 +8,13 @@
     <xsl:template name="info-3rd-column">
         <xsl:variable name="doc_type" select="//tei:pb/@type" />
         
-        <div id="infocolumn" class="grid-box-3">
-            <div id="infocontent-hide-btn" class="p-1 active border-top border-start border-end border-light-grey bg-primary cursor-pointer stroke-white" title="Info-Spalte schließen">
+        <div id="infocolumn" class="grid-box-3 border-start border-end border-top border-light-grey">
+            <div id="infocontent-hide-btn" class="p-1 active border-bottom border-light-grey bg-primary cursor-pointer stroke-white" title="Info-Spalte schließen">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse-vertical" viewBox="0 0 16 16">
                     <path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M0 8a.5.5 0 0 1 .5-.5h3.793L3.146 6.354a.5.5 0 1 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8.5H.5A.5.5 0 0 1 0 8m11.707.5 1.147 1.146a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2a.5.5 0 0 1 .708.708L11.707 7.5H15.5a.5.5 0 0 1 0 1z"/>
                 </svg>
             </div>
-            <div id="infocontent" class="h-100 overflow-auto bg-white px-0 border border-light-grey">
+            <div id="infocontent" class="overflow-auto bg-white px-0">
                 <div id="infocontent-header" class="row flex-row text-center m-0">
                     <div class="col px-1 py-1 border-end border-bottom border-light-grey bg-primary">
                         <div class="dropdown ff-ubuntu">
@@ -51,7 +51,7 @@
                     <div id="facscolumnBtn" class="col px-1 py-3 border-end border-bottom border-light-grey">
                         <img src="images/view-stacked.svg" alt="Synoptic View: Facsimile, Text Columns and Info Column" class="view-icon"/>
                     </div>
-                    <div id="allcolumnRowBtn" class="col px-1 py-3 border-end border-bottom border-light-grey">
+                    <div id="allcolumnRowBtn" class="col px-1 py-3 border-bottom border-light-grey">
                         <img src="images/view-stacked.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"/>
                     </div>
                 </div>

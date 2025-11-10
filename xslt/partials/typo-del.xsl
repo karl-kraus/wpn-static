@@ -15,7 +15,7 @@
             <xsl:when test="@rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <del><xsl:value-of select="normalize-space(.)"/></del>
                 <span class="position-relative">
-                   <span class="del {@rend} {replace($change, '#', '')}">&#124;&#xA0;<span class="arimo">&#8368;</span></span>
+                   <span class="del {@rend} {replace($change, '#', '')}"><xsl:text>&#124;&#xA0;</xsl:text><span class="arimo"><xsl:text>&#8368;</xsl:text></span></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
@@ -117,7 +117,7 @@
                     <del><xsl:value-of select="normalize-space(.)"/></del>
                 </span>
                 <span class="position-relative">
-                   <span class="del {@rend} {replace(@change, '#', '')}">&#124;&#xA0;<span class="arimo">&#8368;</span></span>
+                   <span class="del {@rend} {replace(@change, '#', '')}"><xsl:text>&#124;&#xA0;</xsl:text><span class="arimo"><xsl:text>&#8368;</xsl:text></span></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
@@ -144,7 +144,6 @@
     <xsl:template match="tei:del[@resp and @type='implicit']">
         <xsl:apply-templates/>
     </xsl:template>
-    
     <!-- margin container elements -->
     <xsl:template match="tei:del[not(parent::tei:subst)]" mode="render">
         <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
@@ -155,27 +154,25 @@
             </div>
         </div>
     </xsl:template>
-
     <xsl:template match="tei:del" mode="manual">
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <del class="{@rend} {replace((parent::tei:restore/@change)[1],'#','')}">
                     <span class="{replace(@change,'#','')}">
-                        &#124;&#xA0;<span class="arimo">&#8368;</span>
+                        <xsl:text>&#124;&#xA0;</xsl:text><span class="arimo"><xsl:text>&#8368;</xsl:text></span>
                     </span>
                 </del>
             </xsl:when>
             <xsl:when test="count(node())=1 and text()=' ' and not(@resp)">
                 <span class="whitespace-del {replace(@change,'#','')}">
-                    &#124;&#160;&#160;&#785;
+                    <xsl:text>&#124;&#160;&#160;&#785;</xsl:text>
                 </span>
             </xsl:when>
             <xsl:otherwise>
                 <span class="{@rend} {replace(@change,'#','')}">
-                    &#124;&#xA0;<span class="arimo">&#8368;</span>
+                    <xsl:text>&#124;&#xA0;</xsl:text><span class="arimo"><xsl:text>&#8368;</xsl:text></span>
                 </span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-   
 </xsl:stylesheet>

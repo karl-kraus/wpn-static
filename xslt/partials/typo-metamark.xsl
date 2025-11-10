@@ -6,11 +6,9 @@
     version="2.0" exclude-result-prefixes="#all">
 
     <xsl:template match="tei:metamark[@function='progress'][@place]">
-
-            <span class="metamark progress position-absolute {replace(@change,'#','')} {@place} {@style}" id="{@xml:id}">
-                <xsl:apply-templates/>
-            </span>
-        
+        <span class="metamark progress position-absolute {replace(@change,'#','')} {@place} {@style}" id="{@xml:id}">
+            <xsl:apply-templates/>
+        </span>
      </xsl:template>
     <xsl:template match="tei:metamark[@function='progress'][@rend]">
         <span class="metamark progress mm-inline connect entity {replace(@change,'#','')}" id="{@xml:id}">
@@ -29,7 +27,7 @@
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@place]">
         <span class="metamark mm-inline {@place} {@style} {replace(@change, '#', '')}" id="{@xml:id}">
             <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
-                <span>&#124;</span>
+                <span><xsl:text>&#124;</xsl:text></span>
             </xsl:if>
         </span>
      </xsl:template>
@@ -43,7 +41,7 @@
      </xsl:template>
     <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@rend][parent::tei:restore]">
         <span class="metamark mm-inline connect entity {replace(@change, '#', '')}" id="{@xml:id}">
-            <del>&#124;</del>
+            <del><xsl:text>&#124;</xsl:text></del>
         </span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][not(@rend) and not(@place)]">
@@ -57,7 +55,7 @@
                 </xsl:if>
                 <span class="metamark mm-inline connect entity {replace(@change, '#', '')}" id="{@xml:id}">
                     <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
-                        <span>&#124;</span>
+                        <span><xsl:text>&#124;</xsl:text></span>
                     </xsl:if>
                     <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
                 </span>
@@ -78,10 +76,10 @@
                     <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
                         <xsl:choose>
                             <xsl:when test="parent::tei:restore">
-                                <del>&#124;</del>
+                                <del><xsl:text>&#124;</xsl:text></del>
                             </xsl:when>
                             <xsl:otherwise>
-                                <span>&#124;</span>
+                                <span><xsl:text>&#124;</xsl:text></span>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:if>
@@ -126,7 +124,7 @@
                             <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                         </xsl:attribute>
                     </xsl:if>
-                    <span class="fade">&#124;</span><xsl:apply-templates/>
+                    <span class="fade"><xsl:text>&#124;</xsl:text></span><xsl:apply-templates/>
                 </span>
             </div>
         </div>
@@ -183,11 +181,11 @@
                  <span class="metamark entity connect {replace(@change,'#','')}" id="{@xml:id}"/>
             </xsl:when>
             <xsl:when test="parent::restore">
-                <del class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">&#124;</del>
+                <del class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}"><xsl:text>&#124;</xsl:text></del>
             </xsl:when>
             <xsl:otherwise>
                  <span class="metamark connect entity {replace(@change, '#', '')}" id="{@xml:id}">
-                     <xsl:if test="not(.//text())">&#124;</xsl:if>
+                     <xsl:if test="not(.//text())"><xsl:text>&#124;</xsl:text></xsl:if>
                      <xsl:apply-templates/>
                  </span>
             </xsl:otherwise>
@@ -207,12 +205,12 @@
                     <xsl:choose>
                         <xsl:when test="parent::tei:restore">
                             <del>
-                                <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])">&#124;</xsl:if>
+                                <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
                                 <xsl:apply-templates/>
                             </del>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])">&#124;</xsl:if>
+                            <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
                             <xsl:apply-templates/>
                         </xsl:otherwise>
                     </xsl:choose>
@@ -295,7 +293,7 @@
                                         <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                                     </xsl:attribute>
                                 </xsl:if>
-                                &#124;
+                                <xsl:text>&#124;</xsl:text>
                             </del>
                         </span>
                     </xsl:when>
@@ -334,7 +332,7 @@
                                         <xsl:value-of select="for $i in $targetList return concat('target-', substring-after($i, '#'))"/>
                                     </xsl:attribute>
                                 </xsl:if>
-                                 &#124;
+                                <xsl:text>&#124;</xsl:text>
                             </span>
                         </span>
                     </xsl:otherwise>
@@ -356,12 +354,12 @@
                     <xsl:choose>
                         <xsl:when test="parent::tei:restore">
                             <del>
-                                <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])">&#124;</xsl:if>
+                                <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
                                 <xsl:apply-templates/>
                             </del>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])">&#124;</xsl:if>
+                            <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
                             <xsl:apply-templates/>
                         </xsl:otherwise>
                     </xsl:choose>
@@ -387,7 +385,7 @@
                         <xsl:choose>
                             <xsl:when test="contains($next/@xml:id, 'add')">
                                 <span class="{$next-rend} {replace($next-change,'#','')}">
-                                    &#124;&#xA0;<xsl:apply-templates select="$next" mode="manual_iter"/>
+                                    <xsl:text>&#124;&#xA0;</xsl:text><xsl:apply-templates select="$next" mode="manual_iter"/>
                                 </span>
                             </xsl:when>
                             <xsl:when test="contains($next/@xml:id, 'del')">
@@ -395,7 +393,7 @@
                                     <xsl:when test="$next[parent::tei:restore]">
                                         <del class="{$next-rend} {replace(($next/parent::tei:restore/@change)[1],'#','')}">
                                             <span class="{replace($next-change,'#','')}">
-                                                &#124;&#xA0;<span class="arimo">&#8368;</span>
+                                                <xsl:text>&#124;&#xA0;</xsl:text><span class="arimo">&#8368;</span>
                                                 <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fill="currentColor" viewBox="0 0 8.99 16.04">
                                                     <metadata>
                                                     <dc:creator>Bernhard Oberreither</dc:creator>
@@ -409,7 +407,7 @@
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <span class="{$next-rend} {replace($next-change,'#','')}">
-                                            &#124;&#xA0;<span class="arimo">&#8368;</span>
+                                            <xsl:text>&#124;&#xA0;</xsl:text><span class="arimo">&#8368;</span>
                                             <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" fill="currentColor" viewBox="0 0 8.99 16.04">
                                                 <metadata>
                                                 <dc:creator>Bernhard Oberreither</dc:creator>
@@ -424,7 +422,7 @@
                             </xsl:when>
                             <xsl:when test="contains($next/@xml:id, '-sub-')">
                                 <span class="{$next-rend} {replace($next-change,'#','')}">
-                                    &#124;&#xA0;<xsl:apply-templates select="$next/tei:add" mode="manual_iter"/>
+                                    <xsl:text>&#124;&#xA0;</xsl:text><xsl:apply-templates select="$next/tei:add" mode="manual_iter"/>
                                 </span>
                             </xsl:when>
                             <xsl:when test="contains($next/@xml:id, 'metam')">
@@ -441,7 +439,7 @@
 
     <xsl:template match="tei:metamark" mode="manual_iter">
         <xsl:if test="self::tei:metamark[not(@function='progress')]">
-            &#124;&#xA0;
+            <xsl:text>&#124;&#xA0;</xsl:text>
         </xsl:if>
         <xsl:apply-templates/>
     </xsl:template>
