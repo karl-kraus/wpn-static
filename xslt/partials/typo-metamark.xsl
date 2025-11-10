@@ -319,8 +319,8 @@
                     </xsl:when>
                     <xsl:when test="@rend='other'">
                         <xsl:choose>
-                            <xsl:when test="parent::tei:add[@rend or ancestor::tei:subst[@rend]]">
-                                &#124;
+                            <xsl:when test="parent::tei:add[@rend or parent::tei:subst[@rend]]">
+                                <xsl:text>&#124;</xsl:text>
                             </xsl:when>
                             <xsl:otherwise></xsl:otherwise>
                         </xsl:choose>
