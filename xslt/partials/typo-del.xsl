@@ -10,37 +10,37 @@
         <xsl:variable name="change" select="@change"/>
         <xsl:choose>
             <xsl:when test="@rend='overwritten'">
-                <span class="del text-black-grey" id="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="del text-black-grey" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:when test="@rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <del><xsl:value-of select="normalize-space(.)"/></del>
                 <span class="position-relative">
-                   <span class="del {@rend} {replace($change, '#', '')}"><xsl:text>&#124;&#xA0;</xsl:text><span class="arimo"><xsl:text>&#8368;</xsl:text></span></span>
+                   <span data-anchor="{@xml:id} {replace($change, '#', '')}" class="del {@rend} {replace($change, '#', '')}"><xsl:text>&#124;&#xA0;</xsl:text><span class="arimo"><xsl:text>&#8368;</xsl:text></span></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="child::tei:*">
-                        <span class="del connect entity {replace(($change)[1], '#', '')}" id="{@xml:id}">
-                            <del><xsl:apply-templates/></del>
+                        <span class="del {replace(($change)[1], '#', '')}">
+                            <del class="entity" data-anchor="{@xml:id} {replace(($change)[1], '#', '')}"><xsl:apply-templates/></del>
                         </span>
                     </xsl:when>
                     <xsl:otherwise>
-                        <span class="del connect entity {replace(($change)[1], '#', '')}" id="{@xml:id}">
+                        <span class="del {replace(($change)[1], '#', '')}">
                             <xsl:choose>
                                 <xsl:when test="count(node())=1 and text()=' ' and not(@resp)">
-                                    <span class="whitespace-del"><xsl:text>&#8201;&#785;</xsl:text></span>
+                                    <span data-anchor="{@xml:id} {replace(($change)[1], '#', '')}" class="entity whitespace-del"><xsl:text>&#8201;&#785;</xsl:text></span>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <xsl:choose>
                                         <xsl:when test="starts-with(., ' ')">
-                                            <xsl:text>&#xA0;</xsl:text><del><xsl:value-of select="normalize-space(.)"/></del>
+                                            <xsl:text>&#xA0;</xsl:text><del data-anchor="{@xml:id} {replace(($change)[1], '#', '')}" class="entity"><xsl:value-of select="normalize-space(.)"/></del>
                                         </xsl:when>
                                         <xsl:when test="ends-with(., ' ')">
-                                            <del><xsl:value-of select="normalize-space(.)"/></del><xsl:text>&#xA0;</xsl:text>
+                                            <del data-anchor="{@xml:id} {replace(($change)[1], '#', '')}" class="entity"><xsl:value-of select="normalize-space(.)"/></del><xsl:text>&#xA0;</xsl:text>
                                         </xsl:when>
                                         <xsl:otherwise>
-                                            <del><xsl:value-of select="normalize-space(.)"/></del>
+                                            <del data-anchor="{@xml:id} {replace(($change)[1], '#', '')}" class="entity"><xsl:value-of select="normalize-space(.)"/></del>
                                         </xsl:otherwise>
                                     </xsl:choose>
                                 </xsl:otherwise>
@@ -54,43 +54,77 @@
     <xsl:template match="tei:del[parent::tei:subst[not(parent::tei:restore)]]">
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
         <!-- <xsl:variable name="change" select="replace((parent::tei:subst/@change)[1], '#', '')"/> -->
+        <xsl:variable name="targetorfalse" select="if(parent::tei:subst[./tei:add[./tei:metamark[@target]]])then(parent::tei:subst/tei:add/tei:metamark/@target)else('false')"/>
+        <xsl:variable name="target" select="if($targetorfalse!='false')then(replace($targetorfalse, '#', ''))else('false')"/>
         <xsl:choose>
             <xsl:when test="$rend='overwritten'">
-                <span class="del text-black-grey" id="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="del text-black-grey" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:when test="$rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
-                <span class="del" id="{@xml:id}">
-                    <del><xsl:apply-templates/></del>
-                </span>
+                <del class="del" data-anchor="{@xml:id}"><xsl:apply-templates/></del>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="child::tei:*">
-                        <span class="del connect entity" id="{@xml:id}">
-                            <del><xsl:apply-templates/></del>
-                        </span>
+                        <del class="del entity" data-anchor="{@xml:id}">
+                            <xsl:if test="$target!='false'">
+                                <xsl:attribute name="data-target">
+                                    <xsl:value-of select="$target"/>
+                                </xsl:attribute>
+                            </xsl:if>
+                            <xsl:apply-templates/>
+                        </del>
                     </xsl:when>
                     <xsl:otherwise>
-                        <span class="del connect entity" id="{@xml:id}">
-                            <xsl:choose>
-                                <xsl:when test="count(node())=1 and text()=' ' and not(@resp)">
-                                    <del>&#x20;</del>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:choose>
-                                        <xsl:when test="starts-with(., ' ')">
-                                            <xsl:text>&#xA0;</xsl:text><del><xsl:value-of select="normalize-space(.)"/></del>
-                                        </xsl:when>
-                                        <xsl:when test="ends-with(., ' ')">
-                                            <del><xsl:value-of select="normalize-space(.)"/></del><xsl:text>&#xA0;</xsl:text>
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            <del><xsl:value-of select="normalize-space(.)"/></del>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </span>
+                        <xsl:choose>
+                            <xsl:when test="count(node())=1 and text()=' ' and not(@resp)">
+                                <del class="entity" data-anchor="{@xml:id}">
+                                    <xsl:if test="$target!='false'">
+                                        <xsl:attribute name="data-target">
+                                            <xsl:value-of select="$target"/>
+                                        </xsl:attribute>
+                                    </xsl:if>
+                                    <xsl:text>&#x20;</xsl:text>
+                                </del>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:choose>
+                                    <xsl:when test="starts-with(., ' ')">
+                                        <span class="del">
+                                            <xsl:text>&#xA0;</xsl:text>
+                                            <del class="entity" data-anchor="{@xml:id}">
+                                                <xsl:if test="$target!='false'">
+                                                    <xsl:attribute name="data-target">
+                                                        <xsl:value-of select="$target"/>
+                                                    </xsl:attribute>
+                                                </xsl:if>
+                                                <xsl:value-of select="normalize-space(.)"/>
+                                            </del>
+                                        </span>
+                                    </xsl:when>
+                                    <xsl:when test="ends-with(., ' ')">
+                                        <del class="entity" data-anchor="{@xml:id}">
+                                            <xsl:if test="$target!='false'">
+                                                <xsl:attribute name="data-target">
+                                                    <xsl:value-of select="$target"/>
+                                                </xsl:attribute>
+                                            </xsl:if>
+                                            <xsl:value-of select="normalize-space(.)"/>
+                                        </del><xsl:text>&#xA0;</xsl:text>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <del class="entity" data-anchor="{@xml:id}">
+                                            <xsl:if test="$target!='false'">
+                                                <xsl:attribute name="data-target">
+                                                    <xsl:value-of select="$target"/>
+                                                </xsl:attribute>
+                                            </xsl:if>
+                                            <xsl:value-of select="normalize-space(.)"/>
+                                        </del>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:otherwise>
@@ -99,30 +133,28 @@
     <xsl:template match="tei:del[parent::tei:subst[parent::tei:restore]]">
         <xsl:choose>
             <xsl:when test="parent::tei:subst[parent::tei:restore[not(@rend='marginOnly')]]">
-               <span class="del connect text-decoration-underline-dotted" id="{@xml:id}">
-                    <del><xsl:apply-templates/></del>
+               <span class="del text-decoration-underline-dotted">
+                    <del data-anchor="{@xml:id}"><xsl:apply-templates/></del>
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="del" id="{@xml:id}">
-                    <del><xsl:apply-templates/></del>
-                </span>
+                <del data-anchor="{@xml:id}"><xsl:apply-templates/></del>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:del[parent::tei:add]">
         <xsl:choose>
             <xsl:when test="@rend='left'">
-                <span id="{@xml:id}" class="del {replace((@change)[1], '#', '')}">
-                    <del><xsl:value-of select="normalize-space(.)"/></del>
+                <span class="del {replace((@change)[1], '#', '')}">
+                    <del data-anchor="{@xml:id}"><xsl:value-of select="normalize-space(.)"/></del>
                 </span>
                 <span class="position-relative">
-                   <span class="del {@rend} {replace(@change, '#', '')}"><xsl:text>&#124;&#xA0;</xsl:text><span class="arimo"><xsl:text>&#8368;</xsl:text></span></span>
+                   <span data-anchor="{replace(@change, '#', '')}" class="del {@rend} {replace(@change, '#', '')}"><xsl:text>&#124;&#xA0;</xsl:text><span class="arimo"><xsl:text>&#8368;</xsl:text></span></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span id="{@xml:id}" class="{replace((@change)[1], '#', '')}">
-                    <del><xsl:apply-templates/></del>
+                <span class="{replace((@change)[1], '#', '')}">
+                    <del data-anchor="{@xml:id} {replace((@change)[1], '#', '')}"><xsl:apply-templates/></del>
                 </span>
             </xsl:otherwise>
         </xsl:choose>
@@ -130,14 +162,12 @@
     <xsl:template match="tei:del[parent::tei:restore]">
          <xsl:choose>
             <xsl:when test="parent::tei:restore[not(@rend='marginOnly')]">
-               <span id="{@xml:id}" class="del connect entity text-decoration-underline-dotted">
-                    <del><xsl:apply-templates/></del>
+               <span class="del text-decoration-underline-dotted">
+                    <del class="entity" data-anchor="{@xml:id}"><xsl:apply-templates/></del>
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span id="{@xml:id}" class="del connect entity">
-                    <del><xsl:apply-templates/></del>
-                </span>
+                <del class="del entity" data-anchor="{@xml:id}"><xsl:apply-templates/></del>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -147,29 +177,32 @@
     <!-- margin container elements -->
     <xsl:template match="tei:del[not(parent::tei:subst)]" mode="render">
         <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
-            <div id="container-{@xml:id}" class="del connect w-100 {replace(@change,'#','')}">
+            <div class="del w-100 {replace(@change,'#','')}">
                 <div class="w-100">
-                    <xsl:apply-templates select="self::tei:del" mode="manual"/>
+                    <xsl:apply-templates select="self::tei:del" mode="manual">
+                        <xsl:with-param name="id" select="@xml:id"/>
+                    </xsl:apply-templates>
                 </div>
             </div>
         </div>
     </xsl:template>
     <xsl:template match="tei:del" mode="manual">
+        <xsl:param name="id" select="@xml:id"/>
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <del class="{@rend} {replace((parent::tei:restore/@change)[1],'#','')}">
-                    <span class="{replace(@change,'#','')}">
+                    <span data-anchor="{$id} {replace(@change,'#','')}" class="{replace(@change,'#','')}">
                         <xsl:text>&#124;&#xA0;</xsl:text><span class="arimo"><xsl:text>&#8368;</xsl:text></span>
                     </span>
                 </del>
             </xsl:when>
             <xsl:when test="count(node())=1 and text()=' ' and not(@resp)">
-                <span class="whitespace-del {replace(@change,'#','')}">
+                <span data-anchor="{$id} {replace(@change,'#','')}" class="whitespace-del {replace(@change,'#','')}">
                     <xsl:text>&#124;&#160;&#160;&#785;</xsl:text>
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="{@rend} {replace(@change,'#','')}">
+                <span data-anchor="{$id} {replace(@change,'#','')}" class="{@rend} {replace(@change,'#','')}">
                     <xsl:text>&#124;&#xA0;</xsl:text><span class="arimo"><xsl:text>&#8368;</xsl:text></span>
                 </span>
             </xsl:otherwise>
