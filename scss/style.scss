@@ -2821,10 +2821,12 @@ body.modal-open, body.modal-open main {
   height: 2rem;
   display: block;
   background: transparent;
+  position: absolute;
+  right: 0;
 }
 
 .connection-color-line.active {
-  background: linear-gradient(#A21A17, transparent);
+  background: linear-gradient($wpn-red, transparent);
   z-index: -1;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
