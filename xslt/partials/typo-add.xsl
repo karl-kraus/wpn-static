@@ -9,7 +9,7 @@
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
         <xsl:choose>
             <xsl:when test="$rend = 'inline'">
-                <del class="add" data-anchor="{@xml:id}"><xsl:apply-templates/></del>
+                <del class="add" data-anchor="{@xml:id} {preceding-sibling::tei:del[1]/@xml:id} {following-sibling::tei:del[1]/@xml:id}"><xsl:apply-templates/></del>
             </xsl:when>
             <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
                 <span class="position-relative">
@@ -28,7 +28,8 @@
                         <xsl:attribute name="class">
                             <xsl:value-of select="concat('add ', $rend, ' ', replace(@change[1], '#', ''))"/>
                         </xsl:attribute>
-                        <xsl:attribute name="data-anchor" select="concat(@xml:id, ' ', replace(@change[1], '#', ''))"/>
+                        <xsl:attribute name="data-anchor" select="concat(@xml:id, ' ', preceding-sibling::tei:del[1]/@xml:id, ' ', following-sibling::tei:del[1]/@xml:id)"/>
+                        <xsl:attribute name="data-hand" select="replace(@change[1], '#', '')"/>
                         <xsl:text>&#124;&#xA0;</xsl:text><xsl:apply-templates/>
                     </xsl:element>
                 </span>
@@ -45,7 +46,7 @@
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[parent::tei:span[parent::tei:subst]])then(ancestor::tei:subst/@rend)else(@rend)"/>
         <xsl:choose>
             <xsl:when test="$rend = 'inline'">
-                <span class="add" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="add" data-anchor="{@xml:id} {preceding-sibling::tei:del[1]/@xml:id} {following-sibling::tei:del[1]/@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
                 <span class="position-relative">
@@ -63,7 +64,8 @@
                         <xsl:attribute name="class">
                             <xsl:value-of select="concat('add ', $rend, ' ', replace(@change[1], '#', ''))"/>
                         </xsl:attribute>
-                        <xsl:attribute name="data-anchor" select="concat(@xml:id, ' ', replace(@change[1], '#', ''))"/>
+                        <xsl:attribute name="data-anchor" select="concat(@xml:id, ' ', preceding-sibling::tei:del[1]/@xml:id, ' ', following-sibling::tei:del[1]/@xml:id)"/>
+                        <xsl:attribute name="data-hand" select="replace(@change[1], '#', '')"/>
                         <xsl:text>&#124;&#xA0;</xsl:text><xsl:apply-templates/>
                     </xsl:element>
                 </span>
@@ -89,12 +91,12 @@
     <xsl:template match="tei:add[not(parent::tei:subst) and not(parent::tei:restore)]">
         <xsl:choose>
             <xsl:when test="@rend = 'inline'">
-                <span class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id} {replace(@change[1], '#', '')}">
+                <span class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}">
                     <xsl:apply-templates/>
                 </span>
             </xsl:when>
             <xsl:when test="@rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
-                <span class="add {replace(@change[1], '#', '')}" data-anchor="{@xml:id} {replace(@change[1], '#', '')}">&#124;</span>
+                <span class="add {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}">&#124;</span>
                 <span class="position-relative">
                     <xsl:variable name="el">
                         <xsl:choose>
@@ -110,13 +112,14 @@
                         <xsl:attribute name="class">
                             <xsl:value-of select="concat('add ', @rend, ' ', replace(@change[1], '#', ''))"/>
                         </xsl:attribute>
-                        <xsl:attribute name="data-anchor" select="concat(@xml:id, ' ', replace(@change[1], '#', ''))"/>
+                        <xsl:attribute name="data-anchor" select="@xml:id"/>
+                        <xsl:attribute name="data-hand" select="replace(@change[1], '#', '')"/>
                         <xsl:text>&#124;&#xA0;</xsl:text><xsl:apply-templates/>
                     </xsl:element>
                 </span>
             </xsl:when>
             <xsl:when test="not(@rend)">
-                <span class="add connect entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id} {replace(@change[1], '#', '')}">
+                <span class="add connect entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}">
                     <xsl:if test="./tei:metamark[@target]">
                         <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
@@ -127,7 +130,7 @@
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id} {replace(@change[1], '#', '')}"><xsl:text>&#124;</xsl:text></span>
+                <span class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -137,23 +140,23 @@
                 <xsl:choose>
                     <xsl:when test="@rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
                         <xsl:if test="not(parent::tei:subst)">
-                           <span class="add {replace(@change[1], '#', '')}" data-anchor="{@xml:id} {replace(@change[1], '#', '')}"><xsl:text>&#124;</xsl:text></span>
+                           <span class="add {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
                         </xsl:if>
                         <span class="position-relative">
-                            <del class="add {@rend} {replace(@change[1], '#', '')}" data-anchor="{@xml:id} {replace(@change[1], '#', '')}">
+                            <del class="add {@rend} {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}">
                                 <xsl:text>&#124;&#xA0;</xsl:text><xsl:apply-templates/>
                             </del>
                         </span>
                     </xsl:when>
                     <xsl:otherwise>
                         <span class="add text-decoration-underline-dotted {replace(@change[1], '#', '')}">
-                            <del class="entity" data-anchor="{@xml:id} {replace(@change[1], '#', '')}"><xsl:text>&#124;</xsl:text></del>
+                            <del class="entity" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></del>
                         </span>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
-                <span class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id} {replace(@change[1], '#', '')}"><xsl:text>&#124;</xsl:text></span>
+                <span class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
             </xsl:otherwise>
         </xsl:choose>
         
@@ -183,7 +186,7 @@
         <xsl:choose>
             <xsl:when test="parent::tei:subst[ancestor::tei:restore[not(./tei:seg)]]">
                 <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
-                <del data-anchor="{$id} {replace($restore-change[1],'#','')}" class="{$rend} {replace($restore-change[1],'#','')}">
+                <del data-anchor="{$id}" data-hand="{replace($restore-change[1],'#','')}" class="{$rend} {replace($restore-change[1],'#','')}">
                     <xsl:if test="./tei:metamark[@target]">
                         <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
@@ -195,18 +198,18 @@
             </xsl:when>
             <xsl:when test="parent::tei:restore">
                 <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
-                <del data-anchor="{replace($restore-change,'#','')}" class="restore {$rend} {replace($restore-change,'#','')}">
+                <del data-hand="{replace($restore-change,'#','')}" class="restore {$rend} {replace($restore-change,'#','')}">
                     <xsl:if test="./tei:metamark[@target]">
                         <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
                             <xsl:value-of select="for $i in $targetList return substring-after($i, '#')"/>
                         </xsl:attribute>
                     </xsl:if>
-                    <span data-anchor="{$id} {replace(@change[1],'#','')}" class="{replace(@change[1],'#','')}"><xsl:text>&#124;&#xA0;</xsl:text><xsl:apply-templates/></span>
+                    <span data-anchor="{$id}" data-hand="{replace(@change[1],'#','')}" class="{replace(@change[1],'#','')}"><xsl:text>&#124;&#xA0;</xsl:text><xsl:apply-templates/></span>
                 </del>
             </xsl:when>
             <xsl:when test="parent::tei:subst[not(parent::tei:restore)]">
-                <span data-anchor="{$id} {replace($change[1],'#','')}" class="{$rend} {replace($change[1],'#','')}">
+                <span data-anchor="{$id}" data-hand="{replace($change[1],'#','')}" class="{$rend} {replace($change[1],'#','')}">
                     <xsl:if test="./tei:metamark[@target]">
                         <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
@@ -217,7 +220,7 @@
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span data-anchor="{$id} {replace($change[1],'#','')}" class="{$rend} {replace($change[1],'#','')}">
+                <span data-anchor="{$id}" data-hand="{replace($change[1],'#','')}" class="{$rend} {replace($change[1],'#','')}">
                     <xsl:if test="./tei:metamark[@target]">
                         <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">

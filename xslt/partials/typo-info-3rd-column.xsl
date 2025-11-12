@@ -97,7 +97,7 @@
                                         "/>
                                 </p>
                                 <xsl:for-each select="./tei:note[@type='pagination']">
-                                    <p id="paragraph-block-{position()}" class="paragraph-block" data-anchor="fw-{replace(@corresp, '#', '')}">
+                                    <p id="paragraph-block-{position()}" class="paragraph-block" data-link="fw-{replace(@corresp, '#', '')}">
                                         <xsl:variable name="corresp">
                                             <xsl:value-of select="substring-after(@corresp, '#')"/>
                                         </xsl:variable>
@@ -155,7 +155,7 @@
                                                 </xsl:otherwise>
                                             </xsl:choose>
                                         </xsl:variable>
-                                        <li class="cursor-pointer my-1 list_more_text_layers" data-anchor="{$corresp}">
+                                        <li class="cursor-pointer my-1 list_more_text_layers" data-link="{$corresp}">
                                             <xsl:value-of select="$creation//id(data($corresp))"/>
                                         </li>
                                     </xsl:for-each>

@@ -4,27 +4,32 @@
 document.querySelector<HTMLElement>("#infocontent-pb")?.addEventListener("mouseover", (event) => {
 
     const color = "connection-color";
-    
+    const color_line = "connection-color-line";
     const target = event.target as HTMLElement;
+    const dataLink = target.dataset.link;
+    const dataLinkOne = target.dataset.linkone;
 
-    const anchorData = target.dataset.anchor;
-
-    if (!anchorData) {
+    if (!dataLink) {
         document.querySelectorAll<HTMLElement>(`.${color}`).forEach((el) => {
 
             el.classList.remove(color);
 
         });
+        document.querySelectorAll<HTMLElement>(`.${color_line}.active`).forEach((el) => {
+
+            el.classList.remove("active");
+
+        });
     };
 
-    const anchorDataList = anchorData ? anchorData.split(" ") : [];
+    const dataLinkList = dataLink ? dataLink.split(" ") : [];
 
-    anchorDataList.forEach((data) => {
+    dataLinkList.forEach((link) => {
 
         // highlight anchor
-        const anchorElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${data}"]`);
+        const anchorElements = document.querySelectorAll<HTMLElement>(`[data-hand~="${link}"]`);
 
-        if(anchorElements.length > 1) {
+        if(anchorElements.length > 0) {
 
             target.classList.add(color);
 
@@ -35,22 +40,6 @@ document.querySelector<HTMLElement>("#infocontent-pb")?.addEventListener("mouseo
             });
 
         }
-
-    });
-
-    const dataLink = target.dataset.link;
-
-    if (!dataLink) {
-        document.querySelectorAll<HTMLElement>(".active").forEach((el) => {
-
-            el.classList.remove("active");
-
-        });
-    };
-
-    const dataLinkList = dataLink ? dataLink.split(" ") : [];
-
-    dataLinkList.forEach((link) => {
 
         // highlight linked elements
         const linkedElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${link}"]`);
@@ -66,9 +55,9 @@ document.querySelector<HTMLElement>("#infocontent-pb")?.addEventListener("mouseo
             });
             
         }
+
     });
 
-    const dataLinkOne = target.dataset.linkone;
     const dataLinkOneList = dataLinkOne ? dataLinkOne.split(" ") : [];
     
     dataLinkOneList.forEach((link) => {

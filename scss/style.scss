@@ -1716,22 +1716,22 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .note.inkOnProofKK,
 #textcontent-pb .metamark.inkOnProofKK,
 #textcontent-pb .fw.inkOnProofKK,
-#textcontent-pb div.del.connect.inkOnProofKK,
+#textcontent-pb div.del.inkOnProofKK,
 #textcontent-pb .del.above.inkOnProofKK,
 #textcontent-pb .add.pencilOnProofKK,
 #textcontent-pb .note.pencilOnProofKK,
 #textcontent-pb .metamark.pencilOnProofKK,
-#textcontent-pb div.del.connect.pencilOnProofKK,
-#textcontent-pb div.mod.connect.pencilOnProofKK,
-#textcontent-pb .mod.connect.pencilOnProofKK .pencilOnProofKK,
-#textcontent-pb .mod.connect.inkOnProofKK .inkOnProofKK,
+#textcontent-pb div.del.pencilOnProofKK,
+#textcontent-pb div.mod.pencilOnProofKK,
+#textcontent-pb .mod.pencilOnProofKK .pencilOnProofKK,
+#textcontent-pb .mod.inkOnProofKK .inkOnProofKK,
 #textcontent-pb .subst.pencilOnProofKK .add,
 #textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .del.left.pencilOnProof,
 #textcontent-pb .arrow.inkOnProofKK,
 #textcontent-pb .mod.inkOnProofKK.quote-indent,
 #textcontent-pb .mod.inkOnProofKK .mod-inline,
-#textcontent-pb .mod.connect.marginLeft.inkOnProofKK,
+#textcontent-pb .mod.marginLeft.inkOnProofKK,
 #textcontent-pb .restore.inkOnProofKK .seg-inline,
 #textcontent-pb .mod.noIndent.inkOnProofKK {
   font-size: 0.667rem;
@@ -1746,15 +1746,15 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .note.inkOnProof,
 #textcontent-pb .metamark.inkOnProof,
 #textcontent-pb .fw.inkOnProof,
-#textcontent-pb div.del.connect.inkOnProof,
+#textcontent-pb div.del.inkOnProof,
 #textcontent-pb .subst.inkOnTypescript .add,
 #textcontent-pb .restore.inkOnTypescript .add,
 #textcontent-pb .add.inkOnTypescript,
 #textcontent-pb .add.pencilOnProof,
 #textcontent-pb .note.pencilOnProof,
 #textcontent-pb .metamark.pencilOnProof,
-#textcontent-pb div.del.connect.pencilOnProof,
-#textcontent-pb div.mod.connect.pencilOnProof,
+#textcontent-pb div.del.pencilOnProof,
+#textcontent-pb div.mod.pencilOnProof,
 #textcontent-pb .subst.pencilOnProof .add,
 #textcontent-pb .restore.pencilOnProof .add
 #textcontent-pb .subst.redOnProof .add,
@@ -1762,7 +1762,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .add.redOnProof,
 #textcontent-pb .note.redOnProof,
 #textcontent-pb .metamark.redOnProof,
-#textcontent-pb div.del.connect.redOnProof,
+#textcontent-pb div.del.redOnProof,
 #textcontent-pb .subst.pencilOnTypescript .add,
 #textcontent-pb .subst.pencilOnProof .add,
 #textcontent-pb .restore.pencilOnTypescript .add,
@@ -1775,10 +1775,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .note.pencilOnProofLibrary,
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
-#textcontent-pb div.del.connect.pencilOnTypescript,
-#textcontent-pb div.del.connect.pencilOnProof,
-#textcontent-pb div.mod.connect.pencilOnTypescript,
-#textcontent-pb div.mod.connect.pencilOnProof,
+#textcontent-pb div.del.pencilOnTypescript,
+#textcontent-pb div.del.pencilOnProof,
+#textcontent-pb div.mod.pencilOnTypescript,
+#textcontent-pb div.mod.pencilOnProof,
 #textcontent-pb .add .blueInkOnProof,
 #textcontent-pb .bluePencilOnProof {
   font-size: 0.667rem;
@@ -2012,12 +2012,12 @@ handling del elements in maring left or right
   border-color: #303030;
 }
 
-#textcontent-pb div.del.connect.pencilOnTypescript,
-#textcontent-pb div.del.connect.pencilOnProof,
-#textcontent-pb div.del.connect.undefined,
-#textcontent-pb div.add.connect.pencilOnTypescript,
-#textcontent-pb div.add.connect.pencilOnProof,
-#textcontent-pb div.add.connect.undefined,
+#textcontent-pb div.del.pencilOnTypescript,
+#textcontent-pb div.del.pencilOnProof,
+#textcontent-pb div.del.undefined,
+#textcontent-pb div.add.pencilOnTypescript,
+#textcontent-pb div.add.pencilOnProof,
+#textcontent-pb div.add.undefined,
 #textcontent-pb .note.undefined,
 #textcontent-pb .add.undefined,
 #textcontent-pb .del.left.pencilOnProof,
@@ -2042,7 +2042,7 @@ handling del elements in maring left or right
 /*
 pencil text color
 */
-#textcontent-pb div.del.connect.pencilOnProofKK,
+#textcontent-pb div.del.pencilOnProofKK,
 #textcontent-pb .subst.pencilOnProofKK .add,
 #textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .add.pencilOnProofKK,
@@ -2054,12 +2054,12 @@ pencil text color
   color: #5e5e5e;
 }
 
-#textcontent-pb div.del.connect.redOnProof,
+#textcontent-pb div.del.redOnProof,
 #textcontent-pb .subst.redOnProof .add,
 #textcontent-pb .restore.redOnProof .add,
 #textcontent-pb .add.redOnProof,
 #textcontent-pb .metamark.redOnProof,
-#textcontent-pb div.del.connect.redOnProofKK,
+#textcontent-pb div.del.redOnProofKK,
 #textcontent-pb .subst.redOnProofKK .add,
 #textcontent-pb .restore.redOnProofKK .add,
 #textcontent-pb .add.redOnProofKK,
@@ -2067,17 +2067,17 @@ pencil text color
   color: #FC7A57;
 }
 
-#textcontent-pb div.del.connect.inkOnProofKK,
+#textcontent-pb div.del.inkOnProofKK,
 #textcontent-pb .subst.inkOnProofKK .add,
 #textcontent-pb .subst.inkOnProofUndefined .add,
 #textcontent-pb .restore.inkOnProofKK .add,
 #textcontent-pb .add.inkOnProofKK,
 #textcontent-pb .metamark.inkOnProofKK,
-#textcontent-pb div.del.connect.inkOnProof,
+#textcontent-pb div.del.inkOnProof,
 #textcontent-pb .subst.inkOnProof .add,
 #textcontent-pb .restore.inkOnProof .add,
 #textcontent-pb .add.inkOnProof,
-#textcontent-pb div.add.connect.inkOnProof,
+#textcontent-pb div.add.inkOnProof,
 #textcontent-pb .metamark.inkOnProof,
 #textcontent-pb .subst.inkOnTypescript .add,
 #textcontent-pb .restore.inkOnTypescript .add,
@@ -2086,8 +2086,8 @@ pencil text color
   color: #000;
 }
 
-#textcontent-pb div.del.connect.typewriter,
-#textcontent-pb div.del.connect.typewriter2,
+#textcontent-pb div.del.typewriter,
+#textcontent-pb div.del.typewriter2,
 #textcontent-pb .subst.typewriter .add,
 #textcontent-pb .subst.typewriter2 .add,
 #textcontent-pb .restore.typewriter .add,
@@ -2117,9 +2117,9 @@ pencil text color
 #textcontent-pb .inkOnProofKK.pencilOnProofKK .inkLongQuoteVerse,
 #textcontent-pb .inkOnProofKK.pencilOnProofKK.mod .inkOnProofKK.pencilOnProofKK,
 #textcontent-pb .mod.inkOnProofKK.pencilOnProofKK,
-#textcontent-pb .mod.connect.marginLeft.pencilOnProofKK.inkOnProofKK,
+#textcontent-pb .mod.marginLeft.pencilOnProofKK.inkOnProofKK,
 #textcontent-pb .metamark.inkOnProofKK.pencilOnProofKK,
-#textcontent-pb .mod.connect.inkOnProofKK.pencilOnProofKK:is([class*='margin']) {
+#textcontent-pb .mod.inkOnProofKK.pencilOnProofKK:is([class*='margin']) {
   text-shadow: 2px 3px lightgrey;
   color: #000;
 }

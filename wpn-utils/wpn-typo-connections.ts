@@ -8,6 +8,8 @@ document.querySelector<HTMLElement>("#textcontent-pb")?.addEventListener("mouseo
     const target = event.target as HTMLElement;
 
     const anchorData = target.dataset.anchor;
+    const targetDataList = target.dataset.target;
+    const handDataList = target.dataset.hand;
 
     if (!anchorData) {
         document.querySelectorAll<HTMLElement>(`.${color}`).forEach((el) => {
@@ -18,9 +20,6 @@ document.querySelector<HTMLElement>("#textcontent-pb")?.addEventListener("mouseo
     };
 
     const anchorDataList = anchorData ? anchorData.split(" ") : [];
-
-    if (anchorDataList.length === 0) return;
-
     anchorDataList.forEach((data) => {
 
         // highlight anchor
@@ -52,10 +51,7 @@ document.querySelector<HTMLElement>("#textcontent-pb")?.addEventListener("mouseo
 
     });
 
-    const targetDataList = target.dataset.target;
     const targetIds = targetDataList ? targetDataList.split(" ") : [];
-
-    if (targetIds.length === 0) return;
     // highlight targets
     targetIds.forEach((targetId) => {
 
@@ -66,6 +62,27 @@ document.querySelector<HTMLElement>("#textcontent-pb")?.addEventListener("mouseo
             el.classList.add(color);
 
         });
+
+    });
+
+    const handIds = handDataList ? handDataList.split(" ") : [];
+
+    // highlight hands
+    handIds.forEach((handId) => {
+
+        const handElements = document.querySelectorAll<HTMLElement>(`[data-link~="${handId}"]`);
+
+        if(handElements.length > 0) {
+
+            target.classList.add(color);
+
+            handElements.forEach((el) => {
+
+                el.classList.add(color);
+
+            });
+
+        }
 
     });
 
