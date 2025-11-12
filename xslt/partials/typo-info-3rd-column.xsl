@@ -97,7 +97,7 @@
                                         "/>
                                 </p>
                                 <xsl:for-each select="./tei:note[@type='pagination']">
-                                    <p id="paragraph-block-{position()}" class="paragraph-block" data-link="{replace(@corresp, '#', '')}">
+                                    <p id="paragraph-block-{position()}" class="paragraph-block" data-link="fw-{replace(@corresp, '#', '')}">
                                         <xsl:variable name="corresp">
                                             <xsl:value-of select="substring-after(@corresp, '#')"/>
                                         </xsl:variable>
@@ -217,7 +217,7 @@
                                     Datierung (terminus post quem)</h5>
                                 <div id="list_tpq_info" class="visually-hidden"><!-- removed class d-none -->
                                     <xsl:for-each select="./tei:note[@type='tpqBase']">
-                                        <p class="tpq cursor-pointer" data-link="{replace(@corresp, '#', '')}">
+                                        <p class="tpq cursor-pointer" data-linkone="{replace(@corresp, '#', '')}">
                                             <xsl:text>Grundschicht: </xsl:text>
                                             <xsl:call-template name="note_date">
                                                 <xsl:with-param name="input" select="./text()"/>
@@ -226,7 +226,7 @@
                                         </p>
                                     </xsl:for-each>
                                     <xsl:for-each select="./tei:note[@type='tpqAdd']">
-                                        <p class="tpq cursor-pointer" data-link="{replace(@corresp, '#', '')}">
+                                        <p class="tpq cursor-pointer" data-linkone="{replace(@corresp, '#', '')}">
                                             <xsl:text>Hs. Ergänzung: </xsl:text>
                                             <xsl:call-template name="note_date">
                                                 <xsl:with-param name="input" select="./text()"/>
@@ -245,7 +245,7 @@
                                     Inhaltliche Anmerkung</h5>
                                 <div id="list_delQP_info" class="visually-hidden"><!-- removed class d-none -->
                                     <xsl:for-each select="./tei:note[@type=('delQuote', 'delPers')]">
-                                        <div class="delQP cursor-pointer" data-link="{@target}" data-register="{replace(@corresp, '#', '')}">
+                                        <div class="delQP cursor-pointer" data-anchor="{@target}" data-register="{replace(@corresp, '#', '')}">
                                             <xsl:variable name="regrefs">
                                                 <xsl:value-of select="tokenize(@target, ' ')"/>
                                             </xsl:variable>
