@@ -72,10 +72,10 @@
                     <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
                         <xsl:choose>
                             <xsl:when test="parent::tei:restore">
-                                <del><xsl:text>&#124;</xsl:text></del>
+                                <del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>&#124;</xsl:text></del>
                             </xsl:when>
                             <xsl:otherwise>
-                                <span><xsl:text>&#124;</xsl:text></span>
+                                <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>&#124;</xsl:text></span>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:if>
@@ -163,7 +163,7 @@
                     </xsl:if>
                     <xsl:choose>
                         <xsl:when test="parent::tei:restore">
-                            <del>
+                            <del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
                                 <xsl:apply-templates/>
                             </del>
                         </xsl:when>
@@ -205,7 +205,7 @@
                     </xsl:if>
                     <xsl:choose>
                         <xsl:when test="parent::tei:restore">
-                            <del>
+                            <del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
                                 <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
                                 <xsl:apply-templates/>
                             </del>
@@ -362,7 +362,7 @@
                     </xsl:if>
                     <xsl:choose>
                         <xsl:when test="parent::tei:restore">
-                            <del>
+                            <del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
                                 <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
                                 <xsl:apply-templates/>
                             </del>
