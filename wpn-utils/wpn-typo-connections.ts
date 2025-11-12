@@ -57,11 +57,16 @@ document.querySelector<HTMLElement>("#textcontent-pb")?.addEventListener("mouseo
 
         const targetElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${targetId}"]`);
 
-        targetElements.forEach((el) => {
+        if(targetElements.length > 0) {
 
-            el.classList.add(color);
+            target.classList.add(color);
 
-        });
+            targetElements.forEach((el) => {
+
+                el.classList.add(color);
+
+            });
+        }
 
     });
 
