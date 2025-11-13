@@ -88,7 +88,7 @@
                 <main class="flex-shrink-0 mt-18">
                     <div class="container-fluid px-0">
                         <wpn-page-view annotation-selectors=".entity">
-                            <div id="sub_grid_pb" class="sub_grid_pb_three pt-2">
+                            <div id="sub_grid_pb" class="sub_grid_pb_three py-2">
                                 <div id="facscolumn" class="grid-box-1 mx-auto ff-crimson-text pb-3">
                                     <div id="facscontent" wpn-data="{$facsimile}" wpn-type="{.//tei:pb[1]/@type}">
                                         <!-- osd viewer container -->

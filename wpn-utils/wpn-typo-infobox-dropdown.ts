@@ -31,10 +31,12 @@ document.querySelector<HTMLElement>("#infocontent-pb")?.addEventListener("mouseo
 
         if(anchorElements.length > 0) {
 
+            target.classList.remove(color);
             target.classList.add(color);
 
             anchorElements.forEach((el) => {
 
+                el.classList.remove(color);
                 el.classList.add(color);
             
             });
@@ -46,10 +48,12 @@ document.querySelector<HTMLElement>("#infocontent-pb")?.addEventListener("mouseo
 
         if(linkedElements.length > 0) {
 
+            target.classList.remove("active");
             target.classList.add("active");
 
             linkedElements.forEach((el) => {
 
+                el.classList.remove("active");
                 el.classList.add("active");
             
             });
@@ -65,11 +69,15 @@ document.querySelector<HTMLElement>("#infocontent-pb")?.addEventListener("mouseo
         const linkedElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${link}"]`);
         
         if(linkedElements.length > 0) {
+
+            target.classList.remove(color);
             target.classList.add(color);
             
             linkedElements.forEach((el) => {
 
+                el.classList.remove(color);
                 el.classList.add(color);
+                
             });
         }
     });

@@ -27,10 +27,12 @@ document.querySelector<HTMLElement>("#textcontent-pb")?.addEventListener("mouseo
 
         if(anchorElements.length > 1) {
 
+            target.classList.remove(color);
             target.classList.add(color);
 
             anchorElements.forEach((el) => {
 
+                el.classList.remove(color);
                 el.classList.add(color);
             
             });
@@ -40,10 +42,12 @@ document.querySelector<HTMLElement>("#textcontent-pb")?.addEventListener("mouseo
         const targetElements = document.querySelectorAll<HTMLElement>(`[data-target~="${data}"]`);
         if (targetElements.length > 0) {
 
+            target.classList.remove(color);
             target.classList.add(color);
 
             targetElements.forEach((el) => {
 
+                el.classList.remove(color);
                 el.classList.add(color);
 
             });
@@ -59,10 +63,12 @@ document.querySelector<HTMLElement>("#textcontent-pb")?.addEventListener("mouseo
 
         if(targetElements.length > 0) {
 
+            target.classList.remove(color);
             target.classList.add(color);
 
             targetElements.forEach((el) => {
 
+                el.classList.remove(color);
                 el.classList.add(color);
 
             });
@@ -79,10 +85,12 @@ document.querySelector<HTMLElement>("#textcontent-pb")?.addEventListener("mouseo
 
         if(handElements.length > 0) {
 
+            target.classList.remove(color);
             target.classList.add(color);
 
             handElements.forEach((el) => {
 
+                el.classList.remove(color);
                 el.classList.add(color);
 
             });
