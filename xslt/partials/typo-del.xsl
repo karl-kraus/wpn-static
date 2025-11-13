@@ -89,6 +89,20 @@
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:choose>
+                                    <xsl:when test="starts-with(., ' ') and ends-with(., ' ')">
+                                        <span class="del">
+                                            <xsl:text>&#xA0;</xsl:text>
+                                            <del class="entity" data-anchor="{@xml:id}">
+                                                <xsl:if test="$target!='false'">
+                                                    <xsl:attribute name="data-target">
+                                                        <xsl:value-of select="$target"/>
+                                                    </xsl:attribute>
+                                                </xsl:if>
+                                                <xsl:value-of select="normalize-space(.)"/>
+                                            </del>
+                                            <xsl:text>&#xA0;</xsl:text>
+                                        </span>
+                                    </xsl:when>
                                     <xsl:when test="starts-with(., ' ')">
                                         <span class="del">
                                             <xsl:text>&#xA0;</xsl:text>
