@@ -54,6 +54,9 @@
                     <div id="allcolumnRowBtn" class="col px-1 py-3 border-bottom border-light-grey">
                         <img src="images/view-stacked.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"/>
                     </div>
+                    <div id="setMode" class="col px-1 py-3 border-bottom border-light-grey">
+                        <img src="images/view-stacked.svg" alt="Set Interactive Mode to Inspect (Default=Explore)" class="view-icon"/>
+                    </div>
                 </div>
                 <div id="pagination-pb" class="visually-hidden bg-primary text-white">
                     <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>

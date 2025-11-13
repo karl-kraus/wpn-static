@@ -1,7 +1,41 @@
 // Description: This script is used to connect elements in 
 // left and right margin with their anchor in the text.
+const myurl = new URL(window.location.href);
+const searchParams = new URLSearchParams(myurl.search);
+const content = document.querySelector<HTMLElement>("#textcontent-pb")
 
-document.querySelector<HTMLElement>("#textcontent-pb")?.addEventListener("mouseover", (event) => {
+searchParams.set("mode", "explore");
+content?.addEventListener("mouseover", highlighting);
+
+myurl.search = searchParams.toString();
+window.history.pushState({}, '', myurl);
+
+document.querySelector<HTMLElement>("#setMode")?.addEventListener("click", (event) => {
+    const target = event.currentTarget as HTMLElement;
+    target.classList.toggle("active-view-icon");
+
+    if (target.classList.contains("active-view-icon")) {
+
+        searchParams.set("mode", "inspect");
+        content?.removeEventListener("mouseover", highlighting);
+        content?.addEventListener("click", highlighting);
+
+    } else {
+
+        searchParams.set("mode", "explore");
+        content?.removeEventListener("click", highlighting);
+        content?.addEventListener("mouseover", highlighting);
+
+    }
+
+    myurl.search = searchParams.toString();
+    window.history.pushState({}, '', myurl);
+});
+
+
+function highlighting(event: Event) {
+
+    console.log("Mode: Explore connections between annotations and text. Loaded!");
 
     const color = "connection-color";
     
@@ -99,4 +133,4 @@ document.querySelector<HTMLElement>("#textcontent-pb")?.addEventListener("mouseo
 
     });
 
-});
+}

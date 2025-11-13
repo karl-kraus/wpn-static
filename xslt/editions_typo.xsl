@@ -327,26 +327,54 @@
         <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letterSpacing']">
+        <xsl:variable name="anchor" select="if(ancestor::tei:note)then(ancestor::tei:note/@xml:id)else()"/>
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span data-hand="{replace(@change, '#', '')}" class="spacing underline {replace(@change, '#', '')}">
-                    <span class="underline-crossed-out"><xsl:apply-templates/></span>
+                    <span class="underline-crossed-out">
+                        <xsl:if test="$anchor">
+                            <xsl:attribute name="data-anchor">
+                                <xsl:value-of select="$anchor"/>
+                            </xsl:attribute>
+                        </xsl:if>
+                        <xsl:apply-templates/>
+                    </span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span data-hand="{replace(@change, '#', '')}" class="spacing {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+                <span data-hand="{replace(@change, '#', '')}" class="spacing {replace(@change, '#', '')}">
+                    <xsl:if test="$anchor">
+                        <xsl:attribute name="data-anchor">
+                            <xsl:value-of select="$anchor"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:apply-templates/>
+                </span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:hi[@style='underline']">
+        <xsl:variable name="anchor" select="if(ancestor::tei:note)then(ancestor::tei:note/@xml:id)else()"/>
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="underline {replace(@change, '#', '')}">
-                    <span data-hand="{replace(@change, '#', '')}" class="underline-wavy"><xsl:apply-templates/></span>
+                    <span data-hand="{replace(@change, '#', '')}" class="underline-wavy">
+                        <xsl:if test="$anchor">
+                            <xsl:attribute name="data-anchor">
+                                <xsl:value-of select="$anchor"/>
+                            </xsl:attribute>
+                        </xsl:if>
+                        <xsl:apply-templates/>
+                    </span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
                 <span data-hand="{replace(@change, '#', '')}" class="underline {replace(@change, '#', '')}">
+                    <xsl:if test="$anchor">
+                        <xsl:attribute name="data-anchor">
+                            <xsl:value-of select="$anchor"/>
+                        </xsl:attribute>
+                    </xsl:if>
                     <xsl:apply-templates/>
                 </span>
             </xsl:otherwise>
