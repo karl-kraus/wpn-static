@@ -133,6 +133,7 @@
 			</xsl:when>
 			<xsl:when test="@rendition='#longQuoteEndCenter'">
 				<span class="mod entity {@style} {replace(@change, '#', '')}" data-anchor="{@xml:id}"></span>
+				<xsl:apply-templates/>
 			</xsl:when>
             <xsl:otherwise>
                 <!-- <span class="mod entity {@style} {replace(@change, '#', '')}" data-anchor="{@xml:id}"></span> -->
