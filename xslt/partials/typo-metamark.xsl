@@ -11,9 +11,21 @@
         </span>
      </xsl:template>
     <xsl:template match="tei:metamark[@function='progress'][@rend]">
-        <span class="metamark progress mm-inline entity {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
-           <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
-        </span>
+        <xsl:choose>
+            <xsl:when test="@rend='inline'">
+                <span class="metamark progress mm-inline entity {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                   <xsl:apply-templates/>
+                </span>
+            </xsl:when>
+            <xsl:when test="@rend='right'">
+                <span class="metamark progress mm-inline right entity {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                   <xsl:apply-templates/>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="metamark progress mm-inline entity {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                </span>
+            </xsl:otherwise>
      </xsl:template>
      <!-- margin container elements -->
      <xsl:template match="tei:metamark[@function='progress']" mode="render">
