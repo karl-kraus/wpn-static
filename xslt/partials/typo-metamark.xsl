@@ -334,6 +334,17 @@
                             <xsl:otherwise></xsl:otherwise>
                         </xsl:choose>
                     </xsl:when>
+                    <xsl:when text="@rend='inline' and ./text()">
+                        <span class="metamark entity {replace(@change, '#', '')}" data-anchor="{@xml:id}">
+                            <xsl:if test="@target">
+                                <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                                <xsl:attribute name="data-target">
+                                    <xsl:value-of select="for $i in $targetList return substring-after($i, '#')"/>
+                                </xsl:attribute>
+                            </xsl:if>
+                            <xsl:text>&#124;&#xA0;</xsl:text><xsl:apply-templates/>
+                        </span>
+                    </xsl:when>
                     <xsl:otherwise>
                         <span class="metamark entity {replace(@change, '#', '')}" data-anchor="{@xml:id}">
                             <xsl:if test="@target">
