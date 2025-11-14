@@ -26,6 +26,8 @@
                 <span class="metamark progress mm-inline entity {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
                 </span>
             </xsl:otherwise>
+        </xsl:choose>
+    
      </xsl:template>
      <!-- margin container elements -->
      <xsl:template match="tei:metamark[@function='progress']" mode="render">
