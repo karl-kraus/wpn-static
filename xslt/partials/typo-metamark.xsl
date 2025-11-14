@@ -334,7 +334,7 @@
                             <xsl:otherwise></xsl:otherwise>
                         </xsl:choose>
                     </xsl:when>
-                    <xsl:when text="@rend='inline' and ./text()">
+                    <xsl:when test="@rend='inline' and ./text()">
                         <span class="metamark entity {replace(@change, '#', '')}" data-anchor="{@xml:id}">
                             <xsl:if test="@target">
                                 <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
