@@ -2205,12 +2205,14 @@ pencil text color
 
 #textcontent-pb .unclear::after {
   content: '[?]';
-  font-style: normal;
+  font-style: normal !important;
 }
 
+/*
 #textcontent-pb .unclear:hover, #textcontent-pb .unclear:hover::after {
   color: #A21A17;
 }
+*/
 
 #textcontent-pb .longQuoteCenter {
   text-align: center !important;;
