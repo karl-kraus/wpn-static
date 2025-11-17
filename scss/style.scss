@@ -1872,23 +1872,6 @@ handling del elments based on change type
   text-decoration-color: #000;
 }
 
-/* fix for unwanted double-line-through and switching line-through-height with del/add */
-#textcontent-pb del:has(.restore>.add.entity) {
-text-decoration: none !important;
-position: relative;
-}
-
-#textcontent-pb del:has(.restore>.add.entity)::after {
-content: "";
-position: absolute;
-left: 0;
-right: 0;
-top: 45%;
-border-top: 1px solid black;
-pointer-events: none;
-}
-
-
 /* double line through for double change values */
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del,
 #textcontent-pb .subst.inkOnProof.pencilOnProof del {
