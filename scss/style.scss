@@ -1873,12 +1873,12 @@ handling del elments based on change type
 }
 
 /* fix for unwanted double-line-through and switching line-through-height with del/add */
-#textcontent-pb del:has(.restore>.add) {
+#textcontent-pb del:has(.restore>.add.entity) {
 text-decoration: none !important;
 position: relative;
 }
 
-#textcontent-pb del:has(.restore>.add)::after {
+#textcontent-pb del:has(.restore>.add.entity)::after {
 content: "";
 position: absolute;
 left: 0;
