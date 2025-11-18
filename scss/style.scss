@@ -1886,14 +1886,16 @@ handling del elments based on change type
 
 /* double line through for double change values */
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del,
-#textcontent-pb .subst.inkOnProof.pencilOnProof del {
+#textcontent-pb .subst.inkOnProof.pencilOnProof del,
+#textcontent-pb .inkOnProofKK.del.pencilOnProofKK del.entity {
   position: relative;          
   display: inline;
   text-indent: initial;
 }
 
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del::before,
-#textcontent-pb .subst.inkOnProof.pencilOnProof del::before {
+#textcontent-pb .subst.inkOnProof.pencilOnProof del::before,
+#textcontent-pb .inkOnProofKK.del.pencilOnProofKK del.entity::before {
   content: "";
   position: absolute;
   left: 0;
