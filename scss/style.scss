@@ -1894,12 +1894,13 @@ handling del elments based on change type
   /* z-index: 1; */
 }
 
-/* single line through, when only ink layer is deleted, e.g., p. 108 */
+/* single line through, when only ink layer is deleted, e.g., p. 108, 90 */
 
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK:not(:is(.pencilOnProofKK))>del,
 #textcontent-pb del.restore.inkOnProofKK .inkOnProofKK.pencilOnProofKK,
 #textcontent-pb .restore.inkOnProofKK .add.inkOnProofKK.pencilOnProofKK>del,
-#textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del {
+#textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del,
+#textcontent-pb .add.pencilOnProofKK.inkOnProofKK del.inkOnProofKK:not(:is(.pencilOnProofKK)) {
   position: relative;          
   display: inline-block;
   text-decoration: none !important;
@@ -1908,7 +1909,8 @@ handling del elments based on change type
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK:not(:is(.pencilOnProofKK))>del::after,
 #textcontent-pb del.restore.inkOnProofKK .inkOnProofKK.pencilOnProofKK::after,
 #textcontent-pb .restore.inkOnProofKK .add.inkOnProofKK.pencilOnProofKK>del::after,
-#textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del::after {
+#textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del::after,
+#textcontent-pb .add.pencilOnProofKK.inkOnProofKK del.inkOnProofKK:not(:is(.pencilOnProofKK))::after {
   content: "";
   position: absolute;
   left: 0;
