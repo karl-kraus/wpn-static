@@ -1,169 +1,88 @@
-const visualize_connections = (
-    color: string,
-    target_color: string,
-    class_selector: string[],
-    selector: string = "class",
-    query_prefix: string = "", 
-    prefix_pos: number | false = false,
-    bidirectional: boolean = true
-) => {
+// Description: This script is used to connect elements in 
+// left and right margin with their anchor in the text.
 
-    class_selector.forEach((className, idx) => {
+document.querySelector<HTMLElement>("#infocontent-pb")?.addEventListener("mouseover", (event) => {
 
-        let prefix = "";
+    const color = "connection-color";
+    const color_line = "connection-color-line";
+    const target = event.target as HTMLElement;
+    const dataLink = target.dataset.link;
+    const dataLinkOne = target.dataset.linkone;
 
-        if (prefix_pos !== false && typeof prefix_pos === "number" && idx === prefix_pos) {
-            prefix = query_prefix;
+    if (!dataLink) {
+        document.querySelectorAll<HTMLElement>(`.${color}`).forEach((el) => {
+
+            el.classList.remove(color);
+
+        });
+        document.querySelectorAll<HTMLElement>(`.${color_line}.active`).forEach((el) => {
+
+            el.classList.remove("active");
+
+        });
+    };
+
+    const dataLinkList = dataLink ? dataLink.split(" ") : [];
+
+    dataLinkList.forEach((link) => {
+
+        // highlight anchor
+        const anchorElements = document.querySelectorAll<HTMLElement>(`[data-hand~="${link}"]`);
+
+        if(anchorElements.length > 0) {
+
+            target.classList.remove(color);
+            target.classList.add(color);
+
+            anchorElements.forEach((el) => {
+
+                el.classList.remove(color);
+                el.classList.add(color);
+            
+            });
+
         }
 
-        const elements = document.querySelectorAll<HTMLElement>(`.${className}`);
-        elements?.forEach((el) => {
+        // highlight linked elements
+        const linkedElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${link}"]`);
 
-            const corresp = el.dataset.link?.split(" ");
-            el.addEventListener("mouseover", (e) => {
-                
-                e.preventDefault();
-                el.classList.add(color);
-                corresp?.forEach((cor) => {
-                    
-                    if (selector === "class") {
+        if(linkedElements.length > 0) {
 
-                        const target = document.querySelectorAll<HTMLElement>(`${prefix}.${cor}`);
-                        [...target].map(target => target.classList.add(target_color));
+            target.classList.remove("active");
+            target.classList.add("active");
 
-                    } else if (selector === "id") {
+            linkedElements.forEach((el) => {
 
-                        const target = document.getElementById(cor);
-                        target?.classList.add(target_color);
-
-                    }
-
-                });
-
+                el.classList.remove("active");
+                el.classList.add("active");
+            
             });
+            
+        }
 
-            el.addEventListener("mouseout", (e) => {
-                
-                e.preventDefault();
-                el.classList.remove(color);
-
-                corresp?.forEach((cor) => {
-
-                    if (selector === "class") {
-
-                        const target = document.querySelectorAll<HTMLElement>(`${prefix}.${cor}`);
-                        [...target].map(target => target.classList.remove(target_color));
-
-                    } else if (selector === "id") {
-
-                        const target = document.getElementById(cor);
-                        target?.classList.remove(target_color);
-
-                    }
-
-                });
-
-            });
-
-            if (bidirectional) {
-                corresp?.forEach((cor) => {
-
-                    if (selector === "class") {
-                        const target = document.querySelectorAll<HTMLElement>(`${prefix}.${cor}`);
-                        // const targetMarker = document.querySelectorAll<HTMLElement>(`[data-link~="${cor_class}"]`);
-
-                        [...target].forEach(target => {
-
-                            target.addEventListener("mouseover", (e) => {
-
-                                e.preventDefault();
-                                target.classList.add(target_color);
-                                el.classList.add(color);
-
-                            });
-
-                            target.addEventListener("mouseout", (e) => {
-
-                                e.preventDefault();
-                                target.classList.remove(target_color);
-                                el.classList.remove(color);
-
-                            });
-
-                        });
-
-                    } else if (selector === "id") {
-
-                        const target = document.getElementById(cor);
-                        target?.addEventListener("mouseover", (e) => {
-
-                            e.preventDefault();
-                            target.classList.add(target_color);
-                            el.classList.add(color);
-
-                        });
-
-                        target?.addEventListener("mouseout", (e) => {
-
-                            e.preventDefault();
-                            target.classList.remove(target_color);
-                            el.classList.remove(color);
-
-                        });
-
-                    }
-
-                });
-            };
-        });
     });
-};
 
-// ######################################################
-// Text Block 1 in xsl/partials/typo-info-3rd-column.xsl
-// ######################################################
-const paragraph_block = "paragraph-block";
-// ######################################################
-// Text Block 4 in xsl/partials/typo-info-3rd-column.xsl
-// ######################################################
-const list_more_text_layers = "list_more_text_layers";
-const list_more_text_layers_line = "list_more_text_layers_line";
-// ######################################################
-// Text Block 5 in xsl/partials/typo-info-3rd-column.xsl
-// ######################################################
-const tpq = "tpq";
-// ######################################################
-// Text Block 6 in xsl/partials/typo-info-3rd-column.xsl
-// ######################################################
-const delQP = "delQP";
+    const dataLinkOneList = dataLinkOne ? dataLinkOne.split(" ") : [];
+    
+    dataLinkOneList.forEach((link) => {
+        // highlight linked elements
+        const linkedElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${link}"]`);
+        
+        if(linkedElements.length > 0) {
 
-visualize_connections(
-    "connection-color", 
-    "connection-color", 
-    [paragraph_block, list_more_text_layers],
-    "class",
-    ".fw",
-    0,
-    true
-);
-visualize_connections(
-    "connection-color",
-    "connection-color", 
-    [tpq, delQP],
-    "id",
-    "",
-    false,
-    false
-);
-visualize_connections(
-    "connection-color",
-    "active",
-    [list_more_text_layers_line],
-    "id",
-    "",
-    false,
-    false
-);
+            target.classList.remove(color);
+            target.classList.add(color);
+            
+            linkedElements.forEach((el) => {
+
+                el.classList.remove(color);
+                el.classList.add(color);
+                
+            });
+        }
+    });
+
+});
 
 // ######################################################
 // Short Info Boxes Toggle

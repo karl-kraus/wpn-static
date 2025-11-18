@@ -88,7 +88,7 @@
                 <main class="flex-shrink-0 mt-18">
                     <div class="container-fluid px-0">
                         <wpn-page-view annotation-selectors=".entity">
-                            <div id="sub_grid_pb" class="sub_grid_pb_three">
+                            <div id="sub_grid_pb" class="sub_grid_pb_three py-2">
                                 <div id="facscolumn" class="grid-box-1 mx-auto ff-crimson-text pb-3">
                                     <div id="facscontent" wpn-data="{$facsimile}" wpn-type="{.//tei:pb[1]/@type}">
                                         <!-- osd viewer container -->
@@ -275,7 +275,7 @@
         </div>
     </xsl:template>
     <xsl:template match="tei:p[@n]">
-        <div id="{local:makeId(.)}" class="yes-index {if(self::tei:p)then(replace(@rendition,'#',''))else()}{if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}">
+        <div id="{local:makeId(.)}" data-hand="{replace(@change, '#', '')}" class="yes-index {if(self::tei:p)then(replace(@rendition,'#',''))else()}{if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}">
             <xsl:apply-templates/>
         </div>
     </xsl:template>
@@ -289,11 +289,11 @@
     </xsl:template> -->
     <xsl:template match="tei:pb"/>
     <xsl:template match="tei:ref[@type=('comment','glossary','event')]">
-        <span class="comments" id="{@xml:id}"></span>
+        <span class="comments" data-anchor="{@xml:id}"></span>
     </xsl:template>
     <xsl:template match="tei:fw">
-        <span style="z-index:99;" class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}">
-            <span><xsl:apply-templates/></span>
+        <span style="z-index:99;" class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}" data-hand="fw-{replace(@change,'#','')}">
+            <xsl:apply-templates/>
         </span>
     </xsl:template>
     <xsl:template match="tei:app">
@@ -305,7 +305,7 @@
     <xsl:template match="tei:l">
 		<xsl:choose>
 			<xsl:when test="ancestor::tei:mod[@rendition=('#longQuoteVerseStart', '#longQuoteVerseEnd')]">
-				<span style="margin-left: -0.5em;" class="d-block l {@style}"><span class="{replace(ancestor::tei:mod/@change, '#', '')}">[ </span><span class="inline-text"><xsl:apply-templates/></span></span>
+				<span style="margin-left: -0.5em;" class="d-block l {@style}"><span class="{replace(ancestor::tei:mod/@change, '#', '')}">[ </span><span data-hand="{replace(ancestor::tei:mod/@change, '#', '')}" class="inline-text"><xsl:apply-templates/></span></span>
 			</xsl:when>
 			<xsl:otherwise>
 			    <span class="d-block l {@style}"><span class="inline-text"><xsl:apply-templates/></span></span>
@@ -313,12 +313,12 @@
 		</xsl:choose>
 	</xsl:template>
     <xsl:template match="tei:quote">
-        <span class="quotes {substring-after(@rendition, '#')} {substring-after(@change, '#')}" id="{@xml:id}">
+        <span class="quotes {substring-after(@rendition, '#')} {substring-after(@change, '#')}" data-anchor="{@xml:id}" data-hand="{substring-after(@change, '#')}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
     <xsl:template match="tei:rs[@type=('person','personGroup')]">
-        <span class="persons {substring-after(@rendition, '#')}" id="{@xml:id}">
+        <span class="persons {substring-after(@rendition, '#')}" data-anchor="{if(parent::tei:del)then(parent::tei:del/@xml:id)else()} {@xml:id}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
@@ -327,26 +327,54 @@
         <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letterSpacing']">
+        <xsl:variable name="anchor" select="if(ancestor::tei:note)then(ancestor::tei:note/@xml:id)else()"/>
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
-                <span class="spacing underline {replace(@change, '#', '')}">
-                    <span class="underline-crossed-out"><xsl:apply-templates/></span>
+                <span data-hand="{replace(@change, '#', '')}" class="spacing underline {replace(@change, '#', '')}">
+                    <span class="underline-crossed-out">
+                        <xsl:if test="$anchor">
+                            <xsl:attribute name="data-anchor">
+                                <xsl:value-of select="$anchor"/>
+                            </xsl:attribute>
+                        </xsl:if>
+                        <xsl:apply-templates/>
+                    </span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="spacing {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+                <span data-hand="{replace(@change, '#', '')}" class="spacing {replace(@change, '#', '')}">
+                    <xsl:if test="$anchor">
+                        <xsl:attribute name="data-anchor">
+                            <xsl:value-of select="$anchor"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:apply-templates/>
+                </span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:hi[@style='underline']">
+        <xsl:variable name="anchor" select="if(ancestor::tei:note)then(ancestor::tei:note/@xml:id)else()"/>
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="underline {replace(@change, '#', '')}">
-                    <span class="underline-wavy"><xsl:apply-templates/></span>
+                    <span data-hand="{replace(@change, '#', '')}" class="underline-wavy">
+                        <xsl:if test="$anchor">
+                            <xsl:attribute name="data-anchor">
+                                <xsl:value-of select="$anchor"/>
+                            </xsl:attribute>
+                        </xsl:if>
+                        <xsl:apply-templates/>
+                    </span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="underline {replace(@change, '#', '')}">
+                <span data-hand="{replace(@change, '#', '')}" class="underline {replace(@change, '#', '')}">
+                    <xsl:if test="$anchor">
+                        <xsl:attribute name="data-anchor">
+                            <xsl:value-of select="$anchor"/>
+                        </xsl:attribute>
+                    </xsl:if>
                     <xsl:apply-templates/>
                 </span>
             </xsl:otherwise>
@@ -361,7 +389,7 @@
         <!-- <span style="display:block;"><xsl:value-of select="string($max)"/></span> -->
         <!-- {if(parent::tei:quote and $string lt $max)then('text-align-left')else('')} -->
         <span class="d-block {replace(@rendition,'#','')} {if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}">
-            <span class="inline-text"><xsl:apply-templates/></span>
+            <span data-hand="{replace(@change, '#', '')}" class="inline-text"><xsl:apply-templates/></span>
         </span>
     </xsl:template>
     <xsl:template match="tei:c[@resp='#edACE']"/>
@@ -396,14 +424,14 @@
 	<xsl:template match="tei:corr"/>
 	
      <xsl:template match="tei:anchor[@type='metamark']">
-        <span class="anchor {replace((@change)[1], '#', '')}" id="{@xml:id}"></span>
+        <span class="anchor {replace((@change)[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace((@change)[1], '#', '')}"></span>
      </xsl:template>
     <xsl:template match="tei:restore">
-        <span class="restore {replace((@change)[1], '#', '')}" id="{@xml:id}"><xsl:apply-templates/></span>
+        <span class="restore {replace((@change)[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace((@change)[1], '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:subst">
         <xsl:variable name="rend" select="if(@rend)then(@rend)else(if(tei:del[@rend])then(tei:del/@rend)else(tei:add/@rend))"/>
-        <span class="subst {replace((@change)[1], '#', '')}{if(child::*[$rend='overwritten'])then(' position-relative')else()}" id="{@xml:id}"><xsl:apply-templates/></span>
+        <span data-hand="{replace((@change)[1], '#', '')}" class="subst {replace((@change)[1], '#', '')}{if(child::*[$rend='overwritten'])then(' position-relative')else()}"><xsl:apply-templates/></span>
     </xsl:template>
     
     <!-- <xsl:template match="tei:ptr[parent::tei:transpose]">
@@ -411,7 +439,7 @@
     <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:seg[@xml:id=$target]" mode="render"/>
     </xsl:template> -->
     <xsl:template match="tei:note">
-        <span class="note d-block text-align-left {if(@place)then(concat(@place, ' position-absolute'))else()} {replace(@change,'#','')}" id="{@xml:id}"><xsl:apply-templates/></span>
+        <span class="note d-block text-align-left {if(@place)then(concat(@place, ' position-absolute'))else()} {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:apply-templates/></span>
     </xsl:template>
     <!-- <xsl:template match="tei:lb[@type='req']">
         <br/>
@@ -470,12 +498,12 @@
                 <span class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">
                     <xsl:if test="parent::tei:seg[@rend='arrow'] and parent::tei:seg[@xml:id='seg0111_01']">
                         <span class="seg seg-inline">
-                            <span id="{parent::tei:seg/@xml:id}" class="{parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span>
+                            <span data-anchor="{parent::tei:seg/@xml:id}" data-hand="{replace(parent::tei:seg/@change, '#', '')}" class="entity {parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span>
                         </span>
                     </xsl:if>
                     <xsl:choose>
                         <xsl:when test="parent::tei:mod[@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent')]">
-                            <span style="margin-left: -0.5em;"><span class="mod quote-indent {replace(parent::tei:mod/@change, '#', '')}">[ </span><xsl:apply-templates/></span>
+                            <span style="margin-left: -0.5em;"><span data-hand="{replace(parent::tei:mod/@change, '#', '')}" class="mod quote-indent {replace(parent::tei:mod/@change, '#', '')}">[ </span><xsl:apply-templates/></span>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:apply-templates/>
