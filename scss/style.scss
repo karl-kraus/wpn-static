@@ -1592,6 +1592,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   top: 65%;
 }
 
+.marginLowerLeft2 {
+  left: 10%;
+  top: 65%;
+}
+
 .marginLowerRight {
   right: 1.5%;
   top: 75%;
@@ -1641,6 +1646,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 #textcontent-pb .metamark.typescriptFont .d-inline-block {
   text-decoration: inherit; /* lb last - same issue. */
+}
+
+#textcontent-pb .metamark.redOnProof {
+  text-align: left;
+  text-align-last: left;
 }
 
 #textcontent-pb .noIndent {
