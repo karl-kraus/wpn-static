@@ -117,8 +117,23 @@
              </xsl:otherwise>
          </xsl:choose>
      </xsl:template>
+    <xsl:template match="tei:metamark[contains(@function, 'printSpan')][@rend]">
+         <xsl:choose>
+             <xsl:when test="@rend='inline'">
+                 <span class="position-absolute">
+                     <span class="metamark {@function} {@rend} {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                         <xsl:apply-templates/>
+                     </span>
+                 </span>
+             </xsl:when>
+             <xsl:otherwise>
+                <span class="metamark entity {@function} {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                </span>
+             </xsl:otherwise>
+         </xsl:choose>
+     </xsl:template>
      <!-- margin container elements -->
-     <xsl:template match="tei:metamark[@function='printInstruction'][@rend]" mode="render">
+     <xsl:template match="tei:metamark[@function='printInstruction' or contains(@function, 'printSpan')][@rend]" mode="render">
         <div class="d-flex metamark w-100 position-relative {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
             <div class="w-100">
                 <span data-anchor="{@xml:id} {replace(@corresp, '#', '')}" data-hand="{replace(@change,'#','')}" class="{@rend} {@style} connection-color-line">
