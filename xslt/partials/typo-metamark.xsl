@@ -136,7 +136,7 @@
      <xsl:template match="tei:metamark[@function='printInstruction' or contains(@function, 'printSpan')][@rend]" mode="render">
         <div class="d-flex metamark w-100 position-relative {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
             <div class="w-100">
-                <span data-anchor="{@xml:id} {replace(@corresp, '#', '')}" data-hand="{replace(@change,'#','')}" class="{@rend} {@style} connection-color-line">
+                <span data-anchor="{@xml:id} {replace(@corresp, '#', '')}" data-hand="{replace(@change,'#','')}" class="{@rend} {@function} {@style} connection-color-line">
                     <!-- <xsl:if test="@corresp">
                         <xsl:attribute name="data-corresp">
                             <xsl:value-of select="replace(@corresp, '#', '')"/>
