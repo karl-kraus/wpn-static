@@ -2835,7 +2835,7 @@ body.modal-open, body.modal-open main {
 //   text-decoration-color: $wpn-fackel !important;
 // }
 
-.connection-color-line {
+.connection-color-line.printSpanFrom:not(.inline) {
   width: 0.5rem;
   height: 2rem;
   display: block;
@@ -2844,12 +2844,55 @@ body.modal-open, body.modal-open main {
   right: 0;
 }
 
-.connection-color-line.active {
-  background: linear-gradient($wpn-red, transparent);
+.connection-color-line.active.printSpanFrom:not(.inline) {
+  background: rgba($wpn-red, 0.3);
   z-index: -1;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-  clip-path: polygon(0 0, 100% 0, 100% 15%, 50% 100%, 0 15%);
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+}
+
+.connection-color-line.printSpanFrom.inline {
+  width: 1.5rem;
+  height: 0.8rem;
+  display: block;
+  background: transparent;
+  position: absolute;
+  right: 0;
+}
+
+.connection-color-line.active.printSpanFrom.inline {
+  background: rgba($wpn-red, 0.3);
+  z-index: -1;
+  clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%);
+}
+
+.connection-color-line.printSpanTo:not(.inline) {
+  width: 0.5rem;
+  height: 0.5rem;
+  display: block;
+  background: transparent;
+  position: absolute;
+  right: 0;
+}
+
+.connection-color-line.active.printSpanFrom:not(.inline) {
+  background: rgba($wpn-red, 0.3);
+  z-index: -1;
+  clip-path: polygon(0 50%, 50% 100%, 100% 50%, 100% 100%, 0 100%);
+}
+
+.connection-color-line.printSpanFrom.inline {
+  width: 0.5rem;
+  height: 0.8rem;
+  display: block;
+  background: transparent;
+  position: absolute;
+  right: 0;
+}
+
+.connection-color-line.active.printSpanFrom.inline {
+  background: rgba($wpn-red, 0.3);
+  z-index: -1;
+  clip-path: polygon(0 50%, 50% 0, 100% 0, 100% 100%, 50% 100%);
 }
 
 /** pagination **/
