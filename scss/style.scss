@@ -2837,7 +2837,7 @@ body.modal-open, body.modal-open main {
 
 .connection-color-line.printSpanFrom:not(.inline) {
   width: 0.5rem;
-  height: 2rem;
+  height: 1rem;
   display: block;
   background: transparent;
   position: absolute;
@@ -2862,7 +2862,7 @@ body.modal-open, body.modal-open main {
 .connection-color-line.active.printSpanFrom.inline {
   background: rgba($wpn-red, 0.3);
   z-index: -1;
-  clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%);
+  clip-path: polygon(0 0, 50% 0, 100% 50%, 50% 100%, 0 100%);
 }
 
 .connection-color-line.printSpanTo:not(.inline) {
@@ -2874,25 +2874,25 @@ body.modal-open, body.modal-open main {
   right: 0;
 }
 
-.connection-color-line.active.printSpanFrom:not(.inline) {
+.connection-color-line.active.printSpanTo:not(.inline) {
   background: rgba($wpn-red, 0.3);
   z-index: -1;
-  clip-path: polygon(0 50%, 50% 100%, 100% 50%, 100% 100%, 0 100%);
+  clip-path: polygon(50% 0%, 100% 50%, 100% 100%, 0 100%, 0 50%);
 }
 
-.connection-color-line.printSpanFrom.inline {
+.connection-color-line.printSpanTo.inline {
   width: 0.5rem;
-  height: 0.8rem;
+  height: 0.5rem;
   display: block;
   background: transparent;
   position: absolute;
   right: 0;
 }
 
-.connection-color-line.active.printSpanFrom.inline {
+.connection-color-line.active.printSpanTo.inline {
   background: rgba($wpn-red, 0.3);
   z-index: -1;
-  clip-path: polygon(0 50%, 50% 0, 100% 0, 100% 100%, 50% 100%);
+  clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 0 50%);
 }
 
 /** pagination **/
