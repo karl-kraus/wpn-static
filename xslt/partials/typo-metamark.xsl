@@ -121,7 +121,7 @@
          <xsl:choose>
              <xsl:when test="@rend='inline'">
                  <span class="position-absolute">
-                     <span class="metamark {@function} {@rend} {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                     <span class="metamark {@function} {@rend} {replace(@change,'#','')} connection-color-line" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
                          <xsl:apply-templates/>
                      </span>
                  </span>
