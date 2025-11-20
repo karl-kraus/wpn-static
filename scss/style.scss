@@ -1734,7 +1734,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb div.del.pencilOnProofKK,
 #textcontent-pb div.mod.pencilOnProofKK,
 #textcontent-pb .mod.pencilOnProofKK .pencilOnProofKK,
-#textcontent-pb .mod.inkOnProofKK .inkOnProofKK,
+/* #textcontent-pb .mod.inkOnProofKK .inkOnProofKK, */ /* took this out as an experiment, see what happens ... */
 #textcontent-pb .subst.pencilOnProofKK .add,
 #textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .del.left.pencilOnProof,
