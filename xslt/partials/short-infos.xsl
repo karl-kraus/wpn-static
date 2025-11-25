@@ -130,17 +130,21 @@
     </div>
 </xsl:template>
 <xsl:template match="tei:rdg" mode="short_info">
+  <xsl:variable name="source" select="@source"/>
   <div>
       <div>
         <xsl:choose>
-          <xsl:when test="@source='Motti'">
+          <xsl:when test="$source='Motti'">
               <xsl:text>Motti (1933):</xsl:text>
           </xsl:when>
-          <xsl:when test="@source='DW'">
+          <xsl:when test="$source='DW'">
               <xsl:text>Dritte Walpurgisnacht (1933):</xsl:text>
           </xsl:when>
-          <xsl:when test="@source='F890'">
+          <xsl:when test="$source='F890'">
               <xsl:text>F890 (1934):</xsl:text>
+          </xsl:when>
+          <xsl:when test="$source='F381'">
+              <xsl:text>F381 (1913):</xsl:text>
           </xsl:when>
         </xsl:choose>
       </div>
@@ -148,6 +152,10 @@
       <xsl:if test="not(node()/name() = 'pb')">
         <xsl:apply-templates/>
       </xsl:if>
+        <xsl:if test="parent::tei:app/@next">
+          <xsl:variable name="nextId" select="substring-after(parent::tei:app/@next,'#')"/>
+          <xsl:apply-templates select="root()//tei:app[@xml:id=$nextId]/tei:rdg[@source = $source]"/>
+        </xsl:if>
       </div>
   </div>
 </xsl:template>
