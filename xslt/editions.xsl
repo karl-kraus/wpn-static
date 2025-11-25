@@ -364,7 +364,7 @@
         <span class="spacing"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:mod[contains(@rendition,'Quote')]">
-        <span class="{replace(@rendition,'#','')}">
+        <span class="{replace(@rendition,'#','')} {if (@rendition='#longQuote') then 'd-block' else ()}">
             <xsl:choose>
                 <xsl:when test="contains(@rendition,'Verse')">
                     <xsl:apply-templates/>
