@@ -43,7 +43,10 @@
   --bs-highlight-bg: white;
   --bs-highlight-color: var(--bs-primary);
   --bs-handwritten-font-family-italic: 'Ubuntu Light Italic';
+  --bs-handwritten-font-family-italic-fallback: 'serif';
   --bs-handwritten-font-family: 'Ubuntu Light Normal';
+  --bs-handwritten-font-family-fallback: 'serif';
+  --bs-font-family-fallback: 'serif';
 }
 
 /*** fonts ***/
@@ -100,6 +103,19 @@
 
 .ff-crimson-text {
   font-family: "Crimson Text", sans-serif;
+}
+
+#textcolumn-pb.ff-ubuntu-500-hover:hover {
+  font-family: 'Ubuntu', var(--bs-font-family-fallback), sans-serif;
+  font-weight:500;
+}
+
+#textcolumn-pb.ff-ubuntu {
+  font-family: 'Ubuntu', var(--bs-font-family-fallback), sans-serif;
+}
+
+#textcolumn-pb.ff-crimson-text {
+  font-family: "Crimson Text", var(--bs-font-family-fallback), sans-serif;
 }
 
 /*** helpers ***/
@@ -1746,7 +1762,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .mod.noIndent.inkOnProofKK {
   font-size: 0.667rem;
   line-height: 0.75rem;
-  font-family: var(--bs-handwritten-font-family-italic);
+  font-family: var(--bs-handwritten-font-family-italic), var(--bs-handwritten-font-family-italic-fallback);
   text-shadow: none;
 }
 
@@ -1793,7 +1809,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb .bluePencilOnProof {
   font-size: 0.667rem;
   line-height: 0.75rem;
-  font-family: var(--bs-handwritten-font-family);
+  font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
 }
 
 #textcontent-pb del {
