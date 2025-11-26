@@ -2176,15 +2176,23 @@ pencil text color
   font-size: 0.667rem !important;
 }
 
-#textcontent-pb .metamark.linespace  {
+#textcontent-pb .metamark.linespace,
+#textcontent-pb .metamark.linespace2 {
   position: relative;
 }
+
 #textcontent-pb .metamark.linespace::after  {
   position: absolute;
   content: '–––';
   top: -0.5rem;
 }
 
+#textcontent-pb .metamark.linespace2::after  {
+  position: absolute;
+  content: "–––";
+  top: 0.5rem;
+  left: -20.5rem;
+}
 
 #textcontent-pb .longQuoteVerseStart {
   margin-left: $spacer * 3;
