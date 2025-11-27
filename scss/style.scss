@@ -1901,24 +1901,6 @@ handling del elments based on change type
   text-decoration-color: #000;
 }
 
-/* line through for restored add pipes inside (possibly larger) del elements, e.g. 137, 142 */
-#textcontent-pb .del del:has(.restore .add) {
-  text-decoration: none;
-  position: relative;
-}
-
-#textcontent-pb .del del:has(.restore .add)::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;                        
-  top: 50%;                        
-  transform: translateY(-50%);     
-  height: 1px;                     
-  background: black;        
-  pointer-events: none;
-}
-
 /* double line through for double change values */
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del,
 #textcontent-pb .subst.inkOnProof.pencilOnProof del,
