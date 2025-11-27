@@ -93,6 +93,23 @@ function highlighting(event: Event) {
 
                 el.classList.remove(color);
                 el.classList.add(color);
+
+                if (el.classList.contains("note") || el.classList.contains("quotes")) {
+
+                    const children = el.querySelectorAll<HTMLElement>("*");
+
+                    children.forEach((child) => {
+
+                        if (child instanceof HTMLElement) {
+
+                            child.classList.remove(color);
+                            child.classList.add(color);
+
+                        }
+
+                    });
+
+                }
             
             });
 
@@ -108,6 +125,23 @@ function highlighting(event: Event) {
 
                 el.classList.remove(color);
                 el.classList.add(color);
+
+                if (el.classList.contains("note") || el.classList.contains("quotes")) {
+
+                    const children = el.querySelectorAll<HTMLElement>("*");
+
+                    children.forEach((child) => {
+
+                        if (child instanceof HTMLElement) {
+
+                            child.classList.remove(color);
+                            child.classList.add(color);
+
+                        }
+
+                    });
+
+                }
 
             });
         }
@@ -129,6 +163,23 @@ function highlighting(event: Event) {
 
                 el.classList.remove(color);
                 el.classList.add(color);
+
+                if (el.classList.contains("note") || el.classList.contains("quotes")) {
+
+                    const children = el.querySelectorAll<HTMLElement>("*");
+
+                    children.forEach((child) => {
+
+                        if (child instanceof HTMLElement) {
+
+                            child.classList.remove(color);
+                            child.classList.add(color);
+
+                        }
+
+                    });
+
+                }
 
             });
         }
@@ -214,6 +265,23 @@ function highlighting3rdcolumn (event: Event) {
 
                 el.classList.remove("active");
                 el.classList.add("active");
+
+                if (el.classList.contains("note") || el.classList.contains("quotes")) {
+
+                    const children = el.querySelectorAll<HTMLElement>("*");
+
+                    children.forEach((child) => {
+
+                        if (child instanceof HTMLElement) {
+
+                            child.classList.remove(color);
+                            child.classList.add(color);
+
+                        }
+
+                    });
+
+                }
             
             });
             
@@ -236,6 +304,24 @@ function highlighting3rdcolumn (event: Event) {
 
                 el.classList.remove(color);
                 el.classList.add(color);
+
+                if (el.classList.contains("note") || el.classList.contains("quotes")) {
+
+                    const children = el.querySelectorAll<HTMLElement>("*");
+
+                    children.forEach((child) => {
+
+                        if (child instanceof HTMLElement) {
+
+                            child.classList.remove(color);
+                            child.classList.add(color);
+
+                        }
+
+                    });
+
+                }
+                
                 
             });
         }
