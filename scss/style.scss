@@ -2951,3 +2951,23 @@ body.modal-open, body.modal-open main {
 #facscolumnBtn, #textcolumnBtn {
   cursor: pointer;
 }
+
+@media screen and (max-width: 992px) {
+  .m-visually-hidden {
+    display: none !important;
+  }
+
+  .sub_grid_pb_three {
+    display: block !important;
+    min-height: auto !important;
+  }
+
+  #prevPageLink svg, #nextPageLink svg {
+    width: 42px !important;
+    height: 42px !important;
+  }
+  
+  #pagination-dropdown {
+    width: 100% !important;
+  }
+}
