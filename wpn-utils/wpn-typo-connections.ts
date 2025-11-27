@@ -2,8 +2,8 @@
 // left and right margin with their anchor in the text.
 const myurl = new URL(window.location.href);
 const searchParams = new URLSearchParams(myurl.search);
-const content = document.querySelector<HTMLElement>("#textcontent-pb");
-const info = document.querySelector<HTMLElement>("#infocontent");
+const content = document.querySelector<HTMLElement>("#print-page");
+const info = document.querySelector<HTMLElement>("#infocontent-pb");
 
 // Default mode: explore for Desktop
 // Default mode: inspect for Mobile

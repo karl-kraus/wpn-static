@@ -133,7 +133,7 @@
         <xsl:variable name="printType">
             <xsl:value-of select=".//tei:pb[1]/@type"/>
         </xsl:variable>
-        <div class="print-page {$printType} position-relative">
+        <div id="print-page" class="print-page {$printType} position-relative">
             <div class="print-header {$printType} zindex-99">
                 <!-- <xsl:apply-templates select="//tei:fw" mode="render"/> -->
                 <!-- <xsl:apply-templates select="//tei:note[contains(@place, 'top')]" mode="render"/> -->
@@ -300,7 +300,7 @@
         <span class="hidden"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:lg">
-			<span class="d-block lg {replace(@rendition,'#','')}"><xsl:apply-templates/></span>      
+        <span class="d-block lg {replace(@rendition,'#','')}"><xsl:apply-templates/></span>      
     </xsl:template>
     <xsl:template match="tei:l">
 		<xsl:choose>
@@ -482,7 +482,7 @@
 				<span class="d-inline-block text-align-left lb-forced-right2"><xsl:apply-templates/></span>
 			</xsl:when>
 			<xsl:otherwise>
-                <span class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent"><xsl:apply-templates/></span>
+                <span data-anchor="{ancestor::tei:note/@xml:id}" class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent"><xsl:apply-templates/></span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -495,10 +495,10 @@
                 <span class="d-table-row text-align-left no-indent">&#160;<xsl:apply-templates/></span>
             </xsl:when> -->
             <xsl:otherwise>
-                <span class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">
+                <span data-anchor="{parent::tei:seg/@xml:id} {ancestor::tei:note/@xml:id}" class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">
                     <xsl:if test="parent::tei:seg[@rend='arrow'] and parent::tei:seg[@xml:id='seg0111_01']">
                         <span class="seg seg-inline">
-                            <span data-anchor="{parent::tei:seg/@xml:id}" data-hand="{replace(parent::tei:seg/@change, '#', '')}" class="entity {parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span>
+                            <span data-anchor="{parent::tei:seg/@xml:id} {ancestor::tei:note/@xml:id}" data-hand="{replace(parent::tei:seg/@change, '#', '')}" class="entity {parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span>
                         </span>
                     </xsl:if>
                     <xsl:choose>
