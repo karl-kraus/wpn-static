@@ -149,9 +149,18 @@
                         </span>
                     </xsl:when>
                     <xsl:otherwise>
-                        <span class="add text-decoration-underline-dotted {replace(@change[1], '#', '')}">
-                            <del class="entity" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></del>
-                        </span>
+                        <xsl:choose>
+                            <xsl:when test="ancestor::tei:del">
+                                <span class="add text-decoration-underline-dotted {replace(@change[1], '#', '')}">
+                                    <span class="entity" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
+                                </span>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <span class="add text-decoration-underline-dotted {replace(@change[1], '#', '')}">
+                                    <del class="entity" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></del>
+                                </span>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
@@ -159,7 +168,6 @@
                 <span class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
             </xsl:otherwise>
         </xsl:choose>
-        
     </xsl:template>
     <xsl:template match="tei:add[@rendition]">
         <span data-anchor="{replace(@change[1], '#', '')}" class="add rendition {replace(@rendition,'#','')} {replace(@change[1],'#','')}"><xsl:apply-templates/></span>
