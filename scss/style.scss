@@ -608,6 +608,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   background-image: url("../images/icon-signet-fackel.svg");
  }
 
+ .pb_signet_background {
+  background-image: url("../images/icon-signet-seitenumbruch.svg");
+ }
+
 /** detail view Dritter Publikationsschritt **/
 
 #textcontent-pb .runningText1,

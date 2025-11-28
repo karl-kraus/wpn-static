@@ -90,7 +90,7 @@
     </xsl:for-each>
 </xsl:template>
 <xsl:template match="tei:pb[not(matches(@n,'.*_[a-z].*'))]" mode="short_info">
-    <div class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="{'pb'||@n}" style="display:none">
+    <div class="fs-6 ps-3 text-dark-grey pagebreaks pb_signet_background bg-no-repeat bg-position-short-info" data-xmlid="{'pb'||@n}" style="display:none">
       <span><xsl:value-of select="'Beginn Seite '||(if (@n castable as xs:integer) then number(@n) else replace(@n,'[_]',' '))"/></span>
     </div>
 </xsl:template>
@@ -119,7 +119,7 @@
       </xsl:when>
     </xsl:choose>
   </xsl:variable>
-    <div class="fs-6 ps-3 text-dark-grey pagebreaks" id="{$id}" data-xmlid="{replace($target,'#','')}" style="display:none">
+    <div class="fs-6 ps-3 text-dark-grey pagebreaks pb_signet_background bg-no-repeat bg-position-short-info" id="{$id}" data-xmlid="{replace($target,'#','')}" style="display:none">
       <span><xsl:value-of select="$description||' '||$preceding_pb_val"/></span>
     </div>
 </xsl:template>
