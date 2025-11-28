@@ -8,266 +8,279 @@
     <xsl:template name="info-3rd-column">
         <xsl:variable name="doc_type" select="//tei:pb/@type" />
         
-        <div id="infocolumn" class="grid-box-3 border-start border-end border-top border-light-grey">
-            <div id="infocontent-hide-btn" class="p-1 active border-bottom border-light-grey bg-primary cursor-pointer stroke-white m-visually-hidden" title="Info-Spalte schließen">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse-vertical" viewBox="0 0 16 16">
-                    <path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M0 8a.5.5 0 0 1 .5-.5h3.793L3.146 6.354a.5.5 0 1 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8.5H.5A.5.5 0 0 1 0 8m11.707.5 1.147 1.146a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2a.5.5 0 0 1 .708.708L11.707 7.5H15.5a.5.5 0 0 1 0 1z"/>
-                </svg>
-            </div>
-            <div id="infocontent" class="overflow-auto bg-white px-0">
-                <div id="infocontent-header" class="row flex-row text-center m-0">
-                    <div id="pagination-dropdown" class="col px-1 py-1 border-end border-bottom border-light-grey bg-primary">
-                        <div class="dropdown ff-ubuntu">
+        <div id="infocolumn" class="grid-box-3">
+            <div id="infocontent" class="bg-white px-0">
+                <div id="infocontent-header" class="row flex-row text-center m-0 cursor-pointer">
+                    <div style="width:40px;min-width:40px;max-width:40px;" class="col p-0_25 border-start border-bottom border-top border-end border-light-grey align-content-around">
+                        <div id="infocontent-hide-btn" class="p-1 active m-visually-hidden" title="Info-Spalte schließen">
+                            <img src="images/plus.svg" alt="Plus sign image."/>                    
+                        </div>
+                    </div>
+                    <div class="col p-0_25 border-end border-top border-light-grey bg-primary align-content-around">
+                        <div class="d-flex text-center mx-auto">
+                        <xsl:if test="string-length($prev) > 0">
+                            <a id="prevPageLink" style="stroke:white;fill:white;" href="{replace($prev, '.xml', '.html')}?view=all-columns" title="zu seite {replace($prev, '.xml', '.html')} gehen">
+                                <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
+                            </a>
+                        </xsl:if>
+                        </div>
+                    </div>
+                    <div id="pagination-dropdown" class="col w-25 p-0_25 border-end border-top  border-light-grey bg-primary">
+                        <div class="d-block dropdown ff-ubuntu">
                             <xsl:variable name="currentPage" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
                             <xsl:variable name="currentPageString" select="if(contains($currentPage, '_') ) 
                                                                             then(xs:integer(replace( tokenize( $currentPage, '_' )[1], 'F', '' ) )||'/'||tokenize( $currentPage, '_' )[2] ) 
                                                                             else(xs:integer(replace($currentPage, 'F', '')))"/>
-                            <button id="dropdownMenuButton1" class="btn btn-secondary dropdown-toggle text-white fs-9_38 border-0 m-0" type="button" aria-controls="#pagination-pb" aria-expanded="false">
+                            <button id="dropdownMenuButton1" class="d-contents btn btn-secondary text-white fs-9_38 border-0 m-0" type="button" aria-controls="#pagination-pb" aria-expanded="false">
                                 <xsl:value-of select="'Seite: '||$currentPageString"/>
                             </button>
                             <br/>
                             <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>
-                            <label class="text-white fs-7 fw-light" for="dropdownMenuButton1">
+                            <label class="text-white fs-7 fw-light dropdown-toggle" for="dropdownMenuButton1">
                                 <xsl:text>von </xsl:text><xsl:value-of select="count($pages[not(.//tei:pb[@type='nonWitness'])])"/>
                             </label>
-                            <br/>
-                            <xsl:if test="string-length($prev) > 0">
-                                <a id="prevPageLink" style="stroke:white;fill:white;" href="{replace($prev, '.xml', '.html')}?view=all-columns" title="zu seite {replace($prev, '.xml', '.html')} gehen">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
-                                </a>
-                            </xsl:if>
-                            <xsl:if test="string-length($next) > 0">
-                                <a id="nextPageLink" style="stroke:white;fill:white;" href="{replace($next, '.xml', '.html')}?view=all-columns" title="zu seite {replace($next, '.xml', '.html')} gehen">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
-                                </a>
-                            </xsl:if>
                         </div>
                     </div>
-                    <div id="allcolumnBtn" class="active-view-icon col px-1 py-3 border-end border-bottom border-light-grey m-visually-hidden">
-                        <img src="images/view-stacked.svg" alt="Synoptic View: Facsimile and Info Column" class="view-icon"/>
+                    <div class="col p-0_25 border-end border-top  border-light-grey bg-primary align-content-around">
+                        <div class="d-flex text-center mx-auto">
+                        <xsl:if test="string-length($next) > 0">
+                            <a id="nextPageLink" style="stroke:white;fill:white;" href="{replace($next, '.xml', '.html')}?view=all-columns" title="zu seite {replace($next, '.xml', '.html')} gehen">
+                                <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
+                            </a>
+                        </xsl:if>
+                        </div>
                     </div>
-                    <div id="textcolumnBtn" class="col px-1 py-3 border-end border-bottom border-light-grey m-visually-hidden">
-                        <img src="images/view-stacked.svg" alt="Synoptic View: Text and Info Column" class="view-icon"/>
+                    <div id="allcolumnBtn" class="active-view-icon col p-0_25 border-end border-top  border-light-grey m-visually-hidden align-content-around">
+                        <img src="images/icon-view-all.svg" alt="Synoptic View: Facsimile and Info Column" class="view-icon"/>
                     </div>
-                    <div id="facscolumnBtn" class="col px-1 py-3 border-end border-bottom border-light-grey m-visually-hidden">
-                        <img src="images/view-stacked.svg" alt="Synoptic View: Facsimile, Text Columns and Info Column" class="view-icon"/>
+                    <div id="textcolumnBtn" class="col p-0_25 border-end border-top  border-light-grey m-visually-hidden align-content-around">
+                        <img src="images/icon-view-facs.svg" alt="Synoptic View: Facsimile, Text Columns and Info Column" class="view-icon"/>                    
                     </div>
-                    <div id="allcolumnRowBtn" class="col px-1 py-3 border-bottom border-end border-light-grey m-visually-hidden">
-                        <img src="images/view-stacked.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"/>
+                    <div id="facscolumnBtn" class="col p-0_25 border-end border-top  border-light-grey m-visually-hidden align-content-around">
+                        <img src="images/icon-view-text.svg" alt="Synoptic View: Text and Info Column" class="view-icon"/>
                     </div>
-                    <div id="setMode" class="col px-1 py-3 border-bottom border-light-grey m-visually-hidden">
-                        <img src="images/view-stacked.svg" alt="Set Interactive Mode to Inspect (Default=Explore)" class="view-icon"/>
+                    <div id="allcolumnRowBtn" class="col p-0_25 border-end border-top  border-light-grey m-visually-hidden align-content-around">
+                        <img src="images/icon-view-vertical.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"/>
                     </div>
-                </div>
-                <div id="pagination-pb" class="visually-hidden bg-primary text-white">
-                    <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>
-                    <div class="pagination-grid w-100 h-100 text-center m-0 p-1">
-                        <xsl:for-each select="$pages">
-                            <xsl:sort select=".//tei:pb/@xml:id[1]"/>
-                            <xsl:variable name="page" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
-                            <xsl:variable name="pageString" select="if(contains($page, '_'))then(xs:integer(replace(tokenize($page, '_')[1], 'F', ''))||'/'||tokenize($page, '_')[2])else(xs:integer(replace($page, 'F', '')))"/>
-                            <xsl:if test="not(.//tei:pb[@type='nonWitness'])">
-                                <a class="fs-9_38 text-white text-decoration-none d-block px-0 my-1 mx-0 py-0 text-center hover:bg-white hover:text-primary" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}?view=all-columns">
-                                    <xsl:value-of select="$pageString"/>
-                                </a>
-                            </xsl:if>
-                        </xsl:for-each>
+                    <div id="setMode" class="col p-0_25 cursor-pointer border-end border-top  border-light-grey m-visually-hidden align-content-around">
+                        <label style="font-size:7pt;">Inspect<br/>Mode</label>
                     </div>
                 </div>
-                <div id="infocontent-pb">
-                    <xsl:variable name="creation" select="//tei:creation"/>
-                    <xsl:for-each select="//tei:TEI/tei:facsimile[@corresp='#DWkonJer']/tei:surface">
-                        <xsl:variable name="text" select="../following-sibling::tei:text"/>
-                        <xsl:variable name="convolute-id" select="replace(./parent::tei:facsimile/@corresp, '#', '')"/>
-                        <xsl:variable name="corresp-id" select="replace(@corresp, '#', '')"/>
-                        <div class="note m-2 {$corresp-id}">
-                            <!-- ########### -->
-                            <!-- 1 - GENERAL INFO, IDENTIFICATION -->
-                            <!-- ########### -->
-                            <h4 class="mt-2">
-                                <xsl:text>Jerusalemer Konvolut,</xsl:text><br/><xsl:text>fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto.</xsl:text></h4>
-                            
-                            <h5 id="btn_general_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_general_info">Standort, Signatur</h5>
-                            <div id="list_general_info">
-                                <p>
-                                    <xsl:value-of
-                                        select="
-                                        let $id := //tei:sourceDesc[@xml:id='DWkonJer']/tei:msDesc/tei:msIdentifier
-                                        return concat(string-join((
-                                        $id/tei:institution,
-                                        $id/tei:collection,
-                                        $id/tei:idno[@type='signature']
-                                        ), ', '), '.')
-                                        "/>
-                                </p>
-                                <xsl:for-each select="./tei:note[@type='pagination']">
-                                    <p id="paragraph-block-{position()}" class="paragraph-block" data-link="fw-{replace(@corresp, '#', '')}">
-                                        <xsl:variable name="corresp">
-                                            <xsl:value-of select="substring-after(@corresp, '#')"/>
-                                        </xsl:variable>
-                                        <xsl:text>Paginierung </xsl:text>
-                                        <xsl:value-of select="./text()"/>
-                                        <xsl:text> (</xsl:text>
-                                        <xsl:value-of select="$creation//id(data($corresp))"/>
-                                        <xsl:text>)</xsl:text>
-                                    </p>
+                <div id="infocontent-wrapper" class="row flex-row cursor-pointer">
+                    <div class="col" style="width:40px;min-width:40px;max-width:40px;"></div>
+                    <div class="col">
+                        <div id="pagination-pb" class="visually-hidden bg-primary text-white">
+                            <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>
+                            <div class="pagination-grid w-100 h-100 text-center m-0 p-1">
+                                <xsl:for-each select="$pages">
+                                    <xsl:sort select=".//tei:pb/@xml:id[1]"/>
+                                    <xsl:variable name="page" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
+                                    <xsl:variable name="pageString" select="if(contains($page, '_'))then(xs:integer(replace(tokenize($page, '_')[1], 'F', ''))||'/'||tokenize($page, '_')[2])else(xs:integer(replace($page, 'F', '')))"/>
+                                    <xsl:if test="not(.//tei:pb[@type='nonWitness'])">
+                                        <a class="fs-9_38 text-white text-decoration-none d-block px-0 my-1 mx-0 py-0 text-center hover:bg-white hover:text-primary" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}?view=all-columns">
+                                            <xsl:value-of select="$pageString"/>
+                                        </a>
+                                    </xsl:if>
                                 </xsl:for-each>
-                                <p><xsl:value-of select="./tei:note[@type='stamp']/text()"/></p>
                             </div>
+                        </div>
+                        <div id="infocontent-pb" class="border border-light-grey min-h-100 min-vh-100">
+                            <xsl:variable name="creation" select="//tei:creation"/>
+                            <xsl:for-each select="//tei:TEI/tei:facsimile[@corresp='#DWkonJer']/tei:surface">
+                                <xsl:variable name="text" select="../following-sibling::tei:text"/>
+                                <xsl:variable name="convolute-id" select="replace(./parent::tei:facsimile/@corresp, '#', '')"/>
+                                <xsl:variable name="corresp-id" select="replace(@corresp, '#', '')"/>
+                                <div class="note m-2 {$corresp-id}">
+                                    <!-- ########### -->
+                                    <!-- 1 - GENERAL INFO, IDENTIFICATION -->
+                                    <!-- ########### -->
+                                    <h4 class="mt-2">
+                                        <xsl:text>Jerusalemer Konvolut,</xsl:text><br/><xsl:text>fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto.</xsl:text></h4>
+                                    
+                                    <h5 id="btn_general_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_general_info">Standort, Signatur</h5>
+                                    <div id="list_general_info">
+                                        <p>
+                                            <xsl:value-of
+                                                select="
+                                                let $id := //tei:sourceDesc[@xml:id='DWkonJer']/tei:msDesc/tei:msIdentifier
+                                                return concat(string-join((
+                                                $id/tei:institution,
+                                                $id/tei:collection,
+                                                $id/tei:idno[@type='signature']
+                                                ), ', '), '.')
+                                                "/>
+                                        </p>
+                                        <xsl:for-each select="./tei:note[@type='pagination']">
+                                            <p id="paragraph-block-{position()}" class="paragraph-block" data-link="fw-{replace(@corresp, '#', '')}">
+                                                <xsl:variable name="corresp">
+                                                    <xsl:value-of select="substring-after(@corresp, '#')"/>
+                                                </xsl:variable>
+                                                <xsl:text>Paginierung </xsl:text>
+                                                <xsl:value-of select="./text()"/>
+                                                <xsl:text> (</xsl:text>
+                                                <xsl:value-of select="$creation//id(data($corresp))"/>
+                                                <xsl:text>)</xsl:text>
+                                            </p>
+                                        </xsl:for-each>
+                                        <p><xsl:value-of select="./tei:note[@type='stamp']/text()"/></p>
+                                    </div>
 
-                            <!-- ########### -->
-                            <!-- 2 - CARRIER INFO -->
-                            <!-- ########### -->
-                            <h5 id="btn_carrier_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_carrier_info">
-                                Textträger, Grundschicht,<br/>Digitalisat</h5>
-                            <div id="list_carrier_info" class="visually-hidden">
-                                <h6>Gehört zu:</h6>
-                                <xsl:for-each select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/tei:p">
-                                    <p><xsl:value-of select="./text()"/></p>
-                                </xsl:for-each>
-                                <xsl:if test="./tei:note[@type='state']">
-                                    <h6>Anmerkung:</h6>
-                                    <p><xsl:value-of select="./tei:note[@type='state']/text()"/></p>
-                                </xsl:if> 
-                            </div>
-                            
-                            
-                            <!-- ########### -->
-                            <!-- textblock 4 -->
-                            <!-- ########### -->
-                            <xsl:if test="./tei:note[@type=('change', 'printInstruction')]">
-                                <h5 id="btn_more_text_layers" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_more_text_layers">
-                                    Weitere Textschichten</h5>
-                                
-                                <ul id="list_more_layers" class="list-unstyled visually-hidden"><!-- removed class d-none -->
-                                    <xsl:for-each select="./tei:note[@type='change'][not(@corresp=('#edACE', '#typewriter2'))]">
-                                        <xsl:variable name="change" select="tokenize(@corresp, ' ')"/>
-                                        <xsl:variable name="corresp">
-                                            <xsl:choose>
-                                                <xsl:when test="$doc_type = 'witnessPrint'">
-                                                    <xsl:value-of select="replace(@corresp, '#', '')"/>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                    <xsl:for-each select="$change">
-                                                        <xsl:if test=". != '#typewriter'">
-                                                            <xsl:value-of select="replace(., '#', '')"/>
-                                                            <xsl:if test="position() != last()">
-                                                                <xsl:text> </xsl:text>
+                                    <!-- ########### -->
+                                    <!-- 2 - CARRIER INFO -->
+                                    <!-- ########### -->
+                                    <h5 id="btn_carrier_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_carrier_info">
+                                        Textträger, Grundschicht,<br/>Digitalisat</h5>
+                                    <div id="list_carrier_info" class="visually-hidden">
+                                        <h6>Gehört zu:</h6>
+                                        <xsl:for-each select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/tei:p">
+                                            <p><xsl:value-of select="./text()"/></p>
+                                        </xsl:for-each>
+                                        <xsl:if test="./tei:note[@type='state']">
+                                            <h6>Anmerkung:</h6>
+                                            <p><xsl:value-of select="./tei:note[@type='state']/text()"/></p>
+                                        </xsl:if> 
+                                    </div>
+                                    
+                                    
+                                    <!-- ########### -->
+                                    <!-- textblock 4 -->
+                                    <!-- ########### -->
+                                    <xsl:if test="./tei:note[@type=('change', 'printInstruction')]">
+                                        <h5 id="btn_more_text_layers" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_more_text_layers">
+                                            Weitere Textschichten</h5>
+                                        
+                                        <ul id="list_more_layers" class="list-unstyled visually-hidden"><!-- removed class d-none -->
+                                            <xsl:for-each select="./tei:note[@type='change'][not(@corresp=('#edACE', '#typewriter2'))]">
+                                                <xsl:variable name="change" select="tokenize(@corresp, ' ')"/>
+                                                <xsl:variable name="corresp">
+                                                    <xsl:choose>
+                                                        <xsl:when test="$doc_type = 'witnessPrint'">
+                                                            <xsl:value-of select="replace(@corresp, '#', '')"/>
+                                                        </xsl:when>
+                                                        <xsl:otherwise>
+                                                            <xsl:for-each select="$change">
+                                                                <xsl:if test=". != '#typewriter'">
+                                                                    <xsl:value-of select="replace(., '#', '')"/>
+                                                                    <xsl:if test="position() != last()">
+                                                                        <xsl:text> </xsl:text>
+                                                                    </xsl:if>
+                                                                </xsl:if>
+                                                            </xsl:for-each>
+                                                        </xsl:otherwise>
+                                                    </xsl:choose>
+                                                </xsl:variable>
+                                                <li class="cursor-pointer my-1 list_more_text_layers" data-link="{$corresp}">
+                                                    <xsl:value-of select="$creation//id(data($corresp))"/>
+                                                </li>
+                                            </xsl:for-each>
+                                            <xsl:if test="./tei:note[@type='printInstruction']">
+                                                <xsl:variable name="corresp">
+                                                    <xsl:value-of select="replace(./tei:note[@type='printInstruction']/@corresp, '#', '')"/>
+                                                </xsl:variable>
+                                                <!--  add data link with corresp -->
+                                                <!-- currently removed until new implementation -->
+                                                <li class="cursor-pointer my-1 list_more_text_layers_line">
+                                                    <xsl:text>Markierung für den Druck der Fackel Nr. 890: </xsl:text>
+                                                    <xsl:choose>
+                                                        <xsl:when test="count(./tei:note[@type='printInstruction']) gt 1">
+                                                            <ul class="list-unstyled visually-hidden">
+                                                                <xsl:for-each select="./tei:note[@type='printInstruction']">
+                                                                    <li><xsl:value-of select="./text()"/></li>
+                                                                </xsl:for-each>
+                                                            </ul>
+                                                        </xsl:when>
+                                                        <xsl:otherwise>
+                                                            <xsl:value-of select="./tei:note[@type='printInstruction']/text()"/>
+                                                        </xsl:otherwise>
+                                                    </xsl:choose>
+                                                </li>
+                                            </xsl:if>
+                                            <xsl:if test="./tei:note[@type='printF890']">
+                                                <li class="cursor-pointer my-1">
+                                                    <label id="btn-corresp-fackel" class="cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#corresp-fackel-list">
+                                                        <xsl:text>Markierung für die Fackel Nr. 890-905</xsl:text>
+                                                    </label>
+                                                    <ul id="corresp-fackel-list">
+                                                        <xsl:for-each select="./tei:note[@type='printF890']">
+                                                            <li class="list_more_text_layers_line" data-link="{replace(@corresp, '#', '')}">
+                                                                <xsl:value-of select="./text()"/>
+                                                            </li>
+                                                            <xsl:variable name="regrefs">
+                                                                <xsl:value-of select="tokenize(@corresp, ' ')"/>
+                                                            </xsl:variable>
+                                                            <xsl:if test="count($regrefs) gt 0">
+                                                            <li class="list-unstyled">
+                                                                <xsl:for-each select="$regrefs">
+                                                                    <xsl:variable name="corresp" select="replace(current(), '#', '')"/>
+                                                                    <xsl:apply-templates select="doc('../../data/indices/Register.xml')//*[@xml:id=$corresp]" mode="typo_short_info"/>
+                                                                </xsl:for-each>
+                                                            </li>
                                                             </xsl:if>
-                                                        </xsl:if>
-                                                    </xsl:for-each>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
-                                        </xsl:variable>
-                                        <li class="cursor-pointer my-1 list_more_text_layers" data-link="{$corresp}">
-                                            <xsl:value-of select="$creation//id(data($corresp))"/>
-                                        </li>
-                                    </xsl:for-each>
-                                    <xsl:if test="./tei:note[@type='printInstruction']">
-                                        <xsl:variable name="corresp">
-                                            <xsl:value-of select="replace(./tei:note[@type='printInstruction']/@corresp, '#', '')"/>
-                                        </xsl:variable>
-                                        <!--  add data link with corresp -->
-                                        <!-- currently removed until new implementation -->
-                                        <li class="cursor-pointer my-1 list_more_text_layers_line">
-                                            <xsl:text>Markierung für den Druck der Fackel Nr. 890: </xsl:text>
-                                            <xsl:choose>
-                                                <xsl:when test="count(./tei:note[@type='printInstruction']) gt 1">
-                                                    <ul class="list-unstyled visually-hidden">
-                                                        <xsl:for-each select="./tei:note[@type='printInstruction']">
-                                                            <li><xsl:value-of select="./text()"/></li>
                                                         </xsl:for-each>
                                                     </ul>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                    <xsl:value-of select="./tei:note[@type='printInstruction']/text()"/>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
-                                        </li>
+                                                </li>
+                                            </xsl:if>
+                                        </ul>
                                     </xsl:if>
-                                    <xsl:if test="./tei:note[@type='printF890']">
-                                        <li class="cursor-pointer my-1">
-                                            <label id="btn-corresp-fackel" class="cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#corresp-fackel-list">
-                                                <xsl:text>Markierung für die Fackel Nr. 890-905</xsl:text>
-                                            </label>
-                                            <ul id="corresp-fackel-list">
-                                                <xsl:for-each select="./tei:note[@type='printF890']">
-                                                    <li class="list_more_text_layers_line" data-link="{replace(@corresp, '#', '')}">
-                                                        <xsl:value-of select="./text()"/>
-                                                    </li>
-                                                    <xsl:variable name="regrefs">
-                                                        <xsl:value-of select="tokenize(@corresp, ' ')"/>
-                                                    </xsl:variable>
-                                                    <xsl:if test="count($regrefs) gt 0">
-                                                    <li class="list-unstyled">
-                                                        <xsl:for-each select="$regrefs">
-                                                            <xsl:variable name="corresp" select="replace(current(), '#', '')"/>
-                                                            <xsl:apply-templates select="doc('../../data/indices/Register.xml')//*[@xml:id=$corresp]" mode="typo_short_info"/>
-                                                        </xsl:for-each>
-                                                    </li>
-                                                    </xsl:if>
-                                                </xsl:for-each>
-                                            </ul>
-                                        </li>
-                                    </xsl:if>
-                                </ul>
-                            </xsl:if>
-                            
-                            <!-- ########### -->
-                            <!-- textblock 5 -->
-                            <!-- ########### -->
-                            <xsl:if test="./tei:note[starts-with(@type, 'tpq')]/text()">
-                                <h5 id="btn_tpq_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_tpq_info">
-                                    Datierung (terminus post quem)</h5>
-                                <div id="list_tpq_info" class="visually-hidden"><!-- removed class d-none -->
-                                    <xsl:for-each select="./tei:note[@type='tpqBase']">
-                                        <p class="tpq cursor-pointer" data-linkone="{replace(@corresp, '#', '')}">
-                                            <xsl:text>Grundschicht: </xsl:text>
-                                            <xsl:call-template name="note_date">
-                                                <xsl:with-param name="input" select="./text()"/>
-                                            </xsl:call-template>
-                                            <xsl:text> (zitierter Text)</xsl:text>
-                                        </p>
-                                    </xsl:for-each>
-                                    <xsl:for-each select="./tei:note[@type='tpqAdd']">
-                                        <p class="tpq cursor-pointer" data-linkone="{replace(@corresp, '#', '')}">
-                                            <xsl:text>Hs. Ergänzung: </xsl:text>
-                                            <xsl:call-template name="note_date">
-                                                <xsl:with-param name="input" select="./text()"/>
-                                            </xsl:call-template>
-                                            <xsl:text> (zitierter Text)</xsl:text>
-                                        </p>
-                                    </xsl:for-each>
-                                </div>
-                            </xsl:if>
-                            
-                            <!-- ########### -->
-                            <!-- textblock 6 -->
-                            <!-- ########### -->
-                            <xsl:if test="./tei:note[@type=('delQuote', 'delPers')]">
-                                <h5 id="btn_delQP_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_delQP_info">
-                                    Inhaltliche Anmerkung</h5>
-                                <div id="list_delQP_info" class="visually-hidden"><!-- removed class d-none -->
-                                    <xsl:for-each select="./tei:note[@type=('delQuote', 'delPers')]">
-                                        <div class="delQP cursor-pointer" data-anchor="{@target}" data-register="{replace(@corresp, '#', '')}">
-                                            <xsl:variable name="regrefs">
-                                                <xsl:value-of select="tokenize(@target, ' ')"/>
-                                            </xsl:variable>
-                                            <p>Eliminierter Verweis auf 
-                                                <xsl:for-each select="$regrefs">
-                                                    <xsl:variable name="target" select="replace(current(), '#', '')"/>
-                                                    <xsl:apply-templates select="doc('../../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="short_info"/>
-                                                    <!-- <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="detail_view_textpage" /> -->
-                                                </xsl:for-each>
-                                            </p>
+                                    
+                                    <!-- ########### -->
+                                    <!-- textblock 5 -->
+                                    <!-- ########### -->
+                                    <xsl:if test="./tei:note[starts-with(@type, 'tpq')]/text()">
+                                        <h5 id="btn_tpq_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_tpq_info">
+                                            Datierung (terminus post quem)</h5>
+                                        <div id="list_tpq_info" class="visually-hidden"><!-- removed class d-none -->
+                                            <xsl:for-each select="./tei:note[@type='tpqBase']">
+                                                <p class="tpq cursor-pointer" data-linkone="{replace(@corresp, '#', '')}">
+                                                    <xsl:text>Grundschicht: </xsl:text>
+                                                    <xsl:call-template name="note_date">
+                                                        <xsl:with-param name="input" select="./text()"/>
+                                                    </xsl:call-template>
+                                                    <xsl:text> (zitierter Text)</xsl:text>
+                                                </p>
+                                            </xsl:for-each>
+                                            <xsl:for-each select="./tei:note[@type='tpqAdd']">
+                                                <p class="tpq cursor-pointer" data-linkone="{replace(@corresp, '#', '')}">
+                                                    <xsl:text>Hs. Ergänzung: </xsl:text>
+                                                    <xsl:call-template name="note_date">
+                                                        <xsl:with-param name="input" select="./text()"/>
+                                                    </xsl:call-template>
+                                                    <xsl:text> (zitierter Text)</xsl:text>
+                                                </p>
+                                            </xsl:for-each>
                                         </div>
-                                    </xsl:for-each>
+                                    </xsl:if>
+                                    
+                                    <!-- ########### -->
+                                    <!-- textblock 6 -->
+                                    <!-- ########### -->
+                                    <xsl:if test="./tei:note[@type=('delQuote', 'delPers')]">
+                                        <h5 id="btn_delQP_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_delQP_info">
+                                            Inhaltliche Anmerkung</h5>
+                                        <div id="list_delQP_info" class="visually-hidden"><!-- removed class d-none -->
+                                            <xsl:for-each select="./tei:note[@type=('delQuote', 'delPers')]">
+                                                <div class="delQP cursor-pointer" data-anchor="{@target}" data-register="{replace(@corresp, '#', '')}">
+                                                    <xsl:variable name="regrefs">
+                                                        <xsl:value-of select="tokenize(@target, ' ')"/>
+                                                    </xsl:variable>
+                                                    <p>Eliminierter Verweis auf 
+                                                        <xsl:for-each select="$regrefs">
+                                                            <xsl:variable name="target" select="replace(current(), '#', '')"/>
+                                                            <xsl:apply-templates select="doc('../../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="short_info"/>
+                                                            <!-- <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="detail_view_textpage" /> -->
+                                                        </xsl:for-each>
+                                                    </p>
+                                                </div>
+                                            </xsl:for-each>
+                                        </div>
+                                    </xsl:if>
+                                    
                                 </div>
-                            </xsl:if>
-                            
+                            </xsl:for-each>
                         </div>
-                    </xsl:for-each>
+                    </div>
                 </div>
+
             </div>
         </div>
     </xsl:template>

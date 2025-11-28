@@ -18,7 +18,7 @@ hideBtn!.addEventListener('click', function() {
     const grid = document.getElementById('sub_grid_pb');
     grid!.classList.toggle('hide_btn');
 
-    const infocontent = document.getElementById('infocontent');
+    const infocontent = document.querySelector('#infocontent-wrapper');
     infocontent!.classList.toggle('visually-hidden');
 });
 

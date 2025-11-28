@@ -2958,6 +2958,26 @@ body.modal-open, body.modal-open main {
   cursor: pointer;
 }
 
+.w-10 {
+  width: 10% !important;
+  min-width: 10% !important;
+  max-width: 10% !important;
+}
+
+.w-25 {
+  width: 25% !important;
+  min-width: 25% !important;
+  max-width: 25% !important;
+}
+
+.p-0_25 {
+  padding: 0.25rem !important;
+}
+
+.d-contents {
+  display: contents !important;
+}
+
 @media screen and (max-width: 992px) {
   .m-visually-hidden {
     display: none !important;

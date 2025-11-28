@@ -40,6 +40,8 @@ document.querySelector<HTMLElement>("#setMode")?.addEventListener("click", (even
 
     if (target.classList.contains("active-view-icon")) {
 
+        target.style.color = "white";
+
         console.log("Mode: Inspect connections between annotations and text. Loaded!");
 
         searchParams.set("mode", "inspect");
@@ -50,6 +52,7 @@ document.querySelector<HTMLElement>("#setMode")?.addEventListener("click", (even
         info?.addEventListener("click", debounce(highlighting3rdcolumn, 300));
     } else {
 
+        target.style.color = "black";
         console.log("Mode: Explore connections between annotations and text. Loaded!");
 
         searchParams.set("mode", "explore");
