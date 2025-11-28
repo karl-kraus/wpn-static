@@ -94,7 +94,7 @@
       <span><xsl:value-of select="'Beginn Seite '||(if (@n castable as xs:integer) then number(@n) else replace(@n,'[_]',' '))"/></span>
     </div>
 </xsl:template>
-<xsl:template match="tei:metamark[@function='insertion' and matches(@target,'(note)+.*([a-z])_')]" mode="short_info">
+<xsl:template match="tei:metamark[@function='insertion' and matches(@target,'(note)+.*([a-z])_')][not(@change='#edACE')]" mode="short_info">
   <xsl:param name="reftype"/>
   <xsl:param name="target"/>
   <xsl:variable name="id" select="substring-after($target,$reftype||'_')"/>
