@@ -192,7 +192,7 @@
     <xsl:variable name="prev_on_same_page" select="boolean(root()//tei:seg[@xml:id=$prev_id])"/>
     <xsl:variable name="followed_by_inline" select="boolean(following-sibling::*[1][self::tei:metamark[not(matches(@target,'(note)+.*([a-z])_'))]])"/>
     <xsl:variable name="isInline" select="boolean(./preceding-sibling::node()[self::text()[matches(.,'.*[a-z].*')]] or ./following-sibling::node()[self::text()[matches(.,'.*[a-z].*')]] or ./parent::tei:note)"/> 
-        <wpn-entity bubble="false" class="fackel entity {substring-after(@rendition, '#')} {if ($isInline or $prev_on_same_page or $followed_by_inline) then () else 'd-block'}" id="{@xml:id}">
+        <wpn-entity bubble="false" class="fackel entity {substring-after(@rendition, '#')} {if (($isInline or $prev_on_same_page or $followed_by_inline) and not(./child::tei:lg)) then () else 'd-block'}" id="{@xml:id}">
             <xsl:apply-templates/>
         </wpn-entity>
     </xsl:template>
