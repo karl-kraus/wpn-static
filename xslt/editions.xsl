@@ -240,6 +240,9 @@
         </ref>
     </xsl:template>
     <xsl:template match="tei:rdg[@source='F890']"/>
+    <xsl:template match="tei:rdg[@source='F890']" mode="show">
+        <xsl:apply-templates/>
+    </xsl:template>
     <xsl:template match="tei:rdg[@source='DW']">
         <xsl:apply-templates/>
     </xsl:template>
