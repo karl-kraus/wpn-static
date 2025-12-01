@@ -146,7 +146,7 @@
     </xsl:template>
     <xsl:template match="tei:del[parent::tei:subst[parent::tei:restore]]">
         <xsl:choose>
-            <xsl:when test="parent::tei:subst[parent::tei:restore[parent::tei:del]]">
+            <xsl:when test="parent::tei:subst[parent::tei:restore[not(@rend='marginOnly') and parent::tei:del]]">
                <span class="del text-decoration-underline-dotted">
                     <span data-anchor="{@xml:id} {ancestor::tei:del/@xml:id}"><xsl:apply-templates/></span>
                 </span>
