@@ -87,6 +87,16 @@ input:checked+.i-slider:before {
   background: unset;
 }
 
+.annot_quote .inkLongQuote .longQuoteVerseStart,
+.annot_quote .inkLongQuote .longQuoteVerseEnd {
+  background: rgba($wpn-quote, $entity-highlighted-background-opacity); 
+}
+
+.annot_quote_active .inkLongQuote .longQuoteVerseStart,
+.annot_quote_active .inkLongQuote .longQuoteVerseEnd {
+  background: rgba($wpn-quote, $entity-highlighted-active-background-opacity); 
+}
+
 .annot_person {
   background: rgba($wpn-person, $entity-highlighted-background-opacity);
   border-radius: $entity-highlighted-border-radius;
