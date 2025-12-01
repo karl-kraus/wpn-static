@@ -5,17 +5,29 @@ document.getElementById('dropdownMenuButton1')!.addEventListener('click', functi
     const paginationPb = document.getElementById('pagination-pb');
     paginationPb!.classList.toggle('visually-hidden');
     paginationPb!.ariaExpanded = paginationPb!.classList.contains('visually-hidden') ? 'false' : 'true';
+
     const infocontentPb = document.getElementById('infocontent-pb');
     infocontentPb!.classList.toggle('visually-hidden');
 });
 
 // Toggle visibility of legende on legende button click
-document.getElementById('legende-btn')!.addEventListener('click', function() {
+const legendBtn = document.getElementById('legende-btn');
+
+legendBtn!.addEventListener('click', function() {
+
+    legendBtn!.classList.toggle('active');
+    legendBtn!.ariaExpanded = legendBtn!.classList.contains('active') ? 'true' : 'false';
+    legendBtn!.setAttribute('title', legendBtn!.classList.contains('active') ? 'Legende schließen' : 'Legende öffnen');
+    legendBtn!.parentElement!.classList.toggle('bg-primary');
+    legendBtn!.parentElement!.classList.toggle('text-white');
+
     const legendePb = document.getElementById('legende-pb');
     legendePb!.classList.toggle('visually-hidden');
     legendePb!.ariaExpanded = legendePb!.classList.contains('visually-hidden') ? 'false' : 'true';
+    
     const infocontentPb = document.getElementById('infocontent-pb');
     infocontentPb!.classList.toggle('visually-hidden');
+
 });
 
 // Toggle visibility of info content column on hide button click

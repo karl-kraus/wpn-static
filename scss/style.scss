@@ -266,9 +266,16 @@ html[data-page="notes"] .container {
   min-height:calc(100vh - $edition-view-header-height)
 }
 
-.pagination-grid {
+.pagination-grid-9 {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
+  gap: 0;
+  border: none;
+}
+
+.pagination-grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 0;
   border: none;
 }

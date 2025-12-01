@@ -82,7 +82,7 @@
                 </div>
                 <div class="row flex-row cursor-pointer m-0 mx-auto">
                     <div class="col p-0_25 border-start border-bottom border-light-grey align-content-around" style="max-height:55px;max-width:38px;border-radius: 0 0 0 0.25rem;">
-                        <div id="legende-btn" class="active m-visually-hidden text-center" title="Legende schließen/öffnen" type="button" aria-controls="#legende-pb" aria-expanded="false">
+                        <div id="legende-btn" class="active m-visually-hidden text-center" title="Legende öffnen" type="button" aria-controls="#legende-pb" aria-expanded="false">
                             <img src="images/icon-quelle-bg.svg" alt="Legende"/>                    
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                         </div>
                         <div id="pagination-pb" class="visually-hidden bg-primary text-white">
                             <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>
-                            <div class="pagination-grid w-100 h-100 text-center m-0 p-1">
+                            <div id="pagination-grid" class="pagination-grid-5 w-100 h-100 text-center m-0 p-1">
                                 <xsl:for-each select="$pages">
                                     <xsl:sort select=".//tei:pb/@xml:id[1]"/>
                                     <xsl:variable name="page" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
