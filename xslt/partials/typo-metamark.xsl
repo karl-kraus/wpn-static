@@ -326,15 +326,30 @@
                 <xsl:choose>
                     <xsl:when test="not(contains(@rend, 'Only'))">
                         <span class="metamark {replace(@change, '#', '')}">
-                            <del class="entity" data-anchor="{@xml:id}">
-                                <xsl:if test="@target">
-                                    <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
-                                    <xsl:attribute name="data-target">
-                                        <xsl:value-of select="for $i in $targetList return substring-after($i, '#')"/>
-                                    </xsl:attribute>
-                                </xsl:if>
-                                <xsl:text>&#124;</xsl:text>
-                            </del>
+                            <xsl:choose>
+                                <xsl:when test="ancestor::tei:del">
+                                    <span class="entity" data-anchor="{@xml:id}">
+                                        <xsl:if test="@target">
+                                            <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                                            <xsl:attribute name="data-target">
+                                                <xsl:value-of select="for $i in $targetList return substring-after($i, '#')"/>
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:text>&#124;</xsl:text>
+                                    </span>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <del class="entity" data-anchor="{@xml:id}">
+                                        <xsl:if test="@target">
+                                            <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                                            <xsl:attribute name="data-target">
+                                                <xsl:value-of select="for $i in $targetList return substring-after($i, '#')"/>
+                                            </xsl:attribute>
+                                        </xsl:if>
+                                        <xsl:text>&#124;</xsl:text>
+                                    </del>
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </span>
                     </xsl:when>
                     <xsl:otherwise>
@@ -405,10 +420,20 @@
                     </xsl:if>
                     <xsl:choose>
                         <xsl:when test="parent::tei:restore">
-                            <del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
-                                <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
-                                <xsl:apply-templates/>
-                            </del>
+                            <xsl:choose>
+                                <xsl:when test="ancestor::tei:del">
+                                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                                        <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
+                                        <xsl:apply-templates/>
+                                    </span>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                                        <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
+                                        <xsl:apply-templates/>
+                                    </del>
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
