@@ -89,7 +89,7 @@
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:choose>
-                                    <xsl:when test="starts-with(., ' ') and ends-with(., ' ')">
+                                    <!-- <xsl:when test="starts-with(., ' ') and ends-with(., ' ')">
                                         <span class="del">
                                             <xsl:text>&#xA0;</xsl:text>
                                             <del class="entity" data-anchor="{@xml:id}">
@@ -102,7 +102,7 @@
                                             </del>
                                             <xsl:text>&#xA0;</xsl:text>
                                         </span>
-                                    </xsl:when>
+                                    </xsl:when> -->
                                     <xsl:when test="starts-with(., ' ')">
                                         <span class="del">
                                             <xsl:text>&#xA0;</xsl:text>
