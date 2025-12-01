@@ -19,7 +19,7 @@
                     <div class="col p-0_25 border-end border-top border-light-grey bg-primary align-content-around">
                         <div class="d-flex text-center mx-auto">
                         <xsl:if test="string-length($prev) > 0">
-                            <a id="prevPageLink" style="stroke:white;fill:white;" href="{replace($prev, '.xml', '.html')}?view=all-columns" title="zu seite {replace($prev, '.xml', '.html')} gehen">
+                            <a id="prevPageLink" class="mx-auto" style="stroke:white;fill:white;" href="{replace($prev, '.xml', '.html')}?view=all-columns" title="zu seite {replace($prev, '.xml', '.html')} gehen">
                                 <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
                             </a>
                         </xsl:if>
@@ -44,7 +44,7 @@
                     <div class="col p-0_25 border-end border-top  border-light-grey bg-primary align-content-around">
                         <div class="d-flex text-center mx-auto">
                         <xsl:if test="string-length($next) > 0">
-                            <a id="nextPageLink" style="stroke:white;fill:white;" href="{replace($next, '.xml', '.html')}?view=all-columns" title="zu seite {replace($next, '.xml', '.html')} gehen">
+                            <a id="nextPageLink" class="mx-auto" style="stroke:white;fill:white;" href="{replace($next, '.xml', '.html')}?view=all-columns" title="zu seite {replace($next, '.xml', '.html')} gehen">
                                 <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
                             </a>
                         </xsl:if>
