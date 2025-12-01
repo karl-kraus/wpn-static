@@ -106,9 +106,7 @@ const allDropdowns = [
     'btn_tpq_info',
     'list_tpq_info',
     'btn_delQP_info',
-    'list_delQP_info',
-    'btn-corresp-fackel',
-    'corresp-fackel-list'
+    'list_delQP_info'
 ];
 
 initializeDropdown('btn_general_info', 'list_general_info', allDropdowns);
@@ -116,8 +114,8 @@ initializeDropdown('btn_carrier_info', 'list_carrier_info', allDropdowns);
 initializeDropdown('btn_more_text_layers', 'list_more_layers', allDropdowns);
 initializeDropdown('btn_tpq_info', 'list_tpq_info', allDropdowns);
 initializeDropdown('btn_delQP_info', 'list_delQP_info', allDropdowns);
-initializeDropdown('btn-corresp-fackel', 'corresp-fackel-list', allDropdowns);
-
+initializeDropdown('btn-corresp-fackel', 'corresp-fackel-list', []);
+initializeDropdown('btn-corresp-printInstruction', 'corresp-printInstruction-list', []);
 
 // View toggle buttons and content columns
 const myUrl = new URL(window.location.href);
