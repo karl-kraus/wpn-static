@@ -1831,8 +1831,39 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   content: '[?]';
 }
 
-#legende-pb li span {
+#legende-pb li span,
+#legende-pb li {
   font-size: 0.667rem;
+}
+
+#legende-pb .position-absolute {
+  position: relative !important;
+}
+#legende-pb .metamark.printSpanFrom.redOnProof.inline { 
+  width: 0.5rem;
+  height: 1rem;
+  display: block;
+  position: initial;
+  right: 0;
+  background: rgba($wpn-red, 0.5);
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+}
+#legende-pb .metamark.printSpanFrom.redOnProof.entity { 
+  width: 0.5rem;
+  height: 1rem;
+  display: block;
+  position: initial;
+  background: rgba($wpn-red, 0.5);
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+}
+
+#legende-pb .metamark.printSpanFrom.redOnProof.inline {
+  width: 1.5rem;
+  height: 0.8rem;
+  display: block;
+  background: rgba($wpn-red, 0.5);  
+  position: initial;
+  clip-path: polygon(0 0, 50% 0, 100% 50%, 50% 100%, 0 100%);
 }
 
 
