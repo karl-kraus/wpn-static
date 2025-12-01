@@ -10,65 +10,99 @@
         
         <div id="infocolumn" class="grid-box-3">
             <div id="infocontent" class="bg-white px-0">
-                <div id="infocontent-header" class="row flex-row text-center m-0 cursor-pointer">
-                    <div style="width:40px;min-width:40px;max-width:40px;" class="col p-0_25 border-start border-bottom border-top border-end border-light-grey align-content-around">
+                <div id="infocontent-header" class="row flex-row text-center m-0 cursor-pointer border border-light-grey" style="border-radius:0.25rem 0 0 0;">
+                    <div style="max-height:55px;max-width:40px;" class="col p-0_25 border-end border-light-grey align-content-around">
                         <div id="infocontent-hide-btn" class="p-1 active m-visually-hidden" title="Info-Spalte schließen">
-                            <img src="images/plus.svg" alt="Plus sign image."/>                    
+                            <img src="images/plus.svg" alt="Infospalte verstecken"/>                    
                         </div>
                     </div>
-                    <div class="col p-0_25 border-end border-top border-light-grey bg-primary align-content-around">
+                    <div class="col p-0_25 border-end border-light-grey bg-primary align-content-around">
                         <div class="d-flex text-center mx-auto">
-                        <xsl:if test="string-length($prev) > 0">
-                            <a id="prevPageLink" class="mx-auto" style="stroke:white;fill:white;" href="{replace($prev, '.xml', '.html')}?view=all-columns" title="zu seite {replace($prev, '.xml', '.html')} gehen">
-                                <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
-                            </a>
-                        </xsl:if>
+                        <xsl:choose>
+                            <xsl:when test="string-length($prev) > 0">
+                                <a id="prevPageLink" class="mx-auto" style="stroke:white;fill:white;" href="{replace($prev, '.xml', '.html')}?view=all-columns" title="zu seite {replace($prev, '.xml', '.html')} gehen">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
+                                </a>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <span class="mx-auto" style="stroke:grey;fill:grey;" title="keine vorherige Seite">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
+                                </span>
+                            </xsl:otherwise>
+                        </xsl:choose>
                         </div>
                     </div>
-                    <div id="pagination-dropdown" class="col w-25 p-0_25 border-end border-top  border-light-grey bg-primary">
+                    <div id="pagination-dropdown" class="col px-1 border-end border-light-grey bg-primary">
                         <div class="d-block dropdown ff-ubuntu">
                             <xsl:variable name="currentPage" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
                             <xsl:variable name="currentPageString" select="if(contains($currentPage, '_') ) 
                                                                             then(xs:integer(replace( tokenize( $currentPage, '_' )[1], 'F', '' ) )||'/'||tokenize( $currentPage, '_' )[2] ) 
                                                                             else(xs:integer(replace($currentPage, 'F', '')))"/>
                             <button id="dropdownMenuButton1" class="d-contents btn btn-secondary text-white fs-9_38 border-0 m-0" type="button" aria-controls="#pagination-pb" aria-expanded="false">
-                                <xsl:value-of select="'Seite: '||$currentPageString"/>
+                                <span><xsl:text>Seite: </xsl:text></span><xsl:value-of select="$currentPageString"/>
                             </button>
                             <br/>
                             <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>
-                            <label class="text-white fs-7 fw-light dropdown-toggle" for="dropdownMenuButton1">
+                            <label id="paginationLabel" class="text-white fs-7 fw-light dropdown-toggle" for="dropdownMenuButton1">
                                 <xsl:text>von </xsl:text><xsl:value-of select="count($pages[not(.//tei:pb[@type='nonWitness'])])"/>
                             </label>
                         </div>
                     </div>
-                    <div class="col p-0_25 border-end border-top  border-light-grey bg-primary align-content-around">
+                    <div class="col p-0_25 border-end border-light-grey bg-primary align-content-around">
                         <div class="d-flex text-center mx-auto">
-                        <xsl:if test="string-length($next) > 0">
-                            <a id="nextPageLink" class="mx-auto" style="stroke:white;fill:white;" href="{replace($next, '.xml', '.html')}?view=all-columns" title="zu seite {replace($next, '.xml', '.html')} gehen">
-                                <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
-                            </a>
-                        </xsl:if>
+                        <xsl:choose>
+                            <xsl:when test="string-length($next) > 0">
+                                <a id="nextPageLink" class="mx-auto" style="stroke:white;fill:white;" href="{replace($next, '.xml', '.html')}?view=all-columns" title="zu seite {replace($next, '.xml', '.html')} gehen">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
+                                </a>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <span class="mx-auto" style="stroke:grey;fill:grey;" title="keine nächste Seite">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
+                                </span>
+                            </xsl:otherwise>
+                        </xsl:choose>
                         </div>
                     </div>
-                    <div id="allcolumnBtn" class="active-view-icon col p-0_25 border-end border-top  border-light-grey m-visually-hidden align-content-around">
+                    <div id="allcolumnBtn" class="active-view-icon col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
                         <img src="images/icon-view-all.svg" alt="Synoptic View: Facsimile and Info Column" class="view-icon"/>
                     </div>
-                    <div id="textcolumnBtn" class="col p-0_25 border-end border-top  border-light-grey m-visually-hidden align-content-around">
+                    <div id="textcolumnBtn" class="col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
                         <img src="images/icon-view-facs.svg" alt="Synoptic View: Facsimile, Text Columns and Info Column" class="view-icon"/>                    
                     </div>
-                    <div id="facscolumnBtn" class="col p-0_25 border-end border-top  border-light-grey m-visually-hidden align-content-around">
+                    <div id="facscolumnBtn" class="col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
                         <img src="images/icon-view-text.svg" alt="Synoptic View: Text and Info Column" class="view-icon"/>
                     </div>
-                    <div id="allcolumnRowBtn" class="col p-0_25 border-end border-top  border-light-grey m-visually-hidden align-content-around">
+                    <div id="allcolumnRowBtn" class="col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
                         <img src="images/icon-view-vertical.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"/>
                     </div>
-                    <div id="setMode" class="col p-0_25 cursor-pointer border-end border-top  border-light-grey m-visually-hidden align-content-around">
+                    <div id="setMode" class="col p-0_25 cursor-pointer border-light-grey m-visually-hidden align-content-around">
                         <label style="font-size:7pt;">Inspect<br/>Mode</label>
                     </div>
                 </div>
-                <div id="infocontent-wrapper" class="row flex-row cursor-pointer">
-                    <div class="col" style="width:40px;min-width:40px;max-width:40px;"></div>
-                    <div class="col">
+                <div class="row flex-row cursor-pointer m-0 mx-auto">
+                    <div class="col p-0_25 border-start border-bottom border-light-grey align-content-around" style="max-height:55px;max-width:38px;border-radius: 0 0 0 0.25rem;">
+                        <div id="legende-btn" class="active m-visually-hidden text-center" title="Legende schließen/öffnen" type="button" aria-controls="#legende-pb" aria-expanded="false">
+                            <img src="images/icon-quelle-bg.svg" alt="Legende"/>                    
+                        </div>
+                    </div>
+                    <div id="infocontent-wrapper" class="col border-end border-bottom border-start border-light-grey p-0 m-0">
+                        <div id="legende-pb" class="visually-hidden">
+                            <xsl:variable name="pages" select="document('../../data/meta/topographical.xml')"/>
+                            <div class="w-100 h-100 m-0 p-2">
+                                <h5>Darstellungskonventionen / Legende</h5>
+                                <ul class="list-unstyled m-0 p-0">
+                                <xsl:for-each select="$pages//tei:div[@type='legende']//tei:item">
+                                    <xsl:variable name="rendition" select="replace(@rendition, '#', '')"/>
+                                    <xsl:variable name="rend" select="@rend"/>
+                                    <xsl:variable name="change" select="replace(@change, '#', '')"/>
+                                    <li class="my-1 {if($change)then($change)else()}{if($rendition)then($rendition)else()}{if($rend)then($rend)else()}">
+                                        <xsl:apply-templates/>
+                                    </li>
+                                </xsl:for-each>
+                                </ul>
+                            </div>
+                        </div>
                         <div id="pagination-pb" class="visually-hidden bg-primary text-white">
                             <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>
                             <div class="pagination-grid w-100 h-100 text-center m-0 p-1">
@@ -84,7 +118,7 @@
                                 </xsl:for-each>
                             </div>
                         </div>
-                        <div id="infocontent-pb" class="border border-light-grey min-h-100 min-vh-100">
+                        <div id="infocontent-pb" class="min-h-100 min-vh-100">
                             <xsl:variable name="creation" select="//tei:creation"/>
                             <xsl:for-each select="//tei:TEI/tei:facsimile[@corresp='#DWkonJer']/tei:surface">
                                 <xsl:variable name="text" select="../following-sibling::tei:text"/>
@@ -98,7 +132,7 @@
                                         <xsl:text>Jerusalemer Konvolut,</xsl:text><br/><xsl:text>fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto.</xsl:text></h4>
                                     
                                     <h5 id="btn_general_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_general_info">Standort, Signatur</h5>
-                                    <div id="list_general_info">
+                                    <div id="list_general_info" class="visually-hidden">
                                         <p>
                                             <xsl:value-of
                                                 select="

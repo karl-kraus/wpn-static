@@ -9,6 +9,15 @@ document.getElementById('dropdownMenuButton1')!.addEventListener('click', functi
     infocontentPb!.classList.toggle('visually-hidden');
 });
 
+// Toggle visibility of legende on legende button click
+document.getElementById('legende-btn')!.addEventListener('click', function() {
+    const legendePb = document.getElementById('legende-pb');
+    legendePb!.classList.toggle('visually-hidden');
+    legendePb!.ariaExpanded = legendePb!.classList.contains('visually-hidden') ? 'false' : 'true';
+    const infocontentPb = document.getElementById('infocontent-pb');
+    infocontentPb!.classList.toggle('visually-hidden');
+});
+
 // Toggle visibility of info content column on hide button click
 const hideBtn = document.getElementById('infocontent-hide-btn')
 
@@ -20,29 +29,82 @@ hideBtn!.addEventListener('click', function() {
 
     const infocontent = document.querySelector('#infocontent-wrapper');
     infocontent!.classList.toggle('visually-hidden');
+
+    if (infocontent!.classList.contains('visually-hidden')) {
+        hideBtn!.setAttribute('title', 'Info-Spalte öffnen');
+        let infoHeader = document.getElementById('infocontent-header');
+        infoHeader!.classList.remove('flex-row');
+        infoHeader!.classList.add('flex-column');
+        let paginationDropdown = document.getElementById('paginationLabel');
+        paginationDropdown!.classList.add('visually-hidden');
+        let paginationButton = document.querySelector('#dropdownMenuButton1 span') as HTMLElement | null;
+        // change text to vertical
+        paginationButton!.classList.add('visually-hidden');
+    } else {
+        hideBtn!.setAttribute('title', 'Info-Spalte schließen');
+        let infoHeader = document.getElementById('infocontent-header');
+        infoHeader!.classList.remove('flex-column');
+        infoHeader!.classList.add('flex-row');
+        let paginationDropdown = document.getElementById('paginationLabel');
+        paginationDropdown!.classList.remove('visually-hidden');
+        let paginationButton = document.querySelector('#dropdownMenuButton1 span') as HTMLElement | null;
+        paginationButton!.classList.remove('visually-hidden');
+    }
 });
 
 // Dropdown buttons and content lists
 
-const initializeDropdown = (button: string, content: string) => {
+const initializeDropdown = (button: string, content: string, all_elements: Array<string>) => {
+
     const dropdownButton = document.getElementById(button) as HTMLButtonElement | null;
     const dropdownContent = document.getElementById(content) as HTMLDivElement | HTMLUListElement | null;
 
     if (dropdownButton && dropdownContent) {
         
         dropdownButton.addEventListener('click', function() {
+
+            all_elements = all_elements.filter(el => el !== button && el !== content);
+
+            all_elements.forEach((el) => {
+                const elElement = document.getElementById(el);
+                console.log(el, elElement);
+
+                if (elElement) {
+                    if (el.includes("btn_")) {
+                        elElement!.classList.remove('active');
+                    } else {
+                        elElement!.classList.add('visually-hidden');
+                    }
+                }
+            });
+
             dropdownContent.classList.toggle('visually-hidden');
             dropdownButton.ariaExpanded = dropdownContent.classList.contains('visually-hidden') ? 'false' : 'true';
         });
     }
 };
 
-initializeDropdown('btn_general_info', 'list_general_info');
-initializeDropdown('btn_carrier_info', 'list_carrier_info');
-initializeDropdown('btn_more_text_layers', 'list_more_layers');
-initializeDropdown('btn_tpq_info', 'list_tpq_info');
-initializeDropdown('btn_delQP_info', 'list_delQP_info');
-initializeDropdown('btn-corresp-fackel', 'corresp-fackel-list');
+const allDropdowns = [
+    'btn_general_info',
+    'list_general_info',
+    'btn_carrier_info',
+    'list_carrier_info',
+    'btn_more_text_layers',
+    'list_more_layers',
+    'btn_tpq_info',
+    'list_tpq_info',
+    'btn_delQP_info',
+    'list_delQP_info',
+    'btn-corresp-fackel',
+    'corresp-fackel-list'
+];
+
+initializeDropdown('btn_general_info', 'list_general_info', allDropdowns);
+initializeDropdown('btn_carrier_info', 'list_carrier_info', allDropdowns);
+initializeDropdown('btn_more_text_layers', 'list_more_layers', allDropdowns);
+initializeDropdown('btn_tpq_info', 'list_tpq_info', allDropdowns);
+initializeDropdown('btn_delQP_info', 'list_delQP_info', allDropdowns);
+initializeDropdown('btn-corresp-fackel', 'corresp-fackel-list', allDropdowns);
 
 
 // View toggle buttons and content columns
