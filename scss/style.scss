@@ -1757,42 +1757,77 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 #legende-pb .inkOnProofKK {
   font-family: var(--bs-handwritten-font-family-italic), var(--bs-handwritten-font-family-italic-fallback);
+  font-size: 0.667rem;
 }
 
 #legende-pb .inkOnProof {
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
+  font-size: 0.667rem;
 }
 
 #legende-pb .typescriptRunningText2 {
   font-family: monospace;
+  font-size: 0.667rem;
 }
 
-#legende-pb .runningText1 {
+#legende-pb .runningText2 {
   font-family: var(--bs-serif-font-family), var(--bs-serif-font-family-fallback);
+  font-size: 0.667rem;
 }
 
 #legende-pb .pencilOnProof {
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
+  font-size: 0.667rem;
 }
 
 #legende-pb .redOnProof {
   color: #FC7A57;
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
+  font-size: 0.667rem;
 }
 
 #legende-pb .blueInkOnProof {
-  color: #4A90E2;
+  color: #3333A2;
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
+  font-size: 0.667rem;
 }
 
 #legende-pb .bluePencilOnProof {
-  color: #4A90E2;
+  color: #4F4Fe2;
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
+  font-size: 0.667rem;
 }
 
 #legende-pb .underline {
   text-decoration: underline;
+  font-size: 0.667rem;
 }
+
+#legende-pb .seg.border {
+  background-image: linear-gradient(lightgrey, lightgrey);
+  background-repeat: no-repeat;
+  background-size: calc(100% - 1px) 1em;
+  background-position: 0.5px 60%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  border: none !important;
+}
+
+#legende-pb .restore .seg.border {
+  background-image: repeating-linear-gradient(330deg, white, white 3px, lightgrey 3px, lightgrey 6px);
+  border: none;
+  background-repeat: no-repeat;
+  background-size: calc(100% - 1px) 1.05em;
+  background-position: 0.5px 60%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  border: none !important;
+}
+
+#legende-pb .unclear::after {
+  content: '[?]';
+}
+
 
 // handwritten text
 #textcontent-pb .inkOnProofKK .inkLongQuote,
@@ -2199,7 +2234,7 @@ pencil text color
 }
 
 #textcontent-pb .bluePencilOnProof {
-  color: #4444c4;
+  color: #4F4Fe2;
 }
 
 #textcontent-pb .pencilOnProofKK.inkOnProofKK.add,
