@@ -1758,11 +1758,13 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #legende-pb .inkOnProofKK {
   font-family: var(--bs-handwritten-font-family-italic), var(--bs-handwritten-font-family-italic-fallback);
   font-size: 0.667rem;
+  color: black;
 }
 
 #legende-pb .inkOnProof {
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
   font-size: 0.667rem;
+  color: black;
 }
 
 #legende-pb .typescriptRunningText2 {
@@ -1771,13 +1773,14 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #legende-pb .runningText2 {
-  font-family: var(--bs-serif-font-family), var(--bs-serif-font-family-fallback);
+  font-family: "Crimson Text", var(--bs-serif-font-family), var(--bs-serif-font-family-fallback), serif;
   font-size: 0.667rem;
 }
 
 #legende-pb .pencilOnProof {
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
   font-size: 0.667rem;
+  color: #666666;
 }
 
 #legende-pb .redOnProof {
@@ -1826,6 +1829,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 #legende-pb .unclear::after {
   content: '[?]';
+}
+
+#legende-pb li span {
+  font-size: 0.667rem;
 }
 
 
