@@ -151,16 +151,16 @@
                     <span data-anchor="{@xml:id} {ancestor::tei:del/@xml:id}"><xsl:apply-templates/></span>
                 </span>
             </xsl:when>
-            <xsl:when test="parent::tei:subst[parent::tei:restore[not(@rend='marginOnly')]]">
-               <span class="del text-decoration-underline-dotted">
-                    <del data-anchor="{@xml:id}"><xsl:apply-templates/></del>
-                </span>
-            </xsl:when>
             <xsl:when test="parent::tei:subst[parent::tei:restore[not(@rend='marginOnly')]] and text()[string-length(.)=1]">
                <span class="del text-decoration-underline-dotted single-char">
                     <del data-anchor="{@xml:id}"><xsl:apply-templates/></del>
                 </span>
             </xsl:when>
+            <xsl:when test="parent::tei:subst[parent::tei:restore[not(@rend='marginOnly')]]">
+               <span class="del text-decoration-underline-dotted">
+                    <del data-anchor="{@xml:id}"><xsl:apply-templates/></del>
+                </span>
+            </xsl:when>            
             <xsl:otherwise>
                 <del data-anchor="{@xml:id}"><xsl:apply-templates/></del>
             </xsl:otherwise>
