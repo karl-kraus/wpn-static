@@ -330,6 +330,13 @@ html[data-page="notes"] .container {
   text-indent: 0;
 }
 
+.inkLongQuote .longQuoteVerseStart,
+.inkLongQuote .longQuoteVerseEnd {
+  font-size: unset;
+  display: block;
+  margin-left: $spacer * 3;
+}
+
 .longQuoteStart {
   font-size: 0.75em;
   text-align: justify;
@@ -367,6 +374,10 @@ html[data-page="notes"] .container {
 .longQuoteStart .longQuoteStartIndent,
 .longQuoteVerse .longQuoteVerseStart,
 .longQuoteVerse .longQuoteVerseEnd  {
+  font-size: unset;
+}
+
+.longQuoteIndent .longQuoteVerse {
   font-size: unset;
 }
 
