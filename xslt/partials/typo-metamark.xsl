@@ -376,9 +376,11 @@
                     <xsl:when test="@rend='other'">
                         <xsl:choose>
                             <xsl:when test="parent::tei:add[@rend or parent::tei:subst[@rend]]">
-                                <xsl:text>&#124;</xsl:text>
+                                <!-- do nothing -->
                             </xsl:when>
-                            <xsl:otherwise></xsl:otherwise>
+                            <xsl:otherwise>
+                                <xsl:text>&#124;</xsl:text>
+                            </xsl:otherwise>
                         </xsl:choose>
                     </xsl:when>
                     <xsl:when test="@rend='inline' and ./text()">
@@ -436,7 +438,11 @@
                             </xsl:choose>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
+                            <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])">
+                                <xsl:if test="not(@rend='other')">
+                                    <xsl:text>&#124;</xsl:text>
+                                </xsl:if>
+                            </xsl:if>
                             <xsl:apply-templates/>
                         </xsl:otherwise>
                     </xsl:choose>
