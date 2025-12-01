@@ -330,6 +330,13 @@ html[data-page="notes"] .container {
   text-indent: 0;
 }
 
+.inkLongQuote .longQuoteVerseStart,
+.inkLongQuote .longQuoteVerseEnd {
+  font-size: unset;
+  display: block;
+  margin-left: $spacer * 3;
+}
+
 .longQuoteStart {
   font-size: 0.75em;
   text-align: justify;
@@ -367,6 +374,10 @@ html[data-page="notes"] .container {
 .longQuoteStart .longQuoteStartIndent,
 .longQuoteVerse .longQuoteVerseStart,
 .longQuoteVerse .longQuoteVerseEnd  {
+  font-size: unset;
+}
+
+.longQuoteIndent .longQuoteVerse {
   font-size: unset;
 }
 
@@ -1863,6 +1874,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 handling del elments based on change type
 */
 #textcontent-pb .subst.pencilOnTypescript .del del,
+#textcontent-pb .subst.pencilOnTypescript>del,
 #textcontent-pb .subst.pencilOnProof .del del,
 #textcontent-pb .subst.pencilOnProof>del,
 #textcontent-pb .subst.undefined .del del,
@@ -2913,7 +2925,7 @@ body.modal-open, body.modal-open main {
 }
 
 .connection-color-line.active.printSpanFrom:not(.inline) {
-  background: rgba($wpn-red, 0.3);
+  background: rgba($wpn-red, 0.5);
   z-index: -1;
   clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
 }
@@ -2928,7 +2940,7 @@ body.modal-open, body.modal-open main {
 }
 
 .connection-color-line.active.printSpanFrom.inline {
-  background: rgba($wpn-red, 0.3);
+  background: rgba($wpn-red, 0.5);
   z-index: -1;
   clip-path: polygon(0 0, 50% 0, 100% 50%, 50% 100%, 0 100%);
 }
@@ -2943,7 +2955,7 @@ body.modal-open, body.modal-open main {
 }
 
 .connection-color-line.active.printSpanTo:not(.inline) {
-  background: rgba($wpn-red, 0.3);
+  background: rgba($wpn-red, 0.5);
   z-index: -1;
   clip-path: polygon(50% 0%, 100% 50%, 100% 100%, 0 100%, 0 50%);
 }
@@ -2958,10 +2970,16 @@ body.modal-open, body.modal-open main {
 }
 
 .connection-color-line.active.printSpanTo.inline {
-  background: rgba($wpn-red, 0.3);
+  background: rgba($wpn-red, 0.5);
   z-index: -1;
   clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 0 50%);
 }
+
+.metamark.pencilOnProof .connection-color-line.active.printSpanFrom,
+.metamark.pencilOnProof .connection-color-line.active.printSpanTo {
+  background: #666666;
+}
+
 
 #textcontent-pb .note::before {
   content: "[n:]";
