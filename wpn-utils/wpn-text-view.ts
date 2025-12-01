@@ -12,7 +12,7 @@ class WPNTextView extends HTMLElement {
 	};
 
 	positionElements(annotationSelectors: string) {
-		Array.from(document.querySelectorAll(annotationSelectors)).forEach((el: Element) => {
+		Array.from(document.querySelectorAll(`#textcolumn ${annotationSelectors}`)).forEach((el: Element) => {
 			const element = el as HTMLElement;
 			const elmId: string = el.getAttribute("id") ?? "";
 			let offset: number =
@@ -36,7 +36,7 @@ class WPNTextView extends HTMLElement {
 		if(window.location.hash) {
 			shortInfoElement = document.querySelector(`a[href='${window.location.hash}']`);
 			shortInfoElement?.parentElement?.classList.remove("d-none");
-			const elementInText = document.querySelector(`wpn-entity#${window.location.hash.split("_")[0].substring(1)}`);
+			const elementInText = document.querySelector(`#textcolumn wpn-entity#${window.location.hash.split("_")[0].substring(1)}`);
 			const annotationClassName = [...elementInText?.classList].find(cn => cn.startsWith("annot_"));
 			const annotationActiveClassName = `${annotationClassName}_active`;
 			elementInText?.classList.replace(annotationClassName,annotationActiveClassName);

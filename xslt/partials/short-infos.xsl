@@ -90,11 +90,11 @@
     </xsl:for-each>
 </xsl:template>
 <xsl:template match="tei:pb[not(matches(@n,'.*_[a-z].*'))]" mode="short_info">
-    <div class="fs-6 ps-3 text-dark-grey pagebreaks" data-xmlid="{'pb'||@n}" style="display:none">
+    <div class="fs-6 ps-3 text-dark-grey pagebreaks pb_signet_background bg-no-repeat bg-position-short-info" data-xmlid="{'pb'||@n}" style="display:none">
       <span><xsl:value-of select="'Beginn Seite '||(if (@n castable as xs:integer) then number(@n) else replace(@n,'[_]',' '))"/></span>
     </div>
 </xsl:template>
-<xsl:template match="tei:metamark[@function='insertion' and matches(@target,'(note)+.*([a-z])_')]" mode="short_info">
+<xsl:template match="tei:metamark[@function='insertion' and matches(@target,'(note)+.*([a-z])_')][not(@change='#edACE')]" mode="short_info">
   <xsl:param name="reftype"/>
   <xsl:param name="target"/>
   <xsl:variable name="id" select="substring-after($target,$reftype||'_')"/>
@@ -119,7 +119,7 @@
       </xsl:when>
     </xsl:choose>
   </xsl:variable>
-    <div class="fs-6 ps-3 text-dark-grey pagebreaks" id="{$id}" data-xmlid="{replace($target,'#','')}" style="display:none">
+    <div class="fs-6 ps-3 text-dark-grey pagebreaks pb_signet_background bg-no-repeat bg-position-short-info" id="{$id}" data-xmlid="{replace($target,'#','')}" style="display:none">
       <span><xsl:value-of select="$description||' '||$preceding_pb_val"/></span>
     </div>
 </xsl:template>
@@ -152,12 +152,36 @@
       <xsl:if test="not(node()/name() = 'pb')">
         <xsl:apply-templates/>
       </xsl:if>
-        <xsl:if test="parent::tei:app/@next">
-          <xsl:variable name="nextId" select="substring-after(parent::tei:app/@next,'#')"/>
-          <xsl:apply-templates select="root()//tei:app[@xml:id=$nextId]/tei:rdg[@source = $source]"/>
-        </xsl:if>
+        <xsl:call-template name="join-rdgs">
+          <xsl:with-param name="element" select="parent::tei:app"/>
+          <xsl:with-param name="source" select="$source"/>
+        </xsl:call-template>
       </div>
   </div>
+</xsl:template>
+<xsl:template name="join-rdgs">
+  <xsl:param name="element"/>
+  <xsl:param name="source"/>
+  <xsl:if test="$element/@next">
+    <xsl:variable name="nextId" select="substring-after($element/@next,'#')"/>
+    <xsl:variable name="nextElement" select="root()//tei:app[@xml:id=$nextId]"/>
+    <xsl:choose>
+      <xsl:when test="$source='DW'">
+        <xsl:apply-templates select="$nextElement/tei:rdg[@source = $source]"/>
+        <xsl:call-template name="join-rdgs">
+          <xsl:with-param name="element" select="$nextElement"/>
+          <xsl:with-param name="source" select="$source"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select="$nextElement/tei:rdg[@source = $source]" mode="show"/>
+        <xsl:call-template name="join-rdgs">
+          <xsl:with-param name="element" select="$nextElement"/>
+          <xsl:with-param name="source" select="$source"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:if>
 </xsl:template>
 <xsl:template match="tei:ref[@type=('comment','glossary','event')]" mode="short_info">
   <xsl:variable name="xmlid" select="@xml:id"/>
