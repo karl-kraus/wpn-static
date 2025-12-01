@@ -24,7 +24,7 @@
        <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:seg[@type='relocation']">
-        <span>
+        <span id="{@xml:id}" class="entity">
             <xsl:if test="not(@rend='line') and not(@rend='arrow')">
                 <xsl:attribute name="data-target">
                     <xsl:value-of select="@xml:id"/>
@@ -42,17 +42,17 @@
             <xsl:if test="@rend='line' and not((@prev, @continued))">
                 <xsl:choose>
                     <xsl:when test="parent::tei:restore">
-                        <span class="seg seg-inline"><del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="entity {replace(@change, '#', '')}"><xsl:text>&#124;</xsl:text></del></span>
+                        <span class="seg entity seg-inline"><del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="{replace(@change, '#', '')}"><xsl:text>&#124;</xsl:text></del></span>
                     </xsl:when>
                     <xsl:otherwise>
-                        <span class="seg seg-inline"><span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="entity {replace(@change, '#', '')}"><xsl:text>&#124;</xsl:text></span></span>
+                        <span class="seg entity seg-inline"><span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="{replace(@change, '#', '')}"><xsl:text>&#124;</xsl:text></span></span>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:if>
             <!-- special handling (rendered via span firstLast) for page 111 for arrow seg see https://github.com/karl-kraus/wpn-static/issues/208  -->
             <xsl:if test="@rend='arrow' and not((@prev, @continued)) and not(@xml:id='seg0111_01')">
-                <span class="seg seg-inline entity" data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}">
-                    <span class="{@rend} {replace(@change, '#', '')}">
+                <span id="{@xml:id}" class="seg entity seg-inline">
+                    <span class="{@rend} {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}">
                         <xsl:text>&#8592;</xsl:text>
                     </span>
                 </span>
@@ -73,7 +73,7 @@
         <span data-hand="{replace(@change,'#','')}" class="seg d-block runningText1  {if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@type='F890']">
-        <span class="seg fackelrefs entity {substring-after(@rendition, '#')} {if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+        <span id="{@xml:id}" class="seg fackelrefs entity {substring-after(@rendition, '#')} {if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>

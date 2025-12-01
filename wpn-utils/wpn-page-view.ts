@@ -16,8 +16,8 @@ class WPNPageView extends HTMLElement {
 		Array.from(document.querySelectorAll(annotationSelectors)).forEach((el: Element) => {
 			const element = el as HTMLElement;
 			if (!element) return;
-			if (!element.dataset.anchor) return;
-			const elmId: string = element.dataset.anchor;
+			if (!element.id) return;
+			const elmId: string = element.id;
 			const elmIdParts = elmId.split(" ");
 			
 			// Use the first part of the id for positioning

@@ -497,8 +497,8 @@
             <xsl:otherwise>
                 <span data-anchor="{parent::tei:seg/@xml:id} {ancestor::tei:note/@xml:id}" class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">
                     <xsl:if test="parent::tei:seg[@rend='arrow'] and parent::tei:seg[@xml:id='seg0111_01']">
-                        <span class="seg seg-inline">
-                            <span data-anchor="{parent::tei:seg/@xml:id} {ancestor::tei:note/@xml:id}" data-hand="{replace(parent::tei:seg/@change, '#', '')}" class="entity {parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span>
+                        <span id="{parent::tei:seg/@xml:id}" class="seg entity seg-inline">
+                            <span data-anchor="{parent::tei:seg/@xml:id} {ancestor::tei:note/@xml:id}" data-hand="{replace(parent::tei:seg/@change, '#', '')}" class="{parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span>
                         </span>
                     </xsl:if>
                     <xsl:choose>

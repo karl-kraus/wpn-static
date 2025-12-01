@@ -38,7 +38,7 @@
                 <del class="add overwrite position-absolute start-0{if(ancestor::tei:note)then(' top-0 bottom-0')else()}" data-anchor="{@xml:id}"><xsl:apply-templates/></del>
             </xsl:when>
             <xsl:otherwise>
-                <del class="add entity" data-anchor="{@xml:id}"></del>
+                <del id="{@xml:id}" class="add entity" data-anchor="{@xml:id}"></del>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -74,7 +74,7 @@
                 <span class="add overwrite position-absolute start-0{if(ancestor::tei:note)then(' top-0 bottom-0')else()}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:when test="not($rend)">
-                <span class="add entity" data-anchor="{@xml:id}">
+                <span id="{@xml:id}" class="add entity" data-anchor="{@xml:id}">
                     <xsl:if test="./tei:metamark[@target]">
                         <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
@@ -84,14 +84,14 @@
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="add entity" data-anchor="{@xml:id}"/>
+                <span id="{@xml:id}" class="add entity" data-anchor="{@xml:id}"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:add[not(parent::tei:subst) and not(parent::tei:restore)]">
         <xsl:choose>
             <xsl:when test="@rend = 'inline'">
-                <span class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}">
+                <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}">
                     <xsl:apply-templates/>
                 </span>
             </xsl:when>
@@ -119,7 +119,7 @@
                 </span>
             </xsl:when>
             <xsl:when test="not(@rend)">
-                <span class="add connect entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}">
+                <span id="{@xml:id}" class="add connect entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}">
                     <xsl:if test="./tei:metamark[@target]">
                         <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
@@ -130,7 +130,7 @@
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
+                <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -151,13 +151,13 @@
                     <xsl:otherwise>
                         <xsl:choose>
                             <xsl:when test="ancestor::tei:del">
-                                <span class="add text-decoration-underline-dotted {replace(@change[1], '#', '')}">
-                                    <span class="entity" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
+                                <span id="{@xml:id}" class="add entity text-decoration-underline-dotted {replace(@change[1], '#', '')}">
+                                    <span data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
                                 </span>
                             </xsl:when>
                             <xsl:otherwise>
-                                <span class="add text-decoration-underline-dotted {replace(@change[1], '#', '')}">
-                                    <del class="entity" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></del>
+                                <span id="{@xml:id}" class="add entity text-decoration-underline-dotted {replace(@change[1], '#', '')}">
+                                    <del data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></del>
                                 </span>
                             </xsl:otherwise>
                         </xsl:choose>
@@ -165,7 +165,7 @@
                 </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
-                <span class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
+                <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
