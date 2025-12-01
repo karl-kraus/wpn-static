@@ -48,7 +48,7 @@
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@rend][not(parent::tei:restore)]">
         <span class="metamark entity mm-inline {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
             <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
-                <span class="entity" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>&#124;</xsl:text></span>
+                <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>&#124;</xsl:text></span>
             </xsl:if>
             <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
         </span>
