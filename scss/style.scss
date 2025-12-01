@@ -1835,6 +1835,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 handling del elments based on change type
 */
 #textcontent-pb .subst.pencilOnTypescript .del del,
+#textcontent-pb .subst.pencilOnTypescript>del,
 #textcontent-pb .subst.pencilOnProof .del del,
 #textcontent-pb .subst.pencilOnProof>del,
 #textcontent-pb .subst.undefined .del del,
