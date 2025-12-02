@@ -1836,8 +1836,13 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   font-size: 0.667rem;
 }
 
-#legende-pb .position-absolute {
+#legende-pb .position-absolute:not(.overwrite) {
   position: relative !important;
+}
+
+#legende-pb .add.overwrite {
+  bottom: 1px;
+  left: -1px !important;
 }
 
 #legende-pb .metamark.printSpanFrom.redOnProof.entity { 
