@@ -1841,6 +1841,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   font-size: 0.667rem;
 }
 
+#legende-pb ul li {
+  margin-top: 0.2rem;
+}
+
 #legende-pb .position-absolute:not(.overwrite) {
   position: relative !important;
 }
