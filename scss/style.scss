@@ -1773,7 +1773,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #legende-pb .runningText2 {
-  font-family: "Crimson Text", var(--bs-serif-font-family), var(--bs-serif-font-family-fallback), serif;
+  font-family: "Crimson Text" !important;
   font-size: 0.667rem;
 }
 
@@ -1841,8 +1841,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #legende-pb .metamark.printSpanFrom.redOnProof.entity { 
-  width: 0.5rem;
-  height: 0.688rem;
+  width: 0.467rem;
+  height: 0.667rem;
   display: inline-block;
   position: initial;
   background: rgba($wpn-red, 0.5);
@@ -1851,8 +1851,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #legende-pb .metamark.printSpanTo.redOnProof.entity { 
-  width: 0.5rem;
-  height: 0.688rem;
+  width: 0.467rem;
+  height: 0.667rem;
   display: inline-block;
   position: initial;
   background: rgba($wpn-red, 0.5);
@@ -1861,8 +1861,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #legende-pb .metamark.printSpanFrom.redOnProof.inline {
-  width: 0.688rem;
-  height: 0.5rem;
+  width: 0.667rem;
+  height: 0.467rem;
   display: inline-block;
   background: rgba($wpn-red, 0.5);
   position: initial;
@@ -1871,8 +1871,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #legende-pb .metamark.printSpanTo.redOnProof.inline {
-  width: 0.688rem;
-  height: 0.5rem;
+  width: 0.667rem;
+  height: 0.467rem;
   display: inline-block;
   background: rgba($wpn-red, 0.5);
   position: initial;
