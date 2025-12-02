@@ -1839,30 +1839,25 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #legende-pb .position-absolute {
   position: relative !important;
 }
-#legende-pb .metamark.printSpanFrom.redOnProof.inline { 
-  width: 0.5rem;
-  height: 1rem;
-  display: block;
-  position: initial;
-  right: 0;
-  background: rgba($wpn-red, 0.5);
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
-}
+
 #legende-pb .metamark.printSpanFrom.redOnProof.entity { 
   width: 0.5rem;
-  height: 1rem;
-  display: block;
+  height: 0.688rem;
+  display: inline-block;
   position: initial;
   background: rgba($wpn-red, 0.5);
   clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  margin-right: 0.1rem;
+}
 }
 
 #legende-pb .metamark.printSpanFrom.redOnProof.inline {
-  width: 1.5rem;
-  height: 0.8rem;
-  display: block;
-  background: rgba($wpn-red, 0.5);  
+  width: 0.688rem;
+  height: 0.5rem;
+  display: inline-block;
+  background: rgba($wpn-red, 0.5);
   position: initial;
+  margin-bottom: 0.1rem;
   clip-path: polygon(0 0, 50% 0, 100% 50%, 50% 100%, 0 100%);
 }
 
