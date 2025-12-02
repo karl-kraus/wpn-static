@@ -4,6 +4,36 @@ const myurl = new URL(window.location.href);
 const searchParams = new URLSearchParams(myurl.search);
 const content = document.querySelector<HTMLElement>("#print-page");
 const info = document.querySelector<HTMLElement>("#infocontent-pb");
+const setModeButton = document.querySelector<HTMLElement>("#setMode");
+const highlightedClass = "connection-color";
+const highlightedClassLine = "connection-color-line";
+const debounceDelayText = 750;
+const debounceDelayInfo = 0;
+
+// Global event handlers storage
+const _eventHandlers: any = {}; // somewhere global
+
+const addListener = (node: HTMLElement, event: string, handler: EventListenerOrEventListenerObject, capture = false) => {
+    if (!(event in _eventHandlers)) {
+        _eventHandlers[event] = []
+    }
+    // here we track the events and their nodes (note that we cannot
+    // use node as Object keys, as they'd get coerced into a string
+    _eventHandlers[event].push({ node: node, handler: handler, capture: capture })
+    node.addEventListener(event, handler, capture)
+}
+
+const removeAllListeners = (targetNode: HTMLElement, event: string) => {
+    // remove listeners from the matching nodes
+    _eventHandlers[event]
+        .filter(({ node }: any) => node === targetNode)
+        .forEach(({ node, handler, capture }: any) => node.removeEventListener(event, handler, capture))
+
+    // update _eventHandlers global
+    _eventHandlers[event] = _eventHandlers[event].filter(
+        ({ node }: any) => node !== targetNode,
+    )
+}
 
 // Default mode: explore for Desktop
 // Default mode: inspect for Mobile
@@ -17,60 +47,74 @@ searchParams.set("mode", isMobile ? "inspect" : "explore");
 if (isMobile) {
 
     console.log("Mode: Inspect connections between annotations and text. Loaded!");
-
-    content?.addEventListener("click", debounce(highlighting, 300));
-    info?.addEventListener("click", debounce(highlighting3rdcolumn, 300));
+    addListener(content!, "click", highlighting);
+    addListener(info!, "click", highlighting3rdcolumn);
+    // content?.addEventListener("click", highlighting);
+    // info?.addEventListener("click", highlighting3rdcolumn);
 
 } else {
 
     console.log("Mode: Explore connections between annotations and text. Loaded!");
 
-    content?.addEventListener("mouseover", debounce(highlighting, 300));
-    info?.addEventListener("mouseover", debounce(highlighting3rdcolumn, 300));
+    addListener(content!, "mouseover", debounce(highlighting, debounceDelayText));
+    addListener(info!, "mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
+    // content?.addEventListener("mouseover", debounce(highlighting, debounceDelayText));
+    // info?.addEventListener("mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
 
 }
 
 myurl.search = searchParams.toString();
 window.history.pushState({}, '', myurl);
 
-document.querySelector<HTMLElement>("#setMode")?.addEventListener("click", (event) => {
+setModeButton!.addEventListener("click", () => {
 
-    const target = event.currentTarget as HTMLElement;
-    target.classList.toggle("active-view-icon");
+    setModeButton!.classList.toggle("active-view-icon");
 
-    if (target.classList.contains("active-view-icon")) {
+    if (setModeButton!.classList.contains("active-view-icon")) {
 
-        target.style.color = "white";
+        setModeButton!.style.color = "white";
 
         console.log("Mode: Inspect connections between annotations and text. Loaded!");
 
         searchParams.set("mode", "inspect");
-        content?.removeEventListener("mouseover", debounce(highlighting, 300));
-        content?.addEventListener("click", debounce(highlighting, 300));
+        removeAllListeners(content!, "mouseover");
+        // content?.removeEventListener("mouseover", debounce(highlighting, debounceDelayText));
+        addListener(content!, "click", highlighting);
+        // content?.addEventListener("click", highlighting);
 
-        info?.removeEventListener("mouseover", debounce(highlighting3rdcolumn, 300));
-        info?.addEventListener("click", debounce(highlighting3rdcolumn, 300));
+        removeAllListeners(info!, "mouseover");
+        // info?.removeEventListener("mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
+        addListener(info!, "click", highlighting3rdcolumn);
+        // info?.addEventListener("click", highlighting3rdcolumn);
+
     } else {
 
-        target.style.color = "black";
+        setModeButton!.style.color = "black";
         console.log("Mode: Explore connections between annotations and text. Loaded!");
 
         searchParams.set("mode", "explore");
-        content?.removeEventListener("click", debounce(highlighting, 300));
-        content?.addEventListener("mouseover", debounce(highlighting, 300));
 
-        info?.removeEventListener("click", debounce(highlighting3rdcolumn, 300));
-        info?.addEventListener("mouseover", debounce(highlighting3rdcolumn, 300));
+        removeAllListeners(content!, "click");
+        //content?.removeEventListener("click", highlighting);
+        addListener(content!, "mouseover", debounce(highlighting, debounceDelayText));
+        // content?.addEventListener("mouseover", debounce(highlighting, debounceDelayText));
+
+        removeAllListeners(info!, "click");
+        // info?.removeEventListener("click", highlighting3rdcolumn);
+        addListener(info!, "mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
+        // info?.addEventListener("mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
+
     }
 
     myurl.search = searchParams.toString();
     window.history.pushState({}, '', myurl);
+
 });
 
 
 function highlighting(event: Event) {
 
-    const color = "connection-color";
+    const color = highlightedClass;
     
     const target = event.target as HTMLElement;
     console.log("Target:", target);
@@ -209,8 +253,8 @@ function highlighting(event: Event) {
 
 function highlighting3rdcolumn (event: Event) {
 
-    const color = "connection-color";
-    const color_line = "connection-color-line";
+    const color = highlightedClass;
+    const color_line = highlightedClassLine;
     const target = event.target as HTMLElement;
     const dataLink = target.dataset.link;
     const dataLinkOne = target.dataset.linkone;

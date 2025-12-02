@@ -11,9 +11,12 @@
         <div id="infocolumn" class="grid-box-3">
             <div id="infocontent" class="bg-white px-0">
                 <div id="infocontent-header" class="row flex-row text-center m-0 cursor-pointer border border-light-grey" style="border-radius:0.25rem 0 0 0;">
-                    <div style="max-height:55px;max-width:40px;" class="col p-0_25 border-end border-light-grey align-content-around">
-                        <div id="infocontent-hide-btn" class="p-1 active m-visually-hidden" title="Info-Spalte schließen">
-                            <img src="images/plus.svg" alt="Infospalte verstecken"/>                    
+                    <div style="max-height:55px;max-width:40px;" class="col p-0_25 border-end border-light-grey align-content-around m-visually-hidden">
+                        <div id="infocontent-hide-btn" role="button" aria-controls="#infocontent" class="p-1 active text-center mx-auto" title="Info-Spalte schließen">
+                            <img id="infocontent-hide-icon" src="images/plus.svg" alt="Infospalte schließen"/>     
+                            <span id="infocontent-hide-icon-hidden" class="mx-auto visually-hidden" style="stroke:grey;fill:grey;" title="Infospalte öffnen">
+                                <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
+                            </span>
                         </div>
                     </div>
                     <div class="col p-0_25 border-end border-light-grey bg-primary align-content-around">
@@ -64,25 +67,25 @@
                         </xsl:choose>
                         </div>
                     </div>
-                    <div id="allcolumnBtn" class="active-view-icon col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
+                    <div id="allcolumnBtn" role="button" class="active-view-icon col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
                         <img src="images/icon-view-all.svg" alt="Synoptic View: Facsimile and Info Column" class="view-icon"/>
                     </div>
-                    <div id="textcolumnBtn" class="col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
+                    <div id="textcolumnBtn" role="button" class="col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
                         <img src="images/icon-view-facs.svg" alt="Synoptic View: Facsimile, Text Columns and Info Column" class="view-icon"/>                    
                     </div>
-                    <div id="facscolumnBtn" class="col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
+                    <div id="facscolumnBtn" role="button" class="col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
                         <img src="images/icon-view-text.svg" alt="Synoptic View: Text and Info Column" class="view-icon"/>
                     </div>
-                    <div id="allcolumnRowBtn" class="col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
+                    <div id="allcolumnRowBtn" role="button" class="col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
                         <img src="images/icon-view-vertical.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"/>
                     </div>
-                    <div id="setMode" class="col p-0_25 cursor-pointer border-light-grey m-visually-hidden align-content-around">
-                        <label style="font-size:7pt;">Inspect<br/>Mode</label>
+                    <div id="setMode" role="button" class="col p-0_25 cursor-pointer border-light-grey m-visually-hidden align-content-around">
+                        <label style="font-size:7pt;">Highlight<br/>Mode</label>
                     </div>
                 </div>
                 <div class="row flex-row cursor-pointer m-0 mx-auto">
                     <div class="col p-0_25 border-start border-bottom border-light-grey align-content-around" style="max-height:55px;max-width:38px;border-radius: 0 0 0 0.25rem;">
-                        <div id="legende-btn" class="active m-visually-hidden text-center" title="Legende öffnen" type="button" aria-controls="#legende-pb" aria-expanded="false">
+                        <div id="legende-btn" class="active text-center" title="Legende öffnen" type="button" aria-controls="#legende-pb" aria-expanded="false">
                             <img src="images/icon-quelle-bg.svg" alt="Legende"/>                    
                         </div>
                     </div>
