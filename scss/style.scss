@@ -1890,6 +1890,16 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 0 50%);
 }
 
+#legende-pb .metamark.deletion-demo {
+  font-family: "Arimo" !important;
+}
+
+#legende-pb .metamark.transposition-demo {
+  display: inline-block;
+  font-size: 1.2rem;
+  line-height: 0.677rem;
+}
+
 // handwritten text
 #textcontent-pb .inkOnProofKK .inkLongQuote,
 #textcontent-pb .inkOnProofKK .inkLongQuoteVerse,
