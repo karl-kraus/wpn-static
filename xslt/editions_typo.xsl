@@ -88,13 +88,13 @@
                 <main class="flex-shrink-0 mt-18">
                     <div class="container-fluid px-0">
                         <wpn-page-view annotation-selectors=".entity">
-                            <div id="sub_grid_pb" class="sub_grid_pb_three py-2">
-                                <div id="facscolumn" class="grid-box-1 mx-auto ff-crimson-text pb-3 m-visually-hidden">
+                            <div id="sub_grid_pb" class="sub_grid_pb_three">
+                                <div id="facscolumn" class="grid-box-1 mx-auto ff-crimson-text py-4 m-visually-hidden">
                                     <div id="facscontent" wpn-data="{$facsimile}" wpn-type="{.//tei:pb[1]/@type}">
                                         <!-- osd viewer container -->
                                     </div>                                
                                 </div>
-                                <div id="textcolumn-pb" class="grid-box-2 mx-auto ff-crimson-text pb-3">
+                                <div id="textcolumn-pb" class="grid-box-2 mx-auto ff-crimson-text py-4">
                                     <div id="textcontent-pb">
                                         <xsl:apply-templates select="//tei:text" />
                                     </div>

@@ -889,6 +889,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #edition-view .sub_grid_pb_two.hide_btn {
+
   grid-template-columns: calc(100% - 40px) 40px;
   .openseadragon-container,
   .openseadragon-canvas {
@@ -900,9 +901,15 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
     height: calc(100vh - $edition-view-header-height) !important;
     border-bottom: 1px solid $wpn-light-grey;
   }
+
+  #facscontent, #textcontent-pb {
+    padding: 2.5rem;
+  }
 }
 
 #edition-view .sub_grid_pb_vertical.hide_btn {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   grid-template-columns: calc(100% - 40px) 40px;
   // Force OpenSeadragon to respect container dimensions
   .openseadragon-container,
@@ -919,6 +926,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
     max-height: calc(100vh - $edition-view-header-height) !important;
     height: calc(100vh - $edition-view-header-height) !important;
     border-bottom: 1px solid $wpn-light-grey;
+  }
+
+  #facscontent, #textcontent-pb {
+    padding: 2.5rem;
   }
 }
 
@@ -940,6 +951,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #edition-view .sub_grid_pb_two {
+
   display:grid;
   grid-template-columns: calc(100% * 0.8) calc(100% * 0.2);
   gap:0;
@@ -978,9 +990,14 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
     transform: scale(2.5);
     transform-origin: top;
   }
+
+  #facscontent, #textcontent-pb {
+    padding: 2.5rem;
+  }
 }
 
 #edition-view .sub_grid_pb_vertical {
+
   display:grid;
   grid-template-columns: 80% 20%;
   grid-template-rows: calc((100vh - $edition-view-header-height) * 0.5) calc((100vh - $edition-view-header-height) * 0.5);
@@ -1031,6 +1048,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   #textcontent-pb .print-page{
     transform: scale(2.5);
     transform-origin: top;
+  }
+
+  #facscontent, #textcontent-pb {
+    padding: 2.5rem;
   }
 }
 
@@ -3156,7 +3177,7 @@ body.modal-open, body.modal-open main {
   display: contents !important;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1024px) {
   .m-visually-hidden {
     display: none !important;
   }
@@ -3174,4 +3195,74 @@ body.modal-open, body.modal-open main {
   #pagination-dropdown {
     width: 100% !important;
   }
+}
+
+@media screen and (max-width: 1399px) {
+
+  #edition-view .sub_grid_pb_three {
+    display:grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+      "box2 box3"
+      "box1 box3";
+    gap:0;
+    min-height: 100%;
+
+    .grid-box-1 {
+      width: 100%;
+      grid-area: box1;
+      max-height: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      position: relative;
+      
+      // Force OpenSeadragon to respect container dimensions
+      .openseadragon-container,
+      .openseadragon-canvas {
+        max-height: 100% !important;
+        height: 100% !important;
+      }
+    }
+
+    .grid-box-2 {
+      width: 100%;
+      z-index: 9999;
+      grid-area: box2;
+      max-height: 100%;
+      height: 100%;
+      overflow-y: hidden;
+    }
+
+    .grid-box-3 {
+      grid-area: box3;
+      max-height: 100%;
+      height: 100%;
+      overflow-y: hidden;
+    }
+
+    #facscontent {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #allcolumnBtn, #textcolumnBtn, #facscolumnBtn, #allcolumnRowBtn {
+      display: none;
+    }
+  }
+
+  #edition-view .sub_grid_pb_three.hide_btn {
+    grid-template-columns: calc(100% - 40px) 40px;
+    .openseadragon-container,
+    .openseadragon-canvas {
+      max-height: 100% !important;
+      height: 100% !important;
+    }
+
+    #infocontent-hide-btn {
+      max-height: calc(100vh - $edition-view-header-height) !important;
+      height: calc(100vh - $edition-view-header-height) !important;
+      border-bottom: 1px solid $wpn-light-grey;
+    }
+}
 }
