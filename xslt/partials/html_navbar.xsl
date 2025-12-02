@@ -165,10 +165,71 @@
                     </div>
                 </div>
             </nav>
+            <xsl:variable name="document" select="substring-before(tokenize(base-uri(),'/')[last()], '.xml')"/>
             <nav aria-label="breadcrumb" class="my-05">
                 <div class="{$container}">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page">Karl Kraus 1933: Dritte Walpurgisnacht</li>
+                        <li aria-current="page">
+                            <xsl:choose>
+                                <xsl:when test="$document = 'index'">
+                                    <xsl:attribute name="class">breadcrumb-item active</xsl:attribute>
+                                    <xsl:text>Karl Kraus 1933: Dritte Walpurgisnacht</xsl:text>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:attribute name="class">breadcrumb-item</xsl:attribute>
+                                    <a href="index.html" class="link-dark-grey text-primary-hover">Karl Kraus 1933: Dritte Walpurgisnacht</a>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </li>
+                        <xsl:if test="$document != 'index' 
+                                    and $document != 'personindex_updated'
+                                    and $document != 'commentindex_updated'
+                                    and $document != 'eventindex_updated'
+                                    and $document != 'biblindex_updated'
+                                    and not(contains($document, 'motti')) 
+                                    and not(contains($document, 'absatz')) 
+                                    and not(contains($document, 'idPb'))">
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <xsl:choose>
+                                    <xsl:when test="$document = 'projekt'">Über das Projekt</xsl:when>
+                                    <xsl:when test="$document = 'nutzungsbedingungen'">Nutzungsbedingungen</xsl:when>
+                                    <xsl:when test="$document = 'impressum'">Impressum</xsl:when>
+                                    <xsl:when test="$document = 'notizen'">Notizen</xsl:when>
+                                    <xsl:when test="$document = 'annotierte_lesefassung'">Annotierte Lesefassung</xsl:when>
+                                    <xsl:when test="$document = 'topographical'">Topographische Umschrift</xsl:when>
+                                    <xsl:when test="$document = 'register'">Register</xsl:when>
+                                    <xsl:when test="$document = 'kommentar'">Kommentar</xsl:when>
+                                    <xsl:when test="$document = 'suche'">Suche</xsl:when>
+                                    <xsl:otherwise>
+
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </li>
+                        </xsl:if>
+                        <xsl:if test="contains($document, 'motti') or contains($document, 'absatz')">
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="annotierte_lesefassung.html">Annotierte Lesefassung</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Text</li>
+                        </xsl:if>
+                        <xsl:if test="contains($document, 'idPb')">
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="topographical.html">Topographische Umschrift</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Text</li>
+                        </xsl:if>
+                        <xsl:if test="$document = 'personindex_updated'">
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="register.html">Register</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Personen</li>
+                        </xsl:if>  
+                        <xsl:if test="$document = 'biblindex_updated'">
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="register.html">Register</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Intertexte</li>
+                        </xsl:if> 
+                        <xsl:if test="$document = 'commentindex_updated'">
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="kommentar.html">Kommentar</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Register der Stellenkommentare</li>
+                        </xsl:if>  
+                        <xsl:if test="$document = 'eventindex_updated'">
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="kommentar.html">Kommentar</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Ereignisse</li>
+                        </xsl:if>  
                     </ol>
                 </div>
             </nav>

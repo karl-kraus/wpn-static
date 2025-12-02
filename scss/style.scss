@@ -92,6 +92,16 @@
   src: url(../fonts/CrimsonText-Regular.woff2) format('woff2');
 }
 
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "\203A";
+    color: var(--wpn-black-grey);
+    padding-right: 0.5rem;
+}
+
+.breadcrumb-item a {
+  text-decoration: none;
+}
+
 .ff-ubuntu-500-hover:hover {
   font-family: 'Ubuntu', sans-serif;
   font-weight:500;
