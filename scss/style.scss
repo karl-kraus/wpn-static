@@ -1849,6 +1849,15 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
   margin-right: 0.1rem;
 }
+
+#legende-pb .metamark.printSpanTo.redOnProof.entity { 
+  width: 0.5rem;
+  height: 0.688rem;
+  display: inline-block;
+  position: initial;
+  background: rgba($wpn-red, 0.5);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 100%, 0 100%, 0 25%);
+  margin-right: 0.1rem;
 }
 
 #legende-pb .metamark.printSpanFrom.redOnProof.inline {
@@ -1861,6 +1870,15 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   clip-path: polygon(0 0, 50% 0, 100% 50%, 50% 100%, 0 100%);
 }
 
+#legende-pb .metamark.printSpanTo.redOnProof.inline {
+  width: 0.688rem;
+  height: 0.5rem;
+  display: inline-block;
+  background: rgba($wpn-red, 0.5);
+  position: initial;
+  margin-bottom: 0.1rem;
+  clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 0 50%);
+}
 
 // handwritten text
 #textcontent-pb .inkOnProofKK .inkLongQuote,
