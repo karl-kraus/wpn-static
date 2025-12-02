@@ -311,7 +311,18 @@ function highlighting3rdcolumn (event: Event) {
                     markChildrenAsHighlighted(el, color);
 
                 }
-            
+
+                const spanTo = el.dataset.spanto?.split(" ");
+                if (spanTo) {
+                    spanTo.forEach((span) => {
+                        const spanToElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${span}"]`);
+                        spanToElements.forEach((spanEl) => {
+                            spanEl.classList.remove("active");
+                            spanEl.classList.add("active");
+                        });
+                    });
+                }
+
             });
             
         }

@@ -149,12 +149,12 @@
                             <xsl:value-of select="replace(@corresp, '#', '')"/>
                         </xsl:attribute>
                     </xsl:if> -->
-                    <!-- <xsl:if test="@spanTo">
+                    <xsl:if test="@spanTo">
                         <xsl:variable name="spanToList" select="tokenize(@spanTo, ' ')"/>
                         <xsl:attribute name="data-spanto">
-                            <xsl:value-of select="for $i in $spanToList return concat('spanto-', substring-after($i, '#'))"/>
+                            <xsl:value-of select="for $i in $spanToList return substring-after($i, '#')"/>
                         </xsl:attribute>
-                    </xsl:if> -->
+                    </xsl:if>
                     <xsl:if test="@target">
                         <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
                         <xsl:attribute name="data-target">
