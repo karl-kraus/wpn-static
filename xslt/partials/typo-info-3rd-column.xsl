@@ -90,17 +90,19 @@
                         <div id="legende-pb" class="visually-hidden">
                             <xsl:variable name="pages" select="document('../../data/meta/topographical.xml')"/>
                             <div class="w-100 h-100 m-0 p-2">
-                                <h5>Darstellungskonventionen / Legende</h5>
-                                <ul class="list-unstyled m-0 p-0">
-                                <xsl:for-each select="$pages//tei:div[@type='legende']//tei:item">
-                                    <xsl:variable name="rendition" select="replace(@rendition, '#', '')"/>
-                                    <xsl:variable name="rend" select="@rend"/>
-                                    <xsl:variable name="change" select="replace(@change, '#', '')"/>
-                                    <li class="my-1 {if($change)then($change)else()}{if($rendition)then($rendition)else()}{if($rend)then($rend)else()}">
-                                        <xsl:apply-templates/>
-                                    </li>
-                                </xsl:for-each>
-                                </ul>
+                                <h5>Legende</h5>
+                                  <xsl:for-each select="$pages//tei:div[@type='legende']//tei:list">
+                                    <ul class="list-unstyled mt-1 p-0">
+                                    <xsl:for-each select="$pages//tei:div[@type='legende']//tei:item">
+                                        <xsl:variable name="rendition" select="replace(@rendition, '#', '')"/>
+                                        <xsl:variable name="rend" select="@rend"/>
+                                        <xsl:variable name="change" select="replace(@change, '#', '')"/>
+                                        <li class="my-1 {if($change)then($change)else()}{if($rendition)then($rendition)else()}{if($rend)then($rend)else()}">
+                                            <xsl:apply-templates/>
+                                        </li>
+                                    </xsl:for-each>
+                                    </ul>
+                                  </xsl:for-each>
                             </div>
                         </div>
                         <div id="pagination-pb" class="visually-hidden bg-primary text-white">
