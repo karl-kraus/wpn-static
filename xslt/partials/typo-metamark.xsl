@@ -5,6 +5,13 @@
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
     version="2.0" exclude-result-prefixes="#all">
 
+    <!-- Legende demo metamarks -->
+    <xsl:template match="tei:metamark[contains(@function, '-demo')]">
+        <span class="metamark {replace(@function,'#','')}">
+            <xsl:apply-templates/>
+        </span>
+    </xsl:template>
+
     <xsl:template match="tei:metamark[@function='progress'][@place]">
         <span class="metamark progress position-absolute {replace(@change,'#','')} {@place} {@style}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
             <xsl:apply-templates/>
