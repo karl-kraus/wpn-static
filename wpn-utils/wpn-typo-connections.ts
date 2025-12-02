@@ -81,15 +81,25 @@ function highlighting(event: Event) {
     const targetDataList = target.dataset.target;
     console.log("Target Data:", targetDataList);
 
-    const handDataList = target.dataset.hand;
-
+    //const handDataList = target.dataset.hand;
+      let handDataList;
+    
     document.querySelectorAll<HTMLElement>(`.${color}`).forEach((el) => {
 
         el.classList.remove(color);
 
     });
 
-    const anchorDataList = anchorData ? anchorData.split(" ") : [];
+    const hovered: HTMLElement | null = document.querySelector(`[data-hand]:not([data-hand=""]):hover, [data-hand]:not([data-hand=""]):has(*[data-anchor]:hover)`);
+    if (hovered) {
+        handDataList = [];
+        hovered.classList.remove(color);
+        hovered.classList.add(color);
+        handDataList = hovered.dataset.hand;
+        markChildrenAsHighlighted(hovered, color);
+    }
+
+    /*const anchorDataList = anchorData ? anchorData.split(" ") : [];
     anchorDataList.forEach((data) => {
 
         // highlight anchor
@@ -180,7 +190,7 @@ function highlighting(event: Event) {
             });
         }
 
-    });
+    });*/
 
     const handIds = handDataList ? handDataList.split(" ") : [];
 
