@@ -1767,6 +1767,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   color: black;
 }
 
+#legende-pb .pencilOnProofKK.inkOnProofKK {
+  text-shadow: 1px 1px lightgrey;
+  color: #000;
+}
+
 #legende-pb .typescriptRunningText2 {
   font-family: monospace;
   font-size: 0.667rem;
