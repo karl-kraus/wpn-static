@@ -92,8 +92,8 @@
                             <div class="w-100 h-100 m-0 p-2">
                                 <h5>Legende</h5>
                                   <xsl:for-each select="$pages//tei:div[@type='legende']//tei:list">
-                                    <ul class="list-unstyled mt-1 p-0">
-                                    <xsl:for-each select="$pages//tei:div[@type='legende']//tei:item">
+                                    <ul class="list-unstyled mt-2 p-0">
+                                    <xsl:for-each select="./tei:item">
                                         <xsl:variable name="rendition" select="replace(@rendition, '#', '')"/>
                                         <xsl:variable name="rend" select="@rend"/>
                                         <xsl:variable name="change" select="replace(@change, '#', '')"/>
