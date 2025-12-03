@@ -280,10 +280,10 @@
      <xsl:template match="tei:add[ancestor::tei:restore[1][child::tei:seg]]">
      <xsl:apply-templates/>
      </xsl:template>
-     <xsl:template match="tei:add[@change='#pencilOnProof'][@rendition='#pencilRightAlign']">
+     <xsl:template match="tei:add[@change='#pencilOnProofKK'][@rendition='#pencilRightAlign']">
         <span class="longQuoteRightAlign my-05 d-block"><xsl:apply-templates select="*[not(self::tei:metamark)]" mode="render"/></span>
      </xsl:template>
-     <xsl:template match="tei:add[@change='#pencilOnProof'][@rendition='#pencilRightAlign']" mode="raw">
+     <xsl:template match="tei:add[@change='#pencilOnProofKK'][@rendition='#pencilRightAlign']" mode="raw">
         <xsl:apply-templates select="descendant::*[self::tei:app]" mode="raw"/>
      </xsl:template>
      <xsl:template match="tei:corr">
