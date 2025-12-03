@@ -106,19 +106,54 @@
         </div>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='printInstruction'][@place]">
-        <span class="metamark position-absolute {replace(@rendition,'#','')} {replace(@change,'#','')} {@place} {@style}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:apply-templates/></span>
+        <span class="metamark position-absolute {replace(@rendition,'#','')} {replace(@change,'#','')} {@place} {@style}" data-hand="{replace(@change,'#','')}">
+            <xsl:attribute name="data-anchor">
+                <xsl:value-of select="@xml:id"/>
+                <xsl:if test="@corresp">
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="for $i in tokenize(@corresp, ' ') return substring-after($i, '#')"/>
+                </xsl:if>
+                <xsl:if test="@spanTo">
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="for $i in tokenize(@spanTo, ' ') return substring-after($i, '#')"/>
+                </xsl:if>
+            </xsl:attribute>
+            <xsl:apply-templates/>
+        </span>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='printInstruction'][@rend]">
          <xsl:choose>
              <xsl:when test="@rend='above'">
                  <span class="position-relative">
-                     <span class="metamark {@rend} {replace(@change,'#','')}" data-anchor="{@xml:id} {replace(@corresp, '#', '')}" data-hand="{replace(@change,'#','')}">
-                         <xsl:apply-templates/>
+                     <span class="metamark {@rend} {replace(@change,'#','')}" data-hand="{replace(@change,'#','')}">
+                        <xsl:attribute name="data-anchor">
+                            <xsl:value-of select="@xml:id"/>
+                            <xsl:if test="@corresp">
+                                <xsl:text> </xsl:text>
+                                <xsl:value-of select="for $i in tokenize(@corresp, ' ') return substring-after($i, '#')"/>
+                            </xsl:if>
+                            <xsl:if test="@spanTo">
+                                <xsl:text> </xsl:text>
+                                <xsl:value-of select="for $i in tokenize(@spanTo, ' ') return substring-after($i, '#')"/>
+                            </xsl:if>
+                        </xsl:attribute> 
+                        <xsl:apply-templates/>
                      </span>
                  </span>
              </xsl:when>
              <xsl:otherwise>
-                <span id="{@xml:id}" class="metamark entity {replace(@change,'#','')}" data-anchor="{@xml:id} {replace(@corresp, '#', '')}" data-hand="{replace(@change,'#','')}">
+                <span id="{@xml:id}" class="metamark entity {replace(@change,'#','')}" data-hand="{replace(@change,'#','')}">
+                    <xsl:attribute name="data-anchor">
+                        <xsl:value-of select="@xml:id"/>
+                        <xsl:if test="@corresp">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="for $i in tokenize(@corresp, ' ') return substring-after($i, '#')"/>
+                        </xsl:if>
+                        <xsl:if test="@spanTo">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="for $i in tokenize(@spanTo, ' ') return substring-after($i, '#')"/>
+                        </xsl:if>
+                    </xsl:attribute> 
                     <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
                 </span>
              </xsl:otherwise>
@@ -128,13 +163,35 @@
          <xsl:choose>
              <xsl:when test="@rend='inline'">
                  <span class="position-absolute">
-                     <span class="metamark {@function} {@rend} {replace(@change,'#','')} connection-color-line" data-anchor="{@xml:id} {replace(@corresp, '#', '')}" data-hand="{replace(@change,'#','')}">
-                         <xsl:apply-templates/>
+                     <span class="metamark {@function} {@rend} {replace(@change,'#','')} connection-color-line" data-hand="{replace(@change,'#','')}">
+                        <xsl:attribute name="data-anchor">
+                            <xsl:value-of select="@xml:id"/>
+                            <xsl:if test="@corresp">
+                                <xsl:text> </xsl:text>
+                                <xsl:value-of select="for $i in tokenize(@corresp, ' ') return substring-after($i, '#')"/>
+                            </xsl:if>
+                            <xsl:if test="@spanTo">
+                                <xsl:text> </xsl:text>
+                                <xsl:value-of select="for $i in tokenize(@spanTo, ' ') return substring-after($i, '#')"/>
+                            </xsl:if>
+                        </xsl:attribute> 
+                        <xsl:apply-templates/>
                      </span>
                  </span>
              </xsl:when>
              <xsl:otherwise>
-                <span id="{@xml:id}" class="metamark entity {@function} {replace(@change,'#','')}" data-anchor="{@xml:id} {replace(@corresp, '#', '')}" data-hand="{replace(@change,'#','')}">
+                <span id="{@xml:id}" class="metamark entity {@function} {replace(@change,'#','')} connection-color-line" data-hand="{replace(@change,'#','')}">
+                    <xsl:attribute name="data-anchor">
+                        <xsl:value-of select="@xml:id"/>
+                        <xsl:if test="@corresp">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="for $i in tokenize(@corresp, ' ') return substring-after($i, '#')"/>
+                        </xsl:if>
+                        <xsl:if test="@spanTo">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="for $i in tokenize(@spanTo, ' ') return substring-after($i, '#')"/>
+                        </xsl:if>
+                    </xsl:attribute> 
                 </span>
              </xsl:otherwise>
          </xsl:choose>
@@ -143,18 +200,29 @@
      <xsl:template match="tei:metamark[@function='printInstruction' or contains(@function, 'printSpan')][@rend]" mode="render">
         <div class="d-flex metamark w-100 position-relative {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
             <div class="w-100">
-                <span data-anchor="{@xml:id} {replace(@corresp, '#', '')}" data-hand="{replace(@change,'#','')}" class="{@rend} {@function} {@style} connection-color-line">
+                <span data-hand="{replace(@change,'#','')}" class="{@rend} {@function} {@style} connection-color-line">
                     <!-- <xsl:if test="@corresp">
                         <xsl:attribute name="data-corresp">
                             <xsl:value-of select="replace(@corresp, '#', '')"/>
                         </xsl:attribute>
                     </xsl:if> -->
-                    <xsl:if test="@spanTo">
+                    <xsl:attribute name="data-anchor">
+                        <xsl:value-of select="@xml:id"/>
+                        <xsl:if test="@corresp">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="for $i in tokenize(@corresp, ' ') return substring-after($i, '#')"/>
+                        </xsl:if>
+                        <xsl:if test="@spanTo">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="for $i in tokenize(@spanTo, ' ') return substring-after($i, '#')"/>
+                        </xsl:if>
+                    </xsl:attribute>
+                    <!-- <xsl:if test="@spanTo">
                         <xsl:variable name="spanToList" select="tokenize(@spanTo, ' ')"/>
                         <xsl:attribute name="data-spanto">
                             <xsl:value-of select="for $i in $spanToList return substring-after($i, '#')"/>
                         </xsl:attribute>
-                    </xsl:if>
+                    </xsl:if> -->
                     <xsl:if test="@target">
                         <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
                         <xsl:attribute name="data-target">

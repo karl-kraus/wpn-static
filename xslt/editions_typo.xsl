@@ -502,7 +502,28 @@
 				<span class="d-inline-block text-align-left lb-forced-right2"><xsl:apply-templates/></span>
 			</xsl:when>
 			<xsl:otherwise>
-                <span data-anchor="{ancestor::tei:note/@xml:id}" class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent"><xsl:apply-templates/></span>
+                <span class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">
+                    <xsl:attribute name="data-anchor">
+                        <xsl:value-of select="@xml:id"/>
+                        <xsl:if test="parent::tei:metamark[@xml:id]">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="parent::tei:metamark/@xml:id"/>
+                        </xsl:if>
+                        <xsl:if test="parent::tei:metamark[@corresp]">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="for $i in tokenize(parent::tei:metamark/@corresp, ' ') return substring-after($i, '#')"/>
+                        </xsl:if>
+                        <xsl:if test="parent::tei:metamark[@spanTo]">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="for $i in tokenize(parent::tei:metamark/@spanTo, ' ') return substring-after($i, '#')"/>
+                        </xsl:if>
+                        <xsl:if test="ancestor::tei:note">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="ancestor::tei:note/@xml:id"/>
+                        </xsl:if>
+                    </xsl:attribute>
+                    <xsl:apply-templates/>
+                </span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -515,10 +536,54 @@
                 <span class="d-table-row text-align-left no-indent">&#160;<xsl:apply-templates/></span>
             </xsl:when> -->
             <xsl:otherwise>
-                <span data-anchor="{ancestor::tei:note/@xml:id}" class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">
+                <span class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">
+                    <xsl:attribute name="data-anchor">
+                        <xsl:value-of select="@xml:id"/>
+                        <xsl:if test="parent::tei:metamark[@xml:id]">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="parent::tei:metamark/@xml:id"/>
+                        </xsl:if>
+                        <xsl:if test="parent::tei:metamark[@corresp]">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="for $i in tokenize(parent::tei:metamark/@corresp, ' ') return substring-after($i, '#')"/>
+                        </xsl:if>
+                        <xsl:if test="parent::tei:metamark[@spanTo]">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="for $i in tokenize(parent::tei:metamark/@spanTo, ' ') return substring-after($i, '#')"/>
+                        </xsl:if>
+                        <xsl:if test="ancestor::tei:note">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="ancestor::tei:note/@xml:id"/>
+                        </xsl:if>
+                    </xsl:attribute>
                     <xsl:if test="parent::tei:seg[@rend='arrow'] and parent::tei:seg[@xml:id='seg0111_01']">
                         <span id="{parent::tei:seg/@xml:id}" class="seg entity seg-inline">
-                            <span data-anchor="{parent::tei:seg/@xml:id} {ancestor::tei:note/@xml:id}" data-hand="{replace(parent::tei:seg/@change, '#', '')}" class="{parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">&#8592;</span>
+                            <span data-hand="{replace(parent::tei:seg/@change, '#', '')}" class="{parent::tei:seg/@rend} {replace(parent::tei:seg/@change, '#', '')}">
+                                <xsl:attribute name="data-anchor">
+                                    <xsl:value-of select="@xml:id"/>
+                                    <xsl:if test="parent::tei:metamark[@xml:id]">
+                                        <xsl:text> </xsl:text>
+                                        <xsl:value-of select="parent::tei:metamark/@xml:id"/>
+                                    </xsl:if>
+                                    <xsl:if test="parent::tei:metamark[@corresp]">
+                                        <xsl:text> </xsl:text>
+                                        <xsl:value-of select="for $i in tokenize(parent::tei:metamark/@corresp, ' ') return substring-after($i, '#')"/>
+                                    </xsl:if>
+                                    <xsl:if test="parent::tei:metamark[@spanTo]">
+                                        <xsl:text> </xsl:text>
+                                        <xsl:value-of select="for $i in tokenize(parent::tei:metamark/@spanTo, ' ') return substring-after($i, '#')"/>
+                                    </xsl:if>
+                                    <xsl:if test="parent::tei:seg[@xml:id]">
+                                        <xsl:text> </xsl:text>
+                                        <xsl:value-of select="parent::tei:seg/@xml:id"/>
+                                    </xsl:if>
+                                    <xsl:if test="ancestor::tei:note">
+                                        <xsl:text> </xsl:text>
+                                        <xsl:value-of select="ancestor::tei:note/@xml:id"/>
+                                    </xsl:if>
+                                </xsl:attribute>
+                                <xsl:text>&#8592;</xsl:text>
+                            </span>
                         </span>
                     </xsl:if>
                     <xsl:choose>

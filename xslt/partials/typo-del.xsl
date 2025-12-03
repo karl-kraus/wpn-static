@@ -15,7 +15,7 @@
             <xsl:when test="@rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <del><xsl:value-of select="normalize-space(.)"/></del>
                 <span class="position-relative">
-                   <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="del {@rend} {replace($change, '#', '')}"><xsl:text>&#124;&#xA0;</xsl:text><span class="arimo" data-anchor="{@xml:id}"><xsl:text>&#8368;</xsl:text></span></span>
+                   <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="del {@rend} {replace($change, '#', '')}"><xsl:text>&#124;&#xA0;</xsl:text><span class="arimo" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>&#8368;</xsl:text></span></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
@@ -173,7 +173,7 @@
                     <del data-anchor="{@xml:id}"><xsl:value-of select="normalize-space(.)"/></del>
                 </span>
                 <span class="position-relative">
-                   <span data-hand="{replace(@change, '#', '')}" class="del {@rend} {replace(@change, '#', '')}"><xsl:text>&#124;&#xA0;</xsl:text><span class="arimo"><xsl:text>&#8368;</xsl:text></span></span>
+                   <span data-hand="{replace(@change, '#', '')}" class="del {@rend} {replace(@change, '#', '')}"><xsl:text>&#124;&#xA0;</xsl:text><span data-hand="{replace(@change, '#', '')}" class="arimo"><xsl:text>&#8368;</xsl:text></span></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
@@ -237,18 +237,18 @@
             <xsl:when test="parent::tei:restore">
                 <del class="{@rend} {replace((parent::tei:restore/@change)[1],'#','')}">
                     <span data-anchor="{$id}" data-hand="{replace(@change,'#','')}" class="{replace(@change,'#','')}">
-                        <xsl:text>&#124;&#xA0;</xsl:text><span class="arimo" data-anchor="{$id}"><xsl:text>&#8368;</xsl:text></span>
+                        <xsl:text>&#124;&#xA0;</xsl:text><span class="arimo" data-anchor="{$id}" data-hand="{replace(@change, '#', '')}"><xsl:text>&#8368;</xsl:text></span>
                     </span>
                 </del>
             </xsl:when>
             <xsl:when test="count(node())=1 and text()=' ' and not(@resp)">
                 <span data-anchor="{$id}" data-hand="{replace(@change,'#','')}" class="whitespace-del {replace(@change,'#','')}">
-                    <xsl:text>&#124;&#xA0;</xsl:text><span class="arimo" data-anchor="{$id}"><xsl:text>&#8368;</xsl:text></span>
+                    <xsl:text>&#124;&#xA0;</xsl:text><span class="arimo" data-anchor="{$id}" data-hand="{replace(@change, '#', '')}"><xsl:text>&#8368;</xsl:text></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
                 <span data-anchor="{$id}" data-hand="{replace(@change,'#','')}" class="{@rend} {replace(@change,'#','')}">
-                    <xsl:text>&#124;&#xA0;</xsl:text><span class="arimo" data-anchor="{$id}"><xsl:text>&#8368;</xsl:text></span>
+                    <xsl:text>&#124;&#xA0;</xsl:text><span class="arimo" data-anchor="{$id}" data-hand="{replace(@change, '#', '')}"><xsl:text>&#8368;</xsl:text></span>
                 </span>
             </xsl:otherwise>
         </xsl:choose>

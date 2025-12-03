@@ -115,6 +115,8 @@ setModeButton!.addEventListener("click", () => {
 function highlighting(event: Event) {
 
     const color = highlightedClass;
+
+    const color_line = highlightedClassLine;
     
     const target = event.target as HTMLElement;
 
@@ -127,6 +129,12 @@ function highlighting(event: Event) {
     document.querySelectorAll<HTMLElement>(`.${color}`).forEach((el) => {
 
         el.classList.remove(color);
+
+    });
+
+    document.querySelectorAll<HTMLElement>(`.${color_line}.active`).forEach((el) => {
+
+        el.classList.remove("active");
 
     });
 
@@ -148,14 +156,26 @@ function highlighting(event: Event) {
 
             anchorElements.forEach((el) => {
 
-                el.classList.add(color);
+                if (el.classList.contains("printSpanFrom") || el.classList.contains("printSpanTo")) {
 
-                if (el.classList.contains("note") || el.classList.contains("quotes")) {
+                    el.classList.add("active");
+                    if (el.classList.contains("note") || el.classList.contains("quotes")) {
 
-                    markChildrenAsHighlighted(el, color);
+                        markChildrenAsHighlighted(el, color);
+
+                    }
+
+                } else {
+
+                    el.classList.add(color);
+                    if (el.classList.contains("note") || el.classList.contains("quotes")) {
+
+                        markChildrenAsHighlighted(el, color);
+
+                    }
 
                 }
-            
+
             });
 
         }
@@ -172,6 +192,30 @@ function highlighting(event: Event) {
             }
 
             targetElements.forEach((el) => {
+
+                el.classList.add(color);
+
+                if (el.classList.contains("note") || el.classList.contains("quotes")) {
+
+                    markChildrenAsHighlighted(el, color);
+
+                }
+
+            });
+        }
+
+        const linkElements = document.querySelectorAll<HTMLElement>(`[data-link~="${data}"]`);
+        if (linkElements.length > 0) {
+
+            target.classList.add(color);
+
+            if (target.classList.contains("note") || target.classList.contains("quotes")) {
+
+                markChildrenAsHighlighted(target, color);
+
+            }
+
+            linkElements.forEach((el) => {
 
                 el.classList.add(color);
 
@@ -297,18 +341,6 @@ function highlighting3rdcolumn (event: Event) {
                     markChildrenAsHighlighted(el, color);
 
                 }
-
-                // const spanTo = el.dataset.spanto?.split(" ");
-                // if (spanTo) {
-                //     spanTo.forEach((span) => {
-                //         const spanToElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${span}"]`);
-                //         spanToElements.forEach((spanEl) => {
-
-                //             spanEl.classList.add("active");
-
-                //         });
-                //     });
-                // }
 
             });
             
