@@ -76,12 +76,12 @@
                                         </div>
                                 </div>
                             </main>
+                            <xsl:variable name="regrefs">
+                                <xsl:copy>
+                                    <xsl:apply-templates mode="raw"/>
+                                </xsl:copy>
+                            </xsl:variable>
                             <aside id="infocolumn" class="bg-white px-0 border-start border-light-grey position-relative">
-                                <xsl:variable name="regrefs">
-                                    <xsl:copy>
-                                        <xsl:apply-templates mode="raw"/>
-                                    </xsl:copy>
-                                </xsl:variable>
                                 <xsl:for-each select="$regrefs//@target">
                                     <xsl:variable name="target" select="current()"/>
                                     <xsl:choose>
@@ -104,11 +104,6 @@
                                 </xsl:for-each>
                                 <wpn-detail-view class="d-none position-absolute top-0 h-100 bg-white w-100">
                                     <div class="d-block position-sticky overflow-y-auto">
-                                        <xsl:variable name="regrefs">
-                                        <xsl:copy>
-                                            <xsl:apply-templates mode="raw" />
-                                        </xsl:copy>
-                                        </xsl:variable>
                                         <xsl:for-each select="$regrefs//@target">
                                         <xsl:variable name="target" select="current()" />
                                         <xsl:choose>
@@ -303,14 +298,15 @@
      <xsl:template match="tei:seg[@type=('transposition','relocation')]" mode="render">
        <xsl:apply-templates/>
     </xsl:template>
-    <xsl:template match="tei:seg[@type=('transposition','relocation')]" mode="raw">
+     <xsl:template match="tei:seg[@type='relocation' and not(parent::tei:restore)]" mode="raw"/>
+    <xsl:template match="tei:seg[@type='transposition']" mode="raw">
        <xsl:apply-templates mode="raw"/>
     </xsl:template>
     <xsl:template match="tei:metamark[@function=('insertion','relocation') and not(matches(@target,'(note)+.*([a-z])_'))]">
        <xsl:variable name="target" select="replace(@target,'#','')"/>
         <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//(tei:seg|tei:note)[@xml:id=$target]" mode="render"/>
     </xsl:template>
-    <xsl:template match="tei:metamark[@function=('insertion','relocation') and not(matches(@target,'(note)+.*([a-z])_'))]" mode="raw">
+    <xsl:template match="tei:metamark[@function=('insertion','relocation') and not(matches(@target,'(note)+.*([a-z])_'))][not(parent::tei:restore)]" mode="raw">
        <xsl:variable name="target" select="replace(@target,'#','')"/>
         <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//(tei:seg|tei:note)[@xml:id=$target]/*" mode="raw"/>
     </xsl:template>
