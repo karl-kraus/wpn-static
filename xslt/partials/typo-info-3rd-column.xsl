@@ -10,9 +10,9 @@
         
         <div id="infocolumn" class="grid-box-3">
             <div id="infocontent" class="bg-white px-0">
-                <div id="infocontent-header" class="row flex-row text-center m-0 cursor-pointer border border-light-grey" style="border-radius:0.25rem 0 0 0;">
+                <div id="infocontent-header" class="row flex-row text-center m-0 border border-light-grey" style="border-radius:0.25rem 0 0 0;">
                     <div style="max-height:55px;max-width:40px;" class="col p-0_25 border-end border-light-grey align-content-around m-visually-hidden">
-                        <div id="infocontent-hide-btn" role="button" aria-controls="#infocontent" class="p-1 active text-center mx-auto" title="Info-Spalte schließen">
+                        <div id="infocontent-hide-btn" role="button" aria-controls="#infocontent" class="cursor-pointer p-1 active text-center mx-auto" title="Info-Spalte schließen">
                             <img id="infocontent-hide-icon" src="images/plus.svg" alt="Infospalte schließen"/>     
                             <span id="infocontent-hide-icon-hidden" class="mx-auto visually-hidden" style="stroke:grey;fill:grey;" title="Infospalte öffnen">
                                 <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="col p-0_25 border-end border-light-grey bg-primary align-content-around">
-                        <div class="d-flex text-center mx-auto">
+                        <div class="d-flex cursor-pointer text-center mx-auto">
                         <xsl:choose>
                             <xsl:when test="string-length($prev) > 0">
                                 <a id="prevPageLink" class="mx-auto" style="stroke:white;fill:white;" href="{replace($prev, '.xml', '.html')}?view=all-columns" title="zu seite {replace($prev, '.xml', '.html')} gehen">
@@ -36,23 +36,23 @@
                         </div>
                     </div>
                     <div id="pagination-dropdown" class="col px-1 border-end border-light-grey bg-primary">
-                        <div class="d-block dropdown ff-ubuntu">
+                        <div class="d-block cursor-pointer dropdown ff-ubuntu">
                             <xsl:variable name="currentPage" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
                             <xsl:variable name="currentPageString" select="if(contains($currentPage, '_') ) 
                                                                             then(xs:integer(replace( tokenize( $currentPage, '_' )[1], 'F', '' ) )||'/'||tokenize( $currentPage, '_' )[2] ) 
                                                                             else(xs:integer(replace($currentPage, 'F', '')))"/>
-                            <button id="dropdownMenuButton1" class="d-contents btn btn-secondary text-white fs-9_38 border-0 m-0" type="button" aria-controls="#pagination-pb" aria-expanded="false">
+                            <button id="dropdownMenuButton1" class="d-contents cursor-pointer btn btn-secondary text-white fs-9_38 border-0 m-0" type="button" aria-controls="#pagination-pb" aria-expanded="false">
                                 <span><xsl:text>Seite: </xsl:text></span><xsl:value-of select="$currentPageString"/>
                             </button>
                             <br/>
                             <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>
-                            <label id="paginationLabel" class="text-white fs-7 fw-light dropdown-toggle" for="dropdownMenuButton1">
+                            <label id="paginationLabel" class="cursor-pointer text-white fs-7 fw-light dropdown-toggle" for="dropdownMenuButton1">
                                 <xsl:text>von </xsl:text><xsl:value-of select="count($pages[not(.//tei:pb[@type='nonWitness'])])"/>
                             </label>
                         </div>
                     </div>
                     <div class="col p-0_25 border-end border-light-grey bg-primary align-content-around">
-                        <div class="d-flex text-center mx-auto">
+                        <div class="d-flex cursor-pointer text-center mx-auto">
                         <xsl:choose>
                             <xsl:when test="string-length($next) > 0">
                                 <a id="nextPageLink" class="mx-auto" style="stroke:white;fill:white;" href="{replace($next, '.xml', '.html')}?view=all-columns" title="zu seite {replace($next, '.xml', '.html')} gehen">
@@ -67,24 +67,24 @@
                         </xsl:choose>
                         </div>
                     </div>
-                    <div id="allcolumnBtn" role="button" class="active-view-icon col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
+                    <div id="allcolumnBtn" role="button" class="active-view-icon col p-0_25 cursor-pointer border-end border-light-grey m-visually-hidden align-content-around">
                         <img src="images/icon-view-all.svg" alt="Synoptic View: Facsimile and Info Column" class="view-icon"/>
                     </div>
-                    <div id="textcolumnBtn" role="button" class="col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
+                    <div id="textcolumnBtn" role="button" class="col p-0_25 cursor-pointer border-end border-light-grey m-visually-hidden align-content-around">
                         <img src="images/icon-view-facs.svg" alt="Synoptic View: Facsimile, Text Columns and Info Column" class="view-icon"/>                    
                     </div>
-                    <div id="facscolumnBtn" role="button" class="col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
+                    <div id="facscolumnBtn" role="button" class="col p-0_25 cursor-pointer border-end border-light-grey m-visually-hidden align-content-around">
                         <img src="images/icon-view-text.svg" alt="Synoptic View: Text and Info Column" class="view-icon"/>
                     </div>
-                    <div id="allcolumnRowBtn" role="button" class="col p-0_25 border-end border-light-grey m-visually-hidden align-content-around">
+                    <div id="allcolumnRowBtn" role="button" class="col p-0_25 cursor-pointer border-end border-light-grey m-visually-hidden align-content-around">
                         <img src="images/icon-view-vertical.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"/>
                     </div>
                     <div id="setMode" role="button" class="col p-0_25 cursor-pointer border-light-grey m-visually-hidden align-content-around">
-                        <label style="font-size:7pt;">Highlight<br/>Mode</label>
+                        <label class="cursor-pointer" style="font-size:7pt;">Highlight<br/>Mode</label>
                     </div>
                 </div>
-                <div class="row flex-row cursor-pointer m-0 mx-auto">
-                    <div class="col p-0_25 border-start border-bottom border-light-grey align-content-around" style="max-height:55px;max-width:38px;border-radius: 0 0 0 0.25rem;">
+                <div class="row flex-row m-0 mx-auto">
+                    <div class="col p-0_25 cursor-pointer border-start border-bottom border-light-grey align-content-around" style="max-height:55px;max-width:38px;border-radius: 0 0 0 0.25rem;">
                         <div id="legende-btn" class="active text-center" title="Legende öffnen" type="button" aria-controls="#legende-pb" aria-expanded="false">
                             <img src="images/icon-quelle-bg.svg" alt="Legende"/>                    
                         </div>
@@ -209,7 +209,7 @@
                                                         </xsl:otherwise>
                                                     </xsl:choose>
                                                 </xsl:variable>
-                                                <li class="cursor-pointer my-1 list_more_text_layers" data-link="{$corresp}">
+                                                <li class="my-1 list_more_text_layers" data-link="{$corresp}">
                                                     <xsl:value-of select="$creation//id(data($corresp))"/>
                                                 </li>
                                             </xsl:for-each>
@@ -220,7 +220,7 @@
                                                 </xsl:variable>
                                                 <!--  add data link with corresp -->
                                                 <!-- currently removed until new implementation -->
-                                                <li class="cursor-pointer my-1 list_more_text_layers_line">
+                                                <li class="my-1 list_more_text_layers_line">
                                                     <label id="btn-corresp-printInstruction" class="cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#corresp-printInstruction-list">
                                                         <xsl:text>Markierung für den Druck der Fackel Nr. 890: </xsl:text>
                                                     </label>
@@ -241,7 +241,7 @@
                                                 </li>
                                             </xsl:if>
                                             <xsl:if test="./tei:note[@type='overwritten']">
-                                                <li class="cursor-pointer my-1">
+                                                <li class="my-1">
                                                     <label id="btn-corresp-overwritten" class="cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#corresp-fackel-list-overwritten">
                                                         <xsl:text>Überschreibende Korrekturen</xsl:text>
                                                     </label>
@@ -256,7 +256,7 @@
                                                 </li>
                                             </xsl:if>
                                             <xsl:if test="./tei:note[@type='printF890']">
-                                                <li class="cursor-pointer my-1">
+                                                <li class="my-1">
                                                     <label id="btn-corresp-fackel" class="cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#corresp-fackel-list">
                                                         <xsl:text>Markierung für die Fackel Nr. 890-905</xsl:text>
                                                     </label>
@@ -293,7 +293,7 @@
                                             Datierung (terminus post quem)</h5>
                                         <div id="list_tpq_info" class="visually-hidden"><!-- removed class d-none -->
                                             <xsl:for-each select="./tei:note[@type='tpqBase']">
-                                                <p class="tpq cursor-pointer" data-linkone="{replace(@corresp, '#', '')}">
+                                                <p class="tpq" data-linkone="{replace(@corresp, '#', '')}">
                                                     <xsl:text>Grundschicht: </xsl:text>
                                                     <xsl:call-template name="note_date">
                                                         <xsl:with-param name="input" select="./text()"/>
@@ -302,7 +302,7 @@
                                                 </p>
                                             </xsl:for-each>
                                             <xsl:for-each select="./tei:note[@type='tpqAdd']">
-                                                <p class="tpq cursor-pointer" data-linkone="{replace(@corresp, '#', '')}">
+                                                <p class="tpq" data-linkone="{replace(@corresp, '#', '')}">
                                                     <xsl:text>Hs. Ergänzung: </xsl:text>
                                                     <xsl:call-template name="note_date">
                                                         <xsl:with-param name="input" select="./text()"/>
@@ -322,7 +322,7 @@
                                         <div id="list_delQP_info" class="visually-hidden"><!-- removed class d-none -->
                                             <xsl:text>Eliminierter Verweis auf </xsl:text>
                                             <xsl:for-each select="./tei:note[@type=('delQuote', 'delPers')]">
-                                                <div class="delQP cursor-pointer">
+                                                <div class="delQP">
                                                     <xsl:variable name="regrefs">
                                                         <xsl:value-of select="tokenize(@corresp, ' ')"/>
                                                     </xsl:variable>
