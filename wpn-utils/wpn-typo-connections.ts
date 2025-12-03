@@ -247,6 +247,7 @@ function highlighting3rdcolumn (event: Event) {
     const target = event.target as HTMLElement;
     const dataLink = target.dataset.link;
     const dataLinkOne = target.dataset.linkone;
+    const dataOverwritten = target.dataset.overwritten;
 
     document.querySelectorAll<HTMLElement>(`.${color}`).forEach((el) => {
 
@@ -336,6 +337,30 @@ function highlighting3rdcolumn (event: Event) {
 
                 }
                 
+                
+            });
+        }
+    });
+
+    const dataOverwrittenList = dataOverwritten ? dataOverwritten.split(" ") : [];
+    
+    dataOverwrittenList.forEach((overwritten) => {
+        // highlight linked elements
+        const overwrittenElements = document.querySelectorAll<HTMLElement>(`.subst.overwrittenAnchor.${overwritten}`);
+        if(overwrittenElements.length > 0) {
+
+            markChildrenAsHighlighted(target, color);
+            target.classList.add(color);
+            
+            overwrittenElements.forEach((el) => {
+
+                el.classList.add(color);
+
+                if (el.classList.contains("note") || el.classList.contains("quotes")) {
+
+                    markChildrenAsHighlighted(el, color);
+
+                }
                 
             });
         }

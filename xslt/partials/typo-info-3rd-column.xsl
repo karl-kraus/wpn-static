@@ -184,11 +184,12 @@
                                     <!-- ########### -->
                                     <!-- textblock 4 -->
                                     <!-- ########### -->
-                                    <xsl:if test="./tei:note[@type=('change', 'printInstruction')]">
+                                    <xsl:if test="./tei:note[@type=('change', 'printInstruction', 'overwritten')]">
                                         <h5 id="btn_more_text_layers" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_more_text_layers">
                                             Weitere Textschichten</h5>
                                         
                                         <ul id="list_more_layers" class="list-unstyled visually-hidden"><!-- removed class d-none -->
+                                            <xsl:if test="./tei:note[@type='change'][not(@corresp=('#edACE', '#typewriter2'))]">
                                             <xsl:for-each select="./tei:note[@type='change'][not(@corresp=('#edACE', '#typewriter2'))]">
                                                 <xsl:variable name="change" select="tokenize(@corresp, ' ')"/>
                                                 <xsl:variable name="corresp">
@@ -212,6 +213,7 @@
                                                     <xsl:value-of select="$creation//id(data($corresp))"/>
                                                 </li>
                                             </xsl:for-each>
+                                            </xsl:if>
                                             <xsl:if test="./tei:note[@type='printInstruction']">
                                                 <xsl:variable name="corresp">
                                                     <xsl:value-of select="replace(./tei:note[@type='printInstruction']/@corresp, '#', '')"/>
@@ -236,6 +238,21 @@
                                                         </xsl:otherwise>
                                                     </xsl:choose>
                                                     </div>
+                                                </li>
+                                            </xsl:if>
+                                            <xsl:if test="./tei:note[@type='overwritten']">
+                                                <li class="cursor-pointer my-1">
+                                                    <label id="btn-corresp-overwritten" class="cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#corresp-fackel-list-overwritten">
+                                                        <xsl:text>Überschreibende Korrekturen</xsl:text>
+                                                    </label>
+                                                    <ul id="list-corresp-overwritten" class="visually-hidden list-unstyled">
+                                                        <xsl:for-each select="./tei:note[@type='overwritten']">
+                                                            <xsl:variable name="corresp" select="replace(@corresp, '#', '')"/>
+                                                            <li class="list_more_text_layers_line" data-overwritten="{$corresp}">
+                                                                <xsl:value-of select="$creation//id(data($corresp))"/>
+                                                            </li>
+                                                        </xsl:for-each>
+                                                    </ul>
                                                 </li>
                                             </xsl:if>
                                             <xsl:if test="./tei:note[@type='printF890']">

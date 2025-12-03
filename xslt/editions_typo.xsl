@@ -451,7 +451,7 @@
     </xsl:template>
     <xsl:template match="tei:subst">
         <xsl:variable name="rend" select="if(@rend)then(@rend)else(if(tei:del[@rend])then(tei:del/@rend)else(tei:add/@rend))"/>
-        <span data-hand="{replace((@change)[1], '#', '')}" class="subst {replace((@change)[1], '#', '')}{if(child::*[$rend='overwritten'])then(' position-relative')else()}"><xsl:apply-templates/></span>
+        <span data-hand="{replace((@change)[1], '#', '')}" class="subst {if($rend='overwritten')then('overwrittenAnchor')else()} {replace((@change)[1], '#', '')}{if(child::*[$rend='overwritten'])then(' position-relative')else()}"><xsl:apply-templates/></span>
     </xsl:template>
     
     <!-- <xsl:template match="tei:ptr[parent::tei:transpose]">

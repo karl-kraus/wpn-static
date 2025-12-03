@@ -148,6 +148,7 @@ initializeDropdown('btn_tpq_info', 'list_tpq_info', allDropdowns);
 initializeDropdown('btn_delQP_info', 'list_delQP_info', allDropdowns);
 initializeDropdown('btn-corresp-fackel', 'corresp-fackel-list', []);
 initializeDropdown('btn-corresp-printInstruction', 'corresp-printInstruction-list', []);
+initializeDropdown('btn-corresp-overwritten', 'list-corresp-overwritten', []);
 
 // View toggle buttons and content columns
 const allcolumnBtn = document.getElementById('allcolumnBtn') as HTMLDivElement | null;
