@@ -255,7 +255,9 @@
                                                             <li class="list_more_text_layers_line">
                                                                 <xsl:for-each select="$regrefs">
                                                                     <xsl:variable name="corresp" select="replace(current(), '#', '')"/>
-                                                                    <xsl:apply-templates select="doc('../../data/indices/Register.xml')//*[@xml:id=$corresp]" mode="typo_short_info"/>
+                                                                    <xsl:apply-templates select="doc('../../data/indices/Register.xml')//*[@xml:id=$corresp]" mode="typo_short_info">
+                                                                        <xsl:with-param name="printType" select="'fackel'"/>
+                                                                    </xsl:apply-templates>
                                                                 </xsl:for-each>
                                                             </li>
                                                             </xsl:if>
@@ -301,18 +303,23 @@
                                         <h5 id="btn_delQP_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_delQP_info">
                                             Inhaltliche Anmerkung</h5>
                                         <div id="list_delQP_info" class="visually-hidden"><!-- removed class d-none -->
+                                            <xsl:text>Eliminierter Verweis auf </xsl:text>
                                             <xsl:for-each select="./tei:note[@type=('delQuote', 'delPers')]">
-                                                <div class="delQP cursor-pointer" data-anchor="{@target}" data-register="{replace(@corresp, '#', '')}">
+                                                <div class="delQP cursor-pointer">
                                                     <xsl:variable name="regrefs">
-                                                        <xsl:value-of select="tokenize(@target, ' ')"/>
+                                                        <xsl:value-of select="tokenize(@corresp, ' ')"/>
                                                     </xsl:variable>
-                                                    <p>Eliminierter Verweis auf 
-                                                        <xsl:for-each select="$regrefs">
-                                                            <xsl:variable name="target" select="replace(current(), '#', '')"/>
-                                                            <xsl:apply-templates select="doc('../../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="short_info"/>
-                                                            <!-- <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="detail_view_textpage" /> -->
-                                                        </xsl:for-each>
-                                                    </p>
+                                                    <xsl:variable name="target">
+                                                        <xsl:value-of select="@target"/>
+                                                    </xsl:variable>
+                                                    <xsl:for-each select="$regrefs">
+                                                        <xsl:variable name="corresp" select="replace(current(), '#', '')"/>
+                                                        <xsl:apply-templates select="doc('../../data/indices/Register.xml')//tei:citedRange[@xml:id=$corresp]" mode="typo_short_info">
+                                                            <xsl:with-param name="printType" select="'register'"/>
+                                                            <xsl:with-param name="datalink" select="concat(replace($target, '#', ''), ' ', replace($corresp, '#', ''))"/>
+                                                        </xsl:apply-templates>
+                                                        <!-- <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="detail_view_textpage" /> -->
+                                                    </xsl:for-each>
                                                 </div>
                                             </xsl:for-each>
                                         </div>

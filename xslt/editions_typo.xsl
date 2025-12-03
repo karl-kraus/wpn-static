@@ -555,10 +555,36 @@
         <span class="unclear"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:citedRange" mode="typo_short_info">
-        <span class="d-inline-block fs-6 ps-3 text-dark-grey d-none quote_signet_background bg-no-repeat bg-position-short-info" data-entity-type="quts">
-            <xsl:text>Die Fackel Nr. 890-905, hier </xsl:text>
-            <xsl:apply-templates/>
+        <xsl:param name="printType" select="'fackel'"/>
+        <xsl:param name="datalink" select="'false'"/>
+        <span class="d-inline-block fs-6 ps-3 text-dark-grey quote_signet_background bg-no-repeat bg-position-short-info">
+            <xsl:if test="$datalink != 'false'">
+            <xsl:attribute name="data-linkone">
+                <xsl:value-of select="$datalink"/>
+            </xsl:attribute>
+            </xsl:if>
+            <xsl:choose>
+                <xsl:when test="$printType='fackel'">
+                    <xsl:text>Die Fackel Nr. 890-905, hier </xsl:text>
+                    <xsl:apply-templates/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <b><i><xsl:value-of select="preceding-sibling::tei:title[@type='short']"/></i></b><xsl:value-of select="concat(' vom ', preceding-sibling::tei:date/text()[1], ', ')"/><xsl:apply-templates/>
+                </xsl:otherwise>
+            </xsl:choose>
             <a class="text-dark-grey text-decoration-none text-wpn-quote-hover" href="{./tei:ref[@type='ext']/@target}">
+                <xsl:choose>
+                    <xsl:when test="$printType='fackel'">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="./tei:ref[@type='ext']/@target"/>
+                        </xsl:attribute>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat('register_intertexte.html', '#', parent::tei:bibl/@xml:id)"/>
+                        </xsl:attribute>
+                    </xsl:otherwise>
+                </xsl:choose>
                 <xsl:call-template name="icon">
                     <xsl:with-param name="icon_name" select="'expand_info'"/>
                 </xsl:call-template>

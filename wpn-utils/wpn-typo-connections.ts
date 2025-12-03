@@ -117,13 +117,10 @@ function highlighting(event: Event) {
     const color = highlightedClass;
     
     const target = event.target as HTMLElement;
-    console.log("Target:", target);
 
     const anchorData = target.dataset.anchor;
-    console.log("Anchor Data:", anchorData);
 
     const targetDataList = target.dataset.target;
-    console.log("Target Data:", targetDataList);
 
     const handDataList = target.dataset.hand;
 
@@ -141,7 +138,6 @@ function highlighting(event: Event) {
 
         if(anchorElements.length > 1) {
 
-            target.classList.remove(color);
             target.classList.add(color);
 
             if (target.classList.contains("note") || target.classList.contains("quotes")) {
@@ -152,7 +148,6 @@ function highlighting(event: Event) {
 
             anchorElements.forEach((el) => {
 
-                el.classList.remove(color);
                 el.classList.add(color);
 
                 if (el.classList.contains("note") || el.classList.contains("quotes")) {
@@ -168,7 +163,6 @@ function highlighting(event: Event) {
         const targetElements = document.querySelectorAll<HTMLElement>(`[data-target~="${data}"]`);
         if (targetElements.length > 0) {
 
-            target.classList.remove(color);
             target.classList.add(color);
 
             if (target.classList.contains("note") || target.classList.contains("quotes")) {
@@ -179,7 +173,6 @@ function highlighting(event: Event) {
 
             targetElements.forEach((el) => {
 
-                el.classList.remove(color);
                 el.classList.add(color);
 
                 if (el.classList.contains("note") || el.classList.contains("quotes")) {
@@ -201,7 +194,6 @@ function highlighting(event: Event) {
 
         if(targetElements.length > 0) {
 
-            target.classList.remove(color);
             target.classList.add(color);
 
             if (target.classList.contains("note") || target.classList.contains("quotes")) {
@@ -212,7 +204,6 @@ function highlighting(event: Event) {
 
             targetElements.forEach((el) => {
 
-                el.classList.remove(color);
                 el.classList.add(color);
 
                 if (el.classList.contains("note") || el.classList.contains("quotes")) {
@@ -235,12 +226,10 @@ function highlighting(event: Event) {
 
         if(handElements.length > 0) {
 
-            target.classList.remove(color);
             target.classList.add(color);
 
             handElements.forEach((el) => {
 
-                el.classList.remove(color);
                 el.classList.add(color);
 
             });
@@ -259,18 +248,16 @@ function highlighting3rdcolumn (event: Event) {
     const dataLink = target.dataset.link;
     const dataLinkOne = target.dataset.linkone;
 
-    if (!dataLink) {
-        document.querySelectorAll<HTMLElement>(`.${color}`).forEach((el) => {
+    document.querySelectorAll<HTMLElement>(`.${color}`).forEach((el) => {
 
-            el.classList.remove(color);
+        el.classList.remove(color);
 
-        });
-        document.querySelectorAll<HTMLElement>(`.${color_line}.active`).forEach((el) => {
+    });
+    document.querySelectorAll<HTMLElement>(`.${color_line}.active`).forEach((el) => {
 
-            el.classList.remove("active");
+        el.classList.remove("active");
 
-        });
-    };
+    });
 
     const dataLinkList = dataLink ? dataLink.split(" ") : [];
 
@@ -281,12 +268,11 @@ function highlighting3rdcolumn (event: Event) {
 
         if(anchorElements.length > 0) {
 
-            target.classList.remove(color);
+            markChildrenAsHighlighted(target, color);
             target.classList.add(color);
 
             anchorElements.forEach((el) => {
 
-                el.classList.remove(color);
                 el.classList.add(color);
             
             });
@@ -298,12 +284,11 @@ function highlighting3rdcolumn (event: Event) {
 
         if(linkedElements.length > 0) {
 
-            target.classList.remove("active");
+            markChildrenAsHighlighted(target, "active");
             target.classList.add("active");
 
             linkedElements.forEach((el) => {
 
-                el.classList.remove("active");
                 el.classList.add("active");
 
                 if (el.classList.contains("note") || el.classList.contains("quotes")) {
@@ -317,8 +302,9 @@ function highlighting3rdcolumn (event: Event) {
                     spanTo.forEach((span) => {
                         const spanToElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${span}"]`);
                         spanToElements.forEach((spanEl) => {
-                            spanEl.classList.remove("active");
+
                             spanEl.classList.add("active");
+
                         });
                     });
                 }
@@ -337,12 +323,11 @@ function highlighting3rdcolumn (event: Event) {
         
         if(linkedElements.length > 0) {
 
-            target.classList.remove(color);
+            markChildrenAsHighlighted(target, color);
             target.classList.add(color);
             
             linkedElements.forEach((el) => {
 
-                el.classList.remove(color);
                 el.classList.add(color);
 
                 if (el.classList.contains("note") || el.classList.contains("quotes")) {
@@ -358,24 +343,6 @@ function highlighting3rdcolumn (event: Event) {
 
 }
 
-// ######################################################
-// Short Info Boxes Toggle
-// ######################################################
-const short_info = document.querySelectorAll<HTMLElement>(".bg-position-short-info");
-short_info.forEach((el) => {
-
-    el.classList.toggle("d-none");
-
-    // el.addEventListener("click", (e) => {
-    //     e.preventDefault();
-
-    //     const box_id = el.querySelector("a")?.href;
-    //     const box = document.getElementById(box_id?.replace('#', 'details_') ?? "");
-    //     box?.classList.toggle("d-none");
-    // });
-
-});
-
 function debounce(func: Function, wait: number) {
     let timeout: number | undefined;
     return function(...args: any[]) {
@@ -389,13 +356,13 @@ function debounce(func: Function, wait: number) {
 }
 
 function markChildrenAsHighlighted(element: HTMLElement, color: string) {
+
     const children = element.querySelectorAll<HTMLElement>("*");
 
     children.forEach((child) => {
 
         if (child instanceof HTMLElement) {
 
-            child.classList.remove(color);
             child.classList.add(color);
 
         }
