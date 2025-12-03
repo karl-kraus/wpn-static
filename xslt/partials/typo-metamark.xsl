@@ -112,13 +112,13 @@
          <xsl:choose>
              <xsl:when test="@rend='above'">
                  <span class="position-relative">
-                     <span class="metamark {@rend} {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                     <span class="metamark {@rend} {replace(@change,'#','')}" data-anchor="{@xml:id} {replace(@corresp, '#', '')}" data-hand="{replace(@change,'#','')}">
                          <xsl:apply-templates/>
                      </span>
                  </span>
              </xsl:when>
              <xsl:otherwise>
-                <span id="{@xml:id}" class="metamark entity {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                <span id="{@xml:id}" class="metamark entity {replace(@change,'#','')}" data-anchor="{@xml:id} {replace(@corresp, '#', '')}" data-hand="{replace(@change,'#','')}">
                     <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
                 </span>
              </xsl:otherwise>
@@ -128,13 +128,13 @@
          <xsl:choose>
              <xsl:when test="@rend='inline'">
                  <span class="position-absolute">
-                     <span class="metamark {@function} {@rend} {replace(@change,'#','')} connection-color-line" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                     <span class="metamark {@function} {@rend} {replace(@change,'#','')} connection-color-line" data-anchor="{@xml:id} {replace(@corresp, '#', '')}" data-hand="{replace(@change,'#','')}">
                          <xsl:apply-templates/>
                      </span>
                  </span>
              </xsl:when>
              <xsl:otherwise>
-                <span id="{@xml:id}" class="metamark entity {@function} {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                <span id="{@xml:id}" class="metamark entity {@function} {replace(@change,'#','')}" data-anchor="{@xml:id} {replace(@corresp, '#', '')}" data-hand="{replace(@change,'#','')}">
                 </span>
              </xsl:otherwise>
          </xsl:choose>

@@ -318,7 +318,27 @@
         </span>
     </xsl:template>
     <xsl:template match="tei:rs[@type=('person','personGroup')]">
-        <span class="persons {substring-after(@rendition, '#')}" data-anchor="{if(parent::tei:del)then(parent::tei:del/@xml:id)else()} {@xml:id}">
+        <span class="persons {substring-after(@rendition, '#')}">
+            <xsl:attribute name="data-anchor">
+                <xsl:choose>
+                    <xsl:when test="parent::tei:del">
+                        <xsl:value-of select="concat(@xml:id, ' ', parent::tei:del/@xml:id)"/>
+                    </xsl:when>
+                    <xsl:when test="parent::tei:add">
+                        <xsl:choose>
+                            <xsl:when test="preceding-sibling::tei:del[1]">
+                                <xsl:value-of select="concat(@xml:id, ' ', preceding-sibling::tei:del[1]/@xml:id)"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="concat(@xml:id, ' ', parent::tei:add/preceding-sibling::tei:del[1]/@xml:id)"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="@xml:id"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:attribute>
             <xsl:apply-templates/>
         </span>
     </xsl:template>
@@ -552,7 +572,14 @@
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:unclear">
-        <span class="unclear"><xsl:apply-templates/></span>
+        <span class="unclear">
+            <xsl:if test="parent::tei:del/@xml:id">
+            <xsl:attribute name="data-anchor">
+                <xsl:value-of select="parent::tei:del/@xml:id"/>
+            </xsl:attribute>
+            </xsl:if>
+            <xsl:apply-templates/>
+        </span>
     </xsl:template>
     <xsl:template match="tei:citedRange" mode="typo_short_info">
         <xsl:param name="printType" select="'fackel'"/>
