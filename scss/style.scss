@@ -1842,6 +1842,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   font-size: 0.667rem;
 }
 
+#legende-pb .restore:has(.underline) {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+}
+
 #legende-pb .seg.border {
   background-image: linear-gradient(lightgrey, lightgrey);
   background-repeat: no-repeat;
@@ -2050,6 +2055,7 @@ handling del elments based on change type
 #textcontent-pb .metamark .restore.undefined del,
 #textcontent-pb .metamark .del.pencilOnTypescript del,
 #textcontent-pb .metamark .del.pencilOnProof del,
+#textcontent-pb .metamark .del.pencilOnProof2 del,
 #textcontent-pb .metamark .del.undefined del,
 #textcontent-pb .mod.pencilOnTypescript,
 #textcontent-pb .mod.pencilOnProof,
@@ -2271,6 +2277,7 @@ handling del elements in maring left or right
 #textcontent-pb .restore .undefined.add,
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
+#textcontent-pb .metamark.pencilOnProof2,
 #textcontent-pb .metamark.undefined  {
   color: #666666;
 }
