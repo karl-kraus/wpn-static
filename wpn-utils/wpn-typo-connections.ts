@@ -298,17 +298,17 @@ function highlighting3rdcolumn (event: Event) {
 
                 }
 
-                const spanTo = el.dataset.spanto?.split(" ");
-                if (spanTo) {
-                    spanTo.forEach((span) => {
-                        const spanToElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${span}"]`);
-                        spanToElements.forEach((spanEl) => {
+                // const spanTo = el.dataset.spanto?.split(" ");
+                // if (spanTo) {
+                //     spanTo.forEach((span) => {
+                //         const spanToElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${span}"]`);
+                //         spanToElements.forEach((spanEl) => {
 
-                            spanEl.classList.add("active");
+                //             spanEl.classList.add("active");
 
-                        });
-                    });
-                }
+                //         });
+                //     });
+                // }
 
             });
             

@@ -262,7 +262,7 @@
                                                     </label>
                                                     <ul id="corresp-fackel-list" class="visually-hidden list-unstyled">
                                                         <xsl:for-each select="./tei:note[@type='printF890']">
-                                                            <li class="list_more_text_layers_line" data-link="{replace(@corresp, '#', '')}">
+                                                            <li class="list_more_text_layers_line" data-link="{replace(@target, '#', '')}">
                                                                 <xsl:value-of select="./text()"/>
                                                             </li>
                                                             <xsl:variable name="regrefs">
