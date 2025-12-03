@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:local="http://dse-static.foo.bar"
     xmlns:wpn="https://wpn.acdh.oeaw.ac.at" version="2.0" exclude-result-prefixes="wpn xsl xs tei">
 
     <xsl:output encoding="UTF-8" method="xml" version="1.0"
@@ -28,14 +29,13 @@
          </TEI>
     </xsl:template>
     <xsl:template match="tei:bibl">
+            <xsl:variable name="id" select="@xml:id"/>
             <xsl:element name="bibl" namespace="http://www.tei-c.org/ns/1.0">
                 <xsl:copy-of
                     select="@*| node()"
                 />
                 <xsl:for-each select="tei:citedRange">
-                    <xsl:variable name="referenced">
-                        <xsl:apply-templates select="current()" mode="references"/>
-                    </xsl:variable>
+                    <xsl:variable name="referenced" select="local:get-references(current())" as="xs:string*"/>
                     <listRef>
                         <xsl:for-each select="$referenced">
                             <xsl:copy-of select="$quotes//*[@source='#'||current()]"/>
@@ -49,15 +49,8 @@
                 </index>
             </xsl:element>
     </xsl:template>
-    <xsl:template match="tei:citedRange" mode="references">
-        <xsl:variable name="id" select="@xml:id"/>
-        <xsl:choose>
-            <xsl:when test="root()//tei:citedRange[tei:ref[@target='#'||$id]]">
-                <xsl:apply-templates select="root()//tei:citedRange[tei:ref[@target='#'||$id]]" mode="references"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="$id"/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
+    <xsl:function name="local:get-references" as="xs:string*">
+        <xsl:param name="node"/>
+        <xsl:sequence select="($node/@xml:id), for $cr in document('../data/indices/Register.xml')//tei:citedRange[tei:ref[@target='#'||$node/@xml:id]] return local:get-references($cr)"/>
+    </xsl:function>
 </xsl:stylesheet>

@@ -214,41 +214,60 @@
     <xsl:template match="tei:bibl" mode="kwic">
         <details class="border-bottom border-light-grey pb-1 mt-1">
             <summary class="d-flex align-items-baseline">Textstellen</summary>
-            <div id="{'kwics_'||@xml:id}">
-                <xsl:for-each select="descendant::tei:quote">
-                    <xsl:variable name="kwic_hit"
-                        select="collection('../../data/merged?select=*.html')//span[@id = current()/@xml:id]"/>
-                    <xsl:variable name="prev_text"
-                        select="string($kwic_hit/string-join(preceding::text()))"/>
-                    <xsl:variable name="following_text"
-                        select="string($kwic_hit/string-join(following::text()))"/>
-                    <xsl:variable name="kwic_left"
-                        select="substring($prev_text, string-length($prev_text) - 56)"/>
-                    <xsl:variable name="kwic_right" select="substring($following_text, 1, 56)"/>
-                    <div class="text-kwic-grey d-flex justify-content-between align-items-end position-relative">
-                        <div class="kwic-wrapper w-80 ff-crimson-text p-08 hide-comments">
-                            <xsl:if test="string-length($kwic_left) > 0">
-                                <span class="text-light-grey">
-                                    <xsl:copy-of select="'...' || $kwic_left"/>
+            <xsl:variable name="results">
+                <result id="{'kwics_'||@xml:id}">
+                <hits>
+                    <xsl:for-each select="descendant::tei:quote">
+                        <xsl:variable name="kwic_hit"
+                            select="collection('../../data/merged?select=*.html')//span[@id = current()/@xml:id]"/>
+                        <xsl:variable name="prev_text"
+                            select="string($kwic_hit/string-join(preceding::text()))"/>
+                        <xsl:variable name="following_text"
+                            select="string($kwic_hit/string-join(following::text()))"/>
+                        <xsl:variable name="kwic_left"
+                            select="substring($prev_text, string-length($prev_text) - 56)"/>
+                        <xsl:variable name="kwic_right" select="substring($following_text, 1, 56)"/>
+                        <xsl:variable name="label" select="$kwic_hit/ancestor::body/@data-label"/>
+                        <xsl:variable name="teiid" select="$kwic_hit/ancestor::body/@data-teiid"/>
+                        <xsl:variable name="source_file" select="$teiid||'.html'"/>
+                        <xsl:variable name="position" select="if (starts-with($teiid,'absatz')) then replace($teiid,'absatz_','') else 0"/>
+                        <xsl:variable name="path" select="$source_file||'#'||current()/@xml:id"/>
+                      <hit prev="{substring($prev_text, string-length($prev_text) - 56)}" following="{substring($following_text, 1, 56)}" label="{$label}" pos="{$position}" path="{$path}">
+                         <xsl:copy-of select="collection('../../data/merged?select=*.html')//span[@id = current()/@xml:id]"/>
+                      </hit>
+                    </xsl:for-each>
+                      </hits>
+                </result>
+            </xsl:variable>
+            <xsl:for-each select="$results//result">
+                <div id="{current()/@id}">
+                    <xsl:for-each select="current()/hits//hit">
+                        <xsl:sort select="@pos"/>
+                        <div class="text-kwic-grey d-flex justify-content-between align-items-end position-relative">
+                            <div class="kwic-wrapper w-80 ff-crimson-text p-08 hide-comments">
+                                <xsl:if test="string-length(current()/@prev) > 0">
+                                    <span class="text-light-grey">
+                                        <xsl:copy-of select="'...' || current()/@prev"/>
+                                    </span>
+                                </xsl:if>
+                                <span class="text-kwic-grey">
+                                    <xsl:copy-of select="current()"/>
                                 </span>
-                            </xsl:if>
-                            <span class="text-kwic-grey">
-                                <xsl:copy-of select="$kwic_hit"/>
-                            </span>
-                            <xsl:if test="string-length($kwic_right) > 0">
-                                <span class="text-light-grey">
-                                    <xsl:copy-of select="$kwic_right || '...'"/>
-                                </span>
-                            </xsl:if>
+                                <xsl:if test="string-length(current()/@following) > 0">
+                                    <span class="text-light-grey">
+                                        <xsl:copy-of select="current()/@following || '...'"/>
+                                    </span>
+                                </xsl:if>
+                            </div>
+                            <div>
+                                <a href="{current()/@path}" class="text-decoration-none link-dark-grey stretched-link ff-ubuntu m-0 p-08">
+                                <xsl:value-of select="current()/@label"/>
+                            </a>
+                            </div>
                         </div>
-                        <div>
-                            <a href="{$kwic_hit/ancestor::body/@data-teiid||'.html#'||current()/@xml:id}" class="text-decoration-none link-dark-grey stretched-link ff-ubuntu m-0 p-08">
-                            <xsl:value-of select="$kwic_hit/ancestor::body/@data-label"/>
-                        </a>
-                        </div>
-                    </div>
-                </xsl:for-each>
-            </div>
+                    </xsl:for-each>
+                </div>
+            </xsl:for-each>
         </details>
     </xsl:template>
     <!-- template for the list view entries needed in the intertext register -->
