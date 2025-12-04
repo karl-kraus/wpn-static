@@ -292,7 +292,7 @@
         <span class="comments" data-anchor="{@xml:id}"></span>
     </xsl:template>
     <xsl:template match="tei:fw">
-        <span style="z-index:99;" class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}" data-hand="fw-{replace(@change,'#','')}">
+        <span style="z-index:99;" class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}" data-hand="fw-{replace(@change,'#','')} {replace(@change,'#','')}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
