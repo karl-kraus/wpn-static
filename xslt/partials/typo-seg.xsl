@@ -12,11 +12,11 @@
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="seg transposition border {replace(@change, '#', '')}">
-                    <span data-anchor="{@xml:id}" class="border-crossed-out"><xsl:apply-templates/></span>
+                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="border-crossed-out"><xsl:apply-templates/></span>
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="seg transposition border {replace(@change, '#', '')}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="seg transposition border {replace(@change, '#', '')}" data-hand="{replace(@change,'#','')}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
