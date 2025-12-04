@@ -186,7 +186,7 @@
                                     <!-- ########### -->
                                     <xsl:if test="./tei:note[@type=('change', 'printInstruction', 'overwritten')]">
                                         <h5 id="btn_more_text_layers" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_more_text_layers">
-                                            Weitere Textschichten</h5>
+                                            Bearbeitungsschichten</h5>
                                         
                                         <ul id="list_more_layers" class="list-unstyled visually-hidden"><!-- removed class d-none -->
                                             <xsl:if test="./tei:note[@type='change'][not(@corresp=('#edACE', '#typewriter2'))]">
