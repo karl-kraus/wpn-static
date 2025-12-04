@@ -5,6 +5,7 @@
         <xsl:map>
             <xsl:map-entry key="'index.xml'" select="('style')"/>
             <xsl:map-entry key="'projekt.xml'" select="('style')"/>
+            <xsl:map-entry key="'edition.xml'" select="('style')"/>
             <xsl:map-entry key="'annotierte_lesefassung.xml'" select="('style')"/>
             <xsl:map-entry key="'topographical.xml'" select="('style')"/>
             <xsl:map-entry key="'impressum.xml'" select="('style')"/>

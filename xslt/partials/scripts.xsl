@@ -5,6 +5,7 @@
         <xsl:map>
             <xsl:map-entry key="'index.xml'" select="('wpn-header','wpn-scroll-button')"/>
             <xsl:map-entry key="'projekt.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
+            <xsl:map-entry key="'edition.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'annotierte_lesefassung.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'topographical.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'impressum.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
