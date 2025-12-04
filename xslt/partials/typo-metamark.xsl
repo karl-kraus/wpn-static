@@ -180,7 +180,7 @@
                  </span>
              </xsl:when>
              <xsl:otherwise>
-                <span id="{@xml:id}" class="metamark entity {@function} {replace(@change,'#','')} connection-color-line" data-hand="{replace(@change,'#','')}">
+                <span id="{@xml:id}" class="metamark entity {@function} {replace(@change,'#','')}" data-hand="{replace(@change,'#','')}">
                     <xsl:attribute name="data-anchor">
                         <xsl:value-of select="@xml:id"/>
                         <xsl:if test="@corresp">
