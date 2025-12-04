@@ -272,9 +272,16 @@
                                                             <li class="list_more_text_layers_line">
                                                                 <xsl:for-each select="$regrefs">
                                                                     <xsl:variable name="corresp" select="replace(current(), '#', '')"/>
-                                                                    <xsl:apply-templates select="doc('../../data/indices/Register.xml')//*[@xml:id=$corresp]" mode="typo_short_info">
-                                                                        <xsl:with-param name="printType" select="'fackel'"/>
-                                                                    </xsl:apply-templates>
+                                                                    <xsl:choose>
+                                                                        <xsl:when test="$corresp = 'none'">
+                                                                            <xsl:text>Keine Entsprechung in der Fackel Nr. 890-905.</xsl:text>
+                                                                        </xsl:when>
+                                                                        <xsl:otherwise>
+                                                                            <xsl:apply-templates select="doc('../../data/indices/Register.xml')//*[@xml:id=$corresp]" mode="typo_short_info">
+                                                                                <xsl:with-param name="printType" select="'fackel'"/>
+                                                                            </xsl:apply-templates>
+                                                                        </xsl:otherwise>
+                                                                    </xsl:choose>
                                                                 </xsl:for-each>
                                                             </li>
                                                             </xsl:if>
