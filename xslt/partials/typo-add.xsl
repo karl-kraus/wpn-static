@@ -89,14 +89,31 @@
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:add[not(parent::tei:subst) and not(parent::tei:restore)]">
+        <xsl:variable name="inheritIDfromNote" select="if(ancestor::tei:note[@xml:id])then(ancestor::tei:note/@xml:id)else()"/>
         <xsl:choose>
             <xsl:when test="@rend = 'inline'">
-                <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}">
+                <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}">
+                    <xsl:attribute name="data-anchor">
+                        <xsl:value-of select="@xml:id"/>
+                        <xsl:if test="ancestor::tei:note">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="$inheritIDfromNote"/>
+                        </xsl:if>
+                    </xsl:attribute>
                     <xsl:apply-templates/>
                 </span>
             </xsl:when>
             <xsl:when test="@rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
-                <span class="add {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}">&#124;</span>
+                <span class="add {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}">
+                    <xsl:attribute name="data-anchor">
+                        <xsl:value-of select="@xml:id"/>
+                        <xsl:if test="ancestor::tei:note">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="$inheritIDfromNote"/>
+                        </xsl:if>
+                    </xsl:attribute>
+                    <xsl:text>&#124;</xsl:text>
+                </span>
                 <span class="position-relative">
                     <xsl:variable name="el">
                         <xsl:choose>
@@ -119,18 +136,34 @@
                 </span>
             </xsl:when>
             <xsl:when test="not(@rend)">
-                <span id="{@xml:id}" class="add connect entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}">
+                <span id="{@xml:id}" class="add connect entity {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}">
                     <xsl:if test="./tei:metamark[@target]">
                         <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
                             <xsl:value-of select="for $i in $targetList return substring-after($i, '#')"/>
                         </xsl:attribute>
                     </xsl:if>
+                    <xsl:attribute name="data-anchor">
+                        <xsl:value-of select="@xml:id"/>
+                        <xsl:if test="ancestor::tei:note">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="$inheritIDfromNote"/>
+                        </xsl:if>
+                    </xsl:attribute>
                     <xsl:text>&#124;</xsl:text>
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
+                <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}">
+                    <xsl:attribute name="data-anchor">
+                        <xsl:value-of select="@xml:id"/>
+                        <xsl:if test="ancestor::tei:note">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="$inheritIDfromNote"/>
+                        </xsl:if>
+                    </xsl:attribute>
+                    <xsl:text>&#124;</xsl:text>
+                </span>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>

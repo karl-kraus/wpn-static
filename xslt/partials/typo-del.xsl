@@ -56,34 +56,96 @@
         <!-- <xsl:variable name="change" select="replace((parent::tei:subst/@change)[1], '#', '')"/> -->
         <xsl:variable name="targetorfalse" select="if(parent::tei:subst[./tei:add[./tei:metamark[@target]]])then(parent::tei:subst/tei:add/tei:metamark/@target)else('false')"/>
         <xsl:variable name="target" select="if($targetorfalse!='false')then(replace($targetorfalse, '#', ''))else('false')"/>
+        <xsl:variable name="inheritIDfromAddDel" select="
+            if(ancestor::tei:add)
+            then(
+                if(ancestor::tei:add/preceding-sibling::tei:del)
+                    then(ancestor::tei:add/preceding-sibling::tei:del/@xml:id)
+                else if(ancestor::tei:add/following-sibling::tei:del)
+                    then(ancestor::tei:add/following-sibling::tei:del/@xml:id)
+                else()
+            )
+            else()"/>
+        <xsl:variable name="inheritIDfromNote" select="
+            if(ancestor::tei:note)
+            then(ancestor::tei:note/@xml:id)
+            else()"/>
         <xsl:choose>
             <xsl:when test="$rend='overwritten'">
-                <span class="del text-black-grey" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="del text-black-grey">
+                    <xsl:attribute name="data-anchor">
+                        <xsl:value-of select="@xml:id"/>
+                        <xsl:if test="ancestor::tei:add">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="$inheritIDfromAddDel"/>
+                        </xsl:if>
+                        <xsl:if test="ancestor::tei:note">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="$inheritIDfromNote"/>
+                        </xsl:if>
+                    </xsl:attribute>
+                    <xsl:apply-templates/>
+                </span>
             </xsl:when>
             <xsl:when test="$rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
-                <del class="del" data-anchor="{@xml:id}"><xsl:apply-templates/></del>
+                <del class="del">
+                    <xsl:attribute name="data-anchor">
+                        <xsl:value-of select="@xml:id"/>
+                        <xsl:if test="ancestor::tei:add">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="$inheritIDfromAddDel"/>
+                        </xsl:if>
+                        <xsl:if test="ancestor::tei:note">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="$inheritIDfromNote"/>
+                        </xsl:if>
+                    </xsl:attribute>
+                    <xsl:apply-templates/>
+                </del>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="child::tei:*">
-                        <del id="{@xml:id}" class="del entity" data-anchor="{@xml:id}">
+                        <del id="{@xml:id}" class="del entity">
                             <xsl:if test="$target!='false'">
                                 <xsl:attribute name="data-target">
                                     <xsl:value-of select="$target"/>
                                 </xsl:attribute>
                             </xsl:if>
+                            <xsl:attribute name="data-anchor">
+                                <xsl:value-of select="@xml:id"/>
+                                <xsl:if test="ancestor::tei:add">
+                                    <xsl:text> </xsl:text>
+                                    <xsl:value-of select="$inheritIDfromAddDel"/>
+                                </xsl:if>
+                                <xsl:if test="ancestor::tei:note">
+                                    <xsl:text> </xsl:text>
+                                    <xsl:value-of select="$inheritIDfromNote"/>
+                                </xsl:if>
+                            </xsl:attribute>
                             <xsl:apply-templates/>
                         </del>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:choose>
                             <xsl:when test="count(node())=1 and text()=' ' and not(@resp)">
-                                <del id="{@xml:id}" class="entity" data-anchor="{@xml:id}">
+                                <del id="{@xml:id}" class="entity">
                                     <xsl:if test="$target!='false'">
                                         <xsl:attribute name="data-target">
                                             <xsl:value-of select="$target"/>
                                         </xsl:attribute>
                                     </xsl:if>
+                                    <xsl:attribute name="data-anchor">
+                                        <xsl:value-of select="@xml:id"/>
+                                        <xsl:if test="ancestor::tei:add">
+                                            <xsl:text> </xsl:text>
+                                            <xsl:value-of select="$inheritIDfromAddDel"/>
+                                        </xsl:if>
+                                        <xsl:if test="ancestor::tei:note">
+                                            <xsl:text> </xsl:text>
+                                            <xsl:value-of select="$inheritIDfromNote"/>
+                                        </xsl:if>
+                                    </xsl:attribute>
                                     <xsl:text>&#x20;</xsl:text>
                                 </del>
                             </xsl:when>
@@ -92,12 +154,23 @@
                                     <!-- <xsl:when test="starts-with(., ' ') and ends-with(., ' ')">
                                         <span class="del">
                                             <xsl:text>&#xA0;</xsl:text>
-                                            <del id="{@xml:id}" class="entity" data-anchor="{@xml:id}">
+                                            <del id="{@xml:id}" class="entity">
                                                 <xsl:if test="$target!='false'">
                                                     <xsl:attribute name="data-target">
                                                         <xsl:value-of select="$target"/>
                                                     </xsl:attribute>
                                                 </xsl:if>
+                                                <xsl:attribute name="data-anchor">
+                                                    <xsl:value-of select="@xml:id"/>
+                                                    <xsl:if test="ancestor::tei:adde">
+                                                        <xsl:text> </xsl:text>
+                                                        <xsl:value-of select="$inheritIDfromAddDel"/>
+                                                    </xsl:if>
+                                                    <xsl:if test="ancestor::tei:note">
+                                                        <xsl:text> </xsl:text>
+                                                        <xsl:value-of select="$inheritIDfromNote"/>
+                                                    </xsl:if>
+                                                </xsl:attribute>
                                                 <xsl:value-of select="normalize-space(.)"/>
                                             </del>
                                             <xsl:text>&#xA0;</xsl:text>
@@ -106,33 +179,66 @@
                                     <xsl:when test="starts-with(., ' ')">
                                         <span class="del">
                                             <xsl:text>&#xA0;</xsl:text>
-                                            <del id="{@xml:id}" class="entity" data-anchor="{@xml:id}">
+                                            <del id="{@xml:id}" class="entity">
                                                 <xsl:if test="$target!='false'">
                                                     <xsl:attribute name="data-target">
                                                         <xsl:value-of select="$target"/>
                                                     </xsl:attribute>
                                                 </xsl:if>
+                                                <xsl:attribute name="data-anchor">
+                                                    <xsl:value-of select="@xml:id"/>
+                                                    <xsl:if test="ancestor::tei:add">
+                                                        <xsl:text> </xsl:text>
+                                                        <xsl:value-of select="$inheritIDfromAddDel"/>
+                                                    </xsl:if>
+                                                    <xsl:if test="ancestor::tei:note">
+                                                        <xsl:text> </xsl:text>
+                                                        <xsl:value-of select="$inheritIDfromNote"/>
+                                                    </xsl:if>
+                                                </xsl:attribute>
                                                 <xsl:value-of select="normalize-space(.)"/>
                                             </del>
                                         </span>
                                     </xsl:when>
                                     <xsl:when test="ends-with(., ' ')">
-                                        <del id="{@xml:id}" class="entity" data-anchor="{@xml:id}">
+                                        <del id="{@xml:id}" class="entity">
                                             <xsl:if test="$target!='false'">
                                                 <xsl:attribute name="data-target">
                                                     <xsl:value-of select="$target"/>
                                                 </xsl:attribute>
                                             </xsl:if>
+                                            <xsl:attribute name="data-anchor">
+                                                <xsl:value-of select="@xml:id"/>
+                                                <xsl:if test="ancestor::tei:add">
+                                                    <xsl:text> </xsl:text>
+                                                    <xsl:value-of select="$inheritIDfromAddDel"/>
+                                                </xsl:if>
+                                                <xsl:if test="ancestor::tei:note">
+                                                    <xsl:text> </xsl:text>
+                                                    <xsl:value-of select="$inheritIDfromNote"/>
+                                                </xsl:if>
+                                            </xsl:attribute>
                                             <xsl:value-of select="normalize-space(.)"/>
                                         </del><xsl:text>&#xA0;</xsl:text>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <del id="{@xml:id}" class="entity" data-anchor="{@xml:id}">
+                                        <del id="{@xml:id}" class="entity">
                                             <xsl:if test="$target!='false'">
                                                 <xsl:attribute name="data-target">
                                                     <xsl:value-of select="$target"/>
                                                 </xsl:attribute>
                                             </xsl:if>
+                                            <xsl:attribute name="data-anchor">
+                                                <xsl:value-of select="@xml:id"/>
+                                                <xsl:if test="ancestor::tei:add">
+                                                    <xsl:text> </xsl:text>
+                                                    <xsl:value-of select="$inheritIDfromAddDel"/>
+                                                </xsl:if>
+                                                <xsl:if test="ancestor::tei:note">
+                                                    <xsl:text> </xsl:text>
+                                                    <xsl:value-of select="$inheritIDfromNote"/>
+                                                </xsl:if>
+                                            </xsl:attribute>
                                             <xsl:value-of select="normalize-space(.)"/>
                                         </del>
                                     </xsl:otherwise>
@@ -167,10 +273,16 @@
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:del[parent::tei:add]">
+        <xsl:variable name="inheritIDfromAddDel" select="
+            if(parent::tei:add/preceding-sibling::tei:del)
+            then(parent::tei:add/preceding-sibling::tei:del/@xml:id)
+            else if(parent::tei:add/following-sibling::tei:del)
+            then(parent::tei:add/following-sibling::tei:del/@xml:id)
+            else()"/>
         <xsl:choose>
             <xsl:when test="@rend='left'">
                 <span class="del {replace((@change)[1], '#', '')}">
-                    <del data-anchor="{@xml:id}"><xsl:value-of select="normalize-space(.)"/></del>
+                    <del data-anchor="{@xml:id} {$inheritIDfromAddDel}"><xsl:value-of select="normalize-space(.)"/></del>
                 </span>
                 <span class="position-relative">
                    <span data-hand="{replace(@change, '#', '')}" class="del {@rend} {replace(@change, '#', '')}"><xsl:text>&#124;&#xA0;</xsl:text><span data-hand="{replace(@change, '#', '')}" class="arimo"><xsl:text>&#8368;</xsl:text></span></span>
@@ -180,12 +292,16 @@
                 <xsl:choose>
                     <xsl:when test="ancestor::tei:del">
                         <span class="{replace((@change)[1], '#', '')}">
-                            <span data-anchor="{@xml:id}" data-hand="{replace((@change)[1], '#', '')}"><xsl:apply-templates/></span>
+                            <span data-anchor="{@xml:id} {$inheritIDfromAddDel}" data-hand="{replace((@change)[1], '#', '')}">
+                                <xsl:apply-templates/>
+                            </span>
                         </span>
                     </xsl:when>
                     <xsl:otherwise>
                         <span class="{replace((@change)[1], '#', '')}">
-                            <del data-anchor="{@xml:id}" data-hand="{replace((@change)[1], '#', '')}"><xsl:apply-templates/></del>
+                            <del data-anchor="{@xml:id} {$inheritIDfromAddDel}" data-hand="{replace((@change)[1], '#', '')}">
+                                <xsl:apply-templates/>
+                            </del>
                         </span>
                     </xsl:otherwise>
                 </xsl:choose>
@@ -193,24 +309,28 @@
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:del[parent::tei:restore]">
-         <xsl:choose>
+        <xsl:variable name="inheritIDfromNote" select="
+            if(ancestor::tei:note)
+            then(ancestor::tei:note/@xml:id)
+            else()"/>
+        <xsl:choose>
             <xsl:when test="parent::tei:restore[not(@rend='marginOnly')]">
                <span id="{@xml:id}" class="del entity text-decoration-underline-dotted">
-                    <del data-anchor="{@xml:id}"><xsl:apply-templates/></del>
+                    <del data-anchor="{@xml:id} {$inheritIDfromNote}"><xsl:apply-templates/></del>
                 </span>
             </xsl:when>
              <xsl:when test="parent::tei:restore[not(@rend='marginOnly')] and text()[string-length(.)=1]">
                <span id="{@xml:id}" class="del entity text-decoration-underline-dotted single-char">
-                    <del data-anchor="{@xml:id}"><xsl:apply-templates/></del>
+                    <del data-anchor="{@xml:id} {$inheritIDfromNote}"><xsl:apply-templates/></del>
                 </span>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="ancestor::tei:del">
-                        <span id="{@xml:id}" class="del entity" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
+                        <span id="{@xml:id} {$inheritIDfromNote}" class="del entity" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
                     </xsl:when>
                     <xsl:otherwise>
-                        <del id="{@xml:id}" class="del entity" data-anchor="{@xml:id}"><xsl:apply-templates/></del>
+                        <del id="{@xml:id} {$inheritIDfromNote}" class="del entity" data-anchor="{@xml:id}"><xsl:apply-templates/></del>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:otherwise>

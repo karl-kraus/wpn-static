@@ -637,10 +637,32 @@
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:unclear">
+        <xsl:variable name="inheritIDfromAddDel" select="
+            if(ancestor::tei:add)
+            then(
+                if(ancestor::tei:add/preceding-sibling::tei:del)
+                    then(ancestor::tei:add/preceding-sibling::tei:del/@xml:id)
+                else if(ancestor::tei:add/following-sibling::tei:del)
+                    then(ancestor::tei:add/following-sibling::tei:del/@xml:id)
+                else()
+            )
+            else()"/>
+        <xsl:variable name="inheritIDfromNote" select="
+            if(ancestor::tei:note)
+            then(ancestor::tei:note/@xml:id)
+            else()"/>
         <span class="unclear">
             <xsl:if test="parent::tei:del/@xml:id">
             <xsl:attribute name="data-anchor">
                 <xsl:value-of select="parent::tei:del/@xml:id"/>
+                <xsl:if test="ancestor::tei:add">
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="$inheritIDfromAddDel"/>
+                </xsl:if>
+                <xsl:if test="ancestor::tei:note">
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="$inheritIDfromNote"/>
+                </xsl:if>
             </xsl:attribute>
             </xsl:if>
             <xsl:apply-templates/>

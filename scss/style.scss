@@ -3136,11 +3136,11 @@ body.modal-open, body.modal-open main {
 }
 
 
-#textcontent-pb .note::before {
-  content: "[n:]";
-  font-family: var(--bs-handwritten-font-family-italic);
-  font-size: 5pt;
-}
+// #textcontent-pb .note::before {
+//   content: "[n:]";
+//   font-family: var(--bs-handwritten-font-family-italic);
+//   font-size: 5pt;
+// }
 
 /** pagination **/
 .dropdown-toggle::after {
