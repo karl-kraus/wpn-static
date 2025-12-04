@@ -301,11 +301,21 @@
             if(ancestor::tei:note)
             then(ancestor::tei:note/@xml:id)
             else()"/>
+        <xsl:variable name="inheritChangefromNote" select="
+            if(ancestor::tei:note)
+            then(ancestor::tei:note/@change)
+            else()"/>
         <span class="hidden">
-            <xsl:if test="ancestor::tei:note">
+            <xsl:if test="ancestor::tei:note/@xml:id">
             <xsl:attribute name="data-anchor">
                 <xsl:text> </xsl:text>
                 <xsl:value-of select="$inheritIDfromNote"/>
+            </xsl:attribute>
+            </xsl:if>
+            <xsl:if test="ancestor::tei:note/@change">
+            <xsl:attribute name="data-hand">
+                <xsl:text> </xsl:text>
+                <xsl:value-of select="replace($inheritChangefromNote, '#', '')"/>
             </xsl:attribute>
             </xsl:if>
             <xsl:apply-templates/>
