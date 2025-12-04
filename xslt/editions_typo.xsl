@@ -297,7 +297,19 @@
         </span>
     </xsl:template>
     <xsl:template match="tei:app">
-        <span class="hidden"><xsl:apply-templates/></span>
+        <xsl:variable name="inheritIDfromNote" select="
+            if(ancestor::tei:note)
+            then(ancestor::tei:note/@xml:id)
+            else()"/>
+        <span class="hidden">
+            <xsl:if test="ancestor::tei:note">
+            <xsl:attribute name="data-anchor">
+                <xsl:text> </xsl:text>
+                <xsl:value-of select="$inheritIDfromNote"/>
+            </xsl:attribute>
+            </xsl:if>
+            <xsl:apply-templates/>
+        </span>
     </xsl:template>
     <xsl:template match="tei:lg">
         <span class="d-block lg {replace(@rendition,'#','')}"><xsl:apply-templates/></span>      
