@@ -79,7 +79,7 @@
                             <xsl:text> </xsl:text>
                             <xsl:value-of select="$inheritIDfromAddDel"/>
                         </xsl:if>
-                        <xsl:if test="ancestor::tei:note">
+                        <xsl:if test="ancestor::tei:note and count(ancestor::tei:add)=1 and ancestor::tei:add[@rend!=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')]">
                             <xsl:text> </xsl:text>
                             <xsl:value-of select="$inheritIDfromNote"/>
                         </xsl:if>
@@ -95,10 +95,10 @@
                             <xsl:text> </xsl:text>
                             <xsl:value-of select="$inheritIDfromAddDel"/>
                         </xsl:if>
-                        <xsl:if test="ancestor::tei:note">
+                        <!-- <xsl:if test="ancestor::tei:note and count(ancestor::tei:add)=1 and ancestor::tei:add[@rend!=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')]">
                             <xsl:text> </xsl:text>
                             <xsl:value-of select="$inheritIDfromNote"/>
-                        </xsl:if>
+                        </xsl:if> -->
                     </xsl:attribute>
                     <xsl:apply-templates/>
                 </del>
@@ -118,7 +118,7 @@
                                     <xsl:text> </xsl:text>
                                     <xsl:value-of select="$inheritIDfromAddDel"/>
                                 </xsl:if>
-                                <xsl:if test="ancestor::tei:note">
+                                <xsl:if test="ancestor::tei:note and count(ancestor::tei:add)=1 and ancestor::tei:add[@rend!=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')]">
                                     <xsl:text> </xsl:text>
                                     <xsl:value-of select="$inheritIDfromNote"/>
                                 </xsl:if>
@@ -141,7 +141,7 @@
                                             <xsl:text> </xsl:text>
                                             <xsl:value-of select="$inheritIDfromAddDel"/>
                                         </xsl:if>
-                                        <xsl:if test="ancestor::tei:note">
+                                        <xsl:if test="ancestor::tei:note and count(ancestor::tei:add)=1 and ancestor::tei:add[@rend!=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')]">
                                             <xsl:text> </xsl:text>
                                             <xsl:value-of select="$inheritIDfromNote"/>
                                         </xsl:if>
@@ -166,7 +166,7 @@
                                                         <xsl:text> </xsl:text>
                                                         <xsl:value-of select="$inheritIDfromAddDel"/>
                                                     </xsl:if>
-                                                    <xsl:if test="ancestor::tei:note">
+                                                    <xsl:if test="ancestor::tei:note and count(ancestor::tei:add)=1 and ancestor::tei:add[@rend!=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')]">
                                                         <xsl:text> </xsl:text>
                                                         <xsl:value-of select="$inheritIDfromNote"/>
                                                     </xsl:if>
@@ -191,7 +191,7 @@
                                                         <xsl:text> </xsl:text>
                                                         <xsl:value-of select="$inheritIDfromAddDel"/>
                                                     </xsl:if>
-                                                    <xsl:if test="ancestor::tei:note">
+                                                    <xsl:if test="ancestor::tei:note and count(ancestor::tei:add)=1 and ancestor::tei:add[@rend!=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')]">
                                                         <xsl:text> </xsl:text>
                                                         <xsl:value-of select="$inheritIDfromNote"/>
                                                     </xsl:if>
@@ -213,7 +213,7 @@
                                                     <xsl:text> </xsl:text>
                                                     <xsl:value-of select="$inheritIDfromAddDel"/>
                                                 </xsl:if>
-                                                <xsl:if test="ancestor::tei:note">
+                                                <xsl:if test="ancestor::tei:note and count(ancestor::tei:add)=1 and ancestor::tei:add[@rend!=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')]">
                                                     <xsl:text> </xsl:text>
                                                     <xsl:value-of select="$inheritIDfromNote"/>
                                                 </xsl:if>
@@ -234,7 +234,7 @@
                                                     <xsl:text> </xsl:text>
                                                     <xsl:value-of select="$inheritIDfromAddDel"/>
                                                 </xsl:if>
-                                                <xsl:if test="ancestor::tei:note">
+                                                <xsl:if test="ancestor::tei:note and count(ancestor::tei:add)=1 and ancestor::tei:add[@rend!=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')]">
                                                     <xsl:text> </xsl:text>
                                                     <xsl:value-of select="$inheritIDfromNote"/>
                                                 </xsl:if>
