@@ -3131,7 +3131,9 @@ body.modal-open, body.modal-open main {
 }
 
 .metamark.pencilOnProof2 .connection-color-line.active.printSpanFrom,
-.metamark.pencilOnProof2 .connection-color-line.active.printSpanTo {
+.metamark.pencilOnProof2 .connection-color-line.active.printSpanTo,
+.metamark.printSpanTo.active.inline.pencilOnProof2.connection-color-line,
+.metamark.printSpanFrom.active.inline.pencilOnProof2.connection-color-line{
   background: #666666;
 }
 
