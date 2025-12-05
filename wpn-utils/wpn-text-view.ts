@@ -54,8 +54,10 @@ class WPNTextView extends HTMLElement {
 			this.onLoadFinished(annotationSelectors);
 		});
 		[...document.getElementsByTagName("annotation-slider")].forEach((aos) => {
+			const annotClassName = [...aos.classList].find((cn) => cn.startsWith("text-wpn"));
+      const entityName = annotClassName?.replace("text-wpn-",''); 
 			aos.addEventListener("click", () => {
-				 document.querySelectorAll("wpn-entity[class*='_active']").forEach(el=>{
+				 document.querySelectorAll(`wpn-entity[class*='annot_${entityName}_active']`).forEach(el=>{
           const annotationActiveClassName = [...el.classList].find(cn => cn.endsWith("_active"));
           if (annotationActiveClassName) {
             el.classList.remove(annotationActiveClassName);
