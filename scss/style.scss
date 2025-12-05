@@ -1820,7 +1820,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #legende-pb .redOnProof {
-  color: #FC7A57;
+  color: $wpn-red;
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
   font-size: 0.667rem;
 }
@@ -1832,7 +1832,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #legende-pb .bluePencilOnProof {
-  color: #4F4Fe2;
+  color: #5050C2;
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
   font-size: 0.667rem;
 }
@@ -2085,7 +2085,7 @@ handling del elments based on change type
 #textcontent-pb .metamark .restore.redOnProof del,
 #textcontent-pb .metamark .del.redOnProof del,
 #textcontent-pb .mod.redOnProof {
-  text-decoration-color: #FC7A57;
+  text-decoration-color: $wpn-red;
 }
 
 #textcontent-pb .subst.inkOnProofKK .del del,
@@ -2307,7 +2307,7 @@ pencil text color
 #textcontent-pb .restore.redOnProofKK .add,
 #textcontent-pb .add.redOnProofKK,
 #textcontent-pb .metamark.redOnProofKK  {
-  color: #FC7A57;
+  color: $wpn-red;
 }
 
 #textcontent-pb div.del.inkOnProofKK,
@@ -2347,7 +2347,7 @@ pencil text color
 }
 
 #textcontent-pb .bluePencilOnProof {
-  color: #4F4Fe2;
+  color: #5050C2;
 }
 
 #textcontent-pb .pencilOnProofKK.inkOnProofKK.add,
