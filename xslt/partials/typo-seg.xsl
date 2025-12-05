@@ -57,6 +57,11 @@
                     </span>
                 </span>
             </xsl:if>
+            <xsl:if test="@rend='border'">
+                <xsl:attribute name="data-hand">
+                    <xsl:value-of select="replace(@change, '#', '')"/>
+                </xsl:attribute>
+            </xsl:if>
             <xsl:apply-templates/>
         </span>
     </xsl:template>
