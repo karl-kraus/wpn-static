@@ -104,28 +104,10 @@
                                 </xsl:for-each>
                                 <wpn-detail-view class="d-none position-absolute top-0 h-100 bg-white w-100">
                                     <div class="d-block position-sticky overflow-y-auto">
-                                        <xsl:for-each select="$regrefs//@target">
+                                        <xsl:for-each select="$regrefs//@target[not(starts-with(.,'insertion'))]">
                                         <xsl:variable name="target" select="current()" />
-                                        <xsl:choose>
-                                            <xsl:when test="starts-with($target,'insertionstart')">
-                                            <xsl:apply-templates
-                                                select="doc('../data/editions/Gesamt.xml')//*[@target=replace($target,'insertionstart_','#')]"
-                                                mode="short_info">
-                                                <xsl:with-param name="reftype" select="'insertionstart'" />
-                                            </xsl:apply-templates>
-                                            </xsl:when>
-                                            <xsl:when test="starts-with($target,'insertionend')">
-                                            <xsl:apply-templates
-                                                select="doc('../data/editions/Gesamt.xml')//*[@target=replace($target,'insertionend_','#')]"
-                                                mode="short_info">
-                                                <xsl:with-param name="reftype" select="'insertionend'" />
-                                            </xsl:apply-templates>
-                                            </xsl:when>
-                                            <xsl:otherwise>
-                                            <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]"
+                                        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]"
                                                 mode="detail_view_textpage" />
-                                            </xsl:otherwise>
-                                        </xsl:choose>
                                         </xsl:for-each>
                                     </div>
                                 </wpn-detail-view>
