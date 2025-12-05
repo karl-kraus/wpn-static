@@ -11,7 +11,7 @@ html/css/*.css
 html/js/wpn_utils/*.js
 /output
 parents.txt
-edition_typo_view.spec.ts-snapshots_v1
+edition_typo_view.spec.ts-snapshots_v*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
