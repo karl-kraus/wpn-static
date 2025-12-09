@@ -42,7 +42,7 @@ const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
 
 // Initial setting of URL parameter
 
-searchParams.set("mode", isMobile ? "inspect" : "explore");
+searchParams.set("mode", isMobile ? "inspect" : "off");
 
 if (isMobile) {
 
@@ -54,10 +54,10 @@ if (isMobile) {
 
 } else {
 
-    console.log("Mode: Explore connections between annotations and text. Loaded!");
+    // console.log("Mode: Explore connections between annotations and text. Loaded!");
 
-    addListener(content!, "mouseover", debounce(highlighting, debounceDelayText));
-    addListener(info!, "mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
+    // addListener(content!, "mouseover", debounce(highlighting, debounceDelayText));
+    // addListener(info!, "mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
     // content?.addEventListener("mouseover", debounce(highlighting, debounceDelayText));
     // info?.addEventListener("mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
 
@@ -72,37 +72,34 @@ setModeButton!.addEventListener("click", () => {
 
     if (setModeButton!.classList.contains("active-view-icon")) {
 
+        if (isMobile) {
+            // on mobile, do nothing, as default is inspect
+            return;
+        }
+
         setModeButton!.style.color = "white";
 
         console.log("Mode: Inspect connections between annotations and text. Loaded!");
 
-        searchParams.set("mode", "inspect");
-        removeAllListeners(content!, "mouseover");
-        // content?.removeEventListener("mouseover", debounce(highlighting, debounceDelayText));
-        addListener(content!, "click", highlighting);
-        // content?.addEventListener("click", highlighting);
+        searchParams.set("mode", "explore");
+        // removeAllListeners(content!, "mouseover");
+        addListener(content!, "mouseover", debounce(highlighting, debounceDelayText));
 
-        removeAllListeners(info!, "mouseover");
-        // info?.removeEventListener("mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
-        addListener(info!, "click", highlighting3rdcolumn);
-        // info?.addEventListener("click", highlighting3rdcolumn);
+        // removeAllListeners(info!, "mouseover");
+        addListener(info!, "mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
 
     } else {
 
         setModeButton!.style.color = "black";
-        console.log("Mode: Explore connections between annotations and text. Loaded!");
+        // console.log("Mode: Explore connections between annotations and text. Loaded!");
 
-        searchParams.set("mode", "explore");
+        searchParams.set("mode", "off");
 
         removeAllListeners(content!, "click");
-        //content?.removeEventListener("click", highlighting);
-        addListener(content!, "mouseover", debounce(highlighting, debounceDelayText));
-        // content?.addEventListener("mouseover", debounce(highlighting, debounceDelayText));
+        // addListener(content!, "mouseover", debounce(highlighting, debounceDelayText));
 
         removeAllListeners(info!, "click");
-        // info?.removeEventListener("click", highlighting3rdcolumn);
-        addListener(info!, "mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
-        // info?.addEventListener("mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
+        // addListener(info!, "mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
 
     }
 
