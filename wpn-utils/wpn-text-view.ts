@@ -34,12 +34,14 @@ class WPNTextView extends HTMLElement {
 	onLoadFinished = (annotationSelectors: string): void =>{
 		let shortInfoElement;
 		if(window.location.hash) {
-			shortInfoElement = document.querySelector(`a[href='${window.location.hash}']`);
-			shortInfoElement?.parentElement?.classList.remove("d-none");
-			const elementInText = document.querySelector(`#textcolumn wpn-entity#${window.location.hash.split("_")[0].substring(1)}`);
-			const annotationClassName = [...elementInText?.classList].find(cn => cn.startsWith("annot_"));
-			const annotationActiveClassName = `${annotationClassName}_active`;
-			elementInText?.classList.replace(annotationClassName,annotationActiveClassName);
+			if (!window.location.hash.startsWith('#pb')) {
+				shortInfoElement = document.querySelector(`a[href='${window.location.hash}']`);
+				shortInfoElement?.parentElement?.classList.remove("d-none");
+				const elementInText = document.querySelector(`#textcolumn wpn-entity#${window.location.hash.split("_")[0].substring(1)}`);
+				const annotationClassName = [...elementInText?.classList].find(cn => cn.startsWith("annot_"));
+				const annotationActiveClassName = `${annotationClassName}_active`;
+				elementInText?.classList.replace(annotationClassName,annotationActiveClassName);
+			}
 		}
 		this.positionElements(annotationSelectors);
 		shortInfoElement?.scrollIntoView({block: "center"});
