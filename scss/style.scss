@@ -1762,6 +1762,11 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   border: none !important;
 }
 
+#textcontent-pb .seg.border:not(:has(br)) {
+  background-size: calc(100% - 0px) 1em;
+  border-radius: 6px;
+}
+
 .border-crossed-out,
 #textcontent-pb .restore>.seg.border {
     background-image: repeating-linear-gradient(330deg, white, white 3px, lightgrey 3px, lightgrey 6px);
