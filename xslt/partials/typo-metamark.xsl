@@ -200,7 +200,18 @@
      <xsl:template match="tei:metamark[@function='printInstruction' or contains(@function, 'printSpan')][@rend]" mode="render">
         <div class="d-flex metamark w-100 position-relative {replace(@change,'#','')} {replace(@rendition,'#','')}" data-xmlid="{@xml:id}">
             <div class="w-100">
-                <span data-hand="{replace(@change,'#','')}" class="{@rend} {@function} {@style} connection-color-line">
+                <span data-hand="{replace(@change,'#','')}">
+                    <xsl:attribute name="class">
+                        <xsl:value-of select="@rend"/>
+                        <xsl:text> </xsl:text>
+                        <xsl:value-of select="@function"/>
+                        <xsl:text> </xsl:text>
+                        <xsl:value-of select="@style"/>
+                        <xsl:text> connection-color-line</xsl:text>
+                        <xsl:if test="ancestor::tei:lg">
+                            <xsl:text> verse-bracket</xsl:text>
+                        </xsl:if>
+                    </xsl:attribute>
                     <!-- <xsl:if test="@corresp">
                         <xsl:attribute name="data-corresp">
                             <xsl:value-of select="replace(@corresp, '#', '')"/>
