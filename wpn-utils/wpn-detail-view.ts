@@ -58,9 +58,11 @@ class WPNDetailView extends HTMLElement {
     
     this.updateDetailView();
     window.addEventListener("hashchange", this.updateDetailView)
+    window.addEventListener("stateChange", this.updateDetailView)
   }
   disconntedCallback() {
     window.removeEventListener("hashchange", this.updateDetailView)
+    window.removeEventListener("stateChange", this.updateDetailView);
   }
 
 }
