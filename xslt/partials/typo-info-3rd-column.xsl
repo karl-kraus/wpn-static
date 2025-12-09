@@ -297,7 +297,7 @@
                                     <!-- ########### -->
                                     <xsl:if test="./tei:note[starts-with(@type, 'tpq')]/text()">
                                         <h5 id="btn_tpq_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_tpq_info">
-                                            Datierung (terminus post quem)</h5>
+                                            Datierung - terminus post quem [BETA]</h5>
                                         <div id="list_tpq_info" class="visually-hidden"><!-- removed class d-none -->
                                             <xsl:for-each select="./tei:note[@type='tpqBase']">
                                                 <p class="tpq" data-linkone="{replace(@corresp, '#', '')}">
