@@ -73,6 +73,9 @@
     <xsl:template match="tei:hi[@rend='sup']">
         <sup style="{@style}"><xsl:apply-templates/></sup>
     </xsl:template>
+    <xsl:template match="tei:hi[@rend='sub']">
+        <sub style="{@style}"><xsl:apply-templates/></sub>
+    </xsl:template>
     <xsl:template match="tei:hi[@rend='strong']">
         <span class="fw-bold"><xsl:apply-templates/></span>
     </xsl:template>
