@@ -199,11 +199,9 @@
                                                         </xsl:when>
                                                         <xsl:otherwise>
                                                             <xsl:for-each select="$change">
-                                                                <xsl:if test=". != '#typewriter'">
-                                                                    <xsl:value-of select="replace(., '#', '')"/>
-                                                                    <xsl:if test="position() != last()">
-                                                                        <xsl:text> </xsl:text>
-                                                                    </xsl:if>
+                                                                <xsl:value-of select="replace(., '#', '')"/>
+                                                                <xsl:if test="position() != last()">
+                                                                    <xsl:text> </xsl:text>
                                                                 </xsl:if>
                                                             </xsl:for-each>
                                                         </xsl:otherwise>
