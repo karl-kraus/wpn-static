@@ -3082,10 +3082,6 @@ body.modal-open, body.modal-open main {
   right: 0;
 }
 
-.connection-color-line.printSpanFrom.verse-bracket:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
-  top: 0.833rem;
-}
-
 .connection-color-line.active.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   background: $wpn-red;
   z-index: -1;
@@ -3121,7 +3117,7 @@ body.modal-open, body.modal-open main {
 }
 
 .connection-color-line.printSpanTo.verse-bracket:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
-  top: -1.666rem;
+  top: -1.4rem;
 }
 
 .connection-color-line.active.printSpanTo:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
