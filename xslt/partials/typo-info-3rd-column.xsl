@@ -80,7 +80,7 @@
                         <img src="images/icon-view-vertical.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"/>
                     </div>
                     <div id="setMode" role="button" class="col p-0_25 cursor-pointer border-light-grey m-visually-hidden align-content-around">
-                        <label class="cursor-pointer" style="font-size:7pt;">Highlight<br/>Mode</label>
+                        <label class="cursor-pointer" style="font-size:7pt;">Highlighting<br/>[BETA]</label>
                     </div>
                 </div>
                 <div class="row flex-row m-0 mx-auto">
