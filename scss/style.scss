@@ -3071,8 +3071,8 @@ body.modal-open, body.modal-open main {
 // }
 
 .connection-color-line.printSpanFrom:not(.inline) {
-  width: 0.5rem;
-  height: 1rem;
+  width: 0.833rem;
+  height: 1.4rem;
   display: block;
   background: transparent;
   position: absolute;
@@ -3087,7 +3087,7 @@ body.modal-open, body.modal-open main {
 
 .connection-color-line.printSpanFrom.inline {
   width: 1.5rem;
-  height: 0.8rem;
+  height: 0.833rem;
   display: block;
   background: transparent;
   position: absolute;
@@ -3101,8 +3101,8 @@ body.modal-open, body.modal-open main {
 }
 
 .connection-color-line.printSpanTo:not(.inline) {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.833rem;
+  height: 1.4rem;
   display: block;
   background: transparent;
   position: absolute;
@@ -3116,8 +3116,8 @@ body.modal-open, body.modal-open main {
 }
 
 .connection-color-line.printSpanTo.inline {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 1.5rem;
+  height: 0.833rem;
   display: block;
   background: transparent;
   position: absolute;
@@ -3127,7 +3127,7 @@ body.modal-open, body.modal-open main {
 .connection-color-line.active.printSpanTo.inline {
   background: rgba($wpn-red, 0.5);
   z-index: -1;
-  clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 100%, 0 50%);
+  clip-path: polygon(25% 0%, 100% 0, 100% 100%, 25% 100%, 0 50%);
 }
 
 .metamark.pencilOnProof2 .connection-color-line.active.printSpanFrom,
