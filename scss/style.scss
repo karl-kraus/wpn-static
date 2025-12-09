@@ -3073,7 +3073,7 @@ body.modal-open, body.modal-open main {
 //   text-decoration-color: $wpn-fackel !important;
 // }
 
-.connection-color-line.printSpanFrom:not(.inline) {
+.connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   width: 0.833rem;
   height: 1.4rem;
   display: block;
@@ -3082,11 +3082,16 @@ body.modal-open, body.modal-open main {
   right: 0;
 }
 
-.connection-color-line.active.printSpanFrom:not(.inline) {
+.connection-color-line.printSpanFrom.verse-bracket:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
+  top: 0.833rem;
+}
+
+.connection-color-line.active.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   background: $wpn-red;
   z-index: -1;
   clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
 }
+
 
 .connection-color-line.printSpanFrom.inline {
   width: 1.5rem;
@@ -3103,7 +3108,9 @@ body.modal-open, body.modal-open main {
   clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%);
 }
 
-.connection-color-line.printSpanTo:not(.inline) {
+
+
+.connection-color-line.printSpanTo:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   width: 0.833rem;
   height: 1.4rem;
   display: block;
@@ -3113,7 +3120,11 @@ body.modal-open, body.modal-open main {
   top: -0.567rem
 }
 
-.connection-color-line.active.printSpanTo:not(.inline) {
+.connection-color-line.printSpanTo.verse-bracket:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
+  top: -1.666rem;
+}
+
+.connection-color-line.active.printSpanTo:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   background: $wpn-red;
   z-index: -1;
   clip-path: polygon(50% 0%, 100% 25%, 100% 100%, 0 100%, 0 25%);
