@@ -2013,7 +2013,8 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #textcontent-pb div.mod.pencilOnTypescript,
 #textcontent-pb div.mod.pencilOnProof,
 #textcontent-pb .add .blueInkOnProof,
-#textcontent-pb .bluePencilOnProof {
+#textcontent-pb .bluePencilOnProof,
+#textcontent-pb .seg .seg.entity.seg-inline .pencilOnTypescript {
   font-size: 0.667rem;
   line-height: 0.75rem;
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
@@ -2293,7 +2294,8 @@ pencil text color
 #textcontent-pb .fw.pencilOnProofKK,
 #textcontent-pb .fw.pencilOnProof,
 #textcontent-pb .note.pencilOnProofKK,
-#textcontent-pb .note.pencilOnProofLibrary {
+#textcontent-pb .note.pencilOnProofLibrary,
+#textcontent-pb .seg .seg.entity.seg-inline .pencilOnTypescript {
   color: #666666;
 }
 
