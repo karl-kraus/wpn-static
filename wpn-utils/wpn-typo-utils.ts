@@ -9,6 +9,10 @@ const legendBtn = document.getElementById('legende-btn');
 // Toggle visibility of info content column on hide button click
 const hideBtn = document.getElementById('infocontent-hide-btn')
 
+// check if #setMode button state changes
+const setModeButton = document.getElementById("setMode") as HTMLButtonElement | null;
+
+
 paginationButton!.addEventListener('click', function() {
 
     const paginationPb = document.getElementById('pagination-pb');
@@ -363,13 +367,14 @@ allcolumnRowBtn!.addEventListener('click', function() {
 
 });
 
-function updateLinksView(view: string, info?: string) {
+function updateLinksView(view: string, info?: string, mode?: string) {
 
     if (prevPageLink) {
         const prevUrl = new URL(prevPageLink.href);
         const prevParams = prevUrl.searchParams;
         prevParams.set('view', view);
         prevParams.set('info', info ?? '');
+        prevParams.set('mode', mode ?? 'off');
         prevUrl.search = prevParams.toString();
         prevPageLink.href = prevUrl.toString();
     }
@@ -379,6 +384,7 @@ function updateLinksView(view: string, info?: string) {
         const nextParams = nextUrl.searchParams;
         nextParams.set('view', view);
         nextParams.set('info', info ?? '');
+        nextParams.set('mode', mode ?? 'off');
         nextUrl.search = nextParams.toString();
         nextPageLink.href = nextUrl.toString();
     }
@@ -390,6 +396,7 @@ function updateLinksView(view: string, info?: string) {
             const myparams = mylink.searchParams;
             myparams.set('view', view);
             myparams.set('info', info ?? '');
+            myparams.set('mode', mode ?? 'off');
             mylink.search = myparams.toString();
             link.href = mylink.toString();
 
@@ -426,10 +433,15 @@ document.addEventListener('DOMContentLoaded', () => {
         hideBtn!.click();
     }
 
-    if (mode === 'inspect') {
-        document.querySelector<HTMLElement>('#setMode')?.click();
-    }
+    updateLinksView(initialView ?? 'all-columns', hideInfo ?? undefined, mode ?? undefined);
 
-    updateLinksView(initialView ?? 'all-columns', hideInfo ?? undefined);
+    setModeButton?.addEventListener("click", () => {
+        const myUrl = new URL(window.location.href);
+        const params = new URLSearchParams(myUrl.search);
+        const initialView = params.get('view');
+        const hideInfo = params.get('info');
+        const mode = params.get('mode');
+        updateLinksView(initialView ?? 'all-columns', hideInfo ?? undefined, mode ?? undefined);
+    });
 
 });

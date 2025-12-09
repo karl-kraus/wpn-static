@@ -42,24 +42,21 @@ const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
 
 // Initial setting of URL parameter
 
-searchParams.set("mode", isMobile ? "inspect" : "off");
+searchParams.set("mode", isMobile ? "inspect" : searchParams.get("mode") || "off");
 
 if (isMobile) {
 
     console.log("Mode: Inspect connections between annotations and text. Loaded!");
     addListener(content!, "click", highlighting);
     addListener(info!, "click", highlighting3rdcolumn);
-    // content?.addEventListener("click", highlighting);
-    // info?.addEventListener("click", highlighting3rdcolumn);
 
-} else {
+}
+if (searchParams.get("mode") === "explore") {
 
-    // console.log("Mode: Explore connections between annotations and text. Loaded!");
-
-    // addListener(content!, "mouseover", debounce(highlighting, debounceDelayText));
-    // addListener(info!, "mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
-    // content?.addEventListener("mouseover", debounce(highlighting, debounceDelayText));
-    // info?.addEventListener("mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
+    setModeButton!.classList.add("active-view-icon");
+    setModeButton!.style.color = "white";
+    addListener(content!, "mouseover", debounce(highlighting, debounceDelayText));
+    addListener(info!, "mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
 
 }
 
@@ -68,14 +65,14 @@ window.history.pushState({}, '', myurl);
 
 setModeButton!.addEventListener("click", () => {
 
+    if (isMobile) {
+        // on mobile, do nothing, as default is inspect
+        return;
+    }
+
     setModeButton!.classList.toggle("active-view-icon");
 
     if (setModeButton!.classList.contains("active-view-icon")) {
-
-        if (isMobile) {
-            // on mobile, do nothing, as default is inspect
-            return;
-        }
 
         setModeButton!.style.color = "white";
 
@@ -95,10 +92,10 @@ setModeButton!.addEventListener("click", () => {
 
         searchParams.set("mode", "off");
 
-        removeAllListeners(content!, "click");
+        removeAllListeners(content!, "mouseover");
         // addListener(content!, "mouseover", debounce(highlighting, debounceDelayText));
 
-        removeAllListeners(info!, "click");
+        removeAllListeners(info!, "mouseover");
         // addListener(info!, "mouseover", debounce(highlighting3rdcolumn, debounceDelayInfo));
 
     }
@@ -326,13 +323,12 @@ function highlighting3rdcolumn (event: Event) {
 
         if(linkedElements.length > 0) {
 
-            markChildrenAsHighlighted(target, "active");
-            target.classList.add("active");
+            markChildrenAsHighlighted(target, link.includes("note") ? color : "active");
+            target.classList.add(link.includes("note") ? color : "active");
 
             linkedElements.forEach((el) => {
 
-                el.classList.add("active");
-
+                el.classList.add(link.includes("note") ? color : "active");
                 if (el.classList.contains("note") || el.classList.contains("quotes")) {
 
                     markChildrenAsHighlighted(el, color);
