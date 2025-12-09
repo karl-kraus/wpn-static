@@ -41,74 +41,52 @@
                     </section>
                     <hr class="my-3"/>
                     <section class="container p-0">
-                        <div class="d-flex flex-row py-3 align-items-center px-1">   
-                            <wpn-scroll-button scroll-direction="left" class="bg-transparent border-0 pe-1_5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15.061" height="28.707" viewBox="0 0 15.061 28.707">
-                                    <defs>
-                                        <style>.a{fill:none;stroke:#999;stroke-miterlimit:10;}</style>
-                                    </defs>
-                                    <g transform="translate(0.707 0.354)">
-                                        <path class="a" d="M987.075,271l-14,14,14,14" transform="translate(-973.075 -271)"/>
-                                    </g>
-                                </svg>
-                            </wpn-scroll-button>
-                            <div id="scroll-container" class="d-flex flex-row overflow overflow-auto no-scrollbar scroll-snap-type-xm">
-                                <div class="slide d-flex justify-content-stretch col-12 p-md-2_5 col-md-4 scroll-snap-align-start">
-                                    <div class="card rounded-0">
-                                        <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                            <h3 class="card-title mt-1"><a href="annotierte_lesefassung.html" class="stretched-link text-decoration-none text-blacker-grey">Annotierte Lesefassung</a></h3>
-                                            <p class="card-subtitle text-black-grey">Dritte Walpurgisnacht</p>
-                                        </div>
-                                        <img src="images/card_annotierte_lesefassung.png" class="d-block" alt=""/>
+                        <div class="row py-3 align-items-center">   
+                            <div class="justify-content-stretch col-4 py-md-2_5 pe-md-2_5 ps col-md-4">
+                                <div class="card rounded-0">
+                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                        <h3 class="card-title mt-1"><a href="annotierte_lesefassung.html" class="stretched-link text-decoration-none text-blacker-grey">Annotierte Lesefassung</a></h3>
+                                        <p class="card-subtitle text-black-grey">Dritte Walpurgisnacht</p>
                                     </div>
-                                </div>
-                                <div class="slide d-flex justify-content-stretch col-12 p-md-2_5 col-md-4 scroll-snap-align-start">
-                                    <div class="card rounded-0">
-                                        <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                            <h3 class="card-title mt-1"><a href="kommentar.html" class="stretched-link text-decoration-none text-blacker-grey">Kommentar</a></h3>
-                                            <p class="card-subtitle text-black-grey">Stellenkommentar und Zeitleiste</p>
-                                        </div>
-                                        <img src="images/card_kommentar.png" class="d-block" alt=""/>
-                                    </div>
-                                </div>
-                                <div class="slide d-flex justify-content-stretch col-12 p-md-2_5 col-md-4 scroll-snap-align-start">
-                                    <div class="card rounded-0">
-                                        <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                            <h3 class="card-title mt-1"><a href="register.html" class="stretched-link text-decoration-none text-blacker-grey">Register</a></h3>
-                                            <p class="card-subtitle text-black-grey">Personen und Intertexte</p>
-                                        </div>
-                                        <img src="images/card_register.png" class="d-block" alt=""/>
-                                    </div>
-                                </div>
-                                <div class="slide d-flex justify-content-stretch col-12 p-md-2_5 col-md-4 scroll-snap-align-start">
-                                    <div class="card rounded-0">
-                                        <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                            <h3 class="card-title mt-1"><a href="notizen.html" class="stretched-link text-decoration-none text-blacker-grey">Notizen</a></h3>
-                                            <p class="card-subtitle text-black-grey">Dritte Walpurgisnacht</p>
-                                        </div>
-                                        <img src="images/card_notizen.png" class="d-block" alt=""/>
-                                    </div>
-                                </div>
-                                <div class="slide d-flex justify-content-stretch col-12 p-md-2_5 col-md-4 scroll-snap-align-start">
-                                    <div class="card rounded-0">
-                                        <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                            <h3 class="card-title mt-1"><a href="topographical.html" class="stretched-link text-decoration-none text-blacker-grey">Topographische Umschrift</a></h3>
-                                            <p class="card-subtitle text-black-grey">Dritte Walpurgisnacht</p>
-                                        </div>
-                                        <img src="images/card_topographical.png" class="d-block" alt=""/>
-                                    </div>
+                                    <img src="images/card_annotierte_lesefassung.png" class="d-block" alt=""/>
                                 </div>
                             </div>
-                            <wpn-scroll-button scroll-direction="right" class="bg-transparent border-0 ps-1_5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15.061" height="28.707" viewBox="0 0 15.061 28.707">
-                                    <defs>
-                                        <style>.a{fill:none;stroke:#999;stroke-miterlimit:10;}</style>
-                                    </defs>
-                                    <g transform="translate(0.354 0.354)">
-                                        <path class="a" d="M973.075,271l14,14-14,14" transform="translate(-973.075 -271)"/>
-                                    </g>
-                                </svg>
-                            </wpn-scroll-button>
+                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
+                                <div class="card rounded-0">
+                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                        <h3 class="card-title mt-1"><a href="topographical.html" class="stretched-link text-decoration-none text-blacker-grey">Topographische Umschrift</a></h3>
+                                        <p class="card-subtitle text-black-grey">Dritte Walpurgisnacht</p>
+                                    </div>
+                                    <img src="images/card_topographical.png" class="d-block" alt=""/>
+                                </div>
+                            </div>
+                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
+                                <div class="card rounded-0">
+                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                        <h3 class="card-title mt-1"><a href="kommentar.html" class="stretched-link text-decoration-none text-blacker-grey">Kommentar</a></h3>
+                                        <p class="card-subtitle text-black-grey">Stellenkommentar und Zeitleiste</p>
+                                    </div>
+                                    <img src="images/card_kommentar.png" class="d-block" alt=""/>
+                                </div>
+                            </div>
+                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
+                                <div class="card rounded-0">
+                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                        <h3 class="card-title mt-1"><a href="notizen.html" class="stretched-link text-decoration-none text-blacker-grey">Notizen</a></h3>
+                                        <p class="card-subtitle text-black-grey">Dritte Walpurgisnacht</p>
+                                    </div>
+                                    <img src="images/card_notizen.png" class="d-block" alt=""/>
+                                </div>
+                            </div>
+                            <div class="justify-content-stretch col-4 py-md-2_5 ps-md-2_5 ps col-md-4">
+                                <div class="card rounded-0">
+                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                        <h3 class="card-title mt-1"><a href="register.html" class="stretched-link text-decoration-none text-blacker-grey">Register</a></h3>
+                                        <p class="card-subtitle text-black-grey">Personen und Intertexte</p>
+                                    </div>
+                                    <img src="images/card_register.png" class="d-block" alt=""/>
+                                </div>
+                            </div>
                         </div>
                     </section>
                     <hr class="my-3"/>
