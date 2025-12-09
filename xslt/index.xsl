@@ -42,7 +42,7 @@
                     <hr class="my-3"/>
                     <section class="container p-0">
                         <div class="row py-3 align-items-center">   
-                            <div class="justify-content-stretch col-4 py-md-2_5 pe-md-2_5 ps col-md-4">
+                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
                                 <div class="card rounded-0">
                                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
                                         <h3 class="card-title mt-1"><a href="annotierte_lesefassung.html" class="stretched-link text-decoration-none text-blacker-grey">Annotierte Lesefassung</a></h3>
@@ -78,7 +78,7 @@
                                     <img src="images/card_notizen.png" class="d-block" alt=""/>
                                 </div>
                             </div>
-                            <div class="justify-content-stretch col-4 py-md-2_5 ps-md-2_5 ps col-md-4">
+                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
                                 <div class="card rounded-0">
                                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
                                         <h3 class="card-title mt-1"><a href="register.html" class="stretched-link text-decoration-none text-blacker-grey">Register</a></h3>
