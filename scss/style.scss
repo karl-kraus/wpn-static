@@ -3082,7 +3082,7 @@ body.modal-open, body.modal-open main {
 }
 
 .connection-color-line.active.printSpanFrom:not(.inline) {
-  background: rgba($wpn-red, 0.5);
+  background: $wpn-red;
   z-index: -1;
   clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
 }
@@ -3093,13 +3093,13 @@ body.modal-open, body.modal-open main {
   display: block;
   background: transparent;
   position: absolute;
-  right: 0;
+  right: -1.5rem;
 }
 
 .connection-color-line.active.printSpanFrom.inline {
-  background: rgba($wpn-red, 0.5);
+  background: $wpn-red;
   z-index: -1;
-  clip-path: polygon(0 0, 50% 0, 100% 50%, 50% 100%, 0 100%);
+  clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%);
 }
 
 .connection-color-line.printSpanTo:not(.inline) {
@@ -3112,9 +3112,9 @@ body.modal-open, body.modal-open main {
 }
 
 .connection-color-line.active.printSpanTo:not(.inline) {
-  background: rgba($wpn-red, 0.5);
+  background: $wpn-red;
   z-index: -1;
-  clip-path: polygon(50% 0%, 100% 50%, 100% 100%, 0 100%, 0 50%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 100%, 0 100%, 0 25%);
 }
 
 .connection-color-line.printSpanTo.inline {
@@ -3127,7 +3127,7 @@ body.modal-open, body.modal-open main {
 }
 
 .connection-color-line.active.printSpanTo.inline {
-  background: rgba($wpn-red, 0.5);
+  background: rgba($wpn-red, 0.8);
   z-index: -1;
   clip-path: polygon(25% 0%, 100% 0, 100% 100%, 25% 100%, 0 50%);
 }
