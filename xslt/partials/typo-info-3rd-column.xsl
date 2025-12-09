@@ -246,7 +246,7 @@
                                                     <ul id="list-corresp-overwritten" class="visually-hidden list-unstyled">
                                                         <xsl:for-each select="./tei:note[@type='overwritten']">
                                                             <xsl:variable name="corresp" select="replace(@corresp, '#', '')"/>
-                                                            <li class="list_more_text_layers_line" data-overwritten="{$corresp}">
+                                                            <li class="list_more_text_layers_line" data-overwritten="{$corresp}" style="font-size:0.9em;">
                                                                 <xsl:value-of select="$creation//id(data($corresp))"/>
                                                             </li>
                                                         </xsl:for-each>
@@ -260,14 +260,14 @@
                                                     </label>
                                                     <ul id="corresp-fackel-list" class="visually-hidden list-unstyled">
                                                         <xsl:for-each select="./tei:note[@type='printF890']">
-                                                            <li class="list_more_text_layers_line" data-link="{replace(@target, '#', '')}">
+                                                            <li class="list_more_text_layers_line" data-link="{replace(@target, '#', '')}" style="font-size:0.9em;">
                                                                 <xsl:value-of select="./text()"/>
                                                             </li>
                                                             <xsl:variable name="regrefs">
                                                                 <xsl:value-of select="tokenize(@corresp, ' ')"/>
                                                             </xsl:variable>
                                                             <xsl:if test="count($regrefs) gt 0">
-                                                            <li class="list_more_text_layers_line">
+                                                            <li class="list_more_text_layers_line" style="font-size:0.9em;">
                                                                 <xsl:for-each select="$regrefs">
                                                                     <xsl:variable name="corresp" select="replace(current(), '#', '')"/>
                                                                     <xsl:choose>
