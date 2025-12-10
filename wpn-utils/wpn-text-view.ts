@@ -34,7 +34,7 @@ class WPNTextView extends HTMLElement {
 	onLoadFinished = (annotationSelectors: string): void =>{
 		let shortInfoElement;
 		if(window.location.hash) {
-			if (!window.location.hash.startsWith('#pb')) {
+			if (!(window.location.hash.startsWith('#pb') || window.location.hash.startsWith('#insertion'))) {
 				shortInfoElement = document.querySelector(`a[href='${window.location.hash}']`);
 				shortInfoElement?.parentElement?.classList.remove("d-none");
 				const elementInText = document.querySelector(`#textcolumn wpn-entity#${window.location.hash.split("_")[0].substring(1)}`);
