@@ -126,7 +126,6 @@
       </xsl:choose>
   </xsl:variable>
   <xsl:variable name="preceding_pb_val" select="$preceding_pb/replace(replace(@n,'_',' '),'^0+','')"/>
-  <xsl:message><xsl:value-of select="$preceding_pb/name()"/></xsl:message>
   <div class="fs-6 ps-3 text-dark-grey pagebreaks pb_signet_background bg-no-repeat bg-position-short-info" id="{$id}" data-xmlid="{replace($target,'#','')}" style="display:none">
     <span>
       <xsl:value-of select="$description||' '||$preceding_pb_val"/>
