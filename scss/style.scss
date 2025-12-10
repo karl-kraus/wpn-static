@@ -1066,6 +1066,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   }
 }
 
+#infocontent-header, #legend-header {
+  height: $typo-info-3rd-column-height;
+}
+
 .print-page.witnessPrint {
   $height: 21cm;
   width: 14.2cm;
@@ -3225,7 +3229,7 @@ body.modal-open, body.modal-open main {
 }
 
 .top-nav-2 {
-  top: 3.5rem !important;
+  top: $typo-info-3rd-column-height !important;
 }
 
 .z-index-1 {

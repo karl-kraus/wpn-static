@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="row flex-row m-0 mx-auto">
-                    <div class="col p-0_25 position-sticky z-index-1 top-nav-2 cursor-pointer border-start border-bottom border-light-grey align-content-around" style="max-height:55px;max-width:38px;border-radius: 0 0 0 0.25rem;">
+                    <div id="legend-header" class="col p-0_25 position-sticky z-index-1 top-nav-2 cursor-pointer border-start border-bottom border-light-grey align-content-around" style="max-width:39px;border-radius: 0 0 0 0.25rem;">
                         <div id="legende-btn" class="active text-center" title="Legende öffnen" type="button" aria-controls="#legende-pb" aria-expanded="false">
                             <img src="images/icon-quelle-bg.svg" alt="Legende"/>                    
                         </div>
@@ -349,6 +349,9 @@
                                     
                                 </div>
                             </xsl:for-each>
+                            <!-- <p style="font-size: 10pt;">
+                                <a href="topographical.html">Annotierte Lesefassung</a>
+                            </p> -->
                         </div>
                     </div>
                 </div>
