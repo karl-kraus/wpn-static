@@ -2194,6 +2194,23 @@ handling del elments based on change type
     left: 1px;
 }
 
+/* swapping del linethrough of add pipes to manual line through in right height */
+#textcontent-pb .inkOnProofKK del .add.entity {
+  text-decoration: none !important;
+  display: inline-block;
+  position: relative;
+}
+
+#textcontent-pb .inkOnProofKK del .add.entity::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: black;
+  top: 50%;
+  transform: translateY(-88%);
+}
 
 #textcontent-pb .subst.typewriter .del del,
 #textcontent-pb .subst.typewriter2 .del del,
