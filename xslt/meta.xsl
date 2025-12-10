@@ -53,7 +53,7 @@
         <h2 class="{if (@rend='larger_heading') then 'fs-meta-heading-1' else 'fs-meta-heading-2'}"><xsl:apply-templates/></h2>
     </xsl:template>
     <xsl:template match="tei:p">
-        <p id="{generate-id()}" class="my-1 {if (@rend='indent') then 'ms-2_5' else ()}"><xsl:apply-templates/></p>
+        <p id="{generate-id()}" class="my-1 {if (@rend='indent') then ('ms-2_5') else ()} {if(@rend='rightAlign') then ('text-end') else ()}"><xsl:apply-templates/></p>
     </xsl:template>
     <xsl:template match="tei:div">
         <div id="{generate-id()}"><xsl:apply-templates/></div>
