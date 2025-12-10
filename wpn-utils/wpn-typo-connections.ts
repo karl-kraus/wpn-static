@@ -7,7 +7,7 @@ const info = document.querySelector<HTMLElement>("#infocontent-pb");
 const setModeButton = document.querySelector<HTMLElement>("#setMode");
 const highlightedClass = "connection-color";
 const highlightedClassLine = "connection-color-line";
-const debounceDelayText = 750;
+const debounceDelayText = 0;
 const debounceDelayInfo = 0;
 
 // Global event handlers storage
