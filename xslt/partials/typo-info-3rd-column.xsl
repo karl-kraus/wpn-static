@@ -350,7 +350,7 @@
                                     <xsl:if test="./tei:note[@type='para']">
                                         <xsl:variable name="para" select="concat('absatz_', ./tei:note[@type='para']/@n, '.html')"/>
                                         <xsl:variable name="page" select="concat('pb', ancestor::tei:TEI//tei:pb/@n)"/>
-                                        <xsl:variable name="readingLink" select="concat($para, '?pbs=on' '#', $page)"/>
+                                        <xsl:variable name="readingLink" select="concat($para, '?pbs=on', '#', $page)"/>
                                         <p class="mt-2 text-end">
                                             <a href="{$readingLink}" class="text-decoration-none text-primary-hover link-dark-grey" style="font-size: 10pt;">Annotierte Lesefassung</a>
                                         </p>
