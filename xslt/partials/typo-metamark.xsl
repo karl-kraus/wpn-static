@@ -446,13 +446,13 @@
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="@rend='lineSpace'">
-                        <span id="{@xml:id}" class="metamark linespace entity {replace(@change, '#', '')}" data-anchor="{@xml:id}"/>
+                        <span id="{@xml:id}" class="metamark linespace entity {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}"/>
                     </xsl:when>
                     <xsl:when test="@rend='lineSpace2'">
-                        <span id="{@xml:id}" class="metamark linespace2 entity {replace(@change, '#', '')}" data-anchor="{@xml:id}"/>
+                        <span id="{@xml:id}" class="metamark linespace2 entity {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}"/>
                     </xsl:when>
                     <xsl:when test="@rend='inlineRight'">
-                        <span id="{@xml:id}" class="metamark {@rend} {@style} {replace(@change, '#', '')}" data-anchor="{@xml:id}">
+                        <span id="{@xml:id}" class="metamark {@rend} {@style} {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}">
                             <xsl:apply-templates/>
                         </span>
                     </xsl:when>
@@ -499,7 +499,7 @@
      <xsl:template match="tei:metamark[@function='insertion' and not(@rend='inlineRight')]" mode="render">
         <div class="d-flex metamark w-100 position-relative {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div class="w-100">
-                <span data-anchor="{@xml:id}" class="{@rend}{if(parent::tei:restore)then(replace((parent::tei:restore/@change)[1], '#', ' restore '))else()}">
+                <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="{@rend}{if(parent::tei:restore)then(replace((parent::tei:restore/@change)[1], '#', ' restore '))else()}">
                     <xsl:if test="@target">
                         <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
                         <xsl:attribute name="data-target">
