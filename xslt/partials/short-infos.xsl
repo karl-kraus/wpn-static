@@ -115,19 +115,29 @@
     </xsl:choose>
   </xsl:variable>
   <!--<xsl:variable name="target" select="@target"/>-->
-  <xsl:variable name="preceding_pb_val">
-  <xsl:choose>
-      <xsl:when test="$reftype='insertionstart'">
-        <xsl:value-of select="doc('../../data/editions/Gesamt.xml')//tei:note[@xml:id=replace($id,'#','')]/preceding::tei:pb[1]/replace(replace(@n,'_',' '),'^0+','')"/>
-      </xsl:when>
-      <xsl:when test="$reftype='insertionend'">
-        <xsl:value-of select="doc('../../data/editions/Gesamt.xml')//tei:metamark[contains(@target,$id)]/preceding::tei:pb[1]/replace(replace(@n,'_',' '),'^0+','')"/>
-      </xsl:when>
-    </xsl:choose>
+  <xsl:variable name="preceding_pb" as="node()">
+    <xsl:choose>
+        <xsl:when test="$reftype='insertionstart'">
+          <xsl:copy-of select="doc('../../data/editions/Gesamt.xml')//tei:note[@xml:id=replace($id,'#','')]/preceding::tei:pb[1]"/>
+        </xsl:when>
+        <xsl:when test="$reftype='insertionend'">
+          <xsl:copy-of select="doc('../../data/editions/Gesamt.xml')//tei:metamark[contains(@target,$id)]/preceding::tei:pb[1]"/>
+        </xsl:when>
+      </xsl:choose>
   </xsl:variable>
-    <div class="fs-6 ps-3 text-dark-grey pagebreaks pb_signet_background bg-no-repeat bg-position-short-info" id="{$id}" data-xmlid="{replace($target,'#','')}" style="display:none">
-      <span><xsl:value-of select="$description||' '||$preceding_pb_val"/></span>
-    </div>
+  <xsl:variable name="preceding_pb_val" select="$preceding_pb/replace(replace(@n,'_',' '),'^0+','')"/>
+  <xsl:message><xsl:value-of select="$preceding_pb/name()"/></xsl:message>
+  <div class="fs-6 ps-3 text-dark-grey pagebreaks pb_signet_background bg-no-repeat bg-position-short-info" id="{$id}" data-xmlid="{replace($target,'#','')}" style="display:none">
+    <span>
+      <xsl:value-of select="$description||' '||$preceding_pb_val"/>
+      <xsl:if test="$reftype='insertionstart'">
+        <xsl:text> | </xsl:text>
+        <a class="text-dark-grey" target="_blank" rel="noopener noreferrer" href="{$preceding_pb/@xml:id || '.html'}">
+          Topographische Umschrift 
+        </a>
+      </xsl:if>
+    </span>
+  </div>
 </xsl:template>
 <xsl:template match="tei:app" mode="short_info">
     <xsl:variable name="xmlid" select="@xml:id"/>
