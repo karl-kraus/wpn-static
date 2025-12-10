@@ -89,12 +89,12 @@
                     <div class="container-fluid px-0">
                         <wpn-page-view annotation-selectors=".entity">
                             <div id="sub_grid_pb" class="sub_grid_pb_three">
-                                <div id="facscolumn" class="grid-box-1 mx-auto ff-crimson-text py-4 m-visually-hidden">
+                                <div id="facscolumn" class="grid-box-1 mx-auto ff-crimson-text m-visually-hidden">
                                     <div id="facscontent" wpn-data="{$facsimile}" wpn-type="{.//tei:pb[1]/@type}">
                                         <!-- osd viewer container -->
                                     </div>                                
                                 </div>
-                                <div id="textcolumn-pb" class="grid-box-2 mx-auto ff-crimson-text py-4">
+                                <div id="textcolumn-pb" class="grid-box-2 mx-auto ff-crimson-text">
                                     <div id="textcontent-pb">
                                         <xsl:apply-templates select="//tei:text" />
                                     </div>
@@ -133,7 +133,7 @@
         <xsl:variable name="printType">
             <xsl:value-of select=".//tei:pb[1]/@type"/>
         </xsl:variable>
-        <div id="print-page" class="print-page {$printType} position-relative">
+        <div id="print-page" class="print-page {$printType} position-relative py-4">
             <div class="print-header {$printType} zindex-99">
                 <!-- <xsl:apply-templates select="//tei:fw" mode="render"/> -->
                 <!-- <xsl:apply-templates select="//tei:note[contains(@place, 'top')]" mode="render"/> -->

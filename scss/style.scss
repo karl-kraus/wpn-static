@@ -3184,6 +3184,7 @@ body.modal-open, body.modal-open main {
   margin-left:1rem;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+  z-index: 0;
 }
 
 .active-view-icon {
@@ -3212,6 +3213,22 @@ body.modal-open, body.modal-open main {
 
 .d-contents {
   display: contents !important;
+}
+
+.vh-100-nav {
+  height: calc(100vh - $edition-view-header-height) !important;
+}
+
+.top-nav {
+  top: .1rem !important;
+}
+
+.top-nav-2 {
+  top: 3.5rem !important;
+}
+
+.z-index-1 {
+  z-index: 1 !important;
 }
 
 @media screen and (max-width: 1024px) {

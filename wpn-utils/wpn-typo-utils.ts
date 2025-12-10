@@ -47,8 +47,11 @@ hideBtn!.addEventListener('click', function() {
     const grid = document.getElementById('sub_grid_pb');
     grid!.classList.toggle('hide_btn');
 
-    const infocontent = document.querySelector('#infocontent-wrapper');
-    infocontent!.classList.toggle('visually-hidden');
+    const infocontent = document.querySelector('#infocontent');
+    infocontent!.classList.toggle('overflow-y-scroll');
+
+    const infocontent_wrapper = document.querySelector('#infocontent-wrapper');
+    infocontent_wrapper!.classList.toggle('visually-hidden');
 
     const infocontentHideIcon = document.getElementById('infocontent-hide-icon');
     infocontentHideIcon!.classList.toggle('visually-hidden');
@@ -56,7 +59,8 @@ hideBtn!.addEventListener('click', function() {
     const infocontentHideIconHidden = document.getElementById('infocontent-hide-icon-hidden');
     infocontentHideIconHidden!.classList.toggle('visually-hidden');
 
-    if (infocontent!.classList.contains('visually-hidden')) {
+
+    if (infocontent_wrapper!.classList.contains('visually-hidden')) {
 
         hideBtn!.setAttribute('title', 'Info-Spalte öffnen');
 
@@ -87,7 +91,7 @@ hideBtn!.addEventListener('click', function() {
 
     }
 
-    if (infocontent!.classList.contains('visually-hidden')) {
+    if (infocontent_wrapper!.classList.contains('visually-hidden')) {
         params.set('info', 'hidden');
     } else {
         params.delete('info');

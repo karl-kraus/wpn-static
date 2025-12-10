@@ -8,9 +8,9 @@
     <xsl:template name="info-3rd-column">
         <xsl:variable name="doc_type" select="//tei:pb/@type" />
         
-        <div id="infocolumn" class="grid-box-3">
-            <div id="infocontent" class="bg-white px-0">
-                <div id="infocontent-header" class="row flex-row text-center m-0 border border-light-grey" style="border-radius:0.25rem 0 0 0;">
+        <div id="infocolumn" class="grid-box-3 z-index-1">
+            <div id="infocontent" class="bg-white px-0 overflow-y-scroll vh-100-nav">
+                <div id="infocontent-header" class="row z-index-1 flex-row bg-white position-sticky top-nav text-center m-0 border border-light-grey" style="border-radius:0.25rem 0 0 0;">
                     <div style="max-height:55px;max-width:40px;" class="col p-0_25 border-end border-light-grey align-content-around m-visually-hidden">
                         <div id="infocontent-hide-btn" role="button" aria-controls="#infocontent" class="cursor-pointer p-1 active text-center mx-auto" title="Info-Spalte schließen">
                             <img id="infocontent-hide-icon" src="images/plus.svg" alt="Infospalte schließen"/>     
@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="row flex-row m-0 mx-auto">
-                    <div class="col p-0_25 cursor-pointer border-start border-bottom border-light-grey align-content-around" style="max-height:55px;max-width:38px;border-radius: 0 0 0 0.25rem;">
+                    <div class="col p-0_25 position-sticky z-index-1 top-nav-2 cursor-pointer border-start border-bottom border-light-grey align-content-around" style="max-height:55px;max-width:38px;border-radius: 0 0 0 0.25rem;">
                         <div id="legende-btn" class="active text-center" title="Legende öffnen" type="button" aria-controls="#legende-pb" aria-expanded="false">
                             <img src="images/icon-quelle-bg.svg" alt="Legende"/>                    
                         </div>
@@ -352,7 +352,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </xsl:template>
