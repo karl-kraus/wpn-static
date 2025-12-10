@@ -153,6 +153,17 @@
                     <xsl:text>&#124;</xsl:text>
                 </span>
             </xsl:when>
+            <xsl:when test="contains(@rend, 'Only')">
+                <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}">
+                    <xsl:attribute name="data-anchor">
+                        <xsl:value-of select="@xml:id"/>
+                        <xsl:if test="ancestor::tei:note">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="$inheritIDfromNote"/>
+                        </xsl:if>
+                    </xsl:attribute>
+                </span>
+            </xsl:when>
             <xsl:otherwise>
                 <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}">
                     <xsl:attribute name="data-anchor">
