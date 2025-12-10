@@ -347,11 +347,16 @@
                                         </div>
                                     </xsl:if>
                                     
+                                    <xsl:if test="./tei:note[@type='para']">
+                                        <xsl:variable name="para" select="concat('absatz_', ./tei:note[@type='para']/@n, '.html')"/>
+                                        <xsl:variable name="page" select="concat('pb', ancestor::tei:TEI//tei:pb/@n)"/>
+                                        <xsl:variable name="readingLink" select="concat($para, '#', $page)"/>
+                                        <p class="mt-2 text-end">
+                                            <a href="{$readingLink}" class="text-decoration-none" style="font-size: 10pt;color:#212529;">Annotierte Lesefassung</a>
+                                        </p>
+                                    </xsl:if>
                                 </div>
                             </xsl:for-each>
-                            <!-- <p style="font-size: 10pt;">
-                                <a href="topographical.html">Annotierte Lesefassung</a>
-                            </p> -->
                         </div>
                     </div>
                 </div>
