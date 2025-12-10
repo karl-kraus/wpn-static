@@ -1,4 +1,6 @@
 class WPNHeader extends HTMLElement {
+	private _scrollHandler?: () => void;
+
 	resizeObserver = new ResizeObserver((entries) => {
 		for (const entry of entries) {
 			const isAnnotationView = Boolean(document.querySelector("wpn-text-view"));
@@ -31,11 +33,30 @@ class WPNHeader extends HTMLElement {
 	});
 
 	connectedCallback() {
+		const navOffset = document.querySelector("#primary_nav")?.clientHeight;
+		document.documentElement.style.setProperty('--nav-offset', `${navOffset}px`);
 		this.resizeObserver.observe(this);
+		/* only on landing page */
+		if (document.querySelector("body#home")) {
+			this._scrollHandler = this.resizeHeader();
+			window.addEventListener("scroll", this._scrollHandler);
+		}
 	}
 	disconntedCallback() {
 		this.resizeObserver.unobserve(this);
+		  if (this._scrollHandler) {
+        window.removeEventListener("scroll", this._scrollHandler);
+      }
 	}
-}
+	resizeHeader = () => {
+			const logo = document.querySelector("#logo");
+			const logoWidth = Number(logo?.getAttribute("width"));
+			const navOffset = document.querySelector("#primary_nav")?.clientHeight;
+			return () => {
+				logo?.setAttribute("width", String(window.scrollY > 0 ? logoWidth / 2 : logoWidth));
+				document.documentElement.style.setProperty('--nav-offset', String(window.scrollY > 0 ? `${document.querySelector("#primary_nav")?.clientHeight}px` : `${navOffset}px`));	
+			}
+		}
+  }
 
 customElements.define("wpn-header", WPNHeader);

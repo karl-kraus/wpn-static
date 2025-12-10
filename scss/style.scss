@@ -47,6 +47,7 @@
   --bs-handwritten-font-family: 'Ubuntu Light Normal';
   --bs-handwritten-font-family-fallback: 'serif';
   --bs-font-family-fallback: 'serif';
+  --nav-offset: $header-height;
 }
 
 /*** fonts ***/
@@ -164,7 +165,7 @@ header {
     transform: translateY(-100%);
   }
   to {
-    transform: translateY($header-height);
+    transform: translateY(var(--nav-offset));
   }
 }
 
@@ -176,7 +177,7 @@ header {
   }
 
   #navbarSupportedContent.show {
-    transform: translateY($header-height);
+    transform: translateY(var(--nav-offset));
     animation: slide-in 1s ease;
   }
 }

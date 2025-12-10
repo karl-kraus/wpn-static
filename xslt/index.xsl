@@ -26,7 +26,7 @@
                     <xsl:with-param name="html_title" select="$doc_title"></xsl:with-param>
                 </xsl:call-template>
             </head>            
-            <body class="d-flex flex-column overflow-scroll">
+            <body class="d-flex flex-column overflow-scroll" id="home">
                 <xsl:call-template name="nav_bar">
                     <xsl:with-param name="logo_small" select="false()"/>
                     <xsl:with-param name="container" select="'container p-md-0'"/>
