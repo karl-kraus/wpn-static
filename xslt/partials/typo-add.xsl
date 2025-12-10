@@ -209,7 +209,14 @@
                 </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
-                <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
+                <xsl:choose>
+                     <xsl:when test="contains(@rend, 'Only')">
+                         <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"/>
+                     </xsl:when>
+                    <xsl:otherwise>
+                        <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
