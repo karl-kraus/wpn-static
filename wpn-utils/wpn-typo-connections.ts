@@ -325,7 +325,7 @@ function highlighting3rdcolumn (event: Event) {
         if(linkedElements.length > 0) {
 
             markChildrenAsHighlighted(target, link.includes("note") ? color : "active");
-            target.classList.add("active");
+            target.classList.add(color);
 
             linkedElements.forEach((el) => {
 
