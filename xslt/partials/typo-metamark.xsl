@@ -507,21 +507,11 @@
                         </xsl:attribute>
                     </xsl:if>
                     <xsl:choose>
-                        <xsl:when test="parent::tei:restore">
-                            <xsl:choose>
-                                <xsl:when test="ancestor::tei:del">
-                                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
-                                        <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
-                                        <xsl:apply-templates/>
-                                    </span>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
-                                        <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
-                                        <xsl:apply-templates/>
-                                    </del>
-                                </xsl:otherwise>
-                            </xsl:choose>
+                        <xsl:when test="ancestor::tei:restore or ancestor::tei:del">
+                            <del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                                <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
+                                <xsl:apply-templates/>
+                            </del>
                         </xsl:when>
                         <xsl:otherwise>
                             <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])">
