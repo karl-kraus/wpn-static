@@ -352,7 +352,7 @@
                                         <xsl:variable name="page" select="concat('pb', ancestor::tei:TEI//tei:pb/@n)"/>
                                         <xsl:variable name="readingLink" select="concat($para, '#', $page)"/>
                                         <p class="mt-2 text-end">
-                                            <a href="{$readingLink}" class="text-decoration-none" style="font-size: 10pt;color:#212529;">Annotierte Lesefassung</a>
+                                            <a href="{$readingLink}" class="text-decoration-none text-primary-hover link-dark-grey" style="font-size: 10pt;">Annotierte Lesefassung</a>
                                         </p>
                                     </xsl:if>
                                 </div>
