@@ -313,6 +313,7 @@ function highlighting3rdcolumn (event: Event) {
             anchorElements.forEach((el) => {
 
                 el.classList.add(color);
+                el.classList.add("active");
             
             });
 
@@ -324,7 +325,7 @@ function highlighting3rdcolumn (event: Event) {
         if(linkedElements.length > 0) {
 
             markChildrenAsHighlighted(target, link.includes("note") ? color : "active");
-            target.classList.add(link.includes("note") ? color : "active");
+            target.classList.add("active");
 
             linkedElements.forEach((el) => {
 
