@@ -155,6 +155,10 @@
     <xsl:template match="tei:div//tei:head">
         <h2 id="{generate-id()}"><xsl:apply-templates/></h2>
     </xsl:template>
+
+    <xsl:template match="tei:hi[@rend='alert']">
+        <span class="bg-warning"><xsl:apply-templates/></span>
+    </xsl:template>
     
     <xsl:template match="tei:p">
         <p id="{generate-id()}"><xsl:apply-templates/></p>

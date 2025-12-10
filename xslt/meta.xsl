@@ -95,5 +95,14 @@
             <wpn-toggle-text-button role="button" target-element="{$id}" toggle-class="show-all" toggle-text="Weniger lesen" class="btn btn-link text-decoration-none text-blacker-grey border-blacker-grey border-start-0 border-end-0 border-top-0 border-bottom-1 rounded-0 px-0 pb-05 position-absolute end-n05 bottom-0 bg-white">Mehr lesen</wpn-toggle-text-button>
         </xsl:if>
         </section>
-    </xsl:template>        
+    </xsl:template>     
+    <xsl:template match="tei:table">
+        <div><xsl:apply-templates/></div>
+    </xsl:template>
+    <xsl:template match="tei:row">
+        <div class="d-flex flex-row {if (not(following-sibling::tei:row)) then 'mb-2' else ()}"><xsl:apply-templates/></div>
+    </xsl:template>
+    <xsl:template match="tei:cell">
+        <div class="{if (count(preceding-sibling::tei:cell) = 0) then 'w-30' else 'w-70'}"><xsl:apply-templates/></div>
+    </xsl:template>   
 </xsl:stylesheet>
