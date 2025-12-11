@@ -2200,7 +2200,7 @@ handling del elments based on change type
   text-decoration: none !important;
   display: inline-block;
   position: relative;
-  text-shadow: inherit !important;
+  text-shadow: inherit;
 }
 
 #textcontent-pb .inkOnProofKK del .add.entity::after,
