@@ -349,7 +349,17 @@
                                     
                                     <xsl:if test="./tei:note[@type='para']">
                                         <xsl:variable name="para" select="concat('absatz_', ./tei:note[@type='para']/@n, '.html')"/>
-                                        <xsl:variable name="page" select="concat('pb', ancestor::tei:TEI//tei:pb/@n)"/>
+                                        <xsl:variable name="page">
+                                            <xsl:choose>
+                                                <xsl:when test="contains(ancestor::tei:TEI//tei:pb/@n, '_')">
+                                                    <xsl:variable name="pb_parts" select="tokenize(ancestor::tei:TEI//tei:pb/@n, '_')"/>
+                                                    <xsl:value-of select="concat('insertionstart_note', concat($pb_parts[1], $pb_parts[2]), '_1')"/>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    <xsl:value-of select="concat('pb', ancestor::tei:TEI//tei:pb/@n)"/>
+                                                </xsl:otherwise>
+                                            </xsl:choose>
+                                        </xsl:variable>
                                         <xsl:variable name="readingLink" select="concat($para, '?pbs=on', '#', $page)"/>
                                         <p class="mt-2 text-end">
                                             <a href="{$readingLink}" class="text-decoration-none text-primary-hover link-dark-grey" style="font-size: 10pt;">Annotierte Lesefassung</a>
