@@ -92,11 +92,13 @@
 <xsl:template match="tei:pb[not(matches(@n,'.*_[a-z].*'))]" mode="short_info">
     <div class="fs-6 ps-3 text-dark-grey pagebreaks pb_signet_background bg-no-repeat bg-position-short-info" data-xmlid="{'pb'||@n}" style="display:none">
       <span>
-      <xsl:value-of select="'Beginn Seite '||(if (@n castable as xs:integer) then number(@n) else replace(@n,'[_]',' '))"/>
-     <xsl:text> | </xsl:text>
-     <a class="text-dark-grey" target="_blank" rel="noopener noreferrer" href="{@xml:id || '.html'}">
-      Topographische Umschrift 
-     </a>
+        <xsl:value-of select="'Beginn Seite '||(if (@n castable as xs:integer) then number(@n) else replace(@n,'[_]',' '))"/>
+        <xsl:if test="not(@type = 'nonWitness')">
+          <xsl:text> | </xsl:text>
+          <a class="text-dark-grey" target="_blank" rel="noopener noreferrer" href="{@xml:id || '.html'}">
+            Topographische Umschrift 
+          </a>
+        </xsl:if>
       </span>
     </div>
 </xsl:template>
@@ -129,7 +131,7 @@
   <div class="fs-6 ps-3 text-dark-grey pagebreaks pb_signet_background bg-no-repeat bg-position-short-info" id="{$id}" data-xmlid="{replace($target,'#','')}" style="display:none">
     <span>
       <xsl:value-of select="$description||' '||$preceding_pb_val"/>
-      <xsl:if test="$reftype='insertionstart'">
+      <xsl:if test="$reftype='insertionstart' and not($preceding_pb/@type = 'nonWitness')">
         <xsl:text> | </xsl:text>
         <a class="text-dark-grey" target="_blank" rel="noopener noreferrer" href="{$preceding_pb/@xml:id || '.html'}">
           Topographische Umschrift 
