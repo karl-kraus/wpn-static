@@ -2194,14 +2194,17 @@ handling del elments based on change type
     left: 1px;
 }
 
-/* swapping del linethrough of add pipes to manual line through in right height */
-#textcontent-pb .inkOnProofKK del .add.entity {
+/* swapping del linethrough of add and metamark (insertion) pipes to manual line through in correct height */
+#textcontent-pb .inkOnProofKK del .add.entity,
+#textcontent-pb .inkOnProofKK del .metamark.entity {
   text-decoration: none !important;
   display: inline-block;
   position: relative;
+  text-shadow: inherit !important;
 }
 
-#textcontent-pb .inkOnProofKK del .add.entity::after {
+#textcontent-pb .inkOnProofKK del .add.entity::after,
+#textcontent-pb .inkOnProofKK del .metamark.entity::after {
   content: "";
   position: absolute;
   left: 0;
@@ -2210,6 +2213,7 @@ handling del elments based on change type
   background: black;
   top: 50%;
   transform: translateY(-88%);
+  text-shadow: inherit !important;
 }
 
 #textcontent-pb .subst.typewriter .del del,
