@@ -241,7 +241,7 @@
     <xsl:template match="tei:add" mode="manual">
         <xsl:param name="id" select="@xml:id"/>
         <xsl:variable name="change" select="if(parent::tei:subst[@change])then(parent::tei:subst/@change)else if(ancestor::tei:subst[@change])then(ancestor::tei:subst/@change)else(@change)"/>
-        <xsl:variable name="rend" select="(@rend, parent::tei:subst/@rend, ancestor::tei:subst/@rend)[1]"/>
+        <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(ancestor::tei:subst[@rend])then(ancestor::tei:subst/@rend)else(@rend)"/>
         <xsl:choose>
             <xsl:when test="parent::tei:subst[ancestor::tei:restore[not(./tei:seg)]]">
                 <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
