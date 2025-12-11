@@ -53,7 +53,9 @@ class WPNTextView extends HTMLElement {
 	connectedCallback() {
 		const annotationSelectors = this.getAttribute("annotation-selectors") ?? "";
 		window.addEventListener('load',() => {
-			this.onLoadFinished(annotationSelectors);
+			document.fonts.ready.then(() => {
+				this.onLoadFinished(annotationSelectors);
+			});
 		});
 		[...document.getElementsByTagName("annotation-slider")].forEach((aos) => {
 			const annotClassName = [...aos.classList].find((cn) => cn.startsWith("text-wpn"));
