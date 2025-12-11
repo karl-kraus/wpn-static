@@ -363,7 +363,7 @@
      <xsl:template match="tei:metamark[@function='transposition']" mode="render">
         <div class="d-flex metamark w-100 position-relative {replace(@change,'#','')}" data-xmlid="{@xml:id}">
             <div class="w-100">
-                <span class="{@rend} {if(parent::tei:restore)then(replace((parent::tei:restore/@change)[1], '#', ' restore '))else()}" style="font-size:1.5rem; top:-0.2rem">
+                <span class="{@rend} {if(parent::tei:restore)then(replace((parent::tei:restore/@change)[1], '#', ' restore '))else()}" style="font-size:1.5rem;{if(not(contains(@rend, 'Above'))) then ' top:-0.2rem' else ''}">
                     <xsl:choose>
                         <xsl:when test="parent::tei:restore">
                             <del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')} {if(parent::tei:restore[@change])then(replace(parent::tei:restore/@change, '#', ''))else()}" style="text-decoration-thickness: 1px;">
