@@ -3246,12 +3246,12 @@ body.modal-open, body.modal-open main {
 .top-nav {
   top: .1rem !important;
   height: $typo-info-3rd-column-height !important;
+  scrollbar-width: thin !important;
 }
 
 .top-nav-2 {
   top: $typo-info-3rd-column-height !important;
   height: $typo-info-3rd-column-height !important;
-  scrollbar-width: thin !important;
 }
 
 .z-index-1 {
