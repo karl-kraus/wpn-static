@@ -2196,7 +2196,7 @@ handling del elments based on change type
 #textcontent-pb .inkOnProofKK del .add.entity,
 #textcontent-pb .inkOnProofKK del .metamark.entity {
   text-decoration: none !important;
-  display: inline-block;
+  display: inline; // entity elements cannot be inline-block it interferes with positioning
   position: relative;
   text-shadow: inherit;
 }
