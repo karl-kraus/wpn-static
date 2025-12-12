@@ -3243,10 +3243,13 @@ body.modal-open, body.modal-open main {
   height: calc(100vh - $edition-view-header-height) !important;
 }
 
-.top-nav {
-  top: .1rem !important;
-  height: $typo-info-3rd-column-height !important;
+#infocontent {
   scrollbar-width: thin !important;
+}
+
+.top-nav {
+  top: 0 !important;
+  height: $typo-info-3rd-column-height !important;
 }
 
 .top-nav-2 {

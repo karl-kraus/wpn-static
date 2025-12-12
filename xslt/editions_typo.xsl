@@ -519,6 +519,9 @@
 	
     <xsl:template match="tei:span[@n='last']">
         <xsl:choose>
+            <xsl:when test="not(child::node())">
+                <!-- empty span: do nothing -->
+            </xsl:when>
             <xsl:when test="ancestor::tei:del or parent::tei:del or preceding-sibling::*[1]/local-name() = ('del', 'add')">
                 <span class="d-table-row {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">&#160;<xsl:apply-templates/></span>
             </xsl:when>
@@ -562,6 +565,9 @@
     </xsl:template>
     <xsl:template match="tei:span[@n='firstLast']">
         <xsl:choose>
+            <xsl:when test="not(child::node())">
+                <!-- empty span: do nothing -->
+            </xsl:when>
             <xsl:when test="ancestor::tei:del or parent::tei:del or preceding-sibling::*[1]/local-name() = ('del', 'add')">
                 <span class="d-table-row {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">&#160;<xsl:apply-templates/></span>
             </xsl:when>
