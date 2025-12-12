@@ -73,7 +73,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <span id="{@xml:id}" class="mod entity {@style} {replace(@change, '#', '')}">
-                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" style="margin-right: 1em;"><xsl:text>&#8594;</xsl:text></span>
+                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" style="margin-right: 1em;"><xsl:text>&#8592;</xsl:text></span>
 				</span>
 				<xsl:apply-templates/>
             </xsl:otherwise>
@@ -206,7 +206,7 @@
     <xsl:template match="tei:mod[not(@rendition) and @style='noIndent' and not(@continued)]" mode="render">
         <div class="d-flex position-relative" data-xmlid="{@xml:id}">
             <div class="mod {@rend} {replace(@change,'#','')}">
-                <div><span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>&#8594;</xsl:text></span></div>
+                <div><span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>&#8592;</xsl:text></span></div>
             </div>
         </div>
     </xsl:template>
