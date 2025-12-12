@@ -3251,6 +3251,7 @@ body.modal-open, body.modal-open main {
 .top-nav-2 {
   top: $typo-info-3rd-column-height !important;
   height: $typo-info-3rd-column-height !important;
+  scrollbar-width: thin !important;
 }
 
 .z-index-1 {
@@ -3281,10 +3282,10 @@ body.modal-open, body.modal-open main {
 
   #edition-view .sub_grid_pb_two, #edition-view .sub_grid_pb_vertical {
 
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 65% 35%;
 
     #textcontent-pb .print-page {
-      transform: scale(1.5);
+      transform: scale(1.4);
       transform-origin: top;
     }
 

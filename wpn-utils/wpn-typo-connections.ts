@@ -50,6 +50,8 @@ if (isMobile) {
     addListener(content!, "click", highlighting);
     addListener(info!, "click", highlighting3rdcolumn);
 
+    setModeButton!.style.display = "none";
+
 }
 if (searchParams.get("mode") === "explore") {
 
