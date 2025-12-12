@@ -47,7 +47,7 @@
                             <br/>
                             <xsl:variable name="pages" select="collection('../../data/editions?select=idPb*.xml')"/>
                             <label id="paginationLabel" class="cursor-pointer text-white fs-7 fw-light dropdown-toggle" for="dropdownMenuButton1">
-                                <xsl:text>von </xsl:text><xsl:value-of select="count($pages[not(.//tei:pb[@type='nonWitness'])])"/>
+                                <xsl:text>von 279</xsl:text>
                             </label>
                         </div>
                     </div>
@@ -362,7 +362,7 @@
                                         </xsl:variable>
                                         <xsl:variable name="readingLink" select="concat($para, '?pbs=on', '#', $page)"/>
                                         <p class="mt-2 text-end">
-                                            <a href="{$readingLink}" class="text-decoration-none text-primary-hover link-dark-grey" style="font-size: 10pt;">Annotierte Lesefassung</a>
+                                            <a href="{$readingLink}" class="text-primary-hover link-dark-grey" style="font-size: 10pt;">Annotierte Lesefassung</a>
                                         </p>
                                     </xsl:if>
                                 </div>
