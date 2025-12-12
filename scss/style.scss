@@ -3280,10 +3280,14 @@ body.modal-open, body.modal-open main {
 @media screen and (max-width: 1440px) {
 
   #edition-view .sub_grid_pb_two, #edition-view .sub_grid_pb_vertical {
+
+    grid-template-columns: 70% 30%;
+
     #textcontent-pb .print-page {
       transform: scale(1.5);
       transform-origin: top;
     }
+
   }
 
 }
