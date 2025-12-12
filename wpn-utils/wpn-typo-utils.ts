@@ -59,19 +59,24 @@ hideBtn!.addEventListener('click', function() {
     const infocontentHideIconHidden = document.getElementById('infocontent-hide-icon-hidden');
     infocontentHideIconHidden!.classList.toggle('visually-hidden');
 
+    const infoHeader = document.getElementById('infocontent-header');
+    infoHeader!.classList.toggle('position-sticky');
+    infoHeader!.classList.toggle('top-nav');
+    const legendHeader = document.getElementById('legend-header');
+    legendHeader!.classList.toggle('top-nav-2');
+
+    const paginationButton = document.querySelector('#dropdownMenuButton1 span') as HTMLElement | null;
+    const paginationDropdown = document.getElementById('paginationLabel');
 
     if (infocontent_wrapper!.classList.contains('visually-hidden')) {
 
         hideBtn!.setAttribute('title', 'Info-Spalte öffnen');
 
-        const infoHeader = document.getElementById('infocontent-header');
         infoHeader!.classList.remove('flex-row');
         infoHeader!.classList.add('flex-column');
 
-        const paginationDropdown = document.getElementById('paginationLabel');
         paginationDropdown!.classList.add('visually-hidden');
 
-        const paginationButton = document.querySelector('#dropdownMenuButton1 span') as HTMLElement | null;
         // change text to vertical
         paginationButton!.classList.add('visually-hidden');
 
@@ -79,14 +84,11 @@ hideBtn!.addEventListener('click', function() {
 
         hideBtn!.setAttribute('title', 'Info-Spalte schließen');
 
-        const infoHeader = document.getElementById('infocontent-header');
         infoHeader!.classList.remove('flex-column');
         infoHeader!.classList.add('flex-row');
 
-        const paginationDropdown = document.getElementById('paginationLabel');
         paginationDropdown!.classList.remove('visually-hidden');
 
-        const paginationButton = document.querySelector('#dropdownMenuButton1 span') as HTMLElement | null;
         paginationButton!.classList.remove('visually-hidden');
 
     }

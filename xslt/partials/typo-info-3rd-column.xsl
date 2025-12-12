@@ -41,7 +41,7 @@
                             <xsl:variable name="currentPageString" select="if(contains($currentPage, '_') ) 
                                                                             then(xs:integer(replace( tokenize( $currentPage, '_' )[1], 'F', '' ) )||'/'||tokenize( $currentPage, '_' )[2] ) 
                                                                             else(xs:integer(replace($currentPage, 'F', '')))"/>
-                            <button id="dropdownMenuButton1" class="d-contents cursor-pointer btn btn-secondary text-white fs-9_38 border-0 m-0" type="button" aria-controls="#pagination-pb" aria-expanded="false">
+                            <button id="dropdownMenuButton1" class="d-contents fs-7 cursor-pointer btn btn-secondary text-white border-0 m-0" type="button" aria-controls="#pagination-pb" aria-expanded="false">
                                 <span><xsl:text>Seite: </xsl:text></span><xsl:value-of select="$currentPageString"/>
                             </button>
                             <br/>

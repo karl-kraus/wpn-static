@@ -998,7 +998,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   // }
 
   #textcontent-pb .print-page {
-    transform: scale(2.5);
+    transform: scale(2);
     transform-origin: top;
   }
 
@@ -1057,17 +1057,13 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   // }
 
   #textcontent-pb .print-page{
-    transform: scale(2.5);
+    transform: scale(2);
     transform-origin: top;
   }
 
   #facscontent, #textcontent-pb {
     padding: 2.5rem;
   }
-}
-
-#infocontent-header, #legend-header {
-  height: $typo-info-3rd-column-height;
 }
 
 .print-page.witnessPrint {
@@ -3249,10 +3245,12 @@ body.modal-open, body.modal-open main {
 
 .top-nav {
   top: .1rem !important;
+  height: $typo-info-3rd-column-height !important;
 }
 
 .top-nav-2 {
   top: $typo-info-3rd-column-height !important;
+  height: $typo-info-3rd-column-height !important;
 }
 
 .z-index-1 {
@@ -3279,11 +3277,26 @@ body.modal-open, body.modal-open main {
   }
 }
 
-@media screen and (max-width: 1399px) {
+@media screen and (max-width: 1440px) {
+
+  #edition-view .sub_grid_pb_two, #edition-view .sub_grid_pb_vertical {
+    #textcontent-pb .print-page {
+      transform: scale(1.5);
+      transform-origin: top;
+    }
+  }
+
+}
+
+@media screen and (max-width: 1680px) {
+
+  #edition-view .sub_grid_pb_two, #edition-view .sub_grid_pb_vertical  {
+    grid-template-columns: 70% 30%;
+  }
 
   #edition-view .sub_grid_pb_three {
     display:grid;
-    grid-template-columns: 80% 20%;
+    grid-template-columns: 70% 30%;
     grid-template-rows: auto auto;
     grid-template-areas: 
       "box2 box3"
@@ -3296,8 +3309,6 @@ body.modal-open, body.modal-open main {
       grid-area: box1;
       max-height: 100%;
       height: 100%;
-      overflow-x: hidden;
-      position: relative;
       
       // Force OpenSeadragon to respect container dimensions
       .openseadragon-container,
@@ -3313,7 +3324,6 @@ body.modal-open, body.modal-open main {
       grid-area: box2;
       max-height: 100%;
       height: 100%;
-      overflow-y: hidden;
     }
 
     .grid-box-3 {
@@ -3328,9 +3338,10 @@ body.modal-open, body.modal-open main {
       margin-right: auto;
     }
 
-    #allcolumnBtn, #textcolumnBtn, #facscolumnBtn, #allcolumnRowBtn {
-      display: none;
-    }
+    // #allcolumnBtn, #textcolumnBtn, #facscolumnBtn, #allcolumnRowBtn {
+    //   display: none;
+    // }
+
   }
 
   #edition-view .sub_grid_pb_three.hide_btn {
