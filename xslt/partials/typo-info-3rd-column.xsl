@@ -91,7 +91,7 @@
                         </div>
                     </div>
                     <div id="infocontent-wrapper" class="col border-end border-bottom border-start border-light-grey p-0 m-0">
-                        <div id="legende-pb" class="visually-hidden">
+                        <div id="legende-pb" class="visually-hidden min-h-100 min-vh-100">
                             <xsl:variable name="pages" select="document('../../data/meta/topographical.xml')"/>
                             <div class="w-100 h-100 m-0 p-2">
                                 <h5>Legende</h5>

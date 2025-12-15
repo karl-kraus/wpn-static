@@ -3362,15 +3362,31 @@ body.modal-open, body.modal-open main {
 
 }
 
-@media screen and (max-width: 1680px) {
+@media screen and (min-width: 3840px) {
 
-  #edition-view .sub_grid_pb_two, #edition-view .sub_grid_pb_vertical  {
-    grid-template-columns: 70% 30%;
+  #textcontent-pb .print-page {
+    transform: scale(1.9);
+    transform-origin: top;
+  }
+  
+  #facscontent {
+    transform: scale(1.9);
+    transform-origin: top;
 
-    #textcontent-pb .print-page {
-      transform: scale(1.5);
-      transform-origin: top;
+    // Force OpenSeadragon to respect container dimensions
+    .openseadragon-container,
+    .openseadragon-canvas {
+      max-height: 100% !important;
+      height: 100% !important;
     }
+
+    
+  }
+
+  #sub_grid_pb {
+    min-height: 100% !important;
+    max-height: 100% !important;
+    height: 100% !important;
   }
 
 }
