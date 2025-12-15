@@ -196,7 +196,7 @@
             </div>
         </div>
     </xsl:template>
-    <xsl:template match="tei:mod[@rendition='#longQuoteEndCenter' and not(@continued)]" mode="render">
+    <xsl:template match="tei:mod[(@rendition='#longQuoteEndCenter' or @rendition='#longQuoteCenter') and not(@continued)]" mode="render">
         <div class="d-flex position-relative" data-xmlid="{@xml:id}">
             <div class="mod {@rend} {replace(@change,'#','')}">
                 <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>&#8594;</xsl:text></span>
