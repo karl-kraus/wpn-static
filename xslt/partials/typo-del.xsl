@@ -355,7 +355,7 @@
     <xsl:template match="tei:del" mode="manual">
         <xsl:param name="id" select="@xml:id"/>
         <xsl:choose>
-            <xsl:when test="parent::tei:restore[not(@rend='inlineOnly']">
+            <xsl:when test="parent::tei:restore[not(@rend='inlineOnly')]">
                 <del class="{@rend} {replace((parent::tei:restore/@change)[1],'#','')}">
                     <span data-anchor="{$id}" data-hand="{replace(@change,'#','')}" class="{replace(@change,'#','')}">
                         <xsl:text>&#124;&#xA0;</xsl:text><span class="arimo" data-anchor="{$id}" data-hand="{replace(@change, '#', '')}"><xsl:text>&#8368;</xsl:text></span>
