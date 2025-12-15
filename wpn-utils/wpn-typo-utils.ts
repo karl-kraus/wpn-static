@@ -29,8 +29,8 @@ legendBtn!.addEventListener('click', function() {
     legendBtn!.classList.toggle('active');
     legendBtn!.ariaExpanded = legendBtn!.classList.contains('active') ? 'true' : 'false';
     legendBtn!.setAttribute('title', legendBtn!.classList.contains('active') ? 'Legende schließen' : 'Legende öffnen');
-    legendBtn!.parentElement!.classList.toggle('bg-primary');
-    legendBtn!.parentElement!.classList.toggle('text-white');
+    legendBtn!.classList.toggle('bg-primary');
+    legendBtn!.classList.toggle('text-white');
 
     const legendePb = document.getElementById('legende-pb');
     legendePb!.classList.toggle('visually-hidden');
