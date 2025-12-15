@@ -29,7 +29,7 @@
                         <span id="{@xml:id}" class="del entity {replace(($change)[1], '#', '')}">
                             <xsl:choose>
                                 <xsl:when test="count(node())=1 and text()=' ' and not(@resp)">
-                                    <del data-anchor="{@xml:id}" data-hand="{replace($change[1],'#','')}"><xsl:text>&#32;</xsl:text></del>
+                                    <del data-anchor="{@xml:id}" data-hand="{replace($change[1],'#','')}"><xsl:text>&#xA0;</xsl:text></del>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <xsl:choose>
