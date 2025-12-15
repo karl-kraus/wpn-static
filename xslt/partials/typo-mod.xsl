@@ -162,7 +162,7 @@
         <span id="{@xml:id}" class="mod entity running-text-1 no-indent position-relative {replace(@change, '#', '')}">
             <span class="mod-inline {replace(@change, '#', '')}">
                 <xsl:if test="not(@continued)">
-                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>[&#160;</xsl:text></span>
+                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>[</xsl:text></span>
                 </xsl:if>
             </span>
 		</span>
