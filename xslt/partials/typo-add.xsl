@@ -184,7 +184,7 @@
                 <xsl:choose>
                     <xsl:when test="@rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
                         <xsl:if test="not(parent::tei:subst)">
-                           <span class="add {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></span>
+                           <del class="add {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}"><xsl:text>&#124;</xsl:text></del>
                         </xsl:if>
                         <span class="position-relative">
                             <del class="add {@rend} {replace(@change[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change[1],'#','')}">
