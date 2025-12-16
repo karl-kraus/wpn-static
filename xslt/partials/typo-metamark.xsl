@@ -45,6 +45,7 @@
         </div>
      </xsl:template>
      <xsl:template match="tei:metamark[@function='relocation'][@change='#edACE']"/>
+    <xsl:template match="tei:metamark[@function='insertion'][@change='#edACE']"/>
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@place]">
         <span class="metamark mm-inline {@place} {@style} {replace(@change, '#', '')}">
             <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
