@@ -2514,7 +2514,8 @@ pencil text color
 // @rend
 
 .typescriptFloatRight {
-  float: right;
+  position: relative;
+  left: 11rem;
 }
 
 .overwritten,
