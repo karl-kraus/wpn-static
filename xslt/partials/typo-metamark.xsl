@@ -253,6 +253,9 @@
              <xsl:when test="@rend='inline'">
                 <span class="metamark inline {replace(@rendition,'#','')} {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:apply-templates/></span>
             </xsl:when>
+              <xsl:when test="@rend='left'">
+                <span class="metamark left {replace(@rendition,'#','')} {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:apply-templates/></span>
+            </xsl:when>
              <xsl:when test="@place">
                 <span class="metamark position-absolute {replace(@rendition,'#','')} {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:apply-templates/></span>
             </xsl:when>
