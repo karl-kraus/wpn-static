@@ -281,9 +281,14 @@
             <xsl:otherwise>
                 <span data-anchor="{$id}" data-hand="{replace($change[1],'#','')}" class="{$rend} {replace($change[1],'#','')}">
                     <xsl:if test="./tei:metamark[@target]">
-                        <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
-                            <xsl:value-of select="for $i in $targetList return substring-after($i, '#')"/>
+                            <xsl:for-each select="./tei:metamark[@target]">
+                                <xsl:variable name="targetList" select="tokenize(., ' ')"/>
+                                <xsl:value-of select="for $i in $targetList return substring-after($i, '#')"/>
+                                <xsl:if test="position() != last()">
+                                    <xsl:text> </xsl:text>
+                                </xsl:if>
+                            </xsl:for-each>
                         </xsl:attribute>
                     </xsl:if>
                     <xsl:text>&#124;&#xA0;</xsl:text><xsl:apply-templates/>
