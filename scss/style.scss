@@ -2203,7 +2203,7 @@ handling del elments based on change type
     left: 1px;
 }
 
-/* swapping del linethrough of add and metamark (insertion) pipes to manual line through in correct height */
+/* swapping del linethrough of add and metamark (insertion) pipes to manual line through in correct height 
 
 #textcontent-pb del:has(>.inkOnProofKK.restore>.add),
 #textcontent-pb del:has(>.inkOnProofKK.restore>.metamark) {	
@@ -2225,11 +2225,7 @@ handling del elments based on change type
   text-shadow: inherit;
 }
 
-#textcontent-pb del:has(>.inkOnProofKK.restore>.add) .add,
-#textcontent-pb del:has(>.inkOnProofKK.restore>.metamark) .metamark {	
-  position: absolute;
-}
-
+*/
 
 
 /* text decoration color */
