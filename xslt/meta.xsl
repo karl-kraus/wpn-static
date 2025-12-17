@@ -58,7 +58,25 @@
     <xsl:template match="tei:div">
         <div id="{generate-id()}"><xsl:apply-templates/></div>
     </xsl:template>
-    <xsl:template match="tei:div[@type='legende']"/>
+    <xsl:template match="tei:div[@type='legende']">
+         <div id="legende-pb" class="min-h-100 min-vh-100">
+                <div class="w-100 h-100 m-0 p-2">
+                    <h5>Legende</h5>
+                      <xsl:for-each select=".//tei:list">
+                        <ul class="list-unstyled mt-2 p-0">
+                        <xsl:for-each select="./tei:item">
+                            <xsl:variable name="rendition" select="replace(@rendition, '#', '')"/>
+                            <xsl:variable name="rend" select="@rend"/>
+                            <xsl:variable name="change" select="replace(@change, '#', '')"/>
+                            <li class="{if($change)then($change)else()}{if($rendition)then($rendition)else()}{if($rend)then($rend)else()}">
+                                <xsl:apply-templates/>
+                            </li>
+                        </xsl:for-each>
+                        </ul>
+                      </xsl:for-each>
+                </div>
+            </div>
+    </xsl:template>
     <xsl:template match="tei:lb">
     <br/>
     </xsl:template>
