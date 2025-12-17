@@ -1658,13 +1658,18 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 // margin placements:
 
 .marginLowerLeft {
-  left: 7%;
+  left: 3%;
   top: 65%;
 }
 
 .marginLowerLeft2 {
-  left: 10%;
+  left: 3%;
   top: 65%;
+}
+
+.marginLowerLeft3 {
+  left: 3%;
+  top: 71%;
 }
 
 .marginLowerRight {
@@ -1673,12 +1678,17 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .marginUpperLeft {
-  left: 7%;
+  left: 3%;
   top: 28.6%;
 }
 
+.marginUpperLeft2 {
+  left: 3%;
+  top: 44%;
+}
+
 .marginUppermostLeft {
-  left: 7%;
+  left: 3%;
   top: 10.5%;
 }
 
@@ -1693,7 +1703,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 .marginMiddleLeft {
-  left: 7%;
+  left: 3%;
   top: 53.2%;
 }
 
