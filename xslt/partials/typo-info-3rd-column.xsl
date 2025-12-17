@@ -273,7 +273,9 @@
                                                                     <xsl:variable name="corresp" select="replace(current(), '#', '')"/>
                                                                     <xsl:choose>
                                                                         <xsl:when test="$corresp = 'none'">
-                                                                            <xsl:text>Keine Entsprechung in der Fackel Nr. 890-905.</xsl:text>
+                                                                            <span class="d-inline-block fs-6 ps-3 text-dark-grey bg-no-repeat bg-position-short-info">
+                                                                                (Keine Entsprechung in der Fackel Nr. 890-905.)
+                                                                            </span>
                                                                         </xsl:when>
                                                                         <xsl:otherwise>
                                                                             <xsl:apply-templates select="doc('../../data/indices/Register.xml')//*[@xml:id=$corresp]" mode="typo_short_info">
