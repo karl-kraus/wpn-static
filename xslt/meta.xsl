@@ -58,6 +58,7 @@
     <xsl:template match="tei:div">
         <div id="{generate-id()}"><xsl:apply-templates/></div>
     </xsl:template>
+    <xsl:template match="tei:div[@type='legende']"/>
     <xsl:template match="tei:lb">
     <br/>
     </xsl:template>
