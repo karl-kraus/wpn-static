@@ -2204,26 +2204,28 @@ handling del elments based on change type
 }
 
 /* swapping del linethrough of add and metamark (insertion) pipes to manual line through in correct height */
-#textcontent-pb .inkOnProofKK del .add.entity,
-#textcontent-pb .inkOnProofKK del .metamark.entity {
-  text-decoration: none !important;
-  display: inline; // entity elements cannot be inline-block it interferes with positioning
-  position: relative;
-  text-shadow: inherit;
-}
 
-#textcontent-pb .inkOnProofKK del .add.entity::after,
-#textcontent-pb .inkOnProofKK del .metamark.entity::after {
+#textcontent-pb del:has(>.inkOnProofKK.restore>.add)::before,
+#textcontent-pb del:has(>.inkOnProofKK.restore>.metamark)::before {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
-  height: 1px;
+  height: 1p; 
   background: black;
   top: 50%;
   transform: translateY(-88%);
   text-shadow: inherit;
 }
+
+#textcontent-pb del:has(>.inkOnProofKK.restore>.add),
+#textcontent-pb del:has(>.inkOnProofKK.restore>.metamark) {	
+  text-decoration: none !important;
+  position: relative;
+  text-shadow: inherit;
+}
+
+/* text decoration color */
 
 #textcontent-pb .subst.typewriter .del del,
 #textcontent-pb .subst.typewriter2 .del del,
