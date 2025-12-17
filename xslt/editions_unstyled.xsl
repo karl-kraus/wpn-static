@@ -152,7 +152,7 @@
      <xsl:template match="tei:seg[@type=('transposition','relocation')]" mode="render">
        <xsl:apply-templates/>
     </xsl:template>
-    <xsl:template match="tei:metamark[@function=('insertion','relocation') and not(matches(@target,'(note)+.*([a-z])_'))]">
+    <xsl:template match="tei:metamark[@function=('insertion','relocation') and not(matches(@target,'(note)+.*([a-z])_'))][not(parent::tei:restore)]">
        <xsl:variable name="target" select="replace(@target,'#','')"/>
         <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//(tei:seg|tei:note)[@xml:id=$target]" mode="render"/>
     </xsl:template>
