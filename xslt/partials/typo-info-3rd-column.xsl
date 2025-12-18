@@ -101,7 +101,7 @@
                                         <xsl:variable name="rendition" select="replace(@rendition, '#', '')"/>
                                         <xsl:variable name="rend" select="@rend"/>
                                         <xsl:variable name="change" select="replace(@change, '#', '')"/>
-                                        <li class="{if($change)then($change)else()}{if($rendition)then($rendition)else()}{if($rend)then($rend)else()}">
+                                        <li class="{if($change)then($change)else()} {if($rendition)then($rendition)else()} {if($rend)then($rend)else()}">
                                             <xsl:apply-templates/>
                                         </li>
                                     </xsl:for-each>
