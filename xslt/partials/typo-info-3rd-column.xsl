@@ -4,6 +4,8 @@
     xmlns:wpn="https://wpn.acdh.oeaw.ac.at"
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
     version="2.0" exclude-result-prefixes="#all">
+
+    <xsl:import href="typo-del.xsl"/>
     
     <xsl:template name="info-3rd-column">
         <xsl:variable name="doc_type" select="//tei:pb/@type" />
