@@ -131,7 +131,7 @@
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:when>
-			<xsl:when test="@rendition='#longQuoteEndCenter'">
+			<xsl:when test="@rendition='#longQuoteEndCenter' or @rendition='#longQuoteCenter'">
 				<span id="{@xml:id}" class="mod entity {@style} {replace(@change, '#', '')}" data-anchor="{@xml:id}"></span>
 				<xsl:apply-templates/>
 			</xsl:when>
