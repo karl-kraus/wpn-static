@@ -85,7 +85,7 @@
         <sub style="{@style}"><xsl:apply-templates/></sub>
     </xsl:template>
     <xsl:template match="tei:hi[@rend='strong']">
-        <span class="fw-bold"><xsl:apply-templates/></span>
+        <span class="fw-bolder"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:note[@type='footnote']">
         <p class="ms-2_5 fs-8"><xsl:apply-templates/></p>
