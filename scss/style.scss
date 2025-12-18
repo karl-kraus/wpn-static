@@ -2325,7 +2325,9 @@ handling del elements in maring left or right
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb .metamark.pencilOnProof2,
-#textcontent-pb .metamark.undefined  {
+#textcontent-pb .metamark.undefined,
+#textcontent-pb .add.inkOnProof .add.pencilOnProof
+{
   color: #666666;
 }
 
