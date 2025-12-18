@@ -14,6 +14,7 @@
     <xsl:import href="./partials/scripts.xsl"/>
     <xsl:import href="./editions_typo.xsl"/>
     <xsl:import href="./partials/typo-del.xsl"/>
+    <xsl:import href="./partials/typo-add.xsl"/>
     
 
 
