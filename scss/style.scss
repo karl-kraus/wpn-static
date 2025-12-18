@@ -1827,11 +1827,13 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #legende-pb .typescriptRunningText2 {
   font-family: monospace;
   font-size: 0.667rem;
+  color: black;
 }
 
 #legende-pb .runningText2 {
   font-family: "Crimson Text" !important;
   font-size: 0.833rem;
+  color: black;
 }
 
 #legende-pb .pencilOnProof {
