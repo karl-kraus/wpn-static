@@ -1826,6 +1826,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 #legende-pb .pencilOnProofKK.inkOnProofKK {
   text-shadow: 1px 2px lightgrey;
   color: #000;
+  font-size: 0.667rem;
 }
 
 #legende-pb .typescriptRunningText2 {
@@ -1836,7 +1837,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 #legende-pb .runningText2 {
   font-family: "Crimson Text" !important;
-  font-size: 0.833rem;
+  font-size: 0.667rem;
   color: black;
 }
 
