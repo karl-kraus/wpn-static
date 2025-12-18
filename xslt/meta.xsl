@@ -12,7 +12,7 @@
     <xsl:import href="./partials/html_footer.xsl"/>
     <xsl:import href="./partials/scripts.xsl"/>
     <xsl:import href="./partials/scripts.xsl"/>
-    <xsl:import href="../editions_typo.xsl"/>
+    <xsl:import href="./editions_typo.xsl"/>
 
 
     <xsl:template match="/">
