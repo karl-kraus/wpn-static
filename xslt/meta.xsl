@@ -11,6 +11,8 @@
     <xsl:import href="./partials/html_head.xsl"/>
     <xsl:import href="./partials/html_footer.xsl"/>
     <xsl:import href="./partials/scripts.xsl"/>
+    <xsl:import href="./partials/scripts.xsl"/>
+    <xsl:import href="../editions_typo.xsl"/>
 
 
     <xsl:template match="/">
@@ -101,7 +103,7 @@
                             <xsl:variable name="rendition" select="replace(@rendition, '#', '')"/>
                             <xsl:variable name="rend" select="@rend"/>
                             <xsl:variable name="change" select="replace(@change, '#', '')"/>
-                            <li class="{if($change)then($change)else()}{if($rendition)then($rendition)else()}{if($rend)then($rend)else()}">
+                            <li class="{if($change)then($change)else()} {if($rendition)then($rendition)else()} {if($rend)then($rend)else()}">
                                 <xsl:apply-templates/>
                             </li>
                         </xsl:for-each>
