@@ -1866,7 +1866,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 #legende-pb .underline {
   text-decoration: underline;
-  font-size: 0.667rem;
 }
 
 #legende-pb .restore:has(.underline) {
@@ -1882,6 +1881,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   border: none !important;
+}
+
+#legende-pb .restore:has(del) {
+  text-decoration: underline dotted;
 }
 
 #legende-pb .restore .seg.border {
