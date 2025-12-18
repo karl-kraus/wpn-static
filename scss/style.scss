@@ -1807,6 +1807,10 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   text-decoration: underline wavy;
 }
 
+.fw-bolder {
+  font-family: "Ubuntu";
+}
+
 #legende-pb .inkOnProofKK {
   font-family: var(--bs-handwritten-font-family-italic), var(--bs-handwritten-font-family-italic-fallback);
   font-size: 0.667rem;
