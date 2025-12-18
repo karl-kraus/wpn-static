@@ -80,6 +80,9 @@
     <xsl:template match="tei:lb">
     <br/>
     </xsl:template>
+    <xsl:template match="tei:graphic">
+        <img src="{@url}" alt="{./tei:desc}">
+    </xsl:template>
     <xsl:template match="tei:unclear">
         <abbr title="unclear"><xsl:apply-templates/></abbr>
     </xsl:template>
