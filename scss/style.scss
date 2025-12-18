@@ -1917,6 +1917,12 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   left: -1px !important;
 }
 
+#legende-pb .subst:has(>.add.overwrite)>.del,
+#legende-pb .subst:has(>.add.overwrite)>del{
+  color: #8c8c8c;
+  text-decoration: none !important;
+}
+
 #legende-pb .metamark.printSpanFrom.redOnProof.entity { 
   width: 0.467rem;
   height: 0.667rem;
@@ -1966,6 +1972,26 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   font-size: 1.2rem;
   line-height: 0.677rem;
 }
+
+#legende-pb .subst.inkOnProofKK.pencilOnProofKK del {
+  position: relative;          
+  display: inline;
+  text-indent: initial;
+}
+
+#legende-pb .subst.inkOnProofKK.pencilOnProofKK del::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid lightgrey;
+  top: 50%;
+  transform: translateY(1px);
+  pointer-events: none;
+  /* z-index: 1; */
+}
+
 
 // handwritten text
 #textcontent-pb .inkOnProofKK .inkLongQuote,
