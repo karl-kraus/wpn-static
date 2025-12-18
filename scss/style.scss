@@ -3137,15 +3137,16 @@ body.modal-open, body.modal-open main {
   width: 0.833rem;
   height: 1.4rem;
   display: block;
-  background: rgba($wpn-red, 0.3);
+  background: $wpn-soft-red;
   position: absolute;
   right: 0;
-  z-index: -1;
+  z-index: -2;
   clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
 }
 
 .connection-color-line.active.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   background: $wpn-red;
+  z-index: -1;
 }
 
 
@@ -3153,10 +3154,10 @@ body.modal-open, body.modal-open main {
   width: 1.5rem;
   height: 0.833rem;
   display: block;
-  background: rgba($wpn-red, 0.3);
+  background: $wpn-soft-red;
   position: absolute;
   right: -1.5rem;
-  z-index: -1;
+  z-index: -2;
   clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%);
 }
 
@@ -3168,11 +3169,11 @@ body.modal-open, body.modal-open main {
   width: 0.833rem;
   height: 1.4rem;
   display: block;
-  background: rgba($wpn-red, 0.3);
+  background: $wpn-soft-red;
   position: absolute;
   right: 0;
   top: -0.567rem;
-  z-index: -1;
+  z-index: -2;
   clip-path: polygon(50% 0%, 100% 25%, 100% 100%, 0 100%, 0 25%);
 }
 
@@ -3182,26 +3183,33 @@ body.modal-open, body.modal-open main {
 
 .connection-color-line.active.printSpanTo:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   background: $wpn-red;
+  z-index: -1;
 }
 
 .connection-color-line.printSpanTo.inline {
   width: 1.5rem;
   height: 0.833rem;
   display: block;
-  background: rgba($wpn-red, 0.3);
+  background: $wpn-soft-red;
   position: absolute;
   right: 0;
-  z-index: -1;
+  z-index: -2;
   clip-path: polygon(25% 0%, 100% 0, 100% 100%, 25% 100%, 0 50%);
 }
 
 .connection-color-line.active.printSpanTo.inline {
   background: rgba($wpn-red, 0.8);
+  z-index: -1;
 }
 
 .metamark.pencilOnProof2 .connection-color-line.printSpanFrom,
 .metamark.pencilOnProof2 .connection-color-line.printSpanTo {
   background: rgba(102, 102, 102, 0.3); /* = #666666 */
+}
+
+.metamark.pencilOnProof2 .connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight),
+.metamark.pencilOnProof2 .connection-color-line.printSpanTo:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
+  right: 4px;
 }
 
 .metamark.pencilOnProof2 .connection-color-line.active.printSpanFrom,
