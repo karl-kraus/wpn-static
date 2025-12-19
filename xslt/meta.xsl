@@ -128,5 +128,10 @@
     </xsl:template>
     <xsl:template match="tei:cell">
         <div class="{if (count(preceding-sibling::tei:cell) = 0) then 'w-30' else 'w-70'}"><xsl:apply-templates/></div>
-    </xsl:template>   
+    </xsl:template>
+    
+    <xsl:template match="tei:hi[@rend='alert']">
+        <span class="warning"><xsl:apply-templates/></span>
+    </xsl:template>
+    
 </xsl:stylesheet>
