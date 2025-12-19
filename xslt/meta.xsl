@@ -97,7 +97,7 @@
         <div class="intro-text"><xsl:apply-templates/></div>
     </xsl:template>
     <xsl:template match="tei:div[parent::tei:div[parent::tei:body] and @type='legende']">
-         <div id="legende-pb" class="min-h-100 min-vh-100">
+         <div id="legende-pb" class="min-h-100 intro-text">
                   <xsl:for-each select=".//tei:list">
                     <ul class="list-unstyled mt-2 p-0">
                     <xsl:for-each select="./tei:item">
@@ -121,7 +121,7 @@
         </section>
     </xsl:template>     
     <xsl:template match="tei:table">
-        <div><xsl:apply-templates/></div>
+        <div class="intro-text"><xsl:apply-templates/></div>
     </xsl:template>
     <xsl:template match="tei:row">
         <div class="d-flex flex-row {if (not(following-sibling::tei:row)) then 'mb-2' else ()}"><xsl:apply-templates/></div>
