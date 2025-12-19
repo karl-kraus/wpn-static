@@ -643,10 +643,9 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 /* Highlighting warnings for meta and index pages */
 span.warning {
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-warning-rgb), var(--bs-bg-opacity)) !important;
+  background-color: #F8C630;
   color: black;
-  line-height: 1.4rem !important;
+  line-height: 1.4 !important;
   display: block;
   border-radius: 8px;
   padding: 0.3rem;
