@@ -5,7 +5,7 @@
     <xsl:param name="directory_name">wpn-static</xsl:param>
     <xsl:param name="project_title">Karl Kraus: Dritte Walpurgisnacht</xsl:param>
     <xsl:param name="redmine_id">18716</xsl:param>
-    <xsl:param name="project_short_title">WPN Static-Site</xsl:param>
+    <xsl:param name="project_short_title">Karl Kraus 1933</xsl:param>
     <xsl:param name="github_url">https://github.com/karl-kraus/wpn-static</xsl:param>
     <xsl:param name="html_title">Karl Kraus 1933</xsl:param>
     <xsl:param name="project_logo">images/logo.png</xsl:param>
