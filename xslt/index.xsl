@@ -55,7 +55,7 @@
                                 <div class="card rounded-0">
                                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
                                         <h3 class="card-title mt-1"><a href="topographical.html" class="stretched-link text-decoration-none text-blacker-grey">Topographische Umschrift</a></h3>
-                                        <p class="card-subtitle text-black-grey">Dritte Walpurgisnacht</p>
+                                        <p class="card-subtitle text-black-grey">‚Jerusalemer Konvolut‘</p>
                                     </div>
                                     <img src="images/card_topographical.png" class="d-block" alt=""/>
                                 </div>
