@@ -919,8 +919,6 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 }
 
 #edition-view .sub_grid_pb_vertical.hide_btn {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
   grid-template-columns: calc(100% - 40px) 40px;
   // Force OpenSeadragon to respect container dimensions
   .openseadragon-container,
