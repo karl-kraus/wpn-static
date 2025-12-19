@@ -89,7 +89,7 @@
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:add[not(parent::tei:subst) and not(parent::tei:restore)]">
-        <xsl:variable name="inheritIDfromNote" select="if(ancestor::tei:note[@xml:id])then(ancestor::tei:note/@xml:id)else()"/>
+        <xsl:variable name="inheritIDfromNote" select="if(ancestor::tei:note[@xml:id and not(preceding::tei:pb[contains(@n, '_')])])then(ancestor::tei:note/@xml:id)else()"/>
         <xsl:choose>
             <xsl:when test="@rend = 'inline'">
                 <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}">

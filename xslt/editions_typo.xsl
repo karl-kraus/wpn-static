@@ -370,7 +370,7 @@
         <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letterSpacing']">
-        <xsl:variable name="anchor" select="if(ancestor::tei:note)then(ancestor::tei:note/@xml:id)else()"/>
+        <xsl:variable name="anchor" select="if(ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])])then(ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]/@xml:id)else()"/>
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span data-hand="{replace(@change, '#', '')}" class="spacing underline {replace(@change, '#', '')}">
@@ -397,7 +397,7 @@
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:hi[@style='underline']">
-        <xsl:variable name="anchor" select="if(ancestor::tei:note)then(ancestor::tei:note/@xml:id)else()"/>
+        <xsl:variable name="anchor" select="if(ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])])then(ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]/@xml:id)else()"/>
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="underline {replace(@change, '#', '')}">
@@ -553,9 +553,9 @@
                             <xsl:text> </xsl:text>
                             <xsl:value-of select="for $i in tokenize(parent::tei:metamark/@spanTo, ' ') return substring-after($i, '#')"/>
                         </xsl:if>
-                        <xsl:if test="ancestor::tei:note">
+                        <xsl:if test="ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]">
                             <xsl:text> </xsl:text>
-                            <xsl:value-of select="ancestor::tei:note/@xml:id"/>
+                            <xsl:value-of select="ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]/@xml:id"/>
                         </xsl:if>
                     </xsl:attribute>
                     <xsl:apply-templates/>
@@ -590,9 +590,9 @@
                             <xsl:text> </xsl:text>
                             <xsl:value-of select="for $i in tokenize(parent::tei:metamark/@spanTo, ' ') return substring-after($i, '#')"/>
                         </xsl:if>
-                        <xsl:if test="ancestor::tei:note">
+                        <xsl:if test="ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]">
                             <xsl:text> </xsl:text>
-                            <xsl:value-of select="ancestor::tei:note/@xml:id"/>
+                            <xsl:value-of select="ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]/@xml:id"/>
                         </xsl:if>
                     </xsl:attribute>
                     <xsl:if test="parent::tei:seg[@rend='arrow'] and parent::tei:seg[@xml:id='seg0111_01']">
@@ -616,9 +616,9 @@
                                         <xsl:text> </xsl:text>
                                         <xsl:value-of select="parent::tei:seg/@xml:id"/>
                                     </xsl:if>
-                                    <xsl:if test="ancestor::tei:note">
+                                    <xsl:if test="ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]">
                                         <xsl:text> </xsl:text>
-                                        <xsl:value-of select="ancestor::tei:note/@xml:id"/>
+                                        <xsl:value-of select="ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]/@xml:id"/>
                                     </xsl:if>
                                 </xsl:attribute>
                                 <xsl:text>&#8592;</xsl:text>
@@ -677,24 +677,24 @@
     </xsl:template>
     <xsl:template match="tei:unclear">
         <xsl:variable name="inheritIDfromAddDel" select="
-            if(ancestor::tei:add)
+            if(parent::tei:del[parent::tei:add[parent::tei:subst]])
             then(
-                if(ancestor::tei:add/preceding-sibling::tei:del)
-                    then(ancestor::tei:add/preceding-sibling::tei:del/@xml:id)
-                else if(ancestor::tei:add/following-sibling::tei:del)
-                    then(ancestor::tei:add/following-sibling::tei:del/@xml:id)
+                if(parent::tei:del/parent::tei:add/preceding-sibling::tei:del)
+                    then(parent::tei:del/parent::tei:add/preceding-sibling::tei:del/@xml:id)
+                else if(parent::tei:del/parent::tei:add/following-sibling::tei:del)
+                    then(parent::tei:del/parent::tei:add/following-sibling::tei:del/@xml:id)
                 else()
             )
             else()"/>
         <xsl:variable name="inheritIDfromNote" select="
-            if(ancestor::tei:note)
+            if(ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])])
             then(ancestor::tei:note/@xml:id)
             else()"/>
         <span class="unclear">
-            <xsl:if test="parent::tei:del/@xml:id">
+            <xsl:if test="parent::tei:del">
             <xsl:attribute name="data-anchor">
                 <xsl:value-of select="parent::tei:del/@xml:id"/>
-                <xsl:if test="ancestor::tei:add">
+                <xsl:if test="parent::tei:del[parent::tei:add[parent::tei:subst]]">
                     <xsl:text> </xsl:text>
                     <xsl:value-of select="$inheritIDfromAddDel"/>
                 </xsl:if>
