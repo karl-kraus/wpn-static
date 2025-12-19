@@ -107,9 +107,9 @@
                             </div>
                             <div class="col">
                                 <div class="card border-0 align-items-start">
-                                    <img height="100" src="images/partner-logos/logo-acdh-ch.svg" alt="Austrian Centre for Digital Humanities and Cultural Heritage"/>
+                                    <img height="100" src="images/partner-logos/logo-acdh-ch.svg" alt="Austrian Centre for Digital Humanities"/>
                                     <div class="card-body p-0  pt-5">
-                                        <p class="p-0 fs-8_75"><a  href="https://www.oeaw.ac.at/acdh/" target="_blank" rel="noopener noreferrer" alt="Austrian Centre for Digital Humanities and Cultural Heritage" class="stretched-link text-decoration-none text-blacker-grey">Austrian Centre for Digital Humanities and Cultural Heritage</a></p>
+                                        <p class="p-0 fs-8_75"><a  href="https://www.oeaw.ac.at/acdh/" target="_blank" rel="noopener noreferrer" alt="Austrian Centre for Digital Humanities" class="stretched-link text-decoration-none text-blacker-grey">Austrian Centre for Digital Humanities</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -123,9 +123,9 @@
                             </div>
                             <div class="col">
                                 <div class="card border-0 align-items-start">
-                                    <img height="100" src="images/partner-logos/logo-acdh-ch.svg"  alt="Austrian Centre for Digital Humanities and Cultural Heritage"/>
+                                    <img height="100" src="images/partner-logos/logo-acdh-ch.svg"  alt="Austrian Centre for Digital Humanities"/>
                                     <div class="card-body p-0  pt-5">
-                                        <p class="p-0 fs-8_75"><a  href="https://www.oeaw.ac.at/acdh/research-units/literarytextual-studies" target="_blank" rel="noopener noreferrer" alt="Literatur- &amp; Textwissenschaft" class="stretched-link text-decoration-none text-blacker-grey">Literary&amp;Textual Studies<br/>Austrian Centre for Digital Humanities and Cultural Heritage<br/>Austrian Academy of Sciences</a></p>
+                                        <p class="p-0 fs-8_75"><a  href="https://www.oeaw.ac.at/acdh/research-units/literarytextual-studies" target="_blank" rel="noopener noreferrer" alt="Literatur- &amp; Textwissenschaft" class="stretched-link text-decoration-none text-blacker-grey">Literary&amp;Print Culture Studies<br/>Austrian Centre for Digital Humanities<br/>Austrian Academy of Sciences</a></p>
                                     </div>
                                 </div>
                             </div>
