@@ -725,7 +725,7 @@
                     <b><i><xsl:value-of select="preceding-sibling::tei:title[@type='short']"/></i></b><xsl:value-of select="concat(' vom ', preceding-sibling::tei:date/text()[1], ', ')"/><xsl:apply-templates/>
                 </xsl:otherwise>
             </xsl:choose>
-            <a class="text-dark-grey text-decoration-none text-wpn-quote-hover" href="{./tei:ref[@type='ext']/@target}">
+            <a class="text-dark-grey text-decoration-none text-wpn-quote-hover">
                 <xsl:choose>
                     <xsl:when test="$printType='fackel'">
                         <xsl:attribute name="href">
@@ -738,6 +738,26 @@
                         </xsl:attribute>
                     </xsl:otherwise>
                 </xsl:choose>
+                <xsl:call-template name="icon">
+                    <xsl:with-param name="icon_name" select="'expand_info'"/>
+                </xsl:call-template>
+            </a>
+        </span>
+    </xsl:template>
+    <xsl:template match="tei:person" mode="typo_short_info">
+        <xsl:param name="datalink" select="'false'"/>
+        <xsl:variable name="forenames" select="string-join(./tei:persName/tei:forename[not(@type) or @type='middle' and not(@subtype)], ' ')"/>
+        <span class="d-inline-block fs-6 ps-3 text-dark-grey quote_signet_background bg-no-repeat bg-position-short-info">
+            <xsl:if test="$datalink != 'false'">
+            <xsl:attribute name="data-linkone">
+                <xsl:value-of select="$datalink"/>
+            </xsl:attribute>
+            </xsl:if>
+            <b><i><xsl:value-of select="concat(./tei:persName/tei:surname[not(@type)], ' ', $forenames)"/></i></b>
+            <a class="text-dark-grey text-decoration-none text-wpn-quote-hover">
+                <xsl:attribute name="href">
+                    <xsl:value-of select="concat('register_personen.html', '#', @xml:id)"/>
+                </xsl:attribute>
                 <xsl:call-template name="icon">
                     <xsl:with-param name="icon_name" select="'expand_info'"/>
                 </xsl:call-template>

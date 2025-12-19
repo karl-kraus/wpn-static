@@ -332,6 +332,7 @@
                                         <div id="list_delQP_info" class="visually-hidden"><!-- removed class d-none -->
                                             <xsl:text>Eliminierter Verweis auf </xsl:text>
                                             <xsl:for-each select="./tei:note[@type=('delQuote', 'delPers')]">
+                                                <xsl:variable name="notetype" select="@type"/>
                                                 <div class="delQP">
                                                     <xsl:variable name="regrefs">
                                                         <xsl:value-of select="tokenize(@corresp, ' ')"/>
@@ -341,10 +342,19 @@
                                                     </xsl:variable>
                                                     <xsl:for-each select="$regrefs">
                                                         <xsl:variable name="corresp" select="replace(current(), '#', '')"/>
-                                                        <xsl:apply-templates select="doc('../../data/indices/Register.xml')//tei:citedRange[@xml:id=$corresp]" mode="typo_short_info">
-                                                            <xsl:with-param name="printType" select="'register'"/>
-                                                            <xsl:with-param name="datalink" select="concat(replace($target, '#', ''), ' ', replace($corresp, '#', ''))"/>
-                                                        </xsl:apply-templates>
+                                                        <xsl:choose>
+                                                            <xsl:when test="$notetype='delPers'">
+                                                                <xsl:apply-templates select="doc('../../data/indices/Register.xml')//tei:person[@xml:id=$corresp]" mode="typo_short_info">
+                                                                    <xsl:with-param name="datalink" select="concat(replace($target, '#', ''), ' ', replace($corresp, '#', ''))"/>
+                                                                </xsl:apply-templates>
+                                                            </xsl:when>
+                                                            <xsl:otherwise>
+                                                                <xsl:apply-templates select="doc('../../data/indices/Register.xml')//tei:citedRange[@xml:id=$corresp]" mode="typo_short_info">
+                                                                    <xsl:with-param name="printType" select="'register'"/>
+                                                                    <xsl:with-param name="datalink" select="concat(replace($target, '#', ''), ' ', replace($corresp, '#', ''))"/>
+                                                                </xsl:apply-templates>
+                                                            </xsl:otherwise>                                                        
+                                                        </xsl:choose>
                                                         <!-- <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="detail_view_textpage" /> -->
                                                     </xsl:for-each>
                                                 </div>
