@@ -1265,6 +1265,12 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
     text-indent: initial;
 }
 
+.topUpperLeft10 {
+    top: 2em;
+    left: 6em;
+    text-indent: initial;
+}
+
 
 .topLowerLeft1 {
     top: 9em;
@@ -1469,7 +1475,7 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 
 .bottomUpperLeft7 {
     left: 8em;
-    bottom: 11em;
+    bottom: 10em;
     text-indent: initial;
 }
 
@@ -1482,6 +1488,12 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
 .bottomUpperLeft9 {
     left: 5em;
     bottom: 13em;
+    text-indent: initial;
+}
+
+.bottomUpperLeft10 {
+    left: 4em;
+    bottom: 2em;
     text-indent: initial;
 }
 
