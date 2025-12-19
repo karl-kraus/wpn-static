@@ -7,7 +7,7 @@
     <xsl:param name="redmine_id">18716</xsl:param>
     <xsl:param name="project_short_title">WPN Static-Site</xsl:param>
     <xsl:param name="github_url">https://github.com/karl-kraus/wpn-static</xsl:param>
-    <xsl:param name="html_title">WPN Static-Site</xsl:param>
+    <xsl:param name="html_title">Karl Kraus 1933</xsl:param>
     <xsl:param name="project_logo">images/logo.png</xsl:param>
     <xsl:param name="base_url">karl-kraus.github.io/wpn-static/</xsl:param>
     <xsl:param name="data_repo"/>
