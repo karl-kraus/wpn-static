@@ -157,7 +157,7 @@
     </xsl:template>
 
     <xsl:template match="tei:hi[@rend='alert']">
-        <span class="bg-warning"><xsl:apply-templates/></span>
+        <span class="warning"><xsl:apply-templates/></span>
     </xsl:template>
     
     <xsl:template match="tei:p">
