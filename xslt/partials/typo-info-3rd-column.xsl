@@ -185,7 +185,7 @@
                                     
                                     
                                     <!-- ########### -->
-                                    <!-- textblock 4 -->
+                                    <!-- CHANGES LIST -->
                                     <!-- ########### -->
                                     <xsl:if test="./tei:note[@type=('change', 'printInstruction', 'overwritten')]">
                                         <h5 id="btn_more_text_layers" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_more_text_layers">
@@ -296,12 +296,12 @@
                                     </xsl:if>
                                     
                                     <!-- ########### -->
-                                    <!-- textblock 5 -->
+                                    <!-- DATIERUNG 5 -->
                                     <!-- ########### -->
-                                    <xsl:if test="./tei:note[starts-with(@type, 'tpq')]/text()">
+                                    <!-- <xsl:if test="./tei:note[starts-with(@type, 'tpq')]/text()">
                                         <h5 id="btn_tpq_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_tpq_info">
                                             Datierung - terminus post quem [BETA]</h5>
-                                        <div id="list_tpq_info" class="visually-hidden"><!-- removed class d-none -->
+                                        <div id="list_tpq_info" class="visually-hidden">
                                             <xsl:for-each select="./tei:note[@type='tpqBase']">
                                                 <p class="tpq" data-linkone="{replace(@corresp, '#', '')}">
                                                     <xsl:text>Grundschicht: </xsl:text>
@@ -321,15 +321,16 @@
                                                 </p>
                                             </xsl:for-each>
                                         </div>
-                                    </xsl:if>
+                                    </xsl:if> -->
                                     
                                     <!-- ########### -->
-                                    <!-- textblock 6 -->
+                                    <!-- INHALTLICHES 6 -->
                                     <!-- ########### -->
+                                <!--
                                     <xsl:if test="./tei:note[@type=('delQuote', 'delPers')]">
                                         <h5 id="btn_delQP_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_delQP_info">
                                             Inhaltliche Anmerkung</h5>
-                                        <div id="list_delQP_info" class="visually-hidden"><!-- removed class d-none -->
+                                        <div id="list_delQP_info" class="visually-hidden">
                                             <xsl:text>Eliminierter Verweis auf </xsl:text>
                                             <xsl:for-each select="./tei:note[@type=('delQuote', 'delPers')]">
                                                 <xsl:variable name="notetype" select="@type"/>
@@ -355,13 +356,16 @@
                                                                 </xsl:apply-templates>
                                                             </xsl:otherwise>                                                        
                                                         </xsl:choose>
-                                                        <!-- <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//*[@xml:id=$target]" mode="detail_view_textpage" /> -->
+                                                        
                                                     </xsl:for-each>
                                                 </div>
                                             </xsl:for-each>
                                         </div>
-                                    </xsl:if>
-                                    
+                                    </xsl:if>-->
+
+                                <!-- ################# -->
+                                <!-- LINK ZUR LESEFSSG -->
+                                <!-- ################# -->
                                     <xsl:if test="./tei:note[@type='para']">
                                         <xsl:variable name="para" select="concat('absatz_', ./tei:note[@type='para']/@n, '.html')"/>
                                         <xsl:variable name="page">
