@@ -641,6 +641,17 @@ wpn-detail-view:has(span[data-bs-toggle="popover"]:hover) details:not([open]) .s
   background-image: url("../images/icon-signet-seitenumbruch.svg");
  }
 
+/* Highlighting warnings for meta and index pages */
+span.warning {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-warning-rgb), var(--bs-bg-opacity)) !important;
+  color: black;
+  line-height: 1.4rem !important;
+  display: block;
+  border-radius: 8px;
+  padding: 0.3rem;
+}
+
 /** detail view Dritter Publikationsschritt **/
 
 #textcontent-pb .runningText1,
