@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="icon-quelle-bg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="25" height="25"  viewBox="0 0 25 25">
+  <!-- Generator: Adobe Illustrator 29.8.3, SVG Export Plug-In . SVG Version: 2.1.1 Build 3)  -->
+  <defs>
+    <style>
+      .st0 {
+        stroke-width: 1.4px;
+      }
+
+      .st0, .st1, .st2, .st3, .st4 {
+        fill: none;
+      }
+
+      .st0, .st3, .st4 {
+        stroke: #a21a17;
+      }
+
+      .st0, .st4 {
+        stroke-linejoin: round;
+      }
+
+      .st1 {
+        stroke: #d8d8d8;
+      }
+
+      .st5 {
+        fill: #d8d8d8;
+      }
+
+      .st2 {
+        stroke: #6d6d6c;
+      }
+
+      .st6 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Rechteck_259">
+    <path class="st5" d="M12.42-.03h0C19.32-.03,24.92,5.57,24.92,12.47h0c0,6.9-5.6,12.5-12.5,12.5h0C5.51,24.97-.08,19.38-.08,12.47H-.08C-.08,5.57,5.51-.03,12.42-.03Z"/>
+  </g>
+  <g id="Rechteck_2591" data-name="Rechteck_259">
+    <path class="st6" d="M20.1,2.58v19.85c-2.1,1.61-4.74,2.57-7.6,2.57-3.45,0-6.57-1.4-8.84-3.66C1.4,19.08,0,15.96,0,12.5S1.4,5.92,3.66,3.66C5.93,1.4,9.05,0,12.5,0,15.36,0,18,.96,20.1,2.58Z"/>
+  </g>
+  <path id="Pfad_28" class="st4" d="M15.43,8.83h3.88"/>
+  <path id="Pfad_281" data-name="Pfad_28" class="st4" d="M18.1,15.49"/>
+  <g id="Gruppe_54">
+    <path id="Linie_6" class="st3" d="M24.5,12.25"/>
+    <path id="Linie_61" data-name="Linie_6" class="st3" d="M18.46,12.25"/>
+    <path id="Linie_7" class="st3" d="M24.5,14.48"/>
+    <path id="Linie_71" data-name="Linie_7" class="st3" d="M18.46,14.48"/>
+    <line id="Linie_5" class="st2" x1="3" y1="5.17" x2="13.45" y2="5.17"/>
+  </g>
+  <path id="Linie_51" data-name="Linie_5" class="st3" d="M13.2,13.36"/>
+  <path id="Linie_52" data-name="Linie_5" class="st3" d="M3.34,13.36"/>
+  <path id="Linie_53" data-name="Linie_5" class="st3" d="M13.2,9.45"/>
+  <path id="Linie_54" data-name="Linie_5" class="st3" d="M3.34,9.45"/>
+  <path id="Linie_55" data-name="Linie_5" class="st3" d="M13.2,13.11"/>
+  <path id="Linie_56" data-name="Linie_5" class="st3" d="M3.34,13.11"/>
+  <path id="Linie_57" data-name="Linie_5" class="st3" d="M13.2,16.78"/>
+  <path id="Linie_58" data-name="Linie_5" class="st3" d="M3.34,16.78"/>
+  <path id="Pfad_282" data-name="Pfad_28" class="st4" d="M15.43,16.17h3.88"/>
+  <line id="Linie_59" data-name="Linie_5" class="st2" x1="1.07" y1="8.83" x2="13.45" y2="8.83"/>
+  <line id="Linie_510" data-name="Linie_5" class="st2" x1=".5" y1="12.5" x2="13.45" y2="12.5"/>
+  <line id="Linie_511" data-name="Linie_5" class="st2" x1="1.07" y1="16.17" x2="13.45" y2="16.17"/>
+  <line id="Linie_512" data-name="Linie_5" class="st2" x1="3" y1="19.83" x2="13.45" y2="19.83"/>
+  <path id="Pfad_283" data-name="Pfad_28" class="st0" d="M7.35,8.83h3.88"/>
+  <path id="Pfad_284" data-name="Pfad_28" class="st0" d="M3.93,16.17h3.88"/>
+  <line id="Linie_513" data-name="Linie_5" class="st2" x1="7.81" y1="23.5" x2="13.54" y2="23.5"/>
+  <line id="Linie_514" data-name="Linie_5" class="st2" x1="7.62" y1="1.5" x2="13.4" y2="1.5"/>
+  <g id="Rechteck_2592" data-name="Rechteck_259">
+    <path class="st1" d="M12.5.5h0c6.63,0,12,5.37,12,12h0c0,6.63-5.37,12-12,12h0C5.87,24.5.5,19.13.5,12.5h0C.5,5.87,5.87.5,12.5.5Z"/>
+  </g>
+</svg>
