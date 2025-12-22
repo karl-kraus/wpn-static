@@ -1,0 +1,40 @@
+<svg id="icon-quelle-bg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="25" height="25" viewBox="0 0 25 25">
+  <defs>
+    <style>
+      .st0 {
+        stroke: #d8d8d8;
+      }
+
+      .st0, .st1 {
+        fill: none;
+      }
+
+      .st2 {
+        fill: #a21a17;
+      }
+
+      .st3 {
+        fill: #fff;
+      }
+
+      .st1 {
+        stroke: #a21a17;
+      }
+    </style>
+  </defs>
+  <g id="Rechteck_259">
+    <path class="st3" d="M12.5,0h0C19.4,0,25,5.6,25,12.5h0c0,6.9-5.6,12.5-12.5,12.5h0C5.6,25,0,19.4,0,12.5h0C0,5.6,5.6,0,12.5,0Z"/>
+    <path class="st0" d="M12.5.5h0c6.63,0,12,5.37,12,12h0c0,6.63-5.37,12-12,12h0C5.87,24.5.5,19.13.5,12.5h0C.5,5.87,5.87.5,12.5.5Z"/>
+  </g>
+  <g id="icon-quelle">
+    <g id="Gruppe_54">
+      <path id="Linie_5" class="st1" d="M16.77,12.53"/>
+      <path id="Linie_51" data-name="Linie_5" class="st1" d="M10.73,12.53"/>
+      <path id="Linie_6" class="st1" d="M16.77,14.75"/>
+      <path id="Linie_61" data-name="Linie_6" class="st1" d="M10.73,14.75"/>
+      <path id="Linie_7" class="st1" d="M16.77,16.98"/>
+      <path id="Linie_71" data-name="Linie_7" class="st1" d="M10.73,16.98"/>
+    </g>
+  </g>
+  <path class="st2" d="M15.57,19.88h-6.36v-1.08h.34c.45,0,.78-.06.99-.19s.33-.3.38-.53.07-.56.07-1v-3.48c0-.48-.03-.83-.09-1.03s-.21-.35-.46-.45-.66-.14-1.24-.15v-1.08l4.8-1.01v7.2c0,.66.08,1.11.25,1.35s.6.36,1.31.36v1.08ZM14.24,5.32c0,.47-.17.87-.5,1.2s-.73.5-1.2.5-.86-.17-1.2-.51-.51-.74-.51-1.19.17-.87.5-1.21.74-.5,1.21-.5.88.16,1.21.49.49.73.49,1.22Z"/>
+</svg>
