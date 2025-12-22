@@ -85,10 +85,10 @@
                 <div class="row flex-row m-0 mx-auto">
                     <div id="legend-header" class="col p-0 position-sticky z-index-1 top-nav-2 border-start border-bottom border-light-grey align-content-around" style="max-width:39px;border-radius: 0 0 0 0.25rem;">
                         <div id="legende-btn" class="active d-block px-0_25 py-1 text-center cursor-pointer" title="Legende öffnen" type="button" aria-controls="#legende-pb" aria-expanded="false">
-                            <img src="images/icon-quelle-bg.svg" alt="Legende"/>                    
+                            <img src="images/icon-legende-bg.svg" alt="Legende"/>                    
                         </div>
                         <div id="setMode" role="button" class="d-block p-0_25 text-center cursor-pointer m-visually-hidden border-top border-light-grey">
-                            <img src="images/highlighter.svg" alt="Highlighting"/>   
+                            <img src="images/icon-highlight-bg.svg" alt="Highlighting"/>   
                             <label class="cursor-pointer" style="font-size:7pt;">[BETA]</label>
                         </div>
                     </div>
