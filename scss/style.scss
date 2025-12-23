@@ -1788,6 +1788,7 @@ span.warning {
 }
 
 #textcontent-pb .seg.border,
+#textcontent-pb .seg.border>.quotes>.longQuote>span,
 #textcontent-pb .mod.border.inkOnProofKK {
   background-image: linear-gradient(lightgrey, lightgrey);
   background-repeat: no-repeat;
@@ -1798,7 +1799,8 @@ span.warning {
   border: none !important;
 }
 
-#textcontent-pb .seg.border:not(:has(br)) {
+#textcontent-pb .seg.border:not(:has(br)),
+#textcontent-pb .seg.border>.quotes>.longQuote>span:not(:has(br)) {
   background-size: calc(100% - 0px) 1em;
   border-radius: 6px;
 }
