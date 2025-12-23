@@ -121,9 +121,9 @@
                             </xsl:if>
                         </div>
                         <div>
-                            <p class="ff-ubuntu text-light-grey">
+                            <a href="{$kwic_hit/ancestor::body/@data-teiid||'.html?cmts=on#'||current()/@xml:id}" class="text-decoration-none link-dark-grey stretched-link ff-ubuntu m-0 p-08">
                                 <xsl:value-of select="$kwic_hit/ancestor::body/@data-label"/>
-                            </p>
+                            </a>
                         </div>
                     </div>
                 </xsl:for-each>
