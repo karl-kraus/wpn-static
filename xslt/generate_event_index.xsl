@@ -42,7 +42,24 @@
                     select="@*| node()"
                 />
                 <note>
-                        <xsl:copy-of select="$ref_elements//*[@target='#'||$id]"/>
+                    <xsl:copy-of select="$ref_elements//*[@target='#'||$id]"/>
+                    <xsl:if test="not(document('../data/editions/Gesamt.xml')//tei:ref[@type='event'][contains(@target,$id)])">
+                        <xsl:variable name="indirect_event_or_comment_references" as="xs:string*">
+                            <xsl:sequence>
+                                <xsl:sequence select="root()//tei:ref[@target='#'||$id]/ancestor::tei:event/@xml:id"/>
+                                <xsl:sequence select="document('../data/indices/Kommentar.xml')//tei:ref[@target='#'||$id]/parent::tei:seg/@xml:id"/>
+                            </xsl:sequence>
+                        </xsl:variable>
+                        <xsl:for-each select="$indirect_event_or_comment_references[.!='']">
+                            <xsl:for-each select="document('../data/editions/Gesamt.xml')//tei:ref[@type=('event','comment')][contains(@target,'#'||current())]">
+                                <xsl:variable name="current_ref" select="current()"/>
+                                    <xsl:element name="ref" namespace="http://www.tei-c.org/ns/1.0">
+                                        <xsl:attribute name="target" select="current()"/>
+                                        <xsl:copy-of select="$current_ref/@*[not(./local-name() = 'target')]"/>
+                                    </xsl:element>
+                            </xsl:for-each>
+                        </xsl:for-each>
+                    </xsl:if>
                 </note>
             </xsl:element>
     </xsl:template>

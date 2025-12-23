@@ -109,7 +109,7 @@
          <details class="pb-1 mt-1 border-bottom border-light-grey">
             <summary class="d-flex align-items-baseline">Zum Text</summary>
             <div id="{'kwics_'||@xml:id}" class="ff-crimson-text">
-                <xsl:for-each select="descendant::tei:ref[@type='event'][not(ancestor::tei:desc)]">
+                <xsl:for-each select="descendant::tei:ref[@type=('event','comment')][not(ancestor::tei:desc)]">
                     <xsl:variable name="kwic_hit" select="collection('../../data/merged?select=*.html')//span[@id=current()/@xml:id]"/>
                     <xsl:variable name="prev_text" select="string($kwic_hit/string-join(preceding::text()))"/>
                     <xsl:variable name="following_text" select="string($kwic_hit/string-join(following::text()))"/>
@@ -126,9 +126,9 @@
                             </xsl:if>
                         </div>
                         <div>
-                            <p class="ff-ubuntu text-light-grey">
+                            <a href="{$kwic_hit/ancestor::body/@data-teiid||'.html?cmts=on#'||current()/@xml:id}" class="text-decoration-none link-dark-grey stretched-link ff-ubuntu m-0 p-08">
                                 <xsl:value-of select="$kwic_hit/ancestor::body/@data-label"/>
-                            </p>
+                            </a>
                         </div>
                     </div>
                 </xsl:for-each>
