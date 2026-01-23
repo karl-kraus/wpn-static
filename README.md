@@ -11,7 +11,7 @@ Developers:
 Barbara Krautgartner \
 (if you contribute, you can add your name at the end of the list)
 
-## views / pages
+## views / pages 
 
 | page/view | original instance | current instance | current tei source | current xslt|
 |-----|-----|-----|-----|-----|
