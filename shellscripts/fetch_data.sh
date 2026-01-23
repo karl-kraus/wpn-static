@@ -41,6 +41,8 @@ if [ -f $output_archive ]; then rm $output_archive; fi
 
 mkdir data/editions
 mv $custom_output_dir/Gesamt.xml data/editions/
+mkdir data/editions2
+mv $custom_output_dir/KK1933_Abs64_Ts.xml data/editions2/
 mkdir data/indices
 mv $custom_output_dir/Register.xml data/indices/
 mv $custom_output_dir/Events.xml data/indices/

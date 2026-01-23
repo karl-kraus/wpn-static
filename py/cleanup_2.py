@@ -16,13 +16,13 @@ NSMAP = {
 
 # Remove the original file
 # After the split it is not required anymore
-SOURCE_FILE = 'Gesamt_modified.xml'
-SOURE_PATH = os.path.join('data', 'editions', SOURCE_FILE)
+SOURCE_FILE = 'KK1933_Abs64_Ts_modified.xml'
+SOURE_PATH = os.path.join('data', 'editions2', SOURCE_FILE)
 os.remove(SOURE_PATH)
 
 INPUT_DIR = 'output'
-INPUT_PROJECT_DIR = 'Gesamt_modified'
-OUTPUT_DIR = os.path.join('data', 'editions', 'tmp')
+INPUT_PROJECT_DIR = 'KK1933_Abs64_Ts_modified'
+OUTPUT_DIR = os.path.join('data', 'editions2', 'tmp')
 
 files = os.path.join(INPUT_DIR, INPUT_PROJECT_DIR, '*.xml')
 files_glob = glob.glob(files)

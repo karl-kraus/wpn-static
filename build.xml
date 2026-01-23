@@ -68,6 +68,15 @@
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
+    <target name="build-edition-typo-2">
+        <delete>
+            <fileset dir="${target}" includes="idPb*.html"/>
+        </delete>
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions2" destdir="${target}" includes="idPb*.xml" excludes="KK1933_Abs64_Ts.xml">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
     <target name="build-meta-pages">
         <xslt style="./xslt/meta.xsl"  basedir="./data/meta" destdir="${target}" includes="edition.xml,annotierte_lesefassung.xml,projekt.xml,nutzungsbedingungen.xml,impressum.xml,topographical.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
@@ -151,7 +160,7 @@
         <!--<copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-wght-normal.woff2" todir="${target_fonts}"/>
         <copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-ext-wght-normal.woff2" todir="${target_fonts}"/>-->
     </target>
-    <target name="build-full-edition" depends="copy-libs, generate-scan-index, build-landing-page, build-meta-pages, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-notes, generate-bibl-index, generate-person-index, generate-comment-index, generate-event-index, build-intertext-register, build-person-register, build-comment-register, build-timeline-register, build-search-page"/>
+    <target name="build-full-edition" depends="copy-libs, generate-scan-index, build-landing-page, build-meta-pages, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-edition-typo-2, build-notes, generate-bibl-index, generate-person-index, generate-comment-index, generate-event-index, build-intertext-register, build-person-register, build-comment-register, build-timeline-register, build-search-page"/>
     <target name="add-header-pb">
         <delete>
             <fileset dir="./data/editions" includes="idPb*.xml idPb*.html"/>
@@ -165,8 +174,16 @@
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt> -->
-        <delete dir="./data/editions/tmp"/>
-        <!-- <delete dir="./data/editions/tmp2"/> -->
+    </target>
+    <target name="add-header-pb-2">
+        <delete>
+            <fileset dir="./data/editions2" includes="idPb*.xml idPb*.html"/>
+        </delete>
+        <xslt style="./xslt/partials/add-header-pb.xsl" basedir="./data/editions2/tmp" destdir="./data/editions2" includes="idPb*.xml" extension=".xml">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+        <delete dir="./data/editions2/tmp"/>
     </target>
     <replace dir="${target}" value="">
         <include name="*.html"/>

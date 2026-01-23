@@ -60,7 +60,9 @@ jobs:
     - name: Fetch data
       run: uv run ./shellscripts/fetch_data.sh
     - name: Splitting the Edition
-      run: uv run ./shellscripts/split_milestone_gesamt.sh
+      run: |
+        uv run ./shellscripts/split_milestone_gesamt.sh
+        uv run ./shellscripts/split_milestone_gesamt_2.sh
     # - name: Adding TEI base, id, prev and next
     #   run: ./shellscripts/add-attributes.sh
     - name: Build
