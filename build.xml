@@ -60,18 +60,18 @@
         </xslt>
     </target>
     <target name="build-edition-typo">
-        <delete>
+        <!-- <delete>
             <fileset dir="${target}" includes="idPb*.html"/>
-        </delete>
+        </delete> -->
         <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions" destdir="${target}" includes="idPb*.xml" excludes="Gesamt.xml idPb0266_a.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
     <target name="build-edition-typo-2">
-        <delete>
+        <!-- <delete>
             <fileset dir="${target}" includes="idPb*.html"/>
-        </delete>
+        </delete> -->
         <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions2" destdir="${target}" includes="idPb*.xml" excludes="KK1933_Abs64_Ts.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
