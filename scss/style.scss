@@ -1788,6 +1788,7 @@ span.warning {
 }
 
 #textcontent-pb .seg.border,
+#textcontent-pb .seg.border>.quotes>.longQuote>span,
 #textcontent-pb .mod.border.inkOnProofKK {
   background-image: linear-gradient(lightgrey, lightgrey);
   background-repeat: no-repeat;
@@ -1798,7 +1799,8 @@ span.warning {
   border: none !important;
 }
 
-#textcontent-pb .seg.border:not(:has(br)) {
+#textcontent-pb .seg.border:not(:has(br)),
+#textcontent-pb .seg.border>.quotes>.longQuote>span:not(:has(br)) {
   background-size: calc(100% - 0px) 1em;
   border-radius: 6px;
 }
@@ -2144,6 +2146,7 @@ handling del elments based on change type
 #textcontent-pb .subst.pencilOnProofKK .del del,
 #textcontent-pb .del.pencilOnProofKK del,
 #textcontent-pb .del.pencilOnProof del,
+#textcontent-pb .add.inkOnProofKK del.pencilOnProofKK,
 #textcontent-pb .pencilOnProofKK>del,
 #textcontent-pb .restore.pencilOnProofKK .del,
 #textcontent-pb .restore.pencilOnProofKK .add,
@@ -2467,6 +2470,7 @@ pencil text color
 #textcontent-pb div.del.pencilOnProofKK.inkOnProofKK span.pencilOnProofKK.inkOnProofKK,
 #textcontent-pb div.del.pencilOnProof.inkOnProof span.pencilOnProof.inkOnProof,
 #textcontent-pb .pencilOnProofKK.inkOnProofKK.metamark,
+#textcontent-pb .pencilOnProof.inkOnProof.metamark,
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK,
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK .inkLongQuote,
 #textcontent-pb .inkOnProofKK.pencilOnProofKK .inkLongQuoteVerse,
@@ -2474,7 +2478,8 @@ pencil text color
 #textcontent-pb .mod.inkOnProofKK.pencilOnProofKK,
 #textcontent-pb .mod.marginLeft.pencilOnProofKK.inkOnProofKK,
 #textcontent-pb .metamark.inkOnProofKK.pencilOnProofKK,
-#textcontent-pb .mod.inkOnProofKK.pencilOnProofKK:is([class*='margin']) {
+#textcontent-pb .mod.inkOnProofKK.pencilOnProofKK:is([class*='margin']),
+#textcontent-pb .del.above.inkOnProofKK.pencilOnProofKK:has(>.arimo) {
   text-shadow: 2px 3px lightgrey;
   color: #000;
 }

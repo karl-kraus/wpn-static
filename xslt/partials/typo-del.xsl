@@ -12,8 +12,17 @@
             <xsl:when test="@rend='overwritten'">
                 <span class="del text-black-grey" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
-            <xsl:when test="@rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
+            <xsl:when test="@rend=('below', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <del><xsl:value-of select="normalize-space(.)"/></del>
+                <span class="position-relative">
+                   <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="del {@rend} {replace($change, '#', '')}"><xsl:text>&#124;&#xA0;</xsl:text><span class="arimo" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>&#8368;</xsl:text></span></span>
+                </span>
+            </xsl:when>
+            <!-- p 98 fix (test for other rends, see when above) -->
+            <xsl:when test="@rend='above'">
+                <span class="del entity {replace(($change)[1], '#', '')}">
+                    <del><xsl:value-of select="normalize-space(.)"/></del>
+                </span>
                 <span class="position-relative">
                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="del {@rend} {replace($change, '#', '')}"><xsl:text>&#124;&#xA0;</xsl:text><span class="arimo" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>&#8368;</xsl:text></span></span>
                 </span>
