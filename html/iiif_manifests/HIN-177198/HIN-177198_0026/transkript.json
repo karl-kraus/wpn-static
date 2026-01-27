@@ -9,10 +9,10 @@
 		"@context": "https://iiif.io/api/presentation/2/context.json",
 		"motivation": "sc:painting",
 		"@type": "oa:Annotation",
-		"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0026/transkript.json#line_1562837865606_2975",
-		"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0026#xywh=3265,1016,1135,274"
+		"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0026/transkript.json#line_1562837865606_2975",
+		"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0026#xywh=3265,1016,1135,274"
 	},
 	"@context": "https://iiif.io/api/presentation/2/context.json",
 	"@type": "sc:AnnotationList",
-	"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0026/transkript.json"
+	"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0026/transkript.json"
 }
