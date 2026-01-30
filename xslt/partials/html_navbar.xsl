@@ -150,12 +150,12 @@
                                                         <xsl:with-param name="label" select="'Das ‚Jerusalemer Konvolut‘'"/>
                                                     </xsl:call-template>
                                                 </li>
-                                                <li class="nav-item">
+                                                <!-- <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'register.html'"/>
                                                         <xsl:with-param name="label" select="'Register'"/>
                                                     </xsl:call-template>
-                                                </li>
+                                                </li>-->
                                                 <!--<li class="nav-item">
                                                     <a class="nav-link" href="imprint.html">Textgenese</a>
                                                 </li>
