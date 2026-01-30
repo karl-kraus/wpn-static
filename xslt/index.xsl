@@ -37,7 +37,6 @@
                         <div class="mt-2">
                             <xsl:apply-templates select="//tei:body//tei:p"/>
                         </div>
-                        <a role="button" href="projekt.html" class="btn btn-outline-black-grey">Über das Projekt</a>
                     </section>
                     <hr class="my-3"/>
                     <section class="container p-0">
@@ -45,8 +44,8 @@
                             <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
                                 <div class="card rounded-0">
                                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                        <h3 class="card-title mt-1"><a href="annotierte_lesefassung.html" class="stretched-link text-decoration-none text-blacker-grey">Annotierte Lesefassung</a></h3>
-                                        <p class="card-subtitle text-black-grey">Dritte Walpurgisnacht</p>
+                                        <h3 class="card-title mt-1"><a href="annotierte_lesefassung.html" class="stretched-link text-decoration-none text-blacker-grey">Lesefassung</a></h3>
+                                        <p class="card-subtitle text-black-grey">Die ‚Dritte Walpurgisnacht‘</p>
                                     </div>
                                     <img src="images/card_annotierte_lesefassung.png" class="d-block" alt=""/>
                                 </div>
@@ -54,8 +53,8 @@
                             <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
                                 <div class="card rounded-0">
                                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                        <h3 class="card-title mt-1"><a href="topographical.html" class="stretched-link text-decoration-none text-blacker-grey">Topographische Umschrift</a></h3>
-                                        <p class="card-subtitle text-black-grey">‚Jerusalemer Konvolut‘</p>
+                                        <h3 class="card-title mt-1"><a href="topographical.html" class="stretched-link text-decoration-none text-blacker-grey">Umschrift</a></h3>
+                                        <p class="card-subtitle text-black-grey">Das ‚Jerusalemer Konvolut‘</p>
                                     </div>
                                     <img src="images/card_topographical.png" class="d-block" alt=""/>
                                 </div>
@@ -63,30 +62,56 @@
                             <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
                                 <div class="card rounded-0">
                                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                        <h3 class="card-title mt-1"><a href="kommentar.html" class="stretched-link text-decoration-none text-blacker-grey">Kommentar</a></h3>
-                                        <p class="card-subtitle text-black-grey">Stellenkommentar und Zeitleiste</p>
-                                    </div>
-                                    <img src="images/card_kommentar.png" class="d-block" alt=""/>
-                                </div>
-                            </div>
-                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
-                                <div class="card rounded-0">
-                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
                                         <h3 class="card-title mt-1"><a href="notizen.html" class="stretched-link text-decoration-none text-blacker-grey">Notizen</a></h3>
-                                        <p class="card-subtitle text-black-grey">Dritte Walpurgisnacht</p>
+                                        <p class="card-subtitle text-black-grey">Notizen 1933 (1925–1935)</p>
                                     </div>
                                     <img src="images/card_notizen.png" class="d-block" alt=""/>
                                 </div>
                             </div>
+                            
+                            <!--  -->
+                            
                             <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
                                 <div class="card rounded-0">
                                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                        <h3 class="card-title mt-1"><a href="register.html" class="stretched-link text-decoration-none text-blacker-grey">Register</a></h3>
-                                        <p class="card-subtitle text-black-grey">Personen und Intertexte</p>
+                                        <h3 class="card-title mt-1"><a href="personen.html" class="stretched-link text-decoration-none text-blacker-grey">Personen</a></h3>
+                                        <p class="card-subtitle text-black-grey">Im Text genannte Personen</p>
                                     </div>
                                     <img src="images/card_register.png" class="d-block" alt=""/>
                                 </div>
                             </div>
+                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
+                                <div class="card rounded-0">
+                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                        <h3 class="card-title mt-1"><a href="intertexte.html" class="stretched-link text-decoration-none text-blacker-grey">Intertexte</a></h3>
+                                        <p class="card-subtitle text-black-grey">Zitierte Texte, Quellen u. a.</p>
+                                    </div>
+                                    <img src="images/card_intertexts.png" class="d-block" alt=""/>
+                                </div>
+                            </div>
+                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
+                                <div class="card rounded-0">
+                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                        <h3 class="card-title mt-1"><a href="ereignisse.html" class="stretched-link text-decoration-none text-blacker-grey">Ereignisse</a></h3>
+                                        <p class="card-subtitle text-black-grey">Zeitleiste zur Dritten Walpurgisnacht</p>
+                                    </div>
+                                    <img src="images/card_timeline.png" class="d-block" alt=""/>
+                                </div>
+                            </div>
+                            
+                            <!--  -->
+                            
+                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
+                                <div class="card rounded-0">
+                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                        <h3 class="card-title mt-1"><a href="kommentar.html" class="stretched-link text-decoration-none text-blacker-grey">Stellenkommentar</a></h3>
+                                        <p class="card-subtitle text-black-grey">Kommentare zur Dritten Walpurgisnacht</p>
+                                    </div>
+                                    <img src="images/card_kommentar.png" class="d-block" alt=""/>
+                                </div>
+                            </div>
+                            
+                            
                         </div>
                     </section>
                     <hr class="my-3"/>

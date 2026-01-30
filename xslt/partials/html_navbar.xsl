@@ -76,11 +76,15 @@
                                 <div class="container d-block">
                                     <div class="row">
                                         <div class="col-md-4">
-                                        <span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span>
+                                        <span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Die Edition</span>
                                             <ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
-                                                <!--<li class="nav-item">
-                                                    <a class="nav-link" href="projekt.html">Über das Projekt</a>
-                                                </li>-->
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'edition.html'"/>
+                                                        <xsl:with-param name="label" select="'Textgenese und Überlieferung'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'projekt.html'"/>
@@ -107,19 +111,43 @@
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'notizen.html'"/>
-                                                        <xsl:with-param name="label" select="'Notizen'"/>
+                                                        <xsl:with-param name="label" select="'Notizen zur Dritten Walpurgisnacht'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'notizen_konvolut_1.html'"/>
+                                                        <xsl:with-param name="label" select="'Konvolut I'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'notizen_konvolut_2.html'"/>
+                                                        <xsl:with-param name="label" select="'Konvolut II'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'annotierte_lesefassung.html'"/>
-                                                        <xsl:with-param name="label" select="'Annotierte Lesefassung'"/>
+                                                        <xsl:with-param name="label" select="'Lesefassung'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'motti.html'"/>
+                                                        <xsl:with-param name="label" select="'Zum Text der Dritten Walpurgisnacht'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'topographical.html'"/>
-                                                        <xsl:with-param name="label" select="'Topographische Umschrift'"/>
+                                                        <xsl:with-param name="label" select="'Umschrift'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'idPb0001.html'"/>
+                                                        <xsl:with-param name="label" select="'Das ‚Jerusalemer Konvolut‘'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
@@ -142,19 +170,49 @@
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'kommentar.html'"/>
-                                                        <xsl:with-param name="label" select="'Zu Kommentar und Zeitleiste'"/>
+                                                        <xsl:with-param name="label" select="'Stellenkommentar'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'register_kommentare.html'"/>
-                                                        <xsl:with-param name="label" select="'Register der Kommentare'"/>
+                                                        <xsl:with-param name="label" select="'Zum Register'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'personen.html'"/>
+                                                        <xsl:with-param name="label" select="'Personen'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'register_personen.html'"/>
+                                                        <xsl:with-param name="label" select="'Zum Register'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'intertexte.html'"/>
+                                                        <xsl:with-param name="label" select="'Intertexte'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'register_intertexte.html'"/>
+                                                        <xsl:with-param name="label" select="'Zum Register'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'ereignisse.html'"/>
-                                                        <xsl:with-param name="label" select="'Zeitleiste'"/>
+                                                        <xsl:with-param name="label" select="'Ereignisse'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'timeline.html'"/>
+                                                        <xsl:with-param name="label" select="'Zur Timeline'"/>
                                                     </xsl:call-template>
                                                 </li>
                                             </ul>
