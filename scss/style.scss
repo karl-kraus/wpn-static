@@ -3200,13 +3200,13 @@ body.modal-open, body.modal-open main {
 
 .connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   width: 0.833rem;
-  height: 1.4rem;
+  height: 0.7rem;
   display: block;
   background: $wpn-soft-red;
   position: absolute;
   right: 0;
   z-index: -2;
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  clip-path: polygon(0 0, 100% 0, 100% 66%, 50% 100%, 0 66%);
 }
 
 .connection-color-line.active.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
@@ -3232,18 +3232,18 @@ body.modal-open, body.modal-open main {
 
 .connection-color-line.printSpanTo:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   width: 0.833rem;
-  height: 1.4rem;
+  height: 0.7rem;
   display: block;
   background: $wpn-soft-red;
   position: absolute;
   right: 0;
-  top: -0.567rem;
+  top: 0.2rem;
   z-index: -2;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 100%, 0 100%, 0 25%);
+  clip-path: polygon(50% 0%, 100% 33%, 100% 100%, 0 100%, 0 33%);
 }
 
 .connection-color-line.printSpanTo.verse-bracket:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
-  top: -1.4rem;
+  top: -0.7rem;
 }
 
 .connection-color-line.active.printSpanTo:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
