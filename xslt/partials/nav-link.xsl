@@ -5,7 +5,8 @@
     <xsl:template name="nav-link">
     <xsl:param name="href"/>
     <xsl:param name="label"/>
-    <a class="nav-link text-nowrap" href="{$href}"><xsl:value-of select="$label"/><svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 12 12">
+    <xsl:param name="level"/>
+    <a class="nav-link text-nowrap {$level}" href="{$href}"><xsl:value-of select="$label"/><svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 12 12">
     <defs>
         <style>.a{fill:none;stroke:#d8d8d8;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
     </defs>

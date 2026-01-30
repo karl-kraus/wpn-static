@@ -92,7 +92,7 @@
                             <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
                                 <div class="card rounded-0">
                                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                        <h3 class="card-title mt-1"><a href="ereignisse.html" class="stretched-link text-decoration-none text-blacker-grey">Ereignisse</a></h3>
+                                        <h3 class="card-title mt-1"><a href="timeline.html" class="stretched-link text-decoration-none text-blacker-grey">Ereignisse</a></h3>
                                         <p class="card-subtitle text-black-grey">Zeitleiste zur Dritten Walpurgisnacht</p>
                                     </div>
                                     <img src="images/card_timeline.png" class="d-block" alt=""/>
