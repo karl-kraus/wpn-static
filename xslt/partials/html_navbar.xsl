@@ -123,14 +123,14 @@
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'notizen_konvolut_1.html'"/>
                                                         <xsl:with-param name="label" select="'Konvolut I'"/>
-                                                        <xsl:with-param name="level" select="'level2'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'notizen_konvolut_2.html'"/>
                                                         <xsl:with-param name="label" select="'Konvolut II'"/>
-                                                        <xsl:with-param name="level" select="'level2'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
@@ -144,7 +144,7 @@
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'motti.html'"/>
                                                         <xsl:with-param name="label" select="'Zum Text der Dritten Walpurgisnacht'"/>
-                                                        <xsl:with-param name="level" select="'level2'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
@@ -158,7 +158,7 @@
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'idPb0001.html'"/>
                                                         <xsl:with-param name="label" select="'Das ‚Jerusalemer Konvolut‘'"/>
-                                                        <xsl:with-param name="level" select="'level2'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <!-- <li class="nav-item">
@@ -189,7 +189,7 @@
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'register_kommentare.html'"/>
                                                         <xsl:with-param name="label" select="'Zum Register'"/>
-                                                        <xsl:with-param name="level" select="'level2'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
@@ -203,7 +203,7 @@
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'register_personen.html'"/>
                                                         <xsl:with-param name="label" select="'Zum Register'"/>
-                                                        <xsl:with-param name="level" select="'level2'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
@@ -217,7 +217,7 @@
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'register_intertexte.html'"/>
                                                         <xsl:with-param name="label" select="'Zum Register'"/>
-                                                        <xsl:with-param name="level" select="'level2'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
@@ -231,7 +231,7 @@
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'timeline.html'"/>
                                                         <xsl:with-param name="label" select="'Zur Timeline'"/>
-                                                        <xsl:with-param name="level" select="'level2'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                             </ul>
