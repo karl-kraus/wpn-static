@@ -294,20 +294,20 @@
                             <li class="breadcrumb-item active" aria-current="page">Text</li>
                         </xsl:if>
                         <xsl:if test="$document = 'personindex_updated'">
-                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="register.html">Register</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Personen</li>
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="register.html">Personen</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Personenregister</li>
                         </xsl:if>  
                         <xsl:if test="$document = 'biblindex_updated'">
-                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="register.html">Register</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Intertexte</li>
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="register.html">Intertexte</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Register der Intertexte</li>
                         </xsl:if> 
                         <xsl:if test="$document = 'commentindex_updated'">
-                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="kommentar.html">Kommentar</a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="kommentar.html">Stellenkommentar</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Register der Stellenkommentare</li>
                         </xsl:if>  
                         <xsl:if test="$document = 'eventindex_updated'">
-                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="kommentar.html">Kommentar</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Ereignisse</li>
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="ereignisse.html">Ereignisse</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Timeline</li>
                         </xsl:if>  
                     </ol>
                 </div>

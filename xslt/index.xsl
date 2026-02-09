@@ -92,7 +92,7 @@
                             <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
                                 <div class="card rounded-0">
                                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                        <h3 class="card-title mt-1"><a href="timeline.html" class="stretched-link text-decoration-none text-blacker-grey">Ereignisse</a></h3>
+                                        <h3 class="card-title mt-1"><a href="ereignisse.html" class="stretched-link text-decoration-none text-blacker-grey">Ereignisse</a></h3>
                                         <p class="card-subtitle text-black-grey">Der Text als Protokoll</p>
                                     </div>
                                     <img src="images/card_timeline.png" class="d-block" alt=""/>
@@ -132,9 +132,9 @@
                             </div>
                             <div class="col">
                                 <div class="card border-0 align-items-start">
-                                    <img height="100" src="images/partner-logos/logo-acdh-ch.svg" alt="Austrian Centre for Digital Humanities"/>
+                                    <img height="100" src="images/partner-logos/logo-acdh-ch.svg"  alt="Austrian Centre for Digital Humanities"/>
                                     <div class="card-body p-0  pt-5">
-                                        <p class="p-0 fs-8_75"><a  href="https://www.oeaw.ac.at/acdh/" target="_blank" rel="noopener noreferrer" alt="Austrian Centre for Digital Humanities" class="stretched-link text-decoration-none text-blacker-grey">Austrian Centre for Digital Humanities</a></p>
+                                        <p class="p-0 fs-8_75"><a  href="https://www.oeaw.ac.at/acdh/research-units/literarytextual-studies" target="_blank" rel="noopener noreferrer" alt="Literatur- &amp; Textwissenschaft" class="stretched-link text-decoration-none text-blacker-grey">Literary&amp;Print Culture Studies<br/>Austrian Centre for Digital Humanities<br/>Austrian Academy of Sciences</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -146,14 +146,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="card border-0 align-items-start">
-                                    <img height="100" src="images/partner-logos/logo-acdh-ch.svg"  alt="Austrian Centre for Digital Humanities"/>
-                                    <div class="card-body p-0  pt-5">
-                                        <p class="p-0 fs-8_75"><a  href="https://www.oeaw.ac.at/acdh/research-units/literarytextual-studies" target="_blank" rel="noopener noreferrer" alt="Literatur- &amp; Textwissenschaft" class="stretched-link text-decoration-none text-blacker-grey">Literary&amp;Print Culture Studies<br/>Austrian Centre for Digital Humanities<br/>Austrian Academy of Sciences</a></p>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="row mb-2 mt-5">
                             <p>Unser Dank für die Kooperation gilt</p>
