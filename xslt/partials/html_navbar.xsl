@@ -297,11 +297,11 @@
                             <li class="breadcrumb-item active" aria-current="page">Text</li>
                         </xsl:if>
                         <xsl:if test="$document = 'personindex_updated'">
-                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="register.html">Personen</a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="personen.html">Personen</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Personenregister</li>
                         </xsl:if>  
                         <xsl:if test="$document = 'biblindex_updated'">
-                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="register.html">Intertexte</a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="intertexte.html">Intertexte</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Register der Intertexte</li>
                         </xsl:if> 
                         <xsl:if test="$document = 'commentindex_updated'">
