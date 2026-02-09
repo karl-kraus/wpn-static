@@ -277,7 +277,10 @@
                                     <xsl:when test="$document = 'annotierte_lesefassung'">Annotierte Lesefassung</xsl:when>
                                     <xsl:when test="$document = 'topographical'">Topographische Umschrift</xsl:when>
                                     <xsl:when test="$document = 'register'">Register</xsl:when>
-                                    <xsl:when test="$document = 'kommentar'">Kommentar</xsl:when>
+                                    <xsl:when test="$document = 'kommentar'">Stellenkommentar</xsl:when>
+                                    <xsl:when test="$document = 'personen'">Personen</xsl:when>
+                                    <xsl:when test="$document = 'intertexte'">Intertexte</xsl:when>
+                                    <xsl:when test="$document = 'ereignisse'">Ereignisse</xsl:when>
                                     <xsl:when test="$document = 'suche'">Suche</xsl:when>
                                     <xsl:otherwise>
 
