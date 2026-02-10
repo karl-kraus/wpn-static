@@ -50,7 +50,7 @@
                             </form>
                         </xsl:if>
                         <a class="nav-link project-link pe-4 link-dark-grey text-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a>
-                        <a class="nav-link project-link pe-4 link-dark-grey text-primary-hover d-none d-md-inline" href="edition.html">Zur Edition</a>
+                        
                         <button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="modal" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <!--<span class="navbar-toggler-icon"></span>-->
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="20" height="12" viewBox="0 0 20 12">
