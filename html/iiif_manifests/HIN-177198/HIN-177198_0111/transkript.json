@@ -10,8 +10,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111/transkript.json#line_1562833509567_1471",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111#xywh=962,1314,252,139"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111/transkript.json#line_1562833509567_1471",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111#xywh=962,1314,252,139"
 		},
 		{
 			"resource": {
@@ -23,8 +23,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111/transkript.json#line_1562833512870_1474",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111#xywh=1035,1413,868,179"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111/transkript.json#line_1562833512870_1474",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111#xywh=1035,1413,868,179"
 		},
 		{
 			"resource": {
@@ -36,8 +36,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111/transkript.json#line_1562833517477_1477",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111#xywh=987,1546,1055,162"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111/transkript.json#line_1562833517477_1477",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111#xywh=987,1546,1055,162"
 		},
 		{
 			"resource": {
@@ -49,8 +49,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111/transkript.json#line_1562833524088_1480",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111#xywh=1012,1670,949,156"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111/transkript.json#line_1562833524088_1480",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111#xywh=1012,1670,949,156"
 		},
 		{
 			"resource": {
@@ -62,8 +62,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111/transkript.json#line_1562833527097_1483",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111#xywh=1076,1799,529,149"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111/transkript.json#line_1562833527097_1483",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111#xywh=1076,1799,529,149"
 		},
 		{
 			"resource": {
@@ -75,8 +75,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111/transkript.json#line_1562833529907_1486",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111#xywh=959,2016,896,244"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111/transkript.json#line_1562833529907_1486",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111#xywh=959,2016,896,244"
 		},
 		{
 			"resource": {
@@ -88,8 +88,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111/transkript.json#line_1562833535169_1489",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111#xywh=1111,2348,434,162"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111/transkript.json#line_1562833535169_1489",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111#xywh=1111,2348,434,162"
 		},
 		{
 			"resource": {
@@ -101,8 +101,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111/transkript.json#line_1562833540010_1492",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111#xywh=1303,2409,694,204"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111/transkript.json#line_1562833540010_1492",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111#xywh=1303,2409,694,204"
 		},
 		{
 			"resource": {
@@ -114,11 +114,11 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111/transkript.json#line_1562833544240_1495",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111#xywh=1341,2560,676,184"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111/transkript.json#line_1562833544240_1495",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111#xywh=1341,2560,676,184"
 		}
 	],
 	"@context": "https://iiif.io/api/presentation/2/context.json",
 	"@type": "sc:AnnotationList",
-	"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-177198/HIN-177198_0111/transkript.json"
+	"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0111/transkript.json"
 }

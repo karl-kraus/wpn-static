@@ -10,8 +10,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156/transkript.json#line_1558708368956_3188",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156#xywh=192,310,277,182"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156/transkript.json#line_1558708368956_3188",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156#xywh=192,310,277,182"
 		},
 		{
 			"resource": {
@@ -23,8 +23,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156/transkript.json#line_1558708375148_3191",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156#xywh=260,474,310,141"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156/transkript.json#line_1558708375148_3191",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156#xywh=260,474,310,141"
 		},
 		{
 			"resource": {
@@ -36,8 +36,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156/transkript.json#line_1558708379388_3194",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156#xywh=357,578,328,154"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156/transkript.json#line_1558708379388_3194",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156#xywh=357,578,328,154"
 		},
 		{
 			"resource": {
@@ -49,8 +49,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156/transkript.json#line_1558708385840_3197",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156#xywh=127,789,459,177"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156/transkript.json#line_1558708385840_3197",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156#xywh=127,789,459,177"
 		},
 		{
 			"resource": {
@@ -62,8 +62,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156/transkript.json#line_1558708390216_3200",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156#xywh=247,922,415,162"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156/transkript.json#line_1558708390216_3200",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156#xywh=247,922,415,162"
 		},
 		{
 			"resource": {
@@ -75,8 +75,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156/transkript.json#line_1558708397788_3203",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156#xywh=187,1131,501,166"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156/transkript.json#line_1558708397788_3203",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156#xywh=187,1131,501,166"
 		},
 		{
 			"resource": {
@@ -88,8 +88,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156/transkript.json#line_1558708410585_3206",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156#xywh=273,1264,399,101"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156/transkript.json#line_1558708410585_3206",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156#xywh=273,1264,399,101"
 		},
 		{
 			"resource": {
@@ -101,8 +101,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156/transkript.json#line_1558708417755_3209",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156#xywh=244,1303,543,182"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156/transkript.json#line_1558708417755_3209",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156#xywh=244,1303,543,182"
 		},
 		{
 			"resource": {
@@ -114,8 +114,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156/transkript.json#line_1558708425643_3212",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156#xywh=317,1412,470,151"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156/transkript.json#line_1558708425643_3212",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156#xywh=317,1412,470,151"
 		},
 		{
 			"resource": {
@@ -127,8 +127,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156/transkript.json#line_1558708431254_3215",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156#xywh=409,1509,305,138"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156/transkript.json#line_1558708431254_3215",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156#xywh=409,1509,305,138"
 		},
 		{
 			"resource": {
@@ -140,8 +140,8 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156/transkript.json#line_1559125052216_194",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156#xywh=76,1579,174,70"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156/transkript.json#line_1559125052216_194",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156#xywh=76,1579,174,70"
 		},
 		{
 			"resource": {
@@ -153,11 +153,11 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156/transkript.json#line_1558708435067_3218",
-			"on": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156#xywh=138,1644,286,138"
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156/transkript.json#line_1558708435067_3218",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156#xywh=138,1644,286,138"
 		}
 	],
 	"@context": "https://iiif.io/api/presentation/2/context.json",
 	"@type": "sc:AnnotationList",
-	"@id": "https://kraus1933.ace.oeaw.ac.at/resources/json/HIN-176044/HIN-176044_0156/transkript.json"
+	"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0156/transkript.json"
 }

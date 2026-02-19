@@ -50,7 +50,7 @@
                             </form>
                         </xsl:if>
                         <a class="nav-link project-link pe-4 link-dark-grey text-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a>
-                        <a class="nav-link project-link pe-4 link-dark-grey text-primary-hover d-none d-md-inline" href="edition.html">Zur Edition</a>
+                        
                         <button class="navbar-toggler d-inline-block border-0" type="button" data-bs-toggle="modal" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <!--<span class="navbar-toggler-icon"></span>-->
                             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="20" height="12" viewBox="0 0 20 12">
@@ -76,27 +76,35 @@
                                 <div class="container d-block">
                                     <div class="row">
                                         <div class="col-md-4">
-                                        <span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Das Projekt</span>
+                                        <span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Die Edition</span>
                                             <ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
-                                                <!--<li class="nav-item">
-                                                    <a class="nav-link" href="projekt.html">Über das Projekt</a>
-                                                </li>-->
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'edition.html'"/>
+                                                        <xsl:with-param name="label" select="'Textgenese und Überlieferung'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'projekt.html'"/>
                                                         <xsl:with-param name="label" select="'Über das Projekt'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'nutzungsbedingungen.html'"/>
                                                         <xsl:with-param name="label" select="'Nutzungsbedingungen'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'impressum.html'"/>
                                                         <xsl:with-param name="label" select="'Impressum'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
                                                     </xsl:call-template>
                                                 </li>
                                             </ul>
@@ -107,27 +115,58 @@
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'notizen.html'"/>
-                                                        <xsl:with-param name="label" select="'Notizen'"/>
+                                                        <xsl:with-param name="label" select="'Notizen zur Dritten Walpurgisnacht'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'notizen_konvolut_1.html'"/>
+                                                        <xsl:with-param name="label" select="'Konvolut I'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'notizen_konvolut_2.html'"/>
+                                                        <xsl:with-param name="label" select="'Konvolut II'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'annotierte_lesefassung.html'"/>
-                                                        <xsl:with-param name="label" select="'Annotierte Lesefassung'"/>
+                                                        <xsl:with-param name="label" select="'Lesefassung'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'motti.html'"/>
+                                                        <xsl:with-param name="label" select="'Zum Text der Dritten Walpurgisnacht'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'topographical.html'"/>
-                                                        <xsl:with-param name="label" select="'Topographische Umschrift'"/>
+                                                        <xsl:with-param name="label" select="'Umschrift'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'idPb0001.html'"/>
+                                                        <xsl:with-param name="label" select="'Das ‚Jerusalemer Konvolut‘'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <!-- <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'register.html'"/>
                                                         <xsl:with-param name="label" select="'Register'"/>
                                                     </xsl:call-template>
-                                                </li>
+                                                </li>-->
                                                 <!--<li class="nav-item">
                                                     <a class="nav-link" href="imprint.html">Textgenese</a>
                                                 </li>
@@ -142,19 +181,57 @@
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'kommentar.html'"/>
-                                                        <xsl:with-param name="label" select="'Zu Kommentar und Zeitleiste'"/>
+                                                        <xsl:with-param name="label" select="'Stellenkommentar'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'register_kommentare.html'"/>
-                                                        <xsl:with-param name="label" select="'Register der Kommentare'"/>
+                                                        <xsl:with-param name="label" select="'Zum Register'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'personen.html'"/>
+                                                        <xsl:with-param name="label" select="'Personen'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'register_personen.html'"/>
+                                                        <xsl:with-param name="label" select="'Zum Register'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'intertexte.html'"/>
+                                                        <xsl:with-param name="label" select="'Intertexte'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'register_intertexte.html'"/>
+                                                        <xsl:with-param name="label" select="'Zum Register'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'ereignisse.html'"/>
-                                                        <xsl:with-param name="label" select="'Zeitleiste'"/>
+                                                        <xsl:with-param name="label" select="'Ereignisse'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'timeline.html'"/>
+                                                        <xsl:with-param name="label" select="'Zur Timeline'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                             </ul>
@@ -200,7 +277,10 @@
                                     <xsl:when test="$document = 'annotierte_lesefassung'">Annotierte Lesefassung</xsl:when>
                                     <xsl:when test="$document = 'topographical'">Topographische Umschrift</xsl:when>
                                     <xsl:when test="$document = 'register'">Register</xsl:when>
-                                    <xsl:when test="$document = 'kommentar'">Kommentar</xsl:when>
+                                    <xsl:when test="$document = 'kommentar'">Stellenkommentar</xsl:when>
+                                    <xsl:when test="$document = 'personen'">Personen</xsl:when>
+                                    <xsl:when test="$document = 'intertexte'">Intertexte</xsl:when>
+                                    <xsl:when test="$document = 'ereignisse'">Ereignisse</xsl:when>
                                     <xsl:when test="$document = 'suche'">Suche</xsl:when>
                                     <xsl:otherwise>
 
@@ -217,20 +297,20 @@
                             <li class="breadcrumb-item active" aria-current="page">Text</li>
                         </xsl:if>
                         <xsl:if test="$document = 'personindex_updated'">
-                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="register.html">Register</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Personen</li>
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="personen.html">Personen</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Personenregister</li>
                         </xsl:if>  
                         <xsl:if test="$document = 'biblindex_updated'">
-                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="register.html">Register</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Intertexte</li>
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="intertexte.html">Intertexte</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Register der Intertexte</li>
                         </xsl:if> 
                         <xsl:if test="$document = 'commentindex_updated'">
-                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="kommentar.html">Kommentar</a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="kommentar.html">Stellenkommentar</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Register der Stellenkommentare</li>
                         </xsl:if>  
                         <xsl:if test="$document = 'eventindex_updated'">
-                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="kommentar.html">Kommentar</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Ereignisse</li>
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="ereignisse.html">Ereignisse</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Timeline</li>
                         </xsl:if>  
                     </ol>
                 </div>

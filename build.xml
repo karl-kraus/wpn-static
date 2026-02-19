@@ -68,7 +68,7 @@
         </xslt>
     </target>
     <target name="build-meta-pages">
-        <xslt style="./xslt/meta.xsl"  basedir="./data/meta" destdir="${target}" includes="edition.xml,annotierte_lesefassung.xml,projekt.xml,nutzungsbedingungen.xml,impressum.xml,topographical.xml">
+        <xslt style="./xslt/meta.xsl"  basedir="./data/meta" destdir="${target}" includes="personen.xml,intertexte.xml,ereignisse.xml,edition.xml,annotierte_lesefassung.xml,projekt.xml,nutzungsbedingungen.xml,impressum.xml,topographical.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
@@ -123,7 +123,7 @@
         </xslt>
     </target>
      <target name="build-timeline-register">
-        <xslt in="./data/indices/eventindex_updated.xml" out="${target}/ereignisse.html" style="./xslt/ereignisse.xsl">
+        <xslt in="./data/indices/eventindex_updated.xml" out="${target}/timeline.html" style="./xslt/ereignisse.xsl">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
