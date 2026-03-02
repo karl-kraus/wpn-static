@@ -1712,6 +1712,11 @@ span.warning {
   top: 44%;
 }
 
+.marginUpperLeft3 {
+  left: 3%;
+  top: 35%;
+}
+
 .marginUppermostLeft {
   left: 3%;
   top: 10.5%;
@@ -2023,6 +2028,7 @@ span.warning {
 #textcontent-pb .inkOnProofKK .inkLongQuote,
 #textcontent-pb .inkOnProofKK .inkLongQuoteVerse,
 #textcontent-pb .subst.inkOnProofKK .add,
+#textcontent-pb .subst.pencilOnTypescriptKK34 .add, 
 #textcontent-pb .restore .inkOnProofKK.add,
 #textcontent-pb .add.inkOnProofKK,
 #textcontent-pb .note.inkOnProofKK,
@@ -2079,6 +2085,7 @@ span.warning {
 #textcontent-pb .metamark.redOnProof,
 #textcontent-pb div.del.redOnProof,
 #textcontent-pb .subst.pencilOnTypescript .add,
+#textcontent-pb .subst.pencilOnTypescriptKK34 .add, 
 #textcontent-pb .subst.pencilOnProof .add,
 #textcontent-pb .restore.pencilOnTypescript .add,
 #textcontent-pb .restore.pencilOnProof .add,
@@ -3059,6 +3066,15 @@ div.position-relative .marginLeftFurtherBelowOnly {
   position: relative !important;
   display: block;
   text-decoration: underline;
+}
+
+/*for Konvolut_Faust  */
+#textcontent-pb .metamark.typescriptFontRight {
+  display: block;
+  text-indent: 30rem;
+  line-height: 0;
+  position: relative !important;
+  text-decoration: none;
 }
 
 #textcontent-pb .metamark.inkFont {
