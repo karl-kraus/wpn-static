@@ -662,6 +662,7 @@ span.warning {
 #textcontent-pb .typescriptInsertNum,
 #textcontent-pb .typescriptPageNum,
 #textcontent-pb .typescriptFont,
+#textcontent-pb .typescriptFontRight,
 #textcontent-pb .metamark.typescriptFont,
 #textcontent-pb .typescriptLongQuote,
 #textcontent-pb .typescriptLongQuoteIndent,
@@ -687,7 +688,8 @@ span.warning {
   text-align-last: left;
 }
 
-#textcontent-pb .typewriter1 {
+#textcontent-pb .typewriter1,
+#textcontent-pb .typewriter3 {
   font-weight: bold;
 }
 
@@ -1718,8 +1720,9 @@ span.warning {
 }
 
 .marginUpperLeft3 {
-  left: 1%;
-  top: 34%;
+  left: -5%;
+  top: 35%;
+  text-indent: 0;
 }
 
 .marginUppermostLeft {
