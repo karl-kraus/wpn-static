@@ -3182,7 +3182,7 @@ wpn-time-line {
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del {
-  color: #8c8c8c;
+  color: #8c8c8c !important;
 }
 
 #textcontent-pb .subst:has(>.overwrite) {
