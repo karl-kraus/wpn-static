@@ -678,12 +678,17 @@ span.warning {
 #textcontent-pb .typescriptLongQuoteRightAlign,
 #textcontent-pb .typescriptLongQuoteAdvInsert,
 #textcontent-pb .typewriter,
+#textcontent-pb .typewriter1,
 #textcontent-pb .typewriter2 {
   font-size: 0.833rem;
   line-height: 1.2rem;
   font-family: monospace;
   text-align: left;
   text-align-last: left;
+}
+
+#textcontent-pb .typewriter1 {
+  font-weight: bold;
 }
 
 #textcontent-pb .witnessTypescriptInsert .typescriptInsertNum,
@@ -2043,6 +2048,7 @@ span.warning {
 #textcontent-pb .add.pencilOnProofKK,
 #textcontent-pb .note.pencilOnProofKK,
 #textcontent-pb .note.pencilOnTypescriptKK,
+#textcontent-pb .note.pencilOnTypescriptKK2,
 #textcontent-pb .metamark.pencilOnProofKK,
 #textcontent-pb div.del.pencilOnProofKK,
 #textcontent-pb div.mod.pencilOnProofKK,
@@ -2434,6 +2440,7 @@ pencil text color
 #textcontent-pb .fw.pencilOnProof,
 #textcontent-pb .note.pencilOnProofKK,
 #textcontent-pb .note.pencilOnTypescriptKK,
+#textcontent-pb .note.pencilOnTypescriptKK2,
 #textcontent-pb .note.pencilOnProofLibrary,
 #textcontent-pb .seg .seg.entity.seg-inline .pencilOnTypescript {
   color: #666666;
