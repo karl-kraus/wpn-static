@@ -34,6 +34,11 @@
                             <del data-anchor="{@xml:id}" data-hand="{replace($change[1],'#','')}"><xsl:apply-templates/></del>
                         </span>
                     </xsl:when>
+                    <xsl:when test="child::tei:gap and @rend">
+                        <span id="{@xml:id}" class="del entity {replace(($change)[1], '#', '')} {@rend}">
+                            <del data-anchor="{@xml:id}" data-hand="{replace($change[1],'#','')}"><xsl:apply-templates/></del>
+                        </span>
+                    </xsl:when>
                     <xsl:otherwise>
                         <span id="{@xml:id}" class="del entity {replace(($change)[1], '#', '')}">
                             <xsl:choose>
