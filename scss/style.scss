@@ -1718,8 +1718,8 @@ span.warning {
 }
 
 .marginUpperLeft3 {
-  left: 3%;
-  top: 35%;
+  left: 1%;
+  top: 34%;
 }
 
 .marginUppermostLeft {
@@ -2593,8 +2593,9 @@ pencil text color
   text-indent: 0 !important;
 }
 
-#textcontent-pb .add:not(.typewriter1) {
-  font-size: 0.667rem;
+#textcontent-pb .add[class*="typewriter"] {
+  font-size: 0.833rem;
+  line-height: 0.75rem;
 }
 
 #textcontent-pb .add div {
