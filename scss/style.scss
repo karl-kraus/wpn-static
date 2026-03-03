@@ -2583,8 +2583,11 @@ pencil text color
 }
 
 #textcontent-pb .add {
-  font-size: 0.667rem;
   text-indent: 0 !important;
+}
+
+#textcontent-pb .add:not(.typewriter1) {
+  font-size: 0.667rem;
 }
 
 #textcontent-pb .add div {
