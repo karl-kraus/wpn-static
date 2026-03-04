@@ -3185,11 +3185,13 @@ wpn-time-line {
 }
 
 #textcontent-pb .add.overwrite {
-  font-size: inherit;
-  // margin-left: -0.5em;
   font-family: var(--bs-handwritten-font-family-italic);
   text-shadow: none;
   cursor: url(../images/cursor-circle.svg) 15 15, auto;
+}
+
+#textcontent-pb .subst .add.overwrite {
+  font-size: inherit !important;
 }
 
 #textcontent-pb .add.overwrite:hover {
