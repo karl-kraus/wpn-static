@@ -2618,14 +2618,38 @@ pencil text color
   line-height: 0.75rem;
 }
 
-#textcontent-pb .ellipsis.extent-27 {
-  
+#textcontent-pb .ellipsis {
+  display: inline-block;
 }
+
+#textcontent-pb .ellipsis.extent-17 {
+  width: 7rem;
+}
+#textcontent-pb .ellipsis.extent-13 {
+  width: 6.5rem;
+}
+#textcontent-pb .ellipsis.extent-12 {
+  width: 6rem;
+}
+#textcontent-pb .ellipsis.extent-11 {
+  width: 5.5rem;
+}
+#textcontent-pb .ellipsis.extent-10 {
+  width: 5rem;
+}
+#textcontent-pb .ellipsis.extent-9 {
+  width: 4.5rem;
+}
+#textcontent-pb .ellipsis.extent-6 {
+  width: 3rem;
+}
+#textcontent-pb .ellipsis.extent-27 {
+  width: 13.5rem;
+}
+
 
 #textcontent-pb .add div {
   width: 100%;
-  // word-break: break-word;
-  // white-space: nowrap;
 }
 
 #textcontent-pb .add.rendition {
