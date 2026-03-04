@@ -2039,9 +2039,11 @@ span.warning {
 #textcontent-pb .subst.inkOnProofKK .add,
 #textcontent-pb .subst.pencilOnTypescriptKK2 .add,
 #textcontent-pb .subst.inkOnTypescriptKK2 .add,
+#textcontent-pb .subst.inkOnTypescriptKK1 .add,
 #textcontent-pb .restore .inkOnProofKK.add,
 #textcontent-pb .add.inkOnProofKK,
 #textcontent-pb .add.inkOnTypescriptKK,
+#textcontent-pb .add.inkOnTypescriptKK1,
 #textcontent-pb .add.inkOnTypescriptKK2,
 #textcontent-pb .add.pencilOnTypescriptKK2,
 #textcontent-pb .note.inkOnProofKK,
@@ -2316,30 +2318,11 @@ handling del elments based on change type
     left: 1px;
 }
 
-/* swapping del linethrough of add and metamark (insertion) pipes to manual line through in correct height 
-
-#textcontent-pb del:has(>.inkOnProofKK.restore>.add),
-#textcontent-pb del:has(>.inkOnProofKK.restore>.metamark) {	
-  text-decoration: none !important;
-  position: relative;
-  text-shadow: inherit;
+/* Konvolut_Faust p 1 - removing line through from add in del */
+#textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.add.above,
+#textcontent-pb .del.pencilOnTypescriptKK2  del.add.above.inkOnTypescriptKK1 {
+  text-decoration: none; 
 }
-
-#textcontent-pb del:has(>.inkOnProofKK.restore>.add)::after,
-#textcontent-pb del:has(>.inkOnProofKK.restore>.metamark)::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: #000;
-  top: 50%;
-  transform: translateY(-88%);
-  text-shadow: inherit;
-}
-
-*/
-
 
 /* text decoration color */
 
