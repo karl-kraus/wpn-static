@@ -2045,6 +2045,7 @@ span.warning {
 #textcontent-pb .add.inkOnTypescriptKK,
 #textcontent-pb .add.inkOnTypescriptKK1,
 #textcontent-pb .add.inkOnTypescriptKK2,
+#textcontent-pb .add.pencilOnTypescriptKK1,
 #textcontent-pb .add.pencilOnTypescriptKK2,
 #textcontent-pb .note.inkOnProofKK,
 #textcontent-pb .metamark.inkOnProofKK,
@@ -2141,7 +2142,9 @@ handling del elments based on change type
 #textcontent-pb .subst.undefined .del del,
 #textcontent-pb .subst.pencilOnTypescript .del del,
 #textcontent-pb .subst.pencilOnProof .del del,
-#textcontent-pb .subst.pencilOnTypescriptKK2 del, 
+#textcontent-pb .subst.pencilOnTypescriptKK2 del,
+#textcontent-pb .subst del.pencilOnTypescriptKK2,
+#textcontent-pb .pencilOnTypescriptKK2>del,
 #textcontent-pb .underline.pencilOnProof,
 #textcontent-pb .restore.pencilOnTypescript .del,
 #textcontent-pb .restore.pencilOnProof .del,
@@ -2224,9 +2227,9 @@ handling del elments based on change type
   text-decoration-color: #000;
 }
 
-/* del with rend erased: no text deco, lighter grey */
+/* del with rend erased: white line through, lighter grey */
 #textcontent-pb .del.erased del {
-  text-decoration: none;
+  text-decoration-color: white;
   color: #dddddd;
 }
 
@@ -2437,6 +2440,7 @@ pencil text color
 #textcontent-pb .metamark.pencilOnProofKK,
 #textcontent-pb .fw.pencilOnProofKK,
 #textcontent-pb .fw.pencilOnTypescriptKK,
+#textcontent-pb .add.pencilOnTypescriptKK1,
 #textcontent-pb .add.pencilOnTypescriptKK2,
 #textcontent-pb .subst.pencilOnTypescriptKK2 .add,
 #textcontent-pb .fw.pencilOnProof,
@@ -2595,7 +2599,8 @@ pencil text color
   text-indent: 0 !important;
 }
 
-#textcontent-pb .add[class*="typewriter"] {
+#textcontent-pb .add[class*='typewriter'],
+#textcontent-pb .add[class*='typewriter'] [class*='typewriter'] {
   font-size: 0.833rem;
   line-height: 0.75rem;
 }
