@@ -3188,7 +3188,7 @@ wpn-time-line {
 }
 
 #textcontent-pb .add.overwrite {
-  // font-size: 1em !important;
+  font-size: inherit;
   // margin-left: -0.5em;
   font-family: var(--bs-handwritten-font-family-italic);
   text-shadow: none;
