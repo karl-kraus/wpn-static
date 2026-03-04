@@ -675,6 +675,9 @@
         </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+	<xsl:template match="tei:ellipsis[@extent]">
+		<span class="ellipsis {'extent-' || @extent} {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+	</xsl:template>
     <xsl:template match="tei:unclear">
         <xsl:variable name="inheritIDfromAddDel" select="
             if(parent::tei:del[parent::tei:add[parent::tei:subst]])
