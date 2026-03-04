@@ -1746,6 +1746,11 @@ span.warning {
   top: 53.2%;
 }
 
+.marginMiddleLeft2 {
+  left: -5%;
+  top: 53.2%;
+}
+
 .marginMiddleRight {
   top: 53.2%;
   right: 1.5%;
@@ -2058,6 +2063,7 @@ span.warning {
 #textcontent-pb .note.pencilOnTypescriptKK,
 #textcontent-pb .note.pencilOnTypescriptKK2,
 #textcontent-pb .metamark.pencilOnProofKK,
+#textcontent-pb .metamark.pencilOnTypescriptKK2,
 #textcontent-pb div.del.pencilOnProofKK,
 #textcontent-pb div.mod.pencilOnProofKK,
 #textcontent-pb .mod.pencilOnProofKK .pencilOnProofKK,
@@ -2422,6 +2428,7 @@ handling del elements in maring left or right
 #textcontent-pb .restore .pencilOnProof.add,
 #textcontent-pb .restore .undefined.add,
 #textcontent-pb .metamark.pencilOnTypescript,
+#textcontent-pb .metamark.pencilOnTypescriptKK2,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb .metamark.pencilOnProof2,
 #textcontent-pb .metamark.undefined,
