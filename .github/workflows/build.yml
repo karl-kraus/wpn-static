@@ -63,13 +63,9 @@ jobs:
       run: |
         uv run ./shellscripts/split_milestone_gesamt.sh
         uv run ./shellscripts/split_milestone_gesamt_2.sh
-    # - name: Adding TEI base, id, prev and next
-    #   run: ./shellscripts/add-attributes.sh
     - name: Build
       run: |
         ant build-full-edition
-    # - name: Update Favicons
-    #   run: python update_favicons.py
     - name: Install Playwright Browsers
       if: github.event.inputs.run_dev == 'false' || contains(github.event.head_commit.message, '[run tests]')
       run: pnpm exec playwright install --with-deps

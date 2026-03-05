@@ -27,7 +27,7 @@
             <xsl:for-each select="collection('../../data/editions?select=idPb*.xml')">
                 <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('style','micro-editor')"/>
             </xsl:for-each>
-            <xsl:for-each select="collection('../../data/editions2?select=idPb*.xml')">
+            <xsl:for-each select="collection('../../data/editions2?select=wit-*.xml')">
                 <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('style','micro-editor')"/>
             </xsl:for-each>
         </xsl:map>

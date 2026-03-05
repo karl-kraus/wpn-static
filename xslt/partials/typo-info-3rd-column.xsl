@@ -39,6 +39,7 @@
                     </div>
                     <div id="pagination-dropdown" class="col px-1 border-end border-light-grey bg-primary">
                         <div class="d-block cursor-pointer dropdown ff-ubuntu">
+                        <xsl:if test="contains(base-uri(current()), 'idPb')">
                             <xsl:variable name="currentPage" select="replace(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), 'idPb', '')"/>
                             <xsl:variable name="currentPageString" select="if(contains($currentPage, '_') ) 
                                                                             then(xs:integer(replace( tokenize( $currentPage, '_' )[1], 'F', '' ) )||'/'||tokenize( $currentPage, '_' )[2] ) 
@@ -51,6 +52,7 @@
                             <label id="paginationLabel" class="cursor-pointer text-white fs-7 fw-light dropdown-toggle" for="dropdownMenuButton1">
                                 <xsl:text>von 279</xsl:text>
                             </label>
+                        </xsl:if>
                         </div>
                     </div>
                     <div class="col p-0_25 border-end border-light-grey bg-primary align-content-around">

@@ -65,5 +65,5 @@ const mirador = Mirador.viewer({
 
 // const canvasId = "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0001"
 
-// var action = Mirador.actions.setCanvas("single-image-viewer", canvasId);
+// var action = mirador.actions.setCanvas("single-image-viewer", canvasId);
 // mirador.store.dispatch(action);

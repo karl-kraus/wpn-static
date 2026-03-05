@@ -12,6 +12,11 @@
             <fileset dir="${target}" includes="*.html"/>
         </delete>
     </target>
+    <target name="clean-typo">
+        <delete>
+            <fileset dir="${target}" includes="wit-*.html"/>
+        </delete>
+    </target>
     <target name="build-landing-page">
         <xslt in="${index}" out="${target}/index.html" style="./xslt/index.xsl">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
@@ -49,13 +54,13 @@
         </xslt>
     </target>
     <target name="build-edition">
-        <xslt style="./xslt/editions.xsl"  basedir="./data/editions" destdir="${target}" includes="*.xml" excludes="Gesamt.xml idPb*.xml">
+        <xslt style="./xslt/editions.xsl"  basedir="./data/editions" destdir="${target}" includes="*.xml" excludes="Gesamt.xml idPb*.xml wit-*.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
     <target name="build-unstyled-edition">
-        <xslt style="./xslt/editions_unstyled.xsl"  basedir="./data/editions" destdir="./data/merged" includes="*.xml" excludes="Gesamt.xml idPb*.xml">
+        <xslt style="./xslt/editions_unstyled.xsl"  basedir="./data/editions" destdir="./data/merged" includes="*.xml" excludes="Gesamt.xml idPb*.xml wit-*.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
@@ -67,7 +72,7 @@
         </xslt>
     </target>
     <target name="build-edition-typo-2">
-        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions2" destdir="${target}" includes="idPb*.xml" excludes="KK1933_Abs64_Ts.xml">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions2" destdir="${target}" includes="wit-*.xml" excludes="KK1933_Abs64_Ts.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
@@ -172,9 +177,9 @@
     </target>
     <target name="add-header-pb-2">
         <delete>
-            <fileset dir="./data/editions2" includes="idPb*.xml idPb*.html"/>
+            <fileset dir="./data/editions2" includes="wit-*.xml wit-*.html"/>
         </delete>
-        <xslt style="./xslt/partials/add-header-pb.xsl" basedir="./data/editions2/tmp" destdir="./data/editions2" includes="idPb*.xml" extension=".xml">
+        <xslt style="./xslt/partials/add-header-pb.xsl" basedir="./data/editions2/tmp" destdir="./data/editions2" includes="wit-*.xml" extension=".xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
