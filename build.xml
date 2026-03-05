@@ -7,6 +7,11 @@
     <property name="target_xml" value="./html/xml-view"/>
     
     <delete dir="${target}/static-search"/>
+    <target name="clean">
+        <delete>
+            <fileset dir="${target}" includes="*.html"/>
+        </delete>
+    </target>
     <target name="build-landing-page">
         <xslt in="${index}" out="${target}/index.html" style="./xslt/index.xsl">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>

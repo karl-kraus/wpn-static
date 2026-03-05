@@ -1,63 +1,69 @@
 
-    const manifestId = document.getElementById("mirador").getAttribute("data-manifest");
-    const pathToManifest = `iiif_manifests/${manifestId}/manifest.json`;
-    const  manifests = {
-      pathToManifest:
-      {
-        "provider": "Karl Kraus 1933"
-      }
-    };
-    
-    const mirador = Mirador.viewer({
-        "id": "mirador",
-        "manifests": manifests,
-        "themes": {
-            "light": {
-                "palette": {
-                    "type": 'light',
-                    "primary": {
-                        "main": '#A21A17'
-                    }
+const manifestId = document.getElementById("mirador").getAttribute("data-manifest");
+const pathToManifest = `iiif_manifests/${manifestId}/manifest.json`;
+const  manifests = {
+    pathToManifest:
+    {
+    "provider": "Karl Kraus 1933"
+    }
+};
+
+const mirador = Mirador.viewer({
+    "id": "mirador",
+    "manifests": manifests,
+    "themes": {
+        "light": {
+            "palette": {
+                "type": 'light',
+                "primary": {
+                    "main": '#A21A17'
                 }
             }
-        },
-        "language": "de",
-        "displayAllAnnotations": false,
-        "window": {
-            "allowClose": false,
-            "allowFullscreen": false,
-            "allowMaximize": false,
-            "allowTopMenuButton": true,
-            "hideWindowTitle": false,
-            "defaultSideBarPanel": 'annotations',
-            "sideBarOpenByDefault": true,
-            "panels": {
-                "info": false,
-                "attribution": false,
-                "canvas": false,
-                "annotations": true,
-                "search": true
-            }
-        },
-        "workspaceControlPanel": {
-            "enabled": false, // Configure if the control panel should be rendered.  Useful if you want to lock the viewer down to only the configured manifests
-        },
+        }
+    },
+    "language": "de",
+    "displayAllAnnotations": false,
+    "window": {
+        "allowClose": false,
+        "allowFullscreen": false,
+        "allowMaximize": false,
+        "allowTopMenuButton": true,
+        "hideWindowTitle": false,
+        "defaultSideBarPanel": 'annotations',
+        "sideBarOpenByDefault": true,
+        "panels": {
+            "info": false,
+            "attribution": false,
+            "canvas": false,
+            "annotations": true,
+            "search": true
+        }
+    },
+    "workspaceControlPanel": {
+        "enabled": false, // Configure if the control panel should be rendered.  Useful if you want to lock the viewer down to only the configured manifests
+    },
 
-        "galleryView": {
-            height: null,
-            width: 50
-        },
+    "galleryView": {
+        height: null,
+        width: 50
+    },
 
-        "thumbnailNavigation": {
-            defaultPosition: 'off', // Which position for the thumbnail navigation to be be displayed. Other possible values are "far-bottom" or "far-right"
-            height: 200 // height of entire ThumbnailNavigation area when position is "far-bottom"
-        },
+    "thumbnailNavigation": {
+        defaultPosition: 'off', // Which position for the thumbnail navigation to be be displayed. Other possible values are "far-bottom" or "far-right"
+        height: 200 // height of entire ThumbnailNavigation area when position is "far-bottom"
+    },
 
-        "windows": [
-            {
-                "loadedManifest": pathToManifest,
-                "canvasIndex": 0,
-                "thumbnailNavigationPosition": 'off'
-            }
-        ]
-    });
+    "windows": [
+        {
+            "loadedManifest": pathToManifest,
+            "canvasIndex": 0,
+            "thumbnailNavigationPosition": 'off',
+            // "id": "single-image-viewer"
+        }
+    ]
+});
+
+// const canvasId = "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0001"
+
+// var action = Mirador.actions.setCanvas("single-image-viewer", canvasId);
+// mirador.store.dispatch(action);
