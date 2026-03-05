@@ -43,7 +43,7 @@ def handle_pb_with_lb_break(file):
 
 def add_graphic_url(file):
     doc = TeiReader(file)
-    surface = doc.any_xpath('//tei:facsimile[@corresp="#DWkonJer"]/tei:surface')
+    surface = doc.any_xpath('//tei:facsimile/tei:surface')
     count = 0
     for i, s in enumerate(surface):
         id = s.get('{http://www.w3.org/XML/1998/namespace}id')
@@ -56,9 +56,9 @@ def add_graphic_url(file):
         if idInteger is not None:
             s.attrib["n"] = str(i + 1)
             new_id = int(idInteger) + count
-            url = f'iiif/images/wpn/{new_id:04d}'
+            url = f'iiif/images/wpn2/ZPH-2007_1_1_6_{new_id:04d}'
             graphic = s.find('tei:graphic', namespaces=NSMAP)
-            if graphic is not None:
+            if graphic:
                 graphic.set('url', url)
             else:
                 print(f'No graphic found for surface {i}. Creating one.')
