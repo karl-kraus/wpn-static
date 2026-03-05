@@ -27,7 +27,10 @@
             <xsl:call-template name="nav_bar"/>
                 <main class="text-black-grey lh-1625 ls-1 mt-18 mb-4">
                     <div class="container pt-1 px-md-0">                        
-                        <h1><xsl:value-of select="$doc_title"/></h1>    
+                        <h1><xsl:value-of select="$doc_title"/></h1>
+                        <section class="my-5_5">
+                            <a role="button" class="btn btn-outline-black-grey" href="register_kommentare.html">Zum Register der Kommentare</a>
+                        </section>
                         <xsl:apply-templates select=".//tei:body"></xsl:apply-templates>
                     </div>
                 </main>

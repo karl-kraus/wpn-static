@@ -37,14 +37,31 @@
                         <h1><xsl:value-of select="$doc_title"/></h1>
                         <xsl:if test="tokenize(base-uri(),'/')[last()] = 'annotierte_lesefassung.xml'">
                             <section class="my-5_5">
-                                <a role="button" class="btn btn-outline-black-grey" href="motti.html">Zum Text</a>
+                                <a role="button" class="btn btn-outline-black-grey" href="motti.html">Zum Text der Lesefassung</a>
                             </section>
                         </xsl:if>
                         <xsl:if test="tokenize(base-uri(),'/')[last()] = 'topographical.xml'">
                             <section class="my-5_5">
-                                <a role="button" class="btn btn-outline-black-grey" href="idPb0001.html">Zum Text</a>
+                                <a role="button" class="btn btn-outline-black-grey" href="idPb0001.html">Zum ‚Jerusalemer Konvolut‘</a>
                             </section>
                         </xsl:if>
+                        <!--  -->
+                        <xsl:if test="tokenize(base-uri(),'/')[last()] = 'personen.xml'">
+                            <section class="my-5_5">
+                                <a role="button" class="btn btn-outline-black-grey" href="register_personen.html">Zum Personenregister</a>
+                            </section>
+                        </xsl:if>
+                        <xsl:if test="tokenize(base-uri(),'/')[last()] = 'intertexte.xml'">
+                            <section class="my-5_5">
+                                <a role="button" class="btn btn-outline-black-grey" href="register_intertexte.html">Zum Register der Intertexte</a>
+                            </section>
+                        </xsl:if>
+                        <xsl:if test="tokenize(base-uri(),'/')[last()] = 'ereignisse.xml'">
+                            <section class="my-5_5">
+                                <a role="button" class="btn btn-outline-black-grey" href="timeline.html">Zur Timeline</a>
+                            </section>
+                        </xsl:if>
+                        <!--  -->
                         <xsl:apply-templates select=".//tei:body"></xsl:apply-templates>
                     </div>
                 </main>

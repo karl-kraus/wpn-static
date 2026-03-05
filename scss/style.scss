@@ -234,7 +234,7 @@ footer {
 
 .signet {
   background-image: url(../images/icon-signet.svg);
-  background-position: 15px 25px;
+  background-position: 15px 19px;
   background-repeat: no-repeat;
   background-size: 15px 15px;
 }
@@ -662,6 +662,7 @@ span.warning {
 #textcontent-pb .typescriptInsertNum,
 #textcontent-pb .typescriptPageNum,
 #textcontent-pb .typescriptFont,
+#textcontent-pb .typescriptFontRight,
 #textcontent-pb .metamark.typescriptFont,
 #textcontent-pb .typescriptLongQuote,
 #textcontent-pb .typescriptLongQuoteIndent,
@@ -678,12 +679,20 @@ span.warning {
 #textcontent-pb .typescriptLongQuoteRightAlign,
 #textcontent-pb .typescriptLongQuoteAdvInsert,
 #textcontent-pb .typewriter,
-#textcontent-pb .typewriter2 {
+#textcontent-pb .typewriter1,
+#textcontent-pb .typewriter2,
+#textcontent-pb .typewriter3 {
   font-size: 0.833rem;
-  line-height: 1.2rem;
+  line-height: 1.4rem;
   font-family: monospace;
   text-align: left;
   text-align-last: left;
+  color: #212529;
+}
+
+#textcontent-pb .typewriter1,
+#textcontent-pb .typewriter3 {
+  font-weight: bold;
 }
 
 #textcontent-pb .witnessTypescriptInsert .typescriptInsertNum,
@@ -710,6 +719,7 @@ span.warning {
   font-family: monospace;
   text-align: left;
   text-align-last: left;
+  color: #212529;
 }
 
 #textcontent-pb .longQuoteVerseStart,
@@ -1712,6 +1722,12 @@ span.warning {
   top: 44%;
 }
 
+.marginUpperLeft3 {
+  left: -5%;
+  top: 35%;
+  text-indent: 0;
+}
+
 .marginUppermostLeft {
   left: 3%;
   top: 10.5%;
@@ -1730,6 +1746,11 @@ span.warning {
 .marginMiddleLeft {
   left: 3%;
   top: 53.2%;
+}
+
+.marginMiddleLeft2 {
+  left: -3%;
+  top: 41%;
 }
 
 .marginMiddleRight {
@@ -1854,7 +1875,7 @@ span.warning {
 #legende-pb .typescriptRunningText2 {
   font-family: monospace;
   font-size: 0.667rem;
-  color: black;
+  color: #212529;
 }
 
 #legende-pb .runningText2 {
@@ -2023,16 +2044,29 @@ span.warning {
 #textcontent-pb .inkOnProofKK .inkLongQuote,
 #textcontent-pb .inkOnProofKK .inkLongQuoteVerse,
 #textcontent-pb .subst.inkOnProofKK .add,
+#textcontent-pb .subst.pencilOnTypescriptKK2 .add,
+#textcontent-pb .subst.inkOnTypescriptKK2 .add,
+#textcontent-pb .subst.inkOnTypescriptKK1 .add,
 #textcontent-pb .restore .inkOnProofKK.add,
 #textcontent-pb .add.inkOnProofKK,
+#textcontent-pb .add.inkOnTypescriptKK,
+#textcontent-pb .add.inkOnTypescriptKK1,
+#textcontent-pb .add.inkOnTypescriptKK2,
+#textcontent-pb .add.pencilOnTypescriptKK,
+#textcontent-pb .add.pencilOnTypescriptKK1,
+#textcontent-pb .add.pencilOnTypescriptKK2,
 #textcontent-pb .note.inkOnProofKK,
 #textcontent-pb .metamark.inkOnProofKK,
 #textcontent-pb .fw.inkOnProofKK,
+#textcontent-pb .fw.pencilOnTypescriptKK,
 #textcontent-pb div.del.inkOnProofKK,
 #textcontent-pb .del.above.inkOnProofKK,
 #textcontent-pb .add.pencilOnProofKK,
 #textcontent-pb .note.pencilOnProofKK,
+#textcontent-pb .note.pencilOnTypescriptKK,
+#textcontent-pb .note.pencilOnTypescriptKK2,
 #textcontent-pb .metamark.pencilOnProofKK,
+#textcontent-pb .metamark.pencilOnTypescriptKK2,
 #textcontent-pb div.del.pencilOnProofKK,
 #textcontent-pb div.mod.pencilOnProofKK,
 #textcontent-pb .mod.pencilOnProofKK .pencilOnProofKK,
@@ -2052,6 +2086,7 @@ span.warning {
   line-height: 0.75rem;
   font-family: var(--bs-handwritten-font-family-italic), var(--bs-handwritten-font-family-italic-fallback);
   text-shadow: none;
+  font-weight: normal;
 }
 
 #textcontent-pb .subst.inkOnProof .add,
@@ -2079,6 +2114,7 @@ span.warning {
 #textcontent-pb .metamark.redOnProof,
 #textcontent-pb div.del.redOnProof,
 #textcontent-pb .subst.pencilOnTypescript .add,
+#textcontent-pb .subst.pencilOnTypescript2 .add, 
 #textcontent-pb .subst.pencilOnProof .add,
 #textcontent-pb .restore.pencilOnTypescript .add,
 #textcontent-pb .restore.pencilOnProof .add,
@@ -2116,8 +2152,12 @@ handling del elments based on change type
 #textcontent-pb .subst.undefined .del del,
 #textcontent-pb .subst.pencilOnTypescript .del del,
 #textcontent-pb .subst.pencilOnProof .del del,
+#textcontent-pb .subst.pencilOnTypescriptKK2 del,
+#textcontent-pb .subst del.pencilOnTypescriptKK2,
+#textcontent-pb .pencilOnTypescriptKK2>del,
 #textcontent-pb .underline.pencilOnProof,
 #textcontent-pb .restore.pencilOnTypescript .del,
+#textcontent-pb .restore.pencilOnTypescriptKK1 .del,
 #textcontent-pb .restore.pencilOnProof .del,
 #textcontent-pb .restore.undefined .del,
 #textcontent-pb .restore.pencilOnTypescript .add,
@@ -2145,6 +2185,8 @@ handling del elments based on change type
 #textcontent-pb .mod.undefined,
 #textcontent-pb .subst.pencilOnProofKK .del del,
 #textcontent-pb .del.pencilOnProofKK del,
+#textcontent-pb .del.pencilOnTypescriptKK del,
+#textcontent-pb .del.pencilOnTypescriptKK2 del,
 #textcontent-pb .del.pencilOnProof del,
 #textcontent-pb .add.inkOnProofKK del.pencilOnProofKK,
 #textcontent-pb .pencilOnProofKK>del,
@@ -2176,6 +2218,8 @@ handling del elments based on change type
 #textcontent-pb .inkOnProofKK.subst>del,
 #textcontent-pb .inkOnProof.subst>del,
 #textcontent-pb .del.inkOnProofKK del,
+#textcontent-pb del.inkOnTypescriptKK,
+#textcontent-pb del.inkOnTypescriptKK2,
 #textcontent-pb .restore.inkOnProofKK .add,
 #textcontent-pb .restore.inkOnProofKK .add del,
 #textcontent-pb .restore.inkOnProofKK .del,
@@ -2194,11 +2238,19 @@ handling del elments based on change type
   text-decoration-color: #000;
 }
 
+/* del with rend erased: white line through, lighter grey */
+#textcontent-pb .del.erased del {
+  text-decoration-color: white;
+  color: #dddddd;
+}
+
 /* double line through for double change values */
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del,
 #textcontent-pb .subst.inkOnProof.pencilOnProof del,
 #textcontent-pb .inkOnProofKK.del.pencilOnProofKK del.entity,
-#textcontent-pb .inkOnProofKK.pencilOnProofKK.del.entity del {
+#textcontent-pb .inkOnProofKK.pencilOnProofKK.del.entity del,
+/* Konvolut_Faust p 1 */ #textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.del,
+/* Konvolut_Faust p 1 */ #textcontent-pb .del.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del {
   position: relative;          
   display: inline;
   text-indent: initial;
@@ -2217,7 +2269,19 @@ handling del elments based on change type
   top: 50%;
   transform: translateY(1px);
   pointer-events: none;
-  /* z-index: 1; */
+}
+
+/* Konvolut_Faust p 1 */ #textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.del::before,
+/* Konvolut_Faust p 1 */ #textcontent-pb .del.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid black;
+  top: 53%;
+  transform: translateY(1px);
+  pointer-events: none;
 }
 
 /* single line through, when only ink layer is deleted, e.g., p. 108, 90 */
@@ -2268,30 +2332,11 @@ handling del elments based on change type
     left: 1px;
 }
 
-/* swapping del linethrough of add and metamark (insertion) pipes to manual line through in correct height 
-
-#textcontent-pb del:has(>.inkOnProofKK.restore>.add),
-#textcontent-pb del:has(>.inkOnProofKK.restore>.metamark) {	
-  text-decoration: none !important;
-  position: relative;
-  text-shadow: inherit;
+/* Konvolut_Faust p 1 - removing line through from add in del */
+#textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.add.above,
+#textcontent-pb .del.pencilOnTypescriptKK2  del.add.above.inkOnTypescriptKK1 {
+  text-decoration: none; 
 }
-
-#textcontent-pb del:has(>.inkOnProofKK.restore>.add)::after,
-#textcontent-pb del:has(>.inkOnProofKK.restore>.metamark)::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: #000;
-  top: 50%;
-  transform: translateY(-88%);
-  text-shadow: inherit;
-}
-
-*/
-
 
 /* text decoration color */
 
@@ -2388,8 +2433,10 @@ handling del elements in maring left or right
 #textcontent-pb .restore .pencilOnProof.add,
 #textcontent-pb .restore .undefined.add,
 #textcontent-pb .metamark.pencilOnTypescript,
+#textcontent-pb .metamark.pencilOnTypescriptKK2,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb .metamark.pencilOnProof2,
+#textcontent-pb .metamark.pencilOnTypescriptKK,
 #textcontent-pb .metamark.undefined,
 #textcontent-pb .add.inkOnProof .add.pencilOnProof
 {
@@ -2405,8 +2452,14 @@ pencil text color
 #textcontent-pb .add.pencilOnProofKK,
 #textcontent-pb .metamark.pencilOnProofKK,
 #textcontent-pb .fw.pencilOnProofKK,
+#textcontent-pb .fw.pencilOnTypescriptKK,
+#textcontent-pb .add.pencilOnTypescriptKK1,
+#textcontent-pb .add.pencilOnTypescriptKK2,
+#textcontent-pb .subst.pencilOnTypescriptKK2 .add,
 #textcontent-pb .fw.pencilOnProof,
 #textcontent-pb .note.pencilOnProofKK,
+#textcontent-pb .note.pencilOnTypescriptKK,
+#textcontent-pb .note.pencilOnTypescriptKK2,
 #textcontent-pb .note.pencilOnProofLibrary,
 #textcontent-pb .seg .seg.entity.seg-inline .pencilOnTypescript {
   color: #666666;
@@ -2438,9 +2491,15 @@ pencil text color
 #textcontent-pb div.add.inkOnProof,
 #textcontent-pb .metamark.inkOnProof,
 #textcontent-pb .subst.inkOnTypescript .add,
+#textcontent-pb .subst.inkOnTypescriptKK .add,
+#textcontent-pb .subst.inkOnTypescriptKK2 .add,
 #textcontent-pb .restore.inkOnTypescript .add,
 #textcontent-pb .add.inkOnTypescript,
-#textcontent-pb .note.inkOnProofKK {
+#textcontent-pb .add.inkOnTypescriptKK,
+#textcontent-pb .add.inkOnTypescriptKK2,
+#textcontent-pb .note.inkOnProofKK,
+#textcontent-pb .note.inkOnTypescriptKK,
+#textcontent-pb .note.inkOnTypescriptKK2 {
   color: #000;
 }
 
@@ -2550,14 +2609,47 @@ pencil text color
 }
 
 #textcontent-pb .add {
-  font-size: 0.667rem;
   text-indent: 0 !important;
 }
 
+#textcontent-pb .add[class*='typewriter'],
+#textcontent-pb .add[class*='typewriter'] [class*='typewriter'] {
+  font-size: 0.833rem;
+  line-height: 0.75rem;
+}
+
+#textcontent-pb .ellipsis {
+  display: inline-block;
+}
+
+#textcontent-pb .ellipsis.extent-17 {
+  width: 7rem;
+}
+#textcontent-pb .ellipsis.extent-13 {
+  width: 6.5rem;
+}
+#textcontent-pb .ellipsis.extent-12 {
+  width: 6rem;
+}
+#textcontent-pb .ellipsis.extent-11 {
+  width: 5.5rem;
+}
+#textcontent-pb .ellipsis.extent-10 {
+  width: 5rem;
+}
+#textcontent-pb .ellipsis.extent-9 {
+  width: 4.5rem;
+}
+#textcontent-pb .ellipsis.extent-6 {
+  width: 3rem;
+}
+#textcontent-pb .ellipsis.extent-27 {
+  width: 13.5rem;
+}
+
+
 #textcontent-pb .add div {
   width: 100%;
-  // word-break: break-word;
-  // white-space: nowrap;
 }
 
 #textcontent-pb .add.rendition {
@@ -3061,6 +3153,15 @@ div.position-relative .marginLeftFurtherBelowOnly {
   text-decoration: underline;
 }
 
+/*for Konvolut_Faust  */
+#textcontent-pb .metamark.typescriptFontRight {
+  display: block;
+  text-indent: 30rem;
+  line-height: 0;
+  position: relative !important;
+  text-decoration: none;
+}
+
 #textcontent-pb .metamark.inkFont {
   text-decoration: underline;
   margin-left: 1rem;
@@ -3130,11 +3231,13 @@ wpn-time-line {
 }
 
 #textcontent-pb .add.overwrite {
-  // font-size: 1em !important;
-  // margin-left: -0.5em;
-  font-family: var(--bs-handwritten-font-family-italic);
+  /* font-family: var(--bs-handwritten-font-family-italic); */
   text-shadow: none;
   cursor: url(../images/cursor-circle.svg) 15 15, auto;
+}
+
+#textcontent-pb .subst .add.overwrite {
+  font-size: inherit !important;
 }
 
 #textcontent-pb .add.overwrite:hover {
@@ -3142,7 +3245,7 @@ wpn-time-line {
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del {
-  color: #8c8c8c;
+  color: #8c8c8c !important;
 }
 
 #textcontent-pb .subst:has(>.overwrite) {
@@ -3200,13 +3303,13 @@ body.modal-open, body.modal-open main {
 
 .connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   width: 0.833rem;
-  height: 1.4rem;
+  height: 0.7rem;
   display: block;
   background: $wpn-soft-red;
   position: absolute;
   right: 0;
   z-index: -2;
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  clip-path: polygon(0 0, 100% 0, 100% 66%, 50% 100%, 0 66%);
 }
 
 .connection-color-line.active.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
@@ -3232,18 +3335,18 @@ body.modal-open, body.modal-open main {
 
 .connection-color-line.printSpanTo:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   width: 0.833rem;
-  height: 1.4rem;
+  height: 0.7rem;
   display: block;
   background: $wpn-soft-red;
   position: absolute;
   right: 0;
-  top: -0.567rem;
+  top: 0.2rem;
   z-index: -2;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 100%, 0 100%, 0 25%);
+  clip-path: polygon(50% 0%, 100% 33%, 100% 100%, 0 100%, 0 33%);
 }
 
 .connection-color-line.printSpanTo.verse-bracket:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
-  top: -1.4rem;
+  top: -0.7rem;
 }
 
 .connection-color-line.active.printSpanTo:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
