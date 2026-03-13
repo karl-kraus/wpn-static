@@ -1838,6 +1838,10 @@ span.warning {
   border: none !important;
 }
 
+#textcontent-pb .seg.noPrint.crossedOut {
+  display: block;
+  background: linear-gradient(to bottom right, transparent calc(50% - 1px), rgb(102, 102, 102), transparent calc(50% + 1px));
+}
 
 .underline-crossed-out {
   background-image: url('../images/crossed_out_typewriter_black.png');
