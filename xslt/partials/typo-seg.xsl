@@ -23,6 +23,11 @@
     <xsl:template match="tei:seg[@type='transposition' and @subtype='implicit']">
        <xsl:apply-templates/>
     </xsl:template>
+    <xsl:template match="tei:seg[@type='noPrint' and @rend]">
+         <span id="{@xml:id}" class="seg noPrint {@rend}">
+              <xsl:apply-templates/>
+         </span>
+    </xsl:template>
     <xsl:template match="tei:seg[@type='relocation']">
         <span id="{@xml:id}" class="entity">
             <xsl:if test="not(@rend='line') and not(@rend='arrow')">
