@@ -1838,9 +1838,10 @@ span.warning {
   border: none !important;
 }
 
+/* large segs crossed out */
 #textcontent-pb .seg.noPrint.crossedOut {
   display: block;
-  background: linear-gradient(to bottom right, transparent calc(50% - 1px), rgb(102, 102, 102), transparent calc(50% + 1px));
+  background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgb(102, 102, 102), transparent calc(50% + 0.5px));
 }
 
 .underline-crossed-out {
