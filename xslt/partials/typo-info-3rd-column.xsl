@@ -162,7 +162,7 @@
                         </div>
                         <div id="infocontent-pb" class="min-h-100 min-vh-100">
                             <xsl:variable name="creation" select="//tei:creation"/>
-                            <xsl:for-each select="//tei:TEI/tei:facsimile[@corresp='#DWkonJer']/tei:surface">
+                            <xsl:for-each select="//tei:TEI/tei:facsimile/tei:surface">
                                 <xsl:variable name="text" select="../following-sibling::tei:text"/>
                                 <xsl:variable name="convolute-id" select="replace(./parent::tei:facsimile/@corresp, '#', '')"/>
                                 <xsl:variable name="corresp-id" select="replace(@corresp, '#', '')"/>
@@ -178,7 +178,7 @@
                                         <p>
                                             <xsl:value-of
                                                 select="
-                                                let $id := //tei:sourceDesc[@xml:id='DWkonJer']/tei:msDesc/tei:msIdentifier
+                                                let $id := //tei:sourceDesc/tei:msDesc/tei:msIdentifier
                                                 return concat(string-join((
                                                 $id/tei:institution,
                                                 $id/tei:collection,

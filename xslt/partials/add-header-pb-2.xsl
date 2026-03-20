@@ -3,9 +3,9 @@
     xmlns:wpn="https://wpn.acdh.oeaw.ac.at" exclude-result-prefixes="xs tei wpn" version="3.0">
     <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" name="xml"/>
 
-    <xsl:variable name="facsimile">
+    <!-- <xsl:variable name="facsimile">
         <xsl:value-of select="substring-after(data(//tei:pb[1]/@facs), '#')"/>
-    </xsl:variable>
+    </xsl:variable> -->
     
     <xsl:template match="@*|node()">
         <xsl:if test="not(self::tei:rdg[@source = 'F890'])">
@@ -19,9 +19,9 @@
         <xsl:variable name="doc" select="doc('../../data/editions2/KK1933_Abs64_Ts.xml')"/>
         <xsl:copy>
             <xsl:copy-of select="$doc//tei:teiHeader"/>
-            <facsimile xmlns="http://www.tei-c.org/ns/1.0" corresp="{$doc//tei:facsimile/tei:surface[@xml:id = $facsimile]/parent::tei:facsimile/@corresp}">
+            <!-- <facsimile xmlns="http://www.tei-c.org/ns/1.0" corresp="{$doc//tei:facsimile/tei:surface[@xml:id = $facsimile]/parent::tei:facsimile/@corresp}">
                 <xsl:copy-of select="$doc//tei:facsimile/tei:surface[@xml:id = $facsimile]"/>
-            </facsimile>
+            </facsimile> -->
             <xsl:apply-templates />
         </xsl:copy> 
     </xsl:template>
