@@ -24,7 +24,7 @@
             <xsl:map-entry key="'commentindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'eventindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry','wpn-timeline','timeline-helpers')"/>
             <xsl:map-entry key="'suche.xml'" select="('wpn-header','wpn-detail-view','init-typesense')"/>
-            <xsl:for-each select="collection('../../data/editions?select=idPb*.xml')">
+            <xsl:for-each select="collection('../../data/editions?select=wit-*.xml')">
                 <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','wpn-page-view','wpn-entity', 'wpn-hf-height', 'wpn-typo-connections', 'wpn-typo-utils')"/>
             </xsl:for-each>
             <xsl:for-each select="collection('../../data/editions2?select=wit-*.xml')">

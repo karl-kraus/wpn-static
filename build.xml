@@ -66,7 +66,7 @@
         </xslt>
     </target>
     <target name="build-edition-typo">
-        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions" destdir="${target}" includes="idPb*.xml" excludes="Gesamt.xml idPb0266_a.xml">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions" destdir="${target}" includes="wit-*.xml" excludes="Gesamt.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
@@ -163,17 +163,14 @@
     <target name="build-full-edition" depends="copy-libs, generate-scan-index, build-landing-page, build-meta-pages, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-edition-typo-2, build-notes, generate-bibl-index, generate-person-index, generate-comment-index, generate-event-index, build-intertext-register, build-person-register, build-comment-register, build-timeline-register, build-search-page"/>
     <target name="add-header-pb">
         <delete>
-            <fileset dir="./data/editions" includes="idPb*.xml idPb*.html"/>
+            <fileset dir="./data/editions" includes="wit-*.xml"/>
         </delete>
         <!-- <mkdir dir="./data/editions/tmp2"/> -->
-        <xslt style="./xslt/partials/add-header-pb.xsl" basedir="./data/editions/tmp" destdir="./data/editions" includes="idPb*.xml" extension=".xml">
+        <xslt style="./xslt/partials/add-header-pb.xsl" basedir="./data/editions/tmp" destdir="./data/editions" includes="wit-*.xml" extension=".xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
-        <!-- <xslt style="./xslt/partials/add-rend-multiples.xsl" basedir="./data/editions/tmp2" destdir="./data/editions" includes="idPb*.xml" extension=".xml">
-            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
-            <classpath location="${basedir}/saxon/saxon9he.jar"/>
-        </xslt> -->
+        <delete dir="./data/editions/tmp"/>
     </target>
     <target name="add-header-pb-2">
         <delete>

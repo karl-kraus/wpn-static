@@ -156,8 +156,15 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'idPb0001.html'"/>
+                                                        <xsl:with-param name="href" select="'wit-DfeH-0001.html'"/>
                                                         <xsl:with-param name="label" select="'Das ‚Jerusalemer Konvolut‘'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'wit-TFragment2-0229r.html'"/>
+                                                        <xsl:with-param name="label" select="'Neu (in Arbeit)'"/>
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
@@ -266,7 +273,7 @@
                                     and $document != 'biblindex_updated'
                                     and not(contains($document, 'motti')) 
                                     and not(contains($document, 'absatz')) 
-                                    and not(contains($document, 'idPb'))">
+                                    and not(contains($document, 'wit-'))">
                             <li class="breadcrumb-item active" aria-current="page">
                                 <xsl:choose>
                                     <xsl:when test="$document = 'projekt'">Über das Projekt</xsl:when>
@@ -292,7 +299,7 @@
                             <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="annotierte_lesefassung.html">Annotierte Lesefassung</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Text</li>
                         </xsl:if>
-                        <xsl:if test="contains($document, 'idPb')">
+                        <xsl:if test="contains($document, 'wit-')">
                             <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="topographical.html">Topographische Umschrift</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Text</li>
                         </xsl:if>
