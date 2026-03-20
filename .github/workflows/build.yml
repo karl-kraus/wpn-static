@@ -11,6 +11,14 @@ on:
           - 'true'
           - 'false'
         default: 'false'
+      devpage:
+        description: 'Deploy devpage Test'
+        required: true
+        type: choice
+        options: 
+          - 'true'
+          - 'false'
+        default: 'false'
 
 permissions:
   contents: read
@@ -73,6 +81,9 @@ jobs:
       if: github.event.inputs.run_dev == 'false' || contains(github.event.head_commit.message, '[run tests]')
       run: pnpm run e2e:test_all_edition_view
       continue-on-error: true
+    - name: copy testreport ot html
+      if: github.event.inputs.devpage == 'true'
+      run: cp -r playwright-report html/
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Upload artifact
@@ -86,7 +97,7 @@ jobs:
       run: |
         uv run ./py/make_ts_index.py
     - name: deploy report
-      if: github.event.inputs.run_dev == 'false' || contains(github.event.head_commit.message, '[run tests]')
+      if: github.event.inputs.run_dev == 'false' || github.event.inputs.devpage == 'false' || contains(github.event.head_commit.message, '[run tests]')
       uses: peaceiris/actions-gh-pages@v4
       with:
         deploy_key: ${{ secrets.REPORT_REPO_KEY }}
