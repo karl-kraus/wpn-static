@@ -1988,10 +1988,16 @@ span.warning {
   left: -1px !important;
 }
 
-#legende-pb .subst:has(>.add.overwrite)>.del,
+#legende-pb .subst:has(>.add.overwrite)>.del:not(.erased),
 #legende-pb .subst:has(>.add.overwrite)>del{
   color: #8c8c8c;
   text-decoration: none !important;
+}
+
+#legende-pb .subst:has(>.add.overwrite)>.del.erased {
+  color: #dddddd;
+  text-decoration: line-through;
+  text-decoration-color: white;
 }
 
 #legende-pb .metamark.printSpanFrom.redOnProof.entity { 
