@@ -1124,6 +1124,25 @@ span.warning {
   }
 }
 
+.print-page.witnessTypescript2 {
+  width: 20.7cm;
+  height: 26cm;
+  margin: 0 auto;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .print-body.witnessTypescript2 {
+    display: grid;
+    grid-template-columns: calc(100% * 0.154) auto auto;
+    gap: 0;
+  }
+
+  .print-header.witnessTypescript2,
+  .print-footer.witnessTypescript2 {
+    position: relative;
+  }
+}
+
 .print-page.witnessTypescriptInsert {
   width: 19.4cm;
   height: 26cm;
