@@ -207,7 +207,7 @@
                                     <h5 id="btn_carrier_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_carrier_info">
                                         Textträger, Grundschicht,<br/>Digitalisat</h5>
                                     <div id="list_carrier_info" class="visually-hidden">
-                                        <h6>Gehört zu:</h6>
+                                        <!-- <h6>Gehört zu:</h6> -->
                                         <xsl:for-each select="ancestor::tei:TEI/tei:teiHeader//tei:item[@xml:id=$corresp-id]/tei:p">
                                             <p><xsl:value-of select="./text()"/></p>
                                         </xsl:for-each>
