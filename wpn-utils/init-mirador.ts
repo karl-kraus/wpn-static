@@ -1,10 +1,23 @@
 
-const manifestId = document.getElementById("mirador").getAttribute("data-manifest");
+const currentURL = new URL(window.location.href);
+let canvasIndex = 0;
+if (currentURL.search) {
+    const params = new URLSearchParams(currentURL.search);
+    if (params.has("canvas")) {
+      canvasIndex = Number(params.get("canvas"));          
+    };
+
+}
+
+
+const manifestId = document.getElementById("mirador")?.getAttribute("data-manifest");
 const pathToManifest = `iiif_manifests/${manifestId}/manifest.json`;
-const  manifests = {
+
+
+const manifests = {
     pathToManifest:
     {
-    "provider": "Karl Kraus 1933"
+        "provider": "Karl Kraus 1933"
     }
 };
 
@@ -56,14 +69,37 @@ const mirador = Mirador.viewer({
     "windows": [
         {
             "loadedManifest": pathToManifest,
-            "canvasIndex": 0,
-            "thumbnailNavigationPosition": 'off',
-            // "id": "single-image-viewer"
+            "canvasIndex": canvasIndex - 1,
+            "thumbnailNavigationPosition": 'off'
         }
     ]
 });
 
-// const canvasId = "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0001"
 
-// var action = mirador.actions.setCanvas("single-image-viewer", canvasId);
-// mirador.store.dispatch(action);
+const miradorStore = mirador.store;
+let lastCanvasId = null;
+
+miradorStore.subscribe(() => {
+  const state = miradorStore.getState();
+  
+  const windowIds = Object.keys(state.windows);
+  if (!windowIds.length) return;
+
+  const win = state.windows[windowIds[0]];
+  if (!win || win.canvasId === lastCanvasId) return;
+
+  lastCanvasId = win.canvasId;
+
+  const manifest = state.manifests[win.manifestId]?.json;
+  if (!manifest) return;
+
+  const canvases = manifest.sequences?.[0]?.canvases;
+  if (!canvases) return;
+
+  const index = canvases.findIndex(c => (c.id || c['@id']) === win.canvasId);
+  if (index === -1) return;
+
+  const newUrl = new URL(window.location);
+  newUrl.searchParams.set("canvas", index + 1);
+  history.replaceState({}, "", newUrl);
+});
