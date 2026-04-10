@@ -3431,8 +3431,8 @@ body.modal-open, body.modal-open main {
 }
 
 
-.metamark.printSpanTo.inline.pencilOnProof2.connection-color-line,
-.metamark.printSpanFrom.inline.pencilOnProof2.connection-color-line {
+.metamark.printSpanTo.inline.connection-color-line[class*="pencilOn"],
+.metamark.printSpanFrom.inline.connection-color-line[class*="pencilOn"] {
   background: rgba(102, 102, 102, 0.3);
 }
 
