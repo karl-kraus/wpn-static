@@ -1124,6 +1124,25 @@ span.warning {
   }
 }
 
+.print-page.witnessTypescript2 {
+  width: 20.7cm;
+  height: 26cm;
+  margin: 0 auto;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .print-body.witnessTypescript2 {
+    display: grid;
+    grid-template-columns: calc(100% * 0.154) auto auto;
+    gap: 0;
+  }
+
+  .print-header.witnessTypescript2,
+  .print-footer.witnessTypescript2 {
+    position: relative;
+  }
+}
+
 .print-page.witnessTypescriptInsert {
   width: 19.4cm;
   height: 26cm;
@@ -1969,10 +1988,16 @@ span.warning {
   left: -1px !important;
 }
 
-#legende-pb .subst:has(>.add.overwrite)>.del,
+#legende-pb .subst:has(>.add.overwrite)>.del:not(.erased),
 #legende-pb .subst:has(>.add.overwrite)>del{
   color: #8c8c8c;
   text-decoration: none !important;
+}
+
+#legende-pb .subst:has(>.add.overwrite)>.del.erased {
+  color: #dddddd;
+  text-decoration: line-through;
+  text-decoration-color: white;
 }
 
 #legende-pb .metamark.printSpanFrom.redOnProof.entity { 
@@ -2197,6 +2222,7 @@ handling del elments based on change type
 #textcontent-pb .subst.pencilOnProofKK .del del,
 #textcontent-pb .del.pencilOnProofKK del,
 #textcontent-pb .del.pencilOnTypescriptKK del,
+#textcontent-pb .del del.pencilOnTypescriptKK,
 #textcontent-pb .del.pencilOnTypescriptKK1 del,
 #textcontent-pb .del.pencilOnTypescriptKK2 del,
 #textcontent-pb .del.pencilOnProof del,
@@ -2554,6 +2580,7 @@ pencil text color
 #textcontent-pb .mod.inkOnProofKK.pencilOnProofKK,
 #textcontent-pb .mod.marginLeft.pencilOnProofKK.inkOnProofKK,
 #textcontent-pb .metamark.inkOnProofKK.pencilOnProofKK,
+#textcontent-pb .metamark.inkOnTypescriptKK2.pencilOnTypescriptKK2,
 #textcontent-pb .mod.inkOnProofKK.pencilOnProofKK:is([class*='margin']),
 #textcontent-pb .del.above.inkOnProofKK.pencilOnProofKK:has(>.arimo) {
   text-shadow: 2px 3px lightgrey;
@@ -2637,6 +2664,7 @@ pencil text color
 
 #textcontent-pb .ellipsis {
   display: inline-block;
+  text-indent: 0;
 }
 
 #textcontent-pb .ellipsis.extent-17 {
