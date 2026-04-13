@@ -85,6 +85,23 @@
             then(ancestor::tei:note/@xml:id)
             else()"/>
         <xsl:choose>
+            <xsl:when test="$rend='overwritten' and @rend='erased'">
+                <span class="del text-black-grey {@rend}">
+                    <xsl:attribute name="data-anchor">
+                        <xsl:value-of select="@xml:id"/>
+                        <xsl:if test="parent::tei:add[parent::tei:subst]">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="$inheritIDfromAddDel"/>
+                        </xsl:if>
+                        <xsl:if test="ancestor::tei:note">
+                            <xsl:text> </xsl:text>
+                            <xsl:value-of select="$inheritIDfromNote"/>
+                        </xsl:if>
+                    </xsl:attribute>
+                    <xsl:apply-templates/>
+                </span>
+            </xsl:when>
+            
             <xsl:when test="$rend='overwritten'">
                 <span class="del text-black-grey">
                     <xsl:attribute name="data-anchor">
@@ -101,7 +118,7 @@
                     <xsl:apply-templates/>
                 </span>
             </xsl:when>
-            <xsl:when test="$rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
+         <xsl:when test="$rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <del class="del {replace((@change)[1], '#', '')}">
                     <xsl:attribute name="data-anchor">
                         <xsl:value-of select="@xml:id"/>
