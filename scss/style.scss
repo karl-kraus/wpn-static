@@ -3159,6 +3159,11 @@ div.position-relative .marginLeftFurtherBelowOnly {
   display: inline;
 }
 
+/* especially for inline added quotation marks in Konvolut Faust/para 64 */
+#textcontent-pb .add.inline {
+  font-size: inherit !important;
+}
+
 #textcontent-pb .pencilRightAlign .note {
   text-align: right;
   text-align-last: right;
