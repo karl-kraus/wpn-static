@@ -2273,7 +2273,8 @@ handling del elments based on change type
 #textcontent-pb .del.inkOnProof del,
 #textcontent-pb .restore.inkOnProof del,
 #textcontent-pb .restore.inkOnTypescript del,
-#textcontent-pb .subst.inkOnTypescript del {
+#textcontent-pb .subst.inkOnTypescript del,
+#textcontent-pb .subst.inkOnTypescriptKK2 del {
   text-decoration-color: #000;
 }
 
