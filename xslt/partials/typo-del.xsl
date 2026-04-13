@@ -29,7 +29,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:choose>
-                     <xsl:when test="child::tei:gap and @rend">
+                     <xsl:when test="child::tei:add[child::tei:gap] and @rend">
                         <span id="{@xml:id}" class="del entity {replace(($change)[1], '#', '')} {@rend}">
                             <del data-anchor="{@xml:id}" data-hand="{replace($change[1],'#','')}"><xsl:apply-templates/></del>
                         </span>
