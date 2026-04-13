@@ -5,7 +5,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[Nicht 1933] Nicht einmal versprochen[?], da\u00df er"
+				"chars": "Nicht einmal versprochen[?], da\u00df er"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
