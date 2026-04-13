@@ -3309,6 +3309,7 @@ wpn-time-line {
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del.erased {
+  text-decoration: line-through;
   text-decoration-color: #8c8c8c !important;
 }
 
