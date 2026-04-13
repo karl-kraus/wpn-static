@@ -200,7 +200,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "darauf zur\u00fcckzuf\u00fchren, da\u00df"
+				"chars": "darauf zur\u00fcckzuf\u00fchren, da\u00df die"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -213,7 +213,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "die englische \u00d6ffentlichkeit die"
+				"chars": "englische \u00d6ffentlichkeit die"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
