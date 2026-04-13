@@ -46,7 +46,7 @@
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[parent::tei:span[parent::tei:subst]])then(ancestor::tei:subst/@rend)else(@rend)"/>
         <xsl:choose>
             <xsl:when test="$rend = 'inline'">
-                <span class="add" data-anchor="{@xml:id} {preceding-sibling::tei:del[1]/@xml:id} {following-sibling::tei:del[1]/@xml:id}"><xsl:apply-templates/></span>
+                <span class="add inline" data-anchor="{@xml:id} {preceding-sibling::tei:del[1]/@xml:id} {following-sibling::tei:del[1]/@xml:id}"><xsl:apply-templates/></span> <!-- added "inline" class esp. for para 64  -->
             </xsl:when>
             <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
                 <span class="position-relative">
@@ -92,7 +92,7 @@
         <xsl:variable name="inheritIDfromNote" select="if(ancestor::tei:note[@xml:id and not(preceding::tei:pb[contains(@n, '_')])])then(ancestor::tei:note/@xml:id)else()"/>
         <xsl:choose>
             <xsl:when test="@rend = 'inline'">
-                <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}">
+                <span id="{@xml:id}" class="add inline entity {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}"> <!-- added "inline" class esp. for para 64  -->
                     <xsl:attribute name="data-anchor">
                         <xsl:value-of select="@xml:id"/>
                         <xsl:if test="ancestor::tei:note">
