@@ -3169,7 +3169,7 @@ div.position-relative .marginLeftFurtherBelowOnly {
 }
 
 /* especially for inline added quotation marks in Konvolut Faust/para 64 */
-#textcontent-pb .add.inline {
+#textcontent-pb .add.inline:not(:is([class*='typewriter'])) {
   font-size: inherit !important;
 }
 
