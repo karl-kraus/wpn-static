@@ -35,7 +35,7 @@
                         </span>
                     </xsl:when>
                     <xsl:when test="child::tei:*">
-                        <span id="{@xml:id}" class="del entity {replace(($change)[1], '#', '')}">
+                        <span id="{@xml:id}" class="del entity {replace(($change)[1], '#', '')} {@rend}">
                             <del data-anchor="{@xml:id}" data-hand="{replace($change[1],'#','')}"><xsl:apply-templates/></del>
                         </span>
                     </xsl:when>
