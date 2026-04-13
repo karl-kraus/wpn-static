@@ -14,7 +14,7 @@
             <xsl:when test="$rend='lineExt'">
                 <del class="add $rend" data-anchor="{@xml:id} {preceding-sibling::tei:del[1]/@xml:id} {following-sibling::tei:del[1]/@xml:id}"><xsl:apply-templates/></del>
             </xsl:when>
-            <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
+            <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove', 'left')">
                 <span class="position-relative">
                     <!-- test: aren't they all supposed to be del?
                     <xsl:variable name="el">
@@ -55,7 +55,7 @@
             <xsl:when test="$rend = 'lineExt'">
                 <span class="add $rend" data-anchor="{@xml:id} {preceding-sibling::tei:del[1]/@xml:id} {following-sibling::tei:del[1]/@xml:id}"><xsl:apply-templates/></span> <!-- added "inline" class esp. for para 64  -->
             </xsl:when>
-            <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
+            <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove', 'left')">
                 <span class="position-relative">
                     <xsl:variable name="el">
                         <xsl:choose>
@@ -110,7 +110,7 @@
                     <xsl:apply-templates/>
                 </span>
             </xsl:when>
-            <xsl:when test="@rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
+            <xsl:when test="@rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove', 'left')">
                 <span class="add {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}">
                     <xsl:attribute name="data-anchor">
                         <xsl:value-of select="@xml:id"/>
