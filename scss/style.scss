@@ -1995,9 +1995,9 @@ span.warning {
 }
 
 #legende-pb .subst:has(>.add.overwrite)>.del.erased {
-  color: #dddddd;
+  color: #8c8c8c;
   text-decoration: line-through;
-  text-decoration-color: white;
+  text-decoration-color: 8c8c8c;
 }
 
 #legende-pb .metamark.printSpanFrom.redOnProof.entity { 
@@ -2279,9 +2279,16 @@ handling del elments based on change type
   text-decoration-color: #000;
 }
 
-/* del with rend erased: white line through, lighter grey */
+/* overwritten erased del */
 #textcontent-pb .del.erased del {
-  text-decoration-color: white;
+  color: #8c8c8c;
+  text-decoration-color: #8c8c8c;
+}
+
+
+/* erased del in overwritten note lighter line through, lighter grey */
+#textcontent-pb .note .del.erased del {
+  text-decoration-color: #dddddd;
   color: #dddddd;
 }
 
@@ -2746,7 +2753,7 @@ pencil text color
 
 .overwritten,
 .x-edOut {
-  color: #ffb922b5;
+  color: #8c8c8c;
 }
 
 .rotate90 {
@@ -3299,6 +3306,14 @@ wpn-time-line {
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del {
+  color: #8c8c8c !important;
+}
+
+#textcontent-pb .subst:has(>.add.overwrite)>.del.erased {
+  text-decoration-color: #8c8c8c !important;
+}
+
+#textcontent-pb .subst:has(>.add.overwrite)>.del .add {
   color: #8c8c8c !important;
 }
 
