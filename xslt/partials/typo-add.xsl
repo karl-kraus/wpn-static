@@ -78,7 +78,7 @@
                 </span>
             </xsl:when>
             <xsl:when test="$rend='overwritten'">
-                <span class="add overwrite position-absolute start-0{if(ancestor::tei:note)then(' top-0 bottom-0')else()}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="add overwrite position-absolute start-0{if(ancestor::tei:note)then(' top-0 bottom-0')else()} {replace(@change[1], '#', '')}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:when test="not($rend)">
                 <span id="{@xml:id}" class="add entity" data-anchor="{@xml:id}">
