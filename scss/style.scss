@@ -1996,14 +1996,14 @@ span.warning {
 
 #legende-pb .subst:has(>.add.overwrite)>.del:not(.erased),
 #legende-pb .subst:has(>.add.overwrite)>del{
-  color: #8c8c8c;
+  color: #dddddd;
   text-decoration: none !important;
 }
 
 #legende-pb .subst:has(>.add.overwrite)>.del.erased {
-  color: #8c8c8c;
+  color: #dddddd;
   text-decoration: line-through;
-  text-decoration-color: #8c8c8c;
+  text-decoration-color: #dddddd;
 }
 
 #legende-pb .metamark.printSpanFrom.redOnProof.entity { 
@@ -2761,7 +2761,7 @@ pencil text color
 
 .overwritten,
 .x-edOut {
-  color: #8c8c8c;
+  color: #dddddd;
 }
 
 .rotate90 {
@@ -3319,16 +3319,16 @@ wpn-time-line {
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del {
-  color: #8c8c8c !important;
+  color: #dddddd !important;
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del.erased {
   text-decoration: line-through;
-  text-decoration-color: #8c8c8c !important;
+  text-decoration-color: #dddddd !important;
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del .add {
-  color: #8c8c8c !important;
+  color: #dddddd !important;
 }
 
 #textcontent-pb .subst:has(>.overwrite) {
