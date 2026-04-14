@@ -2294,7 +2294,8 @@ handling del elments based on change type
 
 
 /* erased del in overwritten note lighter line through, lighter grey */
-#textcontent-pb .note .del.erased del {
+#textcontent-pb .note .del.erased del,
+#textcontent-pb .subst.eraser del {
   text-decoration-color: #dddddd;
   color: #dddddd;
 }
