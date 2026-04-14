@@ -295,7 +295,7 @@
                 </span>
             </xsl:when>
             <xsl:when test="parent::tei:subst[parent::tei:restore[not(@rend='marginOnly')]]">
-               <span class="del text-decoration-underline-dotted">
+               <span class="del text-decoration-underline-dotted {if(parent::tei:subst[not(@change)]) then '' else replace(@change, '#', '')}">
                     <del data-anchor="{@xml:id}"><xsl:apply-templates/></del>
                 </span>
             </xsl:when>            
