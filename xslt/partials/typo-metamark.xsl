@@ -473,6 +473,8 @@
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:when>
+                    <xsl:when test="@rend='none'">
+                    </xsl:when>
                     <xsl:when test="@rend='inline' and ./text()">
                         <span id="{@xml:id}" class="metamark entity {replace(@change, '#', '')}" data-anchor="{@xml:id}">
                             <xsl:if test="@target">

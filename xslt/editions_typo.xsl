@@ -26,32 +26,10 @@
     <xsl:import href="./partials/scripts.xsl"/>
 
     <xsl:variable name="prev">
-        <xsl:choose>
-            <xsl:when test="contains(tei:TEI/@prev, 'idPb-000') or 
-                            contains(tei:TEI/@prev, 'idPbF')">
-                <!-- notWitness document, do not create a link -->
-            </xsl:when>
-            <xsl:when test="contains(tei:TEI/@prev, 'idPb0266_a')">
-                <xsl:text>idPb0266.xml</xsl:text>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="substring-after(data(tei:TEI/@prev), 'https://id.acdh.oeaw.ac.at/')"/>
-            </xsl:otherwise>
-        </xsl:choose>
+        <xsl:value-of select="substring-after(data(tei:TEI/@prev), 'https://id.acdh.oeaw.ac.at/')"/>
     </xsl:variable>
     <xsl:variable name="next">
-        <xsl:choose>
-            <xsl:when test="contains(tei:TEI/@next, 'idPb-000') or 
-                            contains(tei:TEI/@next, 'idPbF')">
-                <!-- notWitness document, do not create a link -->
-            </xsl:when>
-            <xsl:when test="contains(tei:TEI/@next, 'idPb0266_a')">
-                <xsl:text>idPb0267.xml</xsl:text>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="substring-after(data(tei:TEI/@next), 'https://id.acdh.oeaw.ac.at/')"/>
-            </xsl:otherwise>
-        </xsl:choose>
+        <xsl:value-of select="substring-after(data(tei:TEI/@next), 'https://id.acdh.oeaw.ac.at/')"/>
     </xsl:variable>
      <xsl:variable name="id">
         <xsl:value-of select="tei:TEI/@id"/>
@@ -675,6 +653,9 @@
         </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+	<xsl:template match="tei:ellipsis[@extent]">
+		<span class="ellipsis {'extent-' || @extent} {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+	</xsl:template>
     <xsl:template match="tei:unclear">
         <xsl:variable name="inheritIDfromAddDel" select="
             if(parent::tei:del[parent::tei:add[parent::tei:subst]])

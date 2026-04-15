@@ -13,7 +13,7 @@ const hideBtn = document.getElementById('infocontent-hide-btn')
 const setModeButton = document.getElementById("setMode") as HTMLButtonElement | null;
 
 
-paginationButton!.addEventListener('click', function() {
+paginationButton?.addEventListener('click', function() {
 
     const paginationPb = document.getElementById('pagination-pb');
     paginationPb!.classList.toggle('visually-hidden');
@@ -24,7 +24,7 @@ paginationButton!.addEventListener('click', function() {
 
 });
 
-legendBtn!.addEventListener('click', function() {
+legendBtn?.addEventListener('click', function() {
 
     legendBtn!.classList.toggle('active');
     legendBtn!.ariaExpanded = legendBtn!.classList.contains('active') ? 'true' : 'false';
@@ -41,7 +41,7 @@ legendBtn!.addEventListener('click', function() {
 
 });
 
-hideBtn!.addEventListener('click', function() {
+hideBtn?.addEventListener('click', function() {
     hideBtn!.classList.toggle('active');
 
     const grid = document.getElementById('sub_grid_pb');

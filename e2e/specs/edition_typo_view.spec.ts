@@ -3,7 +3,7 @@ import { glob } from 'glob';
 import path from 'path';
 
 
-const editionTypoFiles = await glob('html/idPb*.html');
+const editionTypoFiles = await glob('html/wit-*.html');
 
 const pathsToTest = editionTypoFiles.map(f => path.basename(f))
 

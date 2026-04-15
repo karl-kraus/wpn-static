@@ -4,7 +4,7 @@
     <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" name="xml"/>
 
     <xsl:variable name="facsimile">
-        <xsl:value-of select="'idfacs'||replace(substring-after(data(//tei:pb[1]/@xml:id), 'idPb'), '.xml', '')"/>
+        <xsl:value-of select="substring-after(data(//tei:pb[1]/@facs), '#')"/>
     </xsl:variable>
     
     <xsl:template match="@*|node()">

@@ -8,10 +8,13 @@
     <xsl:template match="tei:add[parent::tei:subst[ancestor::tei:restore[not(./tei:seg)]]]">
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
         <xsl:choose>
-            <xsl:when test="$rend = 'inline'">
+            <xsl:when test="$rend='inline'">
                 <del class="add" data-anchor="{@xml:id} {preceding-sibling::tei:del[1]/@xml:id} {following-sibling::tei:del[1]/@xml:id}"><xsl:apply-templates/></del>
             </xsl:when>
-            <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
+            <xsl:when test="$rend='lineExt'">
+                <del class="add $rend" data-anchor="{@xml:id} {preceding-sibling::tei:del[1]/@xml:id} {following-sibling::tei:del[1]/@xml:id}"><xsl:apply-templates/></del>
+            </xsl:when>
+            <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove', 'left')">
                 <span class="position-relative">
                     <!-- test: aren't they all supposed to be del?
                     <xsl:variable name="el">
@@ -46,9 +49,13 @@
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else if(parent::tei:span[parent::tei:span[parent::tei:subst]])then(ancestor::tei:subst/@rend)else(@rend)"/>
         <xsl:choose>
             <xsl:when test="$rend = 'inline'">
-                <span class="add" data-anchor="{@xml:id} {preceding-sibling::tei:del[1]/@xml:id} {following-sibling::tei:del[1]/@xml:id}"><xsl:apply-templates/></span>
+                <span class="add inline" data-anchor="{@xml:id} {preceding-sibling::tei:del[1]/@xml:id} {following-sibling::tei:del[1]/@xml:id}"><xsl:apply-templates/></span> <!-- added "inline" class esp. for para 64  -->
             </xsl:when>
-            <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
+            
+            <xsl:when test="$rend = 'lineExt'">
+                <span class="add $rend" data-anchor="{@xml:id} {preceding-sibling::tei:del[1]/@xml:id} {following-sibling::tei:del[1]/@xml:id}"><xsl:apply-templates/></span> <!-- added "inline" class esp. for para 64  -->
+            </xsl:when>
+            <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove', 'left')">
                 <span class="position-relative">
                     <xsl:variable name="el">
                         <xsl:choose>
@@ -71,7 +78,7 @@
                 </span>
             </xsl:when>
             <xsl:when test="$rend='overwritten'">
-                <span class="add overwrite position-absolute start-0{if(ancestor::tei:note)then(' top-0 bottom-0')else()}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="add overwrite position-absolute start-0{if(ancestor::tei:note)then(' top-0 bottom-0')else()} {replace(@change[1], '#', '')}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:when test="not($rend)">
                 <span id="{@xml:id}" class="add entity" data-anchor="{@xml:id}">
@@ -91,8 +98,8 @@
     <xsl:template match="tei:add[not(parent::tei:subst) and not(parent::tei:restore)]">
         <xsl:variable name="inheritIDfromNote" select="if(ancestor::tei:note[@xml:id and not(preceding::tei:pb[contains(@n, '_')])])then(ancestor::tei:note/@xml:id)else()"/>
         <xsl:choose>
-            <xsl:when test="@rend = 'inline'">
-                <span id="{@xml:id}" class="add entity {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}">
+            <xsl:when test="@rend='inline' or @rend='lineExt'">
+                <span id="{@xml:id}" class="add {@rend} entity {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}"> <!-- added "inline" class esp. for para 64  -->
                     <xsl:attribute name="data-anchor">
                         <xsl:value-of select="@xml:id"/>
                         <xsl:if test="ancestor::tei:note">
@@ -103,7 +110,7 @@
                     <xsl:apply-templates/>
                 </span>
             </xsl:when>
-            <xsl:when test="@rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove')">
+            <xsl:when test="@rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove', 'left')">
                 <span class="add {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}">
                     <xsl:attribute name="data-anchor">
                         <xsl:value-of select="@xml:id"/>

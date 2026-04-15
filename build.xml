@@ -6,11 +6,17 @@
     <property name="target_fonts" value="./html/css/files"/>
     <property name="target_xml" value="./html/xml-view"/>
     
-    <delete>
-        <fileset dir="${target}" includes="*.html"/>
-        <!-- <fileset dir="./data/merged" includes="*.html"/> -->
-    </delete>
     <delete dir="${target}/static-search"/>
+    <target name="clean">
+        <delete>
+            <fileset dir="${target}" includes="*.html"/>
+        </delete>
+    </target>
+    <target name="clean-typo">
+        <delete>
+            <fileset dir="${target}" includes="wit-*.html"/>
+        </delete>
+    </target>
     <target name="build-landing-page">
         <xslt in="${index}" out="${target}/index.html" style="./xslt/index.xsl">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
@@ -48,22 +54,25 @@
         </xslt>
     </target>
     <target name="build-edition">
-        <xslt style="./xslt/editions.xsl"  basedir="./data/editions" destdir="${target}" includes="*.xml" excludes="Gesamt.xml idPb*.xml">
+        <xslt style="./xslt/editions.xsl"  basedir="./data/editions" destdir="${target}" includes="*.xml" excludes="Gesamt.xml idPb*.xml wit-*.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
     <target name="build-unstyled-edition">
-        <xslt style="./xslt/editions_unstyled.xsl"  basedir="./data/editions" destdir="./data/merged" includes="*.xml" excludes="Gesamt.xml idPb*.xml">
+        <xslt style="./xslt/editions_unstyled.xsl"  basedir="./data/editions" destdir="./data/merged" includes="*.xml" excludes="Gesamt.xml idPb*.xml wit-*.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
     <target name="build-edition-typo">
-        <delete>
-            <fileset dir="${target}" includes="idPb*.html"/>
-        </delete>
-        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions" destdir="${target}" includes="idPb*.xml" excludes="Gesamt.xml idPb0266_a.xml">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions" destdir="${target}" includes="wit-*.xml" excludes="Gesamt.xml">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-edition-typo-2">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions2" destdir="${target}" includes="wit-*.xml" excludes="KK1933_Abs64_Ts.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
@@ -151,22 +160,27 @@
         <!--<copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-wght-normal.woff2" todir="${target_fonts}"/>
         <copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-ext-wght-normal.woff2" todir="${target_fonts}"/>-->
     </target>
-    <target name="build-full-edition" depends="copy-libs, generate-scan-index, build-landing-page, build-meta-pages, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-notes, generate-bibl-index, generate-person-index, generate-comment-index, generate-event-index, build-intertext-register, build-person-register, build-comment-register, build-timeline-register, build-search-page"/>
+    <target name="build-full-edition" depends="copy-libs, generate-scan-index, build-landing-page, build-meta-pages, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-edition-typo-2, build-notes, generate-bibl-index, generate-person-index, generate-comment-index, generate-event-index, build-intertext-register, build-person-register, build-comment-register, build-timeline-register, build-search-page"/>
     <target name="add-header-pb">
         <delete>
-            <fileset dir="./data/editions" includes="idPb*.xml idPb*.html"/>
+            <fileset dir="./data/editions" includes="wit-*.xml"/>
         </delete>
         <!-- <mkdir dir="./data/editions/tmp2"/> -->
-        <xslt style="./xslt/partials/add-header-pb.xsl" basedir="./data/editions/tmp" destdir="./data/editions" includes="idPb*.xml" extension=".xml">
+        <xslt style="./xslt/partials/add-header-pb.xsl" basedir="./data/editions/tmp" destdir="./data/editions" includes="wit-*.xml" extension=".xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
-        <!-- <xslt style="./xslt/partials/add-rend-multiples.xsl" basedir="./data/editions/tmp2" destdir="./data/editions" includes="idPb*.xml" extension=".xml">
+        <delete dir="./data/editions/tmp"/>
+    </target>
+    <target name="add-header-pb-2">
+        <delete>
+            <fileset dir="./data/editions2" includes="wit-*.xml"/>
+        </delete>
+        <xslt style="./xslt/partials/add-header-pb-2.xsl" basedir="./data/editions2/tmp" destdir="./data/editions2" includes="wit-*.xml" extension=".xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
-        </xslt> -->
-        <delete dir="./data/editions/tmp"/>
-        <!-- <delete dir="./data/editions/tmp2"/> -->
+        </xslt>
+        <delete dir="./data/editions2/tmp"/>
     </target>
     <replace dir="${target}" value="">
         <include name="*.html"/>
