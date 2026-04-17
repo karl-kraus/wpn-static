@@ -70,7 +70,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Fr\u00f6hlichen Urst\u00e4nd feiern"
+				"chars": "Fr\u00f6hliche Urst\u00e4nd feiern"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",

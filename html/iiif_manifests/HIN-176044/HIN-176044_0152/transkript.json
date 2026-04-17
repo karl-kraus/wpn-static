@@ -161,7 +161,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Ausl\u00e4nder, die es selbst [?]"
+				"chars": "Ausl\u00e4nder, die es selbst zuzuschreiben"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
