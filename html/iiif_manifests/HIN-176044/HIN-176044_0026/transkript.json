@@ -5,7 +5,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "wert[?] Lose[?]"
+				"chars": "wert\u00bf\u00bf\u00bf Lose[?]"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -31,7 +31,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Kampfzeit [?]"
+				"chars": "Kampfzeit \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -44,7 +44,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -57,20 +57,20 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "schon Antwort[?] [?]"
+				"chars": "schon Antwort[?] \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
 			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0026/transkript.json#line_1557738776301_971",
-			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0026#xywh=205,963,612,145"
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-176044/HIN-176044_0026#xywh=256,861,612,145"
 		},
 		{
 			"resource": {
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -109,7 +109,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -122,7 +122,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -135,7 +135,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -148,7 +148,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",

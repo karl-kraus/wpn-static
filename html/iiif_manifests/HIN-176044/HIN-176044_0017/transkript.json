@@ -18,7 +18,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -44,7 +44,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -96,7 +96,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "M[?]"
+				"chars": "M\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -200,7 +200,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "und"
+				"chars": "und \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -213,7 +213,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Sch\u00fctzenboten[?], als eben/etwa[?]"
+				"chars": "Sch\u00fctzenboten[?], als \u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",

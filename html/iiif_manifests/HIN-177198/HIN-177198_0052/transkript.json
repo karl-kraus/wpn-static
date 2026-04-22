@@ -31,7 +31,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Es wurden verschiedene"
+				"chars": "_ _ Es wurden verschiedene"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -57,7 +57,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "klar hervorgeht, da\u00df Italien"
+				"chars": "klar hervorgeht, da\u00df Italien,"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -109,7 +109,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Rede:"
+				"chars": "\u00bf\u00bfRede:"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",

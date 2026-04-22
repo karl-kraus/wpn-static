@@ -18,7 +18,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Wann er es [??]"
+				"chars": "Wann er es \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -31,7 +31,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -44,7 +44,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "zu leben"
+				"chars": "zu leben."
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -83,7 +83,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "V[?] zu lassen"
+				"chars": "v\u00bf\u00bf\u00bf zu lassen"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -96,7 +96,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Wir wollten nicht \u2013 mit Gewalt retten"
+				"chars": "\"Wir wollen nicht \u2013 mit Gewalt retten"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -109,7 +109,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -122,7 +122,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -148,7 +148,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -161,7 +161,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -174,7 +174,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -187,7 +187,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -200,7 +200,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -213,7 +213,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -226,7 +226,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf, \u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -239,7 +239,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?] eingerahmte"
+				"chars": "\u00bf\u00bf \u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf eingerahmte"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -252,7 +252,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "\u00d6ldrucke [?]"
+				"chars": "\u00d6ldrucke \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -265,7 +265,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -278,7 +278,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -291,7 +291,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",

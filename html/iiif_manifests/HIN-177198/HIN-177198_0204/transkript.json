@@ -18,7 +18,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?]"
+				"chars": "\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -44,7 +44,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?] ohne die Alternative, die noch"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf ohne die Alternative, die noch"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -57,7 +57,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "der Menschheit [??]"
+				"chars": "der Menschheit \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -70,7 +70,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Wer verlangt [??]"
+				"chars": "Wer verlangt von einem \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf, \u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -83,7 +83,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf: \u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -96,7 +96,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -109,33 +109,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
-			},
-			"@context": "https://iiif.io/api/presentation/2/context.json",
-			"motivation": "sc:painting",
-			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0204/transkript.json#line_1563804988258_651",
-			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0204#xywh=1132,1897,678,200"
-		},
-		{
-			"resource": {
-				"format": "text/plain",
-				"language": "de",
-				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
-			},
-			"@context": "https://iiif.io/api/presentation/2/context.json",
-			"motivation": "sc:painting",
-			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0204/transkript.json#line_1563804993063_654",
-			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0204#xywh=997,1942,1161,252"
-		},
-		{
-			"resource": {
-				"format": "text/plain",
-				"language": "de",
-				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -148,7 +122,33 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf \u00bf\u00bf\u00bf\u00bf: "
+			},
+			"@context": "https://iiif.io/api/presentation/2/context.json",
+			"motivation": "sc:painting",
+			"@type": "oa:Annotation",
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0204/transkript.json#line_1563804988258_651",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0204#xywh=1132,1897,678,200"
+		},
+		{
+			"resource": {
+				"format": "text/plain",
+				"language": "de",
+				"@type": "cnt:ContentAsText",
+				"chars": "\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
+			},
+			"@context": "https://iiif.io/api/presentation/2/context.json",
+			"motivation": "sc:painting",
+			"@type": "oa:Annotation",
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0204/transkript.json#line_1563804993063_654",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0204#xywh=997,1942,1161,252"
+		},
+		{
+			"resource": {
+				"format": "text/plain",
+				"language": "de",
+				"@type": "cnt:ContentAsText",
+				"chars": "\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -161,7 +161,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf \u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf."
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",

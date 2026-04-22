@@ -18,7 +18,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "schon als [??]"
+				"chars": "schon als \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -96,7 +96,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Arnold von "
+				"chars": "Arnold von \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -109,7 +109,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -122,7 +122,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Wenn man es [?]"
+				"chars": "Wenn man es \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -135,7 +135,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "zur Begleitung der [?]"
+				"chars": "zur Begleitung der \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -174,7 +174,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?] selbst nicht Gedankenfreiheit"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf selbst nicht Gedankenfreiheit"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -200,7 +200,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "mit T[?] "
+				"chars": "mit Trutz spazieren gehen[?]"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -226,7 +226,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Multipl. L[?]"
+				"chars": "Multipl. L\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -239,7 +239,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?] Presse [?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf, \u00bf\u00bf\u00bf Presse \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -252,7 +252,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "S[?]"
+				"chars": "S\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -265,7 +265,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "M[?]"
+				"chars": "M\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",

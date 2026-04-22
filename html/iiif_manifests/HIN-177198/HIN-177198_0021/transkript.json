@@ -18,7 +18,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?] Objekt [?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf Objekt \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -31,7 +31,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -44,7 +44,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "und leben nicht im gleichen L[?] mit"
+				"chars": "und leben nicht im gleichen L\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf mit"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -57,7 +57,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?] Objekt"
+				"chars": "\u00bf\u00bf\u00bf\u00bf Objekt"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -148,7 +148,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "polemisiere, [??]"
+				"chars": "polemisiere, \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",

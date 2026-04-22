@@ -5,7 +5,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??] Nachleben"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf Nachleben"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -70,13 +70,26 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?] [?] als ob sie der Redakteur erwischt h\u00e4tte[?]."
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf als ob sie der Redakteur erwischt h\u00e4tte[?]."
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
 			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0151/transkript.json#line_1563370120309_601",
 			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0151#xywh=1008,2019,1199,252"
+		},
+		{
+			"resource": {
+				"format": "text/plain",
+				"language": "de",
+				"@type": "cnt:ContentAsText",
+				"chars": "\u00bf\u00bf\u00bf"
+			},
+			"@context": "https://iiif.io/api/presentation/2/context.json",
+			"motivation": "sc:painting",
+			"@type": "oa:Annotation",
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0151/transkript.json#line_1563370120309_602",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0151#xywh=1532,2074,98,68"
 		},
 		{
 			"resource": {
@@ -135,7 +148,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -148,7 +161,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "endlich [?] K. K.,"
+				"chars": "endlich \u00bf\u00bf\u00bf K. K.,"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -174,7 +187,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "weil[?] [?] der Mut[?] verlie\u00df[?]"
+				"chars": "weil[?] \u00bf\u00bf\u00bf der Mut[?] verlie\u00df[?]"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -187,7 +200,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?] gleich zu sein"
+				"chars": "\u00bf\u00bf\u00bf gleich zu sein"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",

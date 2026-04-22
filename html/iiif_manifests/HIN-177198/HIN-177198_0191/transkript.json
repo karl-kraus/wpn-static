@@ -83,26 +83,13 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Trotzki[?] [?]"
+				"chars": "Trotzki[?] \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
 			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0191/transkript.json#line_1563802105335_2590",
 			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0191#xywh=1979,2411,333,103"
-		},
-		{
-			"resource": {
-				"format": "text/plain",
-				"language": "de",
-				"@type": "cnt:ContentAsText",
-				"chars": "Selbstverst\u00e4ndlich mu\u00df man sich zu einem"
-			},
-			"@context": "https://iiif.io/api/presentation/2/context.json",
-			"motivation": "sc:painting",
-			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0191/transkript.json#line_1563802115169_2596",
-			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0191#xywh=908,2440,779,180"
 		},
 		{
 			"resource": {
@@ -122,7 +109,20 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Mangel bekennen, der jemals"
+				"chars": "Selbstverst\u00e4ndlich mu\u00df man sich zu einem \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
+			},
+			"@context": "https://iiif.io/api/presentation/2/context.json",
+			"motivation": "sc:painting",
+			"@type": "oa:Annotation",
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0191/transkript.json#line_1563802115169_2596",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0191#xywh=908,2440,779,180"
+		},
+		{
+			"resource": {
+				"format": "text/plain",
+				"language": "de",
+				"@type": "cnt:ContentAsText",
+				"chars": "Mangel bekennen, der \u00bf\u00bf jemals"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -148,19 +148,6 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "erm\u00f6glicht hat, man habe [?], man habe jemals"
-			},
-			"@context": "https://iiif.io/api/presentation/2/context.json",
-			"motivation": "sc:painting",
-			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0191/transkript.json#line_1563802135152_2608",
-			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0191#xywh=1032,2631,925,214"
-		},
-		{
-			"resource": {
-				"format": "text/plain",
-				"language": "de",
-				"@type": "cnt:ContentAsText",
 				"chars": "den Wahn, ihren Wahn"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
@@ -174,7 +161,20 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "ihre Sprache gesprochen [??]"
+				"chars": "erm\u00f6glicht hat, man habe \u00bf\u00bf\u00bf\u00bf, man habe jemals"
+			},
+			"@context": "https://iiif.io/api/presentation/2/context.json",
+			"motivation": "sc:painting",
+			"@type": "oa:Annotation",
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0191/transkript.json#line_1563802135152_2608",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0191#xywh=1032,2631,925,214"
+		},
+		{
+			"resource": {
+				"format": "text/plain",
+				"language": "de",
+				"@type": "cnt:ContentAsText",
+				"chars": "ihre Sprache gesprochen \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf;"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -200,7 +200,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "das [?] sch\u00e4mt[?], braucht man"
+				"chars": "das \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf sch\u00e4mt[?], braucht man"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -226,7 +226,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Nur sollte man nicht"
+				"chars": "Nur sollte man \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf nicht"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -239,7 +239,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "solche[?] [?] Sprache"
+				"chars": "gen\u00f6tigt sein\u00bf \u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -252,7 +252,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "gen\u00f6tigt sein"
+				"chars": "solche[?] \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf Sprache"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -291,7 +291,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Problem [?]"
+				"chars": "Problem \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -304,7 +304,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf:"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -317,7 +317,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Raimund [?]"
+				"chars": "Raimund \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -356,7 +356,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",

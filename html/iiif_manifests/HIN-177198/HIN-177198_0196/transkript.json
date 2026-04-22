@@ -5,19 +5,6 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
-			},
-			"@context": "https://iiif.io/api/presentation/2/context.json",
-			"motivation": "sc:painting",
-			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196/transkript.json#line_1563803924369_156",
-			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196#xywh=1900,1224,559,227"
-		},
-		{
-			"resource": {
-				"format": "text/plain",
-				"language": "de",
-				"@type": "cnt:ContentAsText",
 				"chars": "R54941"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
@@ -36,6 +23,33 @@
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
 			"@type": "oa:Annotation",
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196/transkript.json#line_1563803921956_153",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196#xywh=933,1669,860,305"
+		},
+		{
+			"resource": {
+				"format": "text/plain",
+				"language": "de",
+				"@type": "cnt:ContentAsText",
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf "
+			},
+			"@context": "https://iiif.io/api/presentation/2/context.json",
+			"motivation": "sc:painting",
+			"@type": "oa:Annotation",
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196/transkript.json#line_1563803924369_156",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196#xywh=1900,1224,559,227"
+		},
+		
+		{
+			"resource": {
+				"format": "text/plain",
+				"language": "de",
+				"@type": "cnt:ContentAsText",
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
+			},
+			"@context": "https://iiif.io/api/presentation/2/context.json",
+			"motivation": "sc:painting",
+			"@type": "oa:Annotation",
 			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196/transkript.json#line_1563803926490_159",
 			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196#xywh=1913,1359,408,171"
 		},
@@ -44,7 +58,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -65,25 +79,13 @@
 			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196/transkript.json#line_1563803931513_165",
 			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196#xywh=1881,1650,472,185"
 		},
+		
 		{
 			"resource": {
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
-			},
-			"@context": "https://iiif.io/api/presentation/2/context.json",
-			"motivation": "sc:painting",
-			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196/transkript.json#line_1563803921956_153",
-			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196#xywh=933,1669,860,305"
-		},
-		{
-			"resource": {
-				"format": "text/plain",
-				"language": "de",
-				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -96,20 +98,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
-			},
-			"@context": "https://iiif.io/api/presentation/2/context.json",
-			"motivation": "sc:painting",
-			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196/transkript.json#line_1563803941136_174",
-			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196#xywh=951,1955,972,209"
-		},
-		{
-			"resource": {
-				"format": "text/plain",
-				"language": "de",
-				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf?"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -122,7 +111,20 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??] Oberkellner [??]"
+				"chars": "Lucien[?],\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf"
+			},
+			"@context": "https://iiif.io/api/presentation/2/context.json",
+			"motivation": "sc:painting",
+			"@type": "oa:Annotation",
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196/transkript.json#line_1563803941136_174",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196#xywh=951,1955,972,209"
+		},
+		{
+			"resource": {
+				"format": "text/plain",
+				"language": "de",
+				"@type": "cnt:ContentAsText",
+				"chars": "\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -135,7 +137,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf Oberkellner \u00bf\u00bf\u00bf\u00bf\u00bf?"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -148,7 +150,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -161,20 +163,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
-			},
-			"@context": "https://iiif.io/api/presentation/2/context.json",
-			"motivation": "sc:painting",
-			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196/transkript.json#line_1563803967066_189",
-			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196#xywh=988,2460,773,208"
-		},
-		{
-			"resource": {
-				"format": "text/plain",
-				"language": "de",
-				"@type": "cnt:ContentAsText",
-				"chars": "[?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -187,7 +176,20 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
+			},
+			"@context": "https://iiif.io/api/presentation/2/context.json",
+			"motivation": "sc:painting",
+			"@type": "oa:Annotation",
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196/transkript.json#line_1563803967066_189",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196#xywh=988,2460,773,208"
+		},
+		{
+			"resource": {
+				"format": "text/plain",
+				"language": "de",
+				"@type": "cnt:ContentAsText",
+				"chars": "\u00bf\u00bf\u00bf \u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf,"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -200,7 +202,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -213,7 +215,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -226,20 +228,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
-			},
-			"@context": "https://iiif.io/api/presentation/2/context.json",
-			"motivation": "sc:painting",
-			"@type": "oa:Annotation",
-			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196/transkript.json#line_1563803991471_201",
-			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196#xywh=1131,2884,1055,213"
-		},
-		{
-			"resource": {
-				"format": "text/plain",
-				"language": "de",
-				"@type": "cnt:ContentAsText",
-				"chars": "[?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -252,7 +241,20 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[??]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf, \u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
+			},
+			"@context": "https://iiif.io/api/presentation/2/context.json",
+			"motivation": "sc:painting",
+			"@type": "oa:Annotation",
+			"@id": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196/transkript.json#line_1563803991471_201",
+			"on": "https://kraus1933.acdh.oeaw.ac.at/iiif_manifests/HIN-177198/HIN-177198_0196#xywh=1131,2884,1055,213"
+		},
+		{
+			"resource": {
+				"format": "text/plain",
+				"language": "de",
+				"@type": "cnt:ContentAsText",
+				"chars": "\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -265,7 +267,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Stra\u00dfen[?] gegen[?] Sozialdemokratie[?] [??]"
+				"chars": "Stra\u00dfen[?] gegen[?] Sozialdemokratie[?] \u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -278,7 +280,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "[?] \u2013 veraltet[?]"
+				"chars": "\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u2013 veraltet[?]"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -304,7 +306,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Polemiken - [??]"
+				"chars": "Polemiken - \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf \u00bf\u00bf \u00bf\u00bf \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",

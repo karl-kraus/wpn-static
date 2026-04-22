@@ -5,7 +5,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "Erpresst nicht mehr [?], hat seine Leute"
+				"chars": "Erpresst nicht mehr \u00bf\u00bf\u00bf\u00bf, hat seine Leute"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
@@ -31,7 +31,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "wenn[?] And.[?] nicht als [?] Instanz"
+				"chars": "wenn[?] And.[?] nicht als \u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf\u00bf Instanz"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
