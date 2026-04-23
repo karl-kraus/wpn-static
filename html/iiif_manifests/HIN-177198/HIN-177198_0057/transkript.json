@@ -18,7 +18,7 @@
 				"format": "text/plain",
 				"language": "de",
 				"@type": "cnt:ContentAsText",
-				"chars": "; dem kein Sch\u00f6nerer auf der Welt"
+				"chars": "; denn kein sch\u00f6nerer auf der Welt"
 			},
 			"@context": "https://iiif.io/api/presentation/2/context.json",
 			"motivation": "sc:painting",
