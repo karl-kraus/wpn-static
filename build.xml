@@ -166,7 +166,7 @@
             <fileset dir="./data/editions" includes="wit-*.xml"/>
         </delete>
         <!-- <mkdir dir="./data/editions/tmp2"/> -->
-        <xslt style="./xslt/partials/add-header-pb.xsl" basedir="./data/editions/tmp" destdir="./data/editions" includes="wit-*.xml" extension=".xml">
+        <xslt style="./xslt/partials/typo-add-header-pb.xsl" basedir="./data/editions/tmp" destdir="./data/editions" includes="wit-*.xml" extension=".xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
@@ -176,7 +176,7 @@
         <delete>
             <fileset dir="./data/editions2" includes="wit-*.xml"/>
         </delete>
-        <xslt style="./xslt/partials/add-header-pb-2.xsl" basedir="./data/editions2/tmp" destdir="./data/editions2" includes="wit-*.xml" extension=".xml">
+        <xslt style="./xslt/partials/typo-add-header-pb-2.xsl" basedir="./data/editions2/tmp" destdir="./data/editions2" includes="wit-*.xml" extension=".xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>

@@ -104,7 +104,7 @@
                 <xsl:value-of select="replace(., '\s$', '')"/>
             </xsl:when>
             <xsl:when test="following-sibling::*[1][@n='lb-dash']">
-                <xsl:value-of select="replace(., '\s$', '')"/>
+                <xsl:value-of select="replace(., '\s+$', '')"/>
             </xsl:when>
             <xsl:when test="following-sibling::*[1][@n='first']">
                 <xsl:value-of select="replace(., '\s$', '')"/>
