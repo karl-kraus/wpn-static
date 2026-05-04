@@ -48,6 +48,7 @@
   --bs-handwritten-font-family-fallback: 'serif';
   --bs-font-family-fallback: 'serif';
   --nav-offset: $header-height;
+  --legende-font-size: 1rem !important;
 }
 
 /*** fonts ***/
@@ -1886,56 +1887,56 @@ span.warning {
 
 #legende-pb .inkOnProofKK {
   font-family: var(--bs-handwritten-font-family-italic), var(--bs-handwritten-font-family-italic-fallback);
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
   color: black;
 }
 
 #legende-pb .inkOnProof {
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
   color: black;
 }
 
 #legende-pb .pencilOnProofKK.inkOnProofKK {
   text-shadow: 1px 2px lightgrey;
   color: #000;
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
 }
 
 #legende-pb .typescriptRunningText2 {
   font-family: monospace;
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
   color: #212529;
 }
 
 #legende-pb .runningText2 {
   font-family: "Crimson Text" !important;
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
   color: black;
 }
 
 #legende-pb .pencilOnProof {
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
   color: #666666;
 }
 
 #legende-pb .redOnProof {
   color: $wpn-red;
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
 }
 
 #legende-pb .blueInkOnProof {
   color: #3333A2;
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
 }
 
 #legende-pb .bluePencilOnProof {
   color: #5050C2;
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
 }
 
 #legende-pb .underline {
@@ -1978,7 +1979,7 @@ span.warning {
 
 #legende-pb li span,
 #legende-pb li {
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
 }
 
 #legende-pb ul li {
