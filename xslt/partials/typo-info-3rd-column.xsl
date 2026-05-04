@@ -42,7 +42,7 @@
                         <xsl:if test="contains(base-uri(current()), 'wit-')">
                             <xsl:variable name="currentPage" select="tokenize(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), '-')[last()]"/>
                             <xsl:variable name="currentPageString" select="if(contains($currentPage, '_'))
-                                                                        then(xs:integer(tokenize($currentPage, '_')[1])||'/'||tokenize($currentPage, '_')[2])
+                                                                        then(xs:integer(tokenize($currentPage, '_')[1])||tokenize($currentPage, '_')[2])
                                                                         else(concat(xs:integer(replace($currentPage, '\D+', '')), replace($currentPage, '\d+', '')))"/>
                             <button id="dropdownMenuButton1" class="d-contents fs-7 cursor-pointer btn btn-secondary text-white border-0 m-0" type="button" aria-controls="#pagination-pb" aria-expanded="false">
                                 <span><xsl:text>S. </xsl:text></span><xsl:value-of select="$currentPageString"/>
@@ -137,23 +137,24 @@
                             <xsl:variable name="edition">
                                 <xsl:choose>
                                     <xsl:when test="contains(base-uri(current()), 'editions2')">
-                                        <xsl:text>editions2</xsl:text>
+                                        <xsl:text>editions2/KK1933_Abs64_Ts.xml</xsl:text>
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        <xsl:text>editions</xsl:text>
+                                        <xsl:text>editions/Gesamt.xml</xsl:text>
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:variable>
-                            <xsl:variable name="pages" select="collection(concat('../../data/', $edition, '?select=wit-*.xml'))"/>
+                            <xsl:variable name="pages" select="document(concat('../../data/', $edition))//tei:TEI"/>
                             <div id="pagination-grid" class="pagination-grid-5 w-100 h-100 text-center m-0 p-1">
-                                <xsl:for-each select="$pages">
-                                    <xsl:sort select=".//tei:pb/@xml:id[1]"/>
-                                    <xsl:variable name="page" select="tokenize(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), '-')[last()]"/>
+                                <xsl:for-each select="$pages//tei:pb">
+                                    <!-- <xsl:sort select="replace(tokenize(//tei:TEI/@xml:id, '-')[last()], '\D+', '')" data-type="number"/>
+                                    <xsl:sort select="replace(replace(tokenize(//tei:TEI/@xml:id, '-')[last()], '\d+', ''), 'a', 'z')" data-type="text"/> -->
+                                    <xsl:variable name="page" select="tokenize(@xml:id, '-')[last()]"/>
                                     <xsl:variable name="pageString" select="if(contains($page, '_'))
-                                                    then(xs:integer(tokenize($page, '_')[1])||'/'||tokenize($page, '_')[2])
+                                                    then(xs:integer(tokenize($page, '_')[1])||tokenize($page, '_')[2])
                                                     else(concat(xs:integer(replace($page, '\D+', '')), replace($page, '\d+', '')))"/>
                                     <xsl:if test="not(.//tei:pb[@type='nonWitness'])">
-                                        <a class="fs-9_38 text-white text-decoration-none d-block px-0 my-1 mx-0 py-0 text-center hover:bg-white hover:text-primary" href="{replace(tokenize(base-uri(current()),'/')[last()], '.xml', '.html')}?view=all-columns">
+                                        <a class="fs-9_38 text-white text-decoration-none d-block px-0 my-1 mx-0 py-0 text-center hover:bg-white hover:text-primary" href="{concat(@xml:id, '.html')}?view=all-columns">
                                             <xsl:value-of select="$pageString"/>
                                         </a>
                                     </xsl:if>
