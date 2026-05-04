@@ -44,9 +44,9 @@
                             <section class="my-5_5">
                                 <a role="button" class="btn btn-outline-black-grey" href="wit-DfeH-0001.html">Zum ‚Jerusalemer Konvolut‘</a>
                             </section>
-                            <!-- <section class="my-5_5">
+                            <section class="my-5_5">
                                 <a role="button" class="btn btn-outline-black-grey" href="wit-TFragment2-0229r.html">Neu (in Arbeit)</a>
-                            </section> -->
+                            </section>
                         </xsl:if>
                         <!--  -->
                         <xsl:if test="tokenize(base-uri(),'/')[last()] = 'personen.xml'">

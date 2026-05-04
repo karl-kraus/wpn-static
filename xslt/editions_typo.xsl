@@ -70,7 +70,15 @@
                                 <div id="facscolumn" class="grid-box-1 mx-auto ff-crimson-text m-visually-hidden py-4">
                                     <div id="facscontent" wpn-data="{$facsimile}" wpn-type="{.//tei:pb[1]/@type}">
                                         <!-- osd viewer container -->
-                                    </div>                                
+                                    </div>
+                                    <xsl:choose>
+                                        <xsl:when test="contains(base-uri(.), 'editions2')">
+                                            <div class="d-block"><p class="px-1 facsimile-source">Image: Wienbibliothek im Rathaus, Wien</p></div>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <div class="d-block"><p class="px-1 facsimile-source">Image: National Library of Israel, Jerusalem</p></div>
+                                        </xsl:otherwise>
+                                    </xsl:choose>                           
                                 </div>
                                 <div id="textcolumn-pb" class="grid-box-2 mx-auto ff-crimson-text py-4">
                                     <div id="textcontent-pb">
@@ -78,7 +86,7 @@
                                     </div>
                                 </div>
                                 <xsl:call-template name="info-3rd-column"/>
-                            </div>
+                            </div>  
                         </wpn-page-view>
                     </div>
                 </main>

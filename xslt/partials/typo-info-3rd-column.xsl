@@ -11,7 +11,7 @@
         <xsl:variable name="doc_type" select="//tei:pb/@type" />
         
         <div id="infocolumn" class="grid-box-3 z-index-1">
-            <div id="infocontent" class="bg-white px-0 overflow-y-scroll vh-100-nav">
+            <div id="infocontent" class="bg-white p-0 m-0 overflow-y-scroll">
                 <div id="infocontent-header" class="row z-index-1 flex-row bg-white position-sticky top-nav text-center m-0 border border-light-grey" style="border-radius:0.25rem 0 0 0;">
                     <div style="max-height:55px;max-width:40px;" class="col p-0_25 border-end border-light-grey align-content-around m-visually-hidden">
                         <div id="infocontent-hide-btn" role="button" aria-controls="#infocontent" class="cursor-pointer p-1 active text-center mx-auto" title="Info-Spalte schließen">

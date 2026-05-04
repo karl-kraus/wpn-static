@@ -6,7 +6,7 @@ if (!facscontent) {
 }
 const type = facscontent.getAttribute("wpn-type") ?? "";
 facscontent.style.height = type === "witnessPrint" ? "21cm" : "26cm";
-facscontent.style.width = type === "witnessPrint" ? "14.2cm" : "19.4cm";
+facscontent.style.width = type === "witnessPrint" ? "14.2cm" : type === "witnessTypescript2" ? "20.7cm" : "19.4cm";
 const image = facscontent.getAttribute("wpn-data") ?? "";
 
 const imageUrl = {

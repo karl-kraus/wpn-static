@@ -94,6 +94,14 @@
   src: url(../fonts/CrimsonText-Regular.woff2) format('woff2');
 }
 
+.facsimile-source{
+  font-size: 1rem;
+  font-family: "Ubuntu";
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--bs-heading-color);
+}
+
 .breadcrumb-item + .breadcrumb-item::before {
     content: "\203A";
     color: var(--wpn-black-grey);

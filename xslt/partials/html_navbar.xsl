@@ -161,13 +161,13 @@
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
-                                                <!-- <li class="nav-item">
+                                                <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'wit-TFragment2-0229r.html'"/>
                                                         <xsl:with-param name="label" select="'Neu (in Arbeit)'"/>
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
-                                                </li> -->
+                                                </li>
                                                 <!-- <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'register.html'"/>
