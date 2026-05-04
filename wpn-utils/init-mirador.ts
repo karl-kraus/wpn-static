@@ -1,105 +1,127 @@
-
 const currentURL = new URL(window.location.href);
-let canvasIndex = 0;
-if (currentURL.search) {
-    const params = new URLSearchParams(currentURL.search);
-    if (params.has("canvas")) {
-      canvasIndex = Number(params.get("canvas"));          
-    };
 
+let canvasLabel = null;
+if (currentURL.searchParams.has("canvas")) {
+  canvasLabel = currentURL.searchParams.get("canvas");
 }
-
 
 const manifestId = document.getElementById("mirador")?.getAttribute("data-manifest");
 const pathToManifest = `iiif_manifests/${manifestId}/manifest.json`;
 
-
 const manifests = {
-    pathToManifest:
-    {
-        "provider": "Karl Kraus 1933"
-    }
+  [pathToManifest]: {
+    provider: "Karl Kraus 1933"
+  }
 };
 
-const mirador = Mirador.viewer({
-    "id": "mirador",
-    "manifests": manifests,
-    "themes": {
-        "light": {
-            "palette": {
-                "type": 'light',
-                "primary": {
-                    "main": '#A21A17'
-                }
-            }
-        }
-    },
-    "language": "de",
-    "displayAllAnnotations": false,
-    "window": {
-        "allowClose": false,
-        "allowFullscreen": false,
-        "allowMaximize": false,
-        "allowTopMenuButton": true,
-        "hideWindowTitle": false,
-        "defaultSideBarPanel": 'annotations',
-        "sideBarOpenByDefault": true,
-        "panels": {
-            "info": false,
-            "attribution": false,
-            "canvas": false,
-            "annotations": true,
-            "search": true
-        }
-    },
-    "workspaceControlPanel": {
-        "enabled": false, // Configure if the control panel should be rendered.  Useful if you want to lock the viewer down to only the configured manifests
-    },
+function getCanvasLabel(canvas) {
+  if (canvas.label) {
+    if (typeof canvas.label === "string") return canvas.label;
+    if (Array.isArray(canvas.label)) return canvas.label[0];
+    if (canvas.label.en) return canvas.label.en[0];
+  }
+  return canvas.id || canvas["@id"];
+}
 
-    "galleryView": {
-        height: null,
-        width: 50
-    },
+function findCanvasIndexByLabel(manifest, label) {
+  const canvases = manifest.sequences?.[0]?.canvases || [];
+  return canvases.findIndex(c => getCanvasLabel(c) === label);
+}
 
-    "thumbnailNavigation": {
-        defaultPosition: 'off', // Which position for the thumbnail navigation to be be displayed. Other possible values are "far-bottom" or "far-right"
-        height: 200 // height of entire ThumbnailNavigation area when position is "far-bottom"
-    },
+(async function initMirador() {
+  const manifestRes = await fetch(pathToManifest);
+  const manifestJson = await manifestRes.json();
 
-    "windows": [
-        {
-            "loadedManifest": pathToManifest,
-            "canvasIndex": canvasIndex - 1,
-            "thumbnailNavigationPosition": 'off'
+  let canvasIndex = 0;
+
+  if (canvasLabel) {
+    const foundIndex = findCanvasIndexByLabel(manifestJson, canvasLabel);
+    if (foundIndex !== -1) {
+      canvasIndex = foundIndex;
+    }
+  }
+
+  const mirador = Mirador.viewer({
+    id: "mirador",
+    manifests,
+    themes: {
+      light: {
+        palette: {
+          type: "light",
+          primary: {
+            main: "#A21A17"
+          }
         }
+      }
+    },
+    language: "de",
+    displayAllAnnotations: false,
+    window: {
+      allowClose: false,
+      allowFullscreen: false,
+      allowMaximize: false,
+      allowTopMenuButton: true,
+      hideWindowTitle: false,
+      defaultSideBarPanel: "annotations",
+      sideBarOpenByDefault: true,
+      panels: {
+        info: false,
+        attribution: false,
+        canvas: false,
+        annotations: true,
+        search: true
+      }
+    },
+    workspaceControlPanel: {
+      enabled: false
+    },
+    galleryView: {
+      height: null,
+      width: 50
+    },
+    thumbnailNavigation: {
+      defaultPosition: "off",
+      height: 200
+    },
+    windows: [
+      {
+        loadedManifest: pathToManifest,
+        canvasIndex,
+        thumbnailNavigationPosition: "off",
+        view: "single"
+      }
     ]
-});
+  });
 
+  const miradorStore = mirador.store;
+  let lastCanvasId = null;
 
-const miradorStore = mirador.store;
-let lastCanvasId = null;
+  miradorStore.subscribe(() => {
+    const state = miradorStore.getState();
 
-miradorStore.subscribe(() => {
-  const state = miradorStore.getState();
-  
-  const windowIds = Object.keys(state.windows);
-  if (!windowIds.length) return;
+    const windowIds = Object.keys(state.windows);
+    if (!windowIds.length) return;
 
-  const win = state.windows[windowIds[0]];
-  if (!win || win.canvasId === lastCanvasId) return;
+    const win = state.windows[windowIds[0]];
+    if (!win || win.canvasId === lastCanvasId) return;
 
-  lastCanvasId = win.canvasId;
+    lastCanvasId = win.canvasId;
 
-  const manifest = state.manifests[win.manifestId]?.json;
-  if (!manifest) return;
+    const manifest = state.manifests[win.manifestId]?.json;
+    if (!manifest) return;
 
-  const canvases = manifest.sequences?.[0]?.canvases;
-  if (!canvases) return;
+    const canvases = manifest.sequences?.[0]?.canvases;
+    if (!canvases) return;
 
-  const index = canvases.findIndex(c => (c.id || c['@id']) === win.canvasId);
-  if (index === -1) return;
+    const canvas = canvases.find(
+      c => (c.id || c["@id"]) === win.canvasId
+    );
+    if (!canvas) return;
 
-  const newUrl = new URL(window.location);
-  newUrl.searchParams.set("canvas", index + 1);
-  history.replaceState({}, "", newUrl);
-});
+    const label = getCanvasLabel(canvas);
+
+    const newUrl = new URL(window.location);
+    newUrl.searchParams.set("canvas", label);
+    history.replaceState({}, "", newUrl);
+  });
+})();
