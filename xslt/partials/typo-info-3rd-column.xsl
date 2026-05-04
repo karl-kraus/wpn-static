@@ -146,7 +146,7 @@
                             </xsl:variable>
                             <xsl:variable name="pages" select="document(concat('../../data/', $edition))//tei:TEI"/>
                             <div id="pagination-grid" class="pagination-grid-5 w-100 h-100 text-center m-0 p-1">
-                                <xsl:for-each select="$pages//tei:pb">
+                                <xsl:for-each select="$pages//tei:pb[not(contains(tokenize(@xml:id, '-')[last()], 'F'))]">
                                     <!-- <xsl:sort select="replace(tokenize(//tei:TEI/@xml:id, '-')[last()], '\D+', '')" data-type="number"/>
                                     <xsl:sort select="replace(replace(tokenize(//tei:TEI/@xml:id, '-')[last()], '\d+', ''), 'a', 'z')" data-type="text"/> -->
                                     <xsl:variable name="page" select="tokenize(@xml:id, '-')[last()]"/>
