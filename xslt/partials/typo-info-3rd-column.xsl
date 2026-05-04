@@ -187,14 +187,28 @@
                                                 "/>
                                         </p>
                                         <xsl:for-each select="./tei:note[@type='pagination']">
-                                            <p id="paragraph-block-{position()}" class="paragraph-block" data-link="fw-{replace(@corresp, '#', '')}">
-                                                <xsl:variable name="corresp">
-                                                    <xsl:value-of select="substring-after(@corresp, '#')"/>
-                                                </xsl:variable>
+                                            <xsl:variable name="corresp">
+                                                <xsl:value-of select="replace(@corresp, '#', '')"/>
+                                            </xsl:variable>
+                                            <p id="paragraph-block-{position()}" class="paragraph-block">
+                                                <xsl:attribute name="data-link">
+                                                    <xsl:for-each select="tokenize(@corresp, ' ')">
+                                                        <xsl:value-of select="concat('fw-', replace(., '#', ''))"/>
+                                                        <xsl:if test="position() != last()">
+                                                            <xsl:text> </xsl:text>
+                                                        </xsl:if>
+                                                    </xsl:for-each>
+                                                </xsl:attribute>
+                                                
                                                 <xsl:text>Paginierung </xsl:text>
                                                 <xsl:value-of select="./text()"/>
                                                 <xsl:text> (</xsl:text>
-                                                <xsl:value-of select="$creation//id(data($corresp))"/>
+                                                <xsl:for-each select="tokenize($corresp, ' ')">
+                                                    <xsl:value-of select="$creation//id(data(current()))"/>
+                                                    <xsl:if test="position() != last()">
+                                                        <xsl:text>, </xsl:text>
+                                                    </xsl:if>
+                                                </xsl:for-each>
                                                 <xsl:text>)</xsl:text>
                                             </p>
                                         </xsl:for-each>
