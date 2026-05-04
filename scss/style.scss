@@ -1123,7 +1123,7 @@ span.warning {
 
   .print-body.witnessTypescript {
     display: grid;
-    grid-template-columns: calc(100% * 0.154) auto auto;
+    grid-template-columns: calc(100% * 0.154) auto calc(100% * 0.154);
     gap: 0;
   }
 
