@@ -10,7 +10,7 @@
     
     <xsl:preserve-space elements="*"/>
     <!-- <xsl:strip-space elements="tei:note"/> -->
-    <!-- <xsl:preserve-space elements="tei:p tei:mod tei:seg"/> -->facsimile-
+    <!-- <xsl:preserve-space elements="tei:p tei:mod tei:seg"/> -->
 
     <xsl:import href="./partials/shared.xsl"/>
     <xsl:import href="./partials/short-infos.xsl"/>
