@@ -10,7 +10,7 @@
     
     <xsl:preserve-space elements="*"/>
     <!-- <xsl:strip-space elements="tei:note"/> -->
-    <!-- <xsl:preserve-space elements="tei:p tei:mod tei:seg"/> -->
+    <!-- <xsl:preserve-space elements="tei:p tei:mod tei:seg"/> -->facsimile-
 
     <xsl:import href="./partials/shared.xsl"/>
     <xsl:import href="./partials/short-infos.xsl"/>
@@ -73,10 +73,10 @@
                                     </div>
                                     <xsl:choose>
                                         <xsl:when test="contains(base-uri(.), 'editions2')">
-                                            <div class="d-block"><p class="px-1 facsimile-source">Image: Wienbibliothek im Rathaus, Wien</p></div>
+                                            <div class="d-block"><p class="facsimile-source">(Image: Wienbibliothek im Rathaus, Wien)</p></div>
                                         </xsl:when>
                                         <xsl:otherwise>
-                                            <div class="d-block"><p class="px-1 facsimile-source">Image: National Library of Israel, Jerusalem</p></div>
+                                            <div class="d-block"><p class="facsimile-source">(Image: National Library of Israel, Jerusalem)</p></div>
                                         </xsl:otherwise>
                                     </xsl:choose>                           
                                 </div>
