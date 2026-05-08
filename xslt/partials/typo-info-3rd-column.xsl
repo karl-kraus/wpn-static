@@ -8,7 +8,21 @@
     <xsl:import href="typo-del.xsl"/>
     
     <xsl:template name="info-3rd-column">
-        <xsl:variable name="doc_type" select="//tei:pb/@type" />
+        <xsl:variable name="current-pb" select="//tei:pb"/>
+        <xsl:variable name="doc_type" select="$current-pb/@type" />
+        <xsl:variable name="edition">
+            <xsl:choose>
+                <xsl:when test="contains(base-uri(current()), 'editions2')">
+                    <xsl:text>editions2/KK1933_Abs64_Ts.xml</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>editions/Gesamt.xml</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="pages" select="document(concat('../../data/', $edition))//tei:TEI"/>
+        <xsl:variable name="prev" select="$pages//tei:pb[@xml:id = $current-pb/@xml:id]/preceding::tei:pb[1]/@xml:id" />
+        <xsl:variable name="next" select="$pages//tei:pb[@xml:id = $current-pb/@xml:id]/following::tei:pb[1]/@xml:id" />
         
         <div id="infocolumn" class="grid-box-3 z-index-1">
             <div id="infocontent" class="bg-white p-0 m-0 overflow-y-scroll">
@@ -25,7 +39,7 @@
                         <div class="d-flex cursor-pointer text-center mx-auto">
                         <xsl:choose>
                             <xsl:when test="string-length($prev) > 0">
-                                <a id="prevPageLink" class="mx-auto" style="stroke:white;fill:white;" href="{replace($prev, '.xml', '.html')}?view=all-columns" title="zu seite {replace($prev, '.xml', '.html')} gehen">
+                                <a id="prevPageLink" class="mx-auto" style="stroke:white;fill:white;" href="{concat($prev, '.html')}?view=all-columns" title="zu seite {replace($prev, '.xml', '.html')} gehen">
                                     <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
                                 </a>
                             </xsl:when>
@@ -48,16 +62,6 @@
                                 <span><xsl:text>S. </xsl:text></span><xsl:value-of select="$currentPageString"/>
                             </button>
                             <br/>
-                            <xsl:variable name="edition">
-                                <xsl:choose>
-                                    <xsl:when test="contains(base-uri(current()), 'editions2')">
-                                        <xsl:text>editions2</xsl:text>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:text>editions</xsl:text>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:variable>
                             <xsl:variable name="pageCount">
                                 <xsl:choose>
                                     <xsl:when test="contains(base-uri(current()), 'editions2')">
@@ -68,7 +72,6 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:variable>
-                            <xsl:variable name="pages" select="collection(concat('../../data/', $edition, '?select=wit-*.xml'))"/>
                             <label id="paginationLabel" class="cursor-pointer text-white fs-7 fw-light dropdown-toggle" for="dropdownMenuButton1">
                                 <xsl:value-of select="$pageCount"/>
                             </label>
@@ -79,7 +82,7 @@
                         <div class="d-flex cursor-pointer text-center mx-auto">
                         <xsl:choose>
                             <xsl:when test="string-length($next) > 0">
-                                <a id="nextPageLink" class="mx-auto" style="stroke:white;fill:white;" href="{replace($next, '.xml', '.html')}?view=all-columns" title="zu seite {replace($next, '.xml', '.html')} gehen">
+                                <a id="nextPageLink" class="mx-auto" style="stroke:white;fill:white;" href="{concat($next, '.html')}?view=all-columns" title="zu seite {concat($next, '.html')} gehen">
                                     <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></g></svg>
                                 </a>
                             </xsl:when>
@@ -134,17 +137,6 @@
                             </div>
                         </div>
                         <div id="pagination-pb" class="visually-hidden bg-primary text-white">
-                            <xsl:variable name="edition">
-                                <xsl:choose>
-                                    <xsl:when test="contains(base-uri(current()), 'editions2')">
-                                        <xsl:text>editions2/KK1933_Abs64_Ts.xml</xsl:text>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:text>editions/Gesamt.xml</xsl:text>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:variable>
-                            <xsl:variable name="pages" select="document(concat('../../data/', $edition))//tei:TEI"/>
                             <div id="pagination-grid" class="pagination-grid-5 w-100 h-100 text-center m-0 p-1">
                                 <xsl:for-each select="$pages//tei:pb[not(contains(tokenize(@xml:id, '-')[last()], 'F'))]">
                                     <!-- <xsl:sort select="replace(tokenize(//tei:TEI/@xml:id, '-')[last()], '\D+', '')" data-type="number"/>
