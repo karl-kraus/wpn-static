@@ -21,8 +21,6 @@ uv run ./shellscripts/fetch_data.sh
 # split xml into pages
 ## Jerusalem Konvolut
 uv run ./shellscripts/split_milestone_gesamt.sh
-# New
-uv run ./shellscripts/split_milestone_gesamt_2.sh
 # build static html files
 if [ "$EDITION" = "full" ]; then
   echo "building full edition"

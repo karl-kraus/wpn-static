@@ -45,7 +45,16 @@
                                 <a role="button" class="btn btn-outline-black-grey" href="wit-DfeH-0001.html">Zum ‚Jerusalemer Konvolut‘</a>
                             </section>
                             <section class="my-5_5">
-                                <a role="button" class="btn btn-outline-black-grey" href="wit-TFragment2-0229r.html">Neu (in Arbeit)</a>
+                                <a role="button" class="btn btn-outline-black-grey" href="wit-TFragment2-0229r.html">KK1933_Abs64_Ts (in Arbeit)</a>
+                            </section>
+                            <section class="my-5_5">
+                                <a role="button" class="btn btn-outline-black-grey" href="wit-HMotti-0001r.html">KK1933_HMotti (in Arbeit)</a>
+                            </section>
+                            <section class="my-5_5">
+                                <a role="button" class="btn btn-outline-black-grey" href="wit-DfMotti-0001r.html">KK1933_DfMotti (in Arbeit)</a>
+                            </section>
+                            <section class="my-5_5">
+                                <a role="button" class="btn btn-outline-black-grey" href="wit-TParalipomenon-0034r.html">KK1933_TParalipomenon (in Arbeit)</a>
                             </section>
                         </xsl:if>
                         <!--  -->

@@ -43,6 +43,12 @@ mkdir data/editions
 mv $custom_output_dir/Gesamt.xml data/editions/
 mkdir data/editions2
 mv $custom_output_dir/KK1933_Abs64_Ts.xml data/editions2/
+mkdir data/editions3
+mv $custom_output_dir/KK1933_HMotti.xml data/editions3/
+mkdir data/editions4
+mv $custom_output_dir/KK1933_DfMotti.xml data/editions4/
+mkdir data/editions5
+mv $custom_output_dir/KK1933_TParalipomenon.xml data/editions5/
 mkdir data/indices
 mv $custom_output_dir/Register.xml data/indices/
 mv $custom_output_dir/Events.xml data/indices/

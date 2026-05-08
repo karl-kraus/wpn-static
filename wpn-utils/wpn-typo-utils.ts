@@ -242,9 +242,11 @@ textcolumnBtn!.addEventListener('click', function() {
     facscontent.style.cursor = "grab";
     const image = facscontent.getAttribute("wpn-data") ?? "";
 
+    const url = image.startsWith("https") ? image : `https://iiif.acdh.oeaw.ac.at/${image}.jp2/full/max/0/default.jpg`;
+
     const imageUrl = {
         type: "image",
-        url: `https://iiif.acdh.oeaw.ac.at/${image}.jp2/full/max/0/default.jpg`
+        url: url
     }
     const viewer = OpenSeadragon({
         id: "facscontent",
@@ -296,14 +298,22 @@ allcolumnBtn!.addEventListener('click', function() {
     }
 
     const type = facscontent.getAttribute("wpn-type") ?? "";
-    facscontent.style.height = type === "witnessPrint" ? "21cm" : "26cm";
-    facscontent.style.width = type === "witnessPrint" ? "14.2cm" : "19.4cm";
+    facscontent.style.height = type === "witnessPrint" ||
+	    type === "witnessTypescript2" ||
+	    type === "witnessNote1" ? "21cm" : "26cm";
+    facscontent.style.width = type === "witnessPrint" ||
+        type === "witnessTypescript2" ||
+        type === "witnessNote1" ? "14.2cm" : 
+        type === "witnessTypescript2" || 
+        type === "witnessTypescript3" ? "20.7cm" : "19.4cm";
     facscontent.style.cursor = "grab";
     const image = facscontent.getAttribute("wpn-data") ?? "";
 
+    const url = image.startsWith("https") ? image : `https://iiif.acdh.oeaw.ac.at/${image}.jp2/full/max/0/default.jpg`;
+
     const imageUrl = {
         type: "image",
-        url: `https://iiif.acdh.oeaw.ac.at/${image}.jp2/full/max/0/default.jpg`
+        url: url
     }
     OpenSeadragon({
         id: "facscontent",
@@ -350,9 +360,11 @@ allcolumnRowBtn!.addEventListener('click', function() {
     facscontent.style.cursor = "grab";
     const image = facscontent.getAttribute("wpn-data") ?? "";
 
+    const url = image.startsWith("https") ? image : `https://iiif.acdh.oeaw.ac.at/${image}.jp2/full/max/0/default.jpg`;
+
     const imageUrl = {
         type: "image",
-        url: `https://iiif.acdh.oeaw.ac.at/${image}.jp2/full/max/0/default.jpg`
+        url: url
     }
     const viewer = OpenSeadragon({
         id: "facscontent",

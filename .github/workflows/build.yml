@@ -62,7 +62,6 @@ jobs:
     - name: Splitting the Edition
       run: |
         uv run ./shellscripts/split_milestone_gesamt.sh
-        uv run ./shellscripts/split_milestone_gesamt_2.sh
     - name: Build
       run: |
         ant build-full-edition

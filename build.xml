@@ -67,12 +67,35 @@
     </target>
     <target name="build-edition-typo">
         <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions" destdir="${target}" includes="wit-*.xml" excludes="Gesamt.xml">
+            <param name="edition-filepath" expression="editions/Gesamt.xml"/>
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
     <target name="build-edition-typo-2">
         <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions2" destdir="${target}" includes="wit-*.xml" excludes="KK1933_Abs64_Ts.xml">
+            <param name="edition-filepath" expression="editions2/KK1933_Abs64_Ts.xml"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-edition-typo-3">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions3" destdir="${target}" includes="wit-*.xml" excludes="KK1933_HMotti.xml">
+            <param name="edition-filepath" expression="editions3/KK1933_HMotti.xml"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-edition-typo-4">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions4" destdir="${target}" includes="wit-*.xml" excludes="KK1933_DfMotti.xml">
+            <param name="edition-filepath" expression="editions4/KK1933_DfMotti.xml"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-edition-typo-5">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions5" destdir="${target}" includes="wit-*.xml" excludes="KK1933_TParalipomenon.xml">
+            <param name="edition-filepath" expression="editions5/KK1933_TParalipomenon.xml"/>
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
@@ -160,28 +183,7 @@
         <!--<copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-wght-normal.woff2" todir="${target_fonts}"/>
         <copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-ext-wght-normal.woff2" todir="${target_fonts}"/>-->
     </target>
-    <target name="build-full-edition" depends="copy-libs, generate-scan-index, build-landing-page, build-meta-pages, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-edition-typo-2, build-notes, generate-bibl-index, generate-person-index, generate-comment-index, generate-event-index, build-intertext-register, build-person-register, build-comment-register, build-timeline-register, build-search-page"/>
-    <target name="add-header-pb">
-        <delete>
-            <fileset dir="./data/editions" includes="wit-*.xml"/>
-        </delete>
-        <!-- <mkdir dir="./data/editions/tmp2"/> -->
-        <xslt style="./xslt/partials/typo-add-header-pb.xsl" basedir="./data/editions/tmp" destdir="./data/editions" includes="wit-*.xml" extension=".xml">
-            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
-            <classpath location="${basedir}/saxon/saxon9he.jar"/>
-        </xslt>
-        <delete dir="./data/editions/tmp"/>
-    </target>
-    <target name="add-header-pb-2">
-        <delete>
-            <fileset dir="./data/editions2" includes="wit-*.xml"/>
-        </delete>
-        <xslt style="./xslt/partials/typo-add-header-pb-2.xsl" basedir="./data/editions2/tmp" destdir="./data/editions2" includes="wit-*.xml" extension=".xml">
-            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
-            <classpath location="${basedir}/saxon/saxon9he.jar"/>
-        </xslt>
-        <delete dir="./data/editions2/tmp"/>
-    </target>
+    <target name="build-full-edition" depends="copy-libs, generate-scan-index, build-landing-page, build-meta-pages, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-edition-typo-2, build-edition-typo-3, build-edition-typo-4, build-edition-typo-5, build-notes, generate-bibl-index, generate-person-index, generate-comment-index, generate-event-index, build-intertext-register, build-person-register, build-comment-register, build-timeline-register, build-search-page"/>
     <replace dir="${target}" value="">
         <include name="*.html"/>
         <replacetoken> xmlns=""</replacetoken>

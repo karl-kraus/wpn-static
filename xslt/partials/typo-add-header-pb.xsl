@@ -3,6 +3,8 @@
     xmlns:wpn="https://wpn.acdh.oeaw.ac.at" exclude-result-prefixes="xs tei wpn" version="3.0">
     <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" name="xml"/>
 
+    <xsl:param name="edition-path" as="xs:string"/>
+
     <xsl:variable name="facsimile">
         <xsl:value-of select="substring-after(data(//tei:pb[1]/@facs), '#')"/>
     </xsl:variable>
@@ -16,7 +18,7 @@
     </xsl:template>
 
     <xsl:template match="tei:TEI">
-        <xsl:variable name="doc" select="doc('../../data/editions/Gesamt.xml')"/>
+        <xsl:variable name="doc" select="doc(concat('../.', $edition-path))"/>
         <xsl:copy>
             <xsl:copy-of select="$doc//tei:teiHeader"/>
             <facsimile xmlns="http://www.tei-c.org/ns/1.0" corresp="{$doc//tei:facsimile/tei:surface[@xml:id = $facsimile]/parent::tei:facsimile/@corresp}">
@@ -25,34 +27,6 @@
             <xsl:apply-templates />
         </xsl:copy> 
     </xsl:template>
-    <!-- <xsl:template match="tei:lb[preceding-sibling::*[1][local-name()='quote'][child::tei:p[@rendition='#longQuote']|child::tei:seg[child::tei:lg[@rendition]]|child::tei:lg[@rendition]]]">
-        <xsl:copy>
-            <xsl:attribute name="n">
-                <xsl:text>first</xsl:text>
-            </xsl:attribute>
-        </xsl:copy>
-    </xsl:template>
-    <xsl:template match="tei:lb[preceding-sibling::*[1][local-name()=('p')]]">
-        <xsl:copy>
-            <xsl:attribute name="n">
-                <xsl:text>first</xsl:text>
-            </xsl:attribute>
-        </xsl:copy>
-    </xsl:template>
-    <xsl:template match="tei:lb[preceding-sibling::*[1][local-name()=('lg')]]">
-        <xsl:copy>
-            <xsl:attribute name="n">
-                <xsl:text>first</xsl:text>
-            </xsl:attribute>
-        </xsl:copy>
-    </xsl:template>
-    <xsl:template match="tei:lb[parent::tei:p[@rendition]][position() = 1][preceding-sibling::tei:quote[not(child::tei:p[@rendition])]|preceding-sibling::tei:lg]">
-        <xsl:copy>
-            <xsl:attribute name="n">
-                <xsl:text>first</xsl:text>
-            </xsl:attribute>
-        </xsl:copy>
-    </xsl:template> -->
     <xsl:template match="tei:subst">
         <xsl:copy>
             <xsl:if test="not(@xml:id)">

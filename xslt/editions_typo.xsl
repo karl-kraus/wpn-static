@@ -12,6 +12,7 @@
     <!-- <xsl:strip-space elements="tei:note"/> -->
     <!-- <xsl:preserve-space elements="tei:p tei:mod tei:seg"/> -->
 
+    <xsl:param name="edition-filepath" as="xs:string"/>
     <xsl:import href="./partials/shared.xsl"/>
     <xsl:import href="./partials/short-infos.xsl"/>
     <xsl:import href="./partials/typo-add.xsl"/>
@@ -85,7 +86,9 @@
                                         <xsl:apply-templates select="//tei:text" />
                                     </div>
                                 </div>
-                                <xsl:call-template name="info-3rd-column"/>
+                                <xsl:call-template name="info-3rd-column">
+                                    <xsl:with-param name="edition" select="$edition-filepath"/>
+                                </xsl:call-template>
                             </div>  
                         </wpn-page-view>
                     </div>

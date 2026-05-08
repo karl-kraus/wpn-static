@@ -5,22 +5,15 @@
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
     version="2.0" exclude-result-prefixes="#all">
 
-    <xsl:import href="typo-del.xsl"/>
+    <!-- <xsl:import href="typo-del.xsl"/> -->
+    
     
     <xsl:template name="info-3rd-column">
+        <!-- edition param loaded from build.xml target build-edition-typo* param expression -->
+        <xsl:param name="edition"/>
         <xsl:variable name="current-pb" select="//tei:pb"/>
         <xsl:variable name="doc_type" select="$current-pb/@type" />
-        <xsl:variable name="edition">
-            <xsl:choose>
-                <xsl:when test="contains(base-uri(current()), 'editions2')">
-                    <xsl:text>editions2/KK1933_Abs64_Ts.xml</xsl:text>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:text>editions/Gesamt.xml</xsl:text>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-        <xsl:variable name="pages" select="document(concat('../../data/', $edition))//tei:TEI"/>
+        <xsl:variable name="pages" select="doc(concat('../../data/', $edition))//tei:TEI"/>
         <xsl:variable name="prev" select="$pages//tei:pb[@xml:id = $current-pb/@xml:id]/preceding::tei:pb[1]/@xml:id" />
         <xsl:variable name="next" select="$pages//tei:pb[@xml:id = $current-pb/@xml:id]/following::tei:pb[1]/@xml:id" />
         
