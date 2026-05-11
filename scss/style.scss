@@ -3450,6 +3450,10 @@ body.modal-open, body.modal-open main {
   text-shadow: $wpn-red 0 0 4px !important;
 }
 
+.note.connection-color * {
+  text-shadow: $wpn-red 0 0 4px !important;
+}
+
 // .connection-color-inline {
 //   text-shadow: none !important;
 //   color: $wpn-fackel !important;
