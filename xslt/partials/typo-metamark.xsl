@@ -56,7 +56,15 @@
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@rend][not(parent::tei:restore)]">
         <span id="{@xml:id}" class="metamark entity mm-inline {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
             <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
-                <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>&#124;</xsl:text></span>
+                <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                    <xsl:if test="@target">
+                        <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                        <xsl:attribute name="data-target">
+                            <xsl:value-of select="for $i in $targetList return substring-after($i, '#')"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                    <xsl:text>&#124;</xsl:text>
+                </span>
             </xsl:if>
             <xsl:if test="@rend='inline'"><xsl:apply-templates/></xsl:if>
         </span>
