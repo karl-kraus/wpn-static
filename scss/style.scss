@@ -3450,7 +3450,8 @@ body.modal-open, body.modal-open main {
   text-shadow: $wpn-red 0 0 4px !important;
 }
 
-.note.connection-color * {
+/* hightlight note and all sub elements except sub elements containing class noHightlight */
+.note.connection-color *:not(.noHighlight) {
   text-shadow: $wpn-red 0 0 4px !important;
 }
 
