@@ -471,14 +471,20 @@
     </xsl:template> -->
     <xsl:template match="tei:note">
         <span class="note d-block text-align-left {if(@place)then(concat(@place, ' position-absolute'))else()} {replace(@change,'#','')}">
-            <xsl:if test="not(contains(preceding::tei:pb/@n, '_'))">
+            <!-- <xsl:if test="not(contains(preceding::tei:pb/@n, '_'))">
                 <xsl:attribute name="data-hand">
                     <xsl:value-of select="replace(@change,'#','')"/>
                 </xsl:attribute>
                 <xsl:attribute name="data-anchor">
                     <xsl:value-of select="@xml:id"/>
                 </xsl:attribute>
-            </xsl:if>
+            </xsl:if> -->
+            <!-- <xsl:attribute name="data-hand">
+                <xsl:value-of select="replace(@change,'#','')"/>
+            </xsl:attribute> -->
+            <xsl:attribute name="data-anchor">
+                <xsl:value-of select="@xml:id"/>
+            </xsl:attribute>
             <xsl:apply-templates/>
         </span>
     </xsl:template>
