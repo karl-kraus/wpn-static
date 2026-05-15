@@ -107,6 +107,7 @@
                             <xsl:otherwise>
                                 <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
                                     <xsl:if test="@target">
+                                        <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
                                         <xsl:attribute name="data-target">
                                             <xsl:value-of select="for $i in $targetList return substring-after($i, '#')"/>
                                         </xsl:attribute>
@@ -530,6 +531,12 @@
                     <xsl:choose>
                         <xsl:when test="ancestor::tei:restore or ancestor::tei:del">
                             <del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                                <xsl:if test="@target">
+                                    <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                                    <xsl:attribute name="data-target">
+                                        <xsl:value-of select="for $i in $targetList return substring-after($i, '#')"/>
+                                    </xsl:attribute>
+                                </xsl:if>
                                 <xsl:if test="not(.//text()) or not(self::tei:metamark[@function='progress'])"><xsl:text>&#124;</xsl:text></xsl:if>
                                 <xsl:apply-templates/>
                             </del>

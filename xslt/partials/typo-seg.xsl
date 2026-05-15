@@ -29,7 +29,7 @@
          </span>
     </xsl:template>
     <xsl:template match="tei:seg[@type='relocation']">
-        <span class="entity">
+        <span class="entity" data-anchor="{@xml:id}">
             <xsl:if test="not(@rend='line') and not(@rend='arrow')">
                 <xsl:attribute name="data-target">
                     <xsl:value-of select="@xml:id"/>
@@ -56,7 +56,7 @@
             </xsl:if>
             <!-- special handling (rendered via span firstLast) for page 111 for arrow seg see https://github.com/karl-kraus/wpn-static/issues/208  -->
             <xsl:if test="@rend='arrow' and not((@prev, @continued)) and not(@xml:id='seg0111_01')">
-                <span class="seg entity seg-inline" data-anchor="{@xml:id}">
+                <span class="seg entity seg-inline">
                     <span class="{@rend} {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}">
                         <xsl:text>&#8592;</xsl:text>
                     </span>
