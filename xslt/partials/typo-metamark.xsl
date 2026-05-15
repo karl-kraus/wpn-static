@@ -267,7 +267,7 @@
      <xsl:template match="tei:metamark[@function='printInstruction'][@rendition]">
          <xsl:choose>
             <xsl:when test="contains(@rendition, 'typescriptFont')">
-                <span class="metamark {replace(@rendition,'#','')}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="metamark {replace(@rendition,'#','')}"><xsl:apply-templates/></span>
             </xsl:when>
              <xsl:when test="@rend='inline'">
                 <span class="metamark inline {replace(@rendition,'#','')} {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:apply-templates/></span>
