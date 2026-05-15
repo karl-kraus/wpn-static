@@ -105,7 +105,14 @@
                                 <del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>&#124;</xsl:text></del>
                             </xsl:when>
                             <xsl:otherwise>
-                                <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>&#124;</xsl:text></span>
+                                <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                                    <xsl:if test="@target">
+                                        <xsl:attribute name="data-target">
+                                            <xsl:value-of select="for $i in $targetList return substring-after($i, '#')"/>
+                                        </xsl:attribute>
+                                    </xsl:if>
+                                    <xsl:text>&#124;</xsl:text>
+                                </span>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:if>

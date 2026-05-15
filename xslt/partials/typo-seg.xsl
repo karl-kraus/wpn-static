@@ -24,12 +24,12 @@
        <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:seg[@type='noPrint' and @rend]">
-         <span id="{@xml:id}" class="seg noPrint {@rend}">
+         <span class="seg noPrint {@rend}" data-anchor="{@xml:id}">
               <xsl:apply-templates/>
          </span>
     </xsl:template>
     <xsl:template match="tei:seg[@type='relocation']">
-        <span id="{@xml:id}" class="entity">
+        <span class="entity">
             <xsl:if test="not(@rend='line') and not(@rend='arrow')">
                 <xsl:attribute name="data-target">
                     <xsl:value-of select="@xml:id"/>
@@ -56,7 +56,7 @@
             </xsl:if>
             <!-- special handling (rendered via span firstLast) for page 111 for arrow seg see https://github.com/karl-kraus/wpn-static/issues/208  -->
             <xsl:if test="@rend='arrow' and not((@prev, @continued)) and not(@xml:id='seg0111_01')">
-                <span id="{@xml:id}" class="seg entity seg-inline">
+                <span class="seg entity seg-inline" data-anchor="{@xml:id}">
                     <span class="{@rend} {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}">
                         <xsl:text>&#8592;</xsl:text>
                     </span>
@@ -83,7 +83,7 @@
         <span data-hand="{replace(@change,'#','')}" class="seg d-block runningText1  {if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}"><xsl:apply-templates/></span>
     </xsl:template>
     <xsl:template match="tei:seg[@type='F890']">
-        <span id="{@xml:id}" class="seg fackelrefs entity {substring-after(@rendition, '#')} {if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+        <span class="seg fackelrefs entity {substring-after(@rendition, '#')} {if(@prev)then(' no-indent')else()} {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
