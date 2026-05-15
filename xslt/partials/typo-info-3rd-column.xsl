@@ -148,7 +148,7 @@
                         </div>
                         <div id="infocontent-pb" class="min-h-100 min-vh-100">
                             <xsl:variable name="creation" select="//tei:creation"/>
-                            <xsl:for-each select="//tei:TEI/tei:facsimile/tei:surface">
+                            <xsl:for-each select="//tei:TEI/tei:facsimile[@corresp]/tei:surface">
                                 <xsl:variable name="text" select="../following-sibling::tei:text"/>
                                 <xsl:variable name="convolute-id" select="replace(./parent::tei:facsimile/@corresp, '#', '')"/>
                                 <xsl:variable name="corresp-id" select="replace(@corresp, '#', '')"/>
@@ -157,7 +157,11 @@
                                     <!-- 1 - GENERAL INFO, IDENTIFICATION -->
                                     <!-- ########### -->
                                     <h4 class="mt-2">
-                                        <xsl:text>Jerusalemer Konvolut,</xsl:text><br/><xsl:text>fol. [</xsl:text><xsl:value-of select="@n"/><xsl:text>] recto.</xsl:text></h4>
+                                        <xsl:value-of select="ancestor::tei:TEI/tei:teiHeader//tei:sourceDesc[@xml:id=$convolute-id]//tei:msItem/tei:title"/>
+                                        <xsl:text>, fol. [</xsl:text>
+                                        <xsl:value-of select="@n"/>
+                                        <xsl:text>]</xsl:text>
+                                    </h4>
                                     
                                     <h5 id="btn_general_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_general_info">Standort, Signatur</h5>
                                     <div id="list_general_info" class="visually-hidden">

@@ -47,6 +47,7 @@
     <xsl:variable name="facsimile">
         <xsl:value-of select="//tei:facsimile/tei:surface[1]/tei:graphic[1]/@url"/>
     </xsl:variable>
+    <xsl:variable name="convolute-id" select="replace(//tei:facsimile[@corresp]/@corresp, '#', '')"/>
 
 
     <xsl:template match="/">
@@ -72,14 +73,7 @@
                                     <div id="facscontent" wpn-data="{$facsimile}" wpn-type="{.//tei:pb[1]/@type}">
                                         <!-- osd viewer container -->
                                     </div>
-                                    <xsl:choose>
-                                        <xsl:when test="contains(base-uri(.), 'editions2')">
-                                            <div class="d-block"><p class="facsimile-source">(Image: Wienbibliothek im Rathaus, Wien)</p></div>
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            <div class="d-block"><p class="facsimile-source">(Image: National Library of Israel, Jerusalem)</p></div>
-                                        </xsl:otherwise>
-                                    </xsl:choose>                           
+                                    <div class="d-block"><p class="facsimile-source">(<xsl:value-of select="//tei:teiHeader//tei:sourceDesc[@xml:id=$convolute-id]//tei:msIdentifier/tei:institution"/>)</p></div>
                                 </div>
                                 <div id="textcolumn-pb" class="grid-box-2 mx-auto ff-crimson-text py-4">
                                     <div id="textcontent-pb">
@@ -357,6 +351,11 @@
     <xsl:template match="tei:rdg[@source='F890']"/>
     <xsl:template match="tei:rdg[@source='DW']">
         <xsl:apply-templates/>
+    </xsl:template>
+    <xsl:template match="tei:hi[rend='sup']">
+        <sup style="font-size: 0.8rem;">
+            <xsl:apply-templates/>
+        </sup>
     </xsl:template>
     <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letterSpacing']">
         <xsl:variable name="anchor" select="if(ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])])then(ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]/@xml:id)else()"/>
