@@ -56,14 +56,7 @@
                             </button>
                             <br/>
                             <xsl:variable name="pageCount">
-                                <xsl:choose>
-                                    <xsl:when test="contains(base-uri(current()), 'editions2')">
-                                        <xsl:text>von 242</xsl:text>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:text>von 279</xsl:text>
-                                    </xsl:otherwise>
-                                </xsl:choose>
+                                <xsl:value-of select="number(replace(($pages//tei:pb[@n])[last()]/@n, '\D+', ''))"/>
                             </xsl:variable>
                             <label id="paginationLabel" class="cursor-pointer text-white fs-7 fw-light dropdown-toggle" for="dropdownMenuButton1">
                                 <xsl:value-of select="$pageCount"/>
@@ -112,10 +105,10 @@
                     </div>
                     <div id="infocontent-wrapper" class="col border-end border-bottom border-start border-light-grey p-0 m-0">
                         <div id="legende-pb" class="visually-hidden min-h-100 min-vh-100">
-                            <xsl:variable name="pages" select="document('../../data/meta/topographical.xml')"/>
+                            <xsl:variable name="legende" select="document('../../data/meta/topographical.xml')"/>
                             <div class="w-100 h-100 m-0 p-2">
                                 <h5>Legende</h5>
-                                  <xsl:for-each select="$pages//tei:div[@type='legende']//tei:list">
+                                  <xsl:for-each select="$legende//tei:div[@type='legende']//tei:list">
                                     <ul class="list-unstyled mt-2 p-0">
                                     <xsl:for-each select="./tei:item">
                                         <xsl:variable name="rendition" select="replace(@rendition, '#', '')"/>
@@ -131,18 +124,16 @@
                         </div>
                         <div id="pagination-pb" class="visually-hidden bg-primary text-white">
                             <div id="pagination-grid" class="pagination-grid-5 w-100 h-100 text-center m-0 p-1">
-                                <xsl:for-each select="$pages//tei:pb[not(contains(tokenize(@xml:id, '-')[last()], 'F'))]">
+                                <xsl:for-each select="$pages//tei:pb[not(@type='nonWitness')]">
                                     <!-- <xsl:sort select="replace(tokenize(//tei:TEI/@xml:id, '-')[last()], '\D+', '')" data-type="number"/>
                                     <xsl:sort select="replace(replace(tokenize(//tei:TEI/@xml:id, '-')[last()], '\d+', ''), 'a', 'z')" data-type="text"/> -->
                                     <xsl:variable name="page" select="tokenize(@xml:id, '-')[last()]"/>
                                     <xsl:variable name="pageString" select="if(contains($page, '_'))
                                                     then(xs:integer(tokenize($page, '_')[1])||tokenize($page, '_')[2])
                                                     else(concat(xs:integer(replace($page, '\D+', '')), replace($page, '\d+', '')))"/>
-                                    <xsl:if test="not(.//tei:pb[@type='nonWitness'])">
-                                        <a class="fs-9_38 text-white text-decoration-none d-block px-0 my-1 mx-0 py-0 text-center hover:bg-white hover:text-primary" href="{concat(@xml:id, '.html')}?view=all-columns">
-                                            <xsl:value-of select="$pageString"/>
-                                        </a>
-                                    </xsl:if>
+                                    <a class="fs-9_38 text-white text-decoration-none d-block px-0 my-1 mx-0 py-0 text-center hover:bg-white hover:text-primary" href="{concat(@xml:id, '.html')}?view=all-columns">
+                                        <xsl:value-of select="$pageString"/>
+                                    </a>
                                 </xsl:for-each>
                             </div>
                         </div>
