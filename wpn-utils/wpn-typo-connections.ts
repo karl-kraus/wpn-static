@@ -384,7 +384,7 @@ function highlighting3rdcolumn (event: Event) {
 
                 el.classList.add(color);
 
-                if (el.classList.contains("note") || el.classList.contains("quotes")) {
+                if (el.classList.contains("note") || el.classList.contains("quotes") || el.classList.contains("subst")) {
 
                     markChildrenAsHighlighted(el, color);
 
