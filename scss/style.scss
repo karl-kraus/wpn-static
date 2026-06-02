@@ -3110,6 +3110,13 @@ div.position-relative .marginOutermostRightOnly {
   text-align: left;
 }
 
+div.position-relative .marginOutermostRightBelow {
+  position: absolute;
+  left: 80%;
+  top: 1rem;
+  text-align: left;
+}
+
 div.position-relative .marginOuterRightBelow,
 div.position-relative .marginOuterRightBelowOnly {
   position: absolute;
