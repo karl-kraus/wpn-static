@@ -159,7 +159,7 @@
                                         <p>
                                             <xsl:value-of
                                                 select="
-                                                let $id := //tei:sourceDesc/tei:msDesc/tei:msIdentifier
+                                                let $id := //tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier
                                                 return concat(string-join((
                                                 $id/tei:institution,
                                                 $id/tei:collection,
