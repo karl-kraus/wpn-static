@@ -2418,6 +2418,7 @@ handling del elments based on change type
 
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK:not(:is(.pencilOnProofKK))>del,
 #textcontent-pb del.restore.inkOnProofKK .inkOnProofKK.pencilOnProofKK,
+#textcontent-pb .del.inkOnProofKK.pencilOnProofKK del:is([class*='margin']).inkOnProofKK:not(:is(.pencilOnProofKK)),
 #textcontent-pb .restore.inkOnProofKK .add.inkOnProofKK.pencilOnProofKK>del,
 #textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del,
 #textcontent-pb .add.pencilOnProofKK.inkOnProofKK del.inkOnProofKK:not(:is(.pencilOnProofKK)) {
@@ -2428,6 +2429,7 @@ handling del elments based on change type
 
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK:not(:is(.pencilOnProofKK))>del::after,
 #textcontent-pb del.restore.inkOnProofKK .inkOnProofKK.pencilOnProofKK::after,
+#textcontent-pb .del.inkOnProofKK.pencilOnProofKK del:is([class*='margin']).inkOnProofKK:not(:is(.pencilOnProofKK))::after,
 #textcontent-pb .restore.inkOnProofKK .add.inkOnProofKK.pencilOnProofKK>del::after,
 #textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del::after,
 #textcontent-pb .add.pencilOnProofKK.inkOnProofKK del.inkOnProofKK:not(:is(.pencilOnProofKK))::after {
