@@ -298,7 +298,12 @@
                <span class="del text-decoration-underline-dotted {if(parent::tei:subst[not(@change)]) then '' else replace(@change, '#', '')}">
                     <del data-anchor="{@xml:id}"><xsl:apply-templates/></del>
                 </span>
-            </xsl:when>            
+            </xsl:when>
+            <xsl:when test="@change and parent::tei:subst[not(@change) and parent::tei:restore[not(@rend='marginOnly')]]">
+               <span class="del text-decoration-underline-dotted {replace(@change, '#', '')}">
+                    <del data-anchor="{@xml:id}"><xsl:apply-templates/></del>
+                </span>
+            </xsl:when>
             <xsl:otherwise>
                 <del data-anchor="{@xml:id}"><xsl:apply-templates/></del>
             </xsl:otherwise>
