@@ -2374,6 +2374,7 @@ handling del elments based on change type
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del,
 #textcontent-pb .subst.inkOnProof.pencilOnProof del,
 #textcontent-pb .inkOnProofKK.del.pencilOnProofKK del.entity,
+#textcontent-pb .inkOnProofKK.del.pencilOnProofKK.entity,
 #textcontent-pb .inkOnProofKK.pencilOnProofKK.del.entity del,
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.del,
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del,
@@ -2385,6 +2386,7 @@ handling del elments based on change type
 
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del::before,
 #textcontent-pb .subst.inkOnProof.pencilOnProof del::before,
+#textcontent-pb .inkOnProofKK.del.pencilOnProofKK.entity::before,
 #textcontent-pb .inkOnProofKK.del.pencilOnProofKK del.entity::before,
 #textcontent-pb .inkOnProofKK.pencilOnProofKK.del.entity del::before {
   content: "";
