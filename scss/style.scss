@@ -2378,8 +2378,9 @@ handling del elments based on change type
 #textcontent-pb .inkOnProofKK.del.pencilOnProofKK.entity,
 #textcontent-pb .inkOnProofKK.pencilOnProofKK.del.entity del,
 #textcontent-pb .subst.inkOnProofKK > del.del > .del.pencilOnProof,
+#textcontent-pb .subst:not(:is(.pencilOnProofKK, .inkOnProofKK)) > .inkOnProofKK.pencilOnProofKK.del > del, /* p 183 */
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.del,
-/* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del,
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del, 
 /* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del {
   position: relative;          
   display: inline;
@@ -2391,6 +2392,7 @@ handling del elments based on change type
 #textcontent-pb .inkOnProofKK.del.pencilOnProofKK.entity::before,
 #textcontent-pb .inkOnProofKK.del.pencilOnProofKK del.entity::before,
 #textcontent-pb .subst.inkOnProofKK > del.del > .del.pencilOnProof::before,
+#textcontent-pb .subst:not(:is(.pencilOnProofKK, .inkOnProofKK)) > .inkOnProofKK.pencilOnProofKK.del > del::before, /* p 183 */
 #textcontent-pb .inkOnProofKK.pencilOnProofKK.del.entity del::before {
   content: "";
   position: absolute;
