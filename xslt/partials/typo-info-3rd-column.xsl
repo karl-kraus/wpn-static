@@ -59,7 +59,7 @@
                                 <xsl:value-of select="number(replace(($pages//tei:pb[@n])[last()]/@n, '\D+', ''))"/>
                             </xsl:variable>
                             <label id="paginationLabel" class="cursor-pointer text-white fs-7 fw-light dropdown-toggle" for="dropdownMenuButton1">
-                                <xsl:value-of select="$pageCount"/>
+                                <span><xsl:text>/</xsl:text></span><xsl:value-of select="$pageCount"/>
                             </label>
                         </xsl:if>
                         </div>
