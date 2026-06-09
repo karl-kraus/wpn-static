@@ -2977,6 +2977,12 @@ pencil text color
   bottom: -1.125rem;
 }
 
+/* two line subst/add below in marginInnerRightBelow */
+#textcontent-pb span.marginInnerRightBelow .subst .add.below:has(br) {
+  position: absolute;
+  bottom: -0.75rem;
+}
+
 /* double added line below */
 
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(>.below .below),
@@ -3155,7 +3161,7 @@ div.position-relative .marginInnerRightBelow,
 div.position-relative .marginInnerRightBelowOnly {
   position: absolute;
   left: 5%;
-  top: 1rem;
+  top: 0.75rem;
   text-align: left;
 }
 
