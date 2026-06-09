@@ -1906,13 +1906,23 @@ span.warning {
 #textcontent-pb .seg.border,
 #textcontent-pb .seg.border>.quotes>.longQuote>span,
 #textcontent-pb .mod.border.inkOnProofKK {
-  background-image: linear-gradient(lightgrey, lightgrey);
+  background-image: linear-gradient(#e5e5e5, #e5e5e5);
   background-repeat: no-repeat;
   background-size: calc(100% - 1px) 1em;
   background-position: 0.5px 60%;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   border: none !important;
+}
+
+#textcontent-pb .seg.border .seg.border {
+    background-image: linear-gradient(#b1b1b1, #b1b1b1);
+    background-repeat: no-repeat;
+    background-size: calc(100% - 1px) 1em;
+    background-position: 0.5px 60%;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    border: none !important;
 }
 
 #textcontent-pb .seg.border:not(:has(br)),
@@ -1923,7 +1933,7 @@ span.warning {
 
 .border-crossed-out,
 #textcontent-pb .restore>.seg.border {
-    background-image: repeating-linear-gradient(330deg, white, white 3px, lightgrey 3px, lightgrey 6px);
+    background-image: repeating-linear-gradient(330deg, white, white 3px, #e5e5e5 3px, #e5e5e5 6px);
     border: none;
     background-repeat: no-repeat;
     background-size: calc(100% - 1px) 1.05em;
