@@ -1967,7 +1967,7 @@ span.warning {
 }
 
 #legende-pb .pencilOnProofKK.inkOnProofKK {
-  text-shadow: 1px 2px lightgrey;
+  text-shadow: 1px 2px #c9c9c9;
   color: #000;
   font-size: var(--legende-font-size);
 }
@@ -2673,7 +2673,7 @@ pencil text color
 #textcontent-pb .metamark.inkOnTypescriptKK2.pencilOnTypescriptKK2,
 #textcontent-pb .mod.inkOnProofKK.pencilOnProofKK:is([class*='margin']),
 #textcontent-pb .del.above.inkOnProofKK.pencilOnProofKK:has(>.arimo) {
-  text-shadow: 2px 3px lightgrey;
+  text-shadow: 2px 3px #c9c9c9;
   color: #000;
 }
 
@@ -3398,7 +3398,8 @@ wpn-time-line {
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del {
-  color: #dddddd !important;
+  color: #7d7d7d !important;
+  z-index: -1;
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del.erased {
