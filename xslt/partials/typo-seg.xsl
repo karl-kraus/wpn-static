@@ -37,27 +37,26 @@
         </xsl:choose>
     </xsl:template>
     <!-- also part of the experimental solution, start: -->
-    <xsl:template match="text()[not(preceding-sibling::node())]"
-              mode="trim-edge-spaces">
-        <xsl:value-of select="replace(., '^\s+', '')"/>
+    <xsl:template match="text()" mode="trim-edge-spaces">
+        <xsl:variable name="t0" select="."/>
+        <xsl:variable name="t1"
+            select="if (not(preceding-sibling::node()))
+                    then replace($t0, '^\s+', '')
+                    else $t0"/>
+         
+        <xsl:variable name="t2"
+            select="if (not(following-sibling::node()))
+                    then replace($t1, '\s+$', '')
+                    else $t1"/>
+        <xsl:value-of select="$t2"/>
     </xsl:template>
     
-    <xsl:template match="text()[not(following-sibling::node())]"
-                  mode="trim-edge-spaces">
-        <xsl:value-of select="replace(., '\s+$', '')"/>
+    <xsl:template match="*" mode="trim-edge-spaces">
+        <xsl:apply-templates select="."/>
     </xsl:template>
     
-    <xsl:template match="text()[not(preceding-sibling::node())
-                               and not(following-sibling::node())]"
-                  mode="trim-edge-spaces"
-                  priority="2">
-        <xsl:value-of select="replace(replace(., '^\s+', ''), '\s+$', '')"/>
-    </xsl:template>
-    
-    <xsl:template match="@*|node()" mode="trim-edge-spaces">
-        <xsl:copy>
-            <xsl:apply-templates select="@*|node()" mode="trim-edge-spaces"/>
-        </xsl:copy>
+    <xsl:template match="@*|processing-instruction()|comment()" mode="trim-edge-spaces">
+        <xsl:copy/>
     </xsl:template>
     <!-- end -->
     
