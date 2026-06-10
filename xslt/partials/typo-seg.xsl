@@ -17,7 +17,10 @@
             </xsl:when>
             <!-- experimental: -->
             <xsl:otherwise>
-                <xsl:if test="starts-with(., ' ')">
+                <xsl:variable name="visible-text"
+                    select="descendant::text()[not(ancestor::tei:add)]"/>
+                
+                <xsl:if test="starts-with($visible-text[1], ' ')">
                     <xsl:text>&#160;</xsl:text>
                 </xsl:if>
             
@@ -27,7 +30,7 @@
                     <xsl:apply-templates mode="trim-edge-spaces"/>
                 </span>
             
-                <xsl:if test="ends-with(., ' ')">
+                <xsl:if test="ends-with($visible-text[last()], ' ')">
                     <xsl:text>&#160;</xsl:text>
                 </xsl:if>
             </xsl:otherwise>
@@ -38,14 +41,17 @@
     </xsl:template>
     <!-- also part of the experimental solution, start: -->
     <xsl:template match="text()" mode="trim-edge-spaces">
+        <xsl:variable name="seg-root"
+            select="ancestor::tei:seg[@type='transposition' or @type='relocation'][1]"/>
+        <xsl:variable name="visible-text"
+            select="$seg-root/descendant::text()[not(ancestor::tei:add)]"/>
         <xsl:variable name="t0" select="."/>
         <xsl:variable name="t1"
-            select="if (not(preceding-sibling::node()))
+            select="if (. is $visible-text[1])
                     then replace($t0, '^\s+', '')
                     else $t0"/>
-         
         <xsl:variable name="t2"
-            select="if (not(following-sibling::node()))
+            select="if (. is $visible-text[last()])
                     then replace($t1, '\s+$', '')
                     else $t1"/>
         <xsl:value-of select="$t2"/>
@@ -71,7 +77,10 @@
     <xsl:template match="tei:seg[@type='relocation']">
         
         <!-- experimental: -->
-        <xsl:if test="starts-with(., ' ')">
+        <xsl:variable name="visible-text"
+            select="descendant::text()[not(ancestor::tei:add)]"/>
+        
+        <xsl:if test="starts-with($visible-text[1], ' ')">
             <xsl:text>&#160;</xsl:text>
         </xsl:if>
         <!-- /experimental -->
@@ -117,8 +126,9 @@
              <!-- experimental (the mode): -->
             <xsl:apply-templates mode="trim-edge-spaces"/>
         </span>
+        
        <!-- experimental: -->
-        <xsl:if test="ends-with(., ' ')">
+        <xsl:if test="ends-with($visible-text[last()], ' ')">
             <xsl:text>&#160;</xsl:text>
         </xsl:if>
         <!-- /experimental -->
