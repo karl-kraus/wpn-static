@@ -10,11 +10,27 @@
     </xsl:template>
     <xsl:template match="tei:seg[@type='transposition' and not(@subtype='implicit')]">
         <xsl:choose>
+             <!-- experimental: -->
             <xsl:when test="parent::tei:restore">
+                
+                <xsl:variable name="visible-text" select="descendant::text()[not(ancestor::tei:add)]"/>
+                
+                <xsl:if test="starts-with($visible-text[1], ' ')">
+                    <xsl:text>&#160;</xsl:text>
+                </xsl:if>
+                
                 <span class="seg transposition border {replace(@change, '#', '')}">
-                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="border-crossed-out"><xsl:apply-templates/></span>
+                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="border-crossed-out">
+                         <xsl:apply-templates mode="trim-edge-spaces"/>
+                    </span>
                 </span>
+                
+                <xsl:if test="ends-with($visible-text[last()], ' ')">
+                    <xsl:text>&#160;</xsl:text>
+                </xsl:if>
+                
             </xsl:when>
+            
             <!-- experimental: -->
             <xsl:otherwise>
                 <xsl:variable name="visible-text"
