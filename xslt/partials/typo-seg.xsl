@@ -15,11 +15,52 @@
                     <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="border-crossed-out"><xsl:apply-templates/></span>
                 </span>
             </xsl:when>
+            <!-- experimental: -->
             <xsl:otherwise>
-                <span class="seg transposition border {replace(@change, '#', '')}" data-hand="{replace(@change,'#','')}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
+                <xsl:if test="starts-with(., ' ')">
+                    <xsl:text>&#160;</xsl:text>
+                </xsl:if>
+            
+                <span class="seg transposition border {replace(@change, '#', '')}"
+                      data-hand="{replace(@change,'#','')}"
+                      data-anchor="{@xml:id}">
+                    <xsl:apply-templates mode="trim-edge-spaces"/>
+                </span>
+            
+                <xsl:if test="ends-with(., ' ')">
+                    <xsl:text>&#160;</xsl:text>
+                </xsl:if>
             </xsl:otherwise>
+            <!-- original: <xsl:otherwise>
+                <span class="seg transposition border {replace(@change, '#', '')}" data-hand="{replace(@change,'#','')}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
+            </xsl:otherwise> -->
         </xsl:choose>
     </xsl:template>
+    <!-- also part of the experimental solution, start: -->
+    <xsl:template match="text()[not(preceding-sibling::node())]"
+              mode="trim-edge-spaces">
+        <xsl:value-of select="replace(., '^\s+', '')"/>
+    </xsl:template>
+    
+    <xsl:template match="text()[not(following-sibling::node())]"
+                  mode="trim-edge-spaces">
+        <xsl:value-of select="replace(., '\s+$', '')"/>
+    </xsl:template>
+    
+    <xsl:template match="text()[not(preceding-sibling::node())
+                               and not(following-sibling::node())]"
+                  mode="trim-edge-spaces"
+                  priority="2">
+        <xsl:value-of select="replace(replace(., '^\s+', ''), '\s+$', '')"/>
+    </xsl:template>
+    
+    <xsl:template match="@*|node()" mode="trim-edge-spaces">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()" mode="trim-edge-spaces"/>
+        </xsl:copy>
+    </xsl:template>
+    <!-- end -->
+    
     <xsl:template match="tei:seg[@type='transposition' and @subtype='implicit']">
        <xsl:apply-templates/>
     </xsl:template>
