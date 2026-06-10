@@ -69,6 +69,13 @@
          </span>
     </xsl:template>
     <xsl:template match="tei:seg[@type='relocation']">
+        
+        <!-- experimental: -->
+        <xsl:if test="starts-with(., ' ')">
+            <xsl:text>&#160;</xsl:text>
+        </xsl:if>
+        <!-- /experimental -->
+        
         <span class="entity" data-anchor="{@xml:id}">
             <xsl:if test="not(@rend='line') and not(@rend='arrow')">
                 <xsl:attribute name="data-target">
@@ -107,8 +114,15 @@
                     <xsl:value-of select="replace(@change, '#', '')"/>
                 </xsl:attribute>
             </xsl:if>
-            <xsl:apply-templates/>
+             <!-- experimental (the mode): -->
+            <xsl:apply-templates mode="trim-edge-spaces"/>
         </span>
+       <!-- experimental: -->
+        <xsl:if test="ends-with(., ' ')">
+            <xsl:text>&#160;</xsl:text>
+        </xsl:if>
+        <!-- /experimental -->
+        
     </xsl:template>
     <xsl:template match="tei:seg[@type='relocation' and @rend='arrow']" mode="render">
         <xsl:if test="not((@prev, @continued))">
