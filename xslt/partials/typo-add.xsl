@@ -272,7 +272,7 @@
         <xsl:choose>
             <xsl:when test="parent::tei:subst[ancestor::tei:restore[not(./tei:seg)]]">
                 <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
-                <del data-anchor="{$id}" data-hand="{replace($restore-change[1],'#','')}" class="{$rend} {replace($restore-change[1],'#','')}">
+                <del data-anchor="{$id}" data-hand="{replace($restore-change[1],'#','')}{if(ancestor::tei:restore[ancestor::tei:subst])then(replace(ancestor::tei:restore/ancestor::tei:subst/@change,'#',' '))else()}" class="{$rend} {replace($restore-change[1],'#','')}">
                     <xsl:if test="./tei:metamark[@target]">
                         <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">
