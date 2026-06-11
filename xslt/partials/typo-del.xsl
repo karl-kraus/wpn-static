@@ -363,7 +363,7 @@
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="ancestor::tei:del">
-                        <span id="{@xml:id} {$inheritIDfromNote}" class="del entity {replace((@change)[1], '#', '')}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
+                        <span id="{@xml:id} {$inheritIDfromNote}" class="del entity {replace((@change)[1], '#', '')}" data-anchor="{@xml:id} {ancestor::tei:del/@xml:id}"><xsl:apply-templates/></span>
                     </xsl:when>
                     <xsl:otherwise>
                         <del id="{@xml:id} {$inheritIDfromNote}" class="del entity" data-anchor="{@xml:id}"><xsl:apply-templates/></del>
