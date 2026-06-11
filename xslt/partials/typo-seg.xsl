@@ -128,7 +128,7 @@
             </xsl:if>
             <!-- special handling (rendered via span firstLast) for page 111 for arrow seg see https://github.com/karl-kraus/wpn-static/issues/208  -->
             <xsl:if test="@rend='arrow' and not((@prev, @continued)) and not(@xml:id='seg0111_01')">
-                <span class="seg entity seg-inline">
+                <span  id="{@xml:id}" class="seg entity seg-inline">
                     <span class="{@rend} {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}">
                         <xsl:text>&#8592;</xsl:text>
                     </span>
