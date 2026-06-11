@@ -14,8 +14,8 @@
         <xsl:variable name="current-pb" select="//tei:pb"/>
         <xsl:variable name="doc_type" select="$current-pb/@type" />
         <xsl:variable name="pages" select="doc(concat('../../data/', $edition))//tei:TEI"/>
-        <xsl:variable name="prev" select="$pages//tei:pb[@xml:id = $current-pb/@xml:id]/preceding::tei:pb[1]/@xml:id" />
-        <xsl:variable name="next" select="$pages//tei:pb[@xml:id = $current-pb/@xml:id]/following::tei:pb[1]/@xml:id" />
+        <xsl:variable name="prev" select="$pages//tei:pb[@xml:id = $current-pb/@xml:id]/preceding::tei:pb[not(@type='nonWitness')][1]/@xml:id" />
+        <xsl:variable name="next" select="$pages//tei:pb[@xml:id = $current-pb/@xml:id]/following::tei:pb[not(@type='nonWitness')][1]/@xml:id" />
         
         <div id="infocolumn" class="grid-box-3 z-index-1">
             <div id="infocontent" class="bg-white p-0 m-0 overflow-y-scroll">
