@@ -2372,6 +2372,10 @@ handling del elments based on change type
   text-decoration-color: #000;
 }
 
+#textcontent-pb .del.blueInkOnProof del {
+  text-decoration-color: #3333A2;
+}
+
 /* overwritten erased del */
 #textcontent-pb .del.erased del {
   text-decoration-color: #666666;
@@ -2688,7 +2692,7 @@ pencil text color
   color: #303030;
 }
 
-#textcontent-pb .blueInkOnProof {
+#textcontent-pb div.del.blueInkOnProof {
   color: #3333A2;
 }
 
