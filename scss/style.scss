@@ -2443,7 +2443,7 @@ handling del elments based on change type
 /* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del::before,
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK .del.inkOnTypescriptKK del::before, 
 /* Konvolut_Faust p 229 */ #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.del::before,
-/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) {
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK)::before {
   content: "";
   position: absolute;
   left: 0;
