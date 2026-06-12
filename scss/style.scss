@@ -2419,6 +2419,10 @@ handling del elments based on change type
   text-decoration: line-through lightgrey;
 }
 
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) {
+  text-decoration: line-through #FFFFFF00;
+}
+
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del::before,
 #textcontent-pb .subst.inkOnProof.pencilOnProof del::before,
 #textcontent-pb .inkOnProofKK.del.pencilOnProofKK.entity::before,
