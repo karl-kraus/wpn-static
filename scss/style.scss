@@ -2385,6 +2385,12 @@ handling del elments based on change type
   color: #dddddd;
 }
 
+/* Faust p 229 dotted underline in grey */
+#textcontent-pb .restore.eraser .text-decoration-underline-dotted {
+  text-decoration: underline dotted grey;
+}
+
+
 /* double line through for double change values */
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del,
 #textcontent-pb .subst.inkOnProof.pencilOnProof del,
