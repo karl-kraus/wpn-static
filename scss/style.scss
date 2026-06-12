@@ -3103,11 +3103,12 @@ pencil text color
   vertical-align: bottom;
 }
 
-#textcontent-pb span.note span.position-relative .above.subst,
-#textcontent-pb span.note span.position-relative .above.add {
+
+#textcontent-pb span.note:not([class*='typew']) span.position-relative .above.subst,
+#textcontent-pb span.note:not([class*='typew']) span.position-relative .above.add {
   position: absolute;
   top: -4pt;
-}
+} /* added restriction to remove this style from typewritten notes */
 
 
 /* uncomment and test when all new attr values are available in Gesamt.xml */
