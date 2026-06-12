@@ -2396,7 +2396,8 @@ handling del elments based on change type
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.del,
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del, 
 /* Konvolut_Faust p 229 */ #textcontent-pb del.del.pencilOnTypescriptKK2.inkOnTypescriptKK2, 
-/* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del {
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del,
+/* Konvolut_Faust p 229 */ #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.del, {
   position: relative;          
   display: inline;
   text-indent: initial;
@@ -2423,7 +2424,8 @@ handling del elments based on change type
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.del::before,
 /* Konvolut_Faust p 229 */ #textcontent-pb del.del.pencilOnTypescriptKK2.inkOnTypescriptKK2::before, 
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del::before,
-/* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del::before {
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del::before,
+/* Konvolut_Faust p 229 */ #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.del::before, {
   content: "";
   position: absolute;
   left: 0;
