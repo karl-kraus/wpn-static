@@ -2072,18 +2072,20 @@ span.warning {
 #legende-pb .add.overwrite {
   bottom: 1px;
   left: -1px !important;
+  background: #ffffffd9;
 }
 
 #legende-pb .subst:has(>.add.overwrite)>.del:not(.erased),
 #legende-pb .subst:has(>.add.overwrite)>del{
-  color: #dddddd;
+  /* color: #dddddd; */
   text-decoration: none !important;
 }
 
 #legende-pb .subst:has(>.add.overwrite)>.del.erased {
-  color: #dddddd;
   text-decoration: line-through;
-  text-decoration-color: #dddddd;
+  /* color: #dddddd;
+  text-decoration: line-through;
+  text-decoration-color: #dddddd; */
 }
 
 #legende-pb .metamark.printSpanFrom.redOnProof.entity { 
@@ -3420,7 +3422,7 @@ wpn-time-line {
 #textcontent-pb .subst .add.overwrite {
   font-size: inherit !important;
   line-height: inherit;
-  background: #ffffff9e;
+  background: #ffffffd9;
 }
 
 #textcontent-pb .add.overwrite:hover {
@@ -3428,17 +3430,17 @@ wpn-time-line {
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del {
-  color: #7d7d7d !important;
+  /* color: #7d7d7d !important; */
   z-index: -1;
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del.erased {
   text-decoration: line-through;
-  text-decoration-color: #dddddd !important;
+  /* text-decoration-color: #dddddd !important; */
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del .add {
-  color: #dddddd !important;
+  /* color: #dddddd !important; */
 }
 
 #textcontent-pb .subst:has(>.overwrite) {
