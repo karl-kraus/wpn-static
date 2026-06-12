@@ -2485,10 +2485,12 @@ handling del elments based on change type
     left: 1px;
 }
 
-/* Konvolut_Faust p 1 - removing line through from add in del */
+/* Konvolut Faust p 229 - removing line through from add in del */
 #textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.add.above,
 #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.add.above,
-#textcontent-pb .del.pencilOnTypescriptKK2  del.add.above.inkOnTypescriptKK1 {
+#textcontent-pb .del.pencilOnTypescriptKK2  del.add.above.inkOnTypescriptKK1,
+#textcontent-pb span.restore.eraser .del .add.inkOnTypescriptKK1 .position-relative .add.above.inkOnTpescriptKK1
+{
   text-decoration: none; 
 }
 
