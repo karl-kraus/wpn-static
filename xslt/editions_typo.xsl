@@ -73,7 +73,7 @@
                                     <div id="facscontent" wpn-data="{$facsimile}" wpn-type="{.//tei:pb[1]/@type}">
                                         <!-- osd viewer container -->
                                     </div>
-                                    <div class="d-block"><p class="facsimile-source">(<xsl:value-of select="//tei:teiHeader//tei:sourceDesc[@xml:id=$convolute-id]//tei:msIdentifier/tei:institution"/>)</p></div>
+                                    <div class="d-block"><p class="facsimile-source">(Bildquelle: <xsl:value-of select="//tei:teiHeader//tei:sourceDesc[@xml:id=$convolute-id]//tei:msIdentifier/tei:institution"/>)</p></div>
                                 </div>
                                 <div id="textcolumn-pb" class="grid-box-2 mx-auto ff-crimson-text py-4">
                                     <div id="textcontent-pb">
