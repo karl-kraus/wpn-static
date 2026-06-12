@@ -2409,10 +2409,14 @@ handling del elments based on change type
 /* Konvolut_Faust p 229 */ #textcontent-pb del.del.pencilOnTypescriptKK2.inkOnTypescriptKK2, 
 /* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del,
 /* Konvolut_Faust p 229 */ #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.del,
-/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK del .del del.pencilOnTypescriptKK {
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) {
   position: relative;          
   display: inline;
   text-indent: initial;
+}
+
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del .del del.pencilOnTypescriptKK {
+  text-decoration: line-through lightgrey;
 }
 
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del::before,
@@ -2450,6 +2454,7 @@ handling del elments based on change type
   transform: translateY(1px);
   pointer-events: none;
 }
+
 
 /* single line through, when only ink layer is deleted, e.g., p. 108, 90 */
 
