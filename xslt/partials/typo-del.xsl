@@ -10,7 +10,7 @@
         <xsl:variable name="change" select="@change"/>
         <xsl:choose>
             <xsl:when test="@rend='overwritten'">
-                <span class="del text-black-grey" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="del" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:when test="@rend=('below', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <del><xsl:value-of select="normalize-space(.)"/></del>
@@ -106,7 +106,7 @@
             </xsl:when>
             
             <xsl:when test="$rend='overwritten'">
-                <span class="del text-black-grey">
+                <span class="del">
                     <xsl:attribute name="data-anchor">
                         <xsl:value-of select="@xml:id"/>
                         <xsl:if test="parent::tei:add[parent::tei:subst]">
