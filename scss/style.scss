@@ -2276,6 +2276,7 @@ handling del elments based on change type
 #textcontent-pb .subst.pencilOnProof>del,
 #textcontent-pb .subst.undefined .del del,
 #textcontent-pb .subst.pencilOnTypescript .del del,
+#textcontent-pb .subst.pencilOnTypescript2>del.del,
 #textcontent-pb .subst.pencilOnProof .del del,
 #textcontent-pb .subst.pencilOnTypescriptKK2 del,
 #textcontent-pb .subst.pencilOnTypescriptKK1 del,
@@ -2632,6 +2633,7 @@ pencil text color
 */
 #textcontent-pb div.del.pencilOnProofKK,
 #textcontent-pb .subst.pencilOnProofKK .add,
+#textcontent-pb .subst.pencilOnTypescript2 .add,
 #textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .add.pencilOnProofKK,
 #textcontent-pb .metamark.pencilOnProofKK,
