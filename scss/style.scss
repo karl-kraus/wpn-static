@@ -2419,7 +2419,7 @@ handling del elments based on change type
   text-decoration: line-through lightgrey;
 }
 
-/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) {
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del {
   text-decoration: line-through #FFFFFF00;
 }
 
