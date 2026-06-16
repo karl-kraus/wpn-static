@@ -2371,7 +2371,7 @@ handling del elments based on change type
 #textcontent-pb .restore.inkOnProof del,
 #textcontent-pb .restore.inkOnTypescript del,
 #textcontent-pb .subst.inkOnTypescript del,
-#textcontent-pb .subst.inkOnTypescriptKK2 del {
+#textcontent-pb .subst.inkOnTypescriptKK2 > del {
   text-decoration-color: #000;
 }
 
@@ -2412,7 +2412,8 @@ handling del elments based on change type
 /* Konvolut_Faust p 229 */ #textcontent-pb del.del.pencilOnTypescriptKK2.inkOnTypescriptKK2, 
 /* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del,
 /* Konvolut_Faust p 229 */ #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.del,
-/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) {
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK),
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK2 > del > .subst.pencilOnTypescriptKK2 > del {
   position: relative;          
   display: inline;
   text-indent: initial;
@@ -2422,7 +2423,8 @@ handling del elments based on change type
   text-decoration: line-through lightgrey;
 }
 
-/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del {
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del,
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK2 > del:has(.subst.pencilOnTypescriptKK2 > del) {
   text-decoration: line-through #FFFFFF00;
 }
 
@@ -2450,7 +2452,8 @@ handling del elments based on change type
 /* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del::before,
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK .del.inkOnTypescriptKK del::before, 
 /* Konvolut_Faust p 229 */ #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.del::before,
-/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK)::before {
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK)::before,
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK2 > del > .subst.pencilOnTypescriptKK2 > del::before {
   content: "";
   position: absolute;
   left: 0;
@@ -2643,7 +2646,7 @@ pencil text color
 #textcontent-pb .add.pencilOnTypescriptKK,
 #textcontent-pb .add.pencilOnTypescriptKK1,
 #textcontent-pb .add.pencilOnTypescriptKK2,
-#textcontent-pb .subst.pencilOnTypescriptKK2 .add,
+#textcontent-pb .subst.pencilOnTypescriptKK2 > .add,
 #textcontent-pb .fw.pencilOnProof,
 #textcontent-pb .note.pencilOnProofKK,
 #textcontent-pb .note.pencilOnTypescriptKK,
@@ -2681,7 +2684,7 @@ pencil text color
 #textcontent-pb .metamark.inkOnProof,
 #textcontent-pb .subst.inkOnTypescript .add,
 #textcontent-pb .subst.inkOnTypescriptKK .add,
-#textcontent-pb .subst.inkOnTypescriptKK2 .add,
+#textcontent-pb .subst.inkOnTypescriptKK2 > .add,
 #textcontent-pb .restore.inkOnTypescript .add,
 #textcontent-pb .add.inkOnTypescript,
 #textcontent-pb .add.inkOnTypescriptKK,
