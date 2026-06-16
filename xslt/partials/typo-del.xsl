@@ -89,7 +89,7 @@
             else()"/>
         <xsl:choose>
             <xsl:when test="$rend='overwritten' and @rend='erased'">
-                <span class="del text-black-grey {@rend}">
+                <span class="del {@rend}">
                     <xsl:attribute name="data-anchor">
                         <xsl:value-of select="@xml:id"/>
                         <xsl:if test="parent::tei:add[parent::tei:subst]">
