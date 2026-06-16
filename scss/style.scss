@@ -2333,7 +2333,8 @@ handling del elments based on change type
 #textcontent-pb .restore.pencilOnProofKK .metamark del,
 #textcontent-pb .metamark .restore.pencilOnProofKK del,
 #textcontent-pb .metamark .del.pencilOnProofKK del,
-#textcontent-pb .mod.pencilOnProofKK {
+#textcontent-pb .mod.pencilOnProofKK
+{
   text-decoration-color: #666666;
 }
 
@@ -2423,7 +2424,8 @@ handling del elments based on change type
   text-indent: initial;
 }
 
-/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del .del del.pencilOnTypescriptKK {
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del .del del.pencilOnTypescriptKK,
+/* Konvolut Faust p 232 */ #textcontent-pb .restore.inkOnTypescriptKK .subst.pencilOnTypescriptKK .del span {
   text-decoration: line-through lightgrey;
 }
 
@@ -2528,7 +2530,8 @@ handling del elments based on change type
 #textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.add.above,
 #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.add.above,
 #textcontent-pb .del.pencilOnTypescriptKK2  del.add.above.inkOnTypescriptKK1,
-#textcontent-pb span.restore.eraser del  .position-relative .add.above.inkOnTypescriptKK1
+#textcontent-pb span.restore.eraser del  .position-relative .add.above.inkOnTypescriptKK1,
+#textcontent-pb .subst.inkOnTypescriptKK del:has(.restore.inkOnTypescriptKK)
 {
   text-decoration: none; 
 }
@@ -2621,6 +2624,7 @@ handling del elements in maring left or right
 #textcontent-pb .subst.pencilOnTypescript .add,
 #textcontent-pb .subst.pencilOnTypescriptKK1 .add,
 #textcontent-pb .subst.pencilOnTypescriptKK .add,
+#textcontent-pb .subst.inkOnTypescriptKK .subst.pencilOnTypescriptKK .add,
 #textcontent-pb .subst.pencilOnProof .add,
 #textcontent-pb .subst.undefined .add,
 #textcontent-pb .restore .pencilOnTypescript.add,
