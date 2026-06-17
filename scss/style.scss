@@ -2373,7 +2373,8 @@ handling del elments based on change type
 #textcontent-pb .restore.inkOnProof del,
 #textcontent-pb .restore.inkOnTypescript del,
 #textcontent-pb .subst.inkOnTypescript del,
-#textcontent-pb .subst.inkOnTypescriptKK2 > del {
+#textcontent-pb .subst.inkOnTypescriptKK2 > del,
+/* Faust p 232 */ #textcontent-pb .restore.inkOnTypescriptKK>.subst.pencilOnTypescriptKK del.add {
   text-decoration-color: #000;
 }
 
@@ -2431,7 +2432,8 @@ handling del elments based on change type
 
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del,
 /* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK2 > del:has(> .subst.pencilOnTypescriptKK2 > del),
-/* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del) {
+/* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del),
+/* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del) .subst del.add.overwrite {
   text-decoration: line-through #FFFFFF00;
 }
 
