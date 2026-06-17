@@ -3479,7 +3479,14 @@ wpn-time-line {
 #textcontent-pb .subst .add.overwrite {
   /* font-size: inherit !important; */
   line-height: inherit;
-  background: #ffffffd9;
+  background-image: linear-gradient(to bottom, white 0%, white 100%);
+  border-right: 1px solid grey;
+  border-bottom: 1px solid black;
+  border-radius: 2px;
+}
+
+#textcontent-pb .subst:is([class*="KK"]) .add.overwrite {
+  padding-right: 2px;
 }
 
 #textcontent-pb span:is([class*='typescriptLong'], [class*='typescriptRunning'], [class*='typewriter']) .subst .add.overwrite {
@@ -3497,7 +3504,7 @@ wpn-time-line {
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del.erased {
   text-decoration: line-through;
-  /* text-decoration-color: #dddddd !important; */
+  text-decoration-color: #dddddd;
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del .add {
