@@ -2320,8 +2320,6 @@ handling del elments based on change type
 #textcontent-pb .del del.pencilOnTypescriptKK,
 #textcontent-pb .del.pencilOnTypescriptKK1 del,
 #textcontent-pb .del.pencilOnTypescriptKK2 del,
-#textcontent-pb .del.eraser2>del,
-#textcontent-pb .del.eraser>del,
 #textcontent-pb .del.pencilOnProof del,
 #textcontent-pb .add.inkOnProofKK del.pencilOnProofKK,
 #textcontent-pb .pencilOnProofKK>del,
@@ -2336,6 +2334,11 @@ handling del elments based on change type
 #textcontent-pb .mod.pencilOnProofKK
 {
   text-decoration-color: #666666;
+}
+
+#textcontent-pb .del.eraser2>del,
+#textcontent-pb .del.eraser>del {
+  text-decoration-color: #dddddd;
 }
 
 #textcontent-pb .subst.redOnProof .del del,
@@ -2392,13 +2395,13 @@ handling del elments based on change type
 #textcontent-pb .note .del.erased del,
 #textcontent-pb .subst.eraser del,
 #textcontent-pb .subst .erased.del {
-  text-decoration-color: #666666;
+  text-decoration-color: #dddddd;
   /* color: #dddddd; */
 }
 
 /* Faust p 229 dotted underline in grey */
 #textcontent-pb .restore.eraser .text-decoration-underline-dotted {
-  text-decoration: underline dotted grey;
+  text-decoration: underline dotted #dddddd;
 }
 
 
@@ -2427,7 +2430,7 @@ handling del elments based on change type
 
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del .del del.pencilOnTypescriptKK,
 /* Konvolut Faust p 232 */ #textcontent-pb .restore.inkOnTypescriptKK .subst.pencilOnTypescriptKK .del span {
-  text-decoration: line-through lightgrey;
+  text-decoration: line-through #666666;
 }
 
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del,
