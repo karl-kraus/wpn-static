@@ -3566,6 +3566,10 @@ body.modal-open, body.modal-open main {
   border-radius: 4px;
 }
 
+.connection-color::after {
+  color: $wpn-red !important;
+}
+
 .subst.connection-color .add.overwrite {
   /* text-shadow: $wpn-red 0 0 4px !important; */
   background-color: $wpn-red !important;

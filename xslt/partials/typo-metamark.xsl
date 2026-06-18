@@ -467,20 +467,20 @@
                         </span>
                     </xsl:when>
                     <xsl:otherwise>
-                        <span id="{@xml:id}" class="metamark entity {replace(@change, '#', '')}" data-anchor="{@xml:id}"/>
+                        <span id="{@xml:id}" class="metamark entity {replace(@change, '#', '')}" data-anchor="{@xml:id} {replace(@target, '#', '')}"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="@rend='lineSpace'">
-                        <span id="{@xml:id}" class="metamark linespace entity {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}"/>
+                        <span id="{@xml:id}" class="metamark linespace entity {replace(@change, '#', '')}" data-anchor="{@xml:id} {replace(@target, '#', '')}" data-hand="{replace(@change, '#', '')}"/>
                     </xsl:when>
                     <xsl:when test="@rend='lineSpace2'">
-                        <span id="{@xml:id}" class="metamark linespace2 entity {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}"/>
+                        <span id="{@xml:id}" class="metamark linespace2 entity {replace(@change, '#', '')}" data-anchor="{@xml:id} {replace(@target, '#', '')}" data-hand="{replace(@change, '#', '')}"/>
                     </xsl:when>
                     <xsl:when test="@rend='inlineRight'">
-                        <span id="{@xml:id}" class="metamark {@rend} {@style} {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}">
+                        <span id="{@xml:id}" class="metamark {@rend} {@style} {replace(@change, '#', '')}" data-anchor="{@xml:id} {replace(@target, '#', '')}" data-hand="{replace(@change, '#', '')}">
                             <xsl:apply-templates/>
                         </span>
                     </xsl:when>
