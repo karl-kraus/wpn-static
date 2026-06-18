@@ -101,7 +101,12 @@
         </xsl:if>
         <!-- /experimental -->
         
-        <span class="entity" data-anchor="{@xml:id}">
+        <span class="entity">
+            <xsl:if test="not(@rend='line')">
+                <xsl:attribute name="data-anchor">
+                    <xsl:value-of select="@xml:id"/>
+                </xsl:attribute>
+            </xsl:if>
             <xsl:if test="not(@rend='line') and not(@rend='arrow') and not(@rend='none')">
                 <xsl:attribute name="data-target">
                     <xsl:value-of select="@xml:id"/>
