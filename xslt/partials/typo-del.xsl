@@ -371,7 +371,9 @@
         <xsl:variable name="inheritIDfromNote" select="
             if(ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])])
             then(ancestor::tei:note/@xml:id)
-            else()"/>
+            else if(ancestor::tei:del)
+                then(ancestor::tei:del/@xml:id)
+                else()"/>
         <xsl:choose>
             <xsl:when test="parent::tei:restore[not(@rend='marginOnly')]">
                <span id="{@xml:id}" class="del entity text-decoration-underline-dotted">
