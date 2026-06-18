@@ -254,7 +254,18 @@
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]]" mode="render">
         <!-- potentially remove change but check with Bernhard-->
         <xsl:variable name="change" select="if(parent::tei:subst[@change])then(parent::tei:subst/@change)else if(ancestor::tei:subst[@change])then(ancestor::tei:subst/@change)else(@change)"/>
-        <xsl:variable name="containerID" select="if(parent::tei:subst)then(if(preceding-sibling::tei:del[1][@xml:id])then(preceding-sibling::tei:del[1]/@xml:id)else(following-sibling::tei:del[1]/@xml:id))else if(ancestor::tei:subst)then(if(preceding-sibling::tei:del[1][@xml:id])then(preceding-sibling::tei:del[1]/@xml:id)else(following-sibling::tei:del[1]/@xml:id))else(@xml:id)"/>
+        <xsl:variable name="containerID" select="
+            if(parent::tei:subst)
+            then(
+                if(preceding-sibling::tei:del[1][@xml:id])
+                then(concat(preceding-sibling::tei:del[1]/@xml:id, ' ', preceding-sibling::tei:del[1]/tei:restore/tei:subst/tei:del[1]/@xml:id))
+                else(concat(following-sibling::tei:del[1]/@xml:id, ' ', following-sibling::tei:del[1]/tei:restore/tei:subst/tei:del[1]/@xml:id)))
+            else if(ancestor::tei:subst)
+                then(
+                    if(preceding-sibling::tei:del[1][@xml:id])
+                    then(concat(preceding-sibling::tei:del[1]/@xml:id, ' ', preceding-sibling::tei:del[1]/tei:restore/tei:subst/tei:del[1]/@xml:id))
+                    else(concat(following-sibling::tei:del[1]/@xml:id, ' ', following-sibling::tei:del[1]/tei:restore/tei:subst/tei:del[1]/@xml:id)))
+                else(@xml:id)"/>
         <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
             <div class="add w-100 {replace($change[1],'#','')}">
                 <div class="w-100">
