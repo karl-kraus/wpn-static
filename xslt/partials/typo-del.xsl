@@ -157,6 +157,10 @@
                                     <xsl:text> </xsl:text>
                                     <xsl:value-of select="$inheritIDfromNote"/>
                                 </xsl:if>
+                                <xsl:if test="parent::tei:subst[parent::tei:add]">
+                                    <xsl:text> </xsl:text>
+                                    <xsl:value-of select="parent::tei:subst/parent::tei:add/@xml:id"/>
+                                </xsl:if>
                             </xsl:attribute>
                             <xsl:apply-templates/>
                         </del>
@@ -180,6 +184,10 @@
                                             <xsl:text> </xsl:text>
                                             <xsl:value-of select="$inheritIDfromNote"/>
                                         </xsl:if>
+                                        <xsl:if test="parent::tei:subst[parent::tei:add]">
+                                            <xsl:text> </xsl:text>
+                                            <xsl:value-of select="parent::tei:subst/parent::tei:add/@xml:id"/>
+                                        </xsl:if>
                                     </xsl:attribute>
                                     <xsl:text>&#x20;</xsl:text>
                                 </del>
@@ -201,6 +209,10 @@
                                             <xsl:if test="ancestor::tei:note">
                                                 <xsl:text> </xsl:text>
                                                 <xsl:value-of select="$inheritIDfromNote"/>
+                                            </xsl:if>
+                                            <xsl:if test="parent::tei:subst[parent::tei:add]">
+                                                <xsl:text> </xsl:text>
+                                                <xsl:value-of select="parent::tei:subst/parent::tei:add/@xml:id"/>
                                             </xsl:if>
                                         </xsl:attribute>
                                         <xsl:value-of select="."/>

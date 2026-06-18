@@ -712,6 +712,10 @@
                     <xsl:text> </xsl:text>
                     <xsl:value-of select="$inheritIDfromNote"/>
                 </xsl:if>
+                <xsl:if test="parent::tei:del/parent::tei:subst[parent::tei:add]">
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="parent::tei:del/parent::tei:subst/parent::tei:add/@xml:id"/>
+                </xsl:if>
             </xsl:attribute>
             </xsl:if>
             <xsl:apply-templates/>
