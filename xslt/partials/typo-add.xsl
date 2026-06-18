@@ -86,7 +86,7 @@
                 </span>
             </xsl:when>
             <xsl:when test="$rend='overwritten'">
-                <span class="add overwrite position-absolute start-0{if(ancestor::tei:note[not(contains(@change, 'typewriter'))] and not(ancestor::tei:add[contains(@change, 'typewriter')]))then(' top-0 bottom-0')else()} {replace(@change[1], '#', '')} {highlight}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="add overwrite position-absolute start-0{if(ancestor::tei:note[not(contains(@change, 'typewriter'))] and not(ancestor::tei:add[contains(@change, 'typewriter')]))then(' top-0 bottom-0')else()} {replace(@change[1], '#', '')} {highlight}" data-anchor="{@xml:id}" data-hand="{replace(@change[1], '#', '')}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:when test="not($rend)">
                 <span id="{@xml:id}" class="add entity {highlight}" data-anchor="{@xml:id}">
