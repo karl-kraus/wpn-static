@@ -40,14 +40,25 @@
                         </span>
                     </xsl:when>
                     <xsl:otherwise>
+                        <xsl:variable name="anchor">
+                            <xsl:choose>
+                                <xsl:when test="parent::tei:note[@xml:id]">
+                                    <xsl:text> </xsl:text>
+                                    <xsl:value-of select="parent::tei:note/@xml:id"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <!-- no anchor-->
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:variable>
                         <span id="{@xml:id}" class="del entity {replace(($change)[1], '#', '')}">
                             <xsl:choose>
                                 <xsl:when test="count(node())=1 and text()=' ' and not(@resp)">
-                                    <del data-anchor="{@xml:id}" data-hand="{replace($change[1],'#','')}"><xsl:text>&#xA0;</xsl:text></del>
+                                    <del data-anchor="{@xml:id}{$anchor}" data-hand="{replace($change[1],'#','')}"><xsl:text>&#xA0;</xsl:text></del>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     <!-- minimal, new (no whitespace handling): -->
-                                    <del data-anchor="{@xml:id}" data-hand="{replace($change[1],'#','')}"><xsl:value-of select="."/></del>
+                                    <del data-anchor="{@xml:id}{$anchor}" data-hand="{replace($change[1],'#','')}"><xsl:value-of select="."/></del>
                                     
                                     <!-- original: <xsl:choose>
                                         <xsl:when test="starts-with(., ' ')">
