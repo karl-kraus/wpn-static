@@ -327,7 +327,9 @@
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <del data-anchor="{@xml:id}"><xsl:apply-templates/></del>
+                <xsl:variable name="targetorfalse" select="if(parent::tei:subst/parent::tei:restore/parent::tei:del/parent::tei:subst[./tei:add[./tei:metamark[@target]]])then(parent::tei:subst/parent::tei:restore/parent::tei:del/parent::tei:subst/tei:add/tei:metamark/@target)else('false')"/>
+                <xsl:variable name="target" select="if($targetorfalse!='false')then(replace($targetorfalse, '#', ''))else('false')"/>
+                <del data-anchor="{@xml:id} {$target}"><xsl:apply-templates/></del>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
