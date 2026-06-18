@@ -319,7 +319,20 @@
 		</xsl:choose>
 	</xsl:template>
     <xsl:template match="tei:quote">
-        <span class="quotes {substring-after(@rendition, '#')} {substring-after(@change, '#')}" data-anchor="{@xml:id}" data-hand="{substring-after(@change, '#')}">
+        <xsl:variable name="anchor">
+            <xsl:choose>
+                <xsl:when test="ancestor::tei:note">
+                    <xsl:text> </xsl:text><xsl:value-of select="ancestor::tei:note/@xml:id"/>
+                </xsl:when>
+                <xsl:when test="ancestor::tei:add">
+                    <xsl:text> </xsl:text><xsl:value-of select="ancestor::tei:add/@xml:id"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <!-- no anchor -->
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <span class="quotes {substring-after(@rendition, '#')} {substring-after(@change, '#')}" data-anchor="{@xml:id}{$anchor}" data-hand="{substring-after(@change, '#')}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
