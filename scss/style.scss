@@ -1740,6 +1740,13 @@ span.warning {
     text-indent: initial;
 }
 
+.pageNumRight4 {
+    left: 90%;
+    top: 1.5rem;
+    text-indent: initial;
+}
+
+
 .pageNumLeft {
     left: 11%;
     top: 3em;
@@ -2159,6 +2166,8 @@ span.warning {
 
 
 // handwritten text
+
+#textcontent-pb .inkOnNotepadKK [class*="inkLongQuote"],
 #textcontent-pb .inkOnProofKK .inkLongQuote,
 #textcontent-pb .inkOnProofKK .inkLongQuoteVerse,
 #textcontent-pb .subst.inkOnProofKK .add,
@@ -2187,6 +2196,7 @@ span.warning {
 #textcontent-pb .note.pencilOnTypescriptKK,
 #textcontent-pb .note.pencilOnTypescriptKK1,
 #textcontent-pb .note.pencilOnTypescriptKK2,
+#textcontent-pb .metamark.inkOnNotepadKK,
 #textcontent-pb .metamark.pencilOnProofKK,
 #textcontent-pb .metamark.pencilOnTypescriptKK2,
 #textcontent-pb .metamark.pencilOnTypescriptKK1,
@@ -2249,6 +2259,7 @@ span.warning {
 #textcontent-pb .note.pencilOnTypescript,
 #textcontent-pb .note.pencilOnProof,
 #textcontent-pb .note.pencilOnProofLibrary,
+#textcontent-pb .note.redBallpointOnNotepadLibrary,
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb div.del.pencilOnTypescript,
@@ -2380,6 +2391,10 @@ handling del elments based on change type
 #textcontent-pb .subst.inkOnTypescriptKK2 > del,
 /* Faust p 232 */ #textcontent-pb .restore.inkOnTypescriptKK>.subst.pencilOnTypescriptKK del.add {
   text-decoration-color: #000;
+}
+
+#textcontent-pb .del.blueInkOnProof del {
+  text-decoration-color: #3333A2;
 }
 
 #textcontent-pb .del.blueInkOnProof del {
@@ -2686,7 +2701,8 @@ pencil text color
 #textcontent-pb .subst.redOnProofKK .add,
 #textcontent-pb .restore.redOnProofKK .add,
 #textcontent-pb .add.redOnProofKK,
-#textcontent-pb .metamark.redOnProofKK  {
+#textcontent-pb .metamark.redOnProofKK,
+#textcontent-pb .note.redBallpointOnNotepadLibrary {
   color: $wpn-red;
 }
 
@@ -2702,7 +2718,9 @@ pencil text color
 #textcontent-pb .add.inkOnProof,
 #textcontent-pb div.add.inkOnProof,
 #textcontent-pb .metamark.inkOnProof,
+#textcontent-pb .metamark.inkOnNotepadKK,
 #textcontent-pb .subst.inkOnTypescript .add,
+#textcontent-pb .subst.inkOnNotepad .add,
 #textcontent-pb .subst.inkOnTypescriptKK .add,
 #textcontent-pb .subst.inkOnTypescriptKK2 .add,
 #textcontent-pb .restore.inkOnTypescript .add,
