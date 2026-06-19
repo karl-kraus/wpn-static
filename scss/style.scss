@@ -1912,7 +1912,8 @@ span.warning {
 
 #textcontent-pb .seg.border,
 #textcontent-pb .seg.border>.quotes>.longQuote>span,
-#textcontent-pb .mod.border.inkOnProofKK {
+#textcontent-pb .mod.border.inkOnProofKK,
+#textcontent-pb .seg.border>.lg>.l {
   background-image: linear-gradient(#e5e5e5, #e5e5e5);
   background-repeat: no-repeat;
   background-size: calc(100% - 1px) 1em;
