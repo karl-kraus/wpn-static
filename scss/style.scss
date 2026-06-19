@@ -1740,6 +1740,13 @@ span.warning {
     text-indent: initial;
 }
 
+.pageNumRight4 {
+    left: 90%;
+    top: 1.5rem;
+    text-indent: initial;
+}
+
+
 .pageNumLeft {
     left: 11%;
     top: 3em;
@@ -2696,7 +2703,7 @@ pencil text color
 #textcontent-pb .add.redOnProofKK,
 #textcontent-pb .metamark.redOnProofKK,
 #textcontent-pb .note.redBallpointOnNotepadLibrary {
-  color: $fackel-red;
+  color: $wpn-red;
 }
 
 #textcontent-pb div.del.inkOnProofKK,
