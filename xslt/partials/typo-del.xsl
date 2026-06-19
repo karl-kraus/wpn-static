@@ -132,7 +132,7 @@
                     <xsl:apply-templates/>
                 </span>
             </xsl:when>
-         <xsl:when test="$rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
+            <xsl:when test="$rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
                 <del class="del {replace((@change)[1], '#', '')}">
                     <xsl:attribute name="data-anchor">
                         <xsl:value-of select="@xml:id"/>
@@ -152,7 +152,7 @@
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="child::tei:*">
-                        <del id="{@xml:id}" class="del entity {replace((@change)[1], '#', '')}">
+                        <del id="{@xml:id}" class="del entity {replace((@change)[1], '#', '')}" data-hand="{replace((@change)[1], '#', '')}">
                             <xsl:if test="$target!='false'">
                                 <xsl:attribute name="data-target">
                                     <xsl:value-of select="$target"/>
@@ -179,7 +179,7 @@
                     <xsl:otherwise>
                         <xsl:choose>
                             <xsl:when test="count(node())=1 and text()=' ' and not(@resp)">
-                                <del id="{@xml:id}" class="entity {replace((@change)[1], '#', '')}">
+                                <del id="{@xml:id}" class="entity {replace((@change)[1], '#', '')}" data-hand="{replace((@change)[1], '#', '')}">
                                     <xsl:if test="$target!='false'">
                                         <xsl:attribute name="data-target">
                                             <xsl:value-of select="$target"/>
@@ -205,7 +205,7 @@
                             </xsl:when>
                             <xsl:otherwise>
                                 <!-- new (no whitespace handling): -->
-                                    <del id="{@xml:id}" class="entity  {replace((@change)[1], '#', '')}">
+                                    <del id="{@xml:id}" class="entity  {replace((@change)[1], '#', '')}" data-hand="{replace((@change)[1], '#', '')}">
                                         <xsl:if test="$target!='false'">
                                             <xsl:attribute name="data-target">
                                                 <xsl:value-of select="$target"/>
