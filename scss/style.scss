@@ -1919,8 +1919,8 @@ span.warning {
 #textcontent-pb .seg.border,
 #textcontent-pb .seg.border>.quotes>.longQuote>span,
 #textcontent-pb .mod.border.inkOnProofKK,
-#textcontent-pb .seg.border>.lg>.l {
-  background-image: linear-gradient(#e5e5e5, #e5e5e5);
+#textcontent-pb .seg.border .lg .l {
+  background: linear-gradient(#e5e5e5, #e5e5e5) !important; /* otherwise back to -image and treat the lg/l differently */
   background-repeat: no-repeat;
   background-size: calc(100% - 1px) 1em;
   background-position: 0.5px 60%;
