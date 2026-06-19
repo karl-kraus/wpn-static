@@ -1951,7 +1951,7 @@ span.warning {
 }
 
 /* large segs crossed out */
-#textcontent-pb .seg.noPrint.crossedOut {
+#textcontent-pb .seg.marked.crossedOut {
   display: block;
   background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgb(102, 102, 102), transparent calc(50% + 0.5px));
 }
@@ -2345,7 +2345,8 @@ handling del elments based on change type
 #textcontent-pb .restore.pencilOnProofKK .metamark del,
 #textcontent-pb .metamark .restore.pencilOnProofKK del,
 #textcontent-pb .metamark .del.pencilOnProofKK del,
-#textcontent-pb .mod.pencilOnProofKK
+#textcontent-pb .mod.pencilOnProofKK,
+#textcontent-pb .del.pencilOnNotepadKK del,
 {
   text-decoration-color: #666666;
 }
