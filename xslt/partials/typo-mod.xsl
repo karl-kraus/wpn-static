@@ -158,6 +158,16 @@
         	<xsl:apply-templates/>
         </span>
     </xsl:template>
+
+	<xsl:template match="tei:mod[@rendition=('#inkLongQuoteVerseIndent') and not(@n)]">
+        <span id="{@xml:id}" class="mod entity no-indent position-relative {@style} {replace(@change, '#', '')}">
+            <span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">
+                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>[&#160;</xsl:text></span>
+            </span>		
+        	<xsl:apply-templates/>
+        </span>
+    </xsl:template>
+	
 	 <xsl:template match="tei:mod[@rendition=('#runningText1') and @n and not(parent::tei:p[@rendition='#runningText2'])]">
         <span id="{@xml:id}" class="mod entity running-text-1 no-indent position-relative {replace(@change, '#', '')}">
             <span class="mod-inline {replace(@change, '#', '')}">
