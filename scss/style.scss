@@ -2799,7 +2799,8 @@ pencil text color
 }
 
 #textcontent-pb .metamark.linespace,
-#textcontent-pb .metamark.linespace2 {
+#textcontent-pb .metamark.linespace2,
+#textcontent-pb .metamark.linespace3 {
   position: relative;
 }
 
@@ -2815,6 +2816,13 @@ pencil text color
   content: "–––";
   top: 0.5rem;
   left: -20.5rem;
+}
+
+#textcontent-pb .metamark.linespace3::after  {
+  position: absolute;
+  content: "–––";
+  top: -0.5rem;
+  left: -0.5rem;
 }
 
 #textcontent-pb .longQuoteVerseStart {
