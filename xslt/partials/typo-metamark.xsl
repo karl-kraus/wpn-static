@@ -489,6 +489,9 @@
                     <xsl:when test="@rend='lineSpace2'">
                         <span id="{@xml:id}" class="metamark linespace2 entity {replace(@change, '#', '')}" data-anchor="{@xml:id} {replace(@target, '#', '')}" data-hand="{replace(@change, '#', '')}"/>
                     </xsl:when>
+                     <xsl:when test="@rend='lineSpace3'">
+                        <span id="{@xml:id}" class="metamark linespace3 entity {replace(@change, '#', '')}" data-anchor="{@xml:id} {replace(@target, '#', '')}" data-hand="{replace(@change, '#', '')}"/>
+                    </xsl:when>
                     <xsl:when test="@rend='inlineRight'">
                         <span id="{@xml:id}" class="metamark {@rend} {@style} {replace(@change, '#', '')}" data-anchor="{@xml:id} {replace(@target, '#', '')}" data-hand="{replace(@change, '#', '')}">
                             <xsl:apply-templates/>
