@@ -61,6 +61,9 @@
             <xsl:when test="@rend='lineSpace2'">
                 <span id="{@xml:id}" class="metamark linespace2 entity {replace(@change, '#', '')}" data-anchor="{@xml:id} {replace(@target, '#', '')}" data-hand="{replace(@change, '#', '')}"/>
             </xsl:when>
+             <xsl:when test="@rend='lineSpace3'">
+                <span id="{@xml:id}" class="metamark linespace3 entity {replace(@change, '#', '')}" data-anchor="{@xml:id} {replace(@target, '#', '')}" data-hand="{replace(@change, '#', '')}"/>
+            </xsl:when>
              <xsl:otherwise>        
                  <span id="{@xml:id}" class="metamark entity mm-inline {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
                     <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
