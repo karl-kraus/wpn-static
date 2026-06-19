@@ -1136,8 +1136,8 @@ span.warning {
 }
 
 .print-page.witnessNote1 {
-  $height: 21cm;
-  width: 14.2cm;
+  $height: 10.3cm;
+  width: 18.1cm;
   height: $height;
   margin: 0 auto;
   border: 1px solid #f2f2f2;
@@ -2188,6 +2188,7 @@ span.warning {
 #textcontent-pb .note.inkOnProofKK,
 #textcontent-pb .metamark.inkOnProofKK,
 #textcontent-pb .fw.inkOnProofKK,
+#textcontent-pb .fw.inkOnNotepadKK,
 #textcontent-pb .fw.pencilOnTypescriptKK,
 #textcontent-pb div.del.inkOnProofKK,
 #textcontent-pb .del.above.inkOnProofKK,
@@ -2260,6 +2261,7 @@ span.warning {
 #textcontent-pb .note.pencilOnProof,
 #textcontent-pb .note.pencilOnProofLibrary,
 #textcontent-pb .note.redBallpointOnNotepadLibrary,
+#textcontent-pb .fw.redBallpointOnNotepadLibrary,
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb div.del.pencilOnTypescript,
@@ -2702,7 +2704,8 @@ pencil text color
 #textcontent-pb .restore.redOnProofKK .add,
 #textcontent-pb .add.redOnProofKK,
 #textcontent-pb .metamark.redOnProofKK,
-#textcontent-pb .note.redBallpointOnNotepadLibrary {
+#textcontent-pb .note.redBallpointOnNotepadLibrary,
+#textcontent-pb .fw.redBallpointOnNotepadLibrary {
   color: $wpn-red;
 }
 
