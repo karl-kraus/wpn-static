@@ -85,8 +85,8 @@
     <xsl:template match="tei:seg[@type='transposition' and @subtype='implicit']">
        <xsl:apply-templates/>
     </xsl:template>
-    <xsl:template match="tei:seg[@type='noPrint' and @rend]">
-         <span class="seg noPrint {@rend}" data-anchor="{@xml:id}">
+    <xsl:template match="tei:seg[@type='marked' and @rend]">
+         <span class="seg marked {@rend}" data-anchor="{@xml:id}">
               <xsl:apply-templates/>
          </span>
     </xsl:template>
