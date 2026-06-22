@@ -1,7 +1,7 @@
 import { getHighlightedParts } from "instantsearch.js/es/lib/utils";
 import TypesenseInstantSearchAdapter from "typesense-instantsearch-adapter";
 
-const project_collection_name = "walpurgisnacht";
+const project_collection_name = "walpurgisnacht_umschrift";
 const typesenseInstantsearchAdapter: TypesenseInstantSearchAdapter =
 	new TypesenseInstantSearchAdapter({
 		server: {
@@ -69,10 +69,10 @@ search.addWidgets([
 		container: "#stats-container",
 		templates: {
 			text(data, { html }) {
-				let hitsTerm = data.hasManyResults ? "Absätzen" : "Absatz";
+				let hitsTerm = data.hasManyResults ? "Absätzen und Notizen" : "Absatz oder Notiz";
 				let message = "";
 				if (data.query === "*") {
-					message = `${data.nbHits} Absätze gefunden`;
+					message = `${data.nbHits} Absätzen und Notizen gefunden`;
 				} else {
 					message = data.hasNoResults
 						? "Suchbegriff nicht gefunden"
