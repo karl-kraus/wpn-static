@@ -24,7 +24,7 @@
             <xsl:map-entry key="'commentindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'eventindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry','wpn-timeline','timeline-helpers')"/>
             <xsl:map-entry key="'suche.xml'" select="('wpn-header','wpn-detail-view','init-typesense')"/>
-            <xsl:map-entry key="'suche_umschrift.xml'" select="('wpn-header','wpn-detail-view','init-typesense-typo')"/>
+            <xsl:map-entry key="'suche_umschrift.xml'" select="('wpn-header','wpn-detail-view','init-typo-typesense')"/>
             <xsl:for-each select="collection('../../data/editions?select=wit-*.xml')">
                 <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','wpn-page-view','wpn-entity', 'wpn-hf-height', 'wpn-typo-connections', 'wpn-typo-utils')"/>
             </xsl:for-each>
@@ -47,7 +47,7 @@
             <xsl:variable name="script_src" select="json-doc('../../manifest.json')?*[matches(?file,current())]?file"/>
             <script src="{'js/wpn_utils/'||$script_src}">
                 <xsl:choose>
-                    <xsl:when test="contains($script_src,'init-micro-editor') or contains($script_src,'wpn-typo-utils') or contains($script_src,'wpn-timeline') or contains($script_src, 'init-typesense') or contains($script_src, 'wpn-scans')">
+                    <xsl:when test="contains($script_src,'init-micro-editor') or contains($script_src,'wpn-typo-utils') or contains($script_src,'wpn-timeline') or contains($script_src, 'init-typesense') or contains($script_src, 'init-typo-typesense') or contains($script_src, 'wpn-scans')">
                         <xsl:attribute name="type">module</xsl:attribute>
                     </xsl:when>
                     <xsl:otherwise>

@@ -64,7 +64,7 @@ for x in tqdm(files, total=len(files)):
         "project": "WPN Static-Site Umschrift",
     }
     record = {}
-    record["id"] = pb.attrib["{http://www.w3.org/XML/1998/namespace}id"]
+    record["id"] = pb.attrib["{http://www.w3.org/XML/1998/namespace}id"] + ".html"
     cfts_record["id"] = record["id"]
     cfts_record["resolver"] = {record['id']}
     record["rec_id"] = record["id"]
