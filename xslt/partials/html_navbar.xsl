@@ -51,7 +51,7 @@
                             </form>
                         </xsl:if>
                         <xsl:if test="$include_searchbox_typo">
-                            <form method="get" action="suche_umschrift.html?walpurgisnacht_umschrift%5Bquery%5D" role="search">
+                            <form method="get" action="suche-umschrift.html?walpurgisnacht_umschrift%5Bquery%5D" role="search">
                                 <input type="text" name="walpurgisnacht_umschrift[query]" class="rounded-0 form-control border-top-0 border-start-0 border-end-0 border-bottom"></input>
                             </form>
                         </xsl:if>

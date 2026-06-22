@@ -69,10 +69,10 @@ search.addWidgets([
 		container: "#stats-container",
 		templates: {
 			text(data, { html }) {
-				let hitsTerm = data.hasManyResults ? "Absätzen und Notizen" : "Absatz oder Notiz";
+				let hitsTerm = data.hasManyResults ? "Seiten" : "Seite";
 				let message = "";
 				if (data.query === "*") {
-					message = `${data.nbHits} Absätzen und Notizen gefunden`;
+					message = `${data.nbHits} Seiten gefunden`;
 				} else {
 					message = data.hasNoResults
 						? "Suchbegriff nicht gefunden"
