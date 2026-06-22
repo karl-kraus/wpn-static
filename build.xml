@@ -121,7 +121,7 @@
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
         <delete file="${target}/suche_umschrift.html"/>
-        <xslt in="./data/meta/suche.xml" out="${target}/suche_umschrift.html" style="./xslt/search.xsl">
+        <xslt in="./data/meta/suche_umschrift.xml" out="${target}/suche-umschrift.html" style="./xslt/search.xsl">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
