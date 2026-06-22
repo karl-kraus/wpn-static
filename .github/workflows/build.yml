@@ -84,6 +84,7 @@ jobs:
     - name: Build Typesense Index
       run: |
         uv run ./py/make_ts_index.py
+        uv run ./py/make_ts_index_typo.py
     - name: deploy report
       if: github.event.inputs.run_dev == 'false' || contains(github.event.head_commit.message, '[run tests]')
       uses: peaceiris/actions-gh-pages@v4
