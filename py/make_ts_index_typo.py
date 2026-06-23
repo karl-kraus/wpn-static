@@ -56,7 +56,10 @@ def get_entities(ent_type, ent_node, ent_name):
 
 records = []
 cfts_records = []
-for x in tqdm(files, total=len(files)):
+count = 0
+for x in tqdm(sorted(files, key=lambda x: os.path.basename(x)), total=len(files)):
+    if os.path.basename(x) == "wit-DffH-0266_a.xml":
+        continue
     doc = TeiReader(x)
     pb = doc.any_xpath(".//tei:pb")[0]
     body = doc.any_xpath(".//tei:body")
@@ -64,12 +67,16 @@ for x in tqdm(files, total=len(files)):
         "project": "WPN Static-Site Umschrift",
     }
     record = {}
-    record["id"] = pb.attrib["{http://www.w3.org/XML/1998/namespace}id"] + ".html"
+    rec_id = os.path.basename(x).split(".")[0]
+    record["id"] = f"{rec_id}.html"
     cfts_record["id"] = record["id"]
     cfts_record["resolver"] = {record['id']}
     record["rec_id"] = record["id"]
     cfts_record["rec_id"] = record["rec_id"]
-    r_title = " ".join(doc.any_xpath('.//tei:titleStmt/tei:title[@type="main"]//text()'))
+    # regex to remove non-digit characters
+    page_no = int("".join(filter(str.isdigit, rec_id.split("-")[-1])))
+    page_str = str("".join(filter(str.isalpha, rec_id.split("-")[-1])))
+    r_title = f"Seite {page_no}{page_str} – {' '.join(doc.any_xpath('.//tei:titleStmt/tei:title//text()'))}"
     print(r_title)
     record["title"] = f"{r_title}"
     cfts_record["title"] = record["title"]
@@ -80,13 +87,15 @@ for x in tqdm(files, total=len(files)):
     record["persons"] = get_entities(
         ent_type=ent_type, ent_node=ent_node, ent_name=ent_name
     )'''
-    record["order"] = int("".join(filter(str.isdigit, record["id"].split("-")[-1])))  # replace non digit characters with empty string
+    # record["order"] = int("".join(filter(str.isdigit, record["id"].split("-")[-1])))  # replace non digit characters with empty string
+    record["order"] = int(count)
     # cfts_record["persons"] = record["persons"]
     record["full_text"] = extract_fulltext(body[0])
     if len(record["full_text"]) > 0:
         records.append(record)
         cfts_record["full_text"] = record["full_text"]
         cfts_records.append(cfts_record)
+        count += 1
 
 
 with open(f"./data/{schema_name}.json", "w") as f:
