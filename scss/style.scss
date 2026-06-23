@@ -3641,10 +3641,12 @@ body.modal-open, body.modal-open main {
 
 #textcontent-pb .seg.border.connection-color span.d-block.lg:not(:has(~ span.d-block.lg)) {
     border-radius: 0 0 4px 4px;
+    background: rgb(162, 26, 23) !important;
 }
 
 #textcontent-pb .seg.border.connection-color .d-block.lg:first-of-type {
     border-radius: 4px 4px 0 0;
+    background: rgb(162, 26, 23) !important;
 }
 
 .connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
