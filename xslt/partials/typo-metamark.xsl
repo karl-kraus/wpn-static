@@ -297,6 +297,10 @@
          </xsl:choose>
      </xsl:template>
 
+    <xsl:template match="tei:metamark[@function='modification' and @rend='lineSpace3']">
+        <span id="{@xml:id}" class="metamark linespace3 entity {replace(@change, '#', '')}" data-anchor="{@xml:id} {replace(@target, '#', '')}" data-hand="{replace(@change, '#', '')}"/>
+    </xsl:template>
+    
     <xsl:template match="tei:metamark[@function='modification']">
        <span id="{@xml:id}" class="metamark entity {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"/>
     </xsl:template>
@@ -524,7 +528,7 @@
                     </xsl:when>
                     <xsl:when test="@rend='none'">
                     </xsl:when>
-                    <xsl:when test="@rend='inline' and ./text()">
+                    <xsl:when test="@rend='inline' and .//text()">
                         <span id="{@xml:id}" class="metamark entity {replace(@change, '#', '')}" data-anchor="{@xml:id}">
                             <xsl:if test="@target">
                                 <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
