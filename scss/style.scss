@@ -3629,11 +3629,11 @@ body.modal-open, body.modal-open main {
   border-radius: 4px;
 }
 
-// .connection-color-inline {
-//   text-shadow: none !important;
-//   color: $wpn-fackel !important;
-//   text-decoration-color: $wpn-fackel !important;
-// }
+#textcontent-pb .seg.border.connection-color {
+    background: rgb(162, 26, 23) !important;
+    color: white !important;
+    border-radius: 4px;
+}
 
 .connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   width: 0.833rem;
