@@ -2748,6 +2748,7 @@ pencil text color
   color: $wpn-red;
 }
 
+/* black ink */
 #textcontent-pb div.del.inkOnProofKK,
 #textcontent-pb .subst.inkOnProofKK .add,
 #textcontent-pb .subst.inkOnProofUndefined .add,
@@ -2771,7 +2772,8 @@ pencil text color
 #textcontent-pb .add.inkOnTypescriptKK2,
 #textcontent-pb .note.inkOnProofKK,
 #textcontent-pb .note.inkOnTypescriptKK,
-#textcontent-pb .note.inkOnTypescriptKK2 {
+#textcontent-pb .note.inkOnTypescriptKK2,
+#textcontent-pb .inkOnNotepadKK [class*="inkLongQuote"],{
   color: #000;
 }
 
