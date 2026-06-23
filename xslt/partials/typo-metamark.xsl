@@ -297,12 +297,12 @@
          </xsl:choose>
      </xsl:template>
 
-    <xsl:template match="tei:metamark[@function='modification' and @rend='lineSpace3']">
-        <span id="{@xml:id}" class="metamark linespace3 entity {replace(@change, '#', '')}" data-anchor="{@xml:id} {replace(@target, '#', '')}" data-hand="{replace(@change, '#', '')}"/>
-    </xsl:template>
-    
     <xsl:template match="tei:metamark[@function='modification']">
        <span id="{@xml:id}" class="metamark entity {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"/>
+    </xsl:template>
+
+    <xsl:template match="tei:metamark[@function='modification' and @rend='lineSpace3']">
+        <span id="{@xml:id}" class="metamark linespace3 entity {replace(@change, '#', '')}" data-anchor="{@xml:id} {replace(@target, '#', '')}" data-hand="{replace(@change, '#', '')}"/>
     </xsl:template>
     
      <!-- margin container elements -->
