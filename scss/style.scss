@@ -3633,7 +3633,8 @@ body.modal-open, body.modal-open main {
   border-radius: 4px;
 }
 
-#textcontent-pb .seg.border.connection-color {
+#textcontent-pb .seg.border.connection-color,
+#textcontent-pb .seg.border.connection-color .metamark {
     background: rgb(162, 26, 23) !important;
     color: white !important;
     border-radius: 4px;
