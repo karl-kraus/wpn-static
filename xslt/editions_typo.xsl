@@ -63,7 +63,6 @@
             <body id="main_grid">
                 <xsl:call-template name="nav_bar">
                     <xsl:with-param name="logo_small" select="true()"/>
-                    <xsl:with-param name="include_searchbox_typo" select="true()"/>
                     <xsl:with-param name="container" select="'container-fluid mx-1 edition-header'"/>
                 </xsl:call-template>
                 <main class="flex-shrink-0 mt-18">

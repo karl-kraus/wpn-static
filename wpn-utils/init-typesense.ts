@@ -1,11 +1,13 @@
 import { getHighlightedParts } from "instantsearch.js/es/lib/utils";
 import TypesenseInstantSearchAdapter from "typesense-instantsearch-adapter";
 
-const project_collection_name = "walpurgisnacht";
+// const project_collection_name = "walpurgisnacht";
+const project_collection_name = "walpurgisnacht_umschrift";
 const typesenseInstantsearchAdapter: TypesenseInstantSearchAdapter =
 	new TypesenseInstantSearchAdapter({
 		server: {
-			apiKey: "TFtQIIj2VbL8TOZNWfofQLToZnS65VmI", // Be sure to use an API key that only allows searches, in production
+			// apiKey: "TFtQIIj2VbL8TOZNWfofQLToZnS65VmI", // production
+			apiKey: "04V32leaXXNbWLRc9eIxgu2FmxbeH7R8", // development
 			nodes: [
 				{
 					host: "typesense.acdh-dev.oeaw.ac.at",
@@ -65,14 +67,40 @@ search.addWidgets([
 		},
 	}),
 
+	instantsearch.widgets.refinementList({
+		container: "#refinement-list-witness",
+		attribute: "witness",
+		templates: {
+            item(item: any, { html }: any) {
+                const textColor = item.isRefined ? 'wpn-red' : 'wpn-black-grey';
+                const className = `text-decoration-none cursor-pointer search-facets-fs ${textColor}`;
+				var parts = "Seiten";
+				if (item.label.includes("Karl Kraus 1933")) {
+					var parts = "Absätze"
+				}
+                return html`
+                    <span class=${className} data-value=${item.value}>
+                        ${item.label} (${item.count} ${parts})
+                    </span>
+                `;
+            },
+        },
+		cssClasses: {
+			list: "list-unstyled",
+			item: "d-flex align-items-center gap-2",
+			label: "d-flex align-items-center gap-2",
+			checkbox: "d-none",
+		},
+	}),
+
 	instantsearch.widgets.stats({
 		container: "#stats-container",
 		templates: {
 			text(data, { html }) {
-				let hitsTerm = data.hasManyResults ? "Absätzen" : "Absatz";
+				let hitsTerm = data.hasManyResults ? "Treffer" : "Treffer";
 				let message = "";
 				if (data.query === "*") {
-					message = `${data.nbHits} Absätze gefunden`;
+					message = `${data.nbHits} Treffer gefunden`;
 				} else {
 					message = data.hasNoResults
 						? "Suchbegriff nicht gefunden"
