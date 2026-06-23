@@ -159,7 +159,7 @@
         </span>
     </xsl:template>
 
-	<xsl:template match="tei:mod[@rendition=('#inkLongQuoteVerseIndent') and not(@n)]">
+	<xsl:template match="tei:mod[@rendition=('#inkLongQuoteLineGroup') and not(@n)]">
         <span id="{@xml:id}" class="mod entity no-indent position-relative {@style} {replace(@change, '#', '')}">
 			<span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">			
 				<xsl:choose>
