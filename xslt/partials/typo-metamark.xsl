@@ -44,6 +44,35 @@
             </div>
         </div>
      </xsl:template>
+
+    <xsl:template match="tei:metamark[@function='order'][@rend]">
+        <xsl:choose>
+            <xsl:when test="@rend='inline'">
+                <span id="{@xml:id}" class="metamark order mm-inline entity {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                   <xsl:apply-templates/>
+                </span>
+            </xsl:when>
+            <xsl:when test="@rend='right'">
+                <span id="{@xml:id}" class="metamark order mm-inline right entity {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                   <xsl:apply-templates/>
+                </span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span id="{@xml:id}" class="metamark order mm-inline entity {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
+                </span>
+            </xsl:otherwise>
+        </xsl:choose>
+    
+     </xsl:template>
+     <!-- margin container elements -->
+     <xsl:template match="tei:metamark[@function='order']" mode="render">
+        <div class="d-flex metamark order w-100 position-relative {replace(@change,'#','')}" data-xmlid="{@xml:id}">
+            <div class="w-100">
+                <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="{@rend}"><xsl:apply-templates/></span>
+            </div>
+        </div>
+     </xsl:template>
+    
      <xsl:template match="tei:metamark[@function='relocation'][@change='#edACE']"/>
     <xsl:template match="tei:metamark[@function='insertion'][@change='#edACE']"/>
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@place]">
