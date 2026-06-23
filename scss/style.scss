@@ -1640,6 +1640,12 @@ span.warning {
     text-indent: initial;
 }
 
+.bottomRight6 {
+    left: 20em;
+    bottom: 4em;
+    text-indent: initial;
+}
+
 .bottomUpperRight1 {
     left: 11em;
     bottom: 8em;
@@ -1856,6 +1862,11 @@ span.warning {
   top: 30%;
 }
 
+.marginUpperRight2 {
+  left: 70%;
+  top: 30%;
+}
+
 .marginUppermostRight {
   right: 1.5%;
   top: 10%;
@@ -1935,7 +1946,7 @@ span.warning {
 #textcontent-pb .seg.border,
 #textcontent-pb .seg.border>.quotes>.longQuote>span,
 #textcontent-pb .mod.border.inkOnProofKK,
-#textcontent-pb .seg.border .lg .l {
+#textcontent-pb .seg.border .lg {
   background: linear-gradient(#e5e5e5, #e5e5e5) !important; /* otherwise back to -image and treat the lg/l differently */
   background-repeat: no-repeat;
   background-size: calc(100% - 1px) 1em;
@@ -2226,6 +2237,7 @@ span.warning {
 #textcontent-pb .metamark.pencilOnTypescriptKK2,
 #textcontent-pb .metamark.pencilOnTypescriptKK1,
 #textcontent-pb .metamark.pencilOnTypescriptKK,
+#textcontent-pb .metamark.pencilOnNotepadKK,
 #textcontent-pb div.del.pencilOnProofKK,
 #textcontent-pb div.mod.pencilOnProofKK,
 #textcontent-pb .mod.pencilOnProofKK .pencilOnProofKK,
@@ -2686,6 +2698,7 @@ handling del elements in maring left or right
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb .metamark.pencilOnProof2,
 #textcontent-pb .metamark.pencilOnTypescriptKK,
+#textcontent-pb .metamark.pencilOnNotepadKK,
 #textcontent-pb .metamark.undefined,
 #textcontent-pb .add.inkOnProof .add.pencilOnProof
 {
@@ -3645,7 +3658,8 @@ body.modal-open, body.modal-open main {
   border-radius: 4px;
 }
 
-#textcontent-pb .seg.border.connection-color {
+#textcontent-pb .seg.border.connection-color,
+#textcontent-pb .seg.border.connection-color .metamark {
     background: rgb(162, 26, 23) !important;
     color: white !important;
     border-radius: 4px;
@@ -3655,12 +3669,13 @@ body.modal-open, body.modal-open main {
     background: transparent !important;
 }
 
-#textcontent-pb .seg.border.connection-color span.d-block.lg:not(:has(~ span.d-block.lg)) {
+#textcontent-pb .seg.border.connection-color span.d-block.lg:not(:has(~ span.d-block.lg)){
     border-radius: 0 0 4px 4px;
     background: rgb(162, 26, 23) !important;
 }
 
-#textcontent-pb .seg.border.connection-color .d-block.lg:first-of-type {
+#textcontent-pb .seg.border.connection-color .d-block.lg:first-of-type,
+#textcontent-pb .seg.border.connection-color span.del del span.d-block.lg:first-of-type {
     border-radius: 4px 4px 0 0;
     background: rgb(162, 26, 23) !important;
 }
