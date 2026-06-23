@@ -1929,7 +1929,7 @@ span.warning {
 #textcontent-pb .seg.border,
 #textcontent-pb .seg.border>.quotes>.longQuote>span,
 #textcontent-pb .mod.border.inkOnProofKK,
-#textcontent-pb .seg.border .lg .l {
+#textcontent-pb .seg.border .lg {
   background: linear-gradient(#e5e5e5, #e5e5e5) !important; /* otherwise back to -image and treat the lg/l differently */
   background-repeat: no-repeat;
   background-size: calc(100% - 1px) 1em;
