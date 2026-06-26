@@ -322,8 +322,8 @@
     <xsl:template match="tei:quote">
         <xsl:variable name="anchor">
             <xsl:choose>
-                <xsl:when test="ancestor::tei:note">
-                    <xsl:text> </xsl:text><xsl:value-of select="ancestor::tei:note/@xml:id"/>
+                <xsl:when test="ancestor::tei:note[@place or @rendition]">
+                    <xsl:text> </xsl:text><xsl:value-of select="ancestor::tei:note[@place or @rendition]/@xml:id"/>
                 </xsl:when>
                 <xsl:when test="ancestor::tei:add">
                     <xsl:text> </xsl:text><xsl:value-of select="ancestor::tei:add/@xml:id"/>
