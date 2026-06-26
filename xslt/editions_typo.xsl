@@ -703,7 +703,7 @@
             )
             else()"/>
         <xsl:variable name="inheritIDfromNote" select="
-            if(ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])])
+            if(ancestor::tei:note[@place or @rendition and not(preceding::tei:pb[contains(@n, '_')])])
             then(ancestor::tei:note/@xml:id)
             else()"/>
         <span class="unclear">
