@@ -3678,11 +3678,13 @@ body.modal-open, body.modal-open main {
     color: white;
 }
 
-#textcontent-pb .seg.border.connection-color .d-block.lg {
+#textcontent-pb .seg.border.connection-color .d-block.lg,
+#textcontent-pb .seg.border .restore.connection-color .d-block.lg {
     background: $wpn-red !important;
 }
 
-#textcontent-pb .seg.border.connection-color .lg .l {
+#textcontent-pb .seg.border.connection-color .lg .l,
+#textcontent-pb .seg.border .restore.connection-color .d-block.lg .l {
     background: transparent !important;
 }
 
@@ -3697,7 +3699,11 @@ body.modal-open, body.modal-open main {
     background:$wpn-red !important;
 }
 
-.connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
+#textcontent-pb .restore.pencilOnNotepadKK.connection-color .del:has(.lg) {
+  text-decoration-color: white !important;
+}
+
+#textcontent-pb .connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   width: 0.833rem;
   height: 0.7rem;
   display: block;
