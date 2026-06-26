@@ -209,6 +209,11 @@
                      </span>
                  </span>
              </xsl:when>
+
+             <xsl:when test="@rend='left' and not(@rendition)">
+                <span class="metamark left {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:apply-templates/></span>
+            </xsl:when>
+             
              <xsl:otherwise>
                 <span id="{@xml:id}" class="metamark entity {replace(@change,'#','')}" data-hand="{replace(@change,'#','')}">
                     <xsl:attribute name="data-anchor">
