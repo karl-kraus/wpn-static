@@ -496,9 +496,14 @@
             <!-- <xsl:attribute name="data-hand">
                 <xsl:value-of select="replace(@change,'#','')"/>
             </xsl:attribute> -->
-            <xsl:attribute name="data-anchor">
-                <xsl:value-of select="@xml:id"/>
-            </xsl:attribute>
+
+			<!-- added test to avoid note highlighting when it contains a whole insert page (like 123_a) -->
+            <xsl:if test="@rendition or @place">
+			    <xsl:attribute name="data-anchor">
+			        <xsl:value-of select="@xml:id"/>
+			    </xsl:attribute>
+			</xsl:if>
+			
             <xsl:apply-templates/>
         </span>
     </xsl:template>
