@@ -20,24 +20,27 @@
                 </xsl:call-template>
             </head>
             <body class="d-flex flex-column h-100">
-                <xsl:call-template name="nav_bar"/>
-                    <main>
-                        <div class="container">
-                            <h1>
-                                <xsl:value-of select="$doc_title"/>
-                            </h1>
-                            <div id="searchbox" class="my-2 mx-auto"></div>
-                            <div class="d-flex gap-2 flex-wrap">
-                                <div id="pagination" class="align-self-center"></div>
-                                <div class="text-center align-self-center" id="stats-container"></div>
-                            </div>
-                            <div id="hits"></div>
+                <xsl:call-template name="nav_bar">
+                    <xsl:with-param name="include_searchbox" select="false()"/>
+                </xsl:call-template>
+                <main>
+                    <div class="container">
+                        <h1>
+                            <xsl:value-of select="$doc_title"/>
+                        </h1>
+                        <div id="searchbox" class="my-2 mx-auto"></div>
+                        <div id="refinement-list-witness" class="my-2"></div>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <div id="pagination" class="align-self-center"></div>
+                            <div class="text-center align-self-center" id="stats-container"></div>
                         </div>
-                    </main>
-                    <xsl:call-template name="html_footer"/>
-                    <script src="js/vendor/typesense/typesense-instantsearch-adapter.min.js" type="text/javascript"></script>
-                    <script src="js/vendor/instantsearch/instantsearch.production.min.js" type="text/javascript"></script>
-                    <xsl:call-template name="scripts"/>
+                        <div id="hits"></div>
+                    </div>
+                </main>
+                <xsl:call-template name="html_footer"/>
+                <script src="js/vendor/typesense/typesense-instantsearch-adapter.min.js" type="text/javascript"></script>
+                <script src="js/vendor/instantsearch/instantsearch.production.min.js" type="text/javascript"></script>
+                <xsl:call-template name="scripts"/>
             </body>
         </html>
     </xsl:template>

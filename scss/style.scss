@@ -94,6 +94,22 @@
   src: url(../fonts/CrimsonText-Regular.woff2) format('woff2');
 }
 
+.wpn-red-svg {
+  fill: $wpn-red;
+}
+
+.wpn-red {
+  color: $wpn-red;
+}
+
+.wpn-black-grey {
+  color: $wpn-black-grey;
+}
+
+.search-facets-fs {
+  font-size: 0.8rem;
+}
+
 .facsimile-source{
   font-size: 0.8rem;
   font-family: "Ubuntu";
@@ -682,6 +698,7 @@ span.warning {
 #textcontent-pb .typescriptLongQuoteVerse,
 #textcontent-pb .typescriptLongQuoteTitle,
 #textcontent-pb .typescriptRunningText1,
+#textcontent-pb .typescriptRunningText2,
 #textcontent-pb .typescriptPageNum,
 #textcontent-pb .typescriptLongQuoteVerseLeading,
 #textcontent-pb .typescriptLongQuoteLeading,
@@ -1136,8 +1153,8 @@ span.warning {
 }
 
 .print-page.witnessNote1 {
-  $height: 21cm;
-  width: 14.2cm;
+  $height: 18.1cm;
+  width: 10.3cm;
   height: $height;
   margin: 0 auto;
   border: 1px solid #f2f2f2;
@@ -1209,6 +1226,25 @@ span.warning {
 
   .print-header.witnessTypescript3,
   .print-footer.witnessTypescript3 {
+    position: relative;
+  }
+}
+
+.print-page.witnessTypescript4 {
+  width: 22.3cm;
+  height: 28.8cm;
+  margin: 0 auto;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .print-body.witnessTypescript4 {
+    display: grid;
+    grid-template-columns: calc(100% * 0.154) auto calc(100% * 0.154);
+    gap: 0;
+  }
+
+  .print-header.witnessTypescript4,
+  .print-footer.witnessTypescript4 {
     position: relative;
   }
 }
@@ -1345,7 +1381,7 @@ span.warning {
 }
 
 .topUpperLeft5 {
-    top: 7em;
+    top: 8em;
     left: 11em;
     text-indent: initial;
 }
@@ -1624,6 +1660,12 @@ span.warning {
     text-indent: initial;
 }
 
+.bottomRight6 {
+    left: 20em;
+    bottom: 4em;
+    text-indent: initial;
+}
+
 .bottomUpperRight1 {
     left: 11em;
     bottom: 8em;
@@ -1740,6 +1782,19 @@ span.warning {
     text-indent: initial;
 }
 
+.pageNumRight5 {
+    left: 65%;
+    top: 1.5rem;
+    text-indent: initial;
+}
+
+.pageNumRight4 {
+    left: 90%;
+    top: 1.5rem;
+    text-indent: initial;
+}
+
+
 .pageNumLeft {
     left: 11%;
     top: 3em;
@@ -1833,6 +1888,11 @@ span.warning {
   top: 30%;
 }
 
+.marginUpperRight2 {
+  left: 80%;
+  top: 30%;
+}
+
 .marginUppermostRight {
   right: 1.5%;
   top: 10%;
@@ -1851,6 +1911,22 @@ span.warning {
 .marginMiddleRight {
   top: 53.2%;
   right: 1.5%;
+}
+
+.marginMiddleRight2 {
+  top: 45%;
+  right: 1.5%;
+}
+
+.centerBelow {
+  position: absolute;
+    left: 20%;
+    top: 60%;
+}
+
+.centerBelow2 {
+    left: 17.5%;
+    top: 74%;
 }
 
 #textcontent-pb .underline {
@@ -1905,14 +1981,25 @@ span.warning {
 
 #textcontent-pb .seg.border,
 #textcontent-pb .seg.border>.quotes>.longQuote>span,
-#textcontent-pb .mod.border.inkOnProofKK {
-  background-image: linear-gradient(lightgrey, lightgrey);
+#textcontent-pb .mod.border.inkOnProofKK,
+#textcontent-pb .seg.border .lg {
+  background: linear-gradient(#e5e5e5, #e5e5e5) !important; /* otherwise back to -image and treat the lg/l differently */
   background-repeat: no-repeat;
   background-size: calc(100% - 1px) 1em;
   background-position: 0.5px 60%;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   border: none !important;
+}
+
+#textcontent-pb .seg.border .seg.border {
+    background-image: linear-gradient(#b1b1b1, #b1b1b1);
+    background-repeat: no-repeat;
+    background-size: calc(100% - 1px) 1em;
+    background-position: 0.5px 60%;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    border: none !important;
 }
 
 #textcontent-pb .seg.border:not(:has(br)),
@@ -1923,7 +2010,7 @@ span.warning {
 
 .border-crossed-out,
 #textcontent-pb .restore>.seg.border {
-    background-image: repeating-linear-gradient(330deg, white, white 3px, lightgrey 3px, lightgrey 6px);
+    background-image: repeating-linear-gradient(330deg, white, white 3px, #e5e5e5 3px, #e5e5e5 6px);
     border: none;
     background-repeat: no-repeat;
     background-size: calc(100% - 1px) 1.05em;
@@ -1934,7 +2021,7 @@ span.warning {
 }
 
 /* large segs crossed out */
-#textcontent-pb .seg.noPrint.crossedOut {
+#textcontent-pb .seg.marked.crossedOut {
   display: block;
   background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgb(102, 102, 102), transparent calc(50% + 0.5px));
 }
@@ -1967,7 +2054,7 @@ span.warning {
 }
 
 #legende-pb .pencilOnProofKK.inkOnProofKK {
-  text-shadow: 1px 2px lightgrey;
+  text-shadow: 1px 2px #c9c9c9;
   color: #000;
   font-size: var(--legende-font-size);
 }
@@ -2003,7 +2090,7 @@ span.warning {
 }
 
 #legende-pb .bluePencilOnProof {
-  color: #5050C2;
+  color: #5A5AE4;
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
   font-size: var(--legende-font-size);
 }
@@ -2062,18 +2149,20 @@ span.warning {
 #legende-pb .add.overwrite {
   bottom: 1px;
   left: -1px !important;
+  background: #ffffffd9;
 }
 
 #legende-pb .subst:has(>.add.overwrite)>.del:not(.erased),
 #legende-pb .subst:has(>.add.overwrite)>del{
-  color: #dddddd;
+  /* color: #dddddd; */
   text-decoration: none !important;
 }
 
 #legende-pb .subst:has(>.add.overwrite)>.del.erased {
-  color: #dddddd;
   text-decoration: line-through;
-  text-decoration-color: #dddddd;
+  /* color: #dddddd;
+  text-decoration: line-through;
+  text-decoration-color: #dddddd; */
 }
 
 #legende-pb .metamark.printSpanFrom.redOnProof.entity { 
@@ -2147,6 +2236,8 @@ span.warning {
 
 
 // handwritten text
+
+#textcontent-pb .inkOnNotepadKK [class*="inkLongQuote"],
 #textcontent-pb .inkOnProofKK .inkLongQuote,
 #textcontent-pb .inkOnProofKK .inkLongQuoteVerse,
 #textcontent-pb .subst.inkOnProofKK .add,
@@ -2165,8 +2256,10 @@ span.warning {
 #textcontent-pb .add.pencilOnTypescriptKK1,
 #textcontent-pb .add.pencilOnTypescriptKK2,
 #textcontent-pb .note.inkOnProofKK,
+#textcontent-pb .note.inkOnNotepadKK,
 #textcontent-pb .metamark.inkOnProofKK,
 #textcontent-pb .fw.inkOnProofKK,
+#textcontent-pb .fw.inkOnNotepadKK,
 #textcontent-pb .fw.pencilOnTypescriptKK,
 #textcontent-pb div.del.inkOnProofKK,
 #textcontent-pb .del.above.inkOnProofKK,
@@ -2175,10 +2268,12 @@ span.warning {
 #textcontent-pb .note.pencilOnTypescriptKK,
 #textcontent-pb .note.pencilOnTypescriptKK1,
 #textcontent-pb .note.pencilOnTypescriptKK2,
+#textcontent-pb .metamark.inkOnNotepadKK,
 #textcontent-pb .metamark.pencilOnProofKK,
 #textcontent-pb .metamark.pencilOnTypescriptKK2,
 #textcontent-pb .metamark.pencilOnTypescriptKK1,
 #textcontent-pb .metamark.pencilOnTypescriptKK,
+#textcontent-pb .metamark.pencilOnNotepadKK,
 #textcontent-pb div.del.pencilOnProofKK,
 #textcontent-pb div.mod.pencilOnProofKK,
 #textcontent-pb .mod.pencilOnProofKK .pencilOnProofKK,
@@ -2228,6 +2323,7 @@ span.warning {
 #textcontent-pb .subst.pencilOnTypescript .add,
 #textcontent-pb .subst.pencilOnTypescript2 .add, 
 #textcontent-pb .subst.pencilOnProof .add,
+#textcontent-pb .subst.pencilOnTypescript1 .add,
 #textcontent-pb .restore.pencilOnTypescript .add,
 #textcontent-pb .restore.pencilOnProof .add,
 #textcontent-pb .add.pencilOnTypescript,
@@ -2236,6 +2332,8 @@ span.warning {
 #textcontent-pb .note.pencilOnTypescript,
 #textcontent-pb .note.pencilOnProof,
 #textcontent-pb .note.pencilOnProofLibrary,
+#textcontent-pb .note.redBallpointOnNotepadLibrary,
+#textcontent-pb .fw.redBallpointOnNotepadLibrary,
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb div.del.pencilOnTypescript,
@@ -2243,6 +2341,7 @@ span.warning {
 #textcontent-pb div.mod.pencilOnTypescript,
 #textcontent-pb div.mod.pencilOnProof,
 #textcontent-pb .add .blueInkOnProof,
+#textcontent-pb .del.blueInkOnProof .blueInkOnProof,
 #textcontent-pb .bluePencilOnProof,
 #textcontent-pb .seg .seg.entity.seg-inline .pencilOnTypescript {
   font-size: 0.667rem;
@@ -2263,12 +2362,14 @@ handling del elments based on change type
 #textcontent-pb .subst.pencilOnProof>del,
 #textcontent-pb .subst.undefined .del del,
 #textcontent-pb .subst.pencilOnTypescript .del del,
+#textcontent-pb .subst.pencilOnTypescript2>del.del,
 #textcontent-pb .subst.pencilOnProof .del del,
 #textcontent-pb .subst.pencilOnTypescriptKK2 del,
 #textcontent-pb .subst.pencilOnTypescriptKK1 del,
-#textcontent-pb .subst.pencilOnTypescriptKK del,
+#textcontent-pb .subst.pencilOnTypescriptKK > del,
 #textcontent-pb .subst del.pencilOnTypescriptKK2,
-#textcontent-pb .pencilOnTypescriptKK2>del,
+/* Faust */ #textcontent-pb .pencilOnTypescriptKK2>del,
+/* Faust p 230 */ #textcontent-pb span.pencilOnTypescriptKK1>del:not([class*="escript"]),
 #textcontent-pb .underline.pencilOnProof,
 #textcontent-pb .underline.pencilOnTypescriptKK2,
 #textcontent-pb .restore.pencilOnTypescript .del,
@@ -2287,6 +2388,7 @@ handling del elments based on change type
 #textcontent-pb .restore.undefined .mod span,
 #textcontent-pb .restore.pencilOnTypescript .metamark del,
 #textcontent-pb .restore.pencilOnProof .metamark del,
+#textcontent-pb .restore.pencilOnNotepadKK .del.text-decoration-underline-dotted,
 #textcontent-pb .restore.undefined .metamark del,
 #textcontent-pb .metamark .restore.pencilOnTypescript del,
 #textcontent-pb .metamark .restore.pencilOnProof del,
@@ -2308,6 +2410,7 @@ handling del elments based on change type
 #textcontent-pb .del.pencilOnProof del,
 #textcontent-pb .add.inkOnProofKK del.pencilOnProofKK,
 #textcontent-pb .pencilOnProofKK>del,
+#textcontent-pb .pencilOnProof>del,
 #textcontent-pb .restore.pencilOnProofKK .del,
 #textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .restore.pencilOnProofKK .add del,
@@ -2315,8 +2418,15 @@ handling del elments based on change type
 #textcontent-pb .restore.pencilOnProofKK .metamark del,
 #textcontent-pb .metamark .restore.pencilOnProofKK del,
 #textcontent-pb .metamark .del.pencilOnProofKK del,
-#textcontent-pb .mod.pencilOnProofKK {
+#textcontent-pb .mod.pencilOnProofKK,
+#textcontent-pb .del.pencilOnNotepadKK del,
+{
   text-decoration-color: #666666;
+}
+
+#textcontent-pb .del.eraser2>del,
+#textcontent-pb .del.eraser>del {
+  text-decoration-color: #dddddd;
 }
 
 #textcontent-pb .subst.redOnProof .del del,
@@ -2336,6 +2446,7 @@ handling del elments based on change type
 #textcontent-pb .inkOnProofKK.subst>del,
 #textcontent-pb .inkOnProof.subst>del,
 #textcontent-pb .del.inkOnProofKK del,
+#textcontent-pb del.inkOnProofKK,
 #textcontent-pb del.inkOnTypescriptKK,
 #textcontent-pb del.inkOnTypescriptKK2,
 #textcontent-pb .restore.inkOnProofKK .add,
@@ -2353,8 +2464,17 @@ handling del elments based on change type
 #textcontent-pb .restore.inkOnProof del,
 #textcontent-pb .restore.inkOnTypescript del,
 #textcontent-pb .subst.inkOnTypescript del,
-#textcontent-pb .subst.inkOnTypescriptKK2 del {
+#textcontent-pb .subst.inkOnTypescriptKK2 > del,
+/* Faust p 232 */ #textcontent-pb .restore.inkOnTypescriptKK>.subst.pencilOnTypescriptKK del.add {
   text-decoration-color: #000;
+}
+
+#textcontent-pb .del.blueInkOnProof del {
+  text-decoration-color: #3333A2;
+}
+
+#textcontent-pb .del.blueInkOnProof del {
+  text-decoration-color: #3333A2;
 }
 
 /* overwritten erased del */
@@ -2365,27 +2485,59 @@ handling del elments based on change type
 
 /* erased del in overwritten note lighter line through, lighter grey */
 #textcontent-pb .note .del.erased del,
-#textcontent-pb .subst.eraser del {
+#textcontent-pb .subst.eraser del,
+#textcontent-pb .subst .erased.del {
   text-decoration-color: #dddddd;
-  color: #dddddd;
+  /* color: #dddddd; */
 }
+
+/* Faust p 229 dotted underline in grey */
+#textcontent-pb .restore.eraser .text-decoration-underline-dotted {
+  text-decoration: underline dotted #dddddd;
+}
+
 
 /* double line through for double change values */
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del,
 #textcontent-pb .subst.inkOnProof.pencilOnProof del,
 #textcontent-pb .inkOnProofKK.del.pencilOnProofKK del.entity,
+#textcontent-pb .inkOnProofKK.del.pencilOnProofKK.entity,
 #textcontent-pb .inkOnProofKK.pencilOnProofKK.del.entity del,
+#textcontent-pb .subst.inkOnProofKK > del.del > .del.pencilOnProof,
+#textcontent-pb .subst:not(:is(.pencilOnProofKK, .inkOnProofKK)) > .inkOnProofKK.pencilOnProofKK.del > del, /* p 183 */
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.del,
-/* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del,
-/* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del {
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del, 
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK .del.inkOnTypescriptKK del, 
+/* Konvolut_Faust p 229 */ #textcontent-pb del.del.pencilOnTypescriptKK2.inkOnTypescriptKK2, 
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del,
+/* Konvolut_Faust p 229 */ #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.del,
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK),
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK2 > del:has(>.subst.pencilOnTypescriptKK2 > del),
+/* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del),
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK del.del .subst.pencilOnTypescriptKK .del {
   position: relative;          
   display: inline;
   text-indent: initial;
 }
 
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del .del del.pencilOnTypescriptKK,
+/* Konvolut Faust p 232 */ #textcontent-pb .restore.inkOnTypescriptKK .subst.pencilOnTypescriptKK .del span {
+  text-decoration: line-through #666666;
+}
+
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del,
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK2 > del:has(> .subst.pencilOnTypescriptKK2 > del),
+/* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del),
+/* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del) .subst del.add.overwrite {
+  text-decoration: line-through #FFFFFF00;
+}
+
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del::before,
 #textcontent-pb .subst.inkOnProof.pencilOnProof del::before,
+#textcontent-pb .inkOnProofKK.del.pencilOnProofKK.entity::before,
 #textcontent-pb .inkOnProofKK.del.pencilOnProofKK del.entity::before,
+#textcontent-pb .subst.inkOnProofKK > del.del > .del.pencilOnProof::before,
+#textcontent-pb .subst:not(:is(.pencilOnProofKK, .inkOnProofKK)) > .inkOnProofKK.pencilOnProofKK.del > del::before, /* p 183 */
 #textcontent-pb .inkOnProofKK.pencilOnProofKK.del.entity del::before {
   content: "";
   position: absolute;
@@ -2399,8 +2551,15 @@ handling del elments based on change type
 }
 
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.del::before,
+/* Konvolut_Faust p 229 */ #textcontent-pb del.del.pencilOnTypescriptKK2.inkOnTypescriptKK2::before, 
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del::before,
-/* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del::before {
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del::before,
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK .del.inkOnTypescriptKK del::before, 
+/* Konvolut_Faust p 229 */ #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.del::before,
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK)::before,
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK2 > del:has(>.subst.pencilOnTypescriptKK2 > del)::before,
+/* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del)::before,
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK del.del .subst.pencilOnTypescriptKK .del::before {
   content: "";
   position: absolute;
   left: 0;
@@ -2410,12 +2569,15 @@ handling del elments based on change type
   top: 53%;
   transform: translateY(1px);
   pointer-events: none;
+  z-index: 5;
 }
+
 
 /* single line through, when only ink layer is deleted, e.g., p. 108, 90 */
 
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK:not(:is(.pencilOnProofKK))>del,
 #textcontent-pb del.restore.inkOnProofKK .inkOnProofKK.pencilOnProofKK,
+#textcontent-pb .del.inkOnProofKK.pencilOnProofKK del:is([class*='margin']).inkOnProofKK:not(:is(.pencilOnProofKK)),
 #textcontent-pb .restore.inkOnProofKK .add.inkOnProofKK.pencilOnProofKK>del,
 #textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del,
 #textcontent-pb .add.pencilOnProofKK.inkOnProofKK del.inkOnProofKK:not(:is(.pencilOnProofKK)) {
@@ -2426,6 +2588,7 @@ handling del elments based on change type
 
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK:not(:is(.pencilOnProofKK))>del::after,
 #textcontent-pb del.restore.inkOnProofKK .inkOnProofKK.pencilOnProofKK::after,
+#textcontent-pb .del.inkOnProofKK.pencilOnProofKK del:is([class*='margin']).inkOnProofKK:not(:is(.pencilOnProofKK))::after,
 #textcontent-pb .restore.inkOnProofKK .add.inkOnProofKK.pencilOnProofKK>del::after,
 #textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del::after,
 #textcontent-pb .add.pencilOnProofKK.inkOnProofKK del.inkOnProofKK:not(:is(.pencilOnProofKK))::after {
@@ -2460,10 +2623,13 @@ handling del elments based on change type
     left: 1px;
 }
 
-/* Konvolut_Faust p 1 - removing line through from add in del */
+/* Konvolut Faust p 229 - removing line through from add in del */
 #textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.add.above,
 #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.add.above,
-#textcontent-pb .del.pencilOnTypescriptKK2  del.add.above.inkOnTypescriptKK1 {
+#textcontent-pb .del.pencilOnTypescriptKK2  del.add.above.inkOnTypescriptKK1,
+#textcontent-pb span.restore.eraser del  .position-relative .add.above.inkOnTypescriptKK1,
+#textcontent-pb .subst.inkOnTypescriptKK del:has(.restore.inkOnTypescriptKK)
+{
   text-decoration: none; 
 }
 
@@ -2552,9 +2718,10 @@ handling del elements in maring left or right
 #textcontent-pb .subst.pencilOnTypescript .add,
 #textcontent-pb .subst.pencilOnProof .add,
 #textcontent-pb .subst.undefined .add,
-#textcontent-pb .subst.pencilOnTypescript .add,
+#textcontent-pb .subst.pencilOnTypescript1 .add,
 #textcontent-pb .subst.pencilOnTypescriptKK1 .add,
 #textcontent-pb .subst.pencilOnTypescriptKK .add,
+#textcontent-pb .subst.inkOnTypescriptKK .subst.pencilOnTypescriptKK .add,
 #textcontent-pb .subst.pencilOnProof .add,
 #textcontent-pb .subst.undefined .add,
 #textcontent-pb .restore .pencilOnTypescript.add,
@@ -2568,6 +2735,7 @@ handling del elements in maring left or right
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb .metamark.pencilOnProof2,
 #textcontent-pb .metamark.pencilOnTypescriptKK,
+#textcontent-pb .metamark.pencilOnNotepadKK,
 #textcontent-pb .metamark.undefined,
 #textcontent-pb .add.inkOnProof .add.pencilOnProof
 {
@@ -2579,6 +2747,7 @@ pencil text color
 */
 #textcontent-pb div.del.pencilOnProofKK,
 #textcontent-pb .subst.pencilOnProofKK .add,
+#textcontent-pb .subst.pencilOnTypescript2 .add,
 #textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .add.pencilOnProofKK,
 #textcontent-pb .metamark.pencilOnProofKK,
@@ -2586,8 +2755,10 @@ pencil text color
 #textcontent-pb .fw.pencilOnTypescriptKK,
 #textcontent-pb .add.pencilOnTypescriptKK,
 #textcontent-pb .add.pencilOnTypescriptKK1,
+#textcontent-pb .add.pencilOnTypescript2,
 #textcontent-pb .add.pencilOnTypescriptKK2,
 #textcontent-pb .subst.pencilOnTypescriptKK2 .add,
+#textcontent-pb .subst.inkOnTypescriptKK2 del .subst.pencilOnTypescriptKK2 .add,
 #textcontent-pb .fw.pencilOnProof,
 #textcontent-pb .note.pencilOnProofKK,
 #textcontent-pb .note.pencilOnTypescriptKK,
@@ -2607,10 +2778,13 @@ pencil text color
 #textcontent-pb .subst.redOnProofKK .add,
 #textcontent-pb .restore.redOnProofKK .add,
 #textcontent-pb .add.redOnProofKK,
-#textcontent-pb .metamark.redOnProofKK  {
+#textcontent-pb .metamark.redOnProofKK,
+#textcontent-pb .note.redBallpointOnNotepadLibrary,
+#textcontent-pb .fw.redBallpointOnNotepadLibrary {
   color: $wpn-red;
 }
 
+/* black ink */
 #textcontent-pb div.del.inkOnProofKK,
 #textcontent-pb .subst.inkOnProofKK .add,
 #textcontent-pb .subst.inkOnProofUndefined .add,
@@ -2623,7 +2797,9 @@ pencil text color
 #textcontent-pb .add.inkOnProof,
 #textcontent-pb div.add.inkOnProof,
 #textcontent-pb .metamark.inkOnProof,
+#textcontent-pb .metamark.inkOnNotepadKK,
 #textcontent-pb .subst.inkOnTypescript .add,
+#textcontent-pb .subst.inkOnNotepad .add,
 #textcontent-pb .subst.inkOnTypescriptKK .add,
 #textcontent-pb .subst.inkOnTypescriptKK2 .add,
 #textcontent-pb .restore.inkOnTypescript .add,
@@ -2632,7 +2808,8 @@ pencil text color
 #textcontent-pb .add.inkOnTypescriptKK2,
 #textcontent-pb .note.inkOnProofKK,
 #textcontent-pb .note.inkOnTypescriptKK,
-#textcontent-pb .note.inkOnTypescriptKK2 {
+#textcontent-pb .note.inkOnTypescriptKK2,
+#textcontent-pb .inkOnNotepadKK [class*="inkLongQuote"],{
   color: #000;
 }
 
@@ -2649,12 +2826,12 @@ pencil text color
   color: #303030;
 }
 
-#textcontent-pb .blueInkOnProof {
+#textcontent-pb div.del.blueInkOnProof {
   color: #3333A2;
 }
 
 #textcontent-pb .bluePencilOnProof {
-  color: #5050C2;
+  color: #5A5AE4;
 }
 
 #textcontent-pb .pencilOnProofKK.inkOnProofKK.add,
@@ -2668,12 +2845,13 @@ pencil text color
 #textcontent-pb .inkOnProofKK.pencilOnProofKK .inkLongQuoteVerse,
 #textcontent-pb .inkOnProofKK.pencilOnProofKK.mod .inkOnProofKK.pencilOnProofKK,
 #textcontent-pb .mod.inkOnProofKK.pencilOnProofKK,
+#textcontent-pb .mod.inkOnProofKK.pencilOnProofKK .mod-inline,
 #textcontent-pb .mod.marginLeft.pencilOnProofKK.inkOnProofKK,
 #textcontent-pb .metamark.inkOnProofKK.pencilOnProofKK,
 #textcontent-pb .metamark.inkOnTypescriptKK2.pencilOnTypescriptKK2,
 #textcontent-pb .mod.inkOnProofKK.pencilOnProofKK:is([class*='margin']),
 #textcontent-pb .del.above.inkOnProofKK.pencilOnProofKK:has(>.arimo) {
-  text-shadow: 2px 3px lightgrey;
+  text-shadow: 2px 3px #c9c9c9;
   color: #000;
 }
 
@@ -2697,7 +2875,8 @@ pencil text color
 }
 
 #textcontent-pb .metamark.linespace,
-#textcontent-pb .metamark.linespace2 {
+#textcontent-pb .metamark.linespace2,
+#textcontent-pb .metamark.linespace3 {
   position: relative;
 }
 
@@ -2713,6 +2892,13 @@ pencil text color
   content: "–––";
   top: 0.5rem;
   left: -20.5rem;
+}
+
+#textcontent-pb .metamark.linespace3::after  {
+  position: absolute;
+  content: "–––";
+  top: -0.5rem;
+  left: -0.5rem;
 }
 
 #textcontent-pb .longQuoteVerseStart {
@@ -2883,6 +3069,12 @@ pencil text color
   right: -6em;
 }
 
+.rightAbove2 {
+  position: absolute;
+  top: -8pt;
+  left: 6em;
+}
+
 .rightFurtherBelow {
   position: absolute;
   top: 16pt;
@@ -2932,7 +3124,8 @@ pencil text color
 
 /* single added line below (p 119, 259, etc) */
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(.below, .leftBelow) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(.below, .leftBelow),
+#textcontent-pb span.l .position-relative:has(.below) {
   line-height: 1.5rem;
   vertical-align: top;
 }
@@ -2964,6 +3157,12 @@ pencil text color
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative>:is(.below, .leftBelow):not(:has(.below, .leftBelow)):has(br) {
   position: absolute;
   bottom: -1.125rem;
+}
+
+/* two line subst/add below in marginInnerRightBelow */
+#textcontent-pb span.marginInnerRightBelow .subst .add.below:has(br) {
+  position: absolute;
+  bottom: -1.5rem;
 }
 
 /* double added line below */
@@ -3075,11 +3274,12 @@ pencil text color
   vertical-align: bottom;
 }
 
-#textcontent-pb span.note span.position-relative .above.subst,
-#textcontent-pb span.note span.position-relative .above.add {
+
+#textcontent-pb span.note:not([class*='typew']) span.position-relative .above.subst,
+#textcontent-pb span.note:not([class*='typew']) span.position-relative .above.add {
   position: absolute;
   top: -4pt;
-}
+} /* added restriction to remove this style from typewritten notes */
 
 
 /* uncomment and test when all new attr values are available in Gesamt.xml */
@@ -3110,6 +3310,13 @@ div.position-relative .marginOutermostRightOnly {
   text-align: left;
 }
 
+div.position-relative .marginOutermostRightBelow {
+  position: absolute;
+  left: 80%;
+  top: 1rem;
+  text-align: left;
+}
+
 div.position-relative .marginOuterRightBelow,
 div.position-relative .marginOuterRightBelowOnly {
   position: absolute;
@@ -3137,7 +3344,7 @@ div.position-relative .marginInnerRightBelow,
 div.position-relative .marginInnerRightBelowOnly {
   position: absolute;
   left: 5%;
-  top: 1rem;
+  top: 0.75rem;
   text-align: left;
 }
 
@@ -3313,6 +3520,10 @@ div.position-relative .marginLeftFurtherBelowOnly {
   margin-right: 1rem;
 }
 
+#textcontent-pb .fw.inkOnNotepadKK {
+  text-decoration: underline;
+}
+
 #textcontent-pb .metamark.inkFont.left {
   text-decoration: underline;
   margin-left: -2rem;
@@ -3382,8 +3593,20 @@ wpn-time-line {
 }
 
 #textcontent-pb .subst .add.overwrite {
-  font-size: inherit !important;
+  /* font-size: inherit !important; */
   line-height: inherit;
+  background-image: linear-gradient(to bottom, white 0%, white 100%);
+  border-right: 1px solid grey;
+  border-bottom: 1px solid black;
+  border-radius: 4px;
+}
+
+#textcontent-pb .subst:is([class*="KK"]) .add.overwrite {
+  padding-right: 2px;
+}
+
+#textcontent-pb span:is([class*='typescriptLong'], [class*='typescriptRunning'], [class*='typewriter']) .subst .add.overwrite {
+  font-size: inherit !important;
 }
 
 #textcontent-pb .add.overwrite:hover {
@@ -3391,16 +3614,17 @@ wpn-time-line {
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del {
-  color: #dddddd !important;
+  /* color: #7d7d7d !important; */
+  z-index: -1;
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del.erased {
   text-decoration: line-through;
-  text-decoration-color: #dddddd !important;
+  text-decoration-color: #dddddd;
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del .add {
-  color: #dddddd !important;
+  /* color: #dddddd !important; */
 }
 
 #textcontent-pb .subst:has(>.overwrite) {
@@ -3447,21 +3671,69 @@ body.modal-open, body.modal-open main {
 }
 
 .connection-color {
-  text-shadow: $wpn-red 0 0 4px !important;
+  /* text-shadow: $wpn-red 0 0 4px !important; */
+  background-color: $wpn-red !important;
+  color: white !important;
+  border-radius: 4px;
+}
+
+.connection-color::after {
+  color: $wpn-red !important;
+}
+
+.subst.connection-color .add.overwrite {
+  /* text-shadow: $wpn-red 0 0 4px !important; */
+  background-color: $wpn-red !important;
+  color: white !important;
+  background-image: none !important;
+  border-radius: 4px;
 }
 
 /* hightlight note and all sub elements except sub elements containing class noHightlight */
 .note.connection-color *:not(.noHighlight) {
-  text-shadow: $wpn-red 0 0 4px !important;
+  /* text-shadow: $wpn-red 0 0 4px !important; */
+  background-color: $wpn-red !important;
+  color: white !important;
+  border-radius: 4px;
 }
 
-// .connection-color-inline {
-//   text-shadow: none !important;
-//   color: $wpn-fackel !important;
-//   text-decoration-color: $wpn-fackel !important;
-// }
+#textcontent-pb .seg.border.connection-color,
+#textcontent-pb .seg.border.connection-color .metamark {
+    background: $wpn-red !important;
+    color: white !important;
+    border-radius: 4px;
+}
 
-.connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
+#textcontent-pb .seg.border.connection-color .lg .l {
+    color: white;
+}
+
+#textcontent-pb .seg.border.connection-color .d-block.lg,
+#textcontent-pb .seg.border .restore.connection-color .d-block.lg {
+    background: $wpn-red !important;
+}
+
+#textcontent-pb .seg.border.connection-color .lg .l,
+#textcontent-pb .seg.border .restore.connection-color .d-block.lg .l {
+    background: transparent !important;
+}
+
+#textcontent-pb .seg.border.connection-color span.d-block.lg:not(:has(~ span.d-block.lg)){
+    border-radius: 0 0 4px 4px;
+    background: $wpn-red !important;
+}
+
+#textcontent-pb .seg.border.connection-color .d-block.lg:first-of-type,
+#textcontent-pb .seg.border.connection-color span.del del span.d-block.lg:first-of-type {
+    border-radius: 4px 4px 0 0;
+    background:$wpn-red !important;
+}
+
+#textcontent-pb .restore.pencilOnNotepadKK.connection-color .del:has(.lg) {
+  text-decoration-color: white !important;
+}
+
+#textcontent-pb .connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   width: 0.833rem;
   height: 0.7rem;
   display: block;
@@ -3552,6 +3824,7 @@ body.modal-open, body.modal-open main {
 }
 
 .metamark.printSpanTo.active.inline.pencilOnProof2.connection-color-line,
+.metamark.printSpanTo.active.inline.pencilOnTypescript2.connection-color-line,
 .metamark.printSpanFrom.active.inline.pencilOnProof2.connection-color-line {
   background: rgba(102, 102, 102, 0.7);
 }

@@ -6,7 +6,7 @@
     <xsl:import href="nav-link.xsl"/>
     <xsl:template match="/" name="nav_bar">
         <xsl:param name="logo_small" as="xs:boolean" select="true()"/>
-        <xsl:param name="include_searchbox" as="xs:boolean" select="false()"/>
+        <xsl:param name="include_searchbox" as="xs:boolean" select="true()"/>
         <xsl:param name="container" select="'container'"/>
         <wpn-header class="fixed-top bg-white pe-0">
             <nav id="primary_nav" class="navbar border-bottom {if ($logo_small = true()) then 'pt-05' else ()}">
@@ -45,9 +45,16 @@
                     </a>
                     <span class="d-flex align-items-center gap-2">
                         <xsl:if test="$include_searchbox">
-                            <form method="get" action="suche.html?walpurgisnacht%5Bquery%5D" role="search">
-                                <input type="text" name="walpurgisnacht[query]" class="rounded-0 form-control border-top-0 border-start-0 border-end-0 border-bottom"></input>
-                            </form>
+                        <!-- switch from walpurgisnacht_umschrift to walpurgisnacht in production -->
+                        <form class="position-relative" method="get" action="suche.html?walpurgisnacht_umschrift%5Bquery%5D" role="search">
+                            <input type="text" name="walpurgisnacht_umschrift[query]" class="rounded-0 form-control border-top-0 border-start-0 border-end-0 border-bottom"></input>
+                            <button class="btn position-absolute top-50 end-0 translate-middle-y wpn-red-svg" type="submit">
+                                <span class="visually-hidden">Suche starten</span>
+                                <svg width="15" height="15" viewBox="0 0 40 40" aria-hidden="true">
+                                <path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path>
+                                </svg>
+                            </button>
+                        </form>
                         </xsl:if>
                         <a class="nav-link project-link pe-4 link-dark-grey text-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a>
                         

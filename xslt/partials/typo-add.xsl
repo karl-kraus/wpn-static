@@ -63,7 +63,7 @@
             <xsl:when test="$rend = 'lineExt'">
                 <span class="add {$rend} {highlight}" data-anchor="{@xml:id} {preceding-sibling::tei:del[1]/@xml:id} {following-sibling::tei:del[1]/@xml:id}"><xsl:apply-templates/></span> <!-- added "inline" class esp. for para 64  -->
             </xsl:when>
-            <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove', 'left')">
+            <xsl:when test="$rend=('below', 'furtherBelow', 'above', 'leftBelow', 'rightBelow', 'rightFurtherBelow', 'leftAbove', 'rightAbove', 'rightAbove2','left')">
                 <span class="position-relative">
                     <xsl:variable name="el">
                         <xsl:choose>
@@ -86,7 +86,7 @@
                 </span>
             </xsl:when>
             <xsl:when test="$rend='overwritten'">
-                <span class="add overwrite position-absolute start-0{if(ancestor::tei:note[not(contains(@change, 'typewriter'))] and not(ancestor::tei:add[contains(@change, 'typewriter')]))then(' top-0 bottom-0')else()} {replace(@change[1], '#', '')} {highlight}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
+                <span class="add overwrite position-absolute start-0{if(ancestor::tei:note[not(contains(@change, 'typewriter'))] and not(ancestor::tei:add[contains(@change, 'typewriter')]))then(' top-0 bottom-0')else()} {replace(@change[1], '#', '')} {highlight}" data-anchor="{@xml:id}" data-hand="{replace(@change[1], '#', '')}"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:when test="not($rend)">
                 <span id="{@xml:id}" class="add entity {highlight}" data-anchor="{@xml:id}">
@@ -108,7 +108,7 @@
         <xsl:variable name="change" select="@change"/>
         <xsl:variable name="tohighlight" select="if($note-change = $change)then('highlight')else('noHighlight')"/>
         <xsl:variable name="highlight" select="if(ancestor::tei:note)then($tohighlight)else('')"/>
-        <xsl:variable name="inheritIDfromNote" select="if(ancestor::tei:note[@xml:id and not(preceding::tei:pb[contains(@n, '_')])])then(ancestor::tei:note/@xml:id)else()"/>
+        <xsl:variable name="inheritIDfromNote" select="if(ancestor::tei:note[@place or @rendition][@xml:id and not(preceding::tei:pb[contains(@n, '_')])])then(ancestor::tei:note/@xml:id)else()"/>
         <xsl:choose>
             <xsl:when test="@rend='inline' or @rend='lineExt'">
                 <span id="{@xml:id}" class="add {@rend} {highlight} entity {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}"> <!-- added "inline" class esp. for para 64  -->
@@ -254,7 +254,18 @@
     <xsl:template match="tei:add[@rend|parent::tei:subst[@rend]|ancestor::tei:subst[@rend]]" mode="render">
         <!-- potentially remove change but check with Bernhard-->
         <xsl:variable name="change" select="if(parent::tei:subst[@change])then(parent::tei:subst/@change)else if(ancestor::tei:subst[@change])then(ancestor::tei:subst/@change)else(@change)"/>
-        <xsl:variable name="containerID" select="if(parent::tei:subst)then(if(preceding-sibling::tei:del[1][@xml:id])then(preceding-sibling::tei:del[1]/@xml:id)else(following-sibling::tei:del[1]/@xml:id))else if(ancestor::tei:subst)then(if(preceding-sibling::tei:del[1][@xml:id])then(preceding-sibling::tei:del[1]/@xml:id)else(following-sibling::tei:del[1]/@xml:id))else(@xml:id)"/>
+        <xsl:variable name="containerID" select="
+            if(parent::tei:subst)
+            then(
+                if(preceding-sibling::tei:del[1][@xml:id])
+                then(concat(preceding-sibling::tei:del[1]/@xml:id, ' ', preceding-sibling::tei:del[1]/tei:restore/tei:subst/tei:del[1]/@xml:id))
+                else(concat(following-sibling::tei:del[1]/@xml:id, ' ', following-sibling::tei:del[1]/tei:restore/tei:subst/tei:del[1]/@xml:id)))
+            else if(ancestor::tei:subst)
+                then(
+                    if(preceding-sibling::tei:del[1][@xml:id])
+                    then(concat(preceding-sibling::tei:del[1]/@xml:id, ' ', preceding-sibling::tei:del[1]/tei:restore/tei:subst/tei:del[1]/@xml:id))
+                    else(concat(following-sibling::tei:del[1]/@xml:id, ' ', following-sibling::tei:del[1]/tei:restore/tei:subst/tei:del[1]/@xml:id)))
+                else(@xml:id)"/>
         <div data-xmlid="{@xml:id}" class="d-flex w-100 position-relative">
             <div class="add w-100 {replace($change[1],'#','')}">
                 <div class="w-100">
@@ -272,7 +283,7 @@
         <xsl:choose>
             <xsl:when test="parent::tei:subst[ancestor::tei:restore[not(./tei:seg)]]">
                 <xsl:variable name="restore-change" select="(ancestor::tei:restore/@change)[1]"/>
-                <del data-anchor="{$id}" data-hand="{replace($restore-change[1],'#','')}" class="{$rend} {replace($restore-change[1],'#','')}">
+                <del data-anchor="{$id}" data-hand="{replace($restore-change[1],'#','')}{if(ancestor::tei:restore[ancestor::tei:subst])then(replace(ancestor::tei:restore/ancestor::tei:subst/@change,'#',' '))else()}" class="{$rend} {replace($restore-change[1],'#','')}">
                     <xsl:if test="./tei:metamark[@target]">
                         <xsl:variable name="targetList" select="tokenize(./tei:metamark[@target]/@target, ' ')"/>
                         <xsl:attribute name="data-target">

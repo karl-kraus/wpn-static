@@ -3,7 +3,9 @@ import { glob } from 'glob';
 import path from 'path';
 
 
-const editionTypoFiles = await glob('html/wit-TFragment2-*.html');
+const editionTypoFiles = await glob('html/wit-*.html');
+// const editionTypoFilesT = await glob('html/wit-TFragment2*.html');
+// const combined_editionTypoFiles = editionTypoFiles.concat(editionTypoFilesT);
 
 const pathsToTest = editionTypoFiles.map(f => path.basename(f))
 
@@ -12,7 +14,7 @@ pathsToTest.forEach((path ) => {
   test(`testing edition page for ${path}`, async ({ page }) => {
     test.slow();
    await page.setViewportSize({ width: 1880, height: 1000 });
-    await page.goto(`http://localhost:8000/html/${path}`);
+    await page.goto(`http://localhost:8080/html/${path}`);
     const viewportWidth = page.viewportSize()?.width;
 		const mainElement = page.locator("main");
 		const textElemBox = await mainElement.boundingBox();
