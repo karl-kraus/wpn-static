@@ -3703,7 +3703,8 @@ body.modal-open, body.modal-open main {
 }
 
 #textcontent-pb .seg.border.connection-color,
-#textcontent-pb .seg.border.connection-color .metamark {
+#textcontent-pb .seg.border.connection-color .metamark,
+{
     background: $wpn-red !important;
     color: white !important;
     border-radius: 4px;
@@ -3723,13 +3724,15 @@ body.modal-open, body.modal-open main {
     background: transparent !important;
 }
 
-#textcontent-pb .seg.border.connection-color span.d-block.lg:not(:has(~ span.d-block.lg)){
+#textcontent-pb .seg.border.connection-color span.d-block.lg:not(:has(~ span.d-block.lg)),
+#textcontent-pb .restore.connection-color .del del span.d-block.lg:not(:has(~ span.d-block.lg)) {
     border-radius: 0 0 4px 4px;
     background: $wpn-red !important;
 }
 
 #textcontent-pb .seg.border.connection-color .d-block.lg:first-of-type,
-#textcontent-pb .seg.border.connection-color span.del del span.d-block.lg:first-of-type {
+#textcontent-pb .seg.border.connection-color span.del del span.d-block.lg:first-of-type,
+#textcontent-pb .restore.connection-color .del del span.d-block.lg:first-of-type {
     border-radius: 4px 4px 0 0;
     background:$wpn-red !important;
 }
