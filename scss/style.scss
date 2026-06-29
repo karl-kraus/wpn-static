@@ -2026,6 +2026,11 @@ span.warning {
   background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgb(102, 102, 102), transparent calc(50% + 0.5px));
 }
 
+#textcontent-pb .seg.marked.crossedOut.inkOnNotepadKK {
+  display: block;
+  background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), #000, transparent calc(50% + 0.5px));
+}
+
 .underline-crossed-out {
   background-image: url('../images/crossed_out_typewriter_black.png');
   background-repeat: repeat-x;
