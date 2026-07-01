@@ -3297,8 +3297,12 @@ pencil text color
   top: -4pt;
 } /* added restriction to remove this style from typewritten notes */
 
+#textcontent-pb.above.add:has(>.add.inline.typewriter) {
+  position: absolute;
+  top: -10pt;
+}
 
-/* uncomment and test when all new attr values are available in Gesamt.xml */
+
 
 div:has(> .lineRight), div:has(> .doubleLineRight)  {
   text-align: left;
