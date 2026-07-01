@@ -2495,6 +2495,11 @@ handling del elments based on change type
   text-decoration-color: #666666;
 }
 
+/* overwritten in larger del */
+#textcontent-pb .del del>.subst>.add.overwrite {
+text-decoration: line-through;
+}
+
 
 /* erased del in overwritten note lighter line through, lighter grey */
 #textcontent-pb .note .del.erased del,
