@@ -3691,6 +3691,10 @@ body.modal-open, body.modal-open main {
   color: $wpn-red !important;
 }
 
+#textcontent-pb [class*="margin"].connection-color .add.inline {
+  color: white !important;
+}
+
 .subst.connection-color .add.overwrite {
   /* text-shadow: $wpn-red 0 0 4px !important; */
   background-color: $wpn-red !important;
