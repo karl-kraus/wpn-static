@@ -1934,6 +1934,10 @@ span.warning {
   text-decoration: underline;
 }
 
+#textcontent-pb .mod.underline.pencilOnTypescriptKK {
+  text-decoration-color: #666666;
+}
+
 #textcontent-pb .underline .d-inline-block {
   text-decoration: inherit; /* lb last - issue: inline block didnt show text decoration */
 }
