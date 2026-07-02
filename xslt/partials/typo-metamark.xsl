@@ -191,7 +191,7 @@
      </xsl:template>
      <xsl:template match="tei:metamark[@function='printInstruction'][@rend]">
          <xsl:choose>
-             <xsl:when test="@rend='above'">
+             <xsl:when test="@rend='above' or 'below'">
                  <span class="position-relative">
                      <span class="metamark {@rend} {replace(@change,'#','')}" data-hand="{replace(@change,'#','')}">
                         <xsl:attribute name="data-anchor">
