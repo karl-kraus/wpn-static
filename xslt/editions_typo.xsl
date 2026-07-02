@@ -472,7 +472,13 @@
         <span class="anchor {replace((@change)[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace((@change)[1], '#', '')}"></span>
      </xsl:template>
     <xsl:template match="tei:restore">
-        <span class="restore {replace((@change)[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace((@change)[1], '#', '')}"><xsl:apply-templates/></span>
+		<xsl:choose>
+			<xsl:when test="./tei:mod[contains(@rendition, 'typescriptLongQuote')]">
+				<xsl:apply-templates/>
+			</xsl:when>
+			<xsl:otherwise>
+				<span class="restore {replace((@change)[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace((@change)[1], '#', '')}"><xsl:apply-templates/></span>
+			</xsl:otherwise>
     </xsl:template>
     <xsl:template match="tei:subst">
         <xsl:variable name="rend" select="if(@rend)then(@rend)else(if(tei:del[@rend])then(tei:del/@rend)else(tei:add/@rend))"/>
