@@ -479,6 +479,7 @@
 			<xsl:otherwise>
 				<span class="restore {replace((@change)[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace((@change)[1], '#', '')}"><xsl:apply-templates/></span>
 			</xsl:otherwise>
+		</xsl:choose>
     </xsl:template>
     <xsl:template match="tei:subst">
         <xsl:variable name="rend" select="if(@rend)then(@rend)else(if(tei:del[@rend])then(tei:del/@rend)else(tei:add/@rend))"/>
