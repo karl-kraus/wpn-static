@@ -112,9 +112,16 @@
     </xsl:template>
     <xsl:template match="tei:mod[contains(@rendition,'Quote') and not(@resp='#edACE')]">
         <xsl:choose>
-            <xsl:when test="@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#longQuoteVerseStart', '#longQuoteVerseEnd', '#typescriptLongQuoteStartIndent', '#typescriptLongQuoteEndIndent') and not(child::tei:span[@n='firstLast'])">
+            <xsl:when test="@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#longQuoteVerseStart', '#longQuoteVerseEnd') and not(child::tei:span[@n='firstLast'])">
                 <span id="{@xml:id}" class="mod entity quote-indent {@style} {replace(@change, '#', '')}" 
                     style="margin-left: -0.25rem; top: 0.2em;">
+                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">[</span>
+                </span>
+				<xsl:apply-templates/>
+            </xsl:when>
+			  <xsl:when test="@rendition=('#typescriptLongQuoteStartIndent', '#typescriptLongQuoteEndIndent') and not(child::tei:span[@n='firstLast'])">
+                <span id="{@xml:id}" class="mod entity quote-indent {@style} {replace(@change, '#', '')}" 
+                    style="margin-left: -0.5rem; top: 0.2em;">
                     <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">[</span>
                 </span>
 				<xsl:apply-templates/>
