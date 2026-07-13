@@ -81,10 +81,11 @@ search.addWidgets([
 				});
 		},
 		cssClasses: {
-			item: "ais-RefinementList-item d-flex align-items-center gap-2",
-			label: "ais-RefinementList-label d-flex align-items-center gap-2 text-decoration-none cursor-pointer search-facets-fs",
+			item: "ais-RefinementList-item d-flex align-items-center gap-1",
+			label: "ais-RefinementList-label d-flex align-items-center gap-1 text-decoration-none cursor-pointer search-facets-fs",
 			count: "ais-RefinementList-count",
-			list: "ais-RefinementList-list unstyled-list",
+			list: "ais-RefinementList-list list-unstyled",
+			checkbox: "ais-RefinementList-checkbox wpn-red",
 		},
 	}),
 
