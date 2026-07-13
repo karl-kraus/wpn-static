@@ -2,6 +2,18 @@ import OpenSeadragon from "openseadragon";
 
 const myUrl = new URL(window.location.href);
 const params = new URLSearchParams(myUrl.search);
+
+// Dimension map based on witness type (width and height in cm)
+const witnessTypeDimensions: Record<string, { width: number | null; height: number | null }> = {
+	nonWitness: { width: null, height: null },
+	witnessPrint: { width: 14.2, height: 21 },
+	witnessTypescript: { width: 19.4, height: 26 },
+	witnessTypescriptInsert: { width: 19.4, height: 26 },
+	witnessTypescript2: { width: 18.63, height: 23.4 },
+	witnessNote1: { width: 10.3, height: 18.1 },
+	witnessPrint2: { width: 14.2, height: 21 },
+	witnessTypescript3: { width: 18.63, height: 23.4 }
+};
 // Toggle visibility of pagination and info content on dropdown button click
 const paginationButton = document.querySelector('#dropdownMenuButton1') as HTMLElement | null;
 // Toggle visibility of legende on legende button click
@@ -255,16 +267,18 @@ textcolumnBtn!.addEventListener('click', function() {
         maxZoomLevel: 10,
     });
 
-    viewer.addHandler('open', function() {
+    enableFitWidth(viewer);
 
-        var tiledImage = viewer.world.getItemAt(0); 
+    // viewer.addHandler('open', function() {
 
-        var imageRect = new OpenSeadragon.Rect(0, 0, width , height); 
+    //     var tiledImage = viewer.world.getItemAt(0); 
 
-        var viewportRect = tiledImage.imageToViewportRectangle(imageRect);
-        viewer.viewport.fitBounds(viewportRect, true);
+    //     var imageRect = new OpenSeadragon.Rect(0, 0, width , height); 
 
-    });
+    //     var viewportRect = tiledImage.imageToViewportRectangle(imageRect);
+    //     viewer.viewport.fitBounds(viewportRect, true);
+
+    // });
 
 });
 
@@ -298,14 +312,15 @@ allcolumnBtn!.addEventListener('click', function() {
     }
 
     const type = facscontent.getAttribute("wpn-type") ?? "";
-    facscontent.style.height = type === "witnessPrint" ||
-	    type === "witnessTypescript2" ||
-	    type === "witnessNote1" ? "21cm" : "26cm";
-    facscontent.style.width = type === "witnessPrint" ||
-        type === "witnessTypescript2" ||
-        type === "witnessNote1" ? "14.2cm" : 
-        type === "witnessTypescript2" || 
-        type === "witnessTypescript3" ? "20.7cm" : "19.4cm";
+    const dimensions = witnessTypeDimensions[type];
+    if (dimensions) {
+        if (dimensions.height !== null) {
+            facscontent.style.height = `${dimensions.height}cm`;
+        }
+        if (dimensions.width !== null) {
+            facscontent.style.width = `${dimensions.width}cm`;
+        }
+    }
     facscontent.style.cursor = "grab";
     const image = facscontent.getAttribute("wpn-data") ?? "";
 
@@ -315,12 +330,14 @@ allcolumnBtn!.addEventListener('click', function() {
         type: "image",
         url: url
     }
-    OpenSeadragon({
+    const viewer = OpenSeadragon({
         id: "facscontent",
         tileSources: imageUrl,
         prefixUrl: 'https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.1/images/',
         maxZoomLevel: 10,
     });
+
+    enableFitWidth(viewer);
 
 });
 
@@ -373,15 +390,17 @@ allcolumnRowBtn!.addEventListener('click', function() {
         maxZoomLevel: 10,
     });
 
-    viewer.addHandler('open', function() {
-        var tiledImage = viewer.world.getItemAt(0); 
+    enableFitWidth(viewer);
 
-        var imageRect = new OpenSeadragon.Rect(0, 0, width , height);
+    // // zoom to fit the image to the viewport when the viewer is opened
+    // viewer.addHandler('open', function() {
+    //     var tiledImage = viewer.world.getItemAt(0); 
 
-        var viewportRect = tiledImage.imageToViewportRectangle(imageRect);
-        viewer.viewport.fitBounds(viewportRect, true);
-        
-    });
+    //     var imageRect = new OpenSeadragon.Rect(0, 0, width , height);
+
+    //     var viewportRect = tiledImage.imageToViewportRectangle(imageRect);
+    //     viewer.viewport.fitBounds(viewportRect, true);
+    // });
 
 });
 
@@ -463,3 +482,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+function enableFitWidth(viewer: OpenSeadragon.Viewer) {
+    const fitWidth = () => {
+        const tiledImage = viewer.world.getItemAt(0);
+        if (!tiledImage) return;
+
+        viewer.viewport.goHome(true);
+        viewer.viewport.fitHorizontally(true);
+
+        // Keep width-fit zoom but anchor viewport to the image's top edge.
+        const viewportBounds = viewer.viewport.getBounds(true);
+        const center = viewer.viewport.getCenter(true);
+        const imageBounds = tiledImage.getBounds(true);
+        const topAlignedCenter = new OpenSeadragon.Point(
+            center.x,
+            imageBounds.y + viewportBounds.height / 2
+        );
+
+        viewer.viewport.panTo(topAlignedCenter, true);
+        viewer.viewport.applyConstraints(true);
+    };
+
+    viewer.addHandler("open", fitWidth);
+    viewer.addHandler("resize", fitWidth);
+
+    // Optional: when image bounds change after tile load
+    viewer.addHandler("update-viewport", () => {
+        // no-op unless you need stricter re-fit behavior
+    });
+}
