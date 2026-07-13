@@ -29,6 +29,7 @@
                             <xsl:value-of select="$doc_title"/>
                         </h1>
                         <div id="searchbox" class="my-2 mx-auto"></div>
+                        <h5 class="mt-4">Textfassungen / Textträger</h5>
                         <div id="refinement-list-witness" class="my-2"></div>
                         <div class="d-flex gap-2 flex-wrap">
                             <div id="pagination" class="align-self-center"></div>

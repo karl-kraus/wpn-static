@@ -70,26 +70,21 @@ search.addWidgets([
 	instantsearch.widgets.refinementList({
 		container: "#refinement-list-witness",
 		attribute: "witness",
-		templates: {
-            item(item: any, { html }: any) {
-                const textColor = item.isRefined ? 'wpn-red' : 'wpn-black-grey';
-                const className = `text-decoration-none cursor-pointer search-facets-fs ${textColor}`;
-				var parts = "Seiten";
-				if (item.label.includes("Karl Kraus 1933")) {
-					var parts = "Absätze"
-				}
-                return html`
-                    <span class=${className} data-value=${item.value}>
-                        ${item.label} (${item.count} ${parts})
-                    </span>
-                `;
-            },
-        },
+		sortBy: ["count:desc", "name:asc"],
+		transformItems(items: any[]) {
+			return items
+				.filter((item) => item.count !== 0)
+				.map((item) => {
+					console.log(item);
+					item.count = `(${item.count} Treffer)`;
+					return item;
+				});
+		},
 		cssClasses: {
-			list: "list-unstyled",
-			item: "d-flex align-items-center gap-2",
-			label: "d-flex align-items-center gap-2",
-			checkbox: "d-none",
+			item: "ais-RefinementList-item d-flex align-items-center gap-2",
+			label: "ais-RefinementList-label d-flex align-items-center gap-2 text-decoration-none cursor-pointer search-facets-fs",
+			count: "ais-RefinementList-count",
+			list: "ais-RefinementList-list unstyled-list",
 		},
 	}),
 
@@ -97,14 +92,14 @@ search.addWidgets([
 		container: "#stats-container",
 		templates: {
 			text(data, { html }) {
-				let hitsTerm = data.hasManyResults ? "Treffer" : "Treffer";
+				let hitsTerm = "Treffer";
 				let message = "";
 				if (data.query === "*") {
-					message = `${data.nbHits} Treffer gefunden`;
+					message = `${data.nbHits} ${hitsTerm}`;
 				} else {
 					message = data.hasNoResults
 						? "Suchbegriff nicht gefunden"
-						: `Suchbegriff in ${data.nbHits} ${hitsTerm} gefunden`;
+						: `${data.nbHits} ${hitsTerm}`;
 				}
 				return html`<span>${message}</span>`;
 			},
