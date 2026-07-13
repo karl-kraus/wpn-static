@@ -108,11 +108,11 @@ for x in tqdm(sorted(files, key=lambda x: os.path.basename(x)), total=len(files)
     body = doc.any_xpath(".//tei:body")
     facsimile = doc.any_xpath('.//tei:facsimile')[0].attrib["corresp"].replace("#", "")
     witness_title = " ".join(doc.any_xpath(f'.//tei:sourceDesc[@xml:id="{facsimile}"]//tei:msItem/tei:title//text()'))
-    record["witness"] = witness_title
     cfts_record = {
         "project": "WPN Static-Site Umschrift",
     }
     record = {}
+    record["witness"] = witness_title
     rec_id = os.path.basename(x).split(".")[0]
     record["id"] = f"{rec_id}.html"
     cfts_record["id"] = record["id"]
