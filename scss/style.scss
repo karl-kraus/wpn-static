@@ -698,6 +698,7 @@ span.warning {
 #textcontent-pb .typescriptLongQuoteVerse,
 #textcontent-pb .typescriptLongQuoteTitle,
 #textcontent-pb .typescriptRunningText1,
+#textcontent-pb .typescriptRunningText2,
 #textcontent-pb .typescriptPageNum,
 #textcontent-pb .typescriptLongQuoteVerseLeading,
 #textcontent-pb .typescriptLongQuoteLeading,
@@ -710,6 +711,7 @@ span.warning {
   font-size: 0.833rem;
   line-height: 1.4rem;
   font-family: monospace;
+  letter-spacing: 0.1rem;
   text-align: left;
   text-align-last: left;
   color: #212529;
@@ -1225,6 +1227,25 @@ span.warning {
 
   .print-header.witnessTypescript3,
   .print-footer.witnessTypescript3 {
+    position: relative;
+  }
+}
+
+.print-page.witnessTypescript4 {
+  width: 22.3cm;
+  height: 28.8cm;
+  margin: 0 auto;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .print-body.witnessTypescript4 {
+    display: grid;
+    grid-template-columns: calc(100% * 0.2) auto calc(100% * 0.2);
+    gap: 0;
+  }
+
+  .print-header.witnessTypescript4,
+  .print-footer.witnessTypescript4 {
     position: relative;
   }
 }
@@ -1762,6 +1783,12 @@ span.warning {
     text-indent: initial;
 }
 
+.pageNumRight5 {
+    left: 65%;
+    top: 1.5rem;
+    text-indent: initial;
+}
+
 .pageNumRight4 {
     left: 90%;
     top: 1.5rem;
@@ -1863,7 +1890,7 @@ span.warning {
 }
 
 .marginUpperRight2 {
-  left: 70%;
+  left: 80%;
   top: 30%;
 }
 
@@ -1892,9 +1919,23 @@ span.warning {
   right: 1.5%;
 }
 
+.centerBelow {
+  position: absolute;
+    left: 20%;
+    top: 60%;
+}
+
+.centerBelow2 {
+    left: 17.5%;
+    top: 74%;
+}
 
 #textcontent-pb .underline {
   text-decoration: underline;
+}
+
+#textcontent-pb .mod.underline.pencilOnTypescriptKK {
+  text-decoration-color: #666666;
 }
 
 #textcontent-pb .underline .d-inline-block {
@@ -1988,6 +2029,11 @@ span.warning {
 #textcontent-pb .seg.marked.crossedOut {
   display: block;
   background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgb(102, 102, 102), transparent calc(50% + 0.5px));
+}
+
+#textcontent-pb .seg.marked.crossedOut.inkOnNotepadKK {
+  display: block;
+  background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), #000, transparent calc(50% + 0.5px));
 }
 
 .underline-crossed-out {
@@ -2203,6 +2249,8 @@ span.warning {
 
 #textcontent-pb .inkOnNotepadKK [class*="inkLongQuote"],
 #textcontent-pb .inkOnProofKK .inkLongQuote,
+#textcontent-pb .inkRunningText,
+#textcontent-pb .inkLongQuoteVerse,
 #textcontent-pb .inkOnProofKK .inkLongQuoteVerse,
 #textcontent-pb .subst.inkOnProofKK .add,
 #textcontent-pb .subst.pencilOnTypescriptKK2 .add,
@@ -2247,6 +2295,7 @@ span.warning {
 #textcontent-pb .del.left.pencilOnProof,
 #textcontent-pb .arrow.inkOnProofKK,
 #textcontent-pb .mod.inkOnProofKK.quote-indent,
+#textcontent-pb .mod.pencilOnTypescriptKK.quote-indent,
 #textcontent-pb .mod.inkOnProofKK .mod-inline,
 #textcontent-pb .mod.marginLeft.inkOnProofKK,
 #textcontent-pb .mod.marginInnerRight.inkOnProofKK,
@@ -2266,6 +2315,7 @@ span.warning {
 #textcontent-pb .add.inkOnProof,
 #textcontent-pb .note.inkOnProof,
 #textcontent-pb .metamark.inkOnProof,
+#textcontent-pb .fw.ballpointOnTypescriptArchive,
 #textcontent-pb .fw.inkOnProof,
 #textcontent-pb div.del.inkOnProof,
 #textcontent-pb .subst.inkOnTypescript .add,
@@ -2352,6 +2402,7 @@ handling del elments based on change type
 #textcontent-pb .restore.undefined .mod span,
 #textcontent-pb .restore.pencilOnTypescript .metamark del,
 #textcontent-pb .restore.pencilOnProof .metamark del,
+#textcontent-pb .restore.pencilOnNotepadKK .del.text-decoration-underline-dotted,
 #textcontent-pb .restore.undefined .metamark del,
 #textcontent-pb .metamark .restore.pencilOnTypescript del,
 #textcontent-pb .metamark .restore.pencilOnProof del,
@@ -2443,6 +2494,11 @@ handling del elments based on change type
 /* overwritten erased del */
 #textcontent-pb .del.erased del {
   text-decoration-color: #666666;
+}
+
+/* overwritten in larger del */
+#textcontent-pb .del del>.subst>.add.overwrite {
+text-decoration: line-through;
 }
 
 
@@ -2700,6 +2756,7 @@ handling del elements in maring left or right
 #textcontent-pb .metamark.pencilOnTypescriptKK,
 #textcontent-pb .metamark.pencilOnNotepadKK,
 #textcontent-pb .metamark.undefined,
+#textcontent-pb .mod.pencilOnTypescriptKK.quote-indent,
 #textcontent-pb .add.inkOnProof .add.pencilOnProof
 {
   color: #666666;
@@ -2747,6 +2804,7 @@ pencil text color
   color: $wpn-red;
 }
 
+/* black ink */
 #textcontent-pb div.del.inkOnProofKK,
 #textcontent-pb .subst.inkOnProofKK .add,
 #textcontent-pb .subst.inkOnProofUndefined .add,
@@ -2766,11 +2824,13 @@ pencil text color
 #textcontent-pb .subst.inkOnTypescriptKK2 .add,
 #textcontent-pb .restore.inkOnTypescript .add,
 #textcontent-pb .add.inkOnTypescript,
+#textcontent-pb .fw.ballpointOnTypescriptArchive,
 #textcontent-pb .add.inkOnTypescriptKK,
 #textcontent-pb .add.inkOnTypescriptKK2,
 #textcontent-pb .note.inkOnProofKK,
 #textcontent-pb .note.inkOnTypescriptKK,
-#textcontent-pb .note.inkOnTypescriptKK2 {
+#textcontent-pb .note.inkOnTypescriptKK2,
+#textcontent-pb .inkOnNotepadKK [class*="inkLongQuote"],{
   color: #000;
 }
 
@@ -2904,31 +2964,33 @@ pencil text color
   text-indent: 0;
 }
 
-#textcontent-pb .ellipsis.extent-17 {
-  width: 7rem;
-}
-#textcontent-pb .ellipsis.extent-13 {
-  width: 6.5rem;
-}
-#textcontent-pb .ellipsis.extent-12 {
-  width: 6rem;
-}
-#textcontent-pb .ellipsis.extent-11 {
-  width: 5.5rem;
-}
-#textcontent-pb .ellipsis.extent-10 {
-  width: 5rem;
-}
-#textcontent-pb .ellipsis.extent-9 {
-  width: 4.5rem;
-}
 #textcontent-pb .ellipsis.extent-6 {
-  width: 3rem;
-}
-#textcontent-pb .ellipsis.extent-27 {
-  width: 13.5rem;
+  width: 3.5rem;
 }
 
+#textcontent-pb .ellipsis.extent-7 {
+  width: 4rem;
+}
+
+#textcontent-pb .ellipsis.extent-9 {
+  width: 5.5rem;
+}
+
+#textcontent-pb .ellipsis.extent-10 {
+  width: 6rem;
+}
+
+#textcontent-pb .ellipsis.extent-14 {
+  width: 8rem;
+}
+
+#textcontent-pb .ellipsis.extent-17 {
+  width: 8.5rem;
+}
+
+#textcontent-pb .ellipsis.extent-27 {
+  width: 15rem;
+}
 
 #textcontent-pb .add div {
   width: 100%;
@@ -3242,8 +3304,12 @@ pencil text color
   top: -4pt;
 } /* added restriction to remove this style from typewritten notes */
 
+#textcontent-pb .above.add:has(>.add.inline.typewriter) {
+  position: absolute;
+  top: -10pt;
+}
 
-/* uncomment and test when all new attr values are available in Gesamt.xml */
+
 
 div:has(> .lineRight), div:has(> .doubleLineRight)  {
   text-align: left;
@@ -3469,7 +3535,7 @@ div.position-relative .marginLeftFurtherBelowOnly {
 /*for Konvolut_Faust  */
 #textcontent-pb .metamark.typescriptFontRight {
   display: block;
-  text-indent: 30rem;
+  text-indent: 27rem;
   line-height: 0;
   position: relative !important;
   text-decoration: none;
@@ -3563,7 +3629,7 @@ wpn-time-line {
 }
 
 #textcontent-pb .subst:is([class*="KK"]) .add.overwrite {
-  padding-right: 2px;
+  /* padding-right: 2px; */
 }
 
 #textcontent-pb span:is([class*='typescriptLong'], [class*='typescriptRunning'], [class*='typewriter']) .subst .add.overwrite {
@@ -3642,6 +3708,10 @@ body.modal-open, body.modal-open main {
   color: $wpn-red !important;
 }
 
+#textcontent-pb [class*="margin"].connection-color .add.inline {
+  color: white !important;
+}
+
 .subst.connection-color .add.overwrite {
   /* text-shadow: $wpn-red 0 0 4px !important; */
   background-color: $wpn-red !important;
@@ -3659,28 +3729,45 @@ body.modal-open, body.modal-open main {
 }
 
 #textcontent-pb .seg.border.connection-color,
-#textcontent-pb .seg.border.connection-color .metamark {
-    background: rgb(162, 26, 23) !important;
+#textcontent-pb .seg.border.connection-color .metamark,
+{
+    background: $wpn-red !important;
     color: white !important;
     border-radius: 4px;
 }
 
 #textcontent-pb .seg.border.connection-color .lg .l {
+    color: white;
+}
+
+#textcontent-pb .seg.border.connection-color .d-block.lg,
+#textcontent-pb .seg.border .restore.connection-color .d-block.lg {
+    background: $wpn-red !important;
+}
+
+#textcontent-pb .seg.border.connection-color .lg .l,
+#textcontent-pb .seg.border .restore.connection-color .d-block.lg .l {
     background: transparent !important;
 }
 
-#textcontent-pb .seg.border.connection-color span.d-block.lg:not(:has(~ span.d-block.lg)){
+#textcontent-pb .seg.border.connection-color span.d-block.lg:not(:has(~ span.d-block.lg)),
+#textcontent-pb .restore.connection-color .del del span.d-block.lg:not(:has(~ span.d-block.lg)) {
     border-radius: 0 0 4px 4px;
-    background: rgb(162, 26, 23) !important;
+    background: $wpn-red !important;
 }
 
 #textcontent-pb .seg.border.connection-color .d-block.lg:first-of-type,
-#textcontent-pb .seg.border.connection-color span.del del span.d-block.lg:first-of-type {
+#textcontent-pb .seg.border.connection-color span.del del span.d-block.lg:first-of-type,
+#textcontent-pb .restore.connection-color .del del span.d-block.lg:first-of-type {
     border-radius: 4px 4px 0 0;
-    background: rgb(162, 26, 23) !important;
+    background:$wpn-red !important;
 }
 
-.connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
+#textcontent-pb .restore.pencilOnNotepadKK.connection-color .del:has(.lg) {
+  text-decoration-color: white !important;
+}
+
+#textcontent-pb .connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   width: 0.833rem;
   height: 0.7rem;
   display: block;

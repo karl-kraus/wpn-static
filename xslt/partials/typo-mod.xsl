@@ -46,7 +46,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:mod[@style='letterSpacing']">
+    <xsl:template match="tei:mod[@style='letterSpacing' or @rendition='#typescriptLongQuote']">
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="mod underline {@style} {replace(@change, '#', '')}">
@@ -119,6 +119,13 @@
                 </span>
 				<xsl:apply-templates/>
             </xsl:when>
+			  <xsl:when test="@rendition=('#typescriptLongQuoteStartIndent', '#typescriptLongQuoteEndIndent') and not(child::tei:span[@n='firstLast'])">
+                <span id="{@xml:id}" class="mod entity quote-indent {@style} {replace(@change, '#', '')}" 
+                    style="margin-left: -0.5rem; top: 0.2em;">
+                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">[</span>
+                </span>
+				<xsl:apply-templates/>
+            </xsl:when>
 			<xsl:when test="@rendition='#longQuote'">
 				<xsl:choose>
 					<xsl:when test="@rend='line'">
@@ -159,7 +166,7 @@
         </span>
     </xsl:template>
 
-	<xsl:template match="tei:mod[@rendition=('#inkLongQuoteVerseIndent') and not(@n)]">
+	<xsl:template match="tei:mod[@rendition=('#inkLongQuoteLineGroup') and not(@n)]">
         <span id="{@xml:id}" class="mod entity no-indent position-relative {@style} {replace(@change, '#', '')}">
 			<span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">			
 				<xsl:choose>

@@ -108,7 +108,7 @@
         <xsl:variable name="change" select="@change"/>
         <xsl:variable name="tohighlight" select="if($note-change = $change)then('highlight')else('noHighlight')"/>
         <xsl:variable name="highlight" select="if(ancestor::tei:note)then($tohighlight)else('')"/>
-        <xsl:variable name="inheritIDfromNote" select="if(ancestor::tei:note[@xml:id and not(preceding::tei:pb[contains(@n, '_')])])then(ancestor::tei:note/@xml:id)else()"/>
+        <xsl:variable name="inheritIDfromNote" select="if(ancestor::tei:note[@place or @rendition][@xml:id and not(preceding::tei:pb[contains(@n, '_')])])then(ancestor::tei:note/@xml:id)else()"/>
         <xsl:choose>
             <xsl:when test="@rend='inline' or @rend='lineExt'">
                 <span id="{@xml:id}" class="add {@rend} {highlight} entity {replace(@change[1], '#', '')}" data-hand="{replace(@change[1],'#','')}"> <!-- added "inline" class esp. for para 64  -->
