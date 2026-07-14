@@ -2,6 +2,7 @@ import OpenSeadragon from "openseadragon";
 
 const myUrl = new URL(window.location.href);
 const params = new URLSearchParams(myUrl.search);
+const maxWidth1440 = window.matchMedia("(max-width: 1440px)").matches;
 
 // Dimension map based on witness type (width and height in cm)
 const witnessTypeDimensions: Record<string, { width: number | null; height: number | null }> = {
@@ -80,6 +81,8 @@ hideBtn?.addEventListener('click', function() {
     const paginationButton = document.querySelector('#dropdownMenuButton1 span') as HTMLElement | null;
     const paginationDropdown = document.getElementById('paginationLabel');
 
+    const initialView = params.get('view');
+
     if (infocontent_wrapper!.classList.contains('visually-hidden')) {
 
         hideBtn!.setAttribute('title', 'Info-Spalte öffnen');
@@ -92,6 +95,17 @@ hideBtn?.addEventListener('click', function() {
         // change text to vertical
         paginationButton!.classList.add('visually-hidden');
 
+        // if (initialView === 'all-columns') {
+
+        //     initializeViewer("all-columns");
+
+        //     facscolumn!.style.transform = "scale(.95)";
+        //     facscolumn!.style.transformOrigin = "top";
+        //     textcolumn!.style.transform = "scale(.95)";
+        //     textcolumn!.style.transformOrigin = "top";
+
+        // }
+
     } else {
 
         hideBtn!.setAttribute('title', 'Info-Spalte schließen');
@@ -103,12 +117,27 @@ hideBtn?.addEventListener('click', function() {
 
         paginationButton!.classList.remove('visually-hidden');
 
+        // if (initialView === 'all-columns') {
+
+        //     initializeViewer("all-columns");
+
+        //     facscolumn!.style.transform = "scale(.85)";
+        //     facscolumn!.style.transformOrigin = "top";
+        //     textcolumn!.style.transform = "scale(.85)";
+        //     textcolumn!.style.transformOrigin = "top";
+
+        // }
+
     }
 
     if (infocontent_wrapper!.classList.contains('visually-hidden')) {
         params.set('info', 'hidden');
     } else {
         params.delete('info');
+    }
+
+    if (initialView !== 'all-columns') {
+        initializeViewer("none");
     }
 
     updateLinksView(params.get('view') ?? "all-columns", params.get('info') ?? undefined);
@@ -240,45 +269,7 @@ textcolumnBtn!.addEventListener('click', function() {
     myUrl.search = params.toString();
     window.history.pushState({}, '', myUrl);
 
-
-    if (!facscontent) {
-        throw new Error("No facscontent element found");
-    } else {
-        facscontent.innerHTML = "";
-    }
-
-    const height = facscolumn?.clientHeight;
-    const width = facscolumn?.clientWidth;
-    facscontent.style.height = height! - 20 + "px";
-    facscontent.style.width = width! - 20 + "px";
-    facscontent.style.cursor = "grab";
-    const image = facscontent.getAttribute("wpn-data") ?? "";
-
-    const url = image.startsWith("https") ? image : `https://iiif.acdh.oeaw.ac.at/${image}.jp2/full/max/0/default.jpg`;
-
-    const imageUrl = {
-        type: "image",
-        url: url
-    }
-    const viewer = OpenSeadragon({
-        id: "facscontent",
-        tileSources: imageUrl,
-        prefixUrl: 'https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.1/images/',
-        maxZoomLevel: 10,
-    });
-
-    enableFitWidth(viewer);
-
-    // viewer.addHandler('open', function() {
-
-    //     var tiledImage = viewer.world.getItemAt(0); 
-
-    //     var imageRect = new OpenSeadragon.Rect(0, 0, width , height); 
-
-    //     var viewportRect = tiledImage.imageToViewportRectangle(imageRect);
-    //     viewer.viewport.fitBounds(viewportRect, true);
-
-    // });
+    initializeViewer("facs-only");
 
 });
 
@@ -302,42 +293,26 @@ allcolumnBtn!.addEventListener('click', function() {
 
     params.set('view', 'all-columns');
     updateLinksView('all-columns', params.get('info') ?? undefined);
+
     myUrl.search = params.toString();
     window.history.pushState({}, '', myUrl);
 
-    if (!facscontent) {
-        throw new Error("No facscontent element found");
-    } else {
-        facscontent.innerHTML = "";
-    }
+    initializeViewer("all-columns");
 
-    const type = facscontent.getAttribute("wpn-type") ?? "";
-    const dimensions = witnessTypeDimensions[type];
-    if (dimensions) {
-        if (dimensions.height !== null) {
-            facscontent.style.height = `${dimensions.height}cm`;
-        }
-        if (dimensions.width !== null) {
-            facscontent.style.width = `${dimensions.width}cm`;
-        }
-    }
-    facscontent.style.cursor = "grab";
-    const image = facscontent.getAttribute("wpn-data") ?? "";
+    // const hideInfo = params.get('info');
 
-    const url = image.startsWith("https") ? image : `https://iiif.acdh.oeaw.ac.at/${image}.jp2/full/max/0/default.jpg`;
+    // if (hideInfo !== 'hidden') {
+    //     facscolumn!.style.transform = "scale(.85)";
+    //     facscolumn!.style.transformOrigin = "top";
+    //     textcolumn!.style.transform = "scale(.85)";
+    //     textcolumn!.style.transformOrigin = "top";
+    // } else {
+    //     facscolumn!.style.transform = "scale(.95)";
+    //     facscolumn!.style.transformOrigin = "top";
+    //     textcolumn!.style.transform = "scale(.95)";
+    //     textcolumn!.style.transformOrigin = "top";
+    // }
 
-    const imageUrl = {
-        type: "image",
-        url: url
-    }
-    const viewer = OpenSeadragon({
-        id: "facscontent",
-        tileSources: imageUrl,
-        prefixUrl: 'https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.1/images/',
-        maxZoomLevel: 10,
-    });
-
-    enableFitWidth(viewer);
 
 });
 
@@ -364,43 +339,7 @@ allcolumnRowBtn!.addEventListener('click', function() {
     myUrl.search = params.toString();
     window.history.pushState({}, '', myUrl);
 
-    if (!facscontent) {
-        throw new Error("No facscontent element found");
-    } else {
-        facscontent.innerHTML = "";
-    }
-
-    const height = facscolumn?.clientHeight;
-    const width = facscolumn?.clientWidth;
-    facscontent.style.height = height! - 20 + "px";
-    facscontent.style.width = width! - 20 + "px";
-    facscontent.style.cursor = "grab";
-    const image = facscontent.getAttribute("wpn-data") ?? "";
-
-    const url = image.startsWith("https") ? image : `https://iiif.acdh.oeaw.ac.at/${image}.jp2/full/max/0/default.jpg`;
-
-    const imageUrl = {
-        type: "image",
-        url: url
-    }
-    const viewer = OpenSeadragon({
-        id: "facscontent",
-        tileSources: imageUrl,
-        prefixUrl: 'https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.1/images/',
-        maxZoomLevel: 10,
-    });
-
-    enableFitWidth(viewer);
-
-    // // zoom to fit the image to the viewport when the viewer is opened
-    // viewer.addHandler('open', function() {
-    //     var tiledImage = viewer.world.getItemAt(0); 
-
-    //     var imageRect = new OpenSeadragon.Rect(0, 0, width , height);
-
-    //     var viewportRect = tiledImage.imageToViewportRectangle(imageRect);
-    //     viewer.viewport.fitBounds(viewportRect, true);
-    // });
+    initializeViewer("vertical");
 
 });
 
@@ -464,10 +403,17 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (initialView === 'all-columns' || !initialView) {
 
         allcolumnBtn!.click();
+
     }
 
     if (hideInfo === 'hidden') {
         hideBtn!.click();
+    }
+
+    if (maxWidth1440 && hideInfo !== 'hidden') {
+        hideBtn!.click();
+        facscolumnBtn!.click();
+
     }
 
     updateLinksView(initialView ?? 'all-columns', hideInfo ?? undefined, mode ?? undefined);
@@ -482,6 +428,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+function initializeViewer(view_type: string) {
+    if (!facscontent) {
+        throw new Error("No facscontent element found");
+    } else {
+        facscontent.innerHTML = "";
+    }
+
+    if (view_type === "all-columns") {
+        const type = facscontent.getAttribute("wpn-type") ?? "";
+        const dimensions = witnessTypeDimensions[type];
+        if (dimensions) {
+            if (dimensions.height !== null) {
+                facscontent.style.height = `${dimensions.height}cm`;
+            }
+            if (dimensions.width !== null) {
+                facscontent.style.width = `${dimensions.width}cm`;
+            }
+        }
+    } else {
+        const height = facscolumn?.clientHeight;
+        const width = facscolumn?.clientWidth;
+        facscontent!.style.height = height! - 20 + "px";
+        facscontent!.style.width = width! - 20 + "px";
+    }
+
+    facscontent!.style.cursor = "grab";
+    const image = facscontent!.getAttribute("wpn-data") ?? "";
+
+    const url = image.startsWith("https") ? image : `https://iiif.acdh.oeaw.ac.at/${image}.jp2/full/max/0/default.jpg`;
+
+    const imageUrl = {
+        type: "image",
+        url: url
+    }
+    const viewer = OpenSeadragon({
+        id: "facscontent",
+        tileSources: imageUrl,
+        prefixUrl: 'https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.1.1/images/',
+        maxZoomLevel: 10,
+    });
+
+    enableFitWidth(viewer);
+}
 
 function enableFitWidth(viewer: OpenSeadragon.Viewer) {
     const fitWidth = () => {
@@ -507,8 +497,8 @@ function enableFitWidth(viewer: OpenSeadragon.Viewer) {
     viewer.addHandler("open", fitWidth);
     viewer.addHandler("resize", fitWidth);
 
-    // Optional: when image bounds change after tile load
-    viewer.addHandler("update-viewport", () => {
-        // no-op unless you need stricter re-fit behavior
-    });
+    // // Optional: when image bounds change after tile load
+    // viewer.addHandler("update-viewport", () => {
+    //     // no-op unless you need stricter re-fit behavior
+    // });
 }
