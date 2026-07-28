@@ -251,9 +251,9 @@
                                                 <!--  add data link with corresp -->
                                                 <!-- currently removed until new implementation -->
                                                 <li class="my-1 list_more_text_layers_line">
-                                                    <label id="btn-corresp-printInstruction" class="cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#corresp-printInstruction-list">
+                                                    <h6 id="btn-corresp-printInstruction" class="cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#corresp-printInstruction-list">
                                                         <xsl:text>Markierung für den Druck der Fackel Nr. 890: </xsl:text>
-                                                    </label>
+                                                    </h6>
                                                     <div id="corresp-printInstruction-list" class="visually-hidden">
                                                     <xsl:choose>
                                                         <xsl:when test="count(./tei:note[@type='printInstruction']) gt 1">
@@ -272,9 +272,9 @@
                                             </xsl:if>
                                             <xsl:if test="./tei:note[@type='overwritten']">
                                                 <li class="my-1">
-                                                    <label id="btn-corresp-overwritten" class="cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#corresp-fackel-list-overwritten">
+                                                    <h6 id="btn-corresp-overwritten" class="cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#corresp-fackel-list-overwritten">
                                                         <xsl:text>Überschreibende Korrekturen</xsl:text>
-                                                    </label>
+                                                    </h6>
                                                     <ul id="list-corresp-overwritten" class="visually-hidden list-unstyled ps-1">
                                                         <xsl:for-each select="./tei:note[@type='overwritten']">
                                                             <xsl:variable name="corresp" select="replace(@corresp, '#', '')"/>
