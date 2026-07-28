@@ -2450,7 +2450,8 @@ handling del elments based on change type
 }
 
 #textcontent-pb .del.eraser2>del,
-#textcontent-pb .del.eraser>del {
+#textcontent-pb .del.eraser>del,
+#textcontent-pb .del.eraserOnTypescript>del {
   text-decoration-color: #dddddd;
 }
 
