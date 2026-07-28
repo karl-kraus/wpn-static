@@ -174,9 +174,9 @@
                         </xsl:otherwise>
                         </xsl:choose>
                 </xsl:if>
-            </span>		
-        	<xsl:apply-templates/>
-        </span>
+            </span>
+		</span>		
+	<xsl:apply-templates/>        
     </xsl:template>
 
 	<xsl:template match="tei:mod[@rendition=('#inkLongQuoteLineGroup') and not(@n)]">
