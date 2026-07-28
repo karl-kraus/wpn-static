@@ -46,7 +46,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:mod[@style='letterSpacing' or @rendition='#typescriptLongQuote']">
+    <xsl:template match="tei:mod[@style='letterSpacing'">
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="mod underline {@style} {replace(@change, '#', '')}">
@@ -152,10 +152,10 @@
 				<span id="{@xml:id}" class="mod entity {@style} {replace(@change, '#', '')}" data-anchor="{@xml:id}"></span>
 				<xsl:apply-templates/>
 			</xsl:when>
-			<xsl:when test="@rendition='#typescriptLongQuote'">
+			<xsl:when test="@rendition='#typescriptLongQuote' and @rend='underline'">
 				<span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="mod underline {@style} {replace(@change, '#', '')}"><xsl:apply-templates/></span>
 			</xsl:when>
-            <xsl:otherwise>
+			<xsl:otherwise>
                 <!-- <span class="mod entity {@style} {replace(@change, '#', '')}" data-anchor="{@xml:id}"></span> -->
 				<xsl:apply-templates/>
             </xsl:otherwise>
