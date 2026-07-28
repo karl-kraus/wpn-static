@@ -276,10 +276,19 @@
         <span class="comments" data-anchor="{@xml:id}"></span>
     </xsl:template>
     <xsl:template match="tei:fw">
-        <span style="z-index:1;" class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}" data-hand="fw-{replace(@change,'#','')} {replace(@change,'#','')}">
-            <xsl:apply-templates/>
-        </span>
-    </xsl:template>
+	    <span style="z-index:1;" class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}">
+	        <xsl:if test="not(
+	            (contains(@change,'inkOn') and preceding-sibling::tei:pb[1]/@type='witnessNote1')
+	            or
+	            (contains(@change,'typewriter') and preceding-sibling::tei:pb[1]/@type='Typescript')
+	        )">
+	            <xsl:attribute name="data-hand">
+	                <xsl:value-of select="concat('fw-', replace(@change,'#',''), ' ', replace(@change,'#',''))"/>
+	            </xsl:attribute>
+	        </xsl:if>
+	        <xsl:apply-templates/>
+	    </span>
+	</xsl:template>
     <xsl:template match="tei:app">
         <!-- <xsl:variable name="inheritIDfromNote" select="
             if(ancestor::tei:note)
