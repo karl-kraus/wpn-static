@@ -3542,11 +3542,19 @@ div.position-relative .marginLeftFurtherBelowOnly {
   text-decoration: underline;
 }
 
-/*for Konvolut_Faust  */
+/*for Konvolut_Faust & Paralipomenon  */
 #textcontent-pb .metamark.typescriptFontRight {
   display: block;
   text-indent: 27rem;
   line-height: 0;
+  position: relative !important;
+  text-decoration: none;
+}
+
+/*for Paralipomenon  */
+#textcontent-pb .metamark.typescriptFontRight2 {
+  display: block;
+  text-indent: 8rem;
   position: relative !important;
   text-decoration: none;
 }
