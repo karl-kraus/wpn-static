@@ -2309,6 +2309,7 @@ span.warning {
 #textcontent-pb .mod.inkOnProofKK .mod-inline,
 #textcontent-pb .mod.marginLeft.inkOnProofKK,
 #textcontent-pb .mod.marginInnerRight.inkOnProofKK,
+#textcontent-pb .mod.pencilOnTypescriptKK>.mod-inline,
 #textcontent-pb .restore.inkOnProofKK .seg-inline,
 #textcontent-pb .mod.noIndent.inkOnProofKK,
 #textcontent-pb .seg .seg.entity.seg-inline .inkOnProofKK {
@@ -2767,6 +2768,7 @@ handling del elements in maring left or right
 #textcontent-pb .metamark.pencilOnNotepadKK,
 #textcontent-pb .metamark.undefined,
 #textcontent-pb .mod.pencilOnTypescriptKK.quote-indent,
+#textcontent-pb .mod.pencilOnTypescriptKK>.mod-inline,
 #textcontent-pb .add.inkOnProof .add.pencilOnProof
 {
   color: #666666;
