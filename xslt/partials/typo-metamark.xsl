@@ -204,7 +204,13 @@
                                 <xsl:text> </xsl:text>
                                 <xsl:value-of select="for $i in tokenize(@spanTo, ' ') return substring-after($i, '#')"/>
                             </xsl:if>
-                        </xsl:attribute> 
+                        </xsl:attribute>
+                        <xsl:if test="@target">
+                            <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
+                            <xsl:attribute name="data-target">
+                                <xsl:value-of select="for $i in $targetList return substring-after($i, '#')"/>
+                            </xsl:attribute>
+                        </xsl:if>
                         <xsl:apply-templates/>
                      </span>
                  </span>
