@@ -3646,6 +3646,12 @@ wpn-time-line {
   font-size: inherit !important;
 }
 
+#textcontent-pb .subst:is([class*='pencil']) del .overwrite,
+#textcontent-pb .del:is([class*='pencil']) .overwrite {
+  text-decoration: line-through;
+  text-decoration-color: #666666 !important;
+}
+
 #textcontent-pb .add.overwrite:hover {
   opacity: 0;
 }
