@@ -46,7 +46,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:mod[@style='letterSpacing'">
+    <xsl:template match="tei:mod[@style='letterSpacing']">
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="mod underline {@style} {replace(@change, '#', '')}">
@@ -163,7 +163,7 @@
     </xsl:template>
     <xsl:template match="tei:mod[@rendition=('#runningText1', '#typescriptRunningText1') and not(@n)]">
         <span id="{@xml:id}" class="mod entity no-indent position-relative {@style} {replace(@change, '#', '')}">
-            <span class="mod-inline position-absolute" style="left: -0.5em; {if(@rendition='#runningText1')then(top: 0.2em;)else()}">
+            <span class="mod-inline position-absolute" style="left: -0.5em; { if (@rendition='#runningText1')then 'top: 0.2em;' else ''}">
                 <xsl:if test="not(@continued)">
                     <xsl:choose>
                         <xsl:when test="ancestor::tei:restore">
