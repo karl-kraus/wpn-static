@@ -119,7 +119,16 @@
                 </span>
 				<xsl:apply-templates/>
             </xsl:when>
-			  <xsl:when test="@rendition=('#typescriptLongQuoteStartIndent', '#typescriptLongQuoteEndIndent') and not(child::tei:span[@n='firstLast'])">
+			<xsl:when test="@rendition='#typescriptLongQuoteEndIndent' and parent::tei:restore[@rend='marginOnly'] and not(child::tei:span[@n='firstLast'])">
+                <span id="{@xml:id}" class="mod entity quote-indent {@style} {replace(@change, '#', '')}" 
+                    style="margin-left: -0.5rem; top: 0.2em;">
+                    <del class="{replace(parent::tei:restore/@change, '#', '')}">
+            			<span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">[</span>
+        			</del>
+                </span>
+				<xsl:apply-templates/>
+            </xsl:when>
+			<xsl:when test="@rendition=('#typescriptLongQuoteStartIndent', '#typescriptLongQuoteEndIndent') and not(child::tei:span[@n='firstLast'])">
                 <span id="{@xml:id}" class="mod entity quote-indent {@style} {replace(@change, '#', '')}" 
                     style="margin-left: -0.5rem; top: 0.2em;">
                     <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">[</span>
