@@ -152,6 +152,9 @@
 				<span id="{@xml:id}" class="mod entity {@style} {replace(@change, '#', '')}" data-anchor="{@xml:id}"></span>
 				<xsl:apply-templates/>
 			</xsl:when>
+			<xsl:when test="@rendition='#typescriptLongQuote'">
+				<span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="mod underline {@style} {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+			</xsl:when>
             <xsl:otherwise>
                 <!-- <span class="mod entity {@style} {replace(@change, '#', '')}" data-anchor="{@xml:id}"></span> -->
 				<xsl:apply-templates/>
