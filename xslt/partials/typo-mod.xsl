@@ -161,7 +161,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:mod[@rendition=('#runningText1') and not(@n)]">
+    <xsl:template match="tei:mod[@rendition=('#runningText1', '#typescriptRunningText1') and not(@n)]">
         <span id="{@xml:id}" class="mod entity no-indent position-relative {@style} {replace(@change, '#', '')}">
             <span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">
                 <xsl:if test="not(@continued)">
