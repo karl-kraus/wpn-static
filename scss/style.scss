@@ -2579,6 +2579,10 @@ text-decoration: line-through;
   text-decoration: line-through $pencil-grey;
 }
 
+#textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.del {
+  text-decoration-color: $pencil-grey;
+}
+
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del,
 /* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK2 > del:has(> .subst.pencilOnTypescriptKK2 > del),
 /* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del),
