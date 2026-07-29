@@ -287,9 +287,9 @@
                                             </xsl:if>
                                             <xsl:if test="./tei:note[@type='printF890']">
                                                 <li class="my-1">
-                                                    <label id="btn-corresp-fackel" class="cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#corresp-fackel-list">
+                                                    <h6 id="btn-corresp-fackel" class="cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#corresp-fackel-list">
                                                         <xsl:text>Markierung für die Fackel Nr. 890-905</xsl:text>
-                                                    </label>
+                                                    </h6>
                                                     <ul id="corresp-fackel-list" class="visually-hidden list-unstyled ps-1">
                                                         <xsl:for-each select="./tei:note[@type='printF890']">
                                                             <li class="list_more_text_layers_line" data-link="{replace(@target, '#', '')}" style="font-size:0.9em;">
