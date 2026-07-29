@@ -1957,7 +1957,7 @@ span.warning {
 }
 
 #textcontent-pb .mod.underline.pencilOnTypescriptKK {
-  text-decoration-color: #666666;
+  text-decoration-color: $pencil-grey;
 }
 
 #textcontent-pb .underline .d-inline-block {
@@ -2106,7 +2106,7 @@ span.warning {
 #legende-pb .pencilOnProof {
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
   font-size: var(--legende-font-size);
-  color: #666666;
+  color: $pencil-grey;
 }
 
 #legende-pb .redOnProof {
@@ -2137,7 +2137,7 @@ span.warning {
 }
 
 #legende-pb .seg.border {
-  background-image: linear-gradient(lightgrey, lightgrey);
+  background-image: linear-gradient($pencil-grey, $pencil-grey);
   background-repeat: no-repeat;
   background-size: calc(100% - 1px) 1em;
   background-position: 0.5px 60%;
@@ -2151,7 +2151,7 @@ span.warning {
 }
 
 #legende-pb .restore .seg.border {
-  background-image: repeating-linear-gradient(330deg, white, white 3px, lightgrey 3px, lightgrey 6px);
+  background-image: repeating-linear-gradient(330deg, white, white 3px, $pencil-grey 3px, $pencil-grey 6px);
   border: none;
   background-repeat: no-repeat;
   background-size: calc(100% - 1px) 1.05em;
@@ -2191,7 +2191,7 @@ span.warning {
 }
 
 #legende-pb .subst:has(>.add.overwrite)>.del.erased {
-  text-decoration: line-through;
+  text-decoration: line-through dashed;
   /* color: #dddddd;
   text-decoration: line-through;
   text-decoration-color: #dddddd; */
@@ -2259,7 +2259,7 @@ span.warning {
   left: 0;
   width: 100%;
   height: 1px;
-  border-top: 1px solid lightgrey;
+  border-top: 1px solid $pencil-grey;
   top: 50%;
   transform: translateY(1px);
   pointer-events: none;
@@ -2458,13 +2458,14 @@ handling del elments based on change type
 #textcontent-pb .mod.pencilOnProofKK,
 #textcontent-pb .del.pencilOnNotepadKK del,
 {
-  text-decoration-color: #666666;
+  text-decoration-color: $pencil-grey;
 }
 
+/* Abs. 64 Faust & Paral. */
 #textcontent-pb .del.eraser2>del,
 #textcontent-pb .del.eraser>del,
 #textcontent-pb .del.eraserOnTypescript>del {
-  text-decoration-color: #dddddd;
+  text-decoration: line-through $pencil-grey dashed;
 }
 
 #textcontent-pb .subst.redOnProof .del del,
@@ -2517,7 +2518,7 @@ handling del elments based on change type
 
 /* overwritten erased del */
 #textcontent-pb .del.erased del {
-  text-decoration-color: #666666;
+  text-decoration: line-through dashed $pencil-grey;
 }
 
 /* overwritten in larger del */
@@ -2530,8 +2531,7 @@ text-decoration: line-through;
 #textcontent-pb .note .del.erased del,
 #textcontent-pb .subst.eraser del,
 #textcontent-pb .subst .erased.del {
-  text-decoration-color: #dddddd;
-  /* color: #dddddd; */
+  text-decoration: line-through dashed $pencil-grey;
 }
 
 /* Faust p 229 dotted underline in grey */
@@ -2565,7 +2565,7 @@ text-decoration: line-through;
 
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del .del del.pencilOnTypescriptKK,
 /* Konvolut Faust p 232 */ #textcontent-pb .restore.inkOnTypescriptKK .subst.pencilOnTypescriptKK .del span {
-  text-decoration: line-through #666666;
+  text-decoration: line-through $pencil-grey;
 }
 
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del,
@@ -2587,7 +2587,7 @@ text-decoration: line-through;
   left: 0;
   width: 100%;
   height: 1px;
-  border-top: 1px solid lightgrey;
+  border-top: 1px solid $pencil-grey;
   top: 50%;
   transform: translateY(1px);
   pointer-events: none;
@@ -2659,7 +2659,7 @@ text-decoration: line-through;
     position: absolute;
     width: 100%;
     height: 1px;
-    background: lightgrey;
+    background: $pencil-grey;
     bottom: -1px;
     pointer-events: none;
     z-index: 1;
@@ -2725,7 +2725,7 @@ handling del elements in maring left or right
 #textcontent-pb .seg.border.pencilOnProofKK,
 #textcontent-pb .seg.border-dashed.pencilOnProofKK,
 #textcontent-pb .seg.border-dotted.pencilOnProofKK{
-  border-color: #666666;
+  border-color: $pencil-grey;
 }
 
 #textcontent-pb .seg.border.redOnProof,
@@ -2784,7 +2784,7 @@ handling del elements in maring left or right
 #textcontent-pb .mod.pencilOnTypescriptKK>.mod-inline,
 #textcontent-pb .add.inkOnProof .add.pencilOnProof
 {
-  color: #666666;
+  color: $pencil-grey;
 }
 
 /*
@@ -2811,7 +2811,7 @@ pencil text color
 #textcontent-pb .note.pencilOnTypescriptKK2,
 #textcontent-pb .note.pencilOnProofLibrary,
 #textcontent-pb .seg .seg.entity.seg-inline .pencilOnTypescript {
-  color: #666666;
+  color: $pencil-grey;
 }
 
 #textcontent-pb div.del.redOnProof,
@@ -3671,7 +3671,7 @@ wpn-time-line {
 #textcontent-pb .subst:is([class*='pencil']) del .overwrite,
 #textcontent-pb .del:is([class*='pencil']) .overwrite {
   text-decoration: line-through;
-  text-decoration-color: #666666 !important;
+  text-decoration-color: $pencil-grey !important;
 }
 
 #textcontent-pb .add.overwrite:hover {
@@ -3684,8 +3684,7 @@ wpn-time-line {
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del.erased {
-  text-decoration: line-through;
-  text-decoration-color: #dddddd;
+  text-decoration: line-through dashed $pencil-grey;
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del .add {
@@ -3876,7 +3875,7 @@ body.modal-open, body.modal-open main {
 
 .metamark.pencilOnProof2 .connection-color-line.printSpanFrom,
 .metamark.pencilOnProof2 .connection-color-line.printSpanTo {
-  background: rgba(102, 102, 102, 0.3); /* = #666666 */
+  background: rgba(102, 102, 102, 0.3);
 }
 
 .metamark.pencilOnProof2 .connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight),
@@ -3886,7 +3885,7 @@ body.modal-open, body.modal-open main {
 
 .metamark.pencilOnProof2 .connection-color-line.active.printSpanFrom,
 .metamark.pencilOnProof2 .connection-color-line.active.printSpanTo {
-  background: rgba(102, 102, 102, 1.0); /* = #666666 */
+  background: rgba(102, 102, 102, 1.0); 
 }
 
 
