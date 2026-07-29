@@ -280,7 +280,7 @@
 	        <xsl:if test="not(
 	            (contains(@change,'inkOn') and contains(preceding-sibling::tei:pb[1]/@type, 'witnessNote1'))
 	            or
-	            (contains(@change,'typewriter') and contains(preceding-sibling::tei:pb[1]/@type='Typescript'))
+	            (contains(@change,'typewriter') and contains(preceding-sibling::tei:pb[1]/@type, 'Typescript'))
 	        )">
 	            <xsl:attribute name="data-hand">
 	                <xsl:value-of select="concat('fw-', replace(@change,'#',''), ' ', replace(@change,'#',''))"/>
