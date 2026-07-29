@@ -3683,6 +3683,11 @@ wpn-time-line {
   z-index: -1;
 }
 
+/* for Jer p 97 */
+#textcontent-pb .pencilOnProofKK.inkOnProofKK .subst.inkOnProofKK:has(> .add.overwrite)>.del {
+  color: $wpn-pencil;
+}
+
 #textcontent-pb .subst:has(>.add.overwrite)>.del.erased {
   text-decoration: line-through dashed $pencil-grey;
 }
