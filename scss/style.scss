@@ -2546,8 +2546,8 @@ text-decoration: line-through;
 }
 
 /* Faust p 229 dotted underline in grey */
-#textcontent-pb .restore.eraser .text-decoration-underline-dotted {
-  text-decoration: underline dotted #dddddd;
+#textcontent-pb .restore.eraserOnTypescriptKK .text-decoration-underline-dotted {
+  text-decoration: underline dotted $pencil-grey;
 }
 
 
