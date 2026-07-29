@@ -2534,6 +2534,16 @@ text-decoration: line-through;
   text-decoration: line-through dashed $pencil-grey;
 }
 
+/* general eraser handling */
+#textcontent-pb .metamark .del.eraserOnProofKK del,
+#textcontent-pb del.restore.eraserOnProofKK,
+#textcontent-pb .restore.eraserOnProofKK .subst.pencilOnProofKK del,
+#textcontent-pb .del.eraserOnProofKK del,
+#textcontent-pb del.eraserOnProof, 
+#textcontent-pb .restore.eraserOnProofKK .subst.pencilOnProofKK .del {
+  text-decoration: line-through dashed $pencil-grey;
+}
+
 /* Faust p 229 dotted underline in grey */
 #textcontent-pb .restore.eraser .text-decoration-underline-dotted {
   text-decoration: underline dotted #dddddd;
@@ -3685,7 +3695,7 @@ wpn-time-line {
 
 /* for Jer p 97 */
 #textcontent-pb .pencilOnProofKK.inkOnProofKK .subst.inkOnProofKK:has(> .add.overwrite)>.del {
-  color: $wpn-pencil;
+  color: $pencil-grey;
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del.erased {
