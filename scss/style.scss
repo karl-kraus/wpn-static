@@ -2540,6 +2540,7 @@ text-decoration: line-through;
 #textcontent-pb .restore.eraserOnProofKK .subst.pencilOnProofKK del,
 #textcontent-pb .del.eraserOnProofKK del,
 #textcontent-pb del.eraserOnProof, 
+#textcontent-pb del.eraserOnProofKK, 
 #textcontent-pb .restore.eraserOnProofKK .subst.pencilOnProofKK .del {
   text-decoration: line-through dashed $pencil-grey;
 }
