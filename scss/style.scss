@@ -3820,7 +3820,7 @@ body.modal-open, body.modal-open main {
   text-decoration-color: white !important;
 }
 
-#textcontent-pb .connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
+.connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   width: 0.833rem;
   height: 0.7rem;
   display: block;
