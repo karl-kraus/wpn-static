@@ -2697,8 +2697,8 @@ text-decoration: line-through;
 #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.add.above,
 #textcontent-pb .del.pencilOnTypescriptKK2  del.add.above.inkOnTypescriptKK1,
 #textcontent-pb span.restore.eraser del  .position-relative .add.above.inkOnTypescriptKK1,
-#textcontent-pb .subst.inkOnTypescriptKK del:has(.restore.inkOnTypescriptKK)
-{
+#textcontent-pb .subst.inkOnTypescriptKK del:has(.restore.inkOnTypescriptKK),
+#textcontent-pb .restore.eraserOnTypescriptKK del.pencilOnTypescriptKK del.add.inkOnTypescriptKK1.above {
   text-decoration: none; 
 }
 
