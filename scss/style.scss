@@ -2464,7 +2464,11 @@ handling del elments based on change type
 /* Abs. 64 Faust & Paral. */
 #textcontent-pb .del.eraser2>del,
 #textcontent-pb .del.eraser>del,
-#textcontent-pb .del.eraserOnTypescript>del {
+#textcontent-pb .del.eraserOnTypescript>del,
+#textcontent-pb .del.eraserOnTypescriptKK>del,
+#textcontent-pb .del.eraserOnTypescriptKK2>del,
+#textcontent-pb .del.eraserOnTypescript,
+#textcontent-pb .del.eraserOnTypescriptKK {
   text-decoration: line-through $pencil-grey dashed;
 }
 
