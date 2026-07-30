@@ -2058,7 +2058,7 @@ span.warning {
   background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), #000, transparent calc(50% + 0.5px));
 }
 
-#textcontent-pb .seg.marked.crossedOut.active.connection-color {
+#textcontent-pb .seg.marked.crossedOut.connection-color {
   display: block;
   background-color: transparent !important;
   background-image: linear-gradient(to bottom right, transparent calc(50% - 1px), $wpn-red, transparent calc(50% + 1px));
