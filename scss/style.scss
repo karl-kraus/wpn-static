@@ -2468,7 +2468,10 @@ handling del elments based on change type
 #textcontent-pb .del.eraserOnTypescriptKK>del,
 #textcontent-pb .del.eraserOnTypescriptKK2>del,
 #textcontent-pb .del.eraserOnTypescript,
-#textcontent-pb .del.eraserOnTypescriptKK {
+#textcontent-pb .del.eraserOnTypescriptKK,
+#textcontent-pb del.restore.eraserOnTypescriptKK,
+#textcontent-pb .restore.eraserOnTypescriptKK .subst .add.above,
+#textcontent-pb .add.above .eraserOnTypescriptKK>del {
   text-decoration: line-through $pencil-grey dashed;
 }
 
