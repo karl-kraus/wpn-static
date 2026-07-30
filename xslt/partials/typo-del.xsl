@@ -99,8 +99,8 @@
             then(ancestor::tei:note/@xml:id)
             else()"/>
         <xsl:choose>
-            <xsl:when test="$rend='overwritten' and @rend='erased'">
-                <span class="del {@rend}">
+            <xsl:when test="$rend='overwritten' and contains(@change, 'eraser'">
+                <span class="del {@change}">
                     <xsl:attribute name="data-anchor">
                         <xsl:value-of select="@xml:id"/>
                         <xsl:if test="parent::tei:add[parent::tei:subst]">
