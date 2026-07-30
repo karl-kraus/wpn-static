@@ -2050,12 +2050,18 @@ span.warning {
 /* large segs crossed out */
 #textcontent-pb .seg.marked.crossedOut {
   display: block;
-  background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgb(102, 102, 102), transparent calc(50% + 0.5px));
+  background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), $pencil-grey, transparent calc(50% + 0.5px));
 }
 
 #textcontent-pb .seg.marked.crossedOut.inkOnNotepadKK {
   display: block;
   background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), #000, transparent calc(50% + 0.5px));
+}
+
+#textcontent-pb .seg.marked.crossedOut.active.connection-color {
+  display: block;
+  background-color: transparent !important;
+  background-image: linear-gradient(to bottom right, transparent calc(50% - 1px), $wpn-red, transparent calc(50% + 1px));
 }
 
 .underline-crossed-out {
