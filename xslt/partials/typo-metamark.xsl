@@ -338,6 +338,9 @@
              <xsl:when test="@place">
                 <span class="metamark position-absolute {replace(@rendition,'#','')} {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:apply-templates/></span>
             </xsl:when>
+            <xsl:when test="not(@change) and (contains(@rendition, 'ink') and contains(preceding-sibling::tei:pb[1]/@type, 'witnessNote1'))">
+                 <span class="metamark {replace(@rendition,'#','')}"><xsl:apply-templates/></span>
+            </xsl:when>
             <xsl:otherwise>
                 <span class="metamark {replace(@rendition,'#','')} {replace(@change,'#','')}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:apply-templates/></span>
             </xsl:otherwise>
