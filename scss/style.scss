@@ -1435,7 +1435,7 @@ span.warning {
 }
 
 .topLowerLeft2 {
-    top: 13em;
+    top: 12em;
     left: 16em;
     text-indent: initial;
 }
@@ -2471,6 +2471,7 @@ handling del elments based on change type
 #textcontent-pb .del.eraserOnTypescript,
 #textcontent-pb .del.eraserOnTypescriptKK,
 #textcontent-pb del.restore.eraserOnTypescriptKK,
+#textcontent-pb del.eraserOnTypescriptKK,
 #textcontent-pb .restore.eraserOnTypescriptKK .subst .add.above,
 #textcontent-pb .add.above .eraserOnTypescriptKK>del,
 #textcontent-pb .subst.pencilOnTypescriptKK .add.above:has(>.eraserOnTypescriptKK) {
