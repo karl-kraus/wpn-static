@@ -86,7 +86,7 @@
        <xsl:apply-templates/>
     </xsl:template>
     <xsl:template match="tei:seg[@type='marked' and @rend]">
-         <span class="seg marked {@rend}" data-anchor="{@xml:id}">
+         <span class="seg marked {@rend}" data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">
               <xsl:apply-templates/>
          </span>
     </xsl:template>
