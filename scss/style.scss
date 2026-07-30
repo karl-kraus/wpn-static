@@ -2146,6 +2146,10 @@ span.warning {
   border: none !important;
 }
 
+#legende-pb .del.eraserOnProofKK del {
+text-decoration: line-through $pencil-grey dashed;
+}
+  
 #legende-pb .restore:has(del) {
   text-decoration: underline dotted;
 }
