@@ -2483,6 +2483,8 @@ handling del elments based on change type
 #textcontent-pb .del.eraserOnTypescript,
 #textcontent-pb .del.eraserOnTypescriptKK,
 #textcontent-pb del.restore.eraserOnTypescriptKK,
+#textcontent-pb .restore.eraserOnTypescriptKK>del.add, /* TFragment2-0236r */
+#textcontent-pb .restore.eraserOnTypescriptKK>span.position-relative>del.add, /* TFragment2-0236r */
 #textcontent-pb del.eraserOnTypescriptKK,
 #textcontent-pb .restore.eraserOnTypescriptKK .subst .add.above,
 #textcontent-pb .add.above .eraserOnTypescriptKK>del,
