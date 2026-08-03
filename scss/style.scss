@@ -2466,7 +2466,7 @@ handling del elments based on change type
 #textcontent-pb .restore.pencilOnProofKK .add del,
 #textcontent-pb .restore.pencilOnProofKK .mod span,
 #textcontent-pb .restore.pencilOnProofKK .metamark del,
-#textcontent-pb .restore.pencilOnTypescriptKK .del.text-decoration-underline-dotted,
+#textcontent-pb .restore.pencilOnTypescriptKK>.subst>.del.text-decoration-underline-dotted,
 #textcontent-pb .metamark .restore.pencilOnProofKK del,
 #textcontent-pb .metamark .del.pencilOnProofKK del,
 #textcontent-pb .mod.pencilOnProofKK,
