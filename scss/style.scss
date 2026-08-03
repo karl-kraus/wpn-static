@@ -2533,13 +2533,11 @@ handling del elments based on change type
   text-decoration-color: #000;
 }
 
-#textcontent-pb .del.blueInkOnProof del {
+#textcontent-pb .del.blueInkOnProof del,
+#textcontent-pb .subst.blueInkOnProof del {
   text-decoration-color: #3333A2;
 }
 
-#textcontent-pb .del.blueInkOnProof del {
-  text-decoration-color: #3333A2;
-}
 
 /* overwritten erased del */
 #textcontent-pb .del.erased del {
@@ -2913,7 +2911,10 @@ pencil text color
   color: #303030;
 }
 
-#textcontent-pb div.del.blueInkOnProof {
+#textcontent-pb div.del.blueInkOnProof,
+#textcontent-pb .add.blueInkOnProof .blueInkOnProof,
+#textcontent-pb .subst.blueInkOnProof>.add.overwrite,
+{
   color: #3333A2;
 }
 
