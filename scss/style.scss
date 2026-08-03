@@ -2336,6 +2336,7 @@ text-decoration: line-through $pencil-grey dashed;
 #textcontent-pb .restore.inkOnProofKK .seg-inline,
 #textcontent-pb .mod.noIndent.inkOnProofKK,
 #textcontent-pb .seg .seg.entity.seg-inline .inkOnProofKK {
+  letter-spacing: 0;
   font-size: 0.667rem;
   line-height: 0.75rem;
   font-family: var(--bs-handwritten-font-family-italic), var(--bs-handwritten-font-family-italic-fallback);
