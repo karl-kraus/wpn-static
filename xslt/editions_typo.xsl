@@ -542,7 +542,7 @@
 				<br class="forcedRight"/>
 			</xsl:when>
 			<xsl:when test="@type='forcedRight2' and not(@n)">
-				<br/><span class="forcedRight2"/>
+				<br/><span class="lb-forced-right2"/>
 			</xsl:when>
 			<xsl:otherwise>
 				<br/>
