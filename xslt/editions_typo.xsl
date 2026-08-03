@@ -541,6 +541,9 @@
 			<xsl:when test="@type='forcedRight'">
 				<br class="forcedRight"/>
 			</xsl:when>
+			<xsl:when test="@type='forcedRight2'">
+				<br class="forcedRight2"/>
+			</xsl:when>
 			<xsl:otherwise>
 				<br/>
 			</xsl:otherwise>
