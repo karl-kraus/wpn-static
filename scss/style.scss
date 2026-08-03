@@ -2485,6 +2485,7 @@ handling del elments based on change type
 #textcontent-pb .del.eraserOnTypescriptKK2>del,
 #textcontent-pb .del.eraserOnTypescript,
 #textcontent-pb .del.eraserOnTypescript0,
+#textcontent-pb .del.eraserOnTypescript0>del,
 #textcontent-pb .del.eraserOnTypescript1,
 #textcontent-pb del.eraserOnTypescript0,
 #textcontent-pb .del.eraserOnTypescriptKK,
@@ -2513,6 +2514,7 @@ handling del elments based on change type
 }
 
 #textcontent-pb .subst.inkOnProofKK .del del,
+#textcontent-pb .subst.inkOnTypescriptKK>del
 #textcontent-pb .inkOnProofKK.subst>del,
 #textcontent-pb .inkOnProof.subst>del,
 #textcontent-pb .del.inkOnProofKK del,
@@ -2598,6 +2600,7 @@ text-decoration: line-through;
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK .del.inkOnTypescriptKK del, 
 /* Konvolut_Faust p 229 */ #textcontent-pb del.del.pencilOnTypescriptKK2.inkOnTypescriptKK2, 
 /* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del,
+/* Konvolut_Faust p 232 new */ #textcontent-pb .subst.pencilOnTypescriptKK>del>.del.inkOnTypescriptKK>del,
 /* Konvolut_Faust p 229 */ #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.del,
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK),
 /* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK2 > del:has(>.subst.pencilOnTypescriptKK2 > del),
@@ -2646,6 +2649,7 @@ text-decoration: line-through;
 /* Konvolut_Faust p 229 */ #textcontent-pb del.del.pencilOnTypescriptKK2.inkOnTypescriptKK2::before, 
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del::before,
 /* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del::before,
+/* Konvolut_Faust p 232 new */ #textcontent-pb .subst.pencilOnTypescriptKK>del>.del.inkOnTypescriptKK>del::before,
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK .del.inkOnTypescriptKK del::before, 
 /* Konvolut_Faust p 229 */ #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.del::before,
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK)::before,
