@@ -221,8 +221,8 @@
                                             Bearbeitungsspuren</h5>
                                         
                                         <ul id="list_more_layers" class="list-unstyled visually-hidden"><!-- removed class d-none -->
-                                            <xsl:if test="./tei:note[@type='change'][not(@corresp=('#edACE', '#typewriter2'))]">
-                                            <xsl:for-each select="./tei:note[@type='change'][not(@corresp=('#edACE', '#typewriter2'))]">
+                                            <xsl:if test="./tei:note[@type='change'][not(@corresp=('#edACE'))]">
+                                            <xsl:for-each select="./tei:note[@type='change'][not(@corresp=('#edACE'))]">
                                                 <xsl:variable name="change" select="tokenize(@corresp, ' ')"/>
                                                 <xsl:variable name="corresp">
                                                     <xsl:choose>
