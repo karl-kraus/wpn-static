@@ -156,7 +156,17 @@
                                     
                                     <h5 id="btn_general_info" class="mt-2 cursor-pointer text-dropdown-toggle" role="button" aria-expanded="false" aria-controls="#list_general_info">Standort, Signatur</h5>
                                     <div id="list_general_info" class="visually-hidden">
+                                        
                                         <p>
+                                            <xsl:variable name="id" select="//tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier"/>
+                                            <xsl:value-of select="concat(string-join(($id/tei:institution, $id/tei:collection, $id/tei:idno[@type='signature']), ', '), '.')"/>
+                                            <xsl:if test="$id/tei:idno[@type='URN']">
+                                                <xsl:text> </xsl:text>
+                                                <a href="{$id/tei:idno[@type='URN']}" target="_blank">(Link)</a>
+                                            </xsl:if>
+                                        </p>
+                                        
+                                        <!-- <p>
                                             <xsl:value-of
                                                 select="
                                                 let $id := //tei:sourceDesc[@xml:id=$convolute-id]/tei:msDesc/tei:msIdentifier
@@ -166,7 +176,7 @@
                                                 $id/tei:idno[@type='signature']
                                                 ), ', '), '.')
                                                 "/>
-                                        </p>
+                                        </p> -->
                                         <xsl:for-each select="./tei:note[@type='pagination']">
                                             <xsl:variable name="corresp">
                                                 <xsl:value-of select="replace(@corresp, '#', '')"/>
