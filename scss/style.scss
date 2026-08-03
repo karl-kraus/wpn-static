@@ -2575,6 +2575,11 @@ text-decoration: line-through;
   text-decoration: underline dotted $pencil-grey;
 }
 
+/* Faust p 230 dotted underline in grey */
+#textcontent-pb .restore.pencilOnTypescriptKK>.del.text-decoration-underline-dotted {
+  text-decoration: underline dotted $pencil-grey;
+}
+
 
 /* double line through for double change values */
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del,
