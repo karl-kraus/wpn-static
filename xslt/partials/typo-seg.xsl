@@ -12,7 +12,11 @@
         <xsl:choose>
              <!-- experimental: -->
             <xsl:when test="parent::tei:restore">
-                
+                <xsl:variable name="transposePartners" select="
+                    for $p in //tei:listTranspose/tei:transpose
+                    [tei:ptr[@target = concat('#', current()/@xml:id)]]
+                    /tei:ptr
+                    return substring-after($p/@target, '#')"/>
                 <xsl:variable name="visible-text" select="descendant::text()[not(ancestor::tei:add)]"/>
                 
                 <xsl:if test="starts-with($visible-text[1], ' ')">
@@ -20,7 +24,7 @@
                 </xsl:if>
                 
                 <span class="seg transposition border {replace(@change, '#', '')}">
-                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="border-crossed-out">
+                    <span data-anchor="{@xml:id} {$transposePartners}" data-hand="{replace(@change,'#','')}" class="border-crossed-out">
                          <xsl:apply-templates mode="trim-edge-spaces"/>
                     </span>
                 </span>
@@ -33,6 +37,11 @@
             
             <!-- experimental: -->
             <xsl:otherwise>
+                <xsl:variable name="transposePartners" select="
+                    for $p in //tei:listTranspose/tei:transpose
+                    [tei:ptr[@target = concat('#', current()/@xml:id)]]
+                    /tei:ptr
+                    return substring-after($p/@target, '#')"/>
                 <xsl:variable name="visible-text"
                     select="descendant::text()[not(ancestor::tei:add)]"/>
                 
@@ -42,7 +51,7 @@
             
                 <span class="seg transposition border {replace(@change, '#', '')}"
                       data-hand="{replace(@change,'#','')}"
-                      data-anchor="{@xml:id}">
+                     data-anchor="{@xml:id} {$transposePartners}">
                     <xsl:apply-templates mode="trim-edge-spaces"/>
                 </span>
             
