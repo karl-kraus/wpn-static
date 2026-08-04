@@ -3751,6 +3751,7 @@ wpn-time-line {
 
 #textcontent-pb span:is([class*='typescriptLong'], [class*='typescriptRunning'], [class*='typewriter']) .subst .add.overwrite {
   font-size: inherit !important;
+  letter-spacing: inherit;
 }
 
 #textcontent-pb .subst:is([class*='pencil']) del .overwrite,
