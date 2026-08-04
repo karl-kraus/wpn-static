@@ -2538,6 +2538,8 @@ handling del elments based on change type
 #textcontent-pb .restore.inkOnTypescript del,
 #textcontent-pb .subst.inkOnTypescript del,
 #textcontent-pb .subst.inkOnTypescriptKK2 > del,
+#textcontent-pb .subst.pencilOnTypescriptKK>del.del>.del.inkOnTypescriptKK>del,
+/* Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK .add.above>.subst.inkOnTypescriptKK>del
 /* Faust p 232 */ #textcontent-pb .restore.inkOnTypescriptKK>.subst.pencilOnTypescriptKK del.add {
   text-decoration-color: #000;
 }
@@ -2625,7 +2627,8 @@ text-decoration: line-through;
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del,
 /* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK2 > del:has(> .subst.pencilOnTypescriptKK2 > del),
 /* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del),
-/* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del) .subst del.add.overwrite {
+/* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del) .subst del.add.overwrite,
+/* Konvolut_Faust p 232 new */ #textcontent-pb .subst.pencilOnTypescriptKK>del.del:has(>.del.inkOnTypescriptKK>del) {
   text-decoration: line-through #FFFFFF00;
 }
 
@@ -2670,7 +2673,7 @@ text-decoration: line-through;
   z-index: 5;
 }
 
-/* Konvolut_Faust p 232 new */ #textcontent-pb .subst.pencilOnTypescriptKK>del.del:has(>.del.inkOnTypescriptKK>del) {
+/* Konvolut_Faust p 232 new */ #textcontent-pb .subst.pencilOnTypescriptKK>del.del:has(>.del.inkOnTypescriptKK>del)::before {
   content: "";
   position: absolute;
   left: 0;
