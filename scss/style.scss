@@ -3775,7 +3775,13 @@ wpn-time-line {
 }
 
 #textcontent-pb .add.overwrite:hover {
-  opacity: 0;
+    background-image: linear-gradient(to bottom, #ffffff00 0%, #ffffff00 100%);
+    color: #FFFFFF00;
+    border-left: 2px solid $wpn-red;
+    border-top: 2px solid $wpn-red;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 4px;
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del {
