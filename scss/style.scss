@@ -697,6 +697,7 @@ span.warning {
 #textcontent-pb .typescriptPageNum,
 #textcontent-pb .typescriptFont,
 #textcontent-pb .typescriptFontRight,
+#textcontent-pb .typescriptFontRight3,
 #textcontent-pb .metamark.typescriptFont,
 #textcontent-pb .typescriptLongQuote,
 #textcontent-pb .typescriptLongQuoteIndent,
@@ -3652,6 +3653,15 @@ div.position-relative .marginLeftFurtherBelowOnly {
   text-indent: 27rem;
   position: relative !important;
   text-decoration: none;
+}
+
+#textcontent-pb .typescriptFontRight3 {
+  display: block;
+  text-indent: 33rem;
+  position: relative !important;
+  text-decoration: none;
+  line-height: 0;
+  bottom: 2pt;
 }
 
 /*for Paralipomenon  */
