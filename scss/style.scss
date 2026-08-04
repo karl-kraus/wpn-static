@@ -1293,6 +1293,10 @@ span.warning {
   letter-spacing: 1.5pt;
 }
 
+#textcontent-pb span:is([class*='typescript']) .spacing {
+  letter-spacing: 3.5pt;
+}
+
 #textcontent-pb .mod.letterSpacing {
   letter-spacing: inherit;
 }
