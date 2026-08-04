@@ -3775,13 +3775,14 @@ wpn-time-line {
 }
 
 #textcontent-pb .add.overwrite:hover {
-    background-image: linear-gradient(to bottom, #ffffff00 0%, #ffffff00 100%);
-    color: #FFFFFF00;
-    border-left: 2px solid $wpn-red;
-    border-top: 2px solid $wpn-red;
-    border-right: none;
-    border-bottom: none;
-    border-radius: 4px;
+  background-color: #FFFFFF00 !important;
+  color: #FFFFFF00 !important;
+  border-left: 2px solid $wpn-red;
+  border-top: 2px solid $wpn-red;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 4px;
+  background-image: none;
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del {
