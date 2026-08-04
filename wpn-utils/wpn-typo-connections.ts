@@ -120,7 +120,10 @@ function highlighting(event: Event) {
 
     const targetDataList = target.dataset.target;
 
-    const handDataList = target.dataset.hand;
+    // old: const handDataList = target.dataset.hand;
+
+    // new:
+    const handDataList = [target.dataset.hand, ...collectAncestorHand(target)].filter(Boolean).join(" ");
 
     document.querySelectorAll<HTMLElement>(`.${color}`).forEach((el) => {
 
@@ -421,4 +424,21 @@ function markChildrenAsHighlighted(element: HTMLElement, color: string) {
         }
 
     });
+}
+
+// helper functions 
+function normalize(s) {
+    return (s || "").replace(/\|/g, "").replace(/\s+/g, " ").trim();
+}
+
+function collectAncestorHand(el) {
+    const collected = [];
+    const leafText = normalize(el.textContent);
+    let node = el.parentElement;
+    while (node && node !== content) {
+        if (normalize(node.textContent) !== leafText) break;
+        if (node.dataset.hand) collected.push(node.dataset.hand);
+        node = node.parentElement;
+    }
+    return collected;
 }
