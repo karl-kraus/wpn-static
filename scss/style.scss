@@ -840,7 +840,7 @@ span.warning {
 }
 
 #textcontent-pb .typescriptLongQuoteIndent,
-#textcontent-pb .typescriptLongQuoteLeading
+#textcontent-pb .typescriptLongQuoteLeading,
 #textcontent-pb .typescriptRunningText1,
 #textcontent-pb .typescriptLongQuote,
 #textcontent-pb .typescriptLongQuoteStart {
@@ -2368,7 +2368,7 @@ text-decoration: line-through $pencil-grey dashed;
 #textcontent-pb div.del.pencilOnProof,
 #textcontent-pb div.mod.pencilOnProof,
 #textcontent-pb .subst.pencilOnProof .add,
-#textcontent-pb .restore.pencilOnProof .add
+#textcontent-pb .restore.pencilOnProof .add,
 #textcontent-pb .subst.redOnProof .add,
 #textcontent-pb .restore.redOnProof .add,
 #textcontent-pb .add.redOnProof,
