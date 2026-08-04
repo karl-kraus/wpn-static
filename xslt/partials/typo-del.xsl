@@ -370,12 +370,10 @@
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:del[parent::tei:restore]">
-        <xsl:variable name="inheritIDfromNote" select="
+       <xsl:variable name="inheritIDfromNote" select="
             if(ancestor::tei:note[@place or @rendition][not(preceding::tei:pb[contains(@n, '_')])])
             then(ancestor::tei:note/@xml:id)
-            else if(ancestor::tei:del)
-                then(ancestor::tei:del/@xml:id)
-                else()"/>
+            else()"/>
         <xsl:choose>
             <xsl:when test="parent::tei:restore[not(@rend='marginOnly')]">
                <span id="{@xml:id}" class="del entity text-decoration-underline-dotted">
@@ -390,7 +388,7 @@
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="ancestor::tei:del">
-                        <span id="{@xml:id} {$inheritIDfromNote}" class="del entity {replace((@change)[1], '#', '')}" data-anchor="{@xml:id} {ancestor::tei:del/@xml:id}"><xsl:apply-templates/></span>
+                        <span id="{@xml:id} {$inheritIDfromNote}" class="del entity {replace((@change)[1], '#', '')}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
                     </xsl:when>
                     <xsl:otherwise>
                         <del id="{@xml:id} {$inheritIDfromNote}" class="del entity" data-anchor="{@xml:id}"><xsl:apply-templates/></del>
