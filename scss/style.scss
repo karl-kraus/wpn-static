@@ -3775,14 +3775,12 @@ wpn-time-line {
 }
 
 #textcontent-pb .add.overwrite:hover {
-  background-color: #FFFFFF00 !important;
-  color: #FFFFFF00 !important;
-  border-left: 2px solid $wpn-red;
-  border-top: 2px solid $wpn-red;
-  border-right: none;
-  border-bottom: none;
+  background-color: rgba(235, 104, 104, 0) !important;
+  color: rgba(255, 255, 255, 0) !important;
+  border: none;
   border-radius: 4px;
   background-image: none;
+  box-shadow: 0 0 2px rgba($wpn-red, 0.75);
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del {
