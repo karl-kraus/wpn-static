@@ -270,7 +270,7 @@
             <div class="add w-100 {replace($change[1],'#','')}">
                 <div class="w-100">
                     <xsl:apply-templates select="." mode="manual">
-                        <xsl:with-param name="id" select="if(string-length($containerID) gt 0)then($containerID)else(@xml:id)"/>
+                        <xsl:with-param name="id" select="if(string-length(normalize-space($containerID)) gt 0)then($containerID)else(@xml:id)"/>
                     </xsl:apply-templates>
                 </div>
             </div>
