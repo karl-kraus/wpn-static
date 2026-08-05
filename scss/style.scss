@@ -2052,6 +2052,7 @@ span.warning {
   border: none !important;
 }
 
+
 /* large segs crossed out */
 #textcontent-pb .seg.marked.crossedOut {
   display: block;
@@ -3865,6 +3866,10 @@ body.modal-open, body.modal-open main {
   color: white !important;
   background-image: none !important;
   border-radius: 4px;
+}
+
+.border-crossed-out.connection-color {
+  background-image: repeating-linear-gradient(330deg, white, white 3px, $wpn-red 3px, $wpn-red 6px);
 }
 
 /* hightlight note and all sub elements except sub elements containing class noHightlight */
