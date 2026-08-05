@@ -133,7 +133,7 @@
                 </span>
             </xsl:when>
             <xsl:when test="$rend=('below', 'above', 'left', 'leftBelow', 'rightBelow', 'leftAbove', 'rightAbove')">
-                <del class="del {replace((@change)[1], '#', '')}">
+                <del class="del {replace((@change)[1], '#', '')}" data-hand="{replace(@change, '#', '')}">
                     <xsl:attribute name="data-anchor">
                         <xsl:value-of select="@xml:id"/>
                         <xsl:if test="ancestor::tei:add[parent::tei:subst]">
