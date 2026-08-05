@@ -440,11 +440,20 @@ function collectAncestorHand(el) {
     return collected;
 }
 
+
+function isSkippableWrapper(node: HTMLElement): boolean {
+    if (node.classList.contains("d-block") && (node.classList.contains("lg") || node.classList.contains("l"))) return true;
+
+    const parent = node.parentElement;
+    const isInlineText = node.classList.contains("inline-text");
+    const parentIsL = parent && parent.classList.contains("d-block") && parent.classList.contains("l");
+
+    return isInlineText && parentIsL;
+}
+
 function resolveEffectiveTarget(el: HTMLElement): HTMLElement {
     let node = el;
-    while (node && node !== content
-           && node.classList.contains("d-block")
-           && (node.classList.contains("lg") || node.classList.contains("l"))) {
+    while (node && node !== content && isSkippableWrapper(node)) {
         node = node.parentElement as HTMLElement;
     }
     return node;
