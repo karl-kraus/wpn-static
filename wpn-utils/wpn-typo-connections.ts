@@ -441,14 +441,31 @@ function collectAncestorHand(el) {
 }
 
 
+const alwaysSkipClasses = ["quotes"]; // hier künftig weitere Klassen ergänzbar
+
+function hasNoOwnData(node: HTMLElement): boolean {
+    const anchor = node.dataset.anchor;
+    const hand = node.dataset.hand;
+    const hasAnchor = !!anchor && anchor.trim().length > 0;
+    const hasHand = !!hand && hand.trim().length > 0;
+    return !hasAnchor && !hasHand;
+}
+
 function isSkippableWrapper(node: HTMLElement): boolean {
+    // 1. Klassen, die unabhängig von eigenen Daten immer übersprungen werden
+    if (alwaysSkipClasses.some(cls => node.classList.contains(cls))) return true;
+
+    // 2. Struktur-Wrapper (Versgruppe/Verszeile)
     if (node.classList.contains("d-block") && (node.classList.contains("lg") || node.classList.contains("l"))) return true;
 
+    // 3. Textlauf-Wrapper direkt in einer Verszeile
     const parent = node.parentElement;
     const isInlineText = node.classList.contains("inline-text");
     const parentIsL = parent && parent.classList.contains("d-block") && parent.classList.contains("l");
+    if (isInlineText && parentIsL) return true;
 
-    return isInlineText && parentIsL;
+    // 4. Elemente ganz ohne eigene Anker-/Hand-Daten
+    return hasNoOwnData(node);
 }
 
 function resolveEffectiveTarget(el: HTMLElement): HTMLElement {
