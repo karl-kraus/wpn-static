@@ -119,7 +119,8 @@ function highlighting(event: Event) {
 
     const anchorData = target.dataset.anchor;
 
-    const targetDataList = target.dataset.target;
+    // old: const targetDataList = target.dataset.target;
+    const targetDataList = [target.dataset.target, ...collectAncestorTarget(target)].filter(Boolean).join(" ");
 
     // old: const handDataList = target.dataset.hand;
     const handDataList = [target.dataset.hand, ...collectAncestorHand(target)].filter(Boolean).join(" ");
@@ -440,6 +441,17 @@ function collectAncestorHand(el) {
     return collected;
 }
 
+function collectAncestorTarget(el) {
+    const collected = [];
+    const leafText = normalize(el.textContent);
+    let node = el.parentElement;
+    while (node && node !== content) {
+        if (normalize(node.textContent) !== leafText) break;
+        if (node.dataset.target) collected.push(node.dataset.target);
+        node = node.parentElement;
+    }
+    return collected;
+}
 
 const alwaysSkipClasses = ["quotes"]; // hier künftig weitere Klassen ergänzbar
 
