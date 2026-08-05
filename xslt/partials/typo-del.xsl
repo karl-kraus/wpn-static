@@ -377,18 +377,18 @@
         <xsl:choose>
             <xsl:when test="parent::tei:restore[not(@rend='marginOnly')]">
                <span id="{@xml:id}" class="del entity text-decoration-underline-dotted">
-                    <del data-anchor="{@xml:id} {$inheritIDfromNote}" class="{replace((@change)[1], '#', '')}"><xsl:apply-templates/></del>
+                    <del data-anchor="{@xml:id} {$inheritIDfromNote}" class="{replace((@change)[1], '#', '')}" data-hand="{replace((@change)[1], '#', '')}"><xsl:apply-templates/></del>
                 </span>
             </xsl:when>
              <xsl:when test="parent::tei:restore[not(@rend='marginOnly')] and text()[string-length(.)=1]">
                <span id="{@xml:id}" class="del entity text-decoration-underline-dotted single-char">
-                    <del data-anchor="{@xml:id} {$inheritIDfromNote}"><xsl:apply-templates/></del>
+                    <del data-anchor="{@xml:id} {$inheritIDfromNote}" data-hand="{replace((@change)[1], '#', '')}"><xsl:apply-templates/></del>
                 </span>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:choose>
                     <xsl:when test="ancestor::tei:del">
-                        <span id="{@xml:id} {$inheritIDfromNote}" class="del entity {replace((@change)[1], '#', '')}" data-anchor="{@xml:id}"><xsl:apply-templates/></span>
+                        <span id="{@xml:id} {$inheritIDfromNote}" class="del entity {replace((@change)[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace((@change)[1], '#', '')}"><xsl:apply-templates/></span>
                     </xsl:when>
                     <xsl:otherwise>
                         <del id="{@xml:id} {$inheritIDfromNote}" class="del entity" data-anchor="{@xml:id}"><xsl:apply-templates/></del>
