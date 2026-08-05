@@ -78,7 +78,7 @@
      <xsl:template match="tei:metamark[@function='relocation'][not(@change='#edACE')][@place]">
         <span class="metamark mm-inline {@place} {@style} {replace(@change, '#', '')}">
             <xsl:if test="not(id(data(replace(@target, '#', '')))[@rend='arrow'])">
-                <span data-anchor="{@xml:id}"><xsl:text>&#124;</xsl:text></span>
+                <span data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}"><xsl:text>&#124;</xsl:text></span>
             </xsl:if>
         </span>
      </xsl:template>
@@ -503,11 +503,11 @@
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="metamark position-absolute {@style} {@place} {replace(@change, '#', '')}">
-                    <del data-anchor="{@xml:id}"><xsl:apply-templates/></del>
+                    <del data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}"><xsl:apply-templates/></del>
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <span class="metamark position-absolute {@style} {@place} {replace(@change, '#', '')}" data-anchor="{@xml:id}">
+                <span class="metamark position-absolute {@style} {@place} {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}">
                     <xsl:apply-templates/>
                 </span>
             </xsl:otherwise>
@@ -521,7 +521,7 @@
                         <span id="{@xml:id}" class="metamark entity {replace(@change, '#', '')}">
                             <xsl:choose>
                                 <xsl:when test="ancestor::tei:del">
-                                    <span data-anchor="{@xml:id}">
+                                    <span data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}" >
                                         <xsl:if test="@target">
                                             <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
                                             <xsl:attribute name="data-target">
@@ -532,7 +532,7 @@
                                     </span>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <del data-anchor="{@xml:id}">
+                                    <del data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}" >
                                         <xsl:if test="@target">
                                             <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
                                             <xsl:attribute name="data-target">
@@ -593,7 +593,7 @@
                         </span>
                     </xsl:when>
                     <xsl:otherwise>
-                        <span id="{@xml:id}" class="metamark entity {replace(@change, '#', '')}" data-anchor="{@xml:id}">
+                        <span id="{@xml:id}" class="metamark entity {replace(@change, '#', '')}" data-anchor="{@xml:id}" data-hand="{replace(@change, '#', '')}">
                             <xsl:if test="@target">
                                 <xsl:variable name="targetList" select="tokenize(@target, ' ')"/>
                                 <xsl:attribute name="data-target">
