@@ -375,7 +375,7 @@
     <xsl:template match="tei:rdg[@source='DW']">
         <xsl:apply-templates/>
     </xsl:template>
-    <xsl:template match="tei:hi[rend='sup']">
+    <xsl:template match="tei:hi[@rend='sup']">
         <sup style="font-size: 0.8rem;">
             <xsl:apply-templates/>
         </sup>
