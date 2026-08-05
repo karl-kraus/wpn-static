@@ -433,10 +433,8 @@ function normalize(s) {
 
 function collectAncestorHand(el) {
     const collected = [];
-    const leafText = normalize(el.textContent);
     let node = el.parentElement;
     while (node && node !== content) {
-        if (normalize(node.textContent) !== leafText) break;
         if (node.dataset.hand) collected.push(node.dataset.hand);
         node = node.parentElement;
     }
