@@ -491,9 +491,12 @@
 		</xsl:choose>
     </xsl:template>
     <xsl:template match="tei:subst">
-        <xsl:variable name="rend" select="if(@rend)then(@rend)else(if(tei:del[@rend])then(tei:del/@rend)else(tei:add/@rend))"/>
-        <span data-hand="{replace((@change)[1], '#', '')}" class="subst {if($rend='overwritten')then('overwrittenAnchor')else()} {replace((@change)[1], '#', '')}{if(child::*[$rend='overwritten'])then(' position-relative')else()}"><xsl:apply-templates/></span>
-    </xsl:template>
+	    <xsl:variable name="rend" select="if(@rend)then(@rend)else(if(tei:del[@rend])then(tei:del/@rend)else(tei:add/@rend))"/>
+	    <xsl:variable name="hand" select="
+	        if(@change) then replace(@change,'#','')
+	        else string-join(distinct-values(for $c in (tei:add/@change, tei:del/@change) return replace($c,'#','')), ' ')"/>
+	    <span data-hand="{$hand}" class="subst {if($rend='overwritten')then('overwrittenAnchor')else()} {replace((@change)[1], '#', '')}{if(child::*[$rend='overwritten'])then(' position-relative')else()}"><xsl:apply-templates/></span>
+	</xsl:template>
     
     <!-- <xsl:template match="tei:ptr[parent::tei:transpose]">
     <xsl:variable name="target" select="replace(@target,'#','')"/>
