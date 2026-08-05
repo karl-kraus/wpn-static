@@ -114,15 +114,14 @@ function highlighting(event: Event) {
 
     const color_line = highlightedClassLine;
     
-    const target = event.target as HTMLElement;
+    // old: const target = event.target as HTMLElement;
+    const target = resolveEffectiveTarget(event.target as HTMLElement);
 
     const anchorData = target.dataset.anchor;
 
     const targetDataList = target.dataset.target;
 
     // old: const handDataList = target.dataset.hand;
-
-    // new:
     const handDataList = [target.dataset.hand, ...collectAncestorHand(target)].filter(Boolean).join(" ");
 
     document.querySelectorAll<HTMLElement>(`.${color}`).forEach((el) => {
@@ -439,4 +438,14 @@ function collectAncestorHand(el) {
         node = node.parentElement;
     }
     return collected;
+}
+
+function resolveEffectiveTarget(el: HTMLElement): HTMLElement {
+    let node = el;
+    while (node && node !== content
+           && node.classList.contains("d-block")
+           && (node.classList.contains("lg") || node.classList.contains("l"))) {
+        node = node.parentElement as HTMLElement;
+    }
+    return node;
 }
