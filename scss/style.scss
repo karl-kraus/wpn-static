@@ -2042,16 +2042,11 @@ span.warning {
 
 .border-crossed-out,
 #textcontent-pb .restore>.seg.border {
-    background: repeating-linear-gradient(330deg, white, white 3px, #e5e5e5 3px, #e5e5e5 6px) !important;
-    border: none;
-    background-repeat: no-repeat;
-    background-size: calc(100% - 1px) 1.05em;
-    background-position: 0.5px 60%;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-  border: none !important;
+  background: repeating-linear-gradient(330deg, transparent, transparent 3px, #e5e5e5 3px, #e5e5e5 6px) 0.5px 60% / calc(100% - 1px) 1.05em no-repeat !important;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  border: none !important;  
 }
-
 
 /* large segs crossed out */
 #textcontent-pb .seg.marked.crossedOut {
