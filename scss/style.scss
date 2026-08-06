@@ -2042,7 +2042,7 @@ span.warning {
 
 .border-crossed-out,
 #textcontent-pb .restore>.seg.border {
-    background-image: repeating-linear-gradient(330deg, white, white 3px, #e5e5e5 3px, #e5e5e5 6px);
+    background: repeating-linear-gradient(330deg, white, white 3px, #e5e5e5 3px, #e5e5e5 6px) !important;
     border: none;
     background-repeat: no-repeat;
     background-size: calc(100% - 1px) 1.05em;
