@@ -2015,10 +2015,7 @@ span.warning {
 #textcontent-pb .seg.border>.quotes>.longQuote>span,
 #textcontent-pb .mod.border.inkOnProofKK,
 #textcontent-pb .seg.border .lg {
-  background: linear-gradient(#e5e5e5, #e5e5e5) !important; /* otherwise back to -image and treat the lg/l differently */
-  background-repeat: no-repeat;
-  background-size: calc(100% - 1px) 1em;
-  background-position: 0.5px 60%;
+  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 60% / calc(100% - 1px) 1.05em no-repeat !important;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   border: none !important;
