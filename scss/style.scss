@@ -2578,7 +2578,7 @@ text-decoration: line-through;
 /* general eraser handling */
 #textcontent-pb .metamark .del.eraserOnProofKK del,
 #textcontent-pb del.restore.eraserOnProofKK,
-#textcontent-pb .restore.eraserOnProofKK .subst.pencilOnProofKK del,
+#textcontent-pb .restore.eraserOnProofKK .subst.pencilOnProofKK del.add,
 #textcontent-pb .del.eraserOnProofKK del,
 #textcontent-pb del.eraserOnProof, 
 #textcontent-pb del.eraserOnProofKK, 
@@ -2586,8 +2586,9 @@ text-decoration: line-through;
   text-decoration: line-through dashed $pencil-grey;
 }
 
-/* Faust p 229 dotted underline in grey */
-#textcontent-pb .restore.eraserOnTypescriptKK .text-decoration-underline-dotted {
+/* Faust p 229 dotted underline in grey, also Konv Jer */
+#textcontent-pb .restore.eraserOnTypescriptKK .text-decoration-underline-dotted,
+#textcontent-pb .restore.eraserOnProofKK .subst.pencilOnProofKK .del.text-decoration-underline-dotted {
   text-decoration: underline dotted $pencil-grey;
 }
 
