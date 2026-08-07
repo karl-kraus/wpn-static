@@ -3878,7 +3878,7 @@ body.modal-open, body.modal-open main {
 {
     background: $wpn-red !important;
     color: white !important;
-    border-radius: 4px;
+    border-radius: 0px;
 }
 
 #textcontent-pb .seg.border.connection-color .lg .l {
@@ -3904,7 +3904,8 @@ body.modal-open, body.modal-open main {
 #textcontent-pb .seg.border.connection-color .d-block.lg:first-of-type,
 #textcontent-pb .seg.border.connection-color span.del del span.d-block.lg:first-of-type,
 #textcontent-pb .restore.connection-color .del del span.d-block.lg:first-of-type {
-    border-radius: 4px 4px 0 0;
+    /* border-radius: 4px 4px 0 0; */
+    border-radius: 0px;
     background:$wpn-red !important;
 }
 
