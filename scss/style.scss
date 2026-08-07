@@ -2041,6 +2041,7 @@ span.warning {
 #textcontent-pb .seg.border .seg.border.connection-color,
 #textcontent-pb .seg.border.connection-color:not(:has(br)):not(:has(.l)) {
   background: linear-gradient($wpn-red, $wpn-red) 0.5px 110% / calc(100% - 1px) 1.1em no-repeat !important;
+  border-radius: 0;
 }
 
 #textcontent-pb .seg.border .seg.border {
@@ -3767,6 +3768,10 @@ wpn-time-line {
   border-right: 1px solid grey;
   border-bottom: 1px solid black;
   border-radius: 4px;
+}
+
+#textcontent-pb .runningText1 .d-block.longQuoteIndent .subst .add.overwrite {
+  letter-spacing: initial !important;
 }
 
 #textcontent-pb .subst:is([class*="KK"]) .add.overwrite {
