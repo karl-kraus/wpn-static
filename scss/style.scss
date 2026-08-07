@@ -3907,6 +3907,12 @@ body.modal-open, body.modal-open main {
   text-decoration-color: white !important;
 }
 
+#textcontent-pb del.connection-color .d-block.lg .inline-text {
+  background: $wpn-red !important;
+  color: white !important;
+  border-radius: 0px;
+}
+
 .connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   width: 0.833rem;
   height: 0.7rem;
