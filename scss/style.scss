@@ -2015,14 +2015,14 @@ span.warning {
 #textcontent-pb .seg.border>.quotes>.longQuote>span,
 #textcontent-pb .mod.border.inkOnProofKK,
 #textcontent-pb .seg.border .lg {
-  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 60% / calc(100% - 1px) 1.05em no-repeat !important;
+  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1.05em no-repeat !important;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   border: none !important;
 }
 
 #textcontent-pb .seg.border .seg.border {
-    background: linear-gradient(rgba(177, 177, 177, 0.5), rgba(177, 177, 177, 0.5)) 0.5px 60% / calc(100% - 1px) 1em no-repeat !important;
+    background: linear-gradient(rgba(177, 177, 177, 0.5), rgba(177, 177, 177, 0.5)) 0.5px 110% / calc(100% - 1px) 1em no-repeat !important;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     border: none !important;
@@ -2036,7 +2036,7 @@ span.warning {
 
 .border-crossed-out:not(:is(.connection-color)),
 #textcontent-pb .restore>.seg.border {
-  background: repeating-linear-gradient(330deg, transparent, transparent 3px, #e5e5e5 3px, #e5e5e5 6px) 0.5px 60% / calc(100% - 1px) 1.05em no-repeat !important;
+  background: repeating-linear-gradient(330deg, transparent, transparent 3px, #e5e5e5 3px, #e5e5e5 6px) 0.5px 110% / calc(100% - 1px) 1.05em no-repeat !important;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   border: none !important;  
@@ -2142,7 +2142,7 @@ span.warning {
   background-image: linear-gradient($pencil-grey, $pencil-grey);
   background-repeat: no-repeat;
   background-size: calc(100% - 1px) 1em;
-  background-position: 0.5px 60%;
+  background-position: 0.5px 110%;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   border: none !important;
@@ -2157,11 +2157,8 @@ text-decoration: line-through $pencil-grey dashed;
 }
 
 #legende-pb .restore .seg.border {
-  background-image: repeating-linear-gradient(330deg, white, white 3px, $pencil-grey 3px, $pencil-grey 6px);
+  background-image: repeating-linear-gradient(330deg, white, white 3px, $pencil-grey 3px, $pencil-grey 6px) 0.5px 110% / calc(100% - 1px) 1.05em no-repeat ;
   border: none;
-  background-repeat: no-repeat;
-  background-size: calc(100% - 1px) 1.05em;
-  background-position: 0.5px 60%;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   border: none !important;
@@ -3859,7 +3856,7 @@ body.modal-open, body.modal-open main {
 }
 
 #textcontent-pb .border-crossed-out.connection-color {
-  background: $wpn-red linear-gradient($wpn-red, $wpn-red) 0.5px 60% / calc(100% - 1px) 1.05em no-repeat !important;
+  background: $wpn-red linear-gradient($wpn-red, $wpn-red) 0.5px 110% / calc(100% - 1px) 1.05em no-repeat !important;
 }
 
 /* hightlight note and all sub elements except sub elements containing class noHightlight */
