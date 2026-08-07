@@ -2013,7 +2013,6 @@ span.warning {
 
 #textcontent-pb .seg.border,
 #textcontent-pb .seg.border>.quotes>.longQuote>span,
-#textcontent-pb .mod.border.inkOnProofKK,
 #textcontent-pb .seg.border .lg {
   background: linear-gradient(#e5e5e5, #e5e5e5) !important;
   -webkit-box-decoration-break: clone;
@@ -2021,12 +2020,19 @@ span.warning {
   border: none !important;
 }
 
-#textcontent-pb .seg.border:has(br) {
-  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1.15em no-repeat !important;
+#textcontent-pb .seg.border:has(br),
+#textcontent-pb .mod.border.inkOnProofKK {
+  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1.1em no-repeat !important;
+}
+
+#textcontent-pb .seg.border:has(br).connection-color,
+#textcontent-pb .mod.border.inkOnProofKK.connection-color,
+#textcontent-pb .seg.border .seg.border.connection-color {
+  background: linear-gradient($wpn-red, $wpn-red) 0.5px 110% / calc(100% - 1px) 1.1em no-repeat !important;
 }
 
 #textcontent-pb .seg.border .seg.border {
-    background: linear-gradient(rgba(177, 177, 177, 0.5), rgba(177, 177, 177, 0.5)) 0.5px 110% / calc(100% - 1px)  1.15em no-repeat !important;
+    background: linear-gradient(rgba(177, 177, 177, 0.5), rgba(177, 177, 177, 0.5)) 0.5px 110% / calc(100% - 1px)  1.1em no-repeat !important;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     border: none !important;
@@ -2034,13 +2040,13 @@ span.warning {
 
 #textcontent-pb .seg.border:not(:has(br)):not(:has(.l)),
 #textcontent-pb .seg.border>.quotes>.longQuote>span:not(:has(br)) {
-  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1.15em no-repeat !important;
+  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1.1em no-repeat !important;
   border-radius: 2px;
 }
 
 .border-crossed-out:not(:is(.connection-color)),
 #textcontent-pb .restore>.seg.border {
-  background: repeating-linear-gradient(330deg, transparent, transparent 3px, #e5e5e5 3px, #e5e5e5 6px) 0.5px 110% /  1.05em no-repeat !important;
+  background: repeating-linear-gradient(330deg, transparent, transparent 3px, #e5e5e5 3px, #e5e5e5 6px) 0.5px 110% / calc(100% - 1px) 1.05em no-repeat !important;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   border: none !important;  
@@ -3872,8 +3878,7 @@ body.modal-open, body.modal-open main {
 }
 
 #textcontent-pb .seg.border.connection-color,
-#textcontent-pb .seg.border.connection-color .metamark,
-#textcontent-pb .seg.border .seg.border.connection-color {
+#textcontent-pb .seg.border.connection-color .metamark {
     background: $wpn-red !important;
     color: white !important;
     border-radius: 0px;
