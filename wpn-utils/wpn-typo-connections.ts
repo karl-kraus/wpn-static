@@ -433,6 +433,9 @@ function normalize(s) {
 
 function collectAncestorHand(el) {
     const collected = [];
+    if (el.classList.contains("metamark") && el.closest(".note")) {
+        return collected; // Metamark in einer Note: nur eigener Hand-Wert zählt
+    }
     let node = el.parentElement;
     while (node && node !== content) {
         if (node.dataset.hand) collected.push(node.dataset.hand);
