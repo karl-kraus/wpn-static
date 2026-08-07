@@ -2022,11 +2022,11 @@ span.warning {
 }
 
 #textcontent-pb .seg.border:has(br) {
-  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1em no-repeat !important;
+  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1.15em no-repeat !important;
 }
 
 #textcontent-pb .seg.border .seg.border {
-    background: linear-gradient(rgba(177, 177, 177, 0.5), rgba(177, 177, 177, 0.5)) 0.5px 110% / calc(100% - 1px) 1em no-repeat !important;
+    background: linear-gradient(rgba(177, 177, 177, 0.5), rgba(177, 177, 177, 0.5)) 0.5px 110% / calc(100% - 1px)  1.15em no-repeat !important;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     border: none !important;
@@ -2034,13 +2034,13 @@ span.warning {
 
 #textcontent-pb .seg.border:not(:has(br)):not(:has(.l)),
 #textcontent-pb .seg.border>.quotes>.longQuote>span:not(:has(br)) {
-  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1em no-repeat !important;
+  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1.15em no-repeat !important;
   border-radius: 2px;
 }
 
 .border-crossed-out:not(:is(.connection-color)),
 #textcontent-pb .restore>.seg.border {
-  background: repeating-linear-gradient(330deg, transparent, transparent 3px, #e5e5e5 3px, #e5e5e5 6px) 0.5px 110% / calc(100% - 1px) 1.05em no-repeat !important;
+  background: repeating-linear-gradient(330deg, transparent, transparent 3px, #e5e5e5 3px, #e5e5e5 6px) 0.5px 110% /  1.05em no-repeat !important;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   border: none !important;  
@@ -2145,7 +2145,7 @@ span.warning {
 #legende-pb .seg.border {
   background-image: linear-gradient($pencil-grey, $pencil-grey);
   background-repeat: no-repeat;
-  background-size: calc(100% - 1px) 1em;
+  background-size:  1em;
   background-position: 0.5px 110%;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
@@ -2161,7 +2161,7 @@ text-decoration: line-through $pencil-grey dashed;
 }
 
 #legende-pb .restore .seg.border {
-  background-image: repeating-linear-gradient(330deg, white, white 3px, $pencil-grey 3px, $pencil-grey 6px) 0.5px 110% / calc(100% - 1px) 1.05em no-repeat ;
+  background-image: repeating-linear-gradient(330deg, white, white 3px, $pencil-grey 3px, $pencil-grey 6px) 0.5px 110% /  1.05em no-repeat ;
   border: none;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
