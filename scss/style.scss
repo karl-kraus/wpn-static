@@ -2021,6 +2021,10 @@ span.warning {
   border: none !important;
 }
 
+#textcontent-pb .seg.border:has(br) {
+  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1em no-repeat !important;
+}
+
 #textcontent-pb .seg.border .seg.border {
     background: linear-gradient(rgba(177, 177, 177, 0.5), rgba(177, 177, 177, 0.5)) 0.5px 110% / calc(100% - 1px) 1em no-repeat !important;
     -webkit-box-decoration-break: clone;
@@ -2028,10 +2032,10 @@ span.warning {
     border: none !important;
 }
 
-#textcontent-pb .seg.border:not(:has(br)),
+#textcontent-pb .seg.border:not(:has(br)):not(:has(.l)),
 #textcontent-pb .seg.border>.quotes>.longQuote>span:not(:has(br)) {
-  background-size: calc(100% - 0px) 1em;
-  border-radius: 6px;
+  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1em no-repeat !important;
+  border-radius: 2px;
 }
 
 .border-crossed-out:not(:is(.connection-color)),
