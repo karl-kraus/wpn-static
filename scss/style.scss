@@ -3724,6 +3724,16 @@ div.position-relative .marginLeftFurtherBelowOnly {
   position: relative;
 }
 
+#textcontent-pb .bracket-offset-1 { left: -0.5em; }
+#textcontent-pb .bracket-offset-2 { margin-left: -0.25rem; }
+#textcontent-pb .bracket-offset-3 { margin-left: -0.5rem; }
+
+#textcontent-pb .print-page.witnessPrint .bracket-offset-1,
+#textcontent-pb .print-page.witnessPrint .bracket-offset-2,
+#textcontent-pb .print-page.witnessPrint .bracket-offset-3 {
+  top: 0.2em;
+}
+
 /* .seg.seg-inline span */
 // .metamark.mm-inline span,
 // .mod-inline span {
