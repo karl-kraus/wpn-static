@@ -2015,7 +2015,7 @@ span.warning {
 #textcontent-pb .seg.border>.quotes>.longQuote>span,
 #textcontent-pb .mod.border.inkOnProofKK,
 #textcontent-pb .seg.border .lg {
-  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1.05em no-repeat !important;
+  background: linear-gradient(#e5e5e5, #e5e5e5) !important;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   border: none !important;
@@ -3889,19 +3889,19 @@ body.modal-open, body.modal-open main {
     background: transparent !important;
 }
 
-#textcontent-pb .seg.border.connection-color span.d-block.lg:not(:has(~ span.d-block.lg)),
+/* #textcontent-pb .seg.border.connection-color span.d-block.lg:not(:has(~ span.d-block.lg)),
 #textcontent-pb .restore.connection-color .del del span.d-block.lg:not(:has(~ span.d-block.lg)) {
     border-radius: 0 0 4px 4px;
     background: $wpn-red !important;
-}
+} 
 
 #textcontent-pb .seg.border.connection-color .d-block.lg:first-of-type,
 #textcontent-pb .seg.border.connection-color span.del del span.d-block.lg:first-of-type,
 #textcontent-pb .restore.connection-color .del del span.d-block.lg:first-of-type {
-    /* border-radius: 4px 4px 0 0; */
+    border-radius: 4px 4px 0 0;
     border-radius: 0px;
     background:$wpn-red !important;
-}
+} */
 
 #textcontent-pb .restore.pencilOnNotepadKK.connection-color .del:has(.lg) {
   text-decoration-color: white !important;
