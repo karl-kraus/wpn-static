@@ -2045,7 +2045,8 @@ span.warning {
 }
 
 .border-crossed-out:not(:is(.connection-color)),
-#textcontent-pb .restore>.seg.border {
+#textcontent-pb .restore>.seg.border,
+#textcontent-pb .restore > .seg.border:has(.border-crossed-out) {
   background: repeating-linear-gradient(330deg, transparent, transparent 3px, #e5e5e5 3px, #e5e5e5 6px) 0.5px 110% / calc(100% - 1px) 1.05em no-repeat !important;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
