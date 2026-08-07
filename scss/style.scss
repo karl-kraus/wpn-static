@@ -2026,6 +2026,16 @@ span.warning {
   border: none !important;
 }
 
+#textcontent-pb .witnessTypescriptInsert .seg.border:has(br) {
+  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 100% no-repeat !important;
+  border: none !important;
+}
+
+#textcontent-pb .witnessTypescriptInsert .seg.border:has(br).connection-color {
+  background: linear-gradient($wpn-red, $wpn-red) 0.5px 110% / calc(100% - 1px) 100% no-repeat !important;
+  border: none !important;
+}
+
 #textcontent-pb .seg.border:has(br).connection-color,
 #textcontent-pb .mod.border.inkOnProofKK.connection-color,
 #textcontent-pb .seg.border .seg.border.connection-color,
