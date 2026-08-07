@@ -2022,10 +2022,7 @@ span.warning {
 }
 
 #textcontent-pb .seg.border .seg.border {
-    background-image: linear-gradient(#b1b1b1, #b1b1b1);
-    background-repeat: no-repeat;
-    background-size: calc(100% - 1px) 1em;
-    background-position: 0.5px 60%;
+    background: linear-gradient(rgba(177, 177, 177, 0.5), rgba(177, 177, 177, 0.5)) 0.5px 60% / calc(100% - 1px) 1em no-repeat !important;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     border: none !important;
