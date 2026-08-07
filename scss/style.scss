@@ -2028,7 +2028,8 @@ span.warning {
 
 #textcontent-pb .seg.border:has(br).connection-color,
 #textcontent-pb .mod.border.inkOnProofKK.connection-color,
-#textcontent-pb .seg.border .seg.border.connection-color {
+#textcontent-pb .seg.border .seg.border.connection-color,
+#textcontent-pb .seg.border.connection-color:not(:has(br)):not(:has(.l)) {
   background: linear-gradient($wpn-red, $wpn-red) 0.5px 110% / calc(100% - 1px) 1.1em no-repeat !important;
 }
 
@@ -2042,7 +2043,6 @@ span.warning {
 #textcontent-pb .seg.border:not(:has(br)):not(:has(.l)),
 #textcontent-pb .seg.border>.quotes>.longQuote>span:not(:has(br)) {
   background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1.1em no-repeat !important;
-  border-radius: 2px;
 }
 
 .border-crossed-out:not(:is(.connection-color)),
