@@ -3869,7 +3869,7 @@ body.modal-open, body.modal-open main {
 
 #textcontent-pb .seg.border.connection-color,
 #textcontent-pb .seg.border.connection-color .metamark,
-{
+#textcontent-pb .seg.border .seg.border.connection-color {
     background: $wpn-red !important;
     color: white !important;
     border-radius: 0px;
