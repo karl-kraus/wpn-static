@@ -2023,6 +2023,7 @@ span.warning {
 #textcontent-pb .seg.border:has(br),
 #textcontent-pb .mod.border.inkOnProofKK {
   background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1.1em no-repeat !important;
+  border: none !important;
 }
 
 #textcontent-pb .seg.border:has(br).connection-color,
