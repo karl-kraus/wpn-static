@@ -3026,6 +3026,7 @@ pencil text color
 #textcontent-pb .metamark.linespace::after  {
   position: absolute;
   content: '–––';
+  font-weight: bold;
   top: -0.5rem;
   left: 13rem;
 }
@@ -3732,8 +3733,15 @@ div.position-relative .marginLeftFurtherBelowOnly {
 #textcontent-pb .print-page.witnessPrint .bracket-offset-1,
 #textcontent-pb .print-page.witnessPrint .bracket-offset-2,
 #textcontent-pb .print-page.witnessPrint .bracket-offset-3 {
-  top: 0.2em;
+  top: 0.1em;
 }
+
+#textcontent-pb .print-page.witnessTypeScript4 .bracket-offset-3 { 
+  top: -0.1em;
+  position: relative;
+}
+
+#textcontent-pb .print-page.witnessTypeScript4 .bracket-offset-1 { top: 0; }
 
 /* .seg.seg-inline span */
 // .metamark.mm-inline span,
