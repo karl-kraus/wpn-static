@@ -4238,8 +4238,50 @@ body.modal-open, body.modal-open main {
 
 }
 
+@media screen and (min-width: 2560px) {
+
+  #edition-view .sub_grid_pb_two, #edition-view .sub_grid_pb_vertical {
+
+    #textcontent-pb .print-page {
+      transform: scale(1.9);
+      transform-origin: top;
+    }
+
+  }
+
+  #edition-view .sub_grid_pb_three {
+
+    #textcontent-pb .print-page {
+      transform: scale(1.4);
+      transform-origin: top;
+    }
+
+    #facscontent {
+      transform: scale(1.4);
+      transform-origin: top;
+
+      // Force OpenSeadragon to respect container dimensions
+      .openseadragon-container,
+      .openseadragon-canvas {
+        max-height: 100% !important;
+        height: 100% !important;
+      }
+
+    }
+
+  }
+
+}
+
 @media screen and (min-width: 3840px) {
 
+  #edition-view .sub_grid_pb_two, #edition-view .sub_grid_pb_vertical {
+    #textcontent-pb .print-page {
+      transform: scale(2.3);
+      transform-origin: top;
+    }
+  }
+  
   #edition-view .sub_grid_pb_three {
     #textcontent-pb .print-page {
       transform: scale(1.9);
