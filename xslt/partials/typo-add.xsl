@@ -320,7 +320,7 @@
                 <span data-anchor="{$id}" data-hand="{replace($change[1],'#','')}" class="{$rend} {replace($change[1],'#','')}">
                     <xsl:if test="./tei:metamark[@target]">
                         <xsl:attribute name="data-target">
-                            <xsl:value-of select="./tei:metamark[1][@target]"/>
+                            <xsl:value-of select="substring-after(./tei:metamark[@target][1]/@target, '#')"/>
                         </xsl:attribute>
                     </xsl:if>
                     <xsl:text>&#124;&#xA0;</xsl:text><xsl:apply-templates/>
