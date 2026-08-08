@@ -4164,6 +4164,10 @@ body.modal-open, body.modal-open main {
     #textcontent-pb .print-page {
       transform: scale(1.5);
       transform-origin: top;
+      
+      #textcontent-pb .print-page.witnessNote1 {
+      transform: scale(1.9);
+    }
     }
 
   }
@@ -4189,6 +4193,15 @@ body.modal-open, body.modal-open main {
       }
 
       
+    }
+
+     #textcontent-pb .print-page.witnessNote1 {
+      transform: scale(1);
+    }
+
+    #facscontent[wpn-type="witnessNote1"] {
+      transform: scale(1);
+      transform-origin: top;
     }
 
   }
