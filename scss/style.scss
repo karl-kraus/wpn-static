@@ -1015,6 +1015,12 @@ span.warning {
   //   transform-origin: top;
   //   transform: scale(1.2);
   // }
+
+    #infocontent-wrapper {
+    max-height: calc(100vh - $edition-view-header-height - $typo-info-3rd-column-height);
+    height: calc(100vh - $edition-view-header-height - $typo-info-3rd-column-height);
+    overflow-y: scroll;
+  }
 }
 
 #edition-view .sub_grid_pb_two {
@@ -1043,6 +1049,12 @@ span.warning {
     width: 100%;
     max-height: calc((100vh - $edition-view-header-height));
     height: calc((100vh - $edition-view-header-height));
+    overflow-y: scroll;
+  }
+
+    #infocontent-wrapper {
+    max-height: calc(100vh - $edition-view-header-height - $typo-info-3rd-column-height);
+    height: calc(100vh - $edition-view-header-height - $typo-info-3rd-column-height);
     overflow-y: scroll;
   }
 
