@@ -321,7 +321,7 @@
                     <xsl:if test="./tei:metamark[@target]">
                         <xsl:attribute name="data-target">
                             <xsl:for-each select="./tei:metamark[@target]">
-                                <xsl:variable name="targetList" select="tokenize(., ' ')"/>
+                                <xsl:variable name="targetList" select="tokenize(./@target, ' ')"/>
                                 <xsl:value-of select="for $i in $targetList return substring-after($i, '#')"/>
                                 <xsl:if test="position() != last()">
                                     <xsl:text> </xsl:text>
