@@ -4170,6 +4170,11 @@ body.modal-open, body.modal-open main {
     transform: scale(1.9);
     }
 
+     #textcontent-pb .print-page.witnessTypescript2 {
+      transform: scale(1.3);
+      transform-origin: top;
+    }
+
   }
 
   #edition-view .sub_grid_pb_three {
@@ -4201,6 +4206,16 @@ body.modal-open, body.modal-open main {
 
     #facscontent[wpn-type="witnessNote1"] {
       transform: scale(1);
+      transform-origin: top;
+    }
+
+    #textcontent-pb .print-page.witnessTypescript2 {
+      transform: scale(.8);
+      transform-origin: top;
+    }
+
+    #facscontent[wpn-type="witnessTypescript2"] {
+      transform: scale(.8);
       transform-origin: top;
     }
 
