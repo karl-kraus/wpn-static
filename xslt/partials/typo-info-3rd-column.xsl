@@ -177,7 +177,7 @@
                                                 ), ', '), '.')
                                                 "/>
                                         </p> -->
-                                        <xsl:for-each select="./tei:note[@type='pagination']">
+                                        <xsl:for-each select="./tei:note[@type='foliation']">
                                             <xsl:variable name="corresp">
                                                 <xsl:value-of select="replace(@corresp, '#', '')"/>
                                             </xsl:variable>
