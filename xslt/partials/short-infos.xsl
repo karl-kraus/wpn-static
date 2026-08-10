@@ -151,8 +151,8 @@
   <div>
       <div>
         <xsl:choose>
-          <xsl:when test="$source='Motti'">
-              <xsl:text>Motti (1933):</xsl:text>
+          <xsl:when test="$source='Motto'">
+              <xsl:text>Motto (1933):</xsl:text>
           </xsl:when>
           <xsl:when test="$source='DW'">
               <xsl:text>Dritte Walpurgisnacht (1933):</xsl:text>
