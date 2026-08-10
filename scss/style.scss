@@ -3821,7 +3821,8 @@ wpn-time-line {
 #textcontent-pb .add.overwrite:hover {
   background-color: rgba(235, 104, 104, 0) !important;
   color: rgba(255, 255, 255, 0) !important;
-  border: none;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
   border-radius: 4px;
   background-image: none;
   box-shadow: 0 0 2px rgba($wpn-red, 0.75);
