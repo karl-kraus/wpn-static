@@ -52,15 +52,15 @@
                                                                         then(xs:integer(tokenize($currentPage, '_')[1])||tokenize($currentPage, '_')[2])
                                                                         else(concat(xs:integer(replace($currentPage, '\D+', '')), replace($currentPage, '\d+', '')))"/>
                             <button id="dropdownMenuButton1" class="d-contents fs-7 cursor-pointer btn btn-secondary text-white border-0 m-0" type="button" aria-controls="#pagination-pb" aria-expanded="false">
-                                <span><xsl:text>S. </xsl:text></span><xsl:value-of select="$currentPageString"/>
+                                <xsl:value-of select="$currentPageString"/>
                             </button>
-                            <br/>
+                            <!-- <br/>
                             <xsl:variable name="pageCount">
                                 <xsl:value-of select="number(replace(($pages//tei:pb[@n])[last()]/@n, '\D+', ''))"/>
                             </xsl:variable>
                             <label id="paginationLabel" class="cursor-pointer text-white fs-7 fw-light dropdown-toggle" for="dropdownMenuButton1">
                                 <span><xsl:text>von </xsl:text></span><xsl:value-of select="$pageCount"/>
-                            </label>
+                            </label> -->
                         </xsl:if>
                         </div>
                     </div>
