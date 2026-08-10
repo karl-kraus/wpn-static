@@ -5,9 +5,9 @@
     <property name="witness-2-path" value="./data/editions2"/>
     <property name="witness-2-file" value="KK1933_Abs64_Ts.xml"/>
     <property name="witness-3-path" value="./data/editions3"/>
-    <property name="witness-3-file" value="KK1933_HMotti.xml"/>
+    <property name="witness-3-file" value="KK1933_HMotto.xml"/>
     <property name="witness-4-path" value="./data/editions4"/>
-    <property name="witness-4-file" value="KK1933_DfMotti.xml"/>
+    <property name="witness-4-file" value="KK1933_DfMotto.xml"/>
     <property name="witness-5-path" value="./data/editions5"/>
     <property name="witness-5-file" value="KK1933_TParalipomenon.xml"/>
 
@@ -21,7 +21,7 @@
         <delete>
             <fileset dir="${witness-1-path}" includes="wit-*.xml"/>
         </delete>
-        <xslt style="./xslt/partials/typo-add-header-pb.xsl" basedir="${witness-1-path}/tmp" destdir="${witness-1-path}" includes="wit-*.xml" extension=".xml" excludes="wit-DfMotti-*.xml">
+        <xslt style="./xslt/partials/typo-add-header-pb.xsl" basedir="${witness-1-path}/tmp" destdir="${witness-1-path}" includes="wit-*.xml" extension=".xml" excludes="wit-DfMotto-*.xml">
             <param name="edition-path" expression="${witness-1-path}/${witness-1-file}"/>
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
