@@ -54,6 +54,8 @@
                                 <xsl:variable name="currentSurfaceN" select="//tei:surface[@xml:id = substring-after($current-pb/@facs, '#')]/@n"/>
                                 <button id="dropdownMenuButton1" class="d-contents fs-7 cursor-pointer btn btn-secondary text-white border-0 m-0" type="button" aria-controls="#pagination-pb" aria-expanded="false">
                                     <xsl:value-of select="$currentPageString"/><xsl:if test="$currentSurfaceN"><xsl:text>/[</xsl:text><xsl:value-of select="$currentSurfaceN"/><xsl:text>]</xsl:text></xsl:if>
+                                    <br/>
+                                    <label id="paginationLabel" class="d-block text-center mx-auto cursor-pointer text-white dropdown-toggle" for="dropdownMenuButton1"></label>
                                 </button>
                             </xsl:if>
                         </div>
@@ -117,7 +119,7 @@
                             </div>
                         </div>
                         <div id="pagination-pb" class="visually-hidden bg-primary text-white">
-                            <div id="pagination-grid" class="pagination-grid-5 w-100 h-100 text-center m-0 p-1">
+                            <div id="pagination-grid" class="pagination-grid-3 w-100 h-100 text-center m-0 p-1">
                                <xsl:for-each select="$pages//tei:pb[not(@type='nonWitness')]">
                                     <xsl:variable name="page" select="tokenize(@xml:id, '-')[last()]"/>
                                     <xsl:variable name="pageString" select="if(contains($page, '_'))
