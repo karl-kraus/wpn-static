@@ -84,7 +84,7 @@ def add_graphic_url(file):
             count += 1
         idInteger = id.replace('idfacs', '').split('_')[0]
         if idInteger is not None:
-            s.attrib["n"] = str(i + 1)
+            # s.attrib["n"] = str(i + 1)
             new_id = int(idInteger) + count
             facs_value = args.facs if args.facs else ""
             facs_path = args.facspath if args.facspath[-1] == '/' else f"{args.facspath}/"
