@@ -37,7 +37,7 @@
                         <h1><xsl:value-of select="$doc_title"/></h1>
                         <xsl:if test="tokenize(base-uri(),'/')[last()] = 'annotierte_lesefassung.xml'">
                             <section class="my-5_5">
-                                <a role="button" class="btn btn-outline-black-grey" href="motti.html">Zum Text der Lesefassung</a>
+                                <a role="button" class="btn btn-outline-black-grey" href="motto.html">Zum Text der Lesefassung</a>
                             </section>
                         </xsl:if>
                         <xsl:if test="tokenize(base-uri(),'/')[last()] = 'topographical.xml'">
@@ -48,10 +48,10 @@
                                 <a role="button" class="btn btn-outline-black-grey" href="wit-TFragment2-0229r.html">KK1933_Abs64_Ts (in Arbeit)</a>
                             </section>
                             <section class="my-5_5">
-                                <a role="button" class="btn btn-outline-black-grey" href="wit-HMotti-0001r.html">KK1933_HMotti (in Arbeit)</a>
+                                <a role="button" class="btn btn-outline-black-grey" href="wit-HMotto-0001r.html">KK1933_HMotto (in Arbeit)</a>
                             </section>
                             <section class="my-5_5">
-                                <a role="button" class="btn btn-outline-black-grey" href="wit-DfMotti-0001r.html">KK1933_DfMotti (in Arbeit)</a>
+                                <a role="button" class="btn btn-outline-black-grey" href="wit-DfMotto-0001r.html">KK1933_DfMotto (in Arbeit)</a>
                             </section>
                             <section class="my-5_5">
                                 <a role="button" class="btn btn-outline-black-grey" href="wit-TParalipomenon-0034r.html">KK1933_TParalipomenon (in Arbeit)</a>
