@@ -149,7 +149,7 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'motti.html'"/>
+                                                        <xsl:with-param name="href" select="'motto.html'"/>
                                                         <xsl:with-param name="label" select="'Zum Text der Dritten Walpurgisnacht'"/>
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
@@ -177,15 +177,15 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'wit-HMotti-0001r.html'"/>
-                                                        <xsl:with-param name="label" select="'KK1933_HMotti (in Arbeit)'"/>
+                                                        <xsl:with-param name="href" select="'wit-HMotto-0001r.html'"/>
+                                                        <xsl:with-param name="label" select="'KK1933_HMotto (in Arbeit)'"/>
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'wit-DfMotti-0001r.html'"/>
-                                                        <xsl:with-param name="label" select="'KK1933_DfMotti (in Arbeit)'"/>
+                                                        <xsl:with-param name="href" select="'wit-DfMotto-0001r.html'"/>
+                                                        <xsl:with-param name="label" select="'KK1933_DfMotto (in Arbeit)'"/>
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
@@ -299,7 +299,7 @@
                                     and $document != 'commentindex_updated'
                                     and $document != 'eventindex_updated'
                                     and $document != 'biblindex_updated'
-                                    and not(contains($document, 'motti')) 
+                                    and not(contains($document, 'motto')) 
                                     and not(contains($document, 'absatz')) 
                                     and not(contains($document, 'wit-'))">
                             <li class="breadcrumb-item active" aria-current="page">
@@ -323,7 +323,7 @@
                                 </xsl:choose>
                             </li>
                         </xsl:if>
-                        <xsl:if test="contains($document, 'motti') or contains($document, 'absatz')">
+                        <xsl:if test="contains($document, 'motto') or contains($document, 'absatz')">
                             <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="annotierte_lesefassung.html">Annotierte Lesefassung</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Text</li>
                         </xsl:if>
