@@ -2,8 +2,8 @@ import { expect, test } from "@playwright/test";
 
 const pathsToTest: Array<{ label: string; path: string }> = [
 	{
-		label: "[Motti]",
-		path: "motti",
+		label: "[Motto]",
+		path: "motto",
 	},
 ];
 
