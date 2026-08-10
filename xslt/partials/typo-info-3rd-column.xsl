@@ -46,22 +46,16 @@
                     </div>
                     <div id="pagination-dropdown" class="col px-1 border-end border-light-grey bg-primary">
                         <div class="d-block cursor-pointer dropdown ff-ubuntu">
-                        <xsl:if test="contains(base-uri(current()), 'wit-')">
-                            <xsl:variable name="currentPage" select="tokenize(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), '-')[last()]"/>
-                            <xsl:variable name="currentPageString" select="if(contains($currentPage, '_'))
-                                                                        then(xs:integer(tokenize($currentPage, '_')[1])||tokenize($currentPage, '_')[2])
-                                                                        else(concat(xs:integer(replace($currentPage, '\D+', '')), replace($currentPage, '\d+', '')))"/>
-                            <button id="dropdownMenuButton1" class="d-contents fs-7 cursor-pointer btn btn-secondary text-white border-0 m-0" type="button" aria-controls="#pagination-pb" aria-expanded="false">
-                                <xsl:value-of select="$currentPageString"/>
-                            </button>
-                            <!-- <br/>
-                            <xsl:variable name="pageCount">
-                                <xsl:value-of select="number(replace(($pages//tei:pb[@n])[last()]/@n, '\D+', ''))"/>
-                            </xsl:variable>
-                            <label id="paginationLabel" class="cursor-pointer text-white fs-7 fw-light dropdown-toggle" for="dropdownMenuButton1">
-                                <span><xsl:text>von </xsl:text></span><xsl:value-of select="$pageCount"/>
-                            </label> -->
-                        </xsl:if>
+                            <xsl:if test="contains(base-uri(current()), 'wit-')">
+                                <xsl:variable name="currentPage" select="tokenize(replace(tokenize(base-uri(current()),'/')[last()], '.xml', ''), '-')[last()]"/>
+                                <xsl:variable name="currentPageString" select="if(contains($currentPage, '_'))
+                                                                            then(xs:integer(tokenize($currentPage, '_')[1])||tokenize($currentPage, '_')[2])
+                                                                            else(concat(xs:integer(replace($currentPage, '\D+', '')), replace($currentPage, '\d+', '')))"/>
+                                <xsl:variable name="currentSurfaceN" select="//tei:surface[@xml:id = substring-after($current-pb/@facs, '#')]/@n"/>
+                                <button id="dropdownMenuButton1" class="d-contents fs-7 cursor-pointer btn btn-secondary text-white border-0 m-0" type="button" aria-controls="#pagination-pb" aria-expanded="false">
+                                    <xsl:value-of select="$currentPageString"/><xsl:if test="$currentSurfaceN"><xsl:text>/[</xsl:text><xsl:value-of select="$currentSurfaceN"/><xsl:text>]</xsl:text></xsl:if>
+                                </button>
+                            </xsl:if>
                         </div>
                     </div>
                     <div class="col p-0_25 border-end border-light-grey bg-primary align-content-around">
@@ -124,15 +118,14 @@
                         </div>
                         <div id="pagination-pb" class="visually-hidden bg-primary text-white">
                             <div id="pagination-grid" class="pagination-grid-5 w-100 h-100 text-center m-0 p-1">
-                                <xsl:for-each select="$pages//tei:pb[not(@type='nonWitness')]">
-                                    <!-- <xsl:sort select="replace(tokenize(//tei:TEI/@xml:id, '-')[last()], '\D+', '')" data-type="number"/>
-                                    <xsl:sort select="replace(replace(tokenize(//tei:TEI/@xml:id, '-')[last()], '\d+', ''), 'a', 'z')" data-type="text"/> -->
+                               <xsl:for-each select="$pages//tei:pb[not(@type='nonWitness')]">
                                     <xsl:variable name="page" select="tokenize(@xml:id, '-')[last()]"/>
                                     <xsl:variable name="pageString" select="if(contains($page, '_'))
                                                     then(xs:integer(tokenize($page, '_')[1])||tokenize($page, '_')[2])
                                                     else(concat(xs:integer(replace($page, '\D+', '')), replace($page, '\d+', '')))"/>
+                                    <xsl:variable name="surfaceN" select="$pages//tei:surface[@xml:id = substring-after(current()/@facs, '#')]/@n"/>
                                     <a class="fs-9_38 text-white text-decoration-none d-block px-0 my-1 mx-0 py-0 text-center hover:bg-white hover:text-primary" href="{concat(@xml:id, '.html')}?view=all-columns">
-                                        <xsl:value-of select="$pageString"/>
+                                        <xsl:value-of select="$pageString"/><xsl:if test="$surfaceN"><xsl:text>/[</xsl:text><xsl:value-of select="$surfaceN"/><xsl:text>]</xsl:text></xsl:if>
                                     </a>
                                 </xsl:for-each>
                             </div>
