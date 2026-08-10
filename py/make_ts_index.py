@@ -87,7 +87,7 @@ for x in tqdm(sorted(files, key=lambda x: os.path.basename(x).split("_")[-1].spl
     record["persons"] = get_entities(
         ent_type=ent_type, ent_node=ent_node, ent_name=ent_name
     )'''
-    record["order"] = 0 if "motti" in r_title else int(count)
+    record["order"] = 0 if "motto" in r_title else int(count)
     # cfts_record["persons"] = record["persons"]
     record["full_text"] = "\n".join(
         " ".join("".join(p.itertext()).split()) for p in body
@@ -96,7 +96,7 @@ for x in tqdm(sorted(files, key=lambda x: os.path.basename(x).split("_")[-1].spl
         records.append(record)
         cfts_record["full_text"] = record["full_text"]
         cfts_records.append(cfts_record)
-        if "motti" not in r_title:
+        if "motto" not in r_title:
             count += 1
 
 files = glob.glob("./data/edition*/wit-*.xml")
