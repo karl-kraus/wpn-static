@@ -1015,7 +1015,17 @@ span.warning {
   
   .grid-box-1 {
     width: 100%;
-    
+    max-height: calc(100vh - $edition-view-header-height);
+    height: calc(100vh - $edition-view-header-height);
+    overflow-y: scroll;
+
+    // Force OpenSeadragon to respect container dimensions
+    .openseadragon-container,
+    .openseadragon-canvas {
+      max-height: 100% !important;
+      height: 100% !important;
+    }
+
     #facscontent {
       margin-left: auto;
       margin-right: auto;
@@ -1024,6 +1034,9 @@ span.warning {
 
   .grid-box-2 {
     width: 100%;
+    max-height: calc(100vh - $edition-view-header-height);
+    height: calc(100vh - $edition-view-header-height);
+    overflow-y: scroll;
   }
 
     #infocontent-wrapper {
