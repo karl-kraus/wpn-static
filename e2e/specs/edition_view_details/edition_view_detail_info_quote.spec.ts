@@ -7,8 +7,8 @@ import { fetchTestData, getListItems } from "../../utils/helpers.js";
 
 const pathsToTest: Array<{ label: string; path: string }> = [
 	{
-		label: "[Motti]",
-		path: "motti",
+		label: "[Motto]",
+		path: "motto",
 	},
 ];
 
