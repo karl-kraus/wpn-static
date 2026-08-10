@@ -87,6 +87,24 @@
                         </wpn-page-view>
                     </div>
                 </main>
+
+				<div class="modal fade" id="first-visit-info-overlay" tabindex="-1" aria-labelledby="firstVisitOverlayLabel" aria-hidden="true">
+				    <div class="modal-dialog modal-dialog-centered">
+				        <div class="modal-content">
+				            <div class="modal-header">
+				                <h1 class="modal-title fs-5" id="firstVisitOverlayLabel">Hinweis</h1>
+				                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				            </div>
+				            <div class="modal-body">
+				                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, nulla gravida orci a odio, nullam varius turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida, duis ac tellus et risus vulputate vehicula, donec lobortis risus a elit, etiam tempor, ut ullamcorper ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam, maecenas fermentum consequat mi, donec fermentum, pellentesque malesuada nulla a mi, duis sapien sem, aliquet nec, commodo eget, consequat quis, neque.</p>
+				            </div>
+				            <div class="modal-footer">
+				                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Schließen</button>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				
                 <xsl:call-template name="html_footer">
                     <xsl:with-param name="include_scroll_script" select="false()"/>
                 </xsl:call-template>
