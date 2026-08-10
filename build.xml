@@ -80,15 +80,15 @@
         </xslt>
     </target>
     <target name="build-edition-typo-3">
-        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions3" destdir="${target}" includes="wit-*.xml" excludes="KK1933_HMotti.xml">
-            <param name="edition-filepath" expression="editions3/KK1933_HMotti.xml"/>
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions3" destdir="${target}" includes="wit-*.xml" excludes="KK1933_HMotto.xml">
+            <param name="edition-filepath" expression="editions3/KK1933_HMotto.xml"/>
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
     <target name="build-edition-typo-4">
-        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions4" destdir="${target}" includes="wit-*.xml" excludes="KK1933_DfMotti.xml">
-            <param name="edition-filepath" expression="editions4/KK1933_DfMotti.xml"/>
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions4" destdir="${target}" includes="wit-*.xml" excludes="KK1933_DfMotto.xml">
+            <param name="edition-filepath" expression="editions4/KK1933_DfMotto.xml"/>
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
