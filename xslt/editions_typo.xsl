@@ -92,30 +92,19 @@
 				    <div class="modal-dialog modal-dialog-centered">
 				        <div class="modal-content">
 				            <div class="modal-header">
-				                <h1 class="modal-title fs-5" id="firstVisitOverlayLabel">Hinweise zur Nutzung</h1>
+				                <h2 class="modal-title" id="firstVisitOverlayLabel">Hinweise zur Nutzung</h2>
 				                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				            </div>
 				            <div class="modal-body">
-				                <h2 class="modal-title fs-5" id="firstVisitOverlayLabel">Infospalte rechts (bei kleinen Bildschirmen standardmäßig ausgeblendet)</h2>
-				                <p><graphic url="images/icon-legende-bg.svg">
-				                    <desc>Legende</desc>
-				                </graphic> Klick öffnet die Legende.
-				                    <graphic url="images/icon-highlight-bg.svg">
-				                        <desc>Highlight</desc>
-				                    </graphic> Klick aktiviert das Highlighting, das per Mouse-Over Relationen innerhalb der Transkription ausleuchtet (etwa zwischen Korrekturzeichen im Drucktext und Ergänzung am Rand) sowie die zwischen Transkription und Infospalte (zur Identifikation der Bearbeitungsschichten).
-				                    <graphic url="images/icon-view-all.svg">
-				                        <desc>Synoptische Ansicht</desc>
-				                    </graphic>/<graphic url="images/icon-view-facs.svg">
-				                        <desc>Faksimile-Ansicht</desc>
-				                    </graphic>/<graphic url="images/icon-view-text.svg">
-				                        <desc>Transkriptions-Ansicht</desc>
-				                    </graphic>/<graphic url="images/icon-view-vertical.svg">
-				                        <desc>Vertikale Synopse</desc>
-				                    </graphic> Erlaubt das Wechseln zwischen synoptischer Ansicht, Einzelansichten von Faksimile und Transkription sowie vertikaler Synopse.</p>
-				                    <h2 class="modal-title fs-5" id="firstVisitOverlayLabel">„Bearbeitungsspuren“</h2>
+				                <h3>Infospalte rechts (bei kleinen Bildschirmen standardmäßig ausgeblendet)</h3>
 				                <p>
-				                    Der Eintrag listet die verschiedenen Schreibwerkzeuge und, wo vorhanden, Angaben zu Hand und Zeitpunkt.
-				                    Darin die Auflistung "Überschreibende Korrekturen" zeigt bei Mouse-Over (und aktiviertem Highlighting) über den jeweiligen Eintrag zur erleichterten Auffindung die Stellen in der Transkription an.
+				                    <img src="images/icon-legende-bg.svg" alt="Legende"></img> Klick öffnet die Legende.<br/>
+				                    <img src="images/icon-highlight-bg.svg" alt="Highlighting"></img> Klick aktiviert das Highlighting, das per Mouse-Over Relationen innerhalb der Transkription ausleuchtet (etwa zwischen Korrekturzeichen im Drucktext und Ergänzung am Rand) sowie die zwischen Transkription und Infospalte (zur Identifikation der Bearbeitungsschichten).<br/>
+				                    <img src="images/icon-view-all.svg" alt="Synoptic View: Facsimile and Info Column" class="view-icon"></img>/<img src="images/icon-view-facs.svg" alt="Synoptic View: Facsimile, Text Columns and Info Column" class="view-icon"></img>/<img src="images/icon-view-text.svg" alt="Synoptic View: Text and Info Column" class="view-icon"></img>/<img src="images/icon-view-vertical.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"></img> Erlaubt das Wechseln zwischen synoptischer Ansicht, Einzelansichten von Faksimile und Transkription sowie vertikaler Synopse.</p>
+				                    <h3>„Bearbeitungsspuren“</h3>
+				                <p>
+				                    Der Eintrag listet die verschiedenen Schreibwerkzeuge und, wo vorhanden, Angaben zu Hand und Zeitpunkt.<br/>
+				                    Darin die Auflistung "Überschreibende Korrekturen" zeigt bei Mouse-Over (und aktiviertem Highlighting) über den jeweiligen Eintrag zur erleichterten Auffindung die Stellen in der Transkription an.<br/>
 				                    Die Auflistung "Markierung für die Fackel Nr. 890-905" listet die 1934 am Textträger für die Übernahme in die Fackel Nr. 890-905 erstellten Markierungen.
 				                </p>
 				                
