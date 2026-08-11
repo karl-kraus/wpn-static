@@ -89,7 +89,7 @@
                 </main>
 
 				<div class="modal fade" id="first-visit-info-overlay" tabindex="-1" aria-labelledby="firstVisitOverlayLabel" aria-hidden="true">
-				    <div class="modal-dialog modal-dialog-centered">
+				    <div class="modal-dialog modal-lg modal-dialog-centered">
 				        <div class="modal-content">
 				            <div class="modal-header">
 				                <h2 class="modal-title" id="firstVisitOverlayLabel">Hinweise zur Nutzung</h2>
@@ -98,9 +98,9 @@
 				            <div class="modal-body">
 				                <h3>Infospalte rechts (bei kleinen Bildschirmen standardmäßig ausgeblendet)</h3>
 				                <p>
-				                    <img src="images/icon-legende-bg.svg" alt="Legende"></img> Klick öffnet die Legende.<br/>
-				                    <img src="images/icon-highlight-bg.svg" alt="Highlighting"></img> Klick aktiviert das Highlighting, das per Mouse-Over Relationen innerhalb der Transkription ausleuchtet (etwa zwischen Korrekturzeichen im Drucktext und Ergänzung am Rand) sowie die zwischen Transkription und Infospalte (zur Identifikation der Bearbeitungsschichten).<br/>
-				                    <img src="images/icon-view-all.svg" alt="Synoptic View: Facsimile and Info Column" class="view-icon"></img>/<img src="images/icon-view-facs.svg" alt="Synoptic View: Facsimile, Text Columns and Info Column" class="view-icon"></img>/<img src="images/icon-view-text.svg" alt="Synoptic View: Text and Info Column" class="view-icon"></img>/<img src="images/icon-view-vertical.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"></img> Erlaubt das Wechseln zwischen synoptischer Ansicht, Einzelansichten von Faksimile und Transkription sowie vertikaler Synopse.</p>
+				                    <img src="images/icon-legende-bg.svg" alt="Legende"></img> öffnet die Legende.<br/>
+				                    <img src="images/icon-highlight-bg.svg" alt="Highlighting"></img> aktiviert das Highlighting, das per Mouse-Over Relationen innerhalb der Transkription ausleuchtet (etwa zwischen Korrekturzeichen im Drucktext und Ergänzung am Rand) sowie die zwischen Transkription und Infospalte (zur Identifikation der Bearbeitungsschichten).<br/>
+				                    <img src="images/icon-view-all.svg" alt="Synoptic View: Facsimile and Info Column" class="view-icon"></img> / <img src="images/icon-view-facs.svg" alt="Synoptic View: Facsimile, Text Columns and Info Column" class="view-icon"></img> / <img src="images/icon-view-text.svg" alt="Synoptic View: Text and Info Column" class="view-icon"></img> / <img src="images/icon-view-vertical.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"></img> erlaubt das Wechseln zwischen synoptischer Ansicht, Einzelansichten von Faksimile und Transkription sowie vertikaler Synopse.</p>
 				                    <h3>„Bearbeitungsspuren“</h3>
 				                <p>
 				                    Der Eintrag listet die verschiedenen Schreibwerkzeuge und, wo vorhanden, Angaben zu Hand und Zeitpunkt.<br/>
