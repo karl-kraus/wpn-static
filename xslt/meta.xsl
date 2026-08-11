@@ -43,11 +43,12 @@
                         <xsl:if test="tokenize(base-uri(),'/')[last()] = 'topographical.xml'">
                             <section class="my-5_5 position-relative wpn-card-slider">
                                 <wpn-scroll-button scroll-direction="left" role="button" class="wpn-card-slider-btn wpn-card-slider-btn-left" aria-label="Zurück">&#8249;</wpn-scroll-button>
-                                <div id="scroll-container" class="wpn-card-slider-track">
+                                <div id="scroll-container" class="py-2 wpn-card-slider-track">
                                     <div class="wpn-card-slider-item">
                                         <div class="card rounded-0 h-100">
                                             <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                                <h3 class="card-title mt-1"><a href="wit-DfeH-0001.html" class="stretched-link text-decoration-none text-blacker-grey">Zum ‚Jerusalemer Konvolut‘</a></h3>
+                                                <h3 class="card-title mt-1"><a href="wit-DfeH-0001.html" class="stretched-link text-decoration-none text-blacker-grey">Df(eH)</a></h3>
+                                                <p class="card-subtitle text-black-grey">Druckfahnen – ‚Jerusalemer Konvolut‘</p>
                                             </div>
                                             <img src="images/card_dfeh.png" class="d-block" alt=""/>
                                         </div>
@@ -55,8 +56,8 @@
                                     <div class="wpn-card-slider-item">
                                         <div class="card rounded-0 h-100">
                                             <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                                <h3 class="card-title mt-1"><a href="wit-TFragment2-0229r.html" class="stretched-link text-decoration-none text-blacker-grey">KK1933_Abs64_Ts</a></h3>
-                                                <p class="card-subtitle text-black-grey">in Arbeit</p>
+                                                <h3 class="card-title mt-1"><a href="wit-TFragment2-0229r.html" class="stretched-link text-decoration-none text-blacker-grey">T<sup>Fragment 2</sup></a></h3>
+                                                <p class="card-subtitle text-black-grey">Typoskript „Wenn ich mich nun frage …“</p>
                                             </div>
                                             <img src="images/card_tfragment2.png" class="d-block" alt=""/>
                                         </div>
@@ -64,8 +65,8 @@
                                     <div class="wpn-card-slider-item">
                                         <div class="card rounded-0 h-100">
                                             <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                                <h3 class="card-title mt-1"><a href="wit-HMotto-0001r.html" class="stretched-link text-decoration-none text-blacker-grey">KK1933_HMotto</a></h3>
-                                                <p class="card-subtitle text-black-grey">in Arbeit</p>
+                                                <h3 class="card-title mt-1"><a href="wit-HMotto-0001r.html" class="stretched-link text-decoration-none text-blacker-grey">H<sup>Motto</sup></a></h3>
+                                                <p class="card-subtitle text-black-grey">Handschrift des Mottos</p>
                                             </div>
                                             <img src="images/card_hmotto.png" class="d-block" alt=""/>
                                         </div>
@@ -73,8 +74,8 @@
                                     <div class="wpn-card-slider-item">
                                         <div class="card rounded-0 h-100">
                                             <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                                <h3 class="card-title mt-1"><a href="wit-DfMotto-0001r.html" class="stretched-link text-decoration-none text-blacker-grey">KK1933_DfMotto</a></h3>
-                                                <p class="card-subtitle text-black-grey">in Arbeit</p>
+                                                <h3 class="card-title mt-1"><a href="wit-DfMotto-0001r.html" class="stretched-link text-decoration-none text-blacker-grey">Df<sup>Motto</sup></a></h3>
+                                                <p class="card-subtitle text-black-grey">Druckfahnen des Mottos</p>
                                             </div>
                                             <img src="images/card_dfmotto.png" class="d-block" alt=""/>
                                         </div>
@@ -82,8 +83,8 @@
                                     <div class="wpn-card-slider-item">
                                         <div class="card rounded-0 h-100">
                                             <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                                <h3 class="card-title mt-1"><a href="wit-TParalipomenon-0034r.html" class="stretched-link text-decoration-none text-blacker-grey">KK1933_TParalipomenon</a></h3>
-                                                <p class="card-subtitle text-black-grey">in Arbeit</p>
+                                                <h3 class="card-title mt-1"><a href="wit-TParalipomenon-0034r.html" class="stretched-link text-decoration-none text-blacker-grey">T<sup>Paralipomenon</sup></a></h3>
+                                                <p class="card-subtitle text-black-grey">Ausgeschiedenes Typoskript</p>
                                             </div>
                                             <img src="images/card_tparalipomenon.png" class="d-block" alt=""/>
                                         </div>
