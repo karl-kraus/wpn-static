@@ -24,7 +24,7 @@
         </xslt>
     </target>
     <target name="split-edition-paragraphs">
-        <xslt style="./xslt/partials/wpn_splitter.xsl"  basedir="./data/editions" destdir="./data/editions" includes="Gesamt.xml">
+        <xslt style="./xslt/partials/wpn_splitter.xsl"  basedir="./data/editions" destdir="./data/editions" includes="KK1933_DfeH_supplemented.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
@@ -54,20 +54,20 @@
         </xslt>
     </target>
     <target name="build-edition">
-        <xslt style="./xslt/editions.xsl"  basedir="./data/editions" destdir="${target}" includes="*.xml" excludes="Gesamt.xml idPb*.xml wit-*.xml">
+        <xslt style="./xslt/editions.xsl"  basedir="./data/editions" destdir="${target}" includes="*.xml" excludes="KK1933_DfeH_supplemented.xml idPb*.xml wit-*.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
     <target name="build-unstyled-edition">
-        <xslt style="./xslt/editions_unstyled.xsl"  basedir="./data/editions" destdir="./data/merged" includes="*.xml" excludes="Gesamt.xml idPb*.xml wit-*.xml">
+        <xslt style="./xslt/editions_unstyled.xsl"  basedir="./data/editions" destdir="./data/merged" includes="*.xml" excludes="KK1933_DfeH_supplemented.xml idPb*.xml wit-*.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
     <target name="build-edition-typo">
-        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions" destdir="${target}" includes="wit-*.xml" excludes="Gesamt.xml">
-            <param name="edition-filepath" expression="editions/Gesamt.xml"/>
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions" destdir="${target}" includes="wit-*.xml" excludes="KK1933_DfeH_supplemented.xml">
+            <param name="edition-filepath" expression="editions/KK1933_DfeH_supplemented.xml"/>
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
@@ -210,9 +210,9 @@
         <replacetoken>xmlns="http://www.w3.org/1999/xhtml"</replacetoken>
     </replace>
     <delete>
-        <fileset dir="${target}" includes="Gesamt.html"/>
+        <fileset dir="${target}" includes="KK1933_DfeH_supplemented.html"/>
     </delete>
     <delete>
-        <fileset dir="./data/editions" includes="Gesamt.html"/>
+        <fileset dir="./data/editions" includes="KK1933_DfeH_supplemented.html"/>
     </delete>
 </project>

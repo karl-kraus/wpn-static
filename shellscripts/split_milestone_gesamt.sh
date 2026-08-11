@@ -1,13 +1,13 @@
 #!/bin/bash
 
-## Witness 1 - Gesamt.xml
+## Witness 1 - KK1933_DfeH_supplemented.xml
 
 # remove TEI namespace from root element before splitting
-python py/remove_namespace.py -f Gesamt.xml -p data/editions -c "#DWkonJer" -i "iiif/images/wpn/"
+python py/remove_namespace.py -f KK1933_DfeH_supplemented.xml -p data/editions -c "#DWkonJer" -i "iiif/images/wpn/"
 # split files
-python py/milestone.py -t pb -n {http://www.w3.org/XML/1998/namespace}id data/editions/Gesamt_modified.xml
+python py/milestone.py -t pb -n {http://www.w3.org/XML/1998/namespace}id data/editions/KK1933_DfeH_supplemented_modified.xml
 # cleanup to remove namespaces for id elements and save if data/editions
-python py/cleanup.py -f Gesamt.xml -p data/editions --debug
+python py/cleanup.py -f KK1933_DfeH_supplemented.xml -p data/editions --debug
 # add original teiHeader to each file
 ant -f build-preprocessing.xml witness-1
 # add attributes

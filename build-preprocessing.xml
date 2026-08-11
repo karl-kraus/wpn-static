@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." name="tei2html">
     <property name="witness-1-path" value="./data/editions"/>
-    <property name="witness-1-file" value="Gesamt.xml"/>
+    <property name="witness-1-file" value="KK1933_DfeH_supplemented.xml"/>
     <property name="witness-2-path" value="./data/editions2"/>
     <property name="witness-2-file" value="KK1933_Abs64_Ts.xml"/>
     <property name="witness-3-path" value="./data/editions3"/>
