@@ -659,12 +659,12 @@
 
     <!-- <xsl:template match="tei:metamark[@function=('insertion','relocation') and not(matches(@target,'(note)+.*([a-z])_'))]">
        <xsl:variable name="target" select="replace(@target,'#','')"/>
-        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//(tei:seg|tei:note)[@xml:id=$target]" mode="render"/>
+        <xsl:apply-templates select="doc('../data/editions/KK1933_DfeH_supplemented.xml')//(tei:seg|tei:note)[@xml:id=$target]" mode="render"/>
     </xsl:template> -->
     <!-- <xsl:template match="tei:metamark[@function=('insertion') and matches(@target,'(note)+.*([a-z])_')]">
        <xsl:variable name="target" select="replace(@target,'#','')"/>
        <wpn-entity>
-       <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
+       <xsl:apply-templates select="doc('../data/editions/KK1933_DfeH_supplemented.xml')//tei:note[@xml:id=$target]" mode="render"/>
        </wpn-entity>
     </xsl:template> -->
      <!-- <xsl:template match="tei:metamark[@function=('printInstruction','undefined','progress')]">

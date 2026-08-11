@@ -39,7 +39,7 @@ tar -xvzf $output_archive --strip-components 1 -C $custom_output_dir
 if [ -f $output_archive ]; then rm $output_archive; fi
 
 mkdir data/editions
-mv $custom_output_dir/Gesamt.xml data/editions/KK1933_DfeH_supplemented.xml
+mv $custom_output_dir/KK1933_DfeH_supplemented.xml data/editions/
 mkdir data/indices
 mv $custom_output_dir/Register.xml data/indices/
 mv $custom_output_dir/Events.xml data/indices/

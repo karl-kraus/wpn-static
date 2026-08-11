@@ -16,7 +16,7 @@
       <xsl:value-of select="wpn:parse-page-name(replace($current-page,'absatz_',''),'label')"/>
     </button>
     <ul class="dropdown-menu z-3 rounded-0 vh-50 overflow-y-scroll">
-    <xsl:for-each select="doc('../../data/editions/Gesamt.xml')//(tei:p[@n]|tei:mod[@n])">
+    <xsl:for-each select="doc('../../data/editions/KK1933_DfeH_supplemented.xml')//(tei:p[@n]|tei:mod[@n])">
       <li><a class="dropdown-item fs-9_38 py-0 page_link" href="{wpn:parse-page-name(current()/@n,'')||'.html'}"><xsl:value-of select="wpn:parse-page-name(current()/@n,'label')"/></a></li>
     </xsl:for-each>
     </ul>

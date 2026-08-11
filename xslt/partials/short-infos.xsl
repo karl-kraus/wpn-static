@@ -120,10 +120,10 @@
   <xsl:variable name="preceding_pb" as="node()">
     <xsl:choose>
         <xsl:when test="$reftype='insertionstart'">
-          <xsl:copy-of select="doc('../../data/editions/Gesamt.xml')//tei:note[@xml:id=replace($id,'#','')]/preceding::tei:pb[1]"/>
+          <xsl:copy-of select="doc('../../data/editions/KK1933_DfeH_supplemented.xml')//tei:note[@xml:id=replace($id,'#','')]/preceding::tei:pb[1]"/>
         </xsl:when>
         <xsl:when test="$reftype='insertionend'">
-          <xsl:copy-of select="doc('../../data/editions/Gesamt.xml')//tei:metamark[contains(@target,$id)]/preceding::tei:pb[1]"/>
+          <xsl:copy-of select="doc('../../data/editions/KK1933_DfeH_supplemented.xml')//tei:metamark[contains(@target,$id)]/preceding::tei:pb[1]"/>
         </xsl:when>
       </xsl:choose>
   </xsl:variable>

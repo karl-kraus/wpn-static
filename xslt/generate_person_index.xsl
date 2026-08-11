@@ -7,7 +7,7 @@
         omit-xml-declaration="yes"/>
     <xsl:mode on-no-match="deep-skip"/>
      <xsl:variable name="rs_elements">
-            <xsl:for-each select="document('../data/editions/Gesamt.xml')//tei:rs[@type=('person','personGroup')]">
+            <xsl:for-each select="document('../data/editions/KK1933_DfeH_supplemented.xml')//tei:rs[@type=('person','personGroup')]">
                  <xsl:variable name="current_rs" select="."/>
                 <xsl:for-each select="tokenize(current()/@key,' ')">
                     <xsl:element name="rs" namespace="http://www.tei-c.org/ns/1.0">

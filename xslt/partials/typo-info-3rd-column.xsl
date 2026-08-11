@@ -186,7 +186,7 @@
                                                     </xsl:for-each>
                                                 </xsl:attribute>
                                                 
-                                                <xsl:text>Paginierung </xsl:text>
+                                                <xsl:text>Foliierung </xsl:text>
                                                 <xsl:value-of select="./text()"/>
                                                 <xsl:text> (</xsl:text>
                                                 <xsl:for-each select="tokenize($corresp, ' ')">

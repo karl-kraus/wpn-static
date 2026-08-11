@@ -533,7 +533,7 @@
     
     <!-- <xsl:template match="tei:ptr[parent::tei:transpose]">
     <xsl:variable name="target" select="replace(@target,'#','')"/>
-    <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:seg[@xml:id=$target]" mode="render"/>
+    <xsl:apply-templates select="doc('../data/editions/KK1933_DfeH_supplemented.xml')//tei:seg[@xml:id=$target]" mode="render"/>
     </xsl:template> -->
     <xsl:template match="tei:note">
         <span class="note d-block text-align-left {if(@place)then(concat(@place, ' position-absolute'))else()} {replace(@change,'#','')}">
