@@ -4198,6 +4198,32 @@ body.modal-open, body.modal-open main {
   margin-left: 0;
 }
 
+// #legende-pb and #infocontent-pb carry min-h-100/min-vh-100 so they fill the
+// column while visible; but Bootstrap's .visually-hidden switches them to
+// position:absolute, and since no ancestor in the toggle chain is itself
+// positioned, that absolute box escapes every nested overflow:scroll clip
+// (its containing block is the initial containing block) and inflates the
+// whole document's scrollable height while hidden. Neutralize the forced
+// min-height in that state so the hidden panel stays the intended 1px sr-only box.
+#legende-pb.visually-hidden,
+#infocontent-pb.visually-hidden {
+  min-height: 0 !important;
+}
+
+// Even with the above, #pagination-pb's own natural (unclipped) content height
+// still leaks into the document's scrollable area through the nested
+// #infocontent-wrapper/#infocontent overflow:scroll chain inside the CSS grid
+// (the wrapper visibly clips it, but the browser still grows page-level scroll
+// to match the panel's full content height). Give the panel its own bounded,
+// self-contained scroll region — same pattern as the working Bearbeitungsspuren
+// list — so opening the page-number dropdown never moves the surrounding page.
+#pagination-pb,
+#legende-pb,
+#infocontent-pb {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
 .text-dropdown-toggle::after {
   content: "";
   vertical-align: 0.255em;
