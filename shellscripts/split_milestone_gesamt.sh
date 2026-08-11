@@ -32,11 +32,11 @@ add-attributes -g "./data/editions2/wit-*.xml" -b "https://id.acdh.oeaw.ac.at"
 ## Witness 3 - KK1933_HMotti.xml
 
 # remove TEI namespace from root element before splitting
-python py/remove_namespace.py -f KK1933_HMotti.xml -p data/editions3
+python py/remove_namespace.py -f KK1933_HMotto.xml -p data/editions3
 # split files
-python py/milestone.py -t pb -n {http://www.w3.org/XML/1998/namespace}id data/editions3/KK1933_HMotti_modified.xml
+python py/milestone.py -t pb -n {http://www.w3.org/XML/1998/namespace}id data/editions3/KK1933_HMotto_modified.xml
 # cleanup to remove namespaces for id elements and save if data/editions3
-python py/cleanup.py -f KK1933_HMotti.xml -p data/editions3 --debug
+python py/cleanup.py -f KK1933_HMotto.xml -p data/editions3 --debug
 # add original teiHeader to each file
 ant -f build-preprocessing.xml witness-3
 # add attributes
@@ -46,11 +46,11 @@ add-attributes -g "./data/editions3/wit-*.xml" -b "https://id.acdh.oeaw.ac.at"
 ## Witness 4 - KK1933_DfMotti.xml
 
 # remove TEI namespace from root element before splitting
-python py/remove_namespace.py -f KK1933_DfMotti.xml -p data/editions4
+python py/remove_namespace.py -f KK1933_DfMotto.xml -p data/editions4
 # split files
-python py/milestone.py -t pb -n {http://www.w3.org/XML/1998/namespace}id data/editions4/KK1933_DfMotti_modified.xml
+python py/milestone.py -t pb -n {http://www.w3.org/XML/1998/namespace}id data/editions4/KK1933_DfMotto_modified.xml
 # cleanup to remove namespaces for id elements and save if data/editions4
-python py/cleanup.py -f KK1933_DfMotti.xml -p data/editions4 --debug
+python py/cleanup.py -f KK1933_DfMotto.xml -p data/editions4 --debug
 # add original teiHeader to each file
 ant -f build-preprocessing.xml witness-4
 # add attributes

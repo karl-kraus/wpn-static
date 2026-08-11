@@ -92,11 +92,37 @@
 				    <div class="modal-dialog modal-dialog-centered">
 				        <div class="modal-content">
 				            <div class="modal-header">
-				                <h1 class="modal-title fs-5" id="firstVisitOverlayLabel">Hinweis</h1>
+				                <h1 class="modal-title fs-5" id="firstVisitOverlayLabel">Hinweise zur Nutzung</h1>
 				                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				            </div>
 				            <div class="modal-body">
-				                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus, nulla gravida orci a odio, nullam varius turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida, duis ac tellus et risus vulputate vehicula, donec lobortis risus a elit, etiam tempor, ut ullamcorper ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam, maecenas fermentum consequat mi, donec fermentum, pellentesque malesuada nulla a mi, duis sapien sem, aliquet nec, commodo eget, consequat quis, neque.</p>
+				                <h2 class="modal-title fs-5" id="firstVisitOverlayLabel">Infospalte rechts (bei kleinen Bildschirmen standardmäßig ausgeblendet)</h2>
+				                <p><graphic url="images/icon-legende-bg.svg">
+				                    <desc>Legende</desc>
+				                </graphic> Klick öffnet die Legende.
+				                    <graphic url="images/icon-highlight-bg.svg">
+				                        <desc>Highlight</desc>
+				                    </graphic> Klick aktiviert das Highlighting, das per Mouse-Over Relationen innerhalb der Transkription ausleuchtet (etwa zwischen Korrekturzeichen im Drucktext und Ergänzung am Rand) sowie die zwischen Transkription und Infospalte (zur Identifikation der Bearbeitungsschichten).
+				                    <graphic url="images/icon-view-all.svg">
+				                        <desc>Synoptische Ansicht</desc>
+				                    </graphic>/<graphic url="images/icon-view-facs.svg">
+				                        <desc>Faksimile-Ansicht</desc>
+				                    </graphic>/<graphic url="images/icon-view-text.svg">
+				                        <desc>Transkriptions-Ansicht</desc>
+				                    </graphic>/<graphic url="images/icon-view-vertical.svg">
+				                        <desc>Vertikale Synopse</desc>
+				                    </graphic> Erlaubt das Wechseln zwischen synoptischer Ansicht, Einzelansichten von Faksimile und Transkription sowie vertikaler Synopse.</p>
+				                    <h2 class="modal-title fs-5" id="firstVisitOverlayLabel">„Bearbeitungsspuren“</h2>
+				                <p>
+				                    Der Eintrag listet die verschiedenen Schreibwerkzeuge und, wo vorhanden, Angaben zu Hand und Zeitpunkt.
+				                    Darin die Auflistung "Überschreibende Korrekturen" zeigt bei Mouse-Over (und aktiviertem Highlighting) über den jeweiligen Eintrag zur erleichterten Auffindung die Stellen in der Transkription an.
+				                    Die Auflistung "Markierung für die Fackel Nr. 890-905" listet die 1934 am Textträger für die Übernahme in die Fackel Nr. 890-905 erstellten Markierungen.
+				                </p>
+				                
+				                <p>
+				                    Hinweise und Feedback gerne an <ref
+				                        target="mailto:bernhard.oberreither@oeaw.ac.at">bernhard.oberreither@oeaw.ac.at</ref>
+				                </p>
 				            </div>
 				            <div class="modal-footer">
 				                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Schließen</button>
