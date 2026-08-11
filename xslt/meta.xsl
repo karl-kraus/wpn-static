@@ -41,20 +41,55 @@
                             </section>
                         </xsl:if>
                         <xsl:if test="tokenize(base-uri(),'/')[last()] = 'topographical.xml'">
-                            <section class="my-5_5">
-                                <a role="button" class="btn btn-outline-black-grey" href="wit-DfeH-0001.html">Zum ‚Jerusalemer Konvolut‘</a>
-                            </section>
-                            <section class="my-5_5">
-                                <a role="button" class="btn btn-outline-black-grey" href="wit-TFragment2-0229r.html">KK1933_Abs64_Ts (in Arbeit)</a>
-                            </section>
-                            <section class="my-5_5">
-                                <a role="button" class="btn btn-outline-black-grey" href="wit-HMotto-0001r.html">KK1933_HMotto (in Arbeit)</a>
-                            </section>
-                            <section class="my-5_5">
-                                <a role="button" class="btn btn-outline-black-grey" href="wit-DfMotto-0001r.html">KK1933_DfMotto (in Arbeit)</a>
-                            </section>
-                            <section class="my-5_5">
-                                <a role="button" class="btn btn-outline-black-grey" href="wit-TParalipomenon-0034r.html">KK1933_TParalipomenon (in Arbeit)</a>
+                            <section class="my-5_5 position-relative wpn-card-slider">
+                                <wpn-scroll-button scroll-direction="left" role="button" class="wpn-card-slider-btn wpn-card-slider-btn-left" aria-label="Zurück">&#8249;</wpn-scroll-button>
+                                <div id="scroll-container" class="wpn-card-slider-track">
+                                    <div class="wpn-card-slider-item">
+                                        <div class="card rounded-0 h-100">
+                                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                                <h3 class="card-title mt-1"><a href="wit-DfeH-0001.html" class="stretched-link text-decoration-none text-blacker-grey">Zum ‚Jerusalemer Konvolut‘</a></h3>
+                                            </div>
+                                            <img src="images/card_dfeh.png" class="d-block" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="wpn-card-slider-item">
+                                        <div class="card rounded-0 h-100">
+                                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                                <h3 class="card-title mt-1"><a href="wit-TFragment2-0229r.html" class="stretched-link text-decoration-none text-blacker-grey">KK1933_Abs64_Ts</a></h3>
+                                                <p class="card-subtitle text-black-grey">in Arbeit</p>
+                                            </div>
+                                            <img src="images/card_tfragment2.png" class="d-block" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="wpn-card-slider-item">
+                                        <div class="card rounded-0 h-100">
+                                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                                <h3 class="card-title mt-1"><a href="wit-HMotto-0001r.html" class="stretched-link text-decoration-none text-blacker-grey">KK1933_HMotto</a></h3>
+                                                <p class="card-subtitle text-black-grey">in Arbeit</p>
+                                            </div>
+                                            <img src="images/card_hmotto.png" class="d-block" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="wpn-card-slider-item">
+                                        <div class="card rounded-0 h-100">
+                                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                                <h3 class="card-title mt-1"><a href="wit-DfMotto-0001r.html" class="stretched-link text-decoration-none text-blacker-grey">KK1933_DfMotto</a></h3>
+                                                <p class="card-subtitle text-black-grey">in Arbeit</p>
+                                            </div>
+                                            <img src="images/card_dfmotto.png" class="d-block" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="wpn-card-slider-item">
+                                        <div class="card rounded-0 h-100">
+                                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                                <h3 class="card-title mt-1"><a href="wit-TParalipomenon-0034r.html" class="stretched-link text-decoration-none text-blacker-grey">KK1933_TParalipomenon</a></h3>
+                                                <p class="card-subtitle text-black-grey">in Arbeit</p>
+                                            </div>
+                                            <img src="images/card_tparalipomenon.png" class="d-block" alt=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <wpn-scroll-button scroll-direction="right" role="button" class="wpn-card-slider-btn wpn-card-slider-btn-right" aria-label="Weiter">&#8250;</wpn-scroll-button>
                             </section>
                         </xsl:if>
                         <!--  -->

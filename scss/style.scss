@@ -279,6 +279,77 @@ footer {
   overflow:hidden;
 }
 
+/*** card slider (e.g. topographical sub-navigation) ***/
+.wpn-card-slider {
+  padding: 0 2.75rem;
+}
+
+.wpn-card-slider-track {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  padding-bottom: 0.5rem;
+}
+
+.wpn-card-slider-item {
+  // fixed widths (not %) to avoid the flex-basis/overflow circular-sizing
+  // issue: percentages here would resolve against the scrolling track's
+  // content size instead of its visible width, blowing up card widths.
+  flex: 0 0 78vw;
+  max-width: 320px;
+  scroll-snap-align: start;
+
+  @include media-breakpoint-up(sm) {
+    flex-basis: 260px;
+  }
+
+  @include media-breakpoint-up(md) {
+    flex-basis: 235px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.wpn-card-slider-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  transform: translateY(-50%);
+  border: 1px solid $wpn-black-grey;
+  border-radius: 50%;
+  background-color: #fff;
+  color: $wpn-blacker-grey;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $wpn-black-grey;
+    color: #fff;
+  }
+}
+
+.wpn-card-slider-btn-left {
+  left: 0;
+}
+
+.wpn-card-slider-btn-right {
+  right: 0;
+}
+
 .wpn-expand .intro-text {
   height: auto;
   mask-image:unset;
