@@ -143,7 +143,7 @@
                                     <!-- 1 - GENERAL INFO, IDENTIFICATION -->
                                     <!-- ########### -->
                                     <h4 class="mt-2">
-                                        <xsl:value-of select="ancestor::tei:TEI/tei:teiHeader//tei:sourceDesc[@xml:id=$convolute-id]//tei:msItem/tei:title"/>
+                                        <xsl:apply-templates select="ancestor::tei:TEI/tei:teiHeader//tei:sourceDesc[@xml:id=$convolute-id]//tei:msItem/tei:title"/>
                                         <xsl:text>, fol. [</xsl:text>
                                         <xsl:value-of select="@n"/>
                                         <xsl:text>]</xsl:text>
