@@ -350,6 +350,22 @@ footer {
   right: 0;
 }
 
+.wpn-card-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: -0.5rem;
+  z-index: 2;
+  padding: 0.15rem 0.6rem;
+  background-color: $wpn-red;
+  color: #fff;
+  font-family: 'Roboto';
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transform: rotate(8deg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
 .wpn-expand .intro-text {
   height: auto;
   mask-image:unset;

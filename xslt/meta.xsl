@@ -54,7 +54,8 @@
                                         </div>
                                     </div>
                                     <div class="wpn-card-slider-item">
-                                        <div class="card rounded-0 h-100">
+                                        <div class="card rounded-0 h-100 position-relative">
+                                            <span class="wpn-card-badge">NEU</span>
                                             <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
                                                 <h3 class="card-title mt-1"><a href="wit-TFragment2-0229r.html" class="stretched-link text-decoration-none text-blacker-grey">T<sup>Fragment 2</sup></a></h3>
                                                 <p class="card-subtitle text-black-grey">Typoskript „Wenn ich mich nun frage …“</p>
@@ -63,7 +64,8 @@
                                         </div>
                                     </div>
                                     <div class="wpn-card-slider-item">
-                                        <div class="card rounded-0 h-100">
+                                        <div class="card rounded-0 h-100 position-relative">
+                                            <span class="wpn-card-badge">NEU</span>
                                             <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
                                                 <h3 class="card-title mt-1"><a href="wit-HMotto-0001r.html" class="stretched-link text-decoration-none text-blacker-grey">H<sup>Motto</sup></a></h3>
                                                 <p class="card-subtitle text-black-grey">Handschrift des Mottos</p>
@@ -72,7 +74,8 @@
                                         </div>
                                     </div>
                                     <div class="wpn-card-slider-item">
-                                        <div class="card rounded-0 h-100">
+                                        <div class="card rounded-0 h-100 position-relative">
+                                            <span class="wpn-card-badge">NEU</span>
                                             <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
                                                 <h3 class="card-title mt-1"><a href="wit-DfMotto-0001r.html" class="stretched-link text-decoration-none text-blacker-grey">Df<sup>Motto</sup></a></h3>
                                                 <p class="card-subtitle text-black-grey">Druckfahnen des Mottos</p>
@@ -81,7 +84,8 @@
                                         </div>
                                     </div>
                                     <div class="wpn-card-slider-item">
-                                        <div class="card rounded-0 h-100">
+                                        <div class="card rounded-0 h-100 position-relative">
+                                            <span class="wpn-card-badge">NEU</span>
                                             <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
                                                 <h3 class="card-title mt-1"><a href="wit-TParalipomenon-0034r.html" class="stretched-link text-decoration-none text-blacker-grey">T<sup>Paralipomenon</sup></a></h3>
                                                 <p class="card-subtitle text-black-grey">Ausgeschiedenes Typoskript</p>
