@@ -155,6 +155,8 @@ function highlighting(event: Event) {
 
             anchorElements.forEach((el) => {
 
+                if (isSuppressedNoteMatchForDel(el, target)) return;
+
                 if (el.classList.contains("printSpanFrom") || el.classList.contains("printSpanTo")) {
 
                     el.classList.add("active");
@@ -192,6 +194,8 @@ function highlighting(event: Event) {
 
             targetElements.forEach((el) => {
 
+                if (isSuppressedNoteMatchForDel(el, target)) return;
+
                 el.classList.add(color);
 
                 if (el.classList.contains("note") || el.classList.contains("quotes")) {
@@ -215,6 +219,8 @@ function highlighting(event: Event) {
             }
 
             linkElements.forEach((el) => {
+
+                if (isSuppressedNoteMatchForDel(el, target)) return;
 
                 el.classList.add(color);
 
@@ -246,6 +252,8 @@ function highlighting(event: Event) {
             }
 
             targetElements.forEach((el) => {
+
+                if (isSuppressedNoteMatchForDel(el, target)) return;
 
                 el.classList.add(color);
 
@@ -426,9 +434,17 @@ function markChildrenAsHighlighted(element: HTMLElement, color: string) {
     });
 }
 
-// helper functions 
+// helper functions
 function normalize(s) {
     return (s || "").replace(/\|/g, "").replace(/\s+/g, " ").trim();
+}
+
+// Hover auf ein del innerhalb einer note soll die note nur mit aufleuchten lassen,
+// wenn die note (bereinigt) keinen weiteren Text als das del selbst enthält.
+// Hover direkt auf die note bleibt davon unberührt (target ist dann kein del).
+function isSuppressedNoteMatchForDel(el: HTMLElement, target: HTMLElement): boolean {
+    if (target.tagName !== "DEL" || !el.classList.contains("note")) return false;
+    return normalize(el.textContent) !== normalize(target.textContent);
 }
 
 function collectAncestorHand(el) {
