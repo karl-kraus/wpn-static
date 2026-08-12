@@ -137,10 +137,12 @@ function highlighting(event: Event) {
 
     });
 
+    const targetHasOwnIdentity = hasOwnIdentity(target);
+
     const anchorDataList = anchorData ? anchorData.split(" ") : [];
     anchorDataList.forEach((data) => {
 
-        if (isSuppressedNoteToken(data, target)) return;
+        if (targetHasOwnIdentity && isSuppressedNoteToken(data, target)) return;
 
         // highlight anchor
         const anchorElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${data}"]`);
@@ -449,6 +451,32 @@ function isSuppressedNoteToken(token: string, target: HTMLElement): boolean {
     const noteEl = getNoteElementForToken(token);
     if (!noteEl) return false;
     return normalize(noteEl.textContent) !== normalize(target.textContent);
+}
+
+// note- und metamark-Templates mischen (siehe $inheritIDfromNote in typo-del.xsl/typo-add.xsl,
+// parent::tei:metamark[@xml:id] in editions_typo.xsl) die id des umgebenden Containers in
+// data-anchor jedes Kind-Elements. Reine Fließtext-Wrapper (z.B. span[@n='last']/[@n='firstLast'],
+// die nur der Zeilenumbruch-Logik dienen) haben dadurch GAR KEINE eigene id - ihre komplette
+// data-anchor-Kennung besteht nur aus geerbten Container-ids. Ein del/add mit echtem @xml:id hat
+// dagegen zusätzlich eine eigene, nicht geerbte id. Nur wenn das Hover-Element eine solche eigene
+// Identität hat, soll isSuppressedNoteToken greifen - reiner Fließtext soll die note wie gehabt
+// immer komplett aufleuchten lassen (das IST ja schlicht "die note hovern").
+function collectAncestorContainerIds(el: HTMLElement): Set<string> {
+    const ids = new Set<string>();
+    let node = el.parentElement;
+    while (node && node !== content) {
+        if ((node.classList.contains("note") || node.classList.contains("metamark")) && node.dataset.anchor) {
+            node.dataset.anchor.split(" ").filter(Boolean).forEach((t) => ids.add(t));
+        }
+        node = node.parentElement;
+    }
+    return ids;
+}
+
+function hasOwnIdentity(target: HTMLElement): boolean {
+    const inherited = collectAncestorContainerIds(target);
+    const ownTokens = (target.dataset.anchor || "").split(" ").filter(Boolean);
+    return ownTokens.some((tok) => !inherited.has(tok));
 }
 
 function collectAncestorHand(el) {
