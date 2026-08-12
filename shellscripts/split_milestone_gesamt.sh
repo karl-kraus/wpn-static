@@ -15,14 +15,14 @@ ant -f build-preprocessing.xml witness-1
 echo "add attributes"
 add-attributes -g "./data/editions/wit-*.xml" -b "https://id.acdh.oeaw.ac.at"
 
-## Witness 2 - KK1933_Abs64_Ts.xml
+## Witness 2 - KK1933_TFragment2.xml
 
 # remove TEI namespace from root element before splitting
-python py/remove_namespace.py -f KK1933_Abs64_Ts.xml -p data/editions2 -i "iiif/images/wpn2/" -x "ZPH-2007_1_1_6_"
+python py/remove_namespace.py -f KK1933_TFragment2.xml -p data/editions2 -i "iiif/images/wpn2/" -x "ZPH-2007_1_1_6_"
 # split files
-python py/milestone.py -t pb -n {http://www.w3.org/XML/1998/namespace}id data/editions2/KK1933_Abs64_Ts_modified.xml
+python py/milestone.py -t pb -n {http://www.w3.org/XML/1998/namespace}id data/editions2/KK1933_TFragment2_modified.xml
 # cleanup to remove namespaces for id elements and save if data/editions2
-python py/cleanup.py -f KK1933_Abs64_Ts.xml -p data/editions2 --debug
+python py/cleanup.py -f KK1933_TFragment2.xml -p data/editions2 --debug
 # add original teiHeader to each file
 ant -f build-preprocessing.xml witness-2
 # add attributes

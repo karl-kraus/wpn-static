@@ -171,7 +171,7 @@
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'wit-TFragment2-0229r.html'"/>
-                                                        <xsl:with-param name="label" select="'KK1933_Abs64_Ts (in Arbeit)'"/>
+                                                        <xsl:with-param name="label" select="'KK1933_TFragment2 (in Arbeit)'"/>
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>

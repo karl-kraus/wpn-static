@@ -42,7 +42,7 @@ if [ -f $output_archive ]; then rm $output_archive; fi
 mkdir data/editions
 mv $custom_output_dir/KK1933_DfeH_supplemented.xml data/editions/
 mkdir data/editions2
-mv $custom_output_dir/KK1933_Abs64_Ts.xml data/editions2/
+mv $custom_output_dir/KK1933_TFragment2.xml data/editions2/
 mkdir data/editions3
 mv $custom_output_dir/KK1933_HMotto.xml data/editions3/
 mkdir data/editions4

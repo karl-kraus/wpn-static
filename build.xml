@@ -73,8 +73,8 @@
         </xslt>
     </target>
     <target name="build-edition-typo-2">
-        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions2" destdir="${target}" includes="wit-*.xml" excludes="KK1933_Abs64_Ts.xml">
-            <param name="edition-filepath" expression="editions2/KK1933_Abs64_Ts.xml"/>
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions2" destdir="${target}" includes="wit-*.xml" excludes="KK1933_TFragment2.xml">
+            <param name="edition-filepath" expression="editions2/KK1933_TFragment2.xml"/>
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
