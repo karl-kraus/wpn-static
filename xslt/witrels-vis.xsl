@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  witrels-vis.xsl  –  Witness-Relations-Visualisierung, Web-App-Integration
-  Eingabe : vis_figure.xml  (tei:figure als Wurzelelement)
-  Ausgabe : witnessRelations.html
-  Produktionsweg: Ant + Saxon 9 HE (build.xml)
--->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:svg="http://www.w3.org/2000/svg"
@@ -16,7 +10,6 @@
 
     <xsl:import href="./partials/html_navbar.xsl"/>
     <xsl:import href="./partials/html_head.xsl"/>
-    <xsl:import href="./partials/html_footer.xsl"/>
     <xsl:import href="./partials/seg.xsl"/>
     <xsl:import href="./partials/bibl.xsl"/>
     <xsl:import href="./partials/event.xsl"/>
@@ -27,9 +20,9 @@
         <xsl:apply-templates select="tei:figure"/>
     </xsl:template>
 
-    <!-- ===================================================================
+    <!-- 
          Wurzelelement tei:figure → vollständiges HTML-Dokument
-         =================================================================== -->
+          -->
     <xsl:template match="tei:figure">
         <xsl:variable name="doc_title">
             <xsl:text>Textgenese – Überlieferung</xsl:text>
@@ -39,176 +32,8 @@
                 <xsl:call-template name="html_head">
                     <xsl:with-param name="html_title" select="$doc_title"/>
                 </xsl:call-template>
-                <style>
-                    *, *::before, *::after { box-sizing: border-box; }
-
-                    /* ── Vollbild-Layout ──────────────────────────────── */
-                    /* höhere Spezifität nötig, um Bootstraps .overflow-visible-Klasse auf dem body-Element zu schlagen */
-                    body.overflow-visible {
-                        height: 100vh !important;
-                        overflow: hidden !important;
-                    }
-                    .gv-wrapper {
-                        display: flex;
-                        flex-direction: column;
-                        flex: 1 1 auto;
-                        min-height: 0;
-                        overflow: hidden;
-                    }
-                    .gv-row {
-                        display: flex;
-                        flex: 1 1 auto;
-                        min-height: 0;
-                        overflow: hidden;
-                    }
-
-                    /* ── SVG-Hauptbereich ─────────────────────────────── */
-                    .gv-main {
-                        flex: 1 1 auto;
-                        display: flex;
-                        flex-direction: column;
-                        overflow: hidden;
-                        min-height: 0;
-                    }
-
-                    .svg-wrap {
-                        flex: 1 1 auto;
-                        position: relative;
-                        overflow: hidden;
-                    }
-                    .svg-wrap svg {
-                        width: 100%;
-                        height: 100%;
-                        display: block;
-                    }
-
-                    /* ── Passagen-Detail in Sidebar ──────────────────── */
-                    .nav-passage.open {
-                        border-left-color: rgb(162,26,23);
-                        color: rgb(102,102,102) !important;
-                    }
-                    .pass-detail {
-                        margin-top: 0.35rem;
-                        padding-top: 0.35rem;
-                        border-top: 1px solid #bfdbfe;
-                    }
-                    .pass-conn summary { list-style: none; }
-                    .pass-conn summary::-webkit-details-marker { display: none; }
-                    .pass-conn-incipit {
-                        font-size: 0.75rem; font-weight: 600;
-                        cursor: pointer; color: #1e40af;
-                        margin-top: 0.35rem;
-                    }
-                    .pass-conn-incipit:hover { text-decoration: underline; }
-                    .pd-conn-meta { color: rgb(153,153,153); font-size: 0.75rem; margin-top: 0.15rem; }
-
-                    /* ── Sidebar ──────────────────────────────────────── */
-                    aside#sidebar-container {
-                        flex-shrink: 0;
-                        display: flex;
-                        flex-direction: column;
-                        transition: width 0.25s ease;
-                        overflow: hidden;
-                    }
-                    aside#sidebar-container.collapsed { width: 0 !important; }
-                    aside#sidebar-container.collapsed .sidebar { overflow: hidden; }
-
-                    #sidebar-toggle {
-                        position: absolute;
-                        top: 6px;
-                        left: -22px;
-                        width: 22px;
-                        height: 28px;
-                        padding: 0;
-                        background: #f1f5f9;
-                        border: 1px solid #ddd;
-                        border-right: none;
-                        border-radius: 4px 0 0 4px;
-                        cursor: pointer;
-                        font-size: 0.7rem;
-                        line-height: 1;
-                        z-index: 10;
-                    }
-                    #sidebar-toggle:hover { background: #e2e8f0; }
-
-                    .sidebar {
-                        width: 100%;
-                        flex: 1 1 auto;
-                        min-height: 0;
-                        background: #fff;
-                        overflow-y: auto;
-                        padding: 0 0 1rem;
-                    }
-                    .sidebar-controls {
-                        padding: 0.45rem 0.75rem;
-                        border-bottom: 1px solid #e5e7eb;
-                        background: #f9fafb;
-                    }
-                    .sidebar-controls label {
-                        display: flex;
-                        align-items: center;
-                        gap: 0.35rem;
-                        font-size: 0.72rem;
-                        color: #6b7280;
-                        cursor: pointer;
-                        user-select: none;
-                    }
-                    .sidebar-controls input[type=checkbox] { cursor: pointer; }
-
-                    /* Level 1: Achsen */
-                    .nav-l1 { list-style: none; margin: 0; padding: 0; }
-                    .nav-axis-label {
-                        margin: 0.65rem 0.75rem 0.5rem;
-                        cursor: pointer;
-                        user-select: none;
-                    }
-
-                    /* Level 2: Dokumente */
-                    .nav-l2 { display: none; list-style: none; margin: 0; padding: 0 0 0.25rem; }
-                    .nav-axis.open > .nav-l2 { display: block; }
-                    .nav-doc { cursor: pointer; user-select: none; }
-                    .nav-doc-label {
-                        margin: 0.25rem 0.75rem 0.25rem 1.2rem;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                    }
-                    .nav-doc:hover  > .nav-doc-label { background: #f1f5f9; }
-
-                    /* Level 3: Passagen */
-                    .nav-l3 { display: none; list-style: none; margin: 0; padding: 0 0 0.2rem 1.5rem; }
-                    .nav-doc.open > .nav-l3 { display: block; }
-                    .nav-passage {
-                        padding: 0.2rem 0.5rem;
-                        border-left: 2px solid #e2e8f0;
-                        margin-bottom: 0.15rem;
-                        cursor: pointer;
-                    }
-                    .nav-passage:hover { background: #f8fafc; }
-                    .nav-passage .pass-incipit {
-                        display: block;
-                        white-space: normal;
-                    }
-                    .nav-passage .pass-meta { color: rgb(153,153,153); }
-
-                    /* ── Tooltip ─────────────────────────────────────── */
-                    #svg-tooltip {
-                        position: fixed;
-                        display: none;
-                        background: #1e293b;
-                        color: #f8fafc;
-                        font-size: 0.72rem;
-                        padding: 0.3rem 0.55rem;
-                        border-radius: 4px;
-                        pointer-events: none;
-                        max-width: 240px;
-                        white-space: normal;
-                        z-index: 200;
-                        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-                    }
-                </style>
             </head>
-            <body class="d-flex flex-column overflow-visible pe-0">
+            <body id="witrels-vis" class="d-flex flex-column overflow-visible pe-0">
                 <xsl:call-template name="nav_bar">
                     <xsl:with-param name="container" select="'container-fluid px-5'"/>
                     <xsl:with-param name="logo_small" select="true()"/>
@@ -218,22 +43,24 @@
                     <div class="gv-row">
 
                         <!-- SVG-Hauptbereich -->
-                        <div class="gv-main text-black-grey ls-1 w-75">
+                        <div class="gv-main text-black-grey ls-1">
                             <div class="svg-wrap">
                                 <xsl:copy-of select="document(tei:graphic/@url)/svg:svg"/>
                             </div>
                         </div>
 
                         <!-- Sidebar -->
-                        <aside class="w-25 border-start border-light-grey bg-primary bg-opacity-5 position-relative"
+                        <aside class="border-start border-light-grey bg-primary bg-opacity-5 position-relative"
                                id="sidebar-container">
-                            <button id="sidebar-toggle" title="Seitenleiste ein-/ausblenden">&#9664;</button>
+                            <button class="sidebar-toggle sidebar-toggle-outer" title="Seitenleiste ein-/ausblenden">&#9664;</button>
                             <nav class="sidebar">
+                                <div class="sidebar-header">
+                                    <button class="sidebar-toggle sidebar-toggle-inner" title="Seitenleiste ein-/ausblenden">&#9664;</button>
+                                </div>
                                 <div class="sidebar-controls">
-                                    <label>
-                                        <input type="checkbox" id="cb-chapters"/>
-                                        Titelgliederung
-                                    </label>
+                                    <button type="button" id="btn-chapters" class="chapters-toggle" aria-pressed="false">
+                                        Abschnittseinteilung
+                                    </button>
                                 </div>
                                 <ul class="nav-l1">
                                     <xsl:apply-templates select="tei:figDesc/tei:list[@type='axes']/tei:item"/>
@@ -242,9 +69,6 @@
                         </aside>
 
                     </div>
-                    <xsl:call-template name="html_footer">
-                        <xsl:with-param name="additional_clases" select="'z-1'"/>
-                    </xsl:call-template>
                 </main>
 
                 <xsl:call-template name="scripts"/>
@@ -257,10 +81,13 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ── Titelgliederung (anchor @type=title) ── */
   var chaptersG = document.getElementById('chapters');
   if (chaptersG) chaptersG.style.display = 'none';
-  var cbChapters = document.getElementById('cb-chapters');
-  if (cbChapters) {
-    cbChapters.addEventListener('change', function () {
-      if (chaptersG) chaptersG.style.display = this.checked ? '' : 'none';
+  var btnChapters = document.getElementById('btn-chapters');
+  if (btnChapters) {
+    btnChapters.addEventListener('click', function () {
+      var active = btnChapters.classList.toggle('bg-primary');
+      btnChapters.classList.toggle('text-white');
+      btnChapters.setAttribute('aria-pressed', active ? 'true' : 'false');
+      if (chaptersG) chaptersG.style.display = active ? '' : 'none';
     });
   }
 
@@ -517,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function () {
       p.addEventListener('mouseenter', function(e) {
         var inc = p.dataset.incipit || '';
         if (!inc) return;
-        tooltip.textContent = '&#x201E;' + inc + '&#x201C;';
+        tooltip.textContent = '„' + inc + '“';
         tooltip.style.display = 'block';
         positionTooltip(e);
       });
@@ -558,13 +385,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ── Sidebar-Toggle ───────────────────────────────────────────────────*/
+  /* ── Sidebar-Toggle (zwei Buttons, dieselbe Funktion) ───────────────────*/
   var sidebarContainer = document.getElementById('sidebar-container');
-  var sidebarToggle    = document.getElementById('sidebar-toggle');
-  if (sidebarContainer && sidebarToggle) {
-    sidebarToggle.addEventListener('click', function() {
-      var collapsed = sidebarContainer.classList.toggle('collapsed');
-      sidebarToggle.textContent = collapsed ? '►' : '◄';
+  var sidebarToggles   = document.querySelectorAll('.sidebar-toggle');
+  if (sidebarContainer && sidebarToggles.length) {
+    sidebarToggles.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var collapsed = sidebarContainer.classList.toggle('collapsed');
+        sidebarToggles.forEach(function(b) { b.textContent = collapsed ? '►' : '◄'; });
+      });
     });
   }
 
@@ -575,9 +404,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </xsl:template>
 
 
-    <!-- ===================================================================
-         Nav Level 1: Achse
-         =================================================================== -->
+    <!-- Nav Level 1: Achse -->
     <xsl:template match="tei:list[@type='axes']/tei:item">
         <li class="nav-axis" data-idx="{count(preceding-sibling::tei:item)}">
             <h5 class="nav-axis-label text-dropdown-toggle mb-0"><xsl:value-of select="tei:label"/></h5>
@@ -588,9 +415,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </xsl:template>
 
 
-    <!-- ===================================================================
-         Nav Level 2: Dokument
-         =================================================================== -->
+    <!-- Nav Level 2: Dokument -->
     <xsl:template match="tei:list[@type='documents']/tei:item">
         <li class="nav-doc" data-doc="{tei:label}">
             <h6 class="nav-doc-label text-dropdown-toggle mb-0"><xsl:value-of select="tei:label"/></h6>
@@ -603,9 +428,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </xsl:template>
 
 
-    <!-- ===================================================================
-         Nav Level 3: Passage
-         =================================================================== -->
+    <!-- Nav Level 3: Passage -->
     <xsl:template match="tei:list[@type='passages']/tei:item">
         <li class="nav-passage fs-6 text-dark-grey" data-id="{@xml:id}">
             <span class="pass-incipit">&#8222;<xsl:value-of select="tei:label"/>&#8220;</span>
@@ -634,15 +457,13 @@ document.addEventListener('DOMContentLoaded', function () {
     </xsl:template>
 
 
-    <!-- ===================================================================
-         Verbundene Passage (otherDoc-ref)
-         =================================================================== -->
+    <!-- Verbundene Passage (otherDoc-ref) -->
     <xsl:template match="tei:ref[@type='otherDoc']">
-        <details class="pass-conn py-1 border-bottom border-light-grey">
+        <details class="pass-conn py-1 border-bottom border-bottom border-light-grey">
             <summary class="d-flex align-items-baseline pass-conn-heading">
                 <xsl:choose>
-                    <xsl:when test="@subtype='later'">Auf späterem Textträger:</xsl:when>
-                    <xsl:otherwise>Auf früherem Textträger:</xsl:otherwise>
+                    <xsl:when test="@subtype='later'">Entsprechung auf späterem Textträger</xsl:when>
+                    <xsl:otherwise>Entsprechung auf früherem Textträger</xsl:otherwise>
                 </xsl:choose>
             </summary>
             <div class="pass-conn-incipit" data-target="{@target}">&#8222;<xsl:value-of select="tei:label"/>&#8220;</div>
