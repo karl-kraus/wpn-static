@@ -317,6 +317,7 @@
                                     <xsl:when test="$document = 'intertexte'">Intertexte</xsl:when>
                                     <xsl:when test="$document = 'ereignisse'">Ereignisse</xsl:when>
                                     <xsl:when test="$document = 'suche'">Suche</xsl:when>
+                                    <xsl:when test="$document = 'vis_figure'">Überlieferung</xsl:when>
                                     <xsl:otherwise>
 
                                     </xsl:otherwise>

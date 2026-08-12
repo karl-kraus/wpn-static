@@ -161,6 +161,13 @@
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
+    <target name="build-witrels-vis">
+        <delete file="${target}/witnessRelations.html"/>
+        <xslt in="./vis/vis_figure.xml" out="${target}/witnessRelations.html" style="./xslt/witrels-vis.xsl">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
     <target name="generate-scan-index">
         <xslt in="./data/indices/Register.xml" out="data/indices/scan_index.json" style="./xslt/generate_scan_index.xsl">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
@@ -183,7 +190,7 @@
         <!--<copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-wght-normal.woff2" todir="${target_fonts}"/>
         <copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-ext-wght-normal.woff2" todir="${target_fonts}"/>-->
     </target>
-    <target name="build-full-edition" depends="copy-libs, generate-scan-index, build-landing-page, build-meta-pages, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-edition-typo-2, build-edition-typo-3, build-edition-typo-4, build-edition-typo-5, build-notes, generate-bibl-index, generate-person-index, generate-comment-index, generate-event-index, build-intertext-register, build-person-register, build-comment-register, build-timeline-register, build-search-page"/>
+    <target name="build-full-edition" depends="copy-libs, generate-scan-index, build-landing-page, build-meta-pages, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-edition-typo-2, build-edition-typo-3, build-edition-typo-4, build-edition-typo-5, build-notes, generate-bibl-index, generate-person-index, generate-comment-index, generate-event-index, build-intertext-register, build-person-register, build-comment-register, build-timeline-register, build-witrels-vis, build-search-page"/>
     <target name="build-typo-edition" depends="build-edition-typo, build-edition-typo-2, build-edition-typo-3, build-edition-typo-4, build-edition-typo-5"/>
     <replace dir="${target}" value="">
         <include name="*.html"/>
