@@ -140,6 +140,8 @@ function highlighting(event: Event) {
     const anchorDataList = anchorData ? anchorData.split(" ") : [];
     anchorDataList.forEach((data) => {
 
+        if (isSuppressedNoteToken(data, target)) return;
+
         // highlight anchor
         const anchorElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${data}"]`);
 
@@ -154,8 +156,6 @@ function highlighting(event: Event) {
             }
 
             anchorElements.forEach((el) => {
-
-                if (isSuppressedNoteMatchForDel(el, target)) return;
 
                 if (el.classList.contains("printSpanFrom") || el.classList.contains("printSpanTo")) {
 
@@ -194,8 +194,6 @@ function highlighting(event: Event) {
 
             targetElements.forEach((el) => {
 
-                if (isSuppressedNoteMatchForDel(el, target)) return;
-
                 el.classList.add(color);
 
                 if (el.classList.contains("note") || el.classList.contains("quotes")) {
@@ -219,8 +217,6 @@ function highlighting(event: Event) {
             }
 
             linkElements.forEach((el) => {
-
-                if (isSuppressedNoteMatchForDel(el, target)) return;
 
                 el.classList.add(color);
 
@@ -252,8 +248,6 @@ function highlighting(event: Event) {
             }
 
             targetElements.forEach((el) => {
-
-                if (isSuppressedNoteMatchForDel(el, target)) return;
 
                 el.classList.add(color);
 
@@ -439,12 +433,22 @@ function normalize(s) {
     return (s || "").replace(/\|/g, "").replace(/\s+/g, " ").trim();
 }
 
-// Hover auf ein del innerhalb einer note soll die note nur mit aufleuchten lassen,
-// wenn die note (bereinigt) keinen weiteren Text als das del selbst enthält.
-// Hover direkt auf die note bleibt davon unberührt (target ist dann kein del).
-function isSuppressedNoteMatchForDel(el: HTMLElement, target: HTMLElement): boolean {
-    if (target.tagName !== "DEL" || !el.classList.contains("note")) return false;
-    return normalize(el.textContent) !== normalize(target.textContent);
+function getNoteElementForToken(token: string): HTMLElement | null {
+    return document.querySelector<HTMLElement>(`.note[data-anchor~="${token}"]`);
+}
+
+// Ein data-anchor-Token ist entweder die eigene id eines Elements (z.B. das del/add-Paar
+// bei subst, mit bewusst unterschiedlichem Text) oder die geerbte id der umgebenden note
+// (siehe $inheritIDfromNote in typo-del.xsl/typo-add.xsl bzw. die analoge Logik in
+// editions_typo.xsl für span[@n='last']/[@n='firstLast']). Nur im zweiten Fall soll das
+// Token verbinden, wenn die note (bereinigt) keinen weiteren Text als das Hover-Element
+// selbst enthält - sonst verbindet ein und dasselbe Note-Token unbeteiligte
+// Geschwister-Elemente (bzw. die ganze note) miteinander statt nur das eine Element.
+// Hover direkt auf die note bleibt davon unberührt (dort ist el === target, Text ist gleich).
+function isSuppressedNoteToken(token: string, target: HTMLElement): boolean {
+    const noteEl = getNoteElementForToken(token);
+    if (!noteEl) return false;
+    return normalize(noteEl.textContent) !== normalize(target.textContent);
 }
 
 function collectAncestorHand(el) {
