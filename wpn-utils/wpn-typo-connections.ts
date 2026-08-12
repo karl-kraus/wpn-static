@@ -139,6 +139,20 @@ function highlighting(event: Event) {
 
     const targetHasOwnIdentity = hasOwnIdentity(target);
 
+    // Manche Container-Templates (z.B. tei:metamark[@function='printInstruction'][@rendition]
+    // in typo-metamark.xsl) vererben - anders als typo-del.xsl/typo-add.xsl und die
+    // span[@n='last']/[@n='firstLast']-Templates in editions_typo.xsl - die id der umgebenden
+    // note nicht in den eigenen data-anchor. Ein solcher Container ohne eigene Identität soll
+    // trotzdem wie "note hovern" wirken, auch wenn sein eigener data-anchor die note gar nicht
+    // referenziert.
+    if (!targetHasOwnIdentity) {
+        const noteAncestor = target.closest<HTMLElement>(".note");
+        if (noteAncestor) {
+            noteAncestor.classList.add(color);
+            markChildrenAsHighlighted(noteAncestor, color);
+        }
+    }
+
     const anchorDataList = anchorData ? anchorData.split(" ") : [];
     anchorDataList.forEach((data) => {
 
@@ -474,6 +488,21 @@ function collectAncestorContainerIds(el: HTMLElement): Set<string> {
 }
 
 function hasOwnIdentity(target: HTMLElement): boolean {
+    // Ein Container selbst (note/metamark) repräsentiert keine eigene, unterscheidbare
+    // Editionsentität wie ein del/add - seine eigene id ist nur die des Containers, den er
+    // selbst darstellt, kein Zeichen "eigener Identität". Ausnahme: ein metamark mit einer
+    // anderen Hand/Schicht (data-hand) als die umgebende note (z.B. eine spätere Bleistift-
+    // Randziffer in einer mit Tinte geschriebenen note) ist inhaltlich eine eigenständige,
+    // von der note unabhängige Entität und soll separat bleiben statt mit der note zu
+    // verschmelzen.
+    if (target.classList.contains("note")) return false;
+    if (target.classList.contains("metamark")) {
+        const noteAncestor = target.closest<HTMLElement>(".note");
+        const noteHand = noteAncestor?.dataset.hand;
+        const ownHand = target.dataset.hand;
+        if (noteAncestor && noteHand && ownHand && noteHand !== ownHand) return true;
+        return false;
+    }
     const inherited = collectAncestorContainerIds(target);
     const ownTokens = (target.dataset.anchor || "").split(" ").filter(Boolean);
     return ownTokens.some((tok) => !inherited.has(tok));
