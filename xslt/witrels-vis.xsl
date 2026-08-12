@@ -93,21 +93,16 @@
                         padding-top: 0.35rem;
                         border-top: 1px solid #bfdbfe;
                     }
-                    .pass-conn {
-                        margin-top: 0.4rem;
-                        padding: 0.3rem 0.4rem;
-                        background: #f8fafc;
-                        border-radius: 3px;
-                        border: 1px solid #e2e8f0;
-                    }
-                    .pass-conn-heading { font-size: 0.65rem; color: #94a3b8; margin-bottom: 0.25rem; }
+                    .pass-conn { margin-top: 0.3rem; }
+                    .pass-conn summary { list-style: none; }
+                    .pass-conn summary::-webkit-details-marker { display: none; }
                     .pass-conn-incipit {
-                        font-size: 0.72rem; font-weight: 600;
+                        font-size: 0.75rem; font-weight: 600;
                         cursor: pointer; color: #1e40af;
+                        margin-top: 0.35rem;
                     }
                     .pass-conn-incipit:hover { text-decoration: underline; }
-                    .pd-conn-meta { color: #64748b; font-size: 0.65rem; margin-top: 0.15rem; }
-                    .pd-conn-meta a { color: #2563eb; }
+                    .pd-conn-meta { color: rgb(153,153,153); font-size: 0.75rem; margin-top: 0.15rem; }
 
                     /* ── Sidebar ──────────────────────────────────────── */
                     aside#sidebar-container {
@@ -142,7 +137,6 @@
                         width: 100%;
                         flex: 1 1 auto;
                         min-height: 0;
-                        border-left: 1px solid #ddd;
                         background: #fff;
                         overflow-y: auto;
                         padding: 0 0 1rem;
@@ -167,36 +161,22 @@
                     .nav-l1 { list-style: none; margin: 0; padding: 0; }
                     .nav-axis { border-bottom: 1px solid #e5e7eb; }
                     .nav-axis-label {
-                        display: block;
-                        padding: 0.45rem 0.75rem 0.3rem;
-                        font-size: 0.72rem;
-                        font-weight: 700;
-                        text-transform: uppercase;
-                        letter-spacing: 0.05em;
-                        color: #6b7280;
+                        margin: 0.45rem 0.75rem 0.3rem;
                         cursor: pointer;
                         user-select: none;
                     }
-                    .nav-axis-label::before { content: '&#x25B6; '; font-size: 0.55rem; vertical-align: middle; }
-                    .nav-axis.open > .nav-axis-label::before { content: '&#x25BC; '; }
-                    .nav-axis-label:hover { color: #374151; }
-                    .nav-axis.hovered > .nav-axis-label { color: #1e293b; background: #f1f5f9; }
+                    .nav-axis.hovered > .nav-axis-label { background: #f1f5f9; }
 
                     /* Level 2: Dokumente */
                     .nav-l2 { display: none; list-style: none; margin: 0; padding: 0 0 0.25rem; }
                     .nav-axis.open > .nav-l2 { display: block; }
                     .nav-doc { cursor: pointer; user-select: none; }
                     .nav-doc-label {
-                        display: block;
-                        padding: 0.25rem 0.75rem 0.25rem 1.2rem;
-                        font-size: 0.78rem;
-                        color: #1e293b;
+                        margin: 0.25rem 0.75rem 0.25rem 1.2rem;
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
                     }
-                    .nav-doc-label::before { content: '&#x25B6; '; font-size: 0.55rem; color: #9ca3af; vertical-align: middle; }
-                    .nav-doc.open   > .nav-doc-label::before { content: '&#x25BC; '; }
                     .nav-doc:hover  > .nav-doc-label { background: #f1f5f9; }
                     .nav-doc.hovered > .nav-doc-label { background: #dbeafe; color: #1e40af; }
 
@@ -205,8 +185,6 @@
                     .nav-doc.open > .nav-l3 { display: block; }
                     .nav-passage {
                         padding: 0.2rem 0.5rem;
-                        font-size: 0.73rem;
-                        color: #374151;
                         border-left: 2px solid #e2e8f0;
                         margin-bottom: 0.15rem;
                         cursor: pointer;
@@ -217,8 +195,7 @@
                         display: block;
                         white-space: normal;
                     }
-                    .nav-passage .pass-meta { color: #9ca3af; font-size: 0.68rem; }
-                    .nav-passage a { color: #2563eb; font-size: 0.68rem; }
+                    .nav-passage .pass-meta { color: rgb(153,153,153); }
 
                     /* ── Tooltip ─────────────────────────────────────── */
                     #svg-tooltip {
@@ -631,6 +608,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* ── Textträger-Details nicht mit dem Passagen-Toggle kollidieren lassen ── */
+  document.querySelectorAll('.pass-conn > summary').forEach(function(s) {
+    s.addEventListener('click', function(e) { e.stopPropagation(); });
+  });
+
   /* ── Klick auf Label einer verbundenen Passage ────────────────────────*/
   document.querySelectorAll('.pass-conn-incipit[data-target]').forEach(function(el) {
     el.style.cursor = 'pointer';
@@ -680,7 +662,7 @@ document.addEventListener('DOMContentLoaded', function () {
          =================================================================== -->
     <xsl:template match="tei:list[@type='axes']/tei:item">
         <li class="nav-axis" data-idx="{count(preceding-sibling::tei:item)}">
-            <span class="nav-axis-label"><xsl:value-of select="tei:label"/></span>
+            <h5 class="nav-axis-label text-dropdown-toggle mb-0"><xsl:value-of select="tei:label"/></h5>
             <ul class="nav-l2">
                 <xsl:apply-templates select="tei:list[@type='documents']/tei:item"/>
             </ul>
@@ -693,7 +675,7 @@ document.addEventListener('DOMContentLoaded', function () {
          =================================================================== -->
     <xsl:template match="tei:list[@type='documents']/tei:item">
         <li class="nav-doc" data-doc="{tei:label}">
-            <span class="nav-doc-label"><xsl:value-of select="tei:label"/></span>
+            <h6 class="nav-doc-label text-dropdown-toggle mb-0"><xsl:value-of select="tei:label"/></h6>
             <xsl:if test="tei:list[@type='passages']/tei:item">
                 <ul class="nav-l3">
                     <xsl:apply-templates select="tei:list[@type='passages']/tei:item"/>
@@ -707,7 +689,7 @@ document.addEventListener('DOMContentLoaded', function () {
          Nav Level 3: Passage
          =================================================================== -->
     <xsl:template match="tei:list[@type='passages']/tei:item">
-        <li class="nav-passage" data-id="{@xml:id}">
+        <li class="nav-passage fs-6 text-dark-grey" data-id="{@xml:id}">
             <span class="pass-incipit">&#8222;<xsl:value-of select="tei:label"/>&#8220;</span>
             <xsl:if test="tei:ref[@type='page'] or tei:ref[@type='url']">
                 <span class="pass-meta">
@@ -717,7 +699,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     </xsl:if>
                     <xsl:if test="tei:ref[@type='url']">
                         <xsl:if test="tei:ref[@type='page']"><xsl:text> · </xsl:text></xsl:if>
-                        <a href="{tei:ref[@type='url']/@target}" target="_blank">Link</a>
+                        <a href="{tei:ref[@type='url']/@target}" target="_blank" class="ps-2 text-decoration-none text-dark-grey">
+                            <xsl:text>Link</xsl:text>
+                            <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                                <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                            </svg>
+                        </a>
                     </xsl:if>
                 </span>
             </xsl:if>
@@ -734,13 +721,13 @@ document.addEventListener('DOMContentLoaded', function () {
          Verbundene Passage (otherDoc-ref)
          =================================================================== -->
     <xsl:template match="tei:ref[@type='otherDoc']">
-        <div class="pass-conn">
-            <div class="pass-conn-heading">
+        <details class="pass-conn py-1 border-bottom border-light-grey">
+            <summary class="d-flex align-items-baseline pass-conn-heading">
                 <xsl:choose>
                     <xsl:when test="@subtype='later'">Auf späterem Textträger:</xsl:when>
                     <xsl:otherwise>Auf früherem Textträger:</xsl:otherwise>
                 </xsl:choose>
-            </div>
+            </summary>
             <div class="pass-conn-incipit" data-target="{@target}">&#8222;<xsl:value-of select="tei:label"/>&#8220;</div>
             <div class="pd-conn-meta">
                 <xsl:value-of select="tei:ref[@type='doc']"/>
@@ -749,11 +736,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     <xsl:value-of select="tei:ref[@type='page']"/>
                 </xsl:if>
                 <xsl:if test="tei:ref[@type='url']">
-                    <xsl:text> </xsl:text>
-                    <a href="{tei:ref[@type='url']/@target}" target="_blank">Link</a>
+                    <a href="{tei:ref[@type='url']/@target}" target="_blank" class="ps-2 text-decoration-none text-dark-grey">
+                        <xsl:text>Link</xsl:text>
+                        <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                            <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                        </svg>
+                    </a>
                 </xsl:if>
             </div>
-        </div>
+        </details>
     </xsl:template>
 
 
