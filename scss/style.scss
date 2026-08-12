@@ -1337,6 +1337,11 @@ span.warning {
     display: grid;
     grid-template-columns: calc(100% * 0.12) calc(100% * 0.76) calc(100% * 0.12);
     gap: 0;
+
+    .body-main {
+      position: relative;
+      z-index: 1;
+    }
   }
 
   .print-header.witnessTypescript2,
