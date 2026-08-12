@@ -43,7 +43,8 @@
                     *, *::before, *::after { box-sizing: border-box; }
 
                     /* ── Vollbild-Layout ──────────────────────────────── */
-                    body {
+                    /* höhere Spezifität nötig, um Bootstraps .overflow-visible-Klasse auf dem body-Element zu schlagen */
+                    body.overflow-visible {
                         height: 100vh !important;
                         overflow: hidden !important;
                     }
@@ -83,17 +84,14 @@
 
                     /* ── Passagen-Detail in Sidebar ──────────────────── */
                     .nav-passage.open {
-                        background: #eff6ff;
-                        border-left-color: #2563eb;
-                        color: #1e40af;
-                        white-space: normal;
+                        border-left-color: rgb(162,26,23);
+                        color: rgb(102,102,102) !important;
                     }
                     .pass-detail {
                         margin-top: 0.35rem;
                         padding-top: 0.35rem;
                         border-top: 1px solid #bfdbfe;
                     }
-                    .pass-conn { margin-top: 0.3rem; }
                     .pass-conn summary { list-style: none; }
                     .pass-conn summary::-webkit-details-marker { display: none; }
                     .pass-conn-incipit {
@@ -159,13 +157,11 @@
 
                     /* Level 1: Achsen */
                     .nav-l1 { list-style: none; margin: 0; padding: 0; }
-                    .nav-axis { border-bottom: 1px solid #e5e7eb; }
                     .nav-axis-label {
-                        margin: 0.45rem 0.75rem 0.3rem;
+                        margin: 0.65rem 0.75rem 0.5rem;
                         cursor: pointer;
                         user-select: none;
                     }
-                    .nav-axis.hovered > .nav-axis-label { background: #f1f5f9; }
 
                     /* Level 2: Dokumente */
                     .nav-l2 { display: none; list-style: none; margin: 0; padding: 0 0 0.25rem; }
@@ -178,7 +174,6 @@
                         text-overflow: ellipsis;
                     }
                     .nav-doc:hover  > .nav-doc-label { background: #f1f5f9; }
-                    .nav-doc.hovered > .nav-doc-label { background: #dbeafe; color: #1e40af; }
 
                     /* Level 3: Passagen */
                     .nav-l3 { display: none; list-style: none; margin: 0; padding: 0 0 0.2rem 1.5rem; }
@@ -190,7 +185,6 @@
                         cursor: pointer;
                     }
                     .nav-passage:hover { background: #f8fafc; }
-                    .nav-passage.nav-hovered { background: #dbeafe; border-left-color: #3b82f6; color: #1e40af; }
                     .nav-passage .pass-incipit {
                         display: block;
                         white-space: normal;
@@ -287,27 +281,12 @@ document.addEventListener('DOMContentLoaded', function () {
   var pinned         = {};   /* 'doc|||id' → { doc, id } */
   var pinnedCount    = 0;
   var resetTimer     = null;
-  var autoOpenedAxes = [];
-  var autoOpenedDocs = [];
 
   function scheduleReset() { resetTimer = setTimeout(doReset, 300); }
   function cancelReset()   { if (resetTimer) { clearTimeout(resetTimer); resetTimer = null; } }
   function doReset() {
     resetTimer = null; hoveredDoc = null; hoveredPassage = null;
     render();
-    document.querySelectorAll('.nav-axis.hovered').forEach(function(el) { el.classList.remove('hovered'); });
-    document.querySelectorAll('.nav-doc.hovered').forEach(function(el)  { el.classList.remove('hovered'); });
-    var keepDocs = [], keepAxes = [];
-    autoOpenedDocs.forEach(function(el) {
-      if (el.querySelector('.nav-passage.open')) keepDocs.push(el);
-      else el.classList.remove('open');
-    });
-    autoOpenedAxes.forEach(function(el) {
-      if (el.querySelector('.nav-passage.open')) keepAxes.push(el);
-      else el.classList.remove('open');
-    });
-    autoOpenedDocs = keepDocs; autoOpenedAxes = keepAxes;
-    clearNavPassageHighlight();
   }
 
   /* Scrollt ein Element in die Sichtfläche der .sidebar */
@@ -421,29 +400,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  /* ── Dokument-Hover ───────────────────────────────────────────────────*/
+  /* ── Dokument-Hover: nur Hervorhebung im SVG, keine Reaktion in der Infospalte ── */
   function enterDoc(docName) {
     cancelReset();
     hoveredDoc = docName;
     render();
-    var navDoc = document.querySelector('.nav-doc[data-doc="'+docName+'"]');
-    if (navDoc && !navDoc.classList.contains('hovered')) {
-      navDoc.classList.add('hovered');
-      if (!navDoc.classList.contains('open')) { navDoc.classList.add('open'); autoOpenedDocs.push(navDoc); }
-      var navAxis = navDoc.closest('.nav-axis');
-      if (navAxis && !navAxis.classList.contains('open')) { navAxis.classList.add('open'); autoOpenedAxes.push(navAxis); }
-    }
-  }
-
-  /* ── Nav-Passage-Highlighting ─────────────────────────────────────────*/
-  function highlightNavPassage(doc, id) {
-    var nd = document.querySelector('.nav-doc[data-doc="'+doc+'"]');
-    if (!nd) return;
-    var np = nd.querySelector('.nav-passage[data-id="'+id+'"]');
-    if (np) { np.classList.add('nav-hovered'); scrollNavIntoView(np); }
-  }
-  function clearNavPassageHighlight() {
-    document.querySelectorAll('.nav-passage.nav-hovered').forEach(function(el) { el.classList.remove('nav-hovered'); });
   }
 
   function clearNavPassageSelection() {
@@ -461,27 +422,12 @@ document.addEventListener('DOMContentLoaded', function () {
     hoveredDoc = null; hoveredPassage = null;
     render();
     clearNavPassageSelection();
-    clearNavPassageHighlight();
-    autoOpenedDocs.forEach(function(el) { el.classList.remove('open'); });
-    autoOpenedAxes.forEach(function(el) { el.classList.remove('open'); });
-    autoOpenedDocs = []; autoOpenedAxes = [];
   }
 
   /* ── Event-Listener ───────────────────────────────────────────────────*/
 
   var visSvg = document.getElementById('vis-svg') || document.querySelector('svg');
   if (visSvg) visSvg.addEventListener('click', clearAll);
-
-  document.querySelectorAll('.axis-bg').forEach(function(bg) {
-    var idx = bg.dataset.axisIdx;
-    bg.addEventListener('mouseenter', function() {
-      var el = document.querySelector('.nav-axis[data-idx="'+idx+'"]');
-      if (el) el.classList.add('hovered');
-    });
-    bg.addEventListener('mouseleave', function() {
-      document.querySelectorAll('.nav-axis.hovered').forEach(function(el) { el.classList.remove('hovered'); });
-    });
-  });
 
   document.querySelectorAll('.doc-rect').forEach(function(rect) {
     rect.addEventListener('mouseenter', function() { enterDoc(rect.dataset.doc); });
@@ -496,44 +442,13 @@ document.addEventListener('DOMContentLoaded', function () {
       hoveredDoc     = p.dataset.doc;
       hoveredPassage = { doc: p.dataset.doc, id: p.dataset.id };
       render();
-      if (pinnedCount === 0) highlightNavPassage(p.dataset.doc, p.dataset.id);
     });
-    p.addEventListener('mouseleave', function() {
-      if (pinnedCount === 0) clearNavPassageHighlight();
-      scheduleReset();
-    });
+    p.addEventListener('mouseleave', scheduleReset);
+    /* Klick verhält sich wie ein Klick auf die zugehörige Sidebar-Passage */
     p.addEventListener('click', function(e) {
       e.stopPropagation();
-      var doc = p.dataset.doc;
-      var id  = p.dataset.id;
-      var key = doc + '|||' + id;
-      if (pinned[key]) {
-        delete pinned[key]; pinnedCount--;
-        render();
-        if (pinnedCount === 0) clearNavPassageSelection();
-        var np = document.querySelector('.nav-passage[data-id="' + id + '"]');
-        if (np && np.classList.contains('open')) {
-          np.classList.remove('open');
-          var det = np.querySelector('.pass-detail');
-          if (det) det.style.display = 'none';
-        }
-      } else {
-        pinned[key] = {doc: doc, id: id}; pinnedCount++;
-        render();
-        var np = document.querySelector('.nav-passage[data-id="' + id + '"]');
-        if (np) {
-          var nd = np.closest('.nav-doc');
-          var na = np.closest('.nav-axis');
-          if (na && !na.classList.contains('open')) na.classList.add('open');
-          if (nd && !nd.classList.contains('open')) nd.classList.add('open');
-          if (!np.classList.contains('open')) {
-            np.classList.add('open');
-            var det = np.querySelector('.pass-detail');
-            if (det) det.style.display = 'block';
-          }
-          scrollNavIntoView(np);
-        }
-      }
+      var np = document.querySelector('.nav-passage[data-id="' + p.dataset.id + '"]');
+      if (np) np.click();
     });
   });
 
@@ -576,6 +491,9 @@ document.addEventListener('DOMContentLoaded', function () {
         delete pinned[key]; pinnedCount--;
         render();
       } else {
+        var axisEl = li.closest('.nav-axis');
+        if (axisEl && !axisEl.classList.contains('open')) axisEl.classList.add('open');
+        if (docEl && !docEl.classList.contains('open')) docEl.classList.add('open');
         li.classList.add('open');
         if (det) det.style.display = 'block';
         scrollNavIntoView(li);
@@ -698,10 +616,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         <xsl:value-of select="tei:ref[@type='page']"/>
                     </xsl:if>
                     <xsl:if test="tei:ref[@type='url']">
-                        <xsl:if test="tei:ref[@type='page']"><xsl:text> · </xsl:text></xsl:if>
                         <a href="{tei:ref[@type='url']/@target}" target="_blank" class="ps-2 text-decoration-none text-dark-grey">
                             <xsl:text>Link</xsl:text>
-                            <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                            <svg class="ms-2 align-middle" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
                                 <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
                             </svg>
                         </a>
@@ -738,7 +655,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <xsl:if test="tei:ref[@type='url']">
                     <a href="{tei:ref[@type='url']/@target}" target="_blank" class="ps-2 text-decoration-none text-dark-grey">
                         <xsl:text>Link</xsl:text>
-                        <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                        <svg class="ms-2 align-middle" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
                             <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
                         </svg>
                     </a>
