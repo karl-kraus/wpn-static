@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="sidebar-controls">
                                     <button type="button" id="btn-chapters" class="chapters-toggle" aria-pressed="false">
-                                        Abschnittseinteilung
+                                        Abschnitte ein/aus
                                     </button>
                                 </div>
                                 <ul class="nav-l1">

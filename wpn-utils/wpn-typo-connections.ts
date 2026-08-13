@@ -461,10 +461,24 @@ function getNoteElementForToken(token: string): HTMLElement | null {
 // selbst enthält - sonst verbindet ein und dasselbe Note-Token unbeteiligte
 // Geschwister-Elemente (bzw. die ganze note) miteinander statt nur das eine Element.
 // Hover direkt auf die note bleibt davon unberührt (dort ist el === target, Text ist gleich).
+// Elemente, deren eigener Text beim "note-Text == Hover-Element-Text"-Abgleich in
+// isSuppressedNoteToken ignoriert werden soll (z.B. weil sie strukturell außerhalb des
+// großen Haupt-del/add der note liegen, wie eine Randziffer, aber trotzdem Kind der note
+// sind). Weitere Ausnahmen: hier einfach einen zusätzlichen CSS-Selektor ergänzen.
+const noteTextComparisonExclusions = [".metamark.left2"];
+
+function textForNoteComparison(el: HTMLElement): string {
+    const clone = el.cloneNode(true) as HTMLElement;
+    noteTextComparisonExclusions.forEach((selector) => {
+        clone.querySelectorAll<HTMLElement>(selector).forEach((node) => node.remove());
+    });
+    return clone.textContent || "";
+}
+
 function isSuppressedNoteToken(token: string, target: HTMLElement): boolean {
     const noteEl = getNoteElementForToken(token);
     if (!noteEl) return false;
-    return normalize(noteEl.textContent) !== normalize(target.textContent);
+    return normalize(textForNoteComparison(noteEl)) !== normalize(textForNoteComparison(target));
 }
 
 // note- und metamark-Templates mischen (siehe $inheritIDfromNote in typo-del.xsl/typo-add.xsl,
