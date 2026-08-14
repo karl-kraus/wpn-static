@@ -279,6 +279,7 @@
                 </div>
             </nav>
             <xsl:variable name="document" select="substring-before(tokenize(base-uri(),'/')[last()], '.xml')"/>
+            <xsl:variable name="vis_doc_names" select="for $f in collection('../../vis?select=*.xml') return replace(tokenize(base-uri($f),'/')[last()], '\.xml$', '')"/>
             <nav aria-label="breadcrumb" class="my-05">
                 <div class="{$container}">
                     <ol class="breadcrumb">
@@ -317,7 +318,7 @@
                                     <xsl:when test="$document = 'intertexte'">Intertexte</xsl:when>
                                     <xsl:when test="$document = 'ereignisse'">Ereignisse</xsl:when>
                                     <xsl:when test="$document = 'suche'">Suche</xsl:when>
-                                    <xsl:when test="$document = 'vis_figure'">Überlieferung</xsl:when>
+                                    <xsl:when test="$document = $vis_doc_names">Überlieferung</xsl:when>
                                     <xsl:otherwise>
 
                                     </xsl:otherwise>
