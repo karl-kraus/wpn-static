@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <figure xmlns="http://www.tei-c.org/ns/1.0">
-  <graphic url="vis.svg">
+  <graphic url="vis_DW_F890.svg">
     <desc>
       <label>Abfolge der Textträger nach Typ</label>
     </desc>
@@ -28,10 +28,10 @@
     </list>
     <list type="axes">
       <item>
-        <label>Typoskript ‚Sammlung Faust‘</label>
+        <label>Typoskript</label>
         <list type="documents">
           <item>
-            <label>4_TFragment2.xml</label>
+            <label>T^Fragment 2^, Typoskript „Wenn ich mich nun Frage ...“</label>
             <list type="passages">
               <item xml:id="Abs64seg0008">
                 <label>Da ich mich nun frage, wie ich das mir noch immer [...]en Dialog sprechen, sind unmittelbar bedrohlicher.</label>
@@ -78,45 +78,12 @@
                 </ref>
               </item>
               <item xml:id="Abs64seg0010">
-                <label>Diese Apologie enthält nebst den grundlegenden Irr[...]mit dem geistigen Wort war bereits 1913 dargetan. </label>
+                <label>Diese Apologie enthält nebst den grundlegenden Irr[...]rossen, Mit eigner Faust ins Totenreich gestossen!</label>
                 <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0234r.html"/>
                 <ref type="page">234r</ref>
                 <ref type="otherDoc" subtype="later" target="#DWseg0003">
                   <ref type="doc">4_DfeH.xml</ref>
-                  <label>Diese Apologie enthält nebst den grundlegenden Irr[...]Vertretung dieser Ansicht war schon 1913 dargetan.</label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0273.html"/>
-                  <ref type="page">273</ref>
-                </ref>
-              </item>
-              <item xml:id="Abs64seg0011">
-                <label>Wichtig aber erscheint heute die Behauptung, dass [...]tandhaftigkeit gegen Presstücken auffallen konnte,</label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0235r.html"/>
-                <ref type="page">235r</ref>
-                <ref type="otherDoc" subtype="later" target="#DWseg0004">
-                  <ref type="doc">4_DfeH.xml</ref>
-                  <label>Wichtig aber erscheint heute die Feststellung, daß[...]wisse Standhaftigkeit gegenüber Preßtücken betraf,</label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0273.html"/>
-                  <ref type="page">273</ref>
-                </ref>
-              </item>
-              <item xml:id="Abs64seg0012">
-                <label>so bietet doch jetzt, wo wir nach sieghafter Erheb[...] Bewährung. Besonders wenn an mir auch heute noch </label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0235r.html"/>
-                <ref type="page">235r</ref>
-                <ref type="otherDoc" subtype="later" target="#DWseg0005">
-                  <ref type="doc">4_DfeH.xml</ref>
-                  <label>so bietet doch jetzt, wo wir nach sieghafter Erheb[...]r Bewährung, besonders wenn an mir auch heute noch</label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0273.html"/>
-                  <ref type="page">273</ref>
-                </ref>
-              </item>
-              <item xml:id="Abs64seg0013">
-                <label>ein menschlich fühlendes Herz, das jedes fremde Un[...]ozialen und geistigen Not. Wer aber hilft der SA? </label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0235r.html"/>
-                <ref type="page">235r</ref>
-                <ref type="otherDoc" subtype="later" target="#DWseg0006">
-                  <ref type="doc">4_DfeH.xml</ref>
-                  <label>ein menschlich fühlendes, bereits jedes fremde Unr[...]ozialen und geistigen Not. Wer aber hilft der SA.?</label>
+                  <label>Diese Apologie enthält nebst den grundlegenden Irr[...] Großen, Mit eigner Faust ins Totenreich gestoßen!</label>
                   <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0273.html"/>
                   <ref type="page">273</ref>
                 </ref>
@@ -187,19 +154,10 @@
                   <ref type="page">315</ref>
                 </ref>
               </item>
-              <item xml:id="Abs64seg0014">
-                <label>Im Bürgerbräu kündet ein Priester, der deutsche He[...]rossen, Mit eigner Faust ins Totenreich gestossen!</label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0241r.html"/>
-                <ref type="page">241r</ref>
-                <ref type="otherDoc" subtype="later" target="#DWseg0007">
-                  <ref type="doc">4_DfeH.xml</ref>
-                  <label>Im Bürgerbräu kündet einer, der Führer habe ihm an[...] Großen, Mit eigner Faust ins Totenreich gestoßen!</label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0278.html"/>
-                  <ref type="page">278</ref>
-                </ref>
-              </item>
               <item xml:id="Abs64seg0016">
                 <label>Sei das Gespenst, das gegen uns erstanden, Sich Ka[...]rossen, Mit eigner Faust ins Totenreich gestossen!</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0242r.html"/>
+                <ref type="page">242r</ref>
                 <ref type="otherDoc" subtype="later" target="#DWf8900208">
                   <ref type="doc">4_F890.xml</ref>
                   <label>Selbst ist der Mann! Wer Thron und Kron begehrt,  [...]Großen,  Mit eigner Faust ins Totenreich gestoßen!</label>
@@ -212,10 +170,10 @@
         </list>
       </item>
       <item>
-        <label>Druckfahnen Motti und ‚Jerusalemer Konvolut‘</label>
+        <label>Druckfahnen</label>
         <list type="documents">
           <item>
-            <label>4_DfMotti.xml</label>
+            <label>Df^Motti^, Druckfahnen der Motti</label>
             <list type="passages">
               <item xml:id="F890seg0092">
                 <label>Zum Schauderfeste dieser Nacht, wie öfter schon, T[...]’ ich oft entstehn Und plötzlich wieder untergehn.</label>
@@ -253,7 +211,7 @@
             </list>
           </item>
           <item>
-            <label>4_DfeH.xml</label>
+            <label>Df(eH), ‚Jerusalemer Konvolut‘</label>
             <list type="passages">
               <item xml:id="F890seg0003">
                 <label>Anfang Mai 1933 Mir fällt zu Hitler nichts ein. Ic[...]brunst symbolgläubiger Vorzeit hinter sich lassen.</label>
@@ -1290,58 +1248,14 @@
                 </ref>
               </item>
               <item xml:id="DWseg0003">
-                <label>Diese Apologie enthält nebst den grundlegenden Irr[...]Vertretung dieser Ansicht war schon 1913 dargetan.</label>
+                <label>Diese Apologie enthält nebst den grundlegenden Irr[...] Großen, Mit eigner Faust ins Totenreich gestoßen!</label>
                 <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0273.html"/>
                 <ref type="page">273</ref>
                 <ref type="otherDoc" subtype="earlier" target="#Abs64seg0010">
                   <ref type="doc">4_TFragment2.xml</ref>
-                  <label>Diese Apologie enthält nebst den grundlegenden Irr[...]mit dem geistigen Wort war bereits 1913 dargetan. </label>
+                  <label>Diese Apologie enthält nebst den grundlegenden Irr[...]rossen, Mit eigner Faust ins Totenreich gestossen!</label>
                   <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0234r.html"/>
                   <ref type="page">234r</ref>
-                </ref>
-              </item>
-              <item xml:id="DWseg0004">
-                <label>Wichtig aber erscheint heute die Feststellung, daß[...]wisse Standhaftigkeit gegenüber Preßtücken betraf,</label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0273.html"/>
-                <ref type="page">273</ref>
-                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0011">
-                  <ref type="doc">4_TFragment2.xml</ref>
-                  <label>Wichtig aber erscheint heute die Behauptung, dass [...]tandhaftigkeit gegen Presstücken auffallen konnte,</label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0235r.html"/>
-                  <ref type="page">235r</ref>
-                </ref>
-              </item>
-              <item xml:id="DWseg0005">
-                <label>so bietet doch jetzt, wo wir nach sieghafter Erheb[...]r Bewährung, besonders wenn an mir auch heute noch</label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0273.html"/>
-                <ref type="page">273</ref>
-                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0012">
-                  <ref type="doc">4_TFragment2.xml</ref>
-                  <label>so bietet doch jetzt, wo wir nach sieghafter Erheb[...] Bewährung. Besonders wenn an mir auch heute noch </label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0235r.html"/>
-                  <ref type="page">235r</ref>
-                </ref>
-              </item>
-              <item xml:id="DWseg0006">
-                <label>ein menschlich fühlendes, bereits jedes fremde Unr[...]ozialen und geistigen Not. Wer aber hilft der SA.?</label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0273.html"/>
-                <ref type="page">273</ref>
-                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0013">
-                  <ref type="doc">4_TFragment2.xml</ref>
-                  <label>ein menschlich fühlendes Herz, das jedes fremde Un[...]ozialen und geistigen Not. Wer aber hilft der SA? </label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0235r.html"/>
-                  <ref type="page">235r</ref>
-                </ref>
-              </item>
-              <item xml:id="DWseg0007">
-                <label>Im Bürgerbräu kündet einer, der Führer habe ihm an[...] Großen, Mit eigner Faust ins Totenreich gestoßen!</label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0278.html"/>
-                <ref type="page">278</ref>
-                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0014">
-                  <ref type="doc">4_TFragment2.xml</ref>
-                  <label>Im Bürgerbräu kündet ein Priester, der deutsche He[...]rossen, Mit eigner Faust ins Totenreich gestossen!</label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0241r.html"/>
-                  <ref type="page">241r</ref>
                 </ref>
               </item>
             </list>
@@ -1352,7 +1266,7 @@
         <label>Die Fackel Nr. 890–905</label>
         <list type="documents">
           <item>
-            <label>4_F890.xml</label>
+            <label>Die Fackel Nr. 890–950, Warum die Fackel nicht erscheint</label>
             <list type="passages">
               <item xml:id="DWf8900092">
                 <label>»Mir fällt zu Hitler nichts ein.«</label>
@@ -2021,6 +1935,8 @@
                 <ref type="otherDoc" subtype="earlier" target="#Abs64seg0016">
                   <ref type="doc">4_TFragment2.xml</ref>
                   <label>Sei das Gespenst, das gegen uns erstanden, Sich Ka[...]rossen, Mit eigner Faust ins Totenreich gestossen!</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0242r.html"/>
+                  <ref type="page">242r</ref>
                 </ref>
               </item>
               <item xml:id="DWf8900085">

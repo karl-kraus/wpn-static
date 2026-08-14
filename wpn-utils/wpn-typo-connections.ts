@@ -547,7 +547,7 @@ function collectAncestorTarget(el) {
     return collected;
 }
 
-const alwaysSkipClasses = ["quotes"]; // hier künftig weitere Klassen ergänzbar
+const alwaysSkipClasses = ["quotes", "persons"]; // hier künftig weitere Klassen ergänzbar
 
 function hasNoOwnData(node: HTMLElement): boolean {
     const anchor = node.dataset.anchor;

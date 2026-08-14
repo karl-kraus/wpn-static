@@ -27,6 +27,9 @@
         <xsl:variable name="doc_title">
             <xsl:text>Textgenese – Überlieferung</xsl:text>
         </xsl:variable>
+        <!-- SVG-Partner wird über den Dateinamen ermittelt (gleicher Basisname, Endung .svg statt .xml),
+             nicht mehr über tei:graphic/@url -->
+        <xsl:variable name="svg_uri" select="replace(base-uri(/), '\.xml$', '.svg')"/>
         <html lang="{$site_language}">
             <head>
                 <xsl:call-template name="html_head">
@@ -45,38 +48,37 @@
                         <!-- SVG-Hauptbereich -->
                         <div class="gv-main text-black-grey ls-1">
                             <div class="svg-wrap">
-                                <xsl:copy-of select="document(tei:graphic/@url)/svg:svg"/>
+                                <xsl:copy-of select="document($svg_uri)/svg:svg"/>
                             </div>
                         </div>
 
                         <!-- Sidebar -->
                         <aside class="border-start border-light-grey bg-primary bg-opacity-5 position-relative"
                                id="sidebar-container">
-                            <button class="sidebar-toggle sidebar-toggle-outer" title="Seitenleiste schließen">
+                            <!-- schwebt außerhalb der Aside-Box (wie zuvor der schmale äußere Tab), zählt
+                                 daher nicht zur Breite, die die Aside dem svg wegnimmt -->
+                            <button class="sidebar-toggle sidebar-toggle-floating" title="Seitenleiste schließen">
                                 <img class="sidebar-toggle-icon-open" src="images/plus.svg" alt="Seitenleiste schließen"/>
                                 <span class="sidebar-toggle-icon-closed visually-hidden" style="stroke:grey;fill:grey;">
                                     <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
                                 </span>
                             </button>
                             <nav class="sidebar">
-                                <div class="sidebar-header row z-index-1 flex-row bg-white text-center m-0 border border-light-grey">
-                                    <div class="col p-0_25 border-end border-light-grey align-content-around">
-                                        <button class="sidebar-toggle sidebar-toggle-inner" title="Seitenleiste schließen">
-                                            <img class="sidebar-toggle-icon-open" src="images/plus.svg" alt="Seitenleiste schließen"/>
-                                            <span class="sidebar-toggle-icon-closed visually-hidden" style="stroke:grey;fill:grey;">
-                                                <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <div class="col p-0_25 align-content-around">
+                              <div class="sidebar-header row z-index-1 bg-white text-center m-0 border border-light-grey position-sticky top-nav flex-row">
+                                    <div class="col-auto p-0_25 border-end border-light-grey align-content-around sidebar-header-extra">
                                         <button type="button" id="btn-chapters" class="chapters-toggle cursor-pointer" aria-pressed="false" title="Abschnitte ein-/ausblenden">
                                             Abschnitte ein/aus
                                         </button>
                                     </div>
+                                    <div class="col border-end border-light-grey sidebar-header-extra" aria-hidden="true"></div>
                                 </div>
-                                <ul class="nav-l1">
-                                    <xsl:apply-templates select="tei:figDesc/tei:list[@type='axes']/tei:item"/>
-                                </ul>
+                                <div class="row m-0 flex-row flex-nowrap sidebar-content-row">
+                                    <div class="col p-0 border-start border-light-grey sidebar-content-cell">
+                                        <ul class="nav-l1">
+                                            <xsl:apply-templates select="tei:figDesc/tei:list[@type='axes']/tei:item"/>
+                                        </ul>
+                                    </div>
+                                </div>
                             </nav>
                         </aside>
 

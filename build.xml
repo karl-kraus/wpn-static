@@ -162,8 +162,7 @@
         </xslt>
     </target>
     <target name="build-witrels-vis">
-        <delete file="${target}/witnessRelations.html"/>
-        <xslt in="./vis/vis_figure.xml" out="${target}/witnessRelations.html" style="./xslt/witrels-vis.xsl">
+        <xslt basedir="./vis" destdir="${target}" includes="*.xml" style="./xslt/witrels-vis.xsl">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
