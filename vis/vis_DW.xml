@@ -2329,57 +2329,7 @@
       </item>
       <item>
         <label>Manuskript</label>
-        <list type="documents">
-          <item>
-            <label>H<hi rend="sup">Motti</hi>, Handschrift der Motti</label>
-            <list type="passages">
-              <item xml:id="MottiHseg0001">
-                <label>Zum Schauderfeste dieser Nacht, wie öfter schon, Tret’ […] woher wir kommen, Denn wir sind nun einmal da. — — — —</label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-HMotti-0001r.html"/>
-                <ref type="page">1r</ref>
-                <ref type="otherDoc" subtype="later" target="#MottiDfseg0001">
-                  <ref type="doc">4_DfMotti.xml</ref>
-                  <label>Zum Schauderfeste dieser Nacht, wie öfter schon, Tret’ […] sind nun einmal da. — — — — — — — — — — — — — — — —</label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotti-0001.html"/>
-                  <ref type="page">1</ref>
-                </ref>
-              </item>
-              <item xml:id="MottiHseg0002">
-                <label>Ganz recht! Sie sind nicht mehr zu zügeln;</label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-HMotti-0003_br.html"/>
-                <ref type="page">3_br</ref>
-                <ref type="otherDoc" subtype="later" target="#MottiDfseg0002">
-                  <ref type="doc">4_DfMotti.xml</ref>
-                  <label>Ganz recht⁠ ⁠! Sie sind nicht mehr zu zügeln . . . . — — — — — — — — — — — — — — — — </label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotti-0002.html"/>
-                  <ref type="page">2</ref>
-                </ref>
-              </item>
-              <item xml:id="MottiHseg0003">
-                <label>Sind Briten hier? Sie reisen sonst so viel, Schlachtfeldern […] entstehn Und plötzlich wieder untergehn. — — — — — —</label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-HMotti-0003_br.html"/>
-                <ref type="page">3_br</ref>
-                <ref type="otherDoc" subtype="later" target="#MottiDfseg0003">
-                  <ref type="doc">4_DfMotti.xml</ref>
-                  <label>Sind Briten hier⁠ ⁠? Sie reisen sonst so viel, Schlachtfeldern […] plötzlich wieder untergehn. — — — — — — — — — — — — — — — —</label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotti-0002.html"/>
-                  <ref type="page">2</ref>
-                </ref>
-              </item>
-              <item xml:id="MottiHseg0004">
-                <label>Angestrengtest, nimmer müde, Kolossal=Karyatide, Trägt […] soll’s nicht kommen, Sphinxe haben Platz genommen.</label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-HMotti-0003_br.html"/>
-                <ref type="page">3_br</ref>
-                <ref type="otherDoc" subtype="later" target="#MottiDfseg0004">
-                  <ref type="doc">4_DfMotti.xml</ref>
-                  <label>Angestrengtest, nimmer müde, Kolossal-Karyatide, Trägt […] soll’s nicht kommen, Sphinxe haben Platz genommen.</label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotti-0002.html"/>
-                  <ref type="page">2</ref>
-                </ref>
-              </item>
-            </list>
-          </item>
-        </list>
+        <list type="documents"/>
       </item>
       <item>
         <label>Typoskripte</label>
@@ -2453,55 +2403,6 @@
       <item>
         <label>Druckfahnen</label>
         <list type="documents">
-          <item>
-            <label>Df<hi rend="sup">Motti</hi>, Druckfahnen der Motti</label>
-            <list type="passages">
-              <item xml:id="MottiDfseg0001">
-                <label>Zum Schauderfeste dieser Nacht, wie öfter schon, Tret’ […] sind nun einmal da. — — — — — — — — — — — — — — — —</label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotti-0001.html"/>
-                <ref type="page">1</ref>
-                <ref type="otherDoc" subtype="earlier" target="#MottiHseg0001">
-                  <ref type="doc">4_HMotti.xml</ref>
-                  <label>Zum Schauderfeste dieser Nacht, wie öfter schon, Tret’ […] woher wir kommen, Denn wir sind nun einmal da. — — — —</label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-HMotti-0001r.html"/>
-                  <ref type="page">1r</ref>
-                </ref>
-              </item>
-              <item xml:id="MottiDfseg0003">
-                <label>Sind Briten hier⁠ ⁠? Sie reisen sonst so viel, Schlachtfeldern […] plötzlich wieder untergehn. — — — — — — — — — — — — — — — —</label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotti-0002.html"/>
-                <ref type="page">2</ref>
-                <ref type="otherDoc" subtype="earlier" target="#MottiHseg0003">
-                  <ref type="doc">4_HMotti.xml</ref>
-                  <label>Sind Briten hier? Sie reisen sonst so viel, Schlachtfeldern […] entstehn Und plötzlich wieder untergehn. — — — — — —</label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-HMotti-0003_br.html"/>
-                  <ref type="page">3_br</ref>
-                </ref>
-              </item>
-              <item xml:id="MottiDfseg0002">
-                <label>Ganz recht⁠ ⁠! Sie sind nicht mehr zu zügeln . . . . — — — — — — — — — — — — — — — — </label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotti-0002.html"/>
-                <ref type="page">2</ref>
-                <ref type="otherDoc" subtype="earlier" target="#MottiHseg0002">
-                  <ref type="doc">4_HMotti.xml</ref>
-                  <label>Ganz recht! Sie sind nicht mehr zu zügeln;</label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-HMotti-0003_br.html"/>
-                  <ref type="page">3_br</ref>
-                </ref>
-              </item>
-              <item xml:id="MottiDfseg0004">
-                <label>Angestrengtest, nimmer müde, Kolossal-Karyatide, Trägt […] soll’s nicht kommen, Sphinxe haben Platz genommen.</label>
-                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotti-0002.html"/>
-                <ref type="page">2</ref>
-                <ref type="otherDoc" subtype="earlier" target="#MottiHseg0004">
-                  <ref type="doc">4_HMotti.xml</ref>
-                  <label>Angestrengtest, nimmer müde, Kolossal=Karyatide, Trägt […] soll’s nicht kommen, Sphinxe haben Platz genommen.</label>
-                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-HMotti-0003_br.html"/>
-                  <ref type="page">3_br</ref>
-                </ref>
-              </item>
-            </list>
-          </item>
           <item>
             <label>Df(eH), ‚Jerusalemer Konvolut‘</label>
             <list type="passages">

@@ -53,8 +53,8 @@
                             <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
                                 <div class="card rounded-0">
                                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                        <h3 class="card-title mt-1"><a href="topographical.html" class="stretched-link text-decoration-none text-blacker-grey">Umschrift</a></h3>
-                                        <p class="card-subtitle text-black-grey">Das ‚Jerusalemer Konvolut‘</p>
+                                        <h3 class="card-title mt-1"><a href="topographical.html" class="stretched-link text-decoration-none text-blacker-grey">Die Textträger</a></h3>
+                                        <p class="card-subtitle text-black-grey">Topographische Umschriften</p>
                                     </div>
                                     <img src="images/card_topographical.png" class="d-block" alt=""/>
                                 </div>
@@ -62,13 +62,44 @@
                             <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
                                 <div class="card rounded-0">
                                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                        <h3 class="card-title mt-1"><a href="notizen.html" class="stretched-link text-decoration-none text-blacker-grey">Notizen</a></h3>
-                                        <p class="card-subtitle text-black-grey">Notizen 1933 (1925–1935)</p>
+                                        <h3 class="card-title mt-1"><a href="visualisierungen.html" class="stretched-link text-decoration-none text-blacker-grey">Visualisierungen</a></h3>
+                                        <p class="card-subtitle text-black-grey">Genetische Relationen</p>
                                     </div>
-                                    <img src="images/card_notizen.png" class="d-block" alt=""/>
+                                    <img src="images/card_vis.png" class="d-block" alt=""/>
                                 </div>
                             </div>
                             
+                            
+                            <!--  -->
+                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
+                                <div class="card rounded-0">
+                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                        <h3 class="card-title mt-1"><a href="ereignisse.html" class="stretched-link text-decoration-none text-blacker-grey">Ereignisse</a></h3>
+                                        <p class="card-subtitle text-black-grey">Der Text als Protokoll</p>
+                                    </div>
+                                    <img src="images/card_timeline.png" class="d-block" alt=""/>
+                                </div>
+                            </div>
+                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
+                                <div class="card rounded-0">
+                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                        <h3 class="card-title mt-1"><a href="kommentar.html" class="stretched-link text-decoration-none text-blacker-grey">Stellenkommentar</a></h3>
+                                        <p class="card-subtitle text-black-grey">Kommentar und Glossar</p>
+                                    </div>
+                                    <img src="images/card_kommentar.png" class="d-block" alt=""/>
+                                </div>
+                            </div>
+                             
+                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
+                                <div class="card rounded-0">
+                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                        <h3 class="card-title mt-1"><a href="intertexte.html" class="stretched-link text-decoration-none text-blacker-grey">Intertexte</a></h3>
+                                        <p class="card-subtitle text-black-grey">Zitierte Texte, Quellen u. a.</p>
+                                    </div>
+                                    <img src="images/card_intertexts.png" class="d-block" alt=""/>
+                                </div>
+                            </div>
+
                             <!--  -->
                             
                             <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
@@ -80,37 +111,16 @@
                                     <img src="images/card_register.png" class="d-block" alt=""/>
                                 </div>
                             </div>
+
                             <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
                                 <div class="card rounded-0">
                                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                        <h3 class="card-title mt-1"><a href="intertexte.html" class="stretched-link text-decoration-none text-blacker-grey">Intertexte</a></h3>
-                                        <p class="card-subtitle text-black-grey">Zitierte Texte, Quellen u. a.</p>
+                                        <h3 class="card-title mt-1"><a href="notizen.html" class="stretched-link text-decoration-none text-blacker-grey">Notizen</a></h3>
+                                        <p class="card-subtitle text-black-grey">Notizen 1933 (1925–1935)</p>
                                     </div>
-                                    <img src="images/card_intertexts.png" class="d-block" alt=""/>
+                                    <img src="images/card_notizen.png" class="d-block" alt=""/>
                                 </div>
                             </div>
-                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
-                                <div class="card rounded-0">
-                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                        <h3 class="card-title mt-1"><a href="ereignisse.html" class="stretched-link text-decoration-none text-blacker-grey">Ereignisse</a></h3>
-                                        <p class="card-subtitle text-black-grey">Der Text als Protokoll</p>
-                                    </div>
-                                    <img src="images/card_timeline.png" class="d-block" alt=""/>
-                                </div>
-                            </div>
-                            
-                            <!--  -->
-                            
-                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
-                                <div class="card rounded-0">
-                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                        <h3 class="card-title mt-1"><a href="kommentar.html" class="stretched-link text-decoration-none text-blacker-grey">Stellenkommentar</a></h3>
-                                        <p class="card-subtitle text-black-grey">Kommentar und Glossar</p>
-                                    </div>
-                                    <img src="images/card_kommentar.png" class="d-block" alt=""/>
-                                </div>
-                            </div>
-                            
                             
                         </div>
                     </section>
