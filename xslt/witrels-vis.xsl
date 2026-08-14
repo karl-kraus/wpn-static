@@ -16,20 +16,22 @@
     <xsl:import href="./partials/scripts.xsl"/>
     <xsl:import href="./partials/shared.xsl"/>
 
+    <!-- SVG-Partner wird über den Dateinamen ermittelt (gleicher Basisname, Endung .svg statt .xml),
+         nicht mehr über tei:graphic/@url. Global, damit auch die nav-doc-Vorlage
+         (für den data-doc-Abgleich mit dem SVG, siehe dort) darauf zugreifen kann. -->
+    <xsl:variable name="svg_uri" select="replace(base-uri(/), '\.xml$', '.svg')"/>
+
     <xsl:template match="/">
         <xsl:apply-templates select="tei:figure"/>
     </xsl:template>
 
-    <!-- 
+    <!--
          Wurzelelement tei:figure → vollständiges HTML-Dokument
           -->
     <xsl:template match="tei:figure">
         <xsl:variable name="doc_title">
             <xsl:text>Textgenese – Überlieferung</xsl:text>
         </xsl:variable>
-        <!-- SVG-Partner wird über den Dateinamen ermittelt (gleicher Basisname, Endung .svg statt .xml),
-             nicht mehr über tei:graphic/@url -->
-        <xsl:variable name="svg_uri" select="replace(base-uri(/), '\.xml$', '.svg')"/>
         <html lang="{$site_language}">
             <head>
                 <xsl:call-template name="html_head">
@@ -442,7 +444,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <!-- Nav Level 2: Dokument -->
     <xsl:template match="tei:list[@type='documents']/tei:item">
-        <li class="nav-doc" data-doc="{tei:label}">
+        <!-- data-doc muss mit dem data-doc der .passage/.connection-Elemente im SVG
+             übereinstimmen, damit Klick/Pin-Highlighting funktioniert. tei:label ist nur
+             ein menschenlesbarer Titel (z.B. "H^Fragment1^, Entwurf..."), keine Dateikennung
+             – daher wird der Dateiname stattdessen über die erste Passage dieses Dokuments
+             im SVG nachgeschlagen. -->
+        <xsl:variable name="first_passage_id" select="(tei:list[@type='passages']/tei:item[@xml:id]/@xml:id)[1]"/>
+        <xsl:variable name="svg_doc_id" select="if ($first_passage_id) then document($svg_uri)//svg:*[@class='passage'][@data-id=$first_passage_id]/@data-doc else ()"/>
+        <li class="nav-doc" data-doc="{if ($svg_doc_id) then $svg_doc_id else tei:label}">
             <h6 class="nav-doc-label text-dropdown-toggle mb-0"><xsl:value-of select="tei:label"/></h6>
             <xsl:if test="tei:list[@type='passages']/tei:item">
                 <ul class="nav-l3">
