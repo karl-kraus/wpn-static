@@ -111,6 +111,19 @@ document.addEventListener('DOMContentLoaded', function () {
   var allPassages    = Array.prototype.slice.call(document.querySelectorAll('.passage'));
   var allConnections = Array.prototype.slice.call(document.querySelectorAll('.connection'));
 
+  /* Kleinere Passagen ans Ende ihrer Gruppe verschieben (= zuoberst gezeichnet),
+     damit sie nicht von größeren, an derselben Stelle liegenden Passagen für
+     Maus/Klick verdeckt werden. Reine DOM-Reihenfolge, keine visuelle Änderung
+     im Ruhezustand (fill-opacity 0). */
+  allPassages
+    .slice()
+    .sort(function(a, b) {
+      var areaA = (parseFloat(a.getAttribute('width')) || 0) * (parseFloat(a.getAttribute('height')) || 0);
+      var areaB = (parseFloat(b.getAttribute('width')) || 0) * (parseFloat(b.getAttribute('height')) || 0);
+      return areaB - areaA;
+    })
+    .forEach(function(el) { el.parentNode.appendChild(el); });
+
   /* Dokument → Achsen-Index */
   var docAxisIdx = {};
   document.querySelectorAll('.nav-axis').forEach(function(ax) {
