@@ -302,14 +302,15 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                         </li>
-                        <xsl:if test="$document != 'index' 
+                        <xsl:if test="$document != 'index'
                                     and $document != 'personindex_updated'
                                     and $document != 'commentindex_updated'
                                     and $document != 'eventindex_updated'
                                     and $document != 'biblindex_updated'
-                                    and not(contains($document, 'motto')) 
-                                    and not(contains($document, 'absatz')) 
-                                    and not(contains($document, 'wit-'))">
+                                    and not(contains($document, 'motto'))
+                                    and not(contains($document, 'absatz'))
+                                    and not(contains($document, 'wit-'))
+                                    and not($document = $vis_doc_names)">
                             <li class="breadcrumb-item active" aria-current="page">
                                 <xsl:choose>
                                     <xsl:when test="$document = 'projekt'">Über das Projekt</xsl:when>
@@ -326,7 +327,6 @@
                                     <xsl:when test="$document = 'intertexte'">Intertexte</xsl:when>
                                     <xsl:when test="$document = 'ereignisse'">Ereignisse</xsl:when>
                                     <xsl:when test="$document = 'suche'">Suche</xsl:when>
-                                    <xsl:when test="$document = $vis_doc_names">Überlieferung</xsl:when>
                                     <xsl:otherwise>
 
                                     </xsl:otherwise>
@@ -339,7 +339,26 @@
                         </xsl:if>
                         <xsl:if test="contains($document, 'wit-')">
                             <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="topographical.html">Topographische Umschrift</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Text</li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <xsl:choose>
+                                    <xsl:when test="starts-with($document, 'wit-DfeH')">Druckfahnen – ‚Jerusalemer Konvolut‘</xsl:when>
+                                    <xsl:when test="starts-with($document, 'wit-TFragment2')">Typoskript „Wenn ich mich nun frage …“</xsl:when>
+                                    <xsl:when test="starts-with($document, 'wit-HMott')">Handschrift des Mottos</xsl:when>
+                                    <xsl:when test="starts-with($document, 'wit-DfMott')">Druckfahnen des Mottos</xsl:when>
+                                    <xsl:when test="starts-with($document, 'wit-TParalipomenon')">Ausgeschiedenes Typoskript</xsl:when>
+                                    <xsl:otherwise>Text</xsl:otherwise>
+                                </xsl:choose>
+                            </li>
+                        </xsl:if>
+                        <xsl:if test="$document = $vis_doc_names">
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="visualisierungen.html">Visualisierungen</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <xsl:choose>
+                                    <xsl:when test="$document = 'vis_DW'">Textträger der Dritten Walpurgisnacht</xsl:when>
+                                    <xsl:when test="$document = 'vis_DW_F890'">Dritte Walpurgisnacht – Fackel Nr. 890–905</xsl:when>
+                                    <xsl:otherwise></xsl:otherwise>
+                                </xsl:choose>
+                            </li>
                         </xsl:if>
                         <xsl:if test="$document = 'personindex_updated'">
                             <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="personen.html">Personen</a></li>
