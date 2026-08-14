@@ -173,6 +173,44 @@
         <label>Druckfahnen</label>
         <list type="documents">
           <item>
+            <label>Df<hi rend="sup">Motti</hi>, Druckfahnen der Motti</label>
+            <list type="passages">
+              <item xml:id="F890seg0092">
+                <label>Zum Schauderfeste dieser Nacht, wie öfter schon, Tret’ […] seh’ ich oft entstehn Und plötzlich wieder untergehn.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotti-0001.html"/>
+                <ref type="page">1</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900020">
+                  <ref type="doc">4_F890.xml</ref>
+                  <label>Zum Schauderfeste dieser Nacht, wie öfter schon,  Tret’ […] seh’ ich oft entstehn  Und plötzlich wieder untergehn.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,078"/>
+                  <ref type="page">78</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0015">
+                <label>Ganz recht⁠ ⁠! Sie sind nicht mehr zu zügeln . . . .</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotti-0002.html"/>
+                <ref type="page">2</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900063">
+                  <ref type="doc">4_F890.xml</ref>
+                  <label>Ganz recht! Sie sind nicht mehr zu zügeln.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                  <ref type="page">85</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0017">
+                <label>Angestrengtest, nimmer müde, Kolossal-Karyatide, Trägt […] soll’s nicht kommen, Sphinxe haben Platz genommen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotti-0002.html"/>
+                <ref type="page">2</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900094">
+                  <ref type="doc">4_F890.xml</ref>
+                  <label>Angestrengtest, nimmer müde,  Kolossal-Karyatide,  […] soll’s nicht kommen,  Sphinxe haben Platz genommen.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                  <ref type="page">81</ref>
+                </ref>
+              </item>
+            </list>
+          </item>
+          <item>
             <label>Df(eH), ‚Jerusalemer Konvolut‘</label>
             <list type="passages">
               <item xml:id="F890seg0003">
@@ -1285,6 +1323,28 @@
                   <ref type="page">13</ref>
                 </ref>
               </item>
+              <item xml:id="DWf8900020">
+                <label>Zum Schauderfeste dieser Nacht, wie öfter schon,  Tret’ […] seh’ ich oft entstehn  Und plötzlich wieder untergehn.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,078"/>
+                <ref type="page">78</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0092">
+                  <ref type="doc">4_DfMotto.xml</ref>
+                  <label>Zum Schauderfeste dieser Nacht, wie öfter schon, Tret’ […] seh’ ich oft entstehn Und plötzlich wieder untergehn.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotti-0001.html"/>
+                  <ref type="page">1</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900094">
+                <label>Angestrengtest, nimmer müde,  Kolossal-Karyatide,  […] soll’s nicht kommen,  Sphinxe haben Platz genommen.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                <ref type="page">81</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0017">
+                  <ref type="doc">4_DfMotto.xml</ref>
+                  <label>Angestrengtest, nimmer müde, Kolossal-Karyatide, Trägt […] soll’s nicht kommen, Sphinxe haben Platz genommen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotti-0002.html"/>
+                  <ref type="page">2</ref>
+                </ref>
+              </item>
               <item xml:id="DWf8900022">
                 <label>Gib nach dem löblichen Verlangen,  Von vorn die Schöpfung […] abertausend Formen,  Und bis zum Menschen hast du Zeit.</label>
                 <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
@@ -1668,6 +1728,17 @@
                   <label>Nur sachte drauf! Allzugewohnt ans Naschen, Wo es auch sei, man sucht was zu erhaschen.</label>
                   <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0265.html"/>
                   <ref type="page">265</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900063">
+                <label>Ganz recht! Sie sind nicht mehr zu zügeln.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                <ref type="page">85</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0015">
+                  <ref type="doc">4_DfMotto.xml</ref>
+                  <label>Ganz recht⁠ ⁠! Sie sind nicht mehr zu zügeln . . . .</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotti-0002.html"/>
+                  <ref type="page">2</ref>
                 </ref>
               </item>
               <item xml:id="DWf8900064">
