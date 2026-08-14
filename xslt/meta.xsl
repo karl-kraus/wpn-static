@@ -20,7 +20,7 @@
 
     <xsl:template match="/">
         <xsl:variable name="doc_title">
-            <xsl:value-of select=".//tei:title[@type='main'][1]/text()"/>
+            <xsl:value-of select=".//tei:title[@type='main'][1]"/>
         </xsl:variable>
         <html class="h-100" lang="{$site_language}">
     
@@ -41,22 +41,31 @@
                             </section>
                         </xsl:if>
                         <xsl:if test="tokenize(base-uri(),'/')[last()] = 'visualisierungen.xml'">
-                            <div class="card rounded-0 h-100 position-relative">
-                                <span class="wpn-card-badge">NEU</span>
-                                <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                    <h3 class="card-title mt-1"><a href="vis_DW.html" class="stretched-link text-decoration-none text-blacker-grey">Visualisierung Textträger der Dritten Walpurgisnacht</a></h3>
+                            <section class="my-5_5 position-relative wpn-card-slider">
+                                <wpn-scroll-button scroll-direction="left" role="button" class="wpn-card-slider-btn wpn-card-slider-btn-left" aria-label="Zurück">&#8249;</wpn-scroll-button>
+                                <div id="scroll-container" class="py-2 wpn-card-slider-track">
+                                    <div class="wpn-card-slider-item">
+                                        <div class="card rounded-0 h-100 position-relative">
+                                            <span class="wpn-card-badge">NEU</span>
+                                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                                <h3 class="card-title mt-1"><a href="vis_DW.html" class="stretched-link text-decoration-none text-blacker-grey">Visualisierung Textträger der Dritten Walpurgisnacht</a></h3>
+                                            </div>
+                                            <img src="images/card_tfragment2.png" class="d-block" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="wpn-card-slider-item">
+                                        <div class="card rounded-0 h-100 position-relative">
+                                            <span class="wpn-card-badge">NEU</span>
+                                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                                <h3 class="card-title mt-1"><a href="vis_DW_F890.html" class="stretched-link text-decoration-none text-blacker-grey">Visualisierung Dritte Walpurgisnacht – Fackel Nr. 890–905</a></h3>
+                                                <p class="card-subtitle text-black-grey">Typoskript „Wenn ich mich nun frage …“</p>
+                                            </div>
+                                            <img src="images/card_tfragment2.png" class="d-block" alt=""/>
+                                        </div>
+                                    </div>
                                 </div>
-                                <img src="images/card_tfragment2.png" class="d-block" alt=""/>
-                            </div>
-                            <div class="card rounded-0 h-100 position-relative">
-                                <span class="wpn-card-badge">NEU</span>
-                                <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                    <h3 class="card-title mt-1"><a href="vis_DW_F890.html" class="stretched-link text-decoration-none text-blacker-grey">Visualisierung Dritte Walpurgisnacht – Fackel Nr. 890–905</a></h3>
-                                    <p class="card-subtitle text-black-grey">Typoskript „Wenn ich mich nun frage …“</p>
-                                </div>
-                                <img src="images/card_tfragment2.png" class="d-block" alt=""/>
-                            </div>
-                            
+                                <wpn-scroll-button scroll-direction="right" role="button" class="wpn-card-slider-btn wpn-card-slider-btn-right" aria-label="Weiter">&#8250;</wpn-scroll-button>
+                            </section>
                         </xsl:if>
                         <xsl:if test="tokenize(base-uri(),'/')[last()] = 'topographical.xml'">
                             <section class="my-5_5 position-relative wpn-card-slider">

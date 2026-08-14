@@ -163,6 +163,13 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'visualisierungen.html'"/>
+                                                        <xsl:with-param name="label" select="'Visualisierungen'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'wit-DfeH-0001.html'"/>
                                                         <xsl:with-param name="label" select="'Das ‚Jerusalemer Konvolut‘'"/>
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
@@ -312,6 +319,7 @@
                                     <xsl:when test="$document = 'notizen'">Notizen</xsl:when>
                                     <xsl:when test="$document = 'annotierte_lesefassung'">Annotierte Lesefassung</xsl:when>
                                     <xsl:when test="$document = 'topographical'">Topographische Umschrift</xsl:when>
+                                    <xsl:when test="$document = 'visualisierungen'">Visualisierungen</xsl:when>
                                     <xsl:when test="$document = 'register'">Register</xsl:when>
                                     <xsl:when test="$document = 'kommentar'">Stellenkommentar</xsl:when>
                                     <xsl:when test="$document = 'personen'">Personen</xsl:when>

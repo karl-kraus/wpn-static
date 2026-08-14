@@ -204,10 +204,15 @@ document.addEventListener('DOMContentLoaded', function () {
   function scrollNavIntoView(el) {
     var nav = el.closest ? el.closest('.sidebar') : null;
     if (!nav) return;
+    /* die sticky Header-Zeile liegt über dem oberen Rand der Sidebar und würde
+       sonst einen Teil des gerade geöffneten Eintrags verdecken */
+    var header = nav.querySelector('.sidebar-header');
+    var headerHeight = header ? header.getBoundingClientRect().height : 0;
     var navRect = nav.getBoundingClientRect();
+    var topBound = navRect.top + headerHeight;
     var elRect  = el.getBoundingClientRect();
-    if (elRect.top < navRect.top) {
-      nav.scrollTop += elRect.top - navRect.top - 4;
+    if (elRect.top < topBound) {
+      nav.scrollTop += elRect.top - topBound - 4;
     } else if (elRect.bottom > navRect.bottom) {
       nav.scrollTop += elRect.bottom - navRect.bottom + 4;
     }

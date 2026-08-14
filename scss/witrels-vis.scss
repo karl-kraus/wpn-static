@@ -56,7 +56,7 @@ body.overflow-visible {
 .pass-conn summary::-webkit-details-marker { display: none; }
 .pass-conn-incipit {
     font-size: 0.75rem; font-weight: 600;
-    cursor: pointer; color: #1e40af;
+    cursor: pointer; color: rgb(102,102,102);
     margin-top: 0.35rem;
 }
 .pass-conn-incipit:hover { text-decoration: underline; }

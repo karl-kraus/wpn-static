@@ -11,6 +11,7 @@
             <xsl:map-entry key="'edition.xml'" select="('style')"/>
             <xsl:map-entry key="'annotierte_lesefassung.xml'" select="('style')"/>
             <xsl:map-entry key="'topographical.xml'" select="('style')"/>
+            <xsl:map-entry key="'visualisierungen.xml'" select="('style')"/>
             <xsl:map-entry key="'impressum.xml'" select="('style')"/>
             <xsl:map-entry key="'nutzungsbedingungen.xml'" select="('style')"/>
             <xsl:map-entry key="'register.xml'" select="('style')"/>
