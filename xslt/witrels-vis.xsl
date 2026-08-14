@@ -124,6 +124,61 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .forEach(function(el) { el.parentNode.appendChild(el); });
 
+  /* Gruppen exakt deckungsgleicher Passagen (gleiche Position + Größe, meist aus
+     verschiedenen Dokumenten): Hover/Klick auf ein Gruppenmitglied wirkt auf die
+     ganze Gruppe – inkl. deren jeweiliger Verbindungen und verbundener Passagen. */
+  function passageKey(doc, id) { return doc + '|||' + id; }
+  var groupOf = {};   /* 'doc|||id' → Array von {doc,id}, nur bei >1 Mitglied gefüllt */
+  (function buildGeometryGroups() {
+    var byGeom = {};
+    allPassages.forEach(function(p) {
+      var gk = [
+        Math.round((parseFloat(p.getAttribute('x')) || 0) * 100),
+        Math.round((parseFloat(p.getAttribute('y')) || 0) * 100),
+        Math.round((parseFloat(p.getAttribute('width')) || 0) * 100),
+        Math.round((parseFloat(p.getAttribute('height')) || 0) * 100)
+      ].join('|');
+      (byGeom[gk] || (byGeom[gk] = [])).push({ doc: p.dataset.doc, id: p.dataset.id });
+    });
+    Object.keys(byGeom).forEach(function(gk) {
+      var members = byGeom[gk];
+      if (members.length < 2) return;
+      members.forEach(function(m) { groupOf[passageKey(m.doc, m.id)] = members; });
+    });
+  })();
+  function groupMembers(doc, id) {
+    return groupOf[passageKey(doc, id)] || [{ doc: doc, id: id }];
+  }
+  /* findet den Sidebar-Eintrag einer Passage über Dokument UND ID (nicht nur ID,
+     da IDs zwischen Dokumenten kollidieren können) */
+  function findNavPassage(doc, id) {
+    var docs = document.querySelectorAll('.nav-doc[data-doc="' + doc + '"]');
+    for (var i = 0; i < docs.length; i++) {
+      var np = docs[i].querySelector('.nav-passage[data-id="' + id + '"]');
+      if (np) return np;
+    }
+    return null;
+  }
+  /* öffnet/pinnt einen einzelnen Sidebar-Eintrag (inkl. übergeordneter Achse/Dokument) */
+  function openNavPassage(li, doc, id) {
+    var docEl  = li.closest('.nav-doc');
+    var axisEl = li.closest('.nav-axis');
+    if (axisEl && !axisEl.classList.contains('open')) axisEl.classList.add('open');
+    if (docEl  && !docEl.classList.contains('open'))  docEl.classList.add('open');
+    li.classList.add('open');
+    var det = li.querySelector('.pass-detail');
+    if (det) det.style.display = 'block';
+    var key = passageKey(doc, id);
+    if (!pinned[key]) { pinned[key] = { doc: doc, id: id }; pinnedCount++; }
+  }
+  function closeNavPassage(li, doc, id) {
+    li.classList.remove('open');
+    var det = li.querySelector('.pass-detail');
+    if (det) det.style.display = 'none';
+    var key = passageKey(doc, id);
+    if (pinned[key]) { delete pinned[key]; pinnedCount--; }
+  }
+
   /* Dokument → Achsen-Index */
   var docAxisIdx = {};
   document.querySelectorAll('.nav-axis').forEach(function(ax) {
@@ -207,18 +262,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (hoveredPassage) {
-      for (var i = 0; i < allConnections.length; i++) {
-        var c = allConnections[i];
-        var isSrc = c.dataset.srcDoc === hoveredPassage.doc && c.dataset.srcId === hoveredPassage.id;
-        var isTgt = c.dataset.tgtDoc === hoveredPassage.doc && c.dataset.tgtId === hoveredPassage.id;
-        if (isSrc || isTgt) {
-          markC(c, 0.25);
-          var oDoc = isSrc ? c.dataset.tgtDoc : c.dataset.srcDoc;
-          var oId  = isSrc ? c.dataset.tgtId  : c.dataset.srcId;
-          var op = passEl(oDoc, oId);
-          if (op) markP(op, 0.4);
+      groupMembers(hoveredPassage.doc, hoveredPassage.id).forEach(function(gm) {
+        var gp = passEl(gm.doc, gm.id);
+        if (gp) markP(gp, 0.4);
+        for (var i = 0; i < allConnections.length; i++) {
+          var c = allConnections[i];
+          var isSrc = c.dataset.srcDoc === gm.doc && c.dataset.srcId === gm.id;
+          var isTgt = c.dataset.tgtDoc === gm.doc && c.dataset.tgtId === gm.id;
+          if (isSrc || isTgt) {
+            markC(c, 0.25);
+            var oDoc = isSrc ? c.dataset.tgtDoc : c.dataset.srcDoc;
+            var oId  = isSrc ? c.dataset.tgtId  : c.dataset.srcId;
+            var op = passEl(oDoc, oId);
+            if (op) markP(op, 0.4);
+          }
         }
-      }
+      });
     }
 
     for (var key in pinned) {
@@ -303,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /* Klick verhält sich wie ein Klick auf die zugehörige Sidebar-Passage */
     p.addEventListener('click', function(e) {
       e.stopPropagation();
-      var np = document.querySelector('.nav-passage[data-id="' + p.dataset.id + '"]');
+      var np = findNavPassage(p.dataset.doc, p.dataset.id);
       if (np) np.click();
     });
   });
@@ -339,23 +398,16 @@ document.addEventListener('DOMContentLoaded', function () {
       var docEl = li.closest('.nav-doc');
       var doc = docEl ? docEl.dataset.doc : '';
       var id  = li.dataset.id;
-      var key = doc + '|||' + id;
-      var det = li.querySelector('.pass-detail');
-      if (li.classList.contains('open')) {
-        li.classList.remove('open');
-        if (det) det.style.display = 'none';
-        delete pinned[key]; pinnedCount--;
-        render();
-      } else {
-        var axisEl = li.closest('.nav-axis');
-        if (axisEl && !axisEl.classList.contains('open')) axisEl.classList.add('open');
-        if (docEl && !docEl.classList.contains('open')) docEl.classList.add('open');
-        li.classList.add('open');
-        if (det) det.style.display = 'block';
-        scrollNavIntoView(li);
-        pinned[key] = {doc: doc, id: id}; pinnedCount++;
-        render();
-      }
+      var opening = !li.classList.contains('open');
+      /* betrifft immer die ganze Gruppe deckungsgleicher Passagen (falls vorhanden) */
+      groupMembers(doc, id).forEach(function(m) {
+        var mLi = (m.doc === doc && m.id === id) ? li : findNavPassage(m.doc, m.id);
+        if (!mLi) return;
+        if (opening) openNavPassage(mLi, m.doc, m.id);
+        else closeNavPassage(mLi, m.doc, m.id);
+      });
+      if (opening) scrollNavIntoView(li);
+      render();
     });
   });
 
@@ -397,17 +449,13 @@ document.addEventListener('DOMContentLoaded', function () {
       var np = document.querySelector('.nav-passage[data-id="' + id + '"]');
       if (!np) return;
       var nd = np.closest('.nav-doc');
-      var na = np.closest('.nav-axis');
-      if (na && !na.classList.contains('open')) na.classList.add('open');
-      if (nd && !nd.classList.contains('open')) nd.classList.add('open');
+      var doc = nd ? nd.dataset.doc : '';
       if (!np.classList.contains('open')) {
-        np.classList.add('open');
-        var det = np.querySelector('.pass-detail');
-        if (det) det.style.display = 'block';
-        var docEl = nd;
-        var doc = docEl ? docEl.dataset.doc : '';
-        var key = doc + '|||' + id;
-        if (!pinned[key]) { pinned[key] = {doc: doc, id: id}; pinnedCount++; }
+        /* betrifft immer die ganze Gruppe deckungsgleicher Passagen (falls vorhanden) */
+        groupMembers(doc, id).forEach(function(m) {
+          var mLi = (m.doc === doc && m.id === id) ? np : findNavPassage(m.doc, m.id);
+          if (mLi) openNavPassage(mLi, m.doc, m.id);
+        });
         render();
       }
       scrollNavIntoView(np);
