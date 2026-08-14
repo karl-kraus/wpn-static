@@ -2139,7 +2139,8 @@ span.warning {
 
 #textcontent-pb .seg.border,
 #textcontent-pb .seg.border>.quotes>.longQuote>span,
-#textcontent-pb .seg.border .lg {
+#textcontent-pb .seg.border .lg,
+#legende-pb .seg.border {
   background: linear-gradient(#e5e5e5, #e5e5e5) !important;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
@@ -2184,6 +2185,7 @@ span.warning {
 
 .border-crossed-out:not(:is(.connection-color)),
 #textcontent-pb .restore>.seg.border,
+#legende-pb .restore .seg.border,
 #textcontent-pb .restore > .seg.border:has(.border-crossed-out) {
   background: repeating-linear-gradient(330deg, transparent, transparent 3px, #e5e5e5 3px, #e5e5e5 6px) 0.5px 110% / calc(100% - 1px) 1.05em no-repeat !important;
   -webkit-box-decoration-break: clone;
@@ -2287,30 +2289,12 @@ span.warning {
   text-decoration-style: wavy;
 }
 
-#legende-pb .seg.border {
-  background-image: linear-gradient($pencil-grey, $pencil-grey);
-  background-repeat: no-repeat;
-  background-size:  1em;
-  background-position: 0.5px 110%;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  border: none !important;
-}
-
 #legende-pb .del.eraserOnProofKK del {
 text-decoration: line-through $pencil-grey dashed;
 }
   
 #legende-pb .restore:has(del) {
   text-decoration: underline dotted;
-}
-
-#legende-pb .restore .seg.border {
-  background-image: repeating-linear-gradient(330deg, white, white 3px, $pencil-grey 3px, $pencil-grey 6px) 0.5px 110% /  1.05em no-repeat ;
-  border: none;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  border: none !important;
 }
 
 #legende-pb .unclear::after {
@@ -2613,7 +2597,7 @@ handling del elments based on change type
 #textcontent-pb .metamark .restore.pencilOnProofKK del,
 #textcontent-pb .metamark .del.pencilOnProofKK del,
 #textcontent-pb .mod.pencilOnProofKK,
-#textcontent-pb .del.pencilOnNotepadKK del,
+#textcontent-pb .del.pencilOnNotepadKK del
 {
   text-decoration-color: $pencil-grey;
 }
@@ -3074,7 +3058,7 @@ pencil text color
 #textcontent-pb .note.inkOnProofKK,
 #textcontent-pb .note.inkOnTypescriptKK,
 #textcontent-pb .note.inkOnTypescriptKK2,
-#textcontent-pb .inkOnNotepadKK [class*="inkLongQuote"],{
+#textcontent-pb .inkOnNotepadKK [class*="inkLongQuote"] {
   color: #000;
 }
 

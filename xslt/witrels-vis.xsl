@@ -52,15 +52,27 @@
                         <!-- Sidebar -->
                         <aside class="border-start border-light-grey bg-primary bg-opacity-5 position-relative"
                                id="sidebar-container">
-                            <button class="sidebar-toggle sidebar-toggle-outer" title="Seitenleiste ein-/ausblenden">&#9664;</button>
+                            <button class="sidebar-toggle sidebar-toggle-outer" title="Seitenleiste schließen">
+                                <img class="sidebar-toggle-icon-open" src="images/plus.svg" alt="Seitenleiste schließen"/>
+                                <span class="sidebar-toggle-icon-closed visually-hidden" style="stroke:grey;fill:grey;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
+                                </span>
+                            </button>
                             <nav class="sidebar">
-                                <div class="sidebar-header">
-                                    <button class="sidebar-toggle sidebar-toggle-inner" title="Seitenleiste ein-/ausblenden">&#9664;</button>
-                                </div>
-                                <div class="sidebar-controls">
-                                    <button type="button" id="btn-chapters" class="chapters-toggle" aria-pressed="false">
-                                        Abschnitte ein/aus
-                                    </button>
+                                <div class="sidebar-header row z-index-1 flex-row bg-white text-center m-0 border border-light-grey">
+                                    <div class="col p-0_25 border-end border-light-grey align-content-around">
+                                        <button class="sidebar-toggle sidebar-toggle-inner" title="Seitenleiste schließen">
+                                            <img class="sidebar-toggle-icon-open" src="images/plus.svg" alt="Seitenleiste schließen"/>
+                                            <span class="sidebar-toggle-icon-closed visually-hidden" style="stroke:grey;fill:grey;">
+                                                <svg width="18" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></g></svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="col p-0_25 align-content-around">
+                                        <button type="button" id="btn-chapters" class="chapters-toggle cursor-pointer" aria-pressed="false" title="Abschnitte ein-/ausblenden">
+                                            Abschnitte ein/aus
+                                        </button>
+                                    </div>
                                 </div>
                                 <ul class="nav-l1">
                                     <xsl:apply-templates select="tei:figDesc/tei:list[@type='axes']/tei:item"/>
@@ -389,10 +401,21 @@ document.addEventListener('DOMContentLoaded', function () {
   var sidebarContainer = document.getElementById('sidebar-container');
   var sidebarToggles   = document.querySelectorAll('.sidebar-toggle');
   if (sidebarContainer && sidebarToggles.length) {
+    var setSidebarToggleIcons = function(collapsed) {
+      sidebarToggles.forEach(function(btn) {
+        btn.title = collapsed ? 'Seitenleiste öffnen' : 'Seitenleiste schließen';
+        btn.querySelectorAll('.sidebar-toggle-icon-open').forEach(function(el) {
+          el.classList.toggle('visually-hidden', collapsed);
+        });
+        btn.querySelectorAll('.sidebar-toggle-icon-closed').forEach(function(el) {
+          el.classList.toggle('visually-hidden', !collapsed);
+        });
+      });
+    };
     sidebarToggles.forEach(function(btn) {
       btn.addEventListener('click', function() {
         var collapsed = sidebarContainer.classList.toggle('collapsed');
-        sidebarToggles.forEach(function(b) { b.textContent = collapsed ? '►' : '◄'; });
+        setSidebarToggleIcons(collapsed);
       });
     });
   }

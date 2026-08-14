@@ -136,9 +136,9 @@
                 <del class="del {replace((@change)[1], '#', '')}" data-hand="{replace(@change, '#', '')}">
                     <xsl:attribute name="data-anchor">
                         <xsl:value-of select="@xml:id"/>
-                        <xsl:if test="ancestor::tei:add[parent::tei:subst]">
+                        <xsl:if test="parent::tei:subst/tei:add">
                             <xsl:text> </xsl:text>
-                            <xsl:value-of select="ancestor::tei:add[parent::tei:subst]/@xml:id"/>
+                            <xsl:value-of select="parent::tei:subst/tei:add/@xml:id"/>
                         </xsl:if>
                         <!-- page 108 add or subst with absolute rend values should not inherit from note -->
                         <!-- <xsl:if test="ancestor::tei:note">

@@ -99,6 +99,7 @@
 				                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				            </div>
 				            <div class="modal-body">
+				                <p>Die Darstellung ist derzeit für die Browser Chrome und Edge optimiert.</p>
 				                <h3>Infospalte rechts (bei kleinen Bildschirmen standardmäßig ausgeblendet)</h3>
 				                <p>
 				                    <img src="images/icon-legende-bg.svg" alt="Legende"></img> öffnet die Legende.<br/>
