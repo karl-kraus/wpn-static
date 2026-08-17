@@ -44,7 +44,7 @@
                             <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
                                 <div class="card rounded-0">
                                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                        <h3 class="card-title mt-1"><a href="annotierte_lesefassung.html" class="stretched-link text-decoration-none text-blacker-grey">Lesefassung</a></h3>
+                                        <h3 class="card-title mt-1"><a href="annotierte_lesefassung.html" class="stretched-link text-decoration-none text-blacker-grey">Annotierte Lesefassung</a></h3>
                                         <p class="card-subtitle text-black-grey">Text der ‚Dritten Walpurgisnacht‘</p>
                                     </div>
                                     <img src="images/card_annotierte_lesefassung.png" class="d-block" alt=""/>
@@ -63,7 +63,7 @@
                                 <div class="card rounded-0">
                                     <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
                                         <h3 class="card-title mt-1"><a href="visualisierungen.html" class="stretched-link text-decoration-none text-blacker-grey">Visualisierungen</a></h3>
-                                        <p class="card-subtitle text-black-grey">Genetische Relationen</p>
+                                        <p class="card-subtitle text-black-grey">Relationen zwischen Textträgern</p>
                                     </div>
                                     <img src="images/card_vis.png" class="d-block" alt=""/>
                                 </div>
