@@ -427,6 +427,25 @@ document.addEventListener('DOMContentLoaded', function () {
     tooltip.style.top  = y + 'px';
   }
   if (tooltip) {
+    /* Dokument-Label je data-doc, aus der Seitenleiste übernommen (inkl. hochgestelltem Text) */
+    var docLabels = {};
+    document.querySelectorAll('.nav-doc').forEach(function(li) {
+      var label = li.querySelector('.nav-doc-label');
+      if (label) docLabels[li.dataset.doc] = label.innerHTML;
+    });
+
+    document.querySelectorAll('.doc-rect').forEach(function(rect) {
+      rect.addEventListener('mouseenter', function(e) {
+        var label = docLabels[rect.dataset.doc];
+        if (!label) return;
+        tooltip.innerHTML = label;
+        tooltip.style.display = 'block';
+        positionTooltip(e);
+      });
+      rect.addEventListener('mousemove', positionTooltip);
+      rect.addEventListener('mouseleave', function() { tooltip.style.display = 'none'; });
+    });
+
     document.querySelectorAll('.passage').forEach(function(p) {
       p.addEventListener('mouseenter', function(e) {
         var inc = p.dataset.incipit || '';
@@ -501,7 +520,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <!-- Nav Level 1: Achse -->
     <xsl:template match="tei:list[@type='axes']/tei:item">
         <li class="nav-axis" data-idx="{count(preceding-sibling::tei:item)}">
-            <h5 class="nav-axis-label text-dropdown-toggle mb-0"><xsl:value-of select="tei:label"/></h5>
+            <h5 class="nav-axis-label text-dropdown-toggle mb-0"><xsl:apply-templates select="tei:label/node()"/></h5>
             <ul class="nav-l2">
                 <xsl:apply-templates select="tei:list[@type='documents']/tei:item"/>
             </ul>
@@ -519,7 +538,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <xsl:variable name="first_passage_id" select="(tei:list[@type='passages']/tei:item[@xml:id]/@xml:id)[1]"/>
         <xsl:variable name="svg_doc_id" select="if ($first_passage_id) then document($svg_uri)//svg:*[@class='passage'][@data-id=$first_passage_id]/@data-doc else ()"/>
         <li class="nav-doc" data-doc="{if ($svg_doc_id) then $svg_doc_id else tei:label}">
-            <h6 class="nav-doc-label text-dropdown-toggle mb-0"><xsl:value-of select="tei:label"/></h6>
+            <h6 class="nav-doc-label text-dropdown-toggle mb-0"><xsl:apply-templates select="tei:label/node()"/></h6>
             <xsl:if test="tei:list[@type='passages']/tei:item">
                 <ul class="nav-l3">
                     <xsl:apply-templates select="tei:list[@type='passages']/tei:item"/>
@@ -533,11 +552,15 @@ document.addEventListener('DOMContentLoaded', function () {
     <xsl:template match="tei:list[@type='passages']/tei:item">
         <li class="nav-passage fs-6 text-dark-grey" data-id="{@xml:id}">
             <span class="pass-incipit">&#8222;<xsl:value-of select="tei:label"/>&#8220;</span>
-            <xsl:if test="tei:ref[@type='page'] or tei:ref[@type='url']">
+            <xsl:if test="tei:ref[@type='page'] or tei:ref[@type='fol'] or tei:ref[@type='url']">
                 <span class="pass-meta">
                     <xsl:if test="tei:ref[@type='page']">
                         <xsl:text>S.&#160;</xsl:text>
                         <xsl:value-of select="tei:ref[@type='page']"/>
+                    </xsl:if>
+                    <xsl:if test="tei:ref[@type='fol']">
+                        <xsl:text>fol.&#160;</xsl:text>
+                        <xsl:value-of select="tei:ref[@type='fol']"/>
                     </xsl:if>
                     <xsl:if test="tei:ref[@type='url']">
                         <a href="{tei:ref[@type='url']/@target}" target="_blank" class="ps-2 text-decoration-none text-dark-grey">
@@ -562,10 +585,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <xsl:template match="tei:ref[@type='otherDoc']">
         <details class="pass-conn py-1 border-bottom border-bottom border-light-grey">
             <summary class="d-flex align-items-baseline pass-conn-heading">
-                <xsl:choose>
-                    <xsl:when test="@subtype='later'">Entsprechung auf späterem Textträger</xsl:when>
-                    <xsl:otherwise>Entsprechung auf früherem Textträger</xsl:otherwise>
-                </xsl:choose>
+                <xsl:text>Entsprechung in </xsl:text><xsl:value-of select="tei:ref[@type='doc']"/>
             </summary>
             <div class="pass-conn-incipit" data-target="{@target}">&#8222;<xsl:value-of select="tei:label"/>&#8220;</div>
             <div class="pd-conn-meta">
@@ -573,6 +593,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 <xsl:if test="tei:ref[@type='page']">
                     <xsl:text>, </xsl:text>
                     <xsl:value-of select="tei:ref[@type='page']"/>
+                </xsl:if>
+                <xsl:if test="tei:ref[@type='fol']">
+                    <xsl:text>, </xsl:text>
+                    <xsl:value-of select="tei:ref[@type='fol']"/>
                 </xsl:if>
                 <xsl:if test="tei:ref[@type='url']">
                     <a href="{tei:ref[@type='url']/@target}" target="_blank" class="ps-2 text-decoration-none text-dark-grey">
@@ -589,5 +613,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <!-- Nicht zugeordnete tei:item-Elemente ignorieren -->
     <xsl:template match="tei:item"/>
+
+    <!-- hochgestellter Text in Achsen-/Dokument-Labels, z.B. "H<hi rend='sup'>Fragment1</hi>, Entwurf ..." -->
+    <xsl:template match="tei:hi[@rend='sup']">
+        <sup><xsl:apply-templates/></sup>
+    </xsl:template>
 
 </xsl:stylesheet>
