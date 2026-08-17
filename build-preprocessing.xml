@@ -10,6 +10,8 @@
     <property name="witness-4-file" value="KK1933_DfMotto.xml"/>
     <property name="witness-5-path" value="./data/editions5"/>
     <property name="witness-5-file" value="KK1933_TParalipomenon.xml"/>
+    <property name="witness-6-path" value="./data/editions6"/>
+    <property name="witness-6-file" value="KK1933_DffH_partial.xml"/>
 
     <!-- <for list="${witness-1-file},${witness-2-file}" param="file">
         <sequential>
@@ -71,6 +73,17 @@
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
         <delete dir="${witness-5-path}/tmp"/>
+    </target>
+    <target name="witness-6">
+        <delete>
+            <fileset dir="${witness-6-path}" includes="wit-*.xml"/>
+        </delete>
+        <xslt style="./xslt/partials/typo-add-header-pb.xsl" basedir="${witness-6-path}/tmp" destdir="${witness-6-path}" includes="wit-*.xml" extension=".xml">
+            <param name="edition-path" expression="${witness-6-path}/${witness-6-file}"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+        <delete dir="${witness-6-path}/tmp"/>
     </target>
     <!-- <target name="build-full-edition" depends="witness-1, witness-2"/> -->
 

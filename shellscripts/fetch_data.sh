@@ -49,6 +49,8 @@ mkdir data/editions4
 mv $custom_output_dir/KK1933_DfMotto.xml data/editions4/
 mkdir data/editions5
 mv $custom_output_dir/KK1933_TParalipomenon.xml data/editions5/
+mkdir data/editions6
+mv $custom_output_dir/KK1933_DffH_partial.xml data/editions6/
 mkdir data/indices
 mv $custom_output_dir/Register.xml data/indices/
 mv $custom_output_dir/Events.xml data/indices/

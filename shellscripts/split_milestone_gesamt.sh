@@ -70,3 +70,17 @@ ant -f build-preprocessing.xml witness-5
 # add attributes
 echo "add attributes"
 add-attributes -g "./data/editions5/wit-*.xml" -b "https://id.acdh.oeaw.ac.at"
+
+## Witness 6 - KK1933_DffH_partial.xml
+
+# remove TEI namespace from root element before splitting
+python py/remove_namespace.py -f KK1933_DffH_partial.xml -p data/editions6
+# split files
+python py/milestone.py -t pb -n {http://www.w3.org/XML/1998/namespace}id data/editions6/KK1933_DffH_partial_modified.xml
+# cleanup to remove namespaces for id elements and save if data/editions6
+python py/cleanup.py -f KK1933_DffH_partial.xml -p data/editions6 --debug
+# add original teiHeader to each file
+ant -f build-preprocessing.xml witness-6
+# add attributes
+echo "add attributes"
+add-attributes -g "./data/editions6/wit-*.xml" -b "https://id.acdh.oeaw.ac.at"
