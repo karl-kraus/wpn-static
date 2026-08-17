@@ -88,7 +88,7 @@
                                             <span class="wpn-card-badge">NEU</span>
                                             <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
                                                 <h3 class="card-title mt-1"><a href="wit-TParalipomenon-0034r.html" class="stretched-link text-decoration-none text-blacker-grey">T<sup>Paralipomenon</sup></a></h3>
-                                                <p class="card-subtitle text-black-grey">Ausgeschiedenes Typoskript</p>
+                                                <p class="card-subtitle text-black-grey">Typoskript eines Paralipomenons</p>
                                             </div>
                                             <img src="images/card_tparalipomenon.png" class="d-block" alt=""/>
                                         </div>

@@ -143,35 +143,35 @@
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'wit-DfeH-0001.html'"/>
-                                                        <xsl:with-param name="label" select="'Das ‚Jerusalemer Konvolut‘'"/>
+                                                        <xsl:with-param name="label" select="'Druckfahnen – ‚Jerusalemer Konvolut‘'"/>
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'wit-TFragment2-0229r.html'"/>
-                                                        <xsl:with-param name="label" select="'KK1933_TFragment2 (in Arbeit)'"/>
+                                                        <xsl:with-param name="label" select="'Typoskript „Wenn ich mich nun frage …“'"/>
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'wit-HMotto-0001r.html'"/>
-                                                        <xsl:with-param name="label" select="'KK1933_HMotto (in Arbeit)'"/>
+                                                        <xsl:with-param name="label" select="'Handschrift des Mottos'"/>
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'wit-DfMotto-0001r.html'"/>
-                                                        <xsl:with-param name="label" select="'KK1933_DfMotto (in Arbeit)'"/>
+                                                        <xsl:with-param name="label" select="'Druckfahnen des Mottos'"/>
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'wit-TParalipomenon-0034r.html'"/>
-                                                        <xsl:with-param name="label" select="'KK1933_TParalipomenon (in Arbeit)'"/>
+                                                        <xsl:with-param name="label" select="'Typoskript eines Paralipomenons'"/>
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
