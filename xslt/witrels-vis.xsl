@@ -67,7 +67,7 @@
                             </button>
                             <nav class="sidebar">
                               <div class="sidebar-header row z-index-1 bg-white text-center m-0 border border-light-grey position-sticky top-nav flex-row">
-                                    <div class="col-auto p-0_25 border-end border-light-grey align-content-around sidebar-header-extra">
+                                    <div class="col-auto p-0 border-end border-light-grey align-content-around sidebar-header-extra">
                                         <button type="button" id="btn-chapters" class="chapters-toggle cursor-pointer" aria-pressed="false" title="Abschnitte ein-/ausblenden">
                                             Abschnitte ein/aus
                                         </button>
@@ -87,6 +87,7 @@
                     </div>
                 </main>
 
+                <script src="js/vendor/bootstrap/bootstrap.bundle.min.js"></script>
                 <xsl:call-template name="scripts"/>
 
                 <div id="svg-tooltip"></div>

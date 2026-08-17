@@ -319,7 +319,7 @@
                                     <xsl:when test="$document = 'impressum'">Impressum</xsl:when>
                                     <xsl:when test="$document = 'notizen'">Notizen</xsl:when>
                                     <xsl:when test="$document = 'annotierte_lesefassung'">Annotierte Lesefassung</xsl:when>
-                                    <xsl:when test="$document = 'topographical'">Topographische Umschrift</xsl:when>
+                                    <xsl:when test="$document = 'topographical'">Topographische Umschriften</xsl:when>
                                     <xsl:when test="$document = 'visualisierungen'">Visualisierungen</xsl:when>
                                     <xsl:when test="$document = 'register'">Register</xsl:when>
                                     <xsl:when test="$document = 'kommentar'">Stellenkommentar</xsl:when>
@@ -338,7 +338,7 @@
                             <li class="breadcrumb-item active" aria-current="page">Text</li>
                         </xsl:if>
                         <xsl:if test="contains($document, 'wit-')">
-                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="topographical.html">Topographische Umschrift</a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="topographical.html">Topographische Umschriften</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 <xsl:choose>
                                     <xsl:when test="starts-with($document, 'wit-DfeH')">Druckfahnen – ‚Jerusalemer Konvolut‘</xsl:when>
