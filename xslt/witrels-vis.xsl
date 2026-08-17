@@ -591,11 +591,11 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="pd-conn-meta">
                 <xsl:value-of select="tei:ref[@type='doc']"/>
                 <xsl:if test="tei:ref[@type='page']">
-                    <xsl:text>, </xsl:text>
+                    <xsl:text>, S.&#160;</xsl:text>
                     <xsl:value-of select="tei:ref[@type='page']"/>
                 </xsl:if>
                 <xsl:if test="tei:ref[@type='fol']">
-                    <xsl:text>, </xsl:text>
+                    <xsl:text>, fol.&#160;</xsl:text>
                     <xsl:value-of select="tei:ref[@type='fol']"/>
                 </xsl:if>
                 <xsl:if test="tei:ref[@type='url']">
