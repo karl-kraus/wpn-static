@@ -30,7 +30,7 @@
           -->
     <xsl:template match="tei:figure">
         <xsl:variable name="doc_title">
-            <xsl:text>Textgenese – Überlieferung</xsl:text>
+            <xsl:text>Visualisierungen</xsl:text>
         </xsl:variable>
         <html lang="{$site_language}">
             <head>

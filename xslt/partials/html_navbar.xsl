@@ -88,7 +88,7 @@
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'edition.html'"/>
-                                                        <xsl:with-param name="label" select="'Textgenese und Überlieferung'"/>
+                                                        <xsl:with-param name="label" select="'Entstehung und Überlieferung'"/>
                                                         <xsl:with-param name="level" select="'level1'"/>
                                                     </xsl:call-template>
                                                 </li>
@@ -204,7 +204,7 @@
                                                     </xsl:call-template>
                                                 </li>-->
                                                 <!--<li class="nav-item">
-                                                    <a class="nav-link" href="imprint.html">Textgenese</a>
+                                                    <a class="nav-link" href="imprint.html"></a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="imprint.html">Faksimile</a>
