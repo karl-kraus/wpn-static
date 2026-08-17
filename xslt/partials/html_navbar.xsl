@@ -121,27 +121,6 @@
                                             <ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'notizen.html'"/>
-                                                        <xsl:with-param name="label" select="'Notizen zur Dritten Walpurgisnacht'"/>
-                                                        <xsl:with-param name="level" select="'level1'"/>
-                                                    </xsl:call-template>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'notizen_konvolut_1.html'"/>
-                                                        <xsl:with-param name="label" select="'Konvolut I'"/>
-                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
-                                                    </xsl:call-template>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'notizen_konvolut_2.html'"/>
-                                                        <xsl:with-param name="label" select="'Konvolut II'"/>
-                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
-                                                    </xsl:call-template>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'annotierte_lesefassung.html'"/>
                                                         <xsl:with-param name="label" select="'Lesefassung'"/>
                                                         <xsl:with-param name="level" select="'level1'"/>
@@ -150,21 +129,14 @@
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'motto.html'"/>
-                                                        <xsl:with-param name="label" select="'Zum Text der Dritten Walpurgisnacht'"/>
+                                                        <xsl:with-param name="label" select="'Text der ‚Dritten Walpurgisnacht‘'"/>
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'topographical.html'"/>
-                                                        <xsl:with-param name="label" select="'Umschrift'"/>
-                                                        <xsl:with-param name="level" select="'level1'"/>
-                                                    </xsl:call-template>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'visualisierungen.html'"/>
-                                                        <xsl:with-param name="label" select="'Visualisierungen'"/>
+                                                        <xsl:with-param name="label" select="'Die Textträger'"/>
                                                         <xsl:with-param name="level" select="'level1'"/>
                                                     </xsl:call-template>
                                                 </li>
@@ -203,6 +175,28 @@
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'notizen.html'"/>
+                                                        <xsl:with-param name="label" select="'Notizen zur Dritten Walpurgisnacht'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'notizen_konvolut_1.html'"/>
+                                                        <xsl:with-param name="label" select="'Konvolut I'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'notizen_konvolut_2.html'"/>
+                                                        <xsl:with-param name="label" select="'Konvolut II'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
+
                                                 <!-- <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'register.html'"/>
@@ -218,8 +212,15 @@
                                             </ul>
                                         </div>
                                         <div class="col-md-4">
-                                            <span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Kommentar</span>
+                                            <span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Visualisierungen und Kommentar</span>
                                             <ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'visualisierungen.html'"/>
+                                                        <xsl:with-param name="label" select="'Visualisierungen'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
+                                                    </xsl:call-template>
+                                                </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'kommentar.html'"/>

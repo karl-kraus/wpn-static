@@ -193,8 +193,11 @@
      <xsl:template match="tei:ref">
         <a class="text-primary text-decoration-none ff-ubuntu" href="{@target}"><xsl:apply-templates/></a>
     </xsl:template>
-     <xsl:template match="tei:div[parent::tei:div[parent::tei:body]]">
+     <xsl:template match="tei:div[parent::tei:div[parent::tei:body[not(@rend='showall')]]]">
         <div class="intro-text"><xsl:apply-templates/></div>
+    </xsl:template>
+    <xsl:template match="tei:div[parent::tei:div[parent::tei:body[@rend='showall']]]">
+        <div><xsl:apply-templates/></div>
     </xsl:template>
     <xsl:template match="tei:div[parent::tei:div[parent::tei:body] and @type='legende']">
          <div id="legende-pb" class="min-h-100 intro-text">
