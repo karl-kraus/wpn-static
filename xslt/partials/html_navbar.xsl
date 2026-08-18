@@ -177,6 +177,13 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'wit-DffH-0266_a.html'"/>
+                                                        <xsl:with-param name="label" select="'Blatt 266a'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'notizen.html'"/>
                                                         <xsl:with-param name="label" select="'Notizen zur Dritten Walpurgisnacht'"/>
                                                         <xsl:with-param name="level" select="'level1'"/>
@@ -347,6 +354,8 @@
                                     <xsl:when test="starts-with($document, 'wit-HMott')">Handschrift des Mottos</xsl:when>
                                     <xsl:when test="starts-with($document, 'wit-DfMott')">Druckfahnen des Mottos</xsl:when>
                                     <xsl:when test="starts-with($document, 'wit-TParalipomenon')">Ausgeschiedenes Typoskript</xsl:when>
+                                    <xsl:when test="starts-with($document, 'wit-DffH')">Blatt 266a</xsl:when>
+
                                     <xsl:otherwise>Text</xsl:otherwise>
                                 </xsl:choose>
                             </li>
