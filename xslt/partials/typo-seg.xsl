@@ -111,7 +111,7 @@
         <!-- /experimental -->
         
         <span class="entity">
-            <xsl:if test="not(@rend='line')">
+            <xsl:if test="not(@rend='line') and not(@rend='arrow')">
                 <xsl:attribute name="data-anchor">
                     <xsl:value-of select="@xml:id"/>
                 </xsl:attribute>
