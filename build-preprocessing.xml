@@ -29,6 +29,9 @@
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
         <delete dir="${witness-1-path}/tmp"/>
+        <delete>
+            <fileset dir="${witness-1-path}" includes="wit-DffH-0266_a.xml"/>
+        </delete>
     </target>
     <target name="witness-2">
         <delete>
