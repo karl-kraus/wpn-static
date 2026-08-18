@@ -532,7 +532,7 @@
 	    <xsl:variable name="hand" select="
 	        if(@change) then replace(@change,'#','')
 	        else string-join(distinct-values(for $c in (tei:add/@change, tei:del/@change) return replace($c,'#','')), ' ')"/>
-	    <span data-hand="{$hand}" class="subst {if($rend='overwritten')then('overwrittenAnchor')else()} {replace((@change)[1], '#', '')}{if(child::*[$rend='overwritten'])then(' position-relative')else()}"><xsl:apply-templates/></span>
+	    <span data-hand="{$hand}" class="subst {if($rend='overwritten')then('overwrittenAnchor')else()} {$hand}{if(child::*[$rend='overwritten'])then(' position-relative')else()}"><xsl:apply-templates/></span>
 	</xsl:template>
     
     <!-- <xsl:template match="tei:ptr[parent::tei:transpose]">

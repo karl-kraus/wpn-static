@@ -2543,6 +2543,7 @@ text-decoration: line-through $pencil-grey dashed;
 #textcontent-pb .note.pencilOnTypescript,
 #textcontent-pb .note.pencilOnProof,
 #textcontent-pb .note.pencilOnProofLibrary,
+#textcontent-pb .note.pencilOnTypescriptLibrary,
 #textcontent-pb .note.redBallpointOnNotepadLibrary,
 #textcontent-pb .fw.redBallpointOnNotepadLibrary,
 #textcontent-pb .metamark.pencilOnTypescript,
@@ -3047,6 +3048,7 @@ pencil text color
 #textcontent-pb .note.pencilOnTypescriptKK1,
 #textcontent-pb .note.pencilOnTypescriptKK2,
 #textcontent-pb .note.pencilOnProofLibrary,
+#textcontent-pb .note.pencilOnTypescriptLibrary,
 #textcontent-pb .seg .seg.entity.seg-inline .pencilOnTypescript {
   color: $pencil-grey;
 }
@@ -3169,24 +3171,25 @@ pencil text color
   position: relative;
 }
 
-#textcontent-pb .metamark.linespace::after  {
+#textcontent-pb .metamark.linespace::after,
+#textcontent-pb .metamark.linespace2::after,
+#textcontent-pb .metamark.linespace3::after {
   position: absolute;
-  content: '–––';
-  font-weight: bold;
+  content: "–––";
+  transform: scaleY(1.6);
+}
+
+#textcontent-pb .metamark.linespace::after {
   top: -0.5rem;
   left: 13rem;
 }
 
-#textcontent-pb .metamark.linespace2::after  {
-  position: absolute;
-  content: "–––";
+#textcontent-pb .metamark.linespace2::after {
   top: 0.5rem;
   left: -20.5rem;
 }
 
-#textcontent-pb .metamark.linespace3::after  {
-  position: absolute;
-  content: "–––";
+#textcontent-pb .metamark.linespace3::after {
   top: -0.5rem;
   left: -0.5rem;
 }

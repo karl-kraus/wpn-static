@@ -125,6 +125,8 @@ function highlighting(event: Event) {
     // old: const handDataList = target.dataset.hand;
     const handDataList = [target.dataset.hand, ...collectAncestorHand(target)].filter(Boolean).join(" ");
 
+    const ancestorAnchorDataList = collectAncestorAnchor(target).filter(Boolean).join(" ");
+
     document.querySelectorAll<HTMLElement>(`.${color}`).forEach((el) => {
 
         el.classList.remove(color);
@@ -264,6 +266,37 @@ function highlighting(event: Event) {
             }
 
             targetElements.forEach((el) => {
+
+                el.classList.add(color);
+
+                if (el.classList.contains("note") || el.classList.contains("quotes")) {
+
+                    markChildrenAsHighlighted(el, color);
+
+                }
+
+            });
+        }
+
+    });
+
+    const ancestorAnchorIds = ancestorAnchorDataList ? ancestorAnchorDataList.split(" ") : [];
+    // highlight ids inherited from ancestors (e.g. an enclosing del referenced by a margin note)
+    ancestorAnchorIds.forEach((ancestorAnchorId) => {
+
+        const ancestorAnchorElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${ancestorAnchorId}"]`);
+
+        if(ancestorAnchorElements.length > 0) {
+
+            target.classList.add(color);
+
+            if (target.classList.contains("note") || target.classList.contains("quotes")) {
+
+                markChildrenAsHighlighted(target, color);
+
+            }
+
+            ancestorAnchorElements.forEach((el) => {
 
                 el.classList.add(color);
 
@@ -542,6 +575,23 @@ function collectAncestorTarget(el) {
     while (node && node !== content) {
         if (normalize(node.textContent) !== leafText) break;
         if (node.dataset.target) collected.push(node.dataset.target);
+        node = node.parentElement;
+    }
+    return collected;
+}
+
+// Wie collectAncestorTarget: ein Ancestor (z.B. das umschließende del eines
+// tei:restore/tei:del) kann eine eigene data-anchor-id tragen, auf die z.B. eine
+// Randapparat-Notiz zeigt, während das gehoverte Leaf selbst eine andere, eigene id
+// hat. Nur klettern, solange der Ancestor keinen zusätzlichen eigenen Text gegenüber
+// dem Leaf hat - sonst würde ein und dieselbe id unbeteiligte Geschwister verbinden.
+function collectAncestorAnchor(el) {
+    const collected = [];
+    const leafText = normalize(el.textContent);
+    let node = el.parentElement;
+    while (node && node !== content) {
+        if (normalize(node.textContent) !== leafText) break;
+        if (node.dataset.anchor) collected.push(node.dataset.anchor);
         node = node.parentElement;
     }
     return collected;
