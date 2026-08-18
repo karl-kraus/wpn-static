@@ -4035,6 +4035,10 @@ body.modal-open, body.modal-open main {
   border-radius: 4px;
 }
 
+#textcontent-pb .connection-color .position-relative .add {
+  color: initial;
+}
+
 .connection-color::after {
   color: $wpn-red !important;
 }
