@@ -286,7 +286,10 @@ function highlighting(event: Event) {
 
         const ancestorAnchorElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${ancestorAnchorId}"]`);
 
-        if(ancestorAnchorElements.length > 0) {
+        // Der Ancestor, von dem der Token geklettert wurde, trägt ihn selbst als eigenes
+        // data-anchor und matcht die Query daher immer mit - "> 1" filtert diesen reinen
+        // Selbst-Treffer heraus, analog zum bestehenden Anchor-Pass für eigene Tokens.
+        if(ancestorAnchorElements.length > 1) {
 
             target.classList.add(color);
 
