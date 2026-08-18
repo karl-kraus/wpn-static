@@ -2350,23 +2350,15 @@ text-decoration: line-through $pencil-grey dashed;
   position: relative !important;
 }
 
-#legende-pb .add.overwrite {
-  bottom: 1px;
-  left: -1px !important;
-  background: #ffffffd9;
-}
 
 #legende-pb .subst:has(>.add.overwrite)>.del:not(.erased),
-#legende-pb .subst:has(>.add.overwrite)>del{
+#legende-pb .subst:has(>.add.overwrite)>del {
   /* color: #dddddd; */
   text-decoration: none !important;
 }
 
 #legende-pb .subst:has(>.add.overwrite)>.del.erased {
   text-decoration: line-through dashed;
-  /* color: #dddddd;
-  text-decoration: line-through;
-  text-decoration-color: #dddddd; */
 }
 
 #legende-pb .metamark.printSpanFrom.redOnProof.entity { 
@@ -3778,13 +3770,6 @@ div.position-relative .marginLeftFurtherBelowOnly {
   text-indent: 0;
 }
 
-/*
-.longQuoteMarginStart .no-indent,
-.longQuoteMarginMiddle .no-indent,
-.longQuoteMarginEnd .no-indent {
-  text-indent: inherit !important;
-}
-*/
 
 .fw {
   position: absolute;
@@ -3892,12 +3877,6 @@ div.position-relative .marginLeftFurtherBelowOnly {
 
 #textcontent-pb .print-page.witnessTypeScript4 .bracket-offset-1 { top: 0; }
 
-/* .seg.seg-inline span */
-// .metamark.mm-inline span,
-// .mod-inline span {
-//   position: absolute;
-//   right: -3px;
-// }
 
 .typescriptFont {
   font-family: "monospace";
@@ -3923,13 +3902,14 @@ wpn-time-line {
   border-color: rgb(255, 92, 92) !important;
 }
 
-#textcontent-pb .add.overwrite {
-  /* font-family: var(--bs-handwritten-font-family-italic); */
+#textcontent-pb .add.overwrite,
+#legende-pb .add.overwrite {
   text-shadow: none;
   cursor: url(../images/cursor-circle.svg) 15 15, auto;
 }
 
-#textcontent-pb .subst .add.overwrite {
+#textcontent-pb .subst .add.overwrite,
+#legende-pb .subst .add.overwrite {
   /* font-size: inherit !important; */
   line-height: inherit;
   background-image: linear-gradient(to bottom, white 0%, white 100%);
@@ -3942,9 +3922,6 @@ wpn-time-line {
   letter-spacing: 0 !important;
 }
 
-#textcontent-pb .subst:is([class*="KK"]) .add.overwrite {
-  /* padding-right: 2px; */
-}
 
 #textcontent-pb span:is([class*='typescriptLong'], [class*='typescriptRunning'], [class*='typewriter']) .subst .add.overwrite {
   font-size: inherit !important;
@@ -3967,8 +3944,8 @@ wpn-time-line {
   box-shadow: 0 0 2px rgba($wpn-red, 0.75);
 }
 
-#textcontent-pb .subst:has(>.add.overwrite)>.del {
-  /* color: #7d7d7d !important; */
+#textcontent-pb .subst:has(>.add.overwrite)>.del,
+#legende-pb .subst:has(>.add.overwrite)>.del {
   z-index: -1;
 }
 
@@ -3981,9 +3958,6 @@ wpn-time-line {
   text-decoration: line-through dashed $pencil-grey;
 }
 
-#textcontent-pb .subst:has(>.add.overwrite)>.del .add {
-  /* color: #dddddd !important; */
-}
 
 #textcontent-pb .subst:has(>.overwrite) {
   text-indent: 0;
