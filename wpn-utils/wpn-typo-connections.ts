@@ -560,9 +560,22 @@ function collectAncestorHand(el) {
     if (el.classList.contains("metamark") && el.dataset.hand && el.closest(".note")) {
         return collected; // Metamark mit eigenem Hand-Wert in einer Note: Ancestor-Hand nicht zusätzlich berücksichtigen
     }
+    const ownHand = el.dataset.hand;
     let node = el.parentElement;
     while (node && node !== content) {
-        if (node.dataset.hand) collected.push(node.dataset.hand);
+        if (node.dataset.hand) {
+            // Eine note/ein metamark kann mehrere, an unterschiedlichen Stellen geltende Hände
+            // vereinen (z.B. Tinte im Fließtext, Bleistift nur bei einem einzelnen Metamark
+            // daneben). Hat das Hover-Element bereits eine eigene Hand, soll die Hand eines
+            // solchen Containers nur übernommen werden, wenn dessen Text sich nicht vom eigenen
+            // Text unterscheidet - sonst würde z.B. reiner Tintentext fälschlich auch als
+            // Bleistift erscheinen. Ohne eigene Hand bleibt das Klettern wie bisher unbedingt,
+            // damit identitätslose Elemente weiterhin die Hand ihres Containers erben.
+            const isBroadContainer = node.classList.contains("note") || node.classList.contains("metamark");
+            const suppressed = isBroadContainer && ownHand &&
+                normalize(textForNoteComparison(node)) !== normalize(textForNoteComparison(el));
+            if (!suppressed) collected.push(node.dataset.hand);
+        }
         node = node.parentElement;
     }
     return collected;
