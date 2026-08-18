@@ -66,7 +66,7 @@ for x in tqdm(sorted(files, key=lambda x: os.path.basename(x).split("_")[-1].spl
         "project": "WPN Static-Site",
     }
     record = {}
-    record["witness"] = "Karl Kraus 1933 – Dritte Walpurgisnacht"
+    record["witness"] = "Dritte Walpurgisnacht – Lesefassung"
     record["id"] = os.path.split(x)[-1]
     cfts_record["id"] = record["id"]
     cfts_record["resolver"] = {record['id']}
@@ -77,8 +77,8 @@ for x in tqdm(sorted(files, key=lambda x: os.path.basename(x).split("_")[-1].spl
             doc.any_xpath('.//@data-label')
         ).split()
     )
-    print(f"{r_title}, Karl Kraus 1933 – Dritte Walpurgisnacht")
-    record["title"] = f"{r_title}, Karl Kraus 1933 – Dritte Walpurgisnacht"
+    print(f"{r_title}, Dritte Walpurgisnacht – Lesefassung")
+    record["title"] = f"{r_title}, Dritte Walpurgisnacht – Lesefassung"
     cfts_record["title"] = record["title"]
     # get unique persons per page
     '''ent_type = "persons"

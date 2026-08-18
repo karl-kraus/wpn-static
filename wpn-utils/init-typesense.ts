@@ -76,11 +76,6 @@ search.addWidgets([
 				.filter((item) => item.count !== 0)
 				.map((item) => {
 					item.count = `(${item.count} Treffer)`;
-					if (item.label.includes("Karl Kraus 1933")) {
-						item.label = "Dritte Walpurgisnacht – Lesefassung";
-						item.value = "Dritte Walpurgisnacht – Lesefassung";
-						item.highlighted = "Dritte Walpurgisnacht – Lesefassung";
-					}
 					return item;
 				});
 		},
