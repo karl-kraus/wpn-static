@@ -3934,7 +3934,8 @@ wpn-time-line {
   text-decoration-color: $pencil-grey !important;
 }
 
-#textcontent-pb .add.overwrite:hover {
+#textcontent-pb .add.overwrite:hover,
+#legende-pb .add.overwrite:hover {
   background-color: rgba(235, 104, 104, 0) !important;
   color: rgba(255, 255, 255, 0) !important;
   border-right: 1px solid transparent;
