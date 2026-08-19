@@ -3677,7 +3677,7 @@ div:has(> .lineLeft), div:has(> .doubleLineLeft) {
   margin-right: .5rem;
 }
 
-div.position-relative .arrow {
+div.position-relative .arrow:not(.mod) {
   position: absolute;
   text-align: right;
   right: 34%;

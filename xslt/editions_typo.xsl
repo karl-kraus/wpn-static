@@ -91,7 +91,8 @@
                     </div>
                 </main>
 
-				<div class="modal fade" id="first-visit-info-overlay" tabindex="-1" aria-labelledby="firstVisitOverlayLabel" aria-hidden="true">
+				<!--
+                <div class="modal fade" id="first-visit-info-overlay" tabindex="-1" aria-labelledby="firstVisitOverlayLabel" aria-hidden="true">
 				    <div class="modal-dialog modal-lg modal-dialog-centered">
 				        <div class="modal-content">
 				            <div class="modal-header">
@@ -122,7 +123,7 @@
 				            </div>
 				        </div>
 				    </div>
-				</div>
+				</div>-->
 				
                 <xsl:call-template name="html_footer">
                     <xsl:with-param name="include_scroll_script" select="false()"/>
