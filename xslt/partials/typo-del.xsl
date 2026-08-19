@@ -42,7 +42,7 @@
                     <xsl:otherwise>
                         <xsl:variable name="anchor">
                             <xsl:choose>
-                                <xsl:when test="parent::tei:note[@xml:id]">
+                                <xsl:when test="parent::tei:note[@xml:id][@place or @rendition]">
                                     <xsl:text> </xsl:text>
                                     <xsl:value-of select="parent::tei:note/@xml:id"/>
                                 </xsl:when>
