@@ -514,6 +514,11 @@ function textForNoteComparison(el: HTMLElement): string {
 function isSuppressedNoteToken(token: string, target: HTMLElement): boolean {
     const noteEl = getNoteElementForToken(token);
     if (!noteEl) return false;
+    // Nur unterdrücken, wenn das Token die eigene umschließende note ist (klassischer
+    // "geerbte Container-id"-Fall). Zeigt es auf eine andere note, ist es eine echte,
+    // gewollte Querverbindung (z.B. ein Metamark, der auf eine andere note verweist) -
+    // deren Sichtbarkeit hängt nicht davon ab, ob die Texte übereinstimmen.
+    if (noteEl !== target.closest<HTMLElement>(".note")) return false;
     return normalize(textForNoteComparison(noteEl)) !== normalize(textForNoteComparison(target));
 }
 
@@ -529,7 +534,13 @@ function collectAncestorContainerIds(el: HTMLElement): Set<string> {
     const ids = new Set<string>();
     let node = el.parentElement;
     while (node && node !== content) {
-        if ((node.classList.contains("note") || node.classList.contains("metamark")) && node.dataset.anchor) {
+        // Ausnahme: ein metamark-Vorfahre, dessen id nur deshalb mit der eigenen
+        // übereinstimmt, weil das Kind sein eigenes data-target trägt (das der Wrapper
+        // selbst nicht hat) - das Kind ist dann eine eigenständige, zielverweisende
+        // Korrekturmarke (z.B. ein Einfüge-/Verweiszeichen), keine bloße Fließtext-Hülle,
+        // die die Wrapper-id nur unverändert durchreicht.
+        const isOwnTargetMetamarkWrapper = node.classList.contains("metamark") && !!el.dataset.target && !node.dataset.target;
+        if ((node.classList.contains("note") || node.classList.contains("metamark")) && node.dataset.anchor && !isOwnTargetMetamarkWrapper) {
             node.dataset.anchor.split(" ").filter(Boolean).forEach((t) => ids.add(t));
         }
         node = node.parentElement;
