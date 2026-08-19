@@ -97,7 +97,7 @@
                                         <div class="card rounded-0 h-100 position-relative">
                                             <span class="wpn-card-badge">NEU</span>
                                             <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
-                                                <h3 class="card-title mt-1"><a href="wit-DffH-0266_a.html" class="stretched-link text-decoration-none text-blacker-grey">Df(fH)</a></h3>
+                                                <h3 class="card-title mt-1"><a href="wit-DffH-0266_ar.html" class="stretched-link text-decoration-none text-blacker-grey">Df(fH)</a></h3>
                                                 <p class="card-subtitle text-black-grey">Blatt 266a</p>
                                             </div>
                                             <img src="images/card_DffH.png" class="d-block" alt=""/>

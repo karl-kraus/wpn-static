@@ -550,7 +550,7 @@ function hasOwnIdentity(target: HTMLElement): boolean {
         const noteAncestor = target.closest<HTMLElement>(".note");
         const noteHand = noteAncestor?.dataset.hand;
         const ownHand = target.dataset.hand;
-        if (noteAncestor && noteHand && ownHand && noteHand !== ownHand) return true;
+        if (noteAncestor && ownHand && noteHand !== ownHand) return true;
         return false;
     }
     const inherited = collectAncestorContainerIds(target);

@@ -873,6 +873,7 @@ span.warning {
 #textcontent-pb .typescriptLongQuoteVerse,
 #textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteTitle,
 #textcontent-pb .witnessTypescriptInsert .typescriptRunningText1,
+#textcontent-pb .witnessTypescriptInsert .typescriptRunningText2,
 #textcontent-pb .witnessTypescriptInsert .typescriptPageNum,
 #textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteVerseLeading,
 #textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteLeading,
@@ -3934,8 +3935,7 @@ wpn-time-line {
   text-decoration-color: $pencil-grey !important;
 }
 
-#textcontent-pb .add.overwrite:hover,
-#legende-pb .add.overwrite:hover {
+#textcontent-pb .add.overwrite:hover {
   background-color: rgba(235, 104, 104, 0) !important;
   color: rgba(255, 255, 255, 0) !important;
   border-right: 1px solid transparent;
@@ -3945,8 +3945,12 @@ wpn-time-line {
   box-shadow: 0 0 2px rgba($wpn-red, 0.75);
 }
 
-#textcontent-pb .subst:has(>.add.overwrite)>.del,
 #legende-pb .subst:has(>.add.overwrite)>.del {
+  display: none;
+  z-index: -1;
+}
+
+#textcontent-pb .subst:has(>.add.overwrite)>.del {
   z-index: -1;
 }
 
