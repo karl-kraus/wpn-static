@@ -651,7 +651,7 @@
                 <span class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">
                     <xsl:attribute name="data-anchor">
                         <xsl:value-of select="@xml:id"/>
-                        <xsl:if test="parent::tei:metamark[@xml:id]">
+                        <xsl:if test="parent::tei:metamark[@xml:id][@change]">
                             <xsl:text> </xsl:text>
                             <xsl:value-of select="parent::tei:metamark/@xml:id"/>
                         </xsl:if>
