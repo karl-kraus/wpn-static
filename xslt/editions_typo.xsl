@@ -519,7 +519,7 @@
      </xsl:template>
     <xsl:template match="tei:restore">
 		<xsl:choose>
-			<xsl:when test="./tei:mod[contains(@rendition, 'typescriptLongQuote')]">
+			<xsl:when test="./tei:mod[contains(@rendition, 'typescriptLongQuote')] or ./tei:seg[@type='relocation' and @rend='line']">
 				<xsl:apply-templates/>
 			</xsl:when>
 			<xsl:otherwise>

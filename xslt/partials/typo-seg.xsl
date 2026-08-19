@@ -133,7 +133,7 @@
             <xsl:if test="@rend='line' and not((@prev, @continued))">
                 <xsl:choose>
                     <xsl:when test="parent::tei:restore">
-                        <span class="seg entity seg-inline"><del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="{replace(@change, '#', '')}"><xsl:text>&#124;</xsl:text></del></span>
+                        <span class="restore {replace((parent::tei:restore/@change)[1], '#', '')}" data-anchor="{parent::tei:restore/@xml:id}" data-hand="{replace((parent::tei:restore/@change)[1], '#', '')}"><span class="seg entity seg-inline"><del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="{replace(@change, '#', '')}"><xsl:text>&#124;</xsl:text></del></span></span>
                     </xsl:when>
                     <xsl:otherwise>
                         <span class="seg entity seg-inline"><span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="{replace(@change, '#', '')}"><xsl:text>&#124;</xsl:text></span></span>
