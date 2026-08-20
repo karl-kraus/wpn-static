@@ -82,8 +82,8 @@
     <xsl:template match="tei:del[parent::tei:subst[not(parent::tei:restore)]]">
         <xsl:variable name="rend" select="if(parent::tei:subst[@rend])then(parent::tei:subst/@rend)else(@rend)"/>
         <!-- <xsl:variable name="change" select="replace((parent::tei:subst/@change)[1], '#', '')"/> -->
-        <xsl:variable name="targetorfalse" select="if(parent::tei:subst[./tei:add[./tei:metamark[@target]]])then(parent::tei:subst/tei:add/tei:metamark/@target)else('false')"/>
-        <xsl:variable name="target" select="if($targetorfalse!='false')then(replace($targetorfalse, '#', ''))else('false')"/>
+        <xsl:variable name="targetorfalse" select="if(parent::tei:subst[./tei:add[./tei:metamark[@target]]])then(parent::tei:subst/tei:add/tei:metamark/@target)else('')"/>
+        <xsl:variable name="target" select="if($targetorfalse!='')then(replace($targetorfalse, '#', ''))else('')"/>
         <xsl:variable name="inheritIDfromAddDel" select="
             if(ancestor::tei:add[parent::tei:subst])
             then(
@@ -153,7 +153,7 @@
                 <xsl:choose>
                     <xsl:when test="child::tei:*">
                         <del id="{@xml:id}" class="del entity {replace((@change)[1], '#', '')}" data-hand="{replace((@change)[1], '#', '')}">
-                            <xsl:if test="$target!='false'">
+                            <xsl:if test="$target!=''">
                                 <xsl:attribute name="data-target">
                                     <xsl:value-of select="$target"/>
                                 </xsl:attribute>
@@ -180,7 +180,7 @@
                         <xsl:choose>
                             <xsl:when test="count(node())=1 and text()=' ' and not(@resp)">
                                 <del id="{@xml:id}" class="entity {replace((@change)[1], '#', '')}" data-hand="{replace((@change)[1], '#', '')}">
-                                    <xsl:if test="$target!='false'">
+                                    <xsl:if test="$target!=''">
                                         <xsl:attribute name="data-target">
                                             <xsl:value-of select="$target"/>
                                         </xsl:attribute>
@@ -206,7 +206,7 @@
                             <xsl:otherwise>
                                 <!-- new (no whitespace handling): -->
                                     <del id="{@xml:id}" class="entity  {replace((@change)[1], '#', '')}" data-hand="{replace((@change)[1], '#', '')}">
-                                        <xsl:if test="$target!='false'">
+                                        <xsl:if test="$target!=''">
                                             <xsl:attribute name="data-target">
                                                 <xsl:value-of select="$target"/>
                                             </xsl:attribute>
@@ -234,7 +234,7 @@
                                         <span class="del">
                                             <xsl:text>&#xA0;</xsl:text>
                                             <del id="{@xml:id}" class="entity  {replace((@change)[1], '#', '')}">
-                                                <xsl:if test="$target!='false'">
+                                                <xsl:if test="$target!=''">
                                                     <xsl:attribute name="data-target">
                                                         <xsl:value-of select="$target"/>
                                                     </xsl:attribute>
@@ -256,7 +256,7 @@
                                     </xsl:when>
                                     <xsl:when test="ends-with(., ' ')">
                                         <del id="{@xml:id}" class="entity  {replace((@change)[1], '#', '')}">
-                                            <xsl:if test="$target!='false'">
+                                            <xsl:if test="$target!=''">
                                                 <xsl:attribute name="data-target">
                                                     <xsl:value-of select="$target"/>
                                                 </xsl:attribute>
@@ -277,7 +277,7 @@
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <del id="{@xml:id}" class="entity  {replace((@change)[1], '#', '')}">
-                                            <xsl:if test="$target!='false'">
+                                            <xsl:if test="$target!=''">
                                                 <xsl:attribute name="data-target">
                                                     <xsl:value-of select="$target"/>
                                                 </xsl:attribute>
@@ -327,8 +327,8 @@
                 </span>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:variable name="targetorfalse" select="if(parent::tei:subst/parent::tei:restore/parent::tei:del/parent::tei:subst[./tei:add[./tei:metamark[@target]]])then(parent::tei:subst/parent::tei:restore/parent::tei:del/parent::tei:subst/tei:add/tei:metamark/@target)else('false')"/>
-                <xsl:variable name="target" select="if($targetorfalse!='false')then(replace($targetorfalse, '#', ''))else('false')"/>
+                <xsl:variable name="targetorfalse" select="if(parent::tei:subst/parent::tei:restore/parent::tei:del/parent::tei:subst[./tei:add[./tei:metamark[@target]]])then(parent::tei:subst/parent::tei:restore/parent::tei:del/parent::tei:subst/tei:add/tei:metamark/@target)else('')"/>
+                <xsl:variable name="target" select="if($targetorfalse!='')then(replace($targetorfalse, '#', ''))else('')"/>
                 <del data-anchor="{@xml:id} {$target}"><xsl:apply-templates/></del>
             </xsl:otherwise>
         </xsl:choose>
