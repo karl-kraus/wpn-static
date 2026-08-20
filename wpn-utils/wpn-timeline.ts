@@ -2,6 +2,15 @@
 
 import timeLineData from "./timeline_data/timeline_data.json";
 
+
+const regex = /^1\d{3}$/;
+
+timeLineData.rangeData.forEach(element => {
+    if (element.end.match(regex)) {
+      element.end = `${element.end}-12-31`;
+    }
+});
+
 interface RangeDataItem {
 	id: string;
 	name: string;
