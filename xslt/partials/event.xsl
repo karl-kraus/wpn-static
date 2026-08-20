@@ -71,7 +71,7 @@
                         <div class="py-1 border-bottom border-light-grey">
                             <span>Zeitleiste</span>
                             <a class="text-decoration-none text-dark-grey ps-2"
-                            href="{'ereignisse.html#'||@xml:id}" target="_blank">
+                            href="{'timeline.html#'||@xml:id}" target="_blank">
                             <xsl:apply-templates select="." mode="short" />
                             <xsl:text> </xsl:text>
                             <xsl:apply-templates select="." mode="detail_view_textpage_event_date">
@@ -297,7 +297,7 @@
         <xsl:variable name="ref_id" select="replace(@target,'#','')"/>
         <xsl:variable name="ref_node" select="doc('../../data/indices/Events.xml')//tei:event[@xml:id = $ref_id]"/>
         <xsl:variable name="ref_node_topic_id" select="replace(tokenize($ref_node/@corresp,' ')[1],'#','')"/>
-        <a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="{'ereignisse.html#'||replace(@target,'#','')}" target="_blank">
+        <a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="{'timeline.html#'||replace(@target,'#','')}" target="_blank">
             <xsl:apply-templates select="$ref_node/tei:label" mode="comment"/>
             <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
                 <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>

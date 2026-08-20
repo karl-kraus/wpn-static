@@ -247,7 +247,7 @@
     </xsl:template>
      <xsl:template match="tei:ref[@type='event']" mode="detail_view_textpage_seg">
         <xsl:variable name="ref_id" select="replace(@target,'#','')"/>
-        <a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="ereignisse.html{@target}" target="_blank">
+        <a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="timeline.html{@target}" target="_blank">
             <xsl:apply-templates select="doc('../../data/indices/Events.xml')//tei:event[@xml:id = $ref_id]/tei:label" mode="comment"/>
             <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
                 <defs>
