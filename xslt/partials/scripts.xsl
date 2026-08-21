@@ -16,6 +16,7 @@
             <xsl:map-entry key="'nutzungsbedingungen.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'register.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'kommentar.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
+            <xsl:map-entry key="'downloads.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'notizen.xml'" select="('wpn-header','init-mirador')"/>
             <xsl:for-each select="collection('../../data/editions?select=absatz*.xml|motto*.xml')">
                 <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','init-micro-editor','wpn-text-view','wpn-entity','wpn-text-zoom-button','wpn-pagination','init-mark','wpn-detail-view','wpn-scans')"/>

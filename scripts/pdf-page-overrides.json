@@ -1,0 +1,8 @@
+{
+  "defaults": {
+    "overflowStrategy": "grow",
+    "maxShrinkPercent": 15
+  },
+  "witnesses": {},
+  "pages": {}
+}

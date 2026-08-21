@@ -114,6 +114,13 @@
                                                         <xsl:with-param name="level" select="'level1'"/>
                                                     </xsl:call-template>
                                                 </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'downloads.html'"/>
+                                                        <xsl:with-param name="label" select="'Downloads'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
+                                                    </xsl:call-template>
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="col-md-4">
@@ -325,6 +332,7 @@
                                     <xsl:when test="$document = 'edition'">Zur Edition</xsl:when>
                                     <xsl:when test="$document = 'nutzungsbedingungen'">Nutzungsbedingungen</xsl:when>
                                     <xsl:when test="$document = 'impressum'">Impressum</xsl:when>
+                                    <xsl:when test="$document = 'downloads'">Downloads</xsl:when>
                                     <xsl:when test="$document = 'notizen'">Notizen</xsl:when>
                                     <xsl:when test="$document = 'annotierte_lesefassung'">Annotierte Lesefassung</xsl:when>
                                     <xsl:when test="$document = 'topographical'">Topographische Umschriften</xsl:when>

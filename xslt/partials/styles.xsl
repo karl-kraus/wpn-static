@@ -17,6 +17,7 @@
             <xsl:map-entry key="'register.xml'" select="('style')"/>
             <xsl:map-entry key="'notizen.xml'" select="('style')"/>
             <xsl:map-entry key="'kommentar.xml'" select="('style')"/>
+            <xsl:map-entry key="'downloads.xml'" select="('style')"/>
             <xsl:for-each select="collection('../../data/editions?select=absatz*.xml|motto*.xml')">
                 <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('style','micro-editor')"/>
             </xsl:for-each>
