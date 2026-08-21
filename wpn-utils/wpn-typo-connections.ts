@@ -312,6 +312,35 @@ function highlighting(event: Event) {
             });
         }
 
+        // Umkehrverbindung: ein Metamark oder eine Randmarkierung außerhalb des
+        // Containers (note/seg/quotes/...) zeigt per data-target auf ihn - das war
+        // bislang unsichtbar, da nur die EIGENEN (ungekletterten) Anchor-Tokens weiter
+        // oben gegen data-target geprüft werden, nicht die hier geklettert gefundenen.
+        const ancestorTargetElements = document.querySelectorAll<HTMLElement>(`[data-target~="${ancestorAnchorId}"]`);
+
+        if (ancestorTargetElements.length > 0) {
+
+            target.classList.add(color);
+
+            if (target.classList.contains("note") || target.classList.contains("quotes")) {
+
+                markChildrenAsHighlighted(target, color);
+
+            }
+
+            ancestorTargetElements.forEach((el) => {
+
+                el.classList.add(color);
+
+                if (el.classList.contains("note") || el.classList.contains("quotes")) {
+
+                    markChildrenAsHighlighted(el, color);
+
+                }
+
+            });
+        }
+
     });
 
     const handIds = handDataList ? handDataList.split(" ") : [];
