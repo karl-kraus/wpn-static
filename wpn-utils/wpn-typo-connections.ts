@@ -312,35 +312,6 @@ function highlighting(event: Event) {
             });
         }
 
-        // Umkehrverbindung: ein Metamark oder eine Randmarkierung außerhalb des
-        // Containers (note/seg/quotes/...) zeigt per data-target auf ihn - das war
-        // bislang unsichtbar, da nur die EIGENEN (ungekletterten) Anchor-Tokens weiter
-        // oben gegen data-target geprüft werden, nicht die hier geklettert gefundenen.
-        const ancestorTargetElements = document.querySelectorAll<HTMLElement>(`[data-target~="${ancestorAnchorId}"]`);
-
-        if (ancestorTargetElements.length > 0) {
-
-            target.classList.add(color);
-
-            if (target.classList.contains("note") || target.classList.contains("quotes")) {
-
-                markChildrenAsHighlighted(target, color);
-
-            }
-
-            ancestorTargetElements.forEach((el) => {
-
-                el.classList.add(color);
-
-                if (el.classList.contains("note") || el.classList.contains("quotes")) {
-
-                    markChildrenAsHighlighted(el, color);
-
-                }
-
-            });
-        }
-
     });
 
     const handIds = handDataList ? handDataList.split(" ") : [];
@@ -641,22 +612,13 @@ function collectAncestorTarget(el) {
 // Randapparat-Notiz zeigt, während das gehoverte Leaf selbst eine andere, eigene id
 // hat. Nur klettern, solange der Ancestor keinen zusätzlichen eigenen Text gegenüber
 // dem Leaf hat - sonst würde ein und dieselbe id unbeteiligte Geschwister verbinden.
-// Ausnahme: eine umschließende .note darf zusätzlichen eigenen Text haben (z.B. ein
-// eingeschobenes Metamark wie "col", das den Notentext in mehrere Geschwister-Teile
-// zerlegt) - markChildrenAsHighlighted lässt die ganze Note ohnehin schon als eine
-// Einheit leuchten, sobald sie selbst matcht, das Text-Gleichheits-Kriterium ist nur
-// für kleinere Wrapper (del/subst) gedacht, um dort keine unbeteiligten Geschwister
-// zu verbinden. .quotes bewusst NICHT einbezogen - dafür ist das Kriterium zu häufig
-// und zu unspezifisch (massenhaft harmlose Fließtext-Zitate ohne Note-Bezug).
 function collectAncestorAnchor(el) {
     const collected = [];
     const leafText = normalize(el.textContent);
     let node = el.parentElement;
     while (node && node !== content) {
-        const isNote = node.classList.contains("note");
-        if (!isNote && normalize(node.textContent) !== leafText) break;
+        if (normalize(node.textContent) !== leafText) break;
         if (node.dataset.anchor) collected.push(node.dataset.anchor);
-        if (isNote) break;
         node = node.parentElement;
     }
     return collected;
