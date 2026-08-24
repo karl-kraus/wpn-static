@@ -1,9 +1,9 @@
 from pathlib import Path
 
 
-def rename_files():
+def rename_files(path: str = 'e2e/specs/edition_typo_view.spec.ts-snapshots'):
     # Define the directory containing the files to be renamed
-    directory = Path('e2e/specs/edition_typo_view.spec.ts-snapshots')
+    directory = Path(path)
 
     # Loop through all files in the directory
     for file in directory.glob('*.png'):
@@ -17,4 +17,4 @@ def rename_files():
 
 
 if __name__ == '__main__':
-    rename_files()
+    rename_files('e2e/specs/edition_typo_view_prod.spec.ts-snapshots')
