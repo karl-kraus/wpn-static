@@ -3579,6 +3579,28 @@ pencil text color
   top: -10pt;
 }
 
+/* highly specific fixes */ 
+
+#textcontent-pb span.note[data-anchor='note0098_2']:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .above, > .below),
+#textcontent-pb span.note[data-anchor='note0098_2']:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .below):has(br) .position-relative:has(> .above),
+#textcontent-pb span.note[data-anchor='note0085_1']:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .above, > .below),
+#textcontent-pb span.note[data-anchor='note0137_1']:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .above, > .below) {
+  line-height: 0.75rem;
+}
+
+#textcontent-pb span.note[data-anchor='note0098_2']:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .below):has(br) .position-relative:has(> .above) .above {
+  top: -10pt;
+}
+
+#textcontent-pb span.note[data-anchor='note0085_1']:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .above, > .below) > .below:has(.below) {
+  bottom: -0.75rem;
+}
+
+#textcontent-pb span.note[data-anchor='note0137_1'] .position-relative:has(> .leftBelow .below) {
+  line-height: 1.5rem;
+}
+
+/* end highly specific fixes */
 
 
 div:has(> .lineRight), div:has(> .doubleLineRight)  {
