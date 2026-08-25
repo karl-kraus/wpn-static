@@ -128,7 +128,7 @@
                                 <div class="row g-3">
                                     <div class="col-12 col-md-6">
                                         <a role="button" class="btn btn-outline-black-grey d-flex justify-content-between align-items-center w-100" href="https://github.com/karl-kraus/wpn-static/releases/download/v0.9-beta/DfeH.pdf" download="DfeH.pdf">
-                                            <span>Df(eH) – ‚Jerusalemer Konvolut‘</span>
+                                            <span>PDF Df(eH) – ‚Jerusalemer Konvolut‘</span>
                                             <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                                                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
                                                 <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
@@ -137,7 +137,7 @@
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <a role="button" class="btn btn-outline-black-grey d-flex justify-content-between align-items-center w-100" href="https://github.com/karl-kraus/wpn-static/releases/download/v0.9-beta/TFragment2.pdf" download="TFragment2.pdf">
-                                            <span>T<sup style="font-size: 0.8rem;">Fragment 2</sup> – Typoskript „Wenn ich mich nun frage“</span>
+                                            <span>PDF T<sup style="font-size: 0.8rem;">Fragment 2</sup> – Typoskript „Wenn ich mich nun frage“</span>
                                             <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                                                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
                                                 <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
@@ -146,7 +146,7 @@
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <a role="button" class="btn btn-outline-black-grey d-flex justify-content-between align-items-center w-100" href="https://github.com/karl-kraus/wpn-static/releases/download/v0.9-beta/HMotto.pdf" download="HMotto.pdf">
-                                            <span>H<sup style="font-size: 0.8rem;">Motto</sup> – Handschrift des Mottos</span>
+                                            <span>PDF H<sup style="font-size: 0.8rem;">Motto</sup> – Handschrift des Mottos</span>
                                             <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                                                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
                                                 <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
@@ -155,7 +155,7 @@
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <a role="button" class="btn btn-outline-black-grey d-flex justify-content-between align-items-center w-100" href="https://github.com/karl-kraus/wpn-static/releases/download/v0.9-beta/DfMotto.pdf" download="DfMotto.pdf">
-                                            <span>Df<sup style="font-size: 0.8rem;">Motto</sup> – Druckfahnen des Mottos</span>
+                                            <span>PDF Df<sup style="font-size: 0.8rem;">Motto</sup> – Druckfahnen des Mottos</span>
                                             <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                                                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
                                                 <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
@@ -164,7 +164,7 @@
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <a role="button" class="btn btn-outline-black-grey d-flex justify-content-between align-items-center w-100" href="https://github.com/karl-kraus/wpn-static/releases/download/v0.9-beta/TParalipomenon.pdf" download="TParalipomenon.pdf">
-                                            <span>T<sup style="font-size: 0.8rem;">Paralipomenon</sup> – Typoskript „[Was die allgemeinen] Erwartungen betrifft“</span>
+                                            <span>PDF T<sup style="font-size: 0.8rem;">Paralipomenon</sup> – Typoskript „[Was die allgemeinen] Erwartungen betrifft“</span>
                                             <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                                                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
                                                 <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
@@ -173,7 +173,7 @@
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <a role="button" class="btn btn-outline-black-grey d-flex justify-content-between align-items-center w-100" href="https://github.com/karl-kraus/wpn-static/releases/download/v0.9-beta/DffH.pdf" download="DffH.pdf">
-                                            <span>Df(fH) – Druckfahnen, Duplikat des ‚Jerusalemer Konvoluts‘</span>
+                                            <span>PDF Df(fH) – Druckfahnen, Duplikat des ‚Jerusalemer Konvoluts‘</span>
                                             <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                                                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
                                                 <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
