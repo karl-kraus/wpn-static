@@ -2338,6 +2338,10 @@ text-decoration: line-through $pencil-grey dashed;
   content: '[?]';
 }
 
+#legende-pb .add.overwrite {
+  white-space: nowrap;
+}
+
 #legende-pb li span,
 #legende-pb li {
   font-size: var(--legende-font-size);

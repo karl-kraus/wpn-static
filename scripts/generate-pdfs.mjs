@@ -42,6 +42,16 @@ const RUN_DATE = (() => {
 	return `${String(d.getDate()).padStart(2, "0")}.${String(d.getMonth() + 1).padStart(2, "0")}.${d.getFullYear()}`;
 })();
 
+// ISO form for the cover page's "[Stand YYYY-MM-DD]" line — same instant as
+// RUN_DATE, just a different format.
+const RUN_DATE_ISO = new Date().toISOString().slice(0, 10);
+
+// A4 at 96 CSS px/inch (210mm/297mm), matching the size generateCoverPage()
+// gets from page.pdf({ format: "A4" }) — the legend page is scaled to match.
+const A4_WIDTH_PX = (210 / 25.4) * 96;
+const A4_HEIGHT_PX = (297 / 25.4) * 96;
+const LEGEND_PAGE_MARGIN_PX = (1.5 / 2.54) * 96; // 1.5cm, matching the cover page's logo padding
+
 const WITNESSES = [
 	{ name: "DfeH", startUrl: `${BASE_URL}/wit-DfeH-0001.html` },
 	{ name: "TFragment2", startUrl: `${BASE_URL}/wit-TFragment2-0229r.html` },
@@ -540,7 +550,8 @@ async function generateCoverPage(browser, title, baseUrl) {
 		const page = await context.newPage();
 		const citation =
 			`${title}. Topographische Transkription. In: Karl Kraus: Dritte Walpurgisnacht. ` +
-			`Digitale Edition. Hg. v. Bernhard Oberreither. <a href="${escapeHtml(baseUrl)}">${escapeHtml(baseUrl)}</a>`;
+			`Digitale Edition. Hg. v. Bernhard Oberreither. <a href="${escapeHtml(baseUrl)}">${escapeHtml(baseUrl)}</a>` +
+			`<br/>[Stand ${RUN_DATE_ISO}]`;
 		await page.setContent(`<!doctype html>
 <html><head><meta charset="utf-8"><style>
   body { font-family: Georgia, 'Times New Roman', serif; margin: 0; color: #111111; }
@@ -637,15 +648,45 @@ async function generateLegendPage(browser, url) {
 			return maxBottom - top;
 		});
 
-		// A fractional pixel height (e.g. "903.9375px") passed to page.pdf()
-		// can round down internally and spill a near-empty sliver of content
-		// onto a second page — round up, plus a couple of px of headroom.
-		const safeHeightPx = Math.ceil(legendHeightPx) + 2;
+		// Fit (scale up or down, preserving proportions — and with them the
+		// preserved formatting) into an A4 page the same size as the cover
+		// page, centred within a margin matching the cover page's logo
+		// padding. Scaling only changes the overall size, not the relative
+		// text-wrapping/layout established above, so this doesn't reintroduce
+		// the "formatting must be preserved" problem solved by measuring the
+		// natural width in the first place.
+		const availableWidthPx = A4_WIDTH_PX - 2 * LEGEND_PAGE_MARGIN_PX;
+		const availableHeightPx = A4_HEIGHT_PX - 2 * LEGEND_PAGE_MARGIN_PX;
+		const scale = Math.min(availableWidthPx / legendWidthPx, availableHeightPx / legendHeightPx);
+		const scaledWidthPx = legendWidthPx * scale;
+		const scaledHeightPx = legendHeightPx * scale;
+		const offsetLeftPx = (A4_WIDTH_PX - scaledWidthPx) / 2;
+		const offsetTopPx = (A4_HEIGHT_PX - scaledHeightPx) / 2;
+
+		await page.addStyleTag({
+			content: `
+				html, body {
+					width: ${A4_WIDTH_PX}px !important;
+					height: ${A4_HEIGHT_PX}px !important;
+					position: relative !important;
+					overflow: hidden !important;
+				}
+				main, .container-fluid, #sub_grid_pb {
+					position: static !important;
+				}
+				#infocolumn {
+					position: absolute !important;
+					top: ${offsetTopPx}px !important;
+					left: ${offsetLeftPx}px !important;
+					transform: scale(${scale}) !important;
+					transform-origin: top left !important;
+				}
+			`,
+		});
 
 		await page.emulateMedia({ media: "screen" });
 		const pdfBuffer = await page.pdf({
-			width: `${legendWidthPx}px`,
-			height: `${safeHeightPx}px`,
+			format: "A4",
 			printBackground: true,
 			margin: { top: 0, right: 0, bottom: 0, left: 0 },
 		});
