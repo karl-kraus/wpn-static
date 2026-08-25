@@ -48,6 +48,11 @@
                             <xsl:sequence>
                                 <xsl:sequence select="root()//tei:ref[@target='#'||$id]/ancestor::tei:event/@xml:id"/>
                                 <xsl:sequence select="document('../data/indices/Kommentar.xml')//tei:ref[@target='#'||$id]/parent::tei:seg/@xml:id"/>
+                                <xsl:sequence>
+                                    <xsl:for-each select="root()//tei:ref[@target='#'||$id]/ancestor::tei:event/@xml:id">
+                                        <xsl:sequence select="document('../data/indices/Kommentar.xml')//tei:ref[@target='#'||current()]/parent::tei:seg/@xml:id"></xsl:sequence>
+                                    </xsl:for-each>
+                                </xsl:sequence>
                             </xsl:sequence>
                         </xsl:variable>
                         <xsl:for-each select="$indirect_event_or_comment_references[.!='']">
