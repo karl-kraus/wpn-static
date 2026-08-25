@@ -15,7 +15,8 @@ const witnessTypeDimensions: Record<string, { width: number | null; height: numb
 	witnessTypescript2: { width: 18.63, height: 23.4 },
 	witnessNote1: { width: 10.3, height: 18.1 },
 	witnessPrint2: { width: 14.2, height: 21 },
-	witnessTypescript3: { width: 18.63, height: 23.4 }
+	witnessTypescript3: { width: 18.63, height: 23.4 },
+	witnessTypescript4: { width: 20.7, height: 25.9 }
 };
 
 const dimensions = witnessTypeDimensions[type];
