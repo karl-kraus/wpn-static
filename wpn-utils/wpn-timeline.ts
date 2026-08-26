@@ -3,11 +3,14 @@
 import timeLineData from "./timeline_data/timeline_data.json";
 
 
-const regex = /^1\d{3}$/;
+const yonly = /^\d{4}$/;
 
 timeLineData.rangeData.forEach(element => {
-    if (element.end.match(regex)) {
+    if (element.end.match(yonly)) {
       element.end = `${element.end}-12-31`;
+    }
+    if (element.start.match(yonly)) {
+      element.start = `${element.start}-01-01`;
     }
 });
 
