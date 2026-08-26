@@ -76,3 +76,31 @@ Für einzelne Zeugen oder Seiten lässt sich das Überlauf-Verhalten überschrei
 
 - `overflowStrategy`: `"grow"` (Default, Seite wird größer) oder `"shrink"` (Inhalt wird verkleinert, gedeckelt durch `maxShrinkPercent`; reicht das nicht, fällt es automatisch auf `grow` zurück).
 - `heightOverrideCm` / `widthOverrideCm`: feste Maße für eine einzelne Seite (Seiten-ID = Dateiname ohne `.html`, z.B. `wit-DfeH-0231r`), überstimmt die automatische Berechnung komplett.
+
+# PDF-Export der Timeline
+
+`generate-timeline-pdf.mjs` erzeugt aus der interaktiven Ereignisse-Timeline (`timeline.html`, AnyChart-Widget `<wpn-time-line>`) eine PDF mit einer einzigen, sehr breiten Seite bei möglichst feiner (tageweiser) horizontaler Auflösung — nicht paginiert wie die beiden Skripte oben, sondern eine Seite, deren Maße direkt vom abgedeckten Zeitraum abhängen.
+
+Die Daten reichen zwar vom Jahr 37 bis Oktober 1933, aber bis auf gut zehn vereinzelte "Historische Referenzen" liegt fast alles lückenlos zwischen 1914 und 1933. Ein durchgehender linearer Zeitstrahl über den vollen ~1900-Jahre-Bereich würde bei dieser Auflösung eine viele Meter breite, größtenteils leere Fläche ergeben, nur um die paar antiken Ausreißer mitabzudecken. Das Skript rendert deshalb nur den dichten Kernzeitraum (Default: ab 1914) auf dem Zeitstrahl selbst; die älteren Ereignisse werden auf einer eigenen Anhangsseite gelistet — mit demselben Titel-/Datums-/Kategorietext, der auf der Website ohnehin schon für die (normalerweise per Hover eingeblendete) Registerkarte jedes Ereignisses gerendert wird.
+
+## Starten
+
+```bash
+node scripts/generate-timeline-pdf.mjs
+```
+
+Ergebnis: `pdf-output/Timeline.pdf` (Deckblatt, die eine große Zeitstrahl-Seite, ggf. Anhangsseite mit den älteren Ereignissen).
+
+## Umgebungsvariablen
+
+| Variable | Zweck | Default |
+|---|---|---|
+| `PDF_BASE_URL` | Basis-URL der Website | `https://karl-kraus.github.io/wpn-static-dev` |
+| `PDF_TIMELINE_DENSE_START` | ISO-Datum; Ereignisse davor wandern in den Anhang statt auf den Zeitstrahl | `1914-01-01` |
+| `PDF_TIMELINE_PX_PER_DAY` | horizontale Pixeldichte des Kernzeitraums (Ausgangspunkt vor dem 8pt-Fitting) | `5` (≈ die Dichte der Standardansicht der Website: 850px / 182 Tage) |
+| `PDF_TIMELINE_TARGET_PT` | Zielgröße für die kleinste dargestellte Schrift, in pt | `8` |
+| `PDF_TIMELINE_MAX_WIDTH_CM` | Sicherheitsobergrenze für die Seitenbreite, bevor auf die Zielschriftgröße skaliert wird | `1200` (≈ 12m) |
+
+Wird `PDF_TIMELINE_MAX_WIDTH_CM` erreicht, gibt das Skript eine Warnung aus — die angeforderte Pixeldichte konnte dann nicht vollständig eingehalten werden (eher `PDF_TIMELINE_PX_PER_DAY` senken als die Grenze anheben, außer es ist bereits geprüft, dass Chromium eine noch größere Seite drucken kann).
+
+**Hinweis:** Das resultierende PDF ist eine einzelne, potenziell mehrere Meter breite Seite — das Skript wurde nicht in einer Umgebung mit sichtbarem Browser-Rendering entwickelt/verifiziert. Ergebnis nach dem ersten Lauf unbedingt visuell prüfen (Überlappungen, Zeilenumbrüche, tatsächliche Schriftgröße) und bei Bedarf über die Umgebungsvariablen nachjustieren.
