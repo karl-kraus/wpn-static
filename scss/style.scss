@@ -4429,6 +4429,36 @@ body.modal-open, body.modal-open main {
 
 }
 
+@media screen and (min-width: 2200px) and (max-width: 2559px) {
+
+  #edition-view .sub_grid_pb_three {
+
+    #textcontent-pb .print-page.witnessPrint,
+    #textcontent-pb .print-page.witnessPrint2,
+    #textcontent-pb .print-page.witnessNote1 {
+      transform: scale(1.2);
+      transform-origin: top;
+    }
+
+    #facscontent[wpn-type="witnessPrint"],
+    #facscontent[wpn-type="witnessPrint2"],
+    #facscontent[wpn-type="witnessNote1"] {
+      transform: scale(1.2);
+      transform-origin: top;
+
+      // Force OpenSeadragon to respect container dimensions
+      .openseadragon-container,
+      .openseadragon-canvas {
+        max-height: 100% !important;
+        height: 100% !important;
+      }
+
+    }
+
+  }
+
+}
+
 @media screen and (min-width: 2560px) {
 
   #edition-view .sub_grid_pb_two, #edition-view .sub_grid_pb_vertical {
