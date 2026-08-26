@@ -201,7 +201,7 @@
     </xsl:template>
     <xsl:template match="tei:ref">
         <xsl:choose>
-            <xsl:when test="starts-with(data(@target), 'http')">
+            <xsl:when test="starts-with(data(@target), 'http') or starts-with(data(@target), 'mailto')">
                 <a>
                     <xsl:attribute name="href"><xsl:value-of select="@target"/></xsl:attribute>
                     <xsl:value-of select="."/>

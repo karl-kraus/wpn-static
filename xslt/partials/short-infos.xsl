@@ -99,6 +99,12 @@
             Topographische Umschrift 
           </a>
         </xsl:if>
+        <xsl:if test="@subtype = 'MottoWBR'">
+          <xsl:text> | </xsl:text>
+          <a class="text-dark-grey" target="_blank" rel="noopener noreferrer" href="{@xml:id || 'r.html'}">
+            Topographische Umschrift 
+          </a>
+        </xsl:if>
       </span>
     </div>
 </xsl:template>
@@ -134,6 +140,12 @@
       <xsl:if test="$reftype='insertionstart' and not($preceding_pb/@type = 'nonWitness')">
         <xsl:text> | </xsl:text>
         <a class="text-dark-grey" target="_blank" rel="noopener noreferrer" href="{$preceding_pb/@xml:id || '.html'}">
+          Topographische Umschrift 
+        </a>
+      </xsl:if>
+      <xsl:if test="$reftype='insertionstart' and $preceding_pb/contains(@xml:id, 'DffH')">
+        <xsl:text> | </xsl:text>
+        <a class="text-dark-grey" target="_blank" rel="noopener noreferrer" href="wit-DffH-0266_ar.html">
           Topographische Umschrift 
         </a>
       </xsl:if>
