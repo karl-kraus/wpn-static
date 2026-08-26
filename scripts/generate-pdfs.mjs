@@ -172,7 +172,7 @@ async function main() {
 				allPdfBytes = [...allPdfBytes.slice(0, insertAt), legendBytes, ...allPdfBytes.slice(insertAt)];
 			}
 			const merged = await mergePdfs(allPdfBytes);
-			const outPath = path.join(OUT_DIR, `${name}.pdf`);
+			const outPath = path.join(OUT_DIR, `${name}${process.env.PDF_GEN_OUT_SUFFIX ?? ""}.pdf`);
 			await writeFile(outPath, merged);
 			console.log(`[done] ${name}: ${pdfBytesList.length} pages -> ${outPath}`);
 		}
@@ -208,6 +208,7 @@ function resolveStrategy(overrides, witnessName, pageId) {
 		maxShrinkPercent: pageCfg.maxShrinkPercent ?? witnessCfg.maxShrinkPercent ?? defaults.maxShrinkPercent ?? 15,
 		heightOverrideCm: pageCfg.heightOverrideCm,
 		widthOverrideCm: pageCfg.widthOverrideCm,
+		extraWidthWhenGrownCm: pageCfg.extraWidthWhenGrownCm ?? witnessCfg.extraWidthWhenGrownCm ?? defaults.extraWidthWhenGrownCm ?? 0,
 	};
 }
 
@@ -429,6 +430,17 @@ async function capturePageOnce(context, witnessName, url, overrides) {
 				capped: wasCapped,
 			};
 		}
+	}
+
+	// Some witnesses' margin notes still clip slightly against the edge of an
+	// otherwise-correctly-grown page even after the overflow-based sizing
+	// above — a fixed safety margin added on top, only where the page has
+	// actually already grown past its nominal sheet width (i.e. this doesn't
+	// widen every page, just the ones with overflowing notes in the first
+	// place). Configured per-witness (see extraWidthWhenGrownCm in
+	// pdf-page-overrides.json), not hardcoded to any one witness here.
+	if (widthCm > nominal.width && cfg.extraWidthWhenGrownCm > 0) {
+		widthCm += cfg.extraWidthWhenGrownCm;
 	}
 
 	// Footer: clickable source URL (view-state query params stripped — they're

@@ -3,6 +3,8 @@
     "overflowStrategy": "grow",
     "maxShrinkPercent": 15
   },
-  "witnesses": {},
+  "witnesses": {
+    "DfeH": { "extraWidthWhenGrownCm": 2.5 }
+  },
   "pages": {}
 }
