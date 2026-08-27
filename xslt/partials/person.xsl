@@ -26,6 +26,7 @@
                         <xsl:apply-templates select="tei:ref[@type='gen']" mode="detail_view_reg"/>
                         <xsl:apply-templates select="@corresp" mode="detail_view_reg"/>
                         <xsl:apply-templates select="tei:idno[@type='GND']" mode="detail_view_reg"/>
+                        <xsl:apply-templates select="tei:idno[@type='sk']" mode="detail_view_reg"/>
                         <xsl:apply-templates select="." mode="kwic"/>
                     </div>
                 </div>
@@ -72,6 +73,9 @@
                         mode="detail_view_reg" />
                     </div>
                     <xsl:apply-templates select="tei:idno[@type='GND']" mode="detail_view_reg" >
+                        <xsl:with-param name="id_in_text" select="$elem_id"/>
+                    </xsl:apply-templates>
+                    <xsl:apply-templates select="tei:idno[@type='sk']" mode="detail_view_reg">
                         <xsl:with-param name="id_in_text" select="$elem_id"/>
                     </xsl:apply-templates>
                     <div class="py-1 border-bottom border-light-grey">
@@ -406,6 +410,21 @@
                         </svg>
         </div>
     </xsl:template>
+    <xsl:template match="tei:idno[@type='sk']" mode="detail_view_reg">
+        <xsl:param name="id_in_text"/>
+        <div class="border-bottom border-light-grey pb-1">
+            <a data-testid="sk_link_{if ($id_in_text) then $id_in_text else ancestor::tei:person/@xml:id}" class="text-decoration-none text-dark-grey" target="_blank" href="{.}"><span class="pe-2">Link</span><span class="pe-2 text-blacker-grey-hover">SemanticKraus</span></a>
+            <svg class="align-baseline" width="5" height="10"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                        <defs>
+                            <style>
+                            .b{fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+                        </defs>
+                        <path class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                        </svg>
+        </div>
+    </xsl:template>
+
     <xsl:template match="text()" mode="reg">
         <xsl:if test="preceding-sibling::node() and not(starts-with(.,','))">
             <xsl:text> </xsl:text>
