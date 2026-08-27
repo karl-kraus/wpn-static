@@ -88,9 +88,11 @@ async function main() {
 			if (!info) console.warn(`[warn] no "Lesefassung" entry in ${COVER_INFO_PATH} — using a generic fallback cover text`);
 			const citation = info
 				? buildCoverCitationHtml(info, BASE_URL)
-				: `Karl Kraus: Dritte Walpurgisnacht. Annotierte Lesefassung. Digitale Edition. ` +
-					`Hg. v. Bernhard Oberreither. <a href="${escapeHtml(BASE_URL)}">${escapeHtml(BASE_URL)}</a>`;
-			const coverBytes = await generateCoverPage(browser, citation);
+				: `Digitale Edition. Hg. v. Bernhard Oberreither. <a href="${escapeHtml(BASE_URL)}">${escapeHtml(BASE_URL)}</a>`;
+			// No "3rd column" info-panel title exists for the reading edition
+			// (unlike the witness pages in generate-pdfs.mjs), so this heading is
+			// a fixed stand-in rather than scraped from the site.
+			const coverBytes = await generateCoverPage(browser, citation, "Dritte Walpurgisnacht. Lesefassung");
 
 			const merged = await mergePdfs([coverBytes, ...pageBytesList]);
 			await writeFile(OUT_PATH, merged);

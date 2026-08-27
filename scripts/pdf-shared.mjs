@@ -53,21 +53,28 @@ export const LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12
 // One plain, non-facsimile-styled A4 title page, prepended before merging.
 // `citationHtml` is trusted HTML built by the caller (may embed the site's
 // own <sup>-formatted title), not escaped like plain-text values are before
-// being interpolated into it.
-export async function generateCoverPage(browser, citationHtml) {
+// being interpolated into it. `titleHtml` (also trusted HTML), if given, is
+// rendered above it as a bold, larger heading with some space below —
+// e.g. a witness's short title from the site's own info column — and, only
+// then, `citationHtml` itself is rendered one size smaller than the default.
+export async function generateCoverPage(browser, citationHtml, titleHtml) {
 	const context = await browser.newContext();
 	try {
 		const page = await context.newPage();
+		const titleBlock = titleHtml ? `<div class="cover-title">${titleHtml}</div>` : "";
+		const citationClass = titleHtml ? ' class="cover-citation-body"' : "";
 		await page.setContent(`<!doctype html>
 <html><head><meta charset="utf-8"><style>
   body { font-family: Georgia, 'Times New Roman', serif; margin: 0; color: #111111; }
   .cover-logo { padding: 1.5cm 1.5cm 0 1.5cm; }
   .cover-citation { margin: 5cm 3cm 3cm 3cm; font-size: 13pt; line-height: 1.7; }
+  .cover-title { font-size: 19pt; font-weight: bold; line-height: 1.3; margin: 0 0 0.8cm 0; }
+  .cover-citation-body { font-size: 11pt; }
   a { color: #111111; }
 </style></head>
 <body>
   <div class="cover-logo">${LOGO_SVG}</div>
-  <div class="cover-citation"><p>${citationHtml}</p></div>
+  <div class="cover-citation">${titleBlock}<p${citationClass}>${citationHtml}</p></div>
 </body></html>`);
 		const pdfBuffer = await page.pdf({ format: "A4", printBackground: true });
 		const doc = await PDFDocument.load(pdfBuffer);
