@@ -29,7 +29,7 @@ Barbara Krautgartner \
 | Register Personen |https://kraus1933.ace.oeaw.ac.at/Gesamt.xml?template=register_personen.html|https://karl-kraus.github.io/wpn-static/register_personen.html|internal index file|register_personen.xsl|
 | Register Stellenkommentar |https://kraus1933.ace.oeaw.ac.at/Gesamt.xml?template=register_kommentare.html|https://karl-kraus.github.io/wpn-static/register_kommentare.html|internal index file|register_kommentare.xsl|
 | Zeitleiste |https://kraus1933.ace.oeaw.ac.at/ereignisse.html|https://karl-kraus.github.io/wpn-static/ereignisse.html|internal index file|ereignisse.xsl| 
-| Edition View - 65 pages |https://kraus1933.ace.oeaw.ac.at/Gesamt.xml|https://karl-kraus.github.io/wpn-static/motti.html|internal edition file|editions.xsl|
+| Edition View - 65 pages |https://kraus1933.ace.oeaw.ac.at/Gesamt.xml|https://karl-kraus.github.io/wpn-static/motto.html|internal edition file|editions.xsl|
 | Suche | https://kraus1933.ace.oeaw.ac.at/search.html | https://karl-kraus.github.io/wpn-static/suche.html |suche.xml (no specific content, dummy file for xsl transformation)|search.xsl|
 
 

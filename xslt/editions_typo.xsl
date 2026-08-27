@@ -12,6 +12,7 @@
     <!-- <xsl:strip-space elements="tei:note"/> -->
     <!-- <xsl:preserve-space elements="tei:p tei:mod tei:seg"/> -->
 
+    <xsl:param name="edition-filepath" as="xs:string"/>
     <xsl:import href="./partials/shared.xsl"/>
     <xsl:import href="./partials/short-infos.xsl"/>
     <xsl:import href="./partials/typo-add.xsl"/>
@@ -46,6 +47,7 @@
     <xsl:variable name="facsimile">
         <xsl:value-of select="//tei:facsimile/tei:surface[1]/tei:graphic[1]/@url"/>
     </xsl:variable>
+    <xsl:variable name="convolute-id" select="replace(//tei:facsimile[@corresp]/@corresp, '#', '')"/>
 
 
     <xsl:template match="/">
@@ -70,21 +72,63 @@
                                 <div id="facscolumn" class="grid-box-1 mx-auto ff-crimson-text m-visually-hidden py-4">
                                     <div id="facscontent" wpn-data="{$facsimile}" wpn-type="{.//tei:pb[1]/@type}">
                                         <!-- osd viewer container -->
-                                    </div>                                
+                                    </div>
+                                    <div class="d-block">
+                                        <p class="facsimile-source">(Bildquelle: 
+                                            <xsl:if test="//tei:teiHeader//tei:sourceDesc[@xml:id=$convolute-id]//tei:msIdentifier/tei:collection"><xsl:value-of select="//tei:teiHeader//tei:sourceDesc[@xml:id=$convolute-id]//tei:msIdentifier/tei:collection"/>, </xsl:if>
+                                            <xsl:value-of select="//tei:teiHeader//tei:sourceDesc[@xml:id=$convolute-id]//tei:msIdentifier/tei:institution"/>)</p></div>
                                 </div>
                                 <div id="textcolumn-pb" class="grid-box-2 mx-auto ff-crimson-text py-4">
                                     <div id="textcontent-pb">
                                         <xsl:apply-templates select="//tei:text" />
                                     </div>
                                 </div>
-                                <xsl:call-template name="info-3rd-column"/>
-                            </div>
+                                <xsl:call-template name="info-3rd-column">
+                                    <xsl:with-param name="edition" select="$edition-filepath"/>
+                                </xsl:call-template>
+                            </div>  
                         </wpn-page-view>
                     </div>
                 </main>
+
+				<!--
+                <div class="modal fade" id="first-visit-info-overlay" tabindex="-1" aria-labelledby="firstVisitOverlayLabel" aria-hidden="true">
+				    <div class="modal-dialog modal-lg modal-dialog-centered">
+				        <div class="modal-content">
+				            <div class="modal-header">
+				                <h2 class="modal-title" id="firstVisitOverlayLabel">Hinweise zur Nutzung</h2>
+				                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				            </div>
+				            <div class="modal-body">
+				                <p>Die Darstellung ist derzeit für die Browser Chrome und Edge optimiert.</p>
+				                <h3>Infospalte rechts (bei kleinen Bildschirmen standardmäßig ausgeblendet)</h3>
+				                <p>
+				                    <img src="images/icon-legende-bg.svg" alt="Legende"></img> öffnet die Legende.<br/>
+				                    <img src="images/icon-highlight-bg.svg" alt="Highlighting"></img> aktiviert das Highlighting, das per Mouse-Over Relationen innerhalb der Transkription ausleuchtet (etwa zwischen Korrekturzeichen im Drucktext und Ergänzung am Rand) sowie die zwischen Transkription und Infospalte (zur Identifikation der Bearbeitungsschichten).<br/>
+				                    <img src="images/icon-view-all.svg" alt="Synoptic View: Facsimile and Info Column" class="view-icon"></img> / <img src="images/icon-view-facs.svg" alt="Synoptic View: Facsimile, Text Columns and Info Column" class="view-icon"></img> / <img src="images/icon-view-text.svg" alt="Synoptic View: Text and Info Column" class="view-icon"></img> / <img src="images/icon-view-vertical.svg" alt="Synoptic View: Facsimile, Text Rows and Info Column" class="view-icon"></img> erlaubt das Wechseln zwischen synoptischer Ansicht, Einzelansichten von Faksimile und Transkription sowie vertikaler Synopse.</p>
+				                    <h3>„Bearbeitungsspuren“</h3>
+				                <p>
+				                    Der Eintrag listet die verschiedenen Schreibwerkzeuge und, wo vorhanden, Angaben zu Hand und Zeitpunkt.<br/>
+				                    Darin die Auflistung "Überschreibende Korrekturen" zeigt bei Mouse-Over (und aktiviertem Highlighting) über den jeweiligen Eintrag zur erleichterten Auffindung die Stellen in der Transkription an.<br/>
+				                    Die Auflistung "Markierung für die Fackel Nr. 890-905" listet die 1934 am Textträger für die Übernahme in die Fackel Nr. 890-905 erstellten Markierungen.
+				                </p>
+				                
+				                <p>
+				                    Hinweise und Feedback gerne an <ref
+				                        target="mailto:bernhard.oberreither@oeaw.ac.at">bernhard.oberreither@oeaw.ac.at</ref>
+				                </p>
+				            </div>
+				            <div class="modal-footer">
+				                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Schließen</button>
+				            </div>
+				        </div>
+				    </div>
+				</div>-->
+				
                 <xsl:call-template name="html_footer">
                     <xsl:with-param name="include_scroll_script" select="false()"/>
                 </xsl:call-template>
+                <script type="text/javascript" src="js/vendor/markjs/mark.min.js"></script>
                 <xsl:call-template name="scripts"/>
             </body>
         </html>
@@ -96,7 +140,7 @@
                 <xsl:value-of select="replace(., '\s$', '')"/>
             </xsl:when>
             <xsl:when test="following-sibling::*[1][@n='lb-dash']">
-                <xsl:value-of select="replace(., '\s$', '')"/>
+                <xsl:value-of select="replace(., '\s+$', '')"/>
             </xsl:when>
             <xsl:when test="following-sibling::*[1][@n='first']">
                 <xsl:value-of select="replace(., '\s$', '')"/>
@@ -270,10 +314,19 @@
         <span class="comments" data-anchor="{@xml:id}"></span>
     </xsl:template>
     <xsl:template match="tei:fw">
-        <span style="z-index:1;" class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}" data-hand="fw-{replace(@change,'#','')} {replace(@change,'#','')}">
-            <xsl:apply-templates/>
-        </span>
-    </xsl:template>
+	    <span style="z-index:1;" class="fw {replace(@change,'#','')} {replace(@rendition,'#','')} {@place}">
+	        <xsl:if test="not(
+	            (contains(@change,'inkOn') and contains(preceding-sibling::tei:pb[1]/@type, 'witnessNote1'))
+	            or
+	            (contains(@change,'typewriter') and contains(preceding-sibling::tei:pb[1]/@type, 'Typescript'))
+	        )">
+	            <xsl:attribute name="data-hand">
+	                <xsl:value-of select="concat('fw-', replace(@change,'#',''), ' ', replace(@change,'#',''))"/>
+	            </xsl:attribute>
+	        </xsl:if>
+	        <xsl:apply-templates/>
+	    </span>
+	</xsl:template>
     <xsl:template match="tei:app">
         <!-- <xsl:variable name="inheritIDfromNote" select="
             if(ancestor::tei:note)
@@ -314,7 +367,20 @@
 		</xsl:choose>
 	</xsl:template>
     <xsl:template match="tei:quote">
-        <span class="quotes {substring-after(@rendition, '#')} {substring-after(@change, '#')}" data-anchor="{@xml:id}" data-hand="{substring-after(@change, '#')}">
+        <xsl:variable name="anchor">
+            <xsl:choose>
+                <xsl:when test="ancestor::tei:note[@place or @rendition]">
+                    <xsl:text> </xsl:text><xsl:value-of select="ancestor::tei:note[@place or @rendition]/@xml:id"/>
+                </xsl:when>
+                <xsl:when test="ancestor::tei:add">
+                    <xsl:text> </xsl:text><xsl:value-of select="ancestor::tei:add/@xml:id"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <!-- no anchor -->
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <span class="quotes {substring-after(@rendition, '#')} {substring-after(@change, '#')}" data-anchor="{@xml:id}{$anchor}" data-hand="{substring-after(@change, '#')}">
             <xsl:apply-templates/>
         </span>
     </xsl:template>
@@ -347,8 +413,13 @@
     <xsl:template match="tei:rdg[@source='DW']">
         <xsl:apply-templates/>
     </xsl:template>
+    <xsl:template match="tei:hi[@rend='sup']">
+        <sup style="font-size: 0.8rem;">
+            <xsl:apply-templates/>
+        </sup>
+    </xsl:template>
     <xsl:template match="tei:hi[@rendition='#inkOnProof_KK_spc' or @rendition='#typescriptSpc' or @style='letterSpacing']">
-        <xsl:variable name="anchor" select="if(ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])])then(ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]/@xml:id)else()"/>
+        <xsl:variable name="anchor" select="if(ancestor::tei:note[@place or @rendition][not(preceding::tei:pb[contains(@n, '_')])])then(ancestor::tei:note[@place or @rendition][not(preceding::tei:pb[contains(@n, '_')])]/@xml:id)else()"/>
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span data-hand="{replace(@change, '#', '')}" class="spacing underline {replace(@change, '#', '')}">
@@ -375,7 +446,7 @@
         </xsl:choose>
     </xsl:template>
     <xsl:template match="tei:hi[@style='underline']">
-        <xsl:variable name="anchor" select="if(ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])])then(ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]/@xml:id)else()"/>
+        <xsl:variable name="anchor" select="if(ancestor::tei:note[@place or @rendition][not(preceding::tei:pb[contains(@n, '_')])])then(ancestor::tei:note[@place or @rendition][not(preceding::tei:pb[contains(@n, '_')])]/@xml:id)else()"/>
         <xsl:choose>
             <xsl:when test="parent::tei:restore">
                 <span class="underline {replace(@change, '#', '')}">
@@ -448,27 +519,49 @@
         <span class="anchor {replace((@change)[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace((@change)[1], '#', '')}"></span>
      </xsl:template>
     <xsl:template match="tei:restore">
-        <span class="restore {replace((@change)[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace((@change)[1], '#', '')}"><xsl:apply-templates/></span>
+		<xsl:choose>
+			<xsl:when test="./tei:mod[contains(@rendition, 'typescriptLongQuote')] or ./tei:seg[@type='relocation' and @rend='line']">
+				<xsl:apply-templates/>
+			</xsl:when>
+			<xsl:otherwise>
+				<span class="restore {replace((@change)[1], '#', '')}" data-anchor="{@xml:id}" data-hand="{replace((@change)[1], '#', '')}"><xsl:apply-templates/></span>
+			</xsl:otherwise>
+		</xsl:choose>
     </xsl:template>
     <xsl:template match="tei:subst">
-        <xsl:variable name="rend" select="if(@rend)then(@rend)else(if(tei:del[@rend])then(tei:del/@rend)else(tei:add/@rend))"/>
-        <span data-hand="{replace((@change)[1], '#', '')}" class="subst {if($rend='overwritten')then('overwrittenAnchor')else()} {replace((@change)[1], '#', '')}{if(child::*[$rend='overwritten'])then(' position-relative')else()}"><xsl:apply-templates/></span>
-    </xsl:template>
+	    <xsl:variable name="rend" select="if(@rend)then(@rend)else(if(tei:del[@rend])then(tei:del/@rend)else(tei:add/@rend))"/>
+	    <xsl:variable name="hand" select="
+	        if(@change) then replace(@change,'#','')
+	        else string-join(distinct-values(for $c in (tei:add/@change, tei:del/@change) return replace($c,'#','')), ' ')"/>
+	    <span data-hand="{$hand}" class="subst {if($rend='overwritten')then('overwrittenAnchor')else()} {if($rend='overwritten')then($hand)else(replace((@change)[1], '#', ''))}{if(child::*[$rend='overwritten'])then(' position-relative')else()}"><xsl:apply-templates/></span>
+	</xsl:template>
     
     <!-- <xsl:template match="tei:ptr[parent::tei:transpose]">
     <xsl:variable name="target" select="replace(@target,'#','')"/>
-    <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:seg[@xml:id=$target]" mode="render"/>
+    <xsl:apply-templates select="doc('../data/editions/KK1933_DfeH_supplemented.xml')//tei:seg[@xml:id=$target]" mode="render"/>
     </xsl:template> -->
     <xsl:template match="tei:note">
         <span class="note d-block text-align-left {if(@place)then(concat(@place, ' position-absolute'))else()} {replace(@change,'#','')}">
-            <xsl:if test="not(contains(preceding::tei:pb/@n, '_'))">
+            <!-- <xsl:if test="not(contains(preceding::tei:pb/@n, '_'))">
                 <xsl:attribute name="data-hand">
                     <xsl:value-of select="replace(@change,'#','')"/>
                 </xsl:attribute>
                 <xsl:attribute name="data-anchor">
                     <xsl:value-of select="@xml:id"/>
                 </xsl:attribute>
-            </xsl:if>
+            </xsl:if> -->
+            <!-- <xsl:attribute name="data-hand">
+                <xsl:value-of select="replace(@change,'#','')"/>
+            </xsl:attribute> -->
+
+			<!-- added test to avoid note highlighting when it contains a whole insert page (like 123_a) -->
+            <xsl:if test="@rendition or @place">
+			    <xsl:attribute name="data-anchor">
+			        <xsl:value-of select="@xml:id"/>
+			    </xsl:attribute>
+				<xsl:attribute name="data-hand" select="replace(@change,'#','')"/>
+			</xsl:if>
+			
             <xsl:apply-templates/>
         </span>
     </xsl:template>
@@ -488,6 +581,9 @@
 			</xsl:when>
 			<xsl:when test="@type='forcedRight'">
 				<br class="forcedRight"/>
+			</xsl:when>
+			<xsl:when test="@type='forcedRight2' and not(@n)">
+				<br/><span class="lb-forced-right2"/>
 			</xsl:when>
 			<xsl:otherwise>
 				<br/>
@@ -531,9 +627,9 @@
                             <xsl:text> </xsl:text>
                             <xsl:value-of select="for $i in tokenize(parent::tei:metamark/@spanTo, ' ') return substring-after($i, '#')"/>
                         </xsl:if>
-                        <xsl:if test="ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]">
+                        <xsl:if test="ancestor::tei:note[@place or @rendition][not(preceding::tei:pb[contains(@n, '_')])]">
                             <xsl:text> </xsl:text>
-                            <xsl:value-of select="ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]/@xml:id"/>
+                            <xsl:value-of select="ancestor::tei:note[@place or @rendition][not(preceding::tei:pb[contains(@n, '_')])]/@xml:id"/>
                         </xsl:if>
                     </xsl:attribute>
                     <xsl:apply-templates/>
@@ -556,7 +652,7 @@
                 <span class="d-inline-block {if(ancestor::tei:p[contains(@rendition, 'Center') or contains(@rendition, 'center')])then()else('text-align-left')} no-indent">
                     <xsl:attribute name="data-anchor">
                         <xsl:value-of select="@xml:id"/>
-                        <xsl:if test="parent::tei:metamark[@xml:id]">
+                        <xsl:if test="parent::tei:metamark[@xml:id][@change]">
                             <xsl:text> </xsl:text>
                             <xsl:value-of select="parent::tei:metamark/@xml:id"/>
                         </xsl:if>
@@ -568,9 +664,9 @@
                             <xsl:text> </xsl:text>
                             <xsl:value-of select="for $i in tokenize(parent::tei:metamark/@spanTo, ' ') return substring-after($i, '#')"/>
                         </xsl:if>
-                        <xsl:if test="ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]">
+                        <xsl:if test="ancestor::tei:note[@place or @rendition][not(preceding::tei:pb[contains(@n, '_')])]">
                             <xsl:text> </xsl:text>
-                            <xsl:value-of select="ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]/@xml:id"/>
+                            <xsl:value-of select="ancestor::tei:note[@place or @rendition][not(preceding::tei:pb[contains(@n, '_')])]/@xml:id"/>
                         </xsl:if>
                     </xsl:attribute>
                     <xsl:if test="parent::tei:seg[@rend='arrow'] and parent::tei:seg[@xml:id='seg0111_01']">
@@ -594,9 +690,9 @@
                                         <xsl:text> </xsl:text>
                                         <xsl:value-of select="parent::tei:seg/@xml:id"/>
                                     </xsl:if>
-                                    <xsl:if test="ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]">
+                                    <xsl:if test="ancestor::tei:note[@place or @rendition][not(preceding::tei:pb[contains(@n, '_')])]">
                                         <xsl:text> </xsl:text>
-                                        <xsl:value-of select="ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])]/@xml:id"/>
+                                        <xsl:value-of select="ancestor::tei:note[@place or @rendition][not(preceding::tei:pb[contains(@n, '_')])]/@xml:id"/>
                                     </xsl:if>
                                 </xsl:attribute>
                                 <xsl:text>&#8592;</xsl:text>
@@ -668,7 +764,7 @@
             )
             else()"/>
         <xsl:variable name="inheritIDfromNote" select="
-            if(ancestor::tei:note[not(preceding::tei:pb[contains(@n, '_')])])
+            if(ancestor::tei:note[@place or @rendition][not(preceding::tei:pb[contains(@n, '_')])])
             then(ancestor::tei:note/@xml:id)
             else()"/>
         <span class="unclear">
@@ -682,6 +778,10 @@
                 <xsl:if test="ancestor::tei:note">
                     <xsl:text> </xsl:text>
                     <xsl:value-of select="$inheritIDfromNote"/>
+                </xsl:if>
+                <xsl:if test="parent::tei:del/parent::tei:subst[parent::tei:add]">
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="parent::tei:del/parent::tei:subst/parent::tei:add/@xml:id"/>
                 </xsl:if>
             </xsl:attribute>
             </xsl:if>

@@ -1,11 +1,13 @@
 import { getHighlightedParts } from "instantsearch.js/es/lib/utils";
 import TypesenseInstantSearchAdapter from "typesense-instantsearch-adapter";
 
-const project_collection_name = "walpurgisnacht";
+// const project_collection_name = "walpurgisnacht";
+const project_collection_name = "walpurgisnacht_umschrift";
 const typesenseInstantsearchAdapter: TypesenseInstantSearchAdapter =
 	new TypesenseInstantSearchAdapter({
 		server: {
-			apiKey: "TFtQIIj2VbL8TOZNWfofQLToZnS65VmI", // Be sure to use an API key that only allows searches, in production
+			// apiKey: "TFtQIIj2VbL8TOZNWfofQLToZnS65VmI", // production
+			apiKey: "04V32leaXXNbWLRc9eIxgu2FmxbeH7R8", // development
 			nodes: [
 				{
 					host: "typesense.acdh-dev.oeaw.ac.at",
@@ -65,18 +67,39 @@ search.addWidgets([
 		},
 	}),
 
+	instantsearch.widgets.refinementList({
+		container: "#refinement-list-witness",
+		attribute: "witness",
+		sortBy: ["count:desc", "name:asc"],
+		transformItems(items: any[]) {
+			return items
+				.filter((item) => item.count !== 0)
+				.map((item) => {
+					item.count = `(${item.count} Treffer)`;
+					return item;
+				});
+		},
+		cssClasses: {
+			item: "ais-RefinementList-item d-flex align-items-center gap-1",
+			label: "ais-RefinementList-label d-flex align-items-center gap-1 text-decoration-none cursor-pointer search-facets-fs",
+			count: "ais-RefinementList-count",
+			list: "ais-RefinementList-list list-unstyled",
+			checkbox: "ais-RefinementList-checkbox wpn-red",
+		},
+	}),
+
 	instantsearch.widgets.stats({
 		container: "#stats-container",
 		templates: {
 			text(data, { html }) {
-				let hitsTerm = data.hasManyResults ? "Absätzen" : "Absatz";
+				let hitsTerm = "Treffer";
 				let message = "";
 				if (data.query === "*") {
-					message = `${data.nbHits} Absätze gefunden`;
+					message = `${data.nbHits} ${hitsTerm}`;
 				} else {
 					message = data.hasNoResults
 						? "Suchbegriff nicht gefunden"
-						: `Suchbegriff in ${data.nbHits} ${hitsTerm} gefunden`;
+						: `${data.nbHits} ${hitsTerm}`;
 				}
 				return html`<span>${message}</span>`;
 			},

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." name="tei2html">
+    <property name="witness-1-path" value="./data/editions"/>
+    <property name="witness-1-file" value="KK1933_DfeH_supplemented.xml"/>
+    <property name="witness-2-path" value="./data/editions2"/>
+    <property name="witness-2-file" value="KK1933_TFragment2.xml"/>
+    <property name="witness-3-path" value="./data/editions3"/>
+    <property name="witness-3-file" value="KK1933_HMotto.xml"/>
+    <property name="witness-4-path" value="./data/editions4"/>
+    <property name="witness-4-file" value="KK1933_DfMotto.xml"/>
+    <property name="witness-5-path" value="./data/editions5"/>
+    <property name="witness-5-file" value="KK1933_TParalipomenon.xml"/>
+    <property name="witness-6-path" value="./data/editions6"/>
+    <property name="witness-6-file" value="KK1933_DffH_partial.xml"/>
+
+    <!-- <for list="${witness-1-file},${witness-2-file}" param="file">
+        <sequential>
+            <target name="add-header-pb" depends="add-header-pb-1, add-header-pb-2"/>
+        </sequential>
+    </for> -->
+    
+    <target name="witness-1">
+        <delete>
+            <fileset dir="${witness-1-path}" includes="wit-*.xml"/>
+        </delete>
+        <xslt style="./xslt/partials/typo-add-header-pb.xsl" basedir="${witness-1-path}/tmp" destdir="${witness-1-path}" includes="wit-*.xml" extension=".xml" excludes="wit-DfMotto-*.xml">
+            <param name="edition-path" expression="${witness-1-path}/${witness-1-file}"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+        <delete dir="${witness-1-path}/tmp"/>
+        <delete>
+            <fileset dir="${witness-1-path}" includes="wit-DffH-0266_a.xml"/>
+        </delete>
+    </target>
+    <target name="witness-2">
+        <delete>
+            <fileset dir="${witness-2-path}" includes="wit-*.xml"/>
+        </delete>
+        <xslt style="./xslt/partials/typo-add-header-pb.xsl" basedir="${witness-2-path}/tmp" destdir="${witness-2-path}" includes="wit-*.xml" extension=".xml">
+            <param name="edition-path" expression="${witness-2-path}/${witness-2-file}"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+        <delete dir="${witness-2-path}/tmp"/>
+    </target>
+    <target name="witness-3">
+        <delete>
+            <fileset dir="${witness-3-path}" includes="wit-*.xml"/>
+        </delete>
+        <xslt style="./xslt/partials/typo-add-header-pb.xsl" basedir="${witness-3-path}/tmp" destdir="${witness-3-path}" includes="wit-*.xml" extension=".xml">
+            <param name="edition-path" expression="${witness-3-path}/${witness-3-file}"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+        <delete dir="${witness-3-path}/tmp"/>
+    </target>
+    <target name="witness-4">
+        <delete>
+            <fileset dir="${witness-4-path}" includes="wit-*.xml"/>
+        </delete>
+        <xslt style="./xslt/partials/typo-add-header-pb.xsl" basedir="${witness-4-path}/tmp" destdir="${witness-4-path}" includes="wit-*.xml" extension=".xml">
+            <param name="edition-path" expression="${witness-4-path}/${witness-4-file}"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+        <delete dir="${witness-4-path}/tmp"/>
+    </target>
+    <target name="witness-5">
+        <delete>
+            <fileset dir="${witness-5-path}" includes="wit-*.xml"/>
+        </delete>
+        <xslt style="./xslt/partials/typo-add-header-pb.xsl" basedir="${witness-5-path}/tmp" destdir="${witness-5-path}" includes="wit-*.xml" extension=".xml">
+            <param name="edition-path" expression="${witness-5-path}/${witness-5-file}"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+        <delete dir="${witness-5-path}/tmp"/>
+    </target>
+    <target name="witness-6">
+        <delete>
+            <fileset dir="${witness-6-path}" includes="wit-*.xml"/>
+        </delete>
+        <xslt style="./xslt/partials/typo-add-header-pb.xsl" basedir="${witness-6-path}/tmp" destdir="${witness-6-path}" includes="wit-*.xml" extension=".xml">
+            <param name="edition-path" expression="${witness-6-path}/${witness-6-file}"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+        <delete dir="${witness-6-path}/tmp"/>
+    </target>
+    <!-- <target name="build-full-edition" depends="witness-1, witness-2"/> -->
+
+</project>

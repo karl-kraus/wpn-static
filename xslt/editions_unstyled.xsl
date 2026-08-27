@@ -146,7 +146,7 @@
      </xsl:template>
      <xsl:template match="tei:ptr[parent::tei:transpose]">
      <xsl:variable name="target" select="replace(@target,'#','')"/>
-        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:seg[@xml:id=$target]" mode="render"/>
+        <xsl:apply-templates select="doc('../data/editions/KK1933_DfeH_supplemented.xml')//tei:seg[@xml:id=$target]" mode="render"/>
      </xsl:template>
      <xsl:template match="tei:seg[@type=('transposition','relocation') and not(parent::tei:restore)]"/>
      <xsl:template match="tei:seg[@type=('transposition','relocation')]" mode="render">
@@ -154,7 +154,7 @@
     </xsl:template>
     <xsl:template match="tei:metamark[@function=('insertion','relocation') and not(matches(@target,'(note)+.*([a-z])_'))][not(parent::tei:restore)]">
        <xsl:variable name="target" select="replace(@target,'#','')"/>
-        <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//(tei:seg|tei:note)[@xml:id=$target]" mode="render"/>
+        <xsl:apply-templates select="doc('../data/editions/KK1933_DfeH_supplemented.xml')//(tei:seg|tei:note)[@xml:id=$target]" mode="render"/>
     </xsl:template>
     <xsl:template match="tei:metamark[@function=('insertion') and matches(@target,'(note)+.*([a-z])_')]">
        <xsl:choose>
@@ -162,14 +162,14 @@
             <xsl:for-each select="tokenize(@target,' ')">
                 <xsl:variable name="target" select="replace(current(),'#','')"/>
                 <span>
-                    <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
+                    <xsl:apply-templates select="doc('../data/editions/KK1933_DfeH_supplemented.xml')//tei:note[@xml:id=$target]" mode="render"/>
                 </span>
             </xsl:for-each>
         </xsl:when>
         <xsl:otherwise>
             <xsl:variable name="target" select="replace(@target,'#','')"/>
             <span>
-                <xsl:apply-templates select="doc('../data/editions/Gesamt.xml')//tei:note[@xml:id=$target]" mode="render"/>
+                <xsl:apply-templates select="doc('../data/editions/KK1933_DfeH_supplemented.xml')//tei:note[@xml:id=$target]" mode="render"/>
             </span>
         </xsl:otherwise>
        </xsl:choose>

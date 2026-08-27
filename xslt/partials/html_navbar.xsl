@@ -6,7 +6,7 @@
     <xsl:import href="nav-link.xsl"/>
     <xsl:template match="/" name="nav_bar">
         <xsl:param name="logo_small" as="xs:boolean" select="true()"/>
-        <xsl:param name="include_searchbox" as="xs:boolean" select="false()"/>
+        <xsl:param name="include_searchbox" as="xs:boolean" select="true()"/>
         <xsl:param name="container" select="'container'"/>
         <wpn-header class="fixed-top bg-white pe-0">
             <nav id="primary_nav" class="navbar border-bottom {if ($logo_small = true()) then 'pt-05' else ()}">
@@ -45,9 +45,16 @@
                     </a>
                     <span class="d-flex align-items-center gap-2">
                         <xsl:if test="$include_searchbox">
-                            <form method="get" action="suche.html?walpurgisnacht%5Bquery%5D" role="search">
-                                <input type="text" name="walpurgisnacht[query]" class="rounded-0 form-control border-top-0 border-start-0 border-end-0 border-bottom"></input>
-                            </form>
+                        <!-- switch from walpurgisnacht_umschrift to walpurgisnacht in production -->
+                        <form class="position-relative" method="get" action="suche.html?walpurgisnacht_umschrift%5Bquery%5D" role="search">
+                            <input type="text" name="walpurgisnacht_umschrift[query]" class="rounded-0 form-control border-top-0 border-start-0 border-end-0 border-bottom"></input>
+                            <button class="btn position-absolute top-50 end-0 translate-middle-y wpn-red-svg" type="submit">
+                                <span class="visually-hidden">Suche starten</span>
+                                <svg width="15" height="15" viewBox="0 0 40 40" aria-hidden="true">
+                                <path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path>
+                                </svg>
+                            </button>
+                        </form>
                         </xsl:if>
                         <a class="nav-link project-link pe-4 link-dark-grey text-primary-hover d-none d-md-inline" href="projekt.html">Über das Projekt</a>
                         
@@ -81,7 +88,7 @@
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'edition.html'"/>
-                                                        <xsl:with-param name="label" select="'Textgenese und Überlieferung'"/>
+                                                        <xsl:with-param name="label" select="'Entstehung und Überlieferung'"/>
                                                         <xsl:with-param name="level" select="'level1'"/>
                                                     </xsl:call-template>
                                                 </li>
@@ -107,11 +114,81 @@
                                                         <xsl:with-param name="level" select="'level1'"/>
                                                     </xsl:call-template>
                                                 </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'downloads.html'"/>
+                                                        <xsl:with-param name="label" select="'Downloads'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
+                                                    </xsl:call-template>
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="col-md-4">
                                             <span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Dritte Walpurgisnacht</span>
                                             <ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'annotierte_lesefassung.html'"/>
+                                                        <xsl:with-param name="label" select="'Lesefassung'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'motto.html'"/>
+                                                        <xsl:with-param name="label" select="'Text der ‚Dritten Walpurgisnacht‘'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'topographical.html'"/>
+                                                        <xsl:with-param name="label" select="'Die Textträger'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'wit-DfeH-0001.html'"/>
+                                                        <xsl:with-param name="label" select="'Druckfahnen – ‚Jerusalemer Konvolut‘'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'wit-TFragment2-0229r.html'"/>
+                                                        <xsl:with-param name="label" select="'Typoskript „Wenn ich mich nun frage …“'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'wit-HMotto-0001r.html'"/>
+                                                        <xsl:with-param name="label" select="'Handschrift des Mottos'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'wit-DfMotto-0001r.html'"/>
+                                                        <xsl:with-param name="label" select="'Druckfahnen des Mottos'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'wit-TParalipomenon-0034r.html'"/>
+                                                        <xsl:with-param name="label" select="'Typoskript eines Paralipomenons'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'wit-DffH-0266_a.html'"/>
+                                                        <xsl:with-param name="label" select="'Blatt 266a'"/>
+                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
+                                                    </xsl:call-template>
+                                                </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'notizen.html'"/>
@@ -133,41 +210,7 @@
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>
                                                 </li>
-                                                <li class="nav-item">
-                                                    <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'annotierte_lesefassung.html'"/>
-                                                        <xsl:with-param name="label" select="'Lesefassung'"/>
-                                                        <xsl:with-param name="level" select="'level1'"/>
-                                                    </xsl:call-template>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'motti.html'"/>
-                                                        <xsl:with-param name="label" select="'Zum Text der Dritten Walpurgisnacht'"/>
-                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
-                                                    </xsl:call-template>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'topographical.html'"/>
-                                                        <xsl:with-param name="label" select="'Umschrift'"/>
-                                                        <xsl:with-param name="level" select="'level1'"/>
-                                                    </xsl:call-template>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'wit-DfeH-0001.html'"/>
-                                                        <xsl:with-param name="label" select="'Das ‚Jerusalemer Konvolut‘'"/>
-                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
-                                                    </xsl:call-template>
-                                                </li>
-                                                <!-- <li class="nav-item">
-                                                    <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'wit-TFragment2-0229r.html'"/>
-                                                        <xsl:with-param name="label" select="'Neu (in Arbeit)'"/>
-                                                        <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
-                                                    </xsl:call-template>
-                                                </li> -->
+
                                                 <!-- <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'register.html'"/>
@@ -175,7 +218,7 @@
                                                     </xsl:call-template>
                                                 </li>-->
                                                 <!--<li class="nav-item">
-                                                    <a class="nav-link" href="imprint.html">Textgenese</a>
+                                                    <a class="nav-link" href="imprint.html"></a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="imprint.html">Faksimile</a>
@@ -183,8 +226,15 @@
                                             </ul>
                                         </div>
                                         <div class="col-md-4">
-                                            <span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Kommentar</span>
+                                            <span class="d-block navbar-title text-white border-bottom border-light-grey pb-1">Visualisierungen und Kommentar</span>
                                             <ul class="navbar-nav navbar-dark me-auto mb-2 mb-lg-0 pt-2">
+                                                <li class="nav-item">
+                                                    <xsl:call-template name="nav-link">
+                                                        <xsl:with-param name="href" select="'visualisierungen.html'"/>
+                                                        <xsl:with-param name="label" select="'Visualisierungen'"/>
+                                                        <xsl:with-param name="level" select="'level1'"/>
+                                                    </xsl:call-template>
+                                                </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
                                                         <xsl:with-param name="href" select="'kommentar.html'"/>
@@ -251,6 +301,7 @@
                 </div>
             </nav>
             <xsl:variable name="document" select="substring-before(tokenize(base-uri(),'/')[last()], '.xml')"/>
+            <xsl:variable name="vis_doc_names" select="for $f in collection('../../vis?select=*.xml') return replace(tokenize(base-uri($f),'/')[last()], '\.xml$', '')"/>
             <nav aria-label="breadcrumb" class="my-05">
                 <div class="{$container}">
                     <ol class="breadcrumb">
@@ -266,23 +317,26 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                         </li>
-                        <xsl:if test="$document != 'index' 
+                        <xsl:if test="$document != 'index'
                                     and $document != 'personindex_updated'
                                     and $document != 'commentindex_updated'
                                     and $document != 'eventindex_updated'
                                     and $document != 'biblindex_updated'
-                                    and not(contains($document, 'motti')) 
-                                    and not(contains($document, 'absatz')) 
-                                    and not(contains($document, 'wit-'))">
+                                    and not(contains($document, 'motto'))
+                                    and not(contains($document, 'absatz'))
+                                    and not(contains($document, 'wit-'))
+                                    and not($document = $vis_doc_names)">
                             <li class="breadcrumb-item active" aria-current="page">
                                 <xsl:choose>
                                     <xsl:when test="$document = 'projekt'">Über das Projekt</xsl:when>
                                     <xsl:when test="$document = 'edition'">Zur Edition</xsl:when>
                                     <xsl:when test="$document = 'nutzungsbedingungen'">Nutzungsbedingungen</xsl:when>
                                     <xsl:when test="$document = 'impressum'">Impressum</xsl:when>
+                                    <xsl:when test="$document = 'downloads'">Downloads</xsl:when>
                                     <xsl:when test="$document = 'notizen'">Notizen</xsl:when>
                                     <xsl:when test="$document = 'annotierte_lesefassung'">Annotierte Lesefassung</xsl:when>
-                                    <xsl:when test="$document = 'topographical'">Topographische Umschrift</xsl:when>
+                                    <xsl:when test="$document = 'topographical'">Topographische Umschriften</xsl:when>
+                                    <xsl:when test="$document = 'visualisierungen'">Visualisierungen</xsl:when>
                                     <xsl:when test="$document = 'register'">Register</xsl:when>
                                     <xsl:when test="$document = 'kommentar'">Stellenkommentar</xsl:when>
                                     <xsl:when test="$document = 'personen'">Personen</xsl:when>
@@ -295,13 +349,34 @@
                                 </xsl:choose>
                             </li>
                         </xsl:if>
-                        <xsl:if test="contains($document, 'motti') or contains($document, 'absatz')">
+                        <xsl:if test="contains($document, 'motto') or contains($document, 'absatz')">
                             <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="annotierte_lesefassung.html">Annotierte Lesefassung</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Text</li>
                         </xsl:if>
                         <xsl:if test="contains($document, 'wit-')">
-                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="topographical.html">Topographische Umschrift</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Text</li>
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="topographical.html">Topographische Umschriften</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <xsl:choose>
+                                    <xsl:when test="starts-with($document, 'wit-DfeH')">Druckfahnen – ‚Jerusalemer Konvolut‘</xsl:when>
+                                    <xsl:when test="starts-with($document, 'wit-TFragment2')">Typoskript „Wenn ich mich nun frage …“</xsl:when>
+                                    <xsl:when test="starts-with($document, 'wit-HMott')">Handschrift des Mottos</xsl:when>
+                                    <xsl:when test="starts-with($document, 'wit-DfMott')">Druckfahnen des Mottos</xsl:when>
+                                    <xsl:when test="starts-with($document, 'wit-TParalipomenon')">Ausgeschiedenes Typoskript</xsl:when>
+                                    <xsl:when test="starts-with($document, 'wit-DffH')">Blatt 266a</xsl:when>
+
+                                    <xsl:otherwise>Text</xsl:otherwise>
+                                </xsl:choose>
+                            </li>
+                        </xsl:if>
+                        <xsl:if test="$document = $vis_doc_names">
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="visualisierungen.html">Visualisierungen</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <xsl:choose>
+                                    <xsl:when test="$document = 'vis_DW'">Textträger der Dritten Walpurgisnacht</xsl:when>
+                                    <xsl:when test="$document = 'vis_DW_F890'">Dritte Walpurgisnacht – Fackel Nr. 890–905</xsl:when>
+                                    <xsl:otherwise></xsl:otherwise>
+                                </xsl:choose>
+                            </li>
                         </xsl:if>
                         <xsl:if test="$document = 'personindex_updated'">
                             <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="personen.html">Personen</a></li>

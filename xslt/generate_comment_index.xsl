@@ -7,7 +7,7 @@
         omit-xml-declaration="yes"/>
     <xsl:mode on-no-match="deep-skip"/>
      <xsl:variable name="ref_elements">
-            <xsl:for-each select="document('../data/editions/Gesamt.xml')//tei:ref[@type=('comment')]">
+            <xsl:for-each select="document('../data/editions/KK1933_DfeH_supplemented.xml')//tei:ref[@type=('comment')]">
                  <xsl:variable name="current_ref" select="."/>
                 <xsl:for-each select="tokenize(current()/@target,' ')">
                     <xsl:element name="ref" namespace="http://www.tei-c.org/ns/1.0">

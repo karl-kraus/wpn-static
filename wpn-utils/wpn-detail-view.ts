@@ -3,15 +3,18 @@ class WPNDetailView extends HTMLElement {
   
   updateDetailView = () => {
     if(window.location.hash) {
-      const entityId = window.location.hash.replace('#','');
+      const hashValue = window.location.hash.replace('#',''); 
+      const entityId = hashValue.split("_")[0];
        const anchorElement = document.getElementById(entityId);
       if (anchorElement) {
         anchorElement.style.scrollMarginTop = `${String(document.getElementsByTagName("wpn-header")[0].clientHeight)}px`
         anchorElement.scrollIntoView()
       }
       if (!(entityId.startsWith('pb') || entityId.startsWith('insertion'))) {
-        this.classList.remove('d-none');
-        const detailElement = this.querySelector(`[id='details_${entityId}']`);
+        const detailElement = this.querySelector(`[id='details_${hashValue}']`);
+        if (detailElement) {
+          this.classList.remove('d-none');
+        }
         this.querySelector("[id^='details_']:not(.d-none)")?.classList.add('d-none');
         detailElement?.classList.remove("d-none");
         const popoverTriggerElements = detailElement?.querySelectorAll("[data-bs-toggle='popover']");

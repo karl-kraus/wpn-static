@@ -10,7 +10,7 @@
         <div id="{local:makeId(.)}" class="yes-index {if(self::tei:p)then(replace(@rendition,'#',''))else()}{if(@prev)then(' no-indent')else()}">
             <xsl:if test="@rendition='#runningText1'">
                 <span id="{@xml:id}" class="mod entity no-indent position-relative {@style} {replace(@change, '#', '')}">
-                    <span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">
+                    <span class="mod-inline position-absolute bracket-offset-1">
                         <xsl:if test="not(@continued)">
                             <xsl:choose>
                                 <xsl:when test="ancestor::tei:restore">
@@ -113,9 +113,23 @@
     <xsl:template match="tei:mod[contains(@rendition,'Quote') and not(@resp='#edACE')]">
         <xsl:choose>
             <xsl:when test="@rendition=('#longQuoteStartIndent', '#longQuoteEndIndent',  '#longQuoteIndent', '#longQuoteVerseStart', '#longQuoteVerseEnd') and not(child::tei:span[@n='firstLast'])">
-                <span id="{@xml:id}" class="mod entity quote-indent {@style} {replace(@change, '#', '')}" 
-                    style="margin-left: -0.25rem; top: 0.2em;">
+                <span id="{@xml:id}" class="mod entity quote-indent bracket-offset-2 {@style} {replace(@change, '#', '')}">
                     <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">[</span>
+                </span>
+				<xsl:apply-templates/>
+            </xsl:when>
+			<xsl:when test="@rendition='#typescriptLongQuoteEndIndent' and parent::tei:restore[@rend='marginOnly'] and not(child::tei:span[@n='firstLast'])">
+                <span id="{@xml:id}" class="mod entity quote-indent bracket-offset-3 {@style} {replace(@change, '#', '')}">
+                    <del class="{replace(parent::tei:restore/@change, '#', '')}"
+						data-anchor="{@xml:id}" data-hand="{replace(parent::tei:restore/@change, '#', '')}">
+            			<span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">[&#160;</span>
+        			</del>
+                </span>
+				<xsl:apply-templates/>
+            </xsl:when>
+			<xsl:when test="@rendition=('#typescriptLongQuoteStartIndent', '#typescriptLongQuoteEndIndent') and not(child::tei:span[@n='firstLast'])">
+                <span id="{@xml:id}" class="mod entity quote-indent bracket-offset-3 {@style} {replace(@change, '#', '')}">
+                    <span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}">[&#160;</span>
                 </span>
 				<xsl:apply-templates/>
             </xsl:when>
@@ -135,15 +149,18 @@
 				<span id="{@xml:id}" class="mod entity {@style} {replace(@change, '#', '')}" data-anchor="{@xml:id}"></span>
 				<xsl:apply-templates/>
 			</xsl:when>
-            <xsl:otherwise>
+			<xsl:when test="@rendition='#typescriptLongQuote' and @rend='underline'">
+				<span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}" class="mod underline {@style} {replace(@change, '#', '')}"><xsl:apply-templates/></span>
+			</xsl:when>
+			<xsl:otherwise>
                 <!-- <span class="mod entity {@style} {replace(@change, '#', '')}" data-anchor="{@xml:id}"></span> -->
 				<xsl:apply-templates/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:mod[@rendition=('#runningText1') and not(@n)]">
+    <xsl:template match="tei:mod[@rendition=('#runningText1', '#typescriptRunningText1') and not(@n)]">
         <span id="{@xml:id}" class="mod entity no-indent position-relative {@style} {replace(@change, '#', '')}">
-            <span class="mod-inline position-absolute" style="left: -0.5em; top: 0.2em;">
+            <span class="mod-inline position-absolute bracket-offset-1">
                 <xsl:if test="not(@continued)">
                     <xsl:choose>
                         <xsl:when test="ancestor::tei:restore">
@@ -154,10 +171,27 @@
                         </xsl:otherwise>
                         </xsl:choose>
                 </xsl:if>
+            </span>
+		</span>		
+	<xsl:apply-templates/>        
+    </xsl:template>
+
+	<xsl:template match="tei:mod[@rendition=('#inkLongQuoteLineGroup') and not(@n)]">
+        <span id="{@xml:id}" class="mod entity no-indent position-relative {@style} {replace(@change, '#', '')}">
+			 <span class="mod-inline position-absolute bracket-offset-1">
+				<xsl:choose>
+					<xsl:when test="ancestor::tei:del">
+						<del data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>[&#160;</xsl:text></del>
+					</xsl:when>
+					<xsl:otherwise>
+						<span data-anchor="{@xml:id}" data-hand="{replace(@change,'#','')}"><xsl:text>[&#160;</xsl:text></span>
+					</xsl:otherwise>
+				</xsl:choose>
             </span>		
         	<xsl:apply-templates/>
         </span>
     </xsl:template>
+	
 	 <xsl:template match="tei:mod[@rendition=('#runningText1') and @n and not(parent::tei:p[@rendition='#runningText2'])]">
         <span id="{@xml:id}" class="mod entity running-text-1 no-indent position-relative {replace(@change, '#', '')}">
             <span class="mod-inline {replace(@change, '#', '')}">

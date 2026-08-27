@@ -8,7 +8,7 @@
         omit-xml-declaration="yes"/>
     <xsl:mode on-no-match="deep-skip"/>
      <xsl:variable name="quotes">
-            <xsl:for-each select="document('../data/editions/Gesamt.xml')//tei:quote">
+            <xsl:for-each select="document('../data/editions/KK1933_DfeH_supplemented.xml')//tei:quote">
                  <xsl:variable name="current_quote" select="."/>
                 <xsl:for-each select="tokenize(current()/@source,' ')">
                     <xsl:element name="quote" namespace="http://www.tei-c.org/ns/1.0">

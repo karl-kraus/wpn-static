@@ -20,7 +20,7 @@
 
     <xsl:template match="/">
         <xsl:variable name="doc_title">
-            <xsl:value-of select=".//tei:title[@type='main'][1]/text()"/>
+            <xsl:value-of select=".//tei:title[@type='main'][1]"/>
         </xsl:variable>
         <html class="h-100" lang="{$site_language}">
     
@@ -37,16 +37,75 @@
                         <h1><xsl:value-of select="$doc_title"/></h1>
                         <xsl:if test="tokenize(base-uri(),'/')[last()] = 'annotierte_lesefassung.xml'">
                             <section class="my-5_5">
-                                <a role="button" class="btn btn-outline-black-grey" href="motti.html">Zum Text der Lesefassung</a>
+                                <a role="button" class="btn btn-outline-black-grey" href="motto.html">Zum Text der Lesefassung</a>
                             </section>
                         </xsl:if>
                         <xsl:if test="tokenize(base-uri(),'/')[last()] = 'topographical.xml'">
-                            <section class="my-5_5">
-                                <a role="button" class="btn btn-outline-black-grey" href="wit-DfeH-0001.html">Zum ‚Jerusalemer Konvolut‘</a>
+                            <section class="my-5_5 position-relative wpn-card-slider">
+                                <wpn-scroll-button scroll-direction="left" role="button" class="wpn-card-slider-btn wpn-card-slider-btn-left" aria-label="Zurück">&#8249;</wpn-scroll-button>
+                                <div id="scroll-container" class="py-2 wpn-card-slider-track">
+                                    <div class="wpn-card-slider-item">
+                                        <div class="card rounded-0 h-100">
+                                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                                <h3 class="card-title mt-1"><a href="wit-DfeH-0001.html" class="stretched-link text-decoration-none text-blacker-grey">Df(eH)</a></h3>
+                                                <p class="card-subtitle text-black-grey">Druckfahnen – ‚Jerusalemer Konvolut‘</p>
+                                            </div>
+                                            <img src="images/card_dfeh.png" class="d-block" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="wpn-card-slider-item">
+                                        <div class="card rounded-0 h-100 position-relative">
+                                            <span class="wpn-card-badge">NEU</span>
+                                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                                <h3 class="card-title mt-1"><a href="wit-TFragment2-0229r.html" class="stretched-link text-decoration-none text-blacker-grey">T<sup>Fragment 2</sup></a></h3>
+                                                <p class="card-subtitle text-black-grey">Typoskript „Wenn ich mich nun frage …“</p>
+                                            </div>
+                                            <img src="images/card_tfragment2.png" class="d-block" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="wpn-card-slider-item">
+                                        <div class="card rounded-0 h-100 position-relative">
+                                            <span class="wpn-card-badge">NEU</span>
+                                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                                <h3 class="card-title mt-1"><a href="wit-HMotto-0001r.html" class="stretched-link text-decoration-none text-blacker-grey">H<sup>Motto</sup></a></h3>
+                                                <p class="card-subtitle text-black-grey">Handschrift des Mottos</p>
+                                            </div>
+                                            <img src="images/card_hmotto.png" class="d-block" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="wpn-card-slider-item">
+                                        <div class="card rounded-0 h-100 position-relative">
+                                            <span class="wpn-card-badge">NEU</span>
+                                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                                <h3 class="card-title mt-1"><a href="wit-DfMotto-0001r.html" class="stretched-link text-decoration-none text-blacker-grey">Df<sup>Motto</sup></a></h3>
+                                                <p class="card-subtitle text-black-grey">Druckfahnen des Mottos</p>
+                                            </div>
+                                            <img src="images/card_dfmotto.png" class="d-block" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="wpn-card-slider-item">
+                                        <div class="card rounded-0 h-100 position-relative">
+                                            <span class="wpn-card-badge">NEU</span>
+                                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                                <h3 class="card-title mt-1"><a href="wit-TParalipomenon-0034r.html" class="stretched-link text-decoration-none text-blacker-grey">T<sup>Paralipomenon</sup></a></h3>
+                                                <p class="card-subtitle text-black-grey">Typoskript eines Paralipomenons</p>
+                                            </div>
+                                            <img src="images/card_tparalipomenon.png" class="d-block" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="wpn-card-slider-item">
+                                        <div class="card rounded-0 h-100 position-relative">
+                                            <span class="wpn-card-badge">NEU</span>
+                                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                                <h3 class="card-title mt-1"><a href="wit-DffH-0266_ar.html" class="stretched-link text-decoration-none text-blacker-grey">Df(fH)</a></h3>
+                                                <p class="card-subtitle text-black-grey">Blatt 266a</p>
+                                            </div>
+                                            <img src="images/card_DffH.png" class="d-block" alt=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <wpn-scroll-button scroll-direction="right" role="button" class="wpn-card-slider-btn wpn-card-slider-btn-right" aria-label="Weiter">&#8250;</wpn-scroll-button>
                             </section>
-                            <!-- <section class="my-5_5">
-                                <a role="button" class="btn btn-outline-black-grey" href="wit-TFragment2-0229r.html">Neu (in Arbeit)</a>
-                            </section> -->
                         </xsl:if>
                         <!--  -->
                         <xsl:if test="tokenize(base-uri(),'/')[last()] = 'personen.xml'">
@@ -64,6 +123,106 @@
                                 <a role="button" class="btn btn-outline-black-grey" href="timeline.html">Zur Timeline</a>
                             </section>
                         </xsl:if>
+                        <xsl:if test="tokenize(base-uri(),'/')[last()] = 'downloads.xml'">
+                            <section class="my-5_5">
+                                <div class="row g-3">
+                                    <div class="col-12 col-md-6">
+                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" href="" download="">
+                                            <span><span class="text-primary">XML (coming soon)</span> Df(eH) supplemented – ‚Jerusalemer Konvolut‘/Lesefassung</span>
+                                            <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" href="" download="">
+                                            <span><span class="text-primary">XML (coming soon)</span> T<sup style="font-size: 0.8rem;">Fragment 2</sup> – Typoskript „Wenn ich mich nun frage“</span>
+                                            <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" href="" download="">
+                                            <span><span class="text-primary">XML (coming soon)</span> H<sup style="font-size: 0.8rem;">Motto</sup> – Handschrift des Mottos</span>
+                                            <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="my-5_5">
+                                <div class="row g-3">
+                                    <div class="col-12 col-md-6">
+                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" href="https://github.com/karl-kraus/wpn-static/releases/download/v0.9-beta/Lesefassung.pdf" download="Lesefassung.pdf">
+                                            <span><span class="text-primary">PDF</span> Lesefassung ‚Dritte Walpurgisnacht‘</span>
+                                            <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" href="https://github.com/karl-kraus/wpn-static/releases/download/v0.9-beta/DfeH.pdf" download="DfeH.pdf">
+                                            <span><span class="text-primary">PDF</span> Df(eH) – ‚Jerusalemer Konvolut‘</span>
+                                            <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" href="https://github.com/karl-kraus/wpn-static/releases/download/v0.9-beta/TFragment2.pdf" download="TFragment2.pdf">
+                                            <span><span class="text-primary">PDF</span> T<sup style="font-size: 0.8rem;">Fragment 2</sup> – Typoskript „Wenn ich mich nun frage“</span>
+                                            <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" href="https://github.com/karl-kraus/wpn-static/releases/download/v0.9-beta/HMotto.pdf" download="HMotto.pdf">
+                                            <span><span class="text-primary">PDF</span> H<sup style="font-size: 0.8rem;">Motto</sup> – Handschrift des Mottos</span>
+                                            <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" href="https://github.com/karl-kraus/wpn-static/releases/download/v0.9-beta/DfMotto.pdf" download="DfMotto.pdf">
+                                            <span><span class="text-primary">PDF</span> Df<sup style="font-size: 0.8rem;">Motto</sup> – Druckfahnen des Mottos</span>
+                                            <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" href="https://github.com/karl-kraus/wpn-static/releases/download/v0.9-beta/TParalipomenon.pdf" download="TParalipomenon.pdf">
+                                            <span><span class="text-primary">PDF</span> T<sup style="font-size: 0.8rem;">Paralipomenon</sup> – Typoskript „[Was die allgemeinen] Erwartungen betrifft“</span>
+                                            <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" href="https://github.com/karl-kraus/wpn-static/releases/download/v0.9-beta/DffH.pdf" download="DffH.pdf">
+                                            <span><span class="text-primary">PDF</span> Df(fH) – Druckfahnen, Duplikat des ‚Jerusalemer Konvoluts‘</span>
+                                            <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </section>
+                        </xsl:if>
                         <!--  -->
                         <xsl:apply-templates select=".//tei:body"></xsl:apply-templates>
                     </div>
@@ -72,6 +231,37 @@
                 <xsl:call-template name="scripts"/>
             </body>
         </html>
+    </xsl:template>
+
+    <xsl:template match="tei:body">
+        <xsl:choose>
+            <xsl:when test="tokenize(base-uri(),'/')[last()] = 'visualisierungen.xml'">
+                <div class="body-main wpn-vis-layout">
+                    <div class="wpn-vis-text-col">
+                        <xsl:apply-templates/>
+                    </div>
+                    <div class="wpn-vis-cards-col">
+                        <div class="card rounded-0 position-relative">
+                            <span class="wpn-card-badge">NEU</span>
+                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                <h3 class="card-title mt-1"><a href="vis_DW.html" class="stretched-link text-decoration-none text-blacker-grey">Visualisierung Textträger der Dritten Walpurgisnacht</a></h3>
+                            </div>
+                            <img src="images/card_visDW.png" class="d-block" alt=""/>
+                        </div>
+                        <div class="card rounded-0 position-relative">
+                            <span class="wpn-card-badge">NEU</span>
+                            <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                <h3 class="card-title mt-1"><a href="vis_DW_F890.html" class="stretched-link text-decoration-none text-blacker-grey">Visualisierung Dritte Walpurgisnacht – Fackel Nr. 890–905</a></h3>
+                            </div>
+                            <img src="images/card_visDW_F890.png" class="d-block" alt=""/>
+                        </div>
+                    </div>
+                </div>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-imports/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="tei:head">
@@ -113,8 +303,11 @@
      <xsl:template match="tei:ref">
         <a class="text-primary text-decoration-none ff-ubuntu" href="{@target}"><xsl:apply-templates/></a>
     </xsl:template>
-     <xsl:template match="tei:div[parent::tei:div[parent::tei:body]]">
+     <xsl:template match="tei:div[parent::tei:div[parent::tei:body and not(@rend='showall')]]">
         <div class="intro-text"><xsl:apply-templates/></div>
+    </xsl:template>
+    <xsl:template match="tei:div[parent::tei:div[parent::tei:body and @rend='showall']]">
+        <div><xsl:apply-templates/></div>
     </xsl:template>
     <xsl:template match="tei:div[parent::tei:div[parent::tei:body] and @type='legende']">
          <div id="legende-pb" class="min-h-100 intro-text">

@@ -7,7 +7,7 @@
         omit-xml-declaration="yes"/>
     <xsl:mode on-no-match="deep-skip"/>
      <xsl:variable name="ref_elements">
-            <xsl:for-each select="document('../data/editions/Gesamt.xml')//tei:ref[@type=('event')]">
+            <xsl:for-each select="document('../data/editions/KK1933_DfeH_supplemented.xml')//tei:ref[@type=('event')]">
                  <xsl:variable name="current_ref" select="."/>
                 <xsl:for-each select="tokenize(current()/@target,' ')">
                     <xsl:element name="ref" namespace="http://www.tei-c.org/ns/1.0">
@@ -43,15 +43,20 @@
                 />
                 <note>
                     <xsl:copy-of select="$ref_elements//*[@target='#'||$id]"/>
-                    <xsl:if test="not(document('../data/editions/Gesamt.xml')//tei:ref[@type='event'][contains(@target,$id)])">
+                    <xsl:if test="not(document('../data/editions/KK1933_DfeH_supplemented.xml')//tei:ref[@type='event'][contains(@target,$id)])">
                         <xsl:variable name="indirect_event_or_comment_references" as="xs:string*">
                             <xsl:sequence>
                                 <xsl:sequence select="root()//tei:ref[@target='#'||$id]/ancestor::tei:event/@xml:id"/>
                                 <xsl:sequence select="document('../data/indices/Kommentar.xml')//tei:ref[@target='#'||$id]/parent::tei:seg/@xml:id"/>
+                                <xsl:sequence>
+                                    <xsl:for-each select="root()//tei:ref[@target='#'||$id]/ancestor::tei:event/@xml:id">
+                                        <xsl:sequence select="document('../data/indices/Kommentar.xml')//tei:ref[@target='#'||current()]/parent::tei:seg/@xml:id"></xsl:sequence>
+                                    </xsl:for-each>
+                                </xsl:sequence>
                             </xsl:sequence>
                         </xsl:variable>
                         <xsl:for-each select="$indirect_event_or_comment_references[.!='']">
-                            <xsl:for-each select="document('../data/editions/Gesamt.xml')//tei:ref[@type=('event','comment')][contains(@target,'#'||current())]">
+                            <xsl:for-each select="document('../data/editions/KK1933_DfeH_supplemented.xml')//tei:ref[@type=('event','comment')][contains(@target,'#'||current())]">
                                 <xsl:variable name="current_ref" select="current()"/>
                                     <xsl:element name="ref" namespace="http://www.tei-c.org/ns/1.0">
                                         <xsl:attribute name="target" select="current()"/>

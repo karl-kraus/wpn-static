@@ -24,7 +24,7 @@
         </xslt>
     </target>
     <target name="split-edition-paragraphs">
-        <xslt style="./xslt/partials/wpn_splitter.xsl"  basedir="./data/editions" destdir="./data/editions" includes="Gesamt.xml">
+        <xslt style="./xslt/partials/wpn_splitter.xsl"  basedir="./data/editions" destdir="./data/editions" includes="KK1933_DfeH_supplemented.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
@@ -54,31 +54,61 @@
         </xslt>
     </target>
     <target name="build-edition">
-        <xslt style="./xslt/editions.xsl"  basedir="./data/editions" destdir="${target}" includes="*.xml" excludes="Gesamt.xml idPb*.xml wit-*.xml">
+        <xslt style="./xslt/editions.xsl"  basedir="./data/editions" destdir="${target}" includes="*.xml" excludes="KK1933_DfeH_supplemented.xml idPb*.xml wit-*.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
     <target name="build-unstyled-edition">
-        <xslt style="./xslt/editions_unstyled.xsl"  basedir="./data/editions" destdir="./data/merged" includes="*.xml" excludes="Gesamt.xml idPb*.xml wit-*.xml">
+        <xslt style="./xslt/editions_unstyled.xsl"  basedir="./data/editions" destdir="./data/merged" includes="*.xml" excludes="KK1933_DfeH_supplemented.xml idPb*.xml wit-*.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
     <target name="build-edition-typo">
-        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions" destdir="${target}" includes="wit-*.xml" excludes="Gesamt.xml">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions" destdir="${target}" includes="wit-*.xml" excludes="KK1933_DfeH_supplemented.xml">
+            <param name="edition-filepath" expression="editions/KK1933_DfeH_supplemented.xml"/>
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
     <target name="build-edition-typo-2">
-        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions2" destdir="${target}" includes="wit-*.xml" excludes="KK1933_Abs64_Ts.xml">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions2" destdir="${target}" includes="wit-*.xml" excludes="KK1933_TFragment2.xml">
+            <param name="edition-filepath" expression="editions2/KK1933_TFragment2.xml"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-edition-typo-3">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions3" destdir="${target}" includes="wit-*.xml" excludes="KK1933_HMotto.xml">
+            <param name="edition-filepath" expression="editions3/KK1933_HMotto.xml"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-edition-typo-4">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions4" destdir="${target}" includes="wit-*.xml" excludes="KK1933_DfMotto.xml">
+            <param name="edition-filepath" expression="editions4/KK1933_DfMotto.xml"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-edition-typo-5">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions5" destdir="${target}" includes="wit-*.xml" excludes="KK1933_TParalipomenon.xml">
+            <param name="edition-filepath" expression="editions5/KK1933_TParalipomenon.xml"/>
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
+    <target name="build-edition-typo-6">
+        <xslt style="./xslt/editions_typo.xsl" basedir="./data/editions6" destdir="${target}" includes="wit-*.xml" excludes="KK1933_DffH_partial.xml">
+            <param name="edition-filepath" expression="editions6/KK1933_DffH_partial.xml"/>
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
     <target name="build-meta-pages">
-        <xslt style="./xslt/meta.xsl"  basedir="./data/meta" destdir="${target}" includes="personen.xml,intertexte.xml,ereignisse.xml,edition.xml,annotierte_lesefassung.xml,projekt.xml,nutzungsbedingungen.xml,impressum.xml,topographical.xml">
+        <xslt style="./xslt/meta.xsl"  basedir="./data/meta" destdir="${target}" includes="personen.xml,intertexte.xml,ereignisse.xml,edition.xml,annotierte_lesefassung.xml,projekt.xml,nutzungsbedingungen.xml,impressum.xml,topographical.xml,visualisierungen.xml,downloads.xml">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
@@ -138,6 +168,12 @@
             <classpath location="${basedir}/saxon/saxon9he.jar"/>
         </xslt>
     </target>
+    <target name="build-witrels-vis">
+        <xslt basedir="./vis" destdir="${target}" includes="*.xml" style="./xslt/witrels-vis.xsl">
+            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
+            <classpath location="${basedir}/saxon/saxon9he.jar"/>
+        </xslt>
+    </target>
     <target name="generate-scan-index">
         <xslt in="./data/indices/Register.xml" out="data/indices/scan_index.json" style="./xslt/generate_scan_index.xsl">
             <factory name="net.sf.saxon.TransformerFactoryImpl"/>
@@ -160,28 +196,8 @@
         <!--<copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-wght-normal.woff2" todir="${target_fonts}"/>
         <copy file="node_modules/@fontsource-variable/ubuntu-sans/files/ubuntu-sans-latin-ext-wght-normal.woff2" todir="${target_fonts}"/>-->
     </target>
-    <target name="build-full-edition" depends="copy-libs, generate-scan-index, build-landing-page, build-meta-pages, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-edition-typo-2, build-notes, generate-bibl-index, generate-person-index, generate-comment-index, generate-event-index, build-intertext-register, build-person-register, build-comment-register, build-timeline-register, build-search-page"/>
-    <target name="add-header-pb">
-        <delete>
-            <fileset dir="./data/editions" includes="wit-*.xml"/>
-        </delete>
-        <!-- <mkdir dir="./data/editions/tmp2"/> -->
-        <xslt style="./xslt/partials/add-header-pb.xsl" basedir="./data/editions/tmp" destdir="./data/editions" includes="wit-*.xml" extension=".xml">
-            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
-            <classpath location="${basedir}/saxon/saxon9he.jar"/>
-        </xslt>
-        <delete dir="./data/editions/tmp"/>
-    </target>
-    <target name="add-header-pb-2">
-        <delete>
-            <fileset dir="./data/editions2" includes="wit-*.xml"/>
-        </delete>
-        <xslt style="./xslt/partials/add-header-pb-2.xsl" basedir="./data/editions2/tmp" destdir="./data/editions2" includes="wit-*.xml" extension=".xml">
-            <factory name="net.sf.saxon.TransformerFactoryImpl"/>
-            <classpath location="${basedir}/saxon/saxon9he.jar"/>
-        </xslt>
-        <delete dir="./data/editions2/tmp"/>
-    </target>
+    <target name="build-full-edition" depends="copy-libs, generate-scan-index, build-landing-page, build-meta-pages, split-edition-paragraphs, build-edition, build-unstyled-edition, build-edition-typo, build-edition-typo-2, build-edition-typo-3, build-edition-typo-4, build-edition-typo-5, build-edition-typo-6, build-notes, generate-bibl-index, generate-person-index, generate-comment-index, generate-event-index, build-intertext-register, build-person-register, build-comment-register, build-timeline-register, build-witrels-vis, build-search-page"/>
+    <target name="build-typo-edition" depends="build-edition-typo, build-edition-typo-2, build-edition-typo-3, build-edition-typo-4, build-edition-typo-5, build-edition-typo-6"/>
     <replace dir="${target}" value="">
         <include name="*.html"/>
         <replacetoken> xmlns=""</replacetoken>
@@ -207,9 +223,9 @@
         <replacetoken>xmlns="http://www.w3.org/1999/xhtml"</replacetoken>
     </replace>
     <delete>
-        <fileset dir="${target}" includes="Gesamt.html"/>
+        <fileset dir="${target}" includes="KK1933_DfeH_supplemented.html"/>
     </delete>
     <delete>
-        <fileset dir="./data/editions" includes="Gesamt.html"/>
+        <fileset dir="./data/editions" includes="KK1933_DfeH_supplemented.html"/>
     </delete>
 </project>

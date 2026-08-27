@@ -11,12 +11,14 @@
             <xsl:map-entry key="'edition.xml'" select="('style')"/>
             <xsl:map-entry key="'annotierte_lesefassung.xml'" select="('style')"/>
             <xsl:map-entry key="'topographical.xml'" select="('style')"/>
+            <xsl:map-entry key="'visualisierungen.xml'" select="('style')"/>
             <xsl:map-entry key="'impressum.xml'" select="('style')"/>
             <xsl:map-entry key="'nutzungsbedingungen.xml'" select="('style')"/>
             <xsl:map-entry key="'register.xml'" select="('style')"/>
             <xsl:map-entry key="'notizen.xml'" select="('style')"/>
             <xsl:map-entry key="'kommentar.xml'" select="('style')"/>
-            <xsl:for-each select="collection('../../data/editions?select=absatz*.xml|motti*.xml')">
+            <xsl:map-entry key="'downloads.xml'" select="('style')"/>
+            <xsl:for-each select="collection('../../data/editions?select=absatz*.xml|motto*.xml')">
                 <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('style','micro-editor')"/>
             </xsl:for-each>
             <xsl:map-entry key="'biblindex_updated.xml'" select="('style')"/>
@@ -24,10 +26,25 @@
             <xsl:map-entry key="'commentindex_updated.xml'" select="('style')"/>
             <xsl:map-entry key="'eventindex_updated.xml'" select="('style')"/>
             <xsl:map-entry key="'suche.xml'" select="('style')"/>
+            <xsl:for-each select="collection('../../vis?select=*.xml')">
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('style', 'witrels-vis')"/>
+            </xsl:for-each>
             <xsl:for-each select="collection('../../data/editions?select=wit-*.xml')">
                 <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('style','micro-editor')"/>
             </xsl:for-each>
             <xsl:for-each select="collection('../../data/editions2?select=wit-*.xml')">
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('style','micro-editor')"/>
+            </xsl:for-each>
+            <xsl:for-each select="collection('../../data/editions3?select=wit-*.xml')">
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('style','micro-editor')"/>
+            </xsl:for-each>
+            <xsl:for-each select="collection('../../data/editions4?select=wit-*.xml')">
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('style','micro-editor')"/>
+            </xsl:for-each>
+            <xsl:for-each select="collection('../../data/editions5?select=wit-*.xml')">
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('style','micro-editor')"/>
+            </xsl:for-each>
+            <xsl:for-each select="collection('../../data/editions6?select=wit-*.xml')">
                 <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('style','micro-editor')"/>
             </xsl:for-each>
         </xsl:map>

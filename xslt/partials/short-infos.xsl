@@ -99,6 +99,12 @@
             Topographische Umschrift 
           </a>
         </xsl:if>
+        <xsl:if test="@subtype = 'MottoWBR'">
+          <xsl:text> | </xsl:text>
+          <a class="text-dark-grey" target="_blank" rel="noopener noreferrer" href="{@xml:id || 'r.html'}">
+            Topographische Umschrift 
+          </a>
+        </xsl:if>
       </span>
     </div>
 </xsl:template>
@@ -120,10 +126,10 @@
   <xsl:variable name="preceding_pb" as="node()">
     <xsl:choose>
         <xsl:when test="$reftype='insertionstart'">
-          <xsl:copy-of select="doc('../../data/editions/Gesamt.xml')//tei:note[@xml:id=replace($id,'#','')]/preceding::tei:pb[1]"/>
+          <xsl:copy-of select="doc('../../data/editions/KK1933_DfeH_supplemented.xml')//tei:note[@xml:id=replace($id,'#','')]/preceding::tei:pb[1]"/>
         </xsl:when>
         <xsl:when test="$reftype='insertionend'">
-          <xsl:copy-of select="doc('../../data/editions/Gesamt.xml')//tei:metamark[contains(@target,$id)]/preceding::tei:pb[1]"/>
+          <xsl:copy-of select="doc('../../data/editions/KK1933_DfeH_supplemented.xml')//tei:metamark[contains(@target,$id)]/preceding::tei:pb[1]"/>
         </xsl:when>
       </xsl:choose>
   </xsl:variable>
@@ -134,6 +140,12 @@
       <xsl:if test="$reftype='insertionstart' and not($preceding_pb/@type = 'nonWitness')">
         <xsl:text> | </xsl:text>
         <a class="text-dark-grey" target="_blank" rel="noopener noreferrer" href="{$preceding_pb/@xml:id || '.html'}">
+          Topographische Umschrift 
+        </a>
+      </xsl:if>
+      <xsl:if test="$reftype='insertionstart' and $preceding_pb/contains(@xml:id, 'DffH')">
+        <xsl:text> | </xsl:text>
+        <a class="text-dark-grey" target="_blank" rel="noopener noreferrer" href="wit-DffH-0266_ar.html">
           Topographische Umschrift 
         </a>
       </xsl:if>
@@ -151,8 +163,8 @@
   <div>
       <div>
         <xsl:choose>
-          <xsl:when test="$source='Motti'">
-              <xsl:text>Motti (1933):</xsl:text>
+          <xsl:when test="$source='Motto'">
+              <xsl:text>Motto (1933):</xsl:text>
           </xsl:when>
           <xsl:when test="$source='DW'">
               <xsl:text>Dritte Walpurgisnacht (1933):</xsl:text>

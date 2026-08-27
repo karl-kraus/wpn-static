@@ -40,9 +40,17 @@ fi
 if [ -f $output_archive ]; then rm $output_archive; fi
 
 mkdir data/editions
-mv $custom_output_dir/Gesamt.xml data/editions/
+mv $custom_output_dir/KK1933_DfeH_supplemented.xml data/editions/
 mkdir data/editions2
-mv $custom_output_dir/KK1933_Abs64_Ts.xml data/editions2/
+mv $custom_output_dir/KK1933_TFragment2.xml data/editions2/
+mkdir data/editions3
+mv $custom_output_dir/KK1933_HMotto.xml data/editions3/
+mkdir data/editions4
+mv $custom_output_dir/KK1933_DfMotto.xml data/editions4/
+mkdir data/editions5
+mv $custom_output_dir/KK1933_TParalipomenon.xml data/editions5/
+mkdir data/editions6
+mv $custom_output_dir/KK1933_DffH_partial.xml data/editions6/
 mkdir data/indices
 mv $custom_output_dir/Register.xml data/indices/
 mv $custom_output_dir/Events.xml data/indices/

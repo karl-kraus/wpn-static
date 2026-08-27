@@ -1,0 +1,2421 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<figure xmlns="http://www.tei-c.org/ns/1.0">
+  <graphic url="vis_DW_F890.svg">
+    <desc>
+      <label>Abfolge der Textträger nach Typ</label>
+    </desc>
+  </graphic>
+  <figDesc>
+    <list rend="constant">
+      <item type="font" n="both">
+        <label>both</label>
+      </item>
+      <item type="font" n="diff">
+        <label>diff</label>
+      </item>
+      <item type="font" n="same">
+        <label>same</label>
+      </item>
+      <item type="font" n="typo">
+        <label>typo</label>
+      </item>
+      <item type="marked" n="no">
+        <label>no</label>
+      </item>
+      <item type="marked" n="yes">
+        <label>yes</label>
+      </item>
+    </list>
+    <list type="axes">
+      <item>
+        <label>Typoskript</label>
+        <list type="documents">
+          <item>
+            <label>T<hi rend="sup">Fragment 2</hi>, Typoskript „Wenn ich mich nun Frage ...“</label>
+            <list type="passages">
+              <item xml:id="Abs64seg0008">
+                <label>Da ich mich nun frage, wie ich das mir noch immer begreifliche, […] erfundenen Dialog sprechen, sind unmittelbar bedrohlicher.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0229r.html"/>
+                <ref type="fol">229r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWseg0001">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Wenn ich mich nun frage, wie ich das so begreifliche, […] Wahnschaffes sind augenblicklich und unmittelbar bedrohlicher,</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0269.html"/>
+                  <ref type="fol">269</ref>
+                </ref>
+              </item>
+              <item xml:id="Abs64seg0001">
+                <label>Da ich mich nun frage, wie ich das mir noch immer begreifliche, […] Verankerung in meinem Grunde nicht verschmäht hat.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0229r.html"/>
+                <ref type="fol">229r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900200">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>„Da ich mich nun frage, wie ich das mir noch immer […] seine Verankerung in meinem Boden nicht verschmäht hat.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,140"/>
+                  <ref type="page">140</ref>
+                </ref>
+              </item>
+              <item xml:id="Abs64seg0009">
+                <label>wenn ich vor ihnen und ihrem Scheiterhaufen geborgen […] als meine Vorliebe für Kontraste befriedigen soll:</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0232r.html"/>
+                <ref type="fol">232r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWseg0002">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>aber wenn ich vor ihnen und ihren Scheiterhaufen geborgen […] als meine Vorliebe für Kontraste befriedigen soll:</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0271.html"/>
+                  <ref type="fol">271</ref>
+                </ref>
+              </item>
+              <item xml:id="Abs64seg0002">
+                <label>Er hat ihn geradezu als seinen Boden reklamiert, vermutend, […] Verdacht zugezogen hat, dass sie mich rechts liegen liess.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0232r.html"/>
+                <ref type="fol">232r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900201">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Was kann ein Autor dafür, daß seine Verteidigung der […] Verdacht zugezogen hat, daß man ihn rechts liegen ließ.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,102"/>
+                  <ref type="page">102</ref>
+                </ref>
+              </item>
+              <item xml:id="Abs64seg0010">
+                <label>Diese Apologie enthält nebst den grundlegenden Irrtümern […] Grossen, Mit eigner Faust ins Totenreich gestossen!</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0234r.html"/>
+                <ref type="fol">234r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWseg0003">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Diese Apologie enthält nebst den grundlegenden Irrtümern […] unsrer Großen, Mit eigner Faust ins Totenreich gestoßen!</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0273.html"/>
+                  <ref type="fol">273</ref>
+                </ref>
+              </item>
+              <item xml:id="Abs64seg0003">
+                <label>Und doch hat es kein Autor schwerer, die Sprache ariogermanischen […] wahnschaffnen Tat, die solcher Wirklichkeit zuwuchs.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0237r.html"/>
+                <ref type="fol">237r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900202">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Und doch hat es kein Autor schwerer, die Sprache ariogermanischen […] wahnschaffne Tat, die solcher Wirklichkeit zuwuchs.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,144"/>
+                  <ref type="page">144</ref>
+                </ref>
+              </item>
+              <item xml:id="Abs64seg0004">
+                <label>Blut will zu Blut. Die Handlung ist an dem Punkt, wo, […] zur Hand, und muss getan sein, eh'noch recht erkannt.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0240r.html"/>
+                <ref type="fol">240r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900203">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>»Blut will zu Blut«. Die Handlung ist an den Punkt […] zur Hand, und muß getan sein, eh’ ein Blick es fand</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,315"/>
+                  <ref type="page">315</ref>
+                </ref>
+              </item>
+              <item xml:id="Abs64seg0005">
+                <label>Doch ist's gewiss, er kann den wild empörten Zustand […] den Schlaf! Und drum wir Macbeth nicht mehr schlafen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0240r.html"/>
+                <ref type="fol">240r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900204">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Doch ist’s gewiß, er kann den wild empörten Zustand […] Schlaf! Und drum wird Macbeth nicht mehr schlafen!“</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,315"/>
+                  <ref type="page">315</ref>
+                </ref>
+              </item>
+              <item xml:id="Abs64seg0006">
+                <label>„Denn so zu sein, ist nichts:doch sicher so zu sein!“</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0240r.html"/>
+                <ref type="fol">240r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900205">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Denn »dies zu sein, ist nichts, allein: dies sicher sein!«</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,315"/>
+                  <ref type="page">315</ref>
+                </ref>
+              </item>
+              <item xml:id="Abs64seg0007">
+                <label>Beispiele gibt es, wie solcher Aufstieg, der Konsorten […] sein Teil begehrend, nach der ergriffnen Macht greift,</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0240r.html"/>
+                <ref type="fol">240r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900206">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>„Beispiele gibt es, wie solcher Aufstieg, der Konsorten […] sein Teil begehrend, nach der ergriffnen Macht greift.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,314"/>
+                  <ref type="page">314</ref>
+                </ref>
+              </item>
+              <item xml:id="Abs64seg0015">
+                <label>wir sind keine Partei, wir sind eine Weltanschauung. […] Walhalla in die Hölle reisst, wo sie asphaltiert ist.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0240r.html"/>
+                <ref type="fol">240r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900207">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>»Wir sind keine Partei, wir sind eine Weltanschauung.« […] Walhalla in die Hölle, wo sie noch asphaltiert ist.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,315"/>
+                  <ref type="page">315</ref>
+                </ref>
+              </item>
+              <item xml:id="Abs64seg0016">
+                <label>Sei das Gespenst, das gegen uns erstanden, Sich Kaiser […] Grossen, Mit eigner Faust ins Totenreich gestossen!</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0242r.html"/>
+                <ref type="fol">242r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900208">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Selbst ist der Mann! Wer Thron und Kron begehrt,  Persönlich […] Großen,  Mit eigner Faust ins Totenreich gestoßen!</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                  <ref type="page">86</ref>
+                </ref>
+              </item>
+            </list>
+          </item>
+        </list>
+      </item>
+      <item>
+        <label>Druckfahnen</label>
+        <list type="documents">
+          <item>
+            <label>Df<hi rend="sup">Motti</hi>, Druckfahnen der Motti</label>
+            <list type="passages">
+              <item xml:id="F890seg0092">
+                <label>Zum Schauderfeste dieser Nacht, wie öfter schon, Tret’ […] seh’ ich oft entstehn Und plötzlich wieder untergehn.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotto-0001r.html"/>
+                <ref type="fol">1r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900020">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Zum Schauderfeste dieser Nacht, wie öfter schon,  Tret’ […] seh’ ich oft entstehn  Und plötzlich wieder untergehn.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,078"/>
+                  <ref type="page">78</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0015">
+                <label>Ganz recht⁠ ⁠! Sie sind nicht mehr zu zügeln . . . .</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotto-0002r.html"/>
+                <ref type="fol">2r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900063">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Ganz recht! Sie sind nicht mehr zu zügeln.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                  <ref type="page">85</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0017">
+                <label>Angestrengtest, nimmer müde, Kolossal-Karyatide, Trägt […] soll’s nicht kommen, Sphinxe haben Platz genommen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotto-0002r.html"/>
+                <ref type="fol">2r</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900094">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Angestrengtest, nimmer müde,  Kolossal-Karyatide,  […] soll’s nicht kommen,  Sphinxe haben Platz genommen.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                  <ref type="page">81</ref>
+                </ref>
+              </item>
+            </list>
+          </item>
+          <item>
+            <label>Df(eH), ‚Jerusalemer Konvolut‘</label>
+            <list type="passages">
+              <item xml:id="F890seg0003">
+                <label>Anfang Mai 1933 Mir fällt zu Hitler nichts ein. Ich […] Inbrunst symbolgläubiger Vorzeit hinter sich lassen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0001.html"/>
+                <ref type="fol">1</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900002">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>„ Anfang Mai bis September 1933 Mir fällt zu Hitler […] Inbrunst symbolgläubiger Vorzeit hinter sich lassen.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,153"/>
+                  <ref type="page">153</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0018">
+                <label>Mir fällt zu Hitler nichts ein.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0001.html"/>
+                <ref type="fol">1</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900092">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>»Mir fällt zu Hitler nichts ein.«</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,002"/>
+                  <ref type="page">2</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0019">
+                <label>die heute alles beherrscht außer der Sprache.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0001.html"/>
+                <ref type="fol">1</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900093">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>»die heute alles beherrscht außer der Sprache«</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,093"/>
+                  <ref type="page">93</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg104">
+                <label>der beim Begräbnis der Menschheit den Hut nicht abnimmt.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0004.html"/>
+                <ref type="fol">4</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900167">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Hut ab beim Begräbnis der Menschheit</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,072"/>
+                  <ref type="page">72</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0005">
+                <label>Wie dem immer sei, vorläufig weckt das Naturereignis, […] dem Denken, das sich dort verirrte, keinen Ausweg.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0006.html"/>
+                <ref type="fol">6</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900003">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>— — — Wie dem immer sei, vorläufig weckt das Naturereignis, […] dem Denken, das sich dort verirrte, keinen Ausweg.“</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,156"/>
+                  <ref type="page">156</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0020">
+                <label>Welche Lage wäre denn schwieriger als die, in der sich […] verbraucht war. Beim Weltuntergang will ich privatisieren.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0010.html"/>
+                <ref type="fol">10</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900004">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>„Welche Lage wäre denn schwieriger als die, in der […] verbraucht war. Beim Weltuntergang will ich privatisieren.“</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,162"/>
+                  <ref type="page">162</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0102">
+                <label>die es von mir haben und behalten</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0013.html"/>
+                <ref type="fol">13</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900165">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>die es von ihr haben und behalten,</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,073"/>
+                  <ref type="page">73</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0103">
+                <label>die mitten in der Schilderung der Panik noch die Geistesgegenwart […] festzustellen, der Magier sei bloß zum Zahnarzt nach Wien geeilt</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0019.html"/>
+                <ref type="fol">19</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900166">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>wo man inmitten der Panik die Geistesgegenwart hatte, […] nach Wien gekommen«, und überhaupt bloß zum Zahnarzt</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,148"/>
+                  <ref type="page">148</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg105">
+                <label>Schließlich hat ja das deutsche Aufräumen in seiner […] vermehrt hat, daß die Prominenz hochschwillt wie noch nie</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0019.html"/>
+                <ref type="fol">19</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900168">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Gewiß, das deutsche Aufräumen offenbart seine totale […] hat, daß die Prominenz hochschwillt wie nie zuvor,</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,147"/>
+                  <ref type="page">147</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg106">
+                <label>um in medias res einer Nichtvorhandenheit zu gelangen, […] das Verhalten der Betroffenen richtiggestellt werden;</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0021.html"/>
+                <ref type="fol">21</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900169">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>im deutschen Kunstwesen steht man einer Nichtvorhandenheit […] hat sich der Irrtum vielfach bald ins Reine gebracht,</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,146"/>
+                  <ref type="page">146</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0021">
+                <label>Jetzt so, mit ungeheurem Streben, Drang aus dem Abgrund […] fordre laut, zu neuem Leben, Mir fröhliche Bewohner auf</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0048.html"/>
+                <ref type="fol">48</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900071">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Jetzt so, mit ungeheurem Streben,  Drang aus dem Abgrund […] laut, zu neuem Leben,  Mir fröhliche Bewohner auf.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                  <ref type="page">85</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0022">
+                <label>Wie sie dem Satyrvolk behagen; Ein Bocksfuß darf dort alles wagen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0048.html"/>
+                <ref type="fol">48</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900073">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Die Lamien sind’s, lustfeine Dirnen,  Mit Lächelmund […] Satyrvolk behagen;  Ein Bocksfuß darf dort alles wagen.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                  <ref type="page">85</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0023">
+                <label>Apollen hält ein froh Verweilen Dort nun mit seliger Musen Chor</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0049.html"/>
+                <ref type="fol">49</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900072">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Apollen hält ein froh Verweilen  Dort nun mit seliger Musen Chor.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                  <ref type="page">85</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0024">
+                <label>Hast du, o Thales, je in einer Nacht, Solch einen Berg aus Schlamm hervorgebracht?</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0057.html"/>
+                <ref type="fol">57</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900056">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Hast du, o Thales, je in einer Nacht,  Solch einen Berg aus Schlamm hervorgebracht?</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                  <ref type="page">84</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0025">
+                <label>Gib nach dem löblichen Verlangen, Von vorn die Schöpfung […] abertausend Formen, Und bis zum Menschen hast du Zeit.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0067.html"/>
+                <ref type="fol">67</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900022">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Gib nach dem löblichen Verlangen,  Von vorn die Schöpfung […] abertausend Formen,  Und bis zum Menschen hast du Zeit.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                  <ref type="page">81</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg107">
+                <label>es handelt sich hier gar nicht um Regierungsformen, […] sondern um eine neue Vision von der Geburt des Menschen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0069.html"/>
+                <ref type="fol">69</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900170">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>daß es sich gar nicht um eine neue Regierungsform handle, […] sondern »um eine neue Vision von der Geburt des Menschen,</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,088"/>
+                  <ref type="page">88</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg108">
+                <label>vielleicht um die letzte großartige Konzeption der […] großartigsten Realisationen des Weltgeists überhaupt,</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0069.html"/>
+                <ref type="fol">69</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900171">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>vielleicht um die letzte großartige Konzeption der […] großartigsten Realisationen des Weltgeists überhaupt«.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,088"/>
+                  <ref type="page">88</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0026">
+                <label>Da muß ich mich durch steile Felsentreppen, Durch alter […] das hat meine Gunst; Zunächst der Schwefel . . . .</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0079.html"/>
+                <ref type="fol">79</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900049">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Auf meinem Harz der harzige Dunst  Hat was vom Pech […] und das hat meine Gunst;  Zunächst der Schwefel ....</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                  <ref type="page">83</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0010">
+                <label>und ich murmele zuweilen die Verse des größten deutschen […] Fußes entbehrt, der auf ihm nichts zu suchen hatte.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0097.html"/>
+                <ref type="fol">97</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900088">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>. . und ich murmele zuweilen die Verse des größten […] konnten, die Großmann über ihre Lage veröffentlicht hat.)</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,019"/>
+                  <ref type="page">19</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0001">
+                <label>Der Journalismus, welcher den Raum der Lebenserscheinungen […] der arische Glaube in der Hitlerregie gefunden hat.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0098.html"/>
+                <ref type="fol">98</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900005">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Der Journalismus, welcher den Raum der Lebenserscheinungen […] germanisches Glaubensbedürfnis in der Hitler-Regie fand.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,147"/>
+                  <ref type="page">147</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg109">
+                <label>Ich bin Jude, und ich bin in Deutschland noch nie darnach […] der weniger Glück hatte, auf der Brust tragen mußte.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0101.html"/>
+                <ref type="fol">101</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900172">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Ich bin Jude, und ich bin in Deutschland noch nie darnach […] honoriger Glaubensgenosse auf der Brust tragen muß.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,107"/>
+                  <ref type="page">107</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0027">
+                <label>Vielleicht würde ein Literat, der sich der Sprache […] Gewalttätigkeit — sprachliches Neuland ist erobert.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0106.html"/>
+                <ref type="fol">106</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900006">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>„Vielleicht würde ein Literat, der sich der Sprache […] oder Wortgewalt — sprachliches Neuland wäre erobert.“</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,088"/>
+                  <ref type="page">88</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0028">
+                <label>Am liebsten bezöge ich sie von einer Vision, die dank […] das Gedicht auf Freiheit, Liebe, Schönheit und Gott.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0117.html"/>
+                <ref type="fol">117</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900007">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>„Am liebsten bezöge ich sie von einer Vision, die, […] ein Gedicht auf Freiheit, Liebe, Schönheit und Gott.“</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,094"/>
+                  <ref type="page">94</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0014">
+                <label>Als angesichts der höchsten Ahnen, Der Nacht, des Chaos […] Doppelmütze, Die beiden Berge frevelnd aufgesetzt.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0120.html"/>
+                <ref type="fol">120</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900090">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Als, angesichts der höchsten Ahnen,  Der Nacht, des […] Doppelmütze,  Die beiden Berge frevelnd aufgesetzt.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,138"/>
+                  <ref type="page">138</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0029">
+                <label>sympathisch schon durch den Umstand, daß der Ort doch […] Mit vorzüglicher Hochachtung der Verlag der ‚Fackel‘</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0133.html"/>
+                <ref type="fol">133</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900008">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>„sympathisch schon durch den Umstand, daß der Ort die […] Mit vorzüglicher Hochachtung Der Verlag der Fackel “</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,108"/>
+                  <ref type="page">108</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0096">
+                <label>weh dir, daß du ihr Enkel bist.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0144.html"/>
+                <ref type="fol">144</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900069">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Weh dir, daß du ein Enkel bist!</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                  <ref type="page">85</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0030">
+                <label>Hier wittert’s nach der Hexenküche, Nach einer längst vergangnen Zeit.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0144.html"/>
+                <ref type="fol">144</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900076">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Hier wittert’s nach der Hexenküche,  Nach einer längst vergangnen Zeit.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                  <ref type="page">84</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0031">
+                <label>Mit diesen hast du dich vereinigt, Mich hat’s die ganze […] Zeit gepeinigt. Das Gaukeln schafft kein festes Glück.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0148.html"/>
+                <ref type="fol">148</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900080">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Mit diesen hast du dich vereinigt,  Mich hat’s die […] gepeinigt.  Das Gaukeln schafft kein festes Glück.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                  <ref type="page">86</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0032">
+                <label>Mir schaudert vor dem garstigen Kunden Und seiner Rabentraulichkeit.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0149.html"/>
+                <ref type="fol">149</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900082">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Mir schaudert vor dem garstigen Kunden  Und seiner Rabentraulichkeit.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                  <ref type="page">86</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0093">
+                <label>»Was haben wir zu fürchten, wer es weiß? Niemand zieht unsre Macht zur Rechenschaft.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0149.html"/>
+                <ref type="fol">149</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900099">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>»Was haben wir zu fürchten, wer es weiß? Niemand zieht unsre Macht zur Rechenschaft.«</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,315"/>
+                  <ref type="page">315</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0033">
+                <label>»Diese Taten wollen nicht so ergrübelt sein, sonst […] Herrscher im Frauengewand von Prätorianern ermordet wird.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0149.html"/>
+                <ref type="fol">149</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900087">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>»Diese Taten wollen nicht so ergrübelt sein, sonst […] Herrscher im Frauengewand von Prätorianern ermordet wird.“</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,314"/>
+                  <ref type="page">314</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg110">
+                <label>Wenn’s Judenblut vom Messer spritzt, Geht’s uns noch Mal so gut.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0152.html"/>
+                <ref type="fol">152</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900173">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>»Wenn’s Judenblut vom Messer spritzt, geht’s uns nochmal so gut«</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,183"/>
+                  <ref type="page">183</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0034">
+                <label>Diese Unvergleichlichen Wollen immer weiter, Sehnsuchtsvolle Hungerleider Nach dem Unerreichlichen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0157.html"/>
+                <ref type="fol">157</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900028">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Diese Unvergleichlichen  Wollen immer weiter,  Sehnsuchtsvolle […] Sehnsuchtsvolle Hungerleider  Nach dem Unerreichlichen.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                  <ref type="page">81</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg111">
+                <label>»I waß von nix«</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0163.html"/>
+                <ref type="fol">163</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900174">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>»I waß von nix«</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,292"/>
+                  <ref type="page">292</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg112">
+                <label>»I hab nix tan«</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0163.html"/>
+                <ref type="fol">163</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900175">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>»I hab nix tan«</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,292"/>
+                  <ref type="page">292</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg113">
+                <label>Wie oft hat Hitler Dollfuß gemahnt, daß »sich mit Gewalt in der Politik nichts ausrichten lasse«!</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0165.html"/>
+                <ref type="fol">165</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900176">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Da im deutschen Rundfunk überdies betreffs Österreichs […] sich mit Gewalt auf die Dauer nicht regieren lasse,</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,180"/>
+                  <ref type="page">180</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0035">
+                <label>Sind’s Menschenstimmen, die mein Ohr vernimmt? Wie […] erreichen, Und doch verdammt, sich immer selbst zu gleichen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0174.html"/>
+                <ref type="fol">174</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900050">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Sind’s Menschenstimmen, die mein Ohr vernimmt?  Wie […]  Und doch verdammt, sich immer selbst zu gleichen.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                  <ref type="page">83</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0036">
+                <label>Die Ungestalten seh ich an Als irden-schlechte Töpfe, […] stoßen sich die Weisen dran Und brechen harte Köpfe.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0174.html"/>
+                <ref type="fol">174</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900051">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Die Ungestalten seh ich an  Als irden-schlechte Töpfe, […] stoßen sich die Weisen dran  Und brechen harte Köpfe.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                  <ref type="page">83</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0037">
+                <label>In der Satrapie jenes Streicher, dessen Hirn der Gedanke […] der rehabilitierten Rasse und der besudelten Natur.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0195.html"/>
+                <ref type="fol">195</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900009">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Ein paar Tage war von dem Fall jenes Mädchens die Rede […] der rehabilitierten Rasse und der besudelten Natur.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,298"/>
+                  <ref type="page">298</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0038">
+                <label>Wird sie mit dem Juden noch einmal gesehen, dann wird […] Juden, einschließlich des Tatbestandes, mitzuteilen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0195_bc.html"/>
+                <ref type="fol">195_bc</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900010">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>— — Wird sie mit dem Juden noch einmal gesehen, dann […] Juden, einschließlich des Tatbestandes, mitzuteilen.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,299"/>
+                  <ref type="page">299</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0039">
+                <label>Wird noch ein einziges Mal ein Mädchen arischen Blutes […] und auf der Breiten Straße zur Schau gestellt wird.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0195_d.html"/>
+                <ref type="fol">195_d</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900011">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>— — Wird noch ein einziges Mal ein Mädchen arischen […] und auf der Breiten Straße zur Schau gestellt wird.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,299"/>
+                  <ref type="page">299</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0040">
+                <label>Einer, der geheiratet hat und infolgedessen niedergeschlagen […] Dinge möglich? Ihr Antlitz wenden Gangsters davon ab.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0195_fg.html"/>
+                <ref type="fol">195_fg</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900012">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Demgemäß der amtliche Bescheid an einen Verehelichten, […] Dinge möglich wären, bleibt eine rhetorische Frage.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,299"/>
+                  <ref type="page">299</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg114">
+                <label>daß die Kommunisten den Reichstag angezündet haben?</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0201.html"/>
+                <ref type="fol">201</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900183">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>(vom Schutzbund; du Schwert an meiner Linken)</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,267"/>
+                  <ref type="page">267</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg115">
+                <label>die eine Politik, die vom Tun redet, beim Wort, beim Mord genommen hat.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0203.html"/>
+                <ref type="fol">203</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900178">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>daß es — und dies ist ja der Sinn des Ereignisses — […] Rede der Politik beim Wort, beim Mord genommen hat</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,066"/>
+                  <ref type="page">66</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg116">
+                <label>Es lebe die Freiheit! Das Büro der Zweiten Internationale</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0203.html"/>
+                <ref type="fol">203</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900179">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>»Es lebe die Freiheit! Das Büro der Zweiten Internationale!«</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,112"/>
+                  <ref type="page">112</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0041">
+                <label>Nötigt sie herabzusteigen! Sie verbergen in den Zweigen […] verderblich anzufallen, Wenn ihr euer Ohr verleiht.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0206.html"/>
+                <ref type="fol">206</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900046">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Nötigt sie herabzusteigen!  Sie verbergen in den Zweigen […] verderblich anzufallen,  Wenn ihr Euer Ohr verleiht.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                  <ref type="page">83</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg118">
+                <label>liberalen Betverein »Alles, nur nicht Hitler«</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0218.html"/>
+                <ref type="fol">218</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900181">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>»jüdischen Betverein: Alles, nur nicht Hitler!«</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,185"/>
+                  <ref type="page">185</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0042">
+                <label>Sie streiten sich, so heißt’s, um Freiheitsrechte, Genau besehn sind’s Knechte gegen Knechte.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0225.html"/>
+                <ref type="fol">225</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900032">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Sie streiten sich, so heißt’s, um Freiheitsrechte,  Genau besehn, sind’s Knechte gegen Knechte.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                  <ref type="page">82</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg119">
+                <label>»Wir wollen nicht« den braunen Faszismus, »wir wollen aber auch nicht« den schwarzen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0228.html"/>
+                <ref type="fol">228</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900182">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>»Wir wollen nicht —, wir wollen aber auch nicht —«</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,185"/>
+                  <ref type="page">185</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg121">
+                <label>daß »gar nichts besagt, was der Starhemberg sagt«</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0231.html"/>
+                <ref type="fol">231</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900184">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>daß jenes »Gar nix besagt, was der Starhemberg sagt«</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,271"/>
+                  <ref type="page">271</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0043">
+                <label>Ich bin für so manches, was die Sozialdemokraten wollen, […] Parteiorgan auf zwei Bluthochzeiten tanzen möchten.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0232.html"/>
+                <ref type="fol">232</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900013">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>„Ich bin für so manches, was die Sozialdemokraten »wollen«, […] Parteiorgan auf zwei Bluthochzeiten tanzen möchten.“</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,185"/>
+                  <ref type="page">185</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0044">
+                <label>Die natürliche Gegnerschaft der Regierenden eingeräumt, […] Es gäbe noch ein anderes Mittel: die Wahrheit sagen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0232.html"/>
+                <ref type="fol">232</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900014">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>„Die natürliche Gegnerschaft der Regierenden eingeräumt, […] freilich noch ein anderes Mittel: die Wahrheit sagen.“</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,186"/>
+                  <ref type="page">186</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0097">
+                <label>Die Partei muß ausdrücklich erklären, daß sie zu Verhandlungen nicht bereit ist.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0235.html"/>
+                <ref type="fol">235</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900096">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Die Partei muß ausdrücklich erklären, daß sie zu Verhandlungen nicht bereit ist</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,194"/>
+                  <ref type="page">194</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0045">
+                <label>Durch Weiberkünste, schwer zu kennen, Verstehen sie […] Schein zu trennen, Und jeder schwört, das sei das Sein.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0239.html"/>
+                <ref type="fol">239</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900047">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Durch Weiberkünste, schwer zu kennen,  Verstehen sie […] Schein zu trennen,  Und jeder schwört, das sei das Sein.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                  <ref type="page">83</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0046">
+                <label>Das arme Reich Kennt kaum sich selber mehr. Nicht unsre […] Blumenstrauß am Hut, Und stirbt noch eh es krank wird.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0247_a.html"/>
+                <ref type="fol">247_a</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900085">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Das arme Reich  Kennt kaum sich selber mehr. Nicht […] Blumenstrauß am Hut,  Und stirbt noch eh es krank wird.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                  <ref type="page">86</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0047">
+                <label>’s ist Fluch der Zeit, daß Tolle Blinde führen</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0248.html"/>
+                <ref type="fol">248</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900091">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>’s ist Fluch der Zeit, daß Tolle Blinde führen!</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,177"/>
+                  <ref type="page">177</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0048">
+                <label>Ich merk’, es hat bei diesen Leuten Verwandtschaft Großes zu bedeuten.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0262.html"/>
+                <ref type="fol">262</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900068">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Ich merk’, es hat bei diesen Leuten  Verwandtschaft Großes zu bedeuten.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                  <ref type="page">85</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0049">
+                <label>Indessen wogt, in grimmigem Schwalle Des Aufruhrs wachsendes Gewühl.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                <ref type="fol">263</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900077">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Indessen wogt, in grimmigem Schwalle,  Des Aufruhrs wachsendes Gewühl.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                  <ref type="page">86</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0050">
+                <label>Der darf auf Schand und Frevel pochen, Der auf Mitschuldigste […] ausgesprochen, Wo Unschuld nur sich selber schützt.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                <ref type="fol">263</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900066">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Der darf auf Schand und Frevel pochen,  Der auf Mitschuldigste […] ausgesprochen,  Wo Unschuld nur sich selber schützt.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                  <ref type="page">85</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0051">
+                <label>Ein Richter, der nicht strafen kann, Gesellt sich endlich zum Verbrecher . . . .</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                <ref type="fol">263</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900067">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Ein Richter, der nicht strafen kann,  Gesellt sich endlich zum Verbrecher.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                  <ref type="page">85</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0052">
+                <label>Wie tobt’s in diesen wilden Tagen! Ein jeder schlägt […] beschützen sollten, Es liegt geplündert und verheert.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                <ref type="fol">263</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900034">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Wie tobt’s in diesen wilden Tagen!  Ein jeder schlägt […] beschützen sollten,  Es liegt geplündert und verheert.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                  <ref type="page">82</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0053">
+                <label>Man läßt ihr Toben, wütend Hausen, Schon ist die halbe […] draußen, Doch keiner denkt, es ging’ ihn irgend an.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                <ref type="fol">263</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900078">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Man läßt ihr Toben, wütend Hausen,  Schon ist die halbe […] draußen,  Doch keiner denkt, es ging’ ihn irgend an.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                  <ref type="page">86</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0054">
+                <label>Die Goldespforten sind verrammelt, Ein jeder kratzt […] scharrt und sammelt Und unsre Kassen bleiben leer.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                <ref type="fol">263</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900039">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Die Goldespforten sind verrammelt,  Ein jeder kratzt […] scharrt und sammelt  Und unsre Kassen bleiben leer.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                  <ref type="page">82</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0055">
+                <label>Wir wollen alle Tage sparen Und brauchen alle Tage mehr . . . .</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                <ref type="fol">263</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900036">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Wir wollen alle Tage sparen  Und brauchen alle Tage mehr.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                  <ref type="page">82</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0056">
+                <label>Verpfändet ist der Pfühl im Bette, Und auf den Tisch kommt vorgegessen Brot.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                <ref type="fol">263</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900037">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Verpfändet ist der Pfühl im Bette,  Und auf den Tisch kommt vorgegessen Brot.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                  <ref type="page">82</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0057">
+                <label>Wo fehlt’s nicht irgendwo auf dieser Welt? Dem dies, dem das, hier aber fehlt das Geld.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                <ref type="fol">263</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900038">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Wo fehlt’s nicht irgendwo auf dieser Welt?  Dem dies, dem das, hier aber fehlt das Geld.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                  <ref type="page">82</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0058">
+                <label>So sei die Zeit in Fröhlichkeit vertan! Und ganz erwünscht […] wir, auf jeden Fall, Nur lustiger das wilde Carneval.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                <ref type="fol">263</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900075">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>So sei die Zeit in Fröhlichkeit vertan!  Und ganz erwünscht […] wir, auf jeden Fall,  Nur lustiger das wilde Carneval.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                  <ref type="page">85</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0059">
+                <label>Er ahnet nicht, was uns von außen droht, Laß ihn die […] bleiben; Gesetz ist mächtig, mächtiger ist die Not.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0264.html"/>
+                <ref type="fol">264</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900041">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Er ahnet nicht, was uns von außen droht,  Laß ihn die […] bleiben;  Gesetz ist mächtig, mächtiger ist die Not.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                  <ref type="page">83</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0060">
+                <label>Das sind die saubern Neuigkeiten, Wo aus der Kehle, […] mir um die Ohren, Allein zum Herzen dringt es nicht.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0264.html"/>
+                <ref type="fol">264</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900045">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Das sind die saubern Neuigkeiten,  Wo aus der Kehle, […] mir um die Ohren,  Allein zum Herzen dringt es nicht.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                  <ref type="page">83</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0061">
+                <label>Am Ende treiben sie’s nach ihrer Weise fort, Als wenn sie nicht erzogen wären.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0264.html"/>
+                <ref type="fol">264</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900026">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Am Ende treiben sie’s nach ihrer Weise fort,  Als wenn sie nicht erzogen wären.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                  <ref type="page">81</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0062">
+                <label>Den lieb’ ich, der Unmögliches begehrt.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0264.html"/>
+                <ref type="fol">264</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900029">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Den lieb’ ich, der Unmögliches begehrt.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                  <ref type="page">81</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0063">
+                <label>Eilet, bequemen Sitz einzunehmen, Eilig zum Werke! […] Schmiede, Harnisch und Waffen Dem Heer zu schaffen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0264.html"/>
+                <ref type="fol">264</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900060">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Eilet, bequemen  Sitz einzunehmen,  Eilig zum Werke! […] Schmiede,  Harnisch und Waffen  Dem Heer zu schaffen.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                  <ref type="page">84</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0064">
+                <label>Wer wird uns retten! Wir schaffen’s Eisen, Sie schmieden […] reißen Ist noch nicht zeitig, Drum seid geschmeidig.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0265.html"/>
+                <ref type="fol">265</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900061">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Wer wird uns retten!  Wir schaffen’s Eisen,  Sie schmieden […] reißen  Ist noch nicht zeitig,  Drum seid geschmeidig.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                  <ref type="page">84</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0065">
+                <label>Laß du den Generalstab sorgen Und der Feldmarschall ist geborgen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0265.html"/>
+                <ref type="fol">265</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900079">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Laß du den Generalstab sorgen  Und der Feldmarschall ist geborgen.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                  <ref type="page">86</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0066">
+                <label>Nur sachte drauf! Allzugewohnt ans Naschen, Wo es auch sei, man sucht was zu erhaschen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0265.html"/>
+                <ref type="fol">265</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900062">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Nur sachte drauf! Allzugewohnt ans Naschen,  Wo es auch sei, man sucht was zu erhaschen.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                  <ref type="page">84</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0067">
+                <label>Es liebt sich jetzt ein jedes Kind Den Harnisch und […] Lumpen sind, Sie werden nur um desto mehr behagen.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0265.html"/>
+                <ref type="fol">265</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900057">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Es liebt sich jetzt ein jedes Kind  Den Harnisch und […] Lumpen sind,  Sie werden nur um desto mehr behagen.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                  <ref type="page">84</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0068">
+                <label>Wenn einer mir ins Auge sieht, Werd’ ich ihm mit der […] wenn sie flieht, Faß ich bei ihren letzten Haaren.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0266.html"/>
+                <ref type="fol">266</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900023">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Wenn einer mir ins Auge sieht,  Werd’ ich ihm mit der […] wenn sie flieht,  Faß ich bei ihren letzten Haaren.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                  <ref type="page">81</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0069">
+                <label>Der tüchtige Fuß nimmt Teil an ihrem Glück, Setzt dem Erschlagnen frisch sich ins Genick.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0266.html"/>
+                <ref type="fol">266</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900025">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Der tüchtige Fuß nimmt Teil an ihrem Glück,  Setzt dem Erschlagnen frisch sich ins Genick.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                  <ref type="page">81</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0070">
+                <label>Dem Klerus hab’ ich eine Lust verdorben, Und ihre Gunst mir freilich nicht erworben.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0266.html"/>
+                <ref type="fol">266</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900031">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Dem Klerus hab’ ich eine Lust verdorben,  Und ihre Gunst mir freilich nicht erworben.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                  <ref type="page">82</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0071">
+                <label>Dort war’s in Rom. Er bleibt dir hoch verpflichtet, Auf deinen Gang in Sorge stets gerichtet.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                <ref type="fol">267</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900030">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Dort war’s in Rom. Er bleibt dir hoch verpflichtet,  Auf deinen Gang in Sorge stets gerichtet.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                  <ref type="page">82</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0072">
+                <label>Wer das Gesicht mir zeigt, der kehrt’s nicht ab Als […] Hals, Kopf und Schopf hinschlotternd graß im Nacken.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                <ref type="fol">267</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900024">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Wer das Gesicht mir zeigt, der kehrt’s nicht ab  Als […] Hals, Kopf und Schopf hinschlotternd graß im Nacken.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                  <ref type="page">81</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0073">
+                <label>Im Sieg voran! und alles ist erlaubt.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                <ref type="fol">267</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900027">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Im Sieg voran! und alles ist erlaubt.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                  <ref type="page">81</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0074">
+                <label>»Sonst waren’s Ritter, König, Kaiser«, jetzt sind es […] darein geputzt, Das Mittelalter lebhaft aufgestutzt.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                <ref type="fol">267</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900053">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Sonst waren’s Ritter, König, Kaiser,  Jetzt sind es […] darein geputzt,  Das Mittelalter lebhaft aufgestutzt.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                  <ref type="page">84</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0075">
+                <label>Auch flattern Fahnenfetzen bei Standarten, Die frischer […] bereit Und mischte gern sich auch zum neuen Streit.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                <ref type="fol">267</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900058">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Auch flattern Fahnenfetzen bei Standarten,  Die frischer […] bereit  Und mischte gern sich auch zum neuen Streit.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                  <ref type="page">84</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0076">
+                <label>die kühnsten Klettrer konfus</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                <ref type="fol">267</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900048">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Das ist ein wunderbarer Gruß,  Die kühnsten Klettrer sind konfus.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                  <ref type="page">83</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0077">
+                <label>Nun ist Verwirrung überall.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                <ref type="fol">267</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900059">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Nun ist Verwirrung überall.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                  <ref type="page">84</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0078">
+                <label>Das passet nicht in unsern Kreis: Zugleich Soldat und Diebsgeschmeiß . . . .</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                <ref type="fol">267</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900064">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Das passet nicht in unsern Kreis:  Zugleich Soldat und Diebsgeschmeiß.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                  <ref type="page">85</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0079">
+                <label>Solang’ das treue Blut die vollen Adern regt, Sind wir der Körper, den dein Wille leicht bewegt.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                <ref type="fol">267</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900043">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Solang’ das treue Blut die vollen Adern regt,  Sind wir der Körper, den dein Wille leicht bewegt.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                  <ref type="page">83</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0080">
+                <label>Das ging so fort, nun sind wir da Und wissen selbst nicht, wie’s geschah.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0268.html"/>
+                <ref type="fol">268</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900070">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Das ging so fort, nun sind wir da  Und wissen selbst nicht, wie’s geschah.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                  <ref type="page">85</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0081">
+                <label>Innere Gährung, Volksgefahr</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0268.html"/>
+                <ref type="fol">268</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900044">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Viele schwören reine Huldigung  Dir, wie manche treue […] Untätigkeits-Entschuldigung,  Innere Gährung, Volksgefahr.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                  <ref type="page">83</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0082">
+                <label>Am Ende hängen wir doch ab Von Kreaturen, die wir machten.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0268.html"/>
+                <ref type="fol">268</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900083">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Am Ende hängen wir doch ab  Von Kreaturen, die wir machten.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                  <ref type="page">86</ref>
+                </ref>
+              </item>
+              <item xml:id="F890seg0083">
+                <label>Die Sünd’ ist groß und schwer, womit ich mich beladen, […] Das leidige Zaubervolk bringt mich in harten Schaden.</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0268.html"/>
+                <ref type="fol">268</ref>
+                <ref type="otherDoc" subtype="later" target="#DWf8900081">
+                  <ref type="doc">Warum die Fackel nicht erscheint</ref>
+                  <label>Die Sünd’ ist groß und schwer, womit ich mich beladen, […] Das leidige Zaubervolk bringt mich in harten Schaden.</label>
+                  <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                  <ref type="page">86</ref>
+                </ref>
+              </item>
+              <item xml:id="DWseg0001">
+                <label>Wenn ich mich nun frage, wie ich das so begreifliche, […] Wahnschaffes sind augenblicklich und unmittelbar bedrohlicher,</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0269.html"/>
+                <ref type="fol">269</ref>
+                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0008">
+                  <ref type="doc">Typoskript „Wenn ich mich nun Frage ...“</ref>
+                  <label>Da ich mich nun frage, wie ich das mir noch immer begreifliche, […] erfundenen Dialog sprechen, sind unmittelbar bedrohlicher.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0229r.html"/>
+                  <ref type="fol">229r</ref>
+                </ref>
+              </item>
+              <item xml:id="DWseg0002">
+                <label>aber wenn ich vor ihnen und ihren Scheiterhaufen geborgen […] als meine Vorliebe für Kontraste befriedigen soll:</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0271.html"/>
+                <ref type="fol">271</ref>
+                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0009">
+                  <ref type="doc">Typoskript „Wenn ich mich nun Frage ...“</ref>
+                  <label>wenn ich vor ihnen und ihrem Scheiterhaufen geborgen […] als meine Vorliebe für Kontraste befriedigen soll:</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0232r.html"/>
+                  <ref type="fol">232r</ref>
+                </ref>
+              </item>
+              <item xml:id="DWseg0003">
+                <label>Diese Apologie enthält nebst den grundlegenden Irrtümern […] unsrer Großen, Mit eigner Faust ins Totenreich gestoßen!</label>
+                <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0273.html"/>
+                <ref type="fol">273</ref>
+                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0010">
+                  <ref type="doc">Typoskript „Wenn ich mich nun Frage ...“</ref>
+                  <label>Diese Apologie enthält nebst den grundlegenden Irrtümern […] Grossen, Mit eigner Faust ins Totenreich gestossen!</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0234r.html"/>
+                  <ref type="fol">234r</ref>
+                </ref>
+              </item>
+            </list>
+          </item>
+        </list>
+      </item>
+      <item>
+        <label>Die Fackel Nr. 890–905</label>
+        <list type="documents">
+          <item>
+            <label>Die Fackel Nr. 890–950, Warum die Fackel nicht erscheint</label>
+            <list type="passages">
+              <item xml:id="DWf8900092">
+                <label>»Mir fällt zu Hitler nichts ein.«</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,002"/>
+                <ref type="page">2</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0018">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Mir fällt zu Hitler nichts ein.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0001.html"/>
+                  <ref type="fol">1</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900088">
+                <label>. . und ich murmele zuweilen die Verse des größten […] konnten, die Großmann über ihre Lage veröffentlicht hat.)</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,019"/>
+                <ref type="page">19</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0010">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>und ich murmele zuweilen die Verse des größten deutschen […] Fußes entbehrt, der auf ihm nichts zu suchen hatte.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0097.html"/>
+                  <ref type="fol">97</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900178">
+                <label>daß es — und dies ist ja der Sinn des Ereignisses — […] Rede der Politik beim Wort, beim Mord genommen hat</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,066"/>
+                <ref type="page">66</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg115">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>die eine Politik, die vom Tun redet, beim Wort, beim Mord genommen hat.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0203.html"/>
+                  <ref type="fol">203</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900167">
+                <label>Hut ab beim Begräbnis der Menschheit</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,072"/>
+                <ref type="page">72</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg104">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>der beim Begräbnis der Menschheit den Hut nicht abnimmt.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0004.html"/>
+                  <ref type="fol">4</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900165">
+                <label>die es von ihr haben und behalten,</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,073"/>
+                <ref type="page">73</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0102">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>die es von mir haben und behalten</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0013.html"/>
+                  <ref type="fol">13</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900020">
+                <label>Zum Schauderfeste dieser Nacht, wie öfter schon,  Tret’ […] seh’ ich oft entstehn  Und plötzlich wieder untergehn.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,078"/>
+                <ref type="page">78</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0092">
+                  <ref type="doc">Druckfahnen der Motti</ref>
+                  <label>Zum Schauderfeste dieser Nacht, wie öfter schon, Tret’ […] seh’ ich oft entstehn Und plötzlich wieder untergehn.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotto-0001r.html"/>
+                  <ref type="fol">1r</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900094">
+                <label>Angestrengtest, nimmer müde,  Kolossal-Karyatide,  […] soll’s nicht kommen,  Sphinxe haben Platz genommen.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                <ref type="page">81</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0017">
+                  <ref type="doc">Druckfahnen der Motti</ref>
+                  <label>Angestrengtest, nimmer müde, Kolossal-Karyatide, Trägt […] soll’s nicht kommen, Sphinxe haben Platz genommen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotto-0002r.html"/>
+                  <ref type="fol">2r</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900022">
+                <label>Gib nach dem löblichen Verlangen,  Von vorn die Schöpfung […] abertausend Formen,  Und bis zum Menschen hast du Zeit.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                <ref type="page">81</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0025">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Gib nach dem löblichen Verlangen, Von vorn die Schöpfung […] abertausend Formen, Und bis zum Menschen hast du Zeit.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0067.html"/>
+                  <ref type="fol">67</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900023">
+                <label>Wenn einer mir ins Auge sieht,  Werd’ ich ihm mit der […] wenn sie flieht,  Faß ich bei ihren letzten Haaren.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                <ref type="page">81</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0068">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Wenn einer mir ins Auge sieht, Werd’ ich ihm mit der […] wenn sie flieht, Faß ich bei ihren letzten Haaren.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0266.html"/>
+                  <ref type="fol">266</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900024">
+                <label>Wer das Gesicht mir zeigt, der kehrt’s nicht ab  Als […] Hals, Kopf und Schopf hinschlotternd graß im Nacken.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                <ref type="page">81</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0072">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Wer das Gesicht mir zeigt, der kehrt’s nicht ab Als […] Hals, Kopf und Schopf hinschlotternd graß im Nacken.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                  <ref type="fol">267</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900025">
+                <label>Der tüchtige Fuß nimmt Teil an ihrem Glück,  Setzt dem Erschlagnen frisch sich ins Genick.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                <ref type="page">81</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0069">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Der tüchtige Fuß nimmt Teil an ihrem Glück, Setzt dem Erschlagnen frisch sich ins Genick.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0266.html"/>
+                  <ref type="fol">266</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900026">
+                <label>Am Ende treiben sie’s nach ihrer Weise fort,  Als wenn sie nicht erzogen wären.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                <ref type="page">81</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0061">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Am Ende treiben sie’s nach ihrer Weise fort, Als wenn sie nicht erzogen wären.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0264.html"/>
+                  <ref type="fol">264</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900027">
+                <label>Im Sieg voran! und alles ist erlaubt.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                <ref type="page">81</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0073">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Im Sieg voran! und alles ist erlaubt.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                  <ref type="fol">267</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900028">
+                <label>Diese Unvergleichlichen  Wollen immer weiter,  Sehnsuchtsvolle […] Sehnsuchtsvolle Hungerleider  Nach dem Unerreichlichen.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                <ref type="page">81</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0034">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Diese Unvergleichlichen Wollen immer weiter, Sehnsuchtsvolle Hungerleider Nach dem Unerreichlichen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0157.html"/>
+                  <ref type="fol">157</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900029">
+                <label>Den lieb’ ich, der Unmögliches begehrt.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,081"/>
+                <ref type="page">81</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0062">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Den lieb’ ich, der Unmögliches begehrt.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0264.html"/>
+                  <ref type="fol">264</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900030">
+                <label>Dort war’s in Rom. Er bleibt dir hoch verpflichtet,  Auf deinen Gang in Sorge stets gerichtet.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                <ref type="page">82</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0071">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Dort war’s in Rom. Er bleibt dir hoch verpflichtet, Auf deinen Gang in Sorge stets gerichtet.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                  <ref type="fol">267</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900031">
+                <label>Dem Klerus hab’ ich eine Lust verdorben,  Und ihre Gunst mir freilich nicht erworben.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                <ref type="page">82</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0070">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Dem Klerus hab’ ich eine Lust verdorben, Und ihre Gunst mir freilich nicht erworben.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0266.html"/>
+                  <ref type="fol">266</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900032">
+                <label>Sie streiten sich, so heißt’s, um Freiheitsrechte,  Genau besehn, sind’s Knechte gegen Knechte.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                <ref type="page">82</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0042">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Sie streiten sich, so heißt’s, um Freiheitsrechte, Genau besehn sind’s Knechte gegen Knechte.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0225.html"/>
+                  <ref type="fol">225</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900034">
+                <label>Wie tobt’s in diesen wilden Tagen!  Ein jeder schlägt […] beschützen sollten,  Es liegt geplündert und verheert.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                <ref type="page">82</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0052">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Wie tobt’s in diesen wilden Tagen! Ein jeder schlägt […] beschützen sollten, Es liegt geplündert und verheert.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                  <ref type="fol">263</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900036">
+                <label>Wir wollen alle Tage sparen  Und brauchen alle Tage mehr.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                <ref type="page">82</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0055">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Wir wollen alle Tage sparen Und brauchen alle Tage mehr . . . .</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                  <ref type="fol">263</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900037">
+                <label>Verpfändet ist der Pfühl im Bette,  Und auf den Tisch kommt vorgegessen Brot.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                <ref type="page">82</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0056">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Verpfändet ist der Pfühl im Bette, Und auf den Tisch kommt vorgegessen Brot.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                  <ref type="fol">263</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900038">
+                <label>Wo fehlt’s nicht irgendwo auf dieser Welt?  Dem dies, dem das, hier aber fehlt das Geld.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                <ref type="page">82</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0057">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Wo fehlt’s nicht irgendwo auf dieser Welt? Dem dies, dem das, hier aber fehlt das Geld.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                  <ref type="fol">263</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900039">
+                <label>Die Goldespforten sind verrammelt,  Ein jeder kratzt […] scharrt und sammelt  Und unsre Kassen bleiben leer.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,082"/>
+                <ref type="page">82</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0054">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Die Goldespforten sind verrammelt, Ein jeder kratzt […] scharrt und sammelt Und unsre Kassen bleiben leer.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                  <ref type="fol">263</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900041">
+                <label>Er ahnet nicht, was uns von außen droht,  Laß ihn die […] bleiben;  Gesetz ist mächtig, mächtiger ist die Not.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                <ref type="page">83</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0059">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Er ahnet nicht, was uns von außen droht, Laß ihn die […] bleiben; Gesetz ist mächtig, mächtiger ist die Not.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0264.html"/>
+                  <ref type="fol">264</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900043">
+                <label>Solang’ das treue Blut die vollen Adern regt,  Sind wir der Körper, den dein Wille leicht bewegt.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                <ref type="page">83</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0079">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Solang’ das treue Blut die vollen Adern regt, Sind wir der Körper, den dein Wille leicht bewegt.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                  <ref type="fol">267</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900044">
+                <label>Viele schwören reine Huldigung  Dir, wie manche treue […] Untätigkeits-Entschuldigung,  Innere Gährung, Volksgefahr.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                <ref type="page">83</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0081">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Innere Gährung, Volksgefahr</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0268.html"/>
+                  <ref type="fol">268</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900045">
+                <label>Das sind die saubern Neuigkeiten,  Wo aus der Kehle, […] mir um die Ohren,  Allein zum Herzen dringt es nicht.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                <ref type="page">83</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0060">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Das sind die saubern Neuigkeiten, Wo aus der Kehle, […] mir um die Ohren, Allein zum Herzen dringt es nicht.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0264.html"/>
+                  <ref type="fol">264</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900046">
+                <label>Nötigt sie herabzusteigen!  Sie verbergen in den Zweigen […] verderblich anzufallen,  Wenn ihr Euer Ohr verleiht.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                <ref type="page">83</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0041">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Nötigt sie herabzusteigen! Sie verbergen in den Zweigen […] verderblich anzufallen, Wenn ihr euer Ohr verleiht.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0206.html"/>
+                  <ref type="fol">206</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900047">
+                <label>Durch Weiberkünste, schwer zu kennen,  Verstehen sie […] Schein zu trennen,  Und jeder schwört, das sei das Sein.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                <ref type="page">83</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0045">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Durch Weiberkünste, schwer zu kennen, Verstehen sie […] Schein zu trennen, Und jeder schwört, das sei das Sein.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0239.html"/>
+                  <ref type="fol">239</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900048">
+                <label>Das ist ein wunderbarer Gruß,  Die kühnsten Klettrer sind konfus.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                <ref type="page">83</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0076">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>die kühnsten Klettrer konfus</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                  <ref type="fol">267</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900049">
+                <label>Auf meinem Harz der harzige Dunst  Hat was vom Pech […] und das hat meine Gunst;  Zunächst der Schwefel ....</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                <ref type="page">83</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0026">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Da muß ich mich durch steile Felsentreppen, Durch alter […] das hat meine Gunst; Zunächst der Schwefel . . . .</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0079.html"/>
+                  <ref type="fol">79</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900050">
+                <label>Sind’s Menschenstimmen, die mein Ohr vernimmt?  Wie […]  Und doch verdammt, sich immer selbst zu gleichen.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                <ref type="page">83</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0035">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Sind’s Menschenstimmen, die mein Ohr vernimmt? Wie […] erreichen, Und doch verdammt, sich immer selbst zu gleichen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0174.html"/>
+                  <ref type="fol">174</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900051">
+                <label>Die Ungestalten seh ich an  Als irden-schlechte Töpfe, […] stoßen sich die Weisen dran  Und brechen harte Köpfe.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,083"/>
+                <ref type="page">83</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0036">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Die Ungestalten seh ich an Als irden-schlechte Töpfe, […] stoßen sich die Weisen dran Und brechen harte Köpfe.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0174.html"/>
+                  <ref type="fol">174</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900076">
+                <label>Hier wittert’s nach der Hexenküche,  Nach einer längst vergangnen Zeit.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                <ref type="page">84</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0030">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Hier wittert’s nach der Hexenküche, Nach einer längst vergangnen Zeit.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0144.html"/>
+                  <ref type="fol">144</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900053">
+                <label>Sonst waren’s Ritter, König, Kaiser,  Jetzt sind es […] darein geputzt,  Das Mittelalter lebhaft aufgestutzt.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                <ref type="page">84</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0074">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>»Sonst waren’s Ritter, König, Kaiser«, jetzt sind es […] darein geputzt, Das Mittelalter lebhaft aufgestutzt.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                  <ref type="fol">267</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900056">
+                <label>Hast du, o Thales, je in einer Nacht,  Solch einen Berg aus Schlamm hervorgebracht?</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                <ref type="page">84</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0024">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Hast du, o Thales, je in einer Nacht, Solch einen Berg aus Schlamm hervorgebracht?</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0057.html"/>
+                  <ref type="fol">57</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900057">
+                <label>Es liebt sich jetzt ein jedes Kind  Den Harnisch und […] Lumpen sind,  Sie werden nur um desto mehr behagen.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                <ref type="page">84</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0067">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Es liebt sich jetzt ein jedes Kind Den Harnisch und […] Lumpen sind, Sie werden nur um desto mehr behagen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0265.html"/>
+                  <ref type="fol">265</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900058">
+                <label>Auch flattern Fahnenfetzen bei Standarten,  Die frischer […] bereit  Und mischte gern sich auch zum neuen Streit.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                <ref type="page">84</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0075">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Auch flattern Fahnenfetzen bei Standarten, Die frischer […] bereit Und mischte gern sich auch zum neuen Streit.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                  <ref type="fol">267</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900059">
+                <label>Nun ist Verwirrung überall.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                <ref type="page">84</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0077">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Nun ist Verwirrung überall.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                  <ref type="fol">267</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900060">
+                <label>Eilet, bequemen  Sitz einzunehmen,  Eilig zum Werke! […] Schmiede,  Harnisch und Waffen  Dem Heer zu schaffen.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                <ref type="page">84</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0063">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Eilet, bequemen Sitz einzunehmen, Eilig zum Werke! […] Schmiede, Harnisch und Waffen Dem Heer zu schaffen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0264.html"/>
+                  <ref type="fol">264</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900061">
+                <label>Wer wird uns retten!  Wir schaffen’s Eisen,  Sie schmieden […] reißen  Ist noch nicht zeitig,  Drum seid geschmeidig.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                <ref type="page">84</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0064">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Wer wird uns retten! Wir schaffen’s Eisen, Sie schmieden […] reißen Ist noch nicht zeitig, Drum seid geschmeidig.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0265.html"/>
+                  <ref type="fol">265</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900062">
+                <label>Nur sachte drauf! Allzugewohnt ans Naschen,  Wo es auch sei, man sucht was zu erhaschen.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,084"/>
+                <ref type="page">84</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0066">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Nur sachte drauf! Allzugewohnt ans Naschen, Wo es auch sei, man sucht was zu erhaschen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0265.html"/>
+                  <ref type="fol">265</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900063">
+                <label>Ganz recht! Sie sind nicht mehr zu zügeln.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                <ref type="page">85</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0015">
+                  <ref type="doc">Druckfahnen der Motti</ref>
+                  <label>Ganz recht⁠ ⁠! Sie sind nicht mehr zu zügeln . . . .</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfMotto-0002r.html"/>
+                  <ref type="fol">2r</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900064">
+                <label>Das passet nicht in unsern Kreis:  Zugleich Soldat und Diebsgeschmeiß.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                <ref type="page">85</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0078">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Das passet nicht in unsern Kreis: Zugleich Soldat und Diebsgeschmeiß . . . .</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0267.html"/>
+                  <ref type="fol">267</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900066">
+                <label>Der darf auf Schand und Frevel pochen,  Der auf Mitschuldigste […] ausgesprochen,  Wo Unschuld nur sich selber schützt.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                <ref type="page">85</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0050">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Der darf auf Schand und Frevel pochen, Der auf Mitschuldigste […] ausgesprochen, Wo Unschuld nur sich selber schützt.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                  <ref type="fol">263</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900067">
+                <label>Ein Richter, der nicht strafen kann,  Gesellt sich endlich zum Verbrecher.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                <ref type="page">85</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0051">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Ein Richter, der nicht strafen kann, Gesellt sich endlich zum Verbrecher . . . .</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                  <ref type="fol">263</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900068">
+                <label>Ich merk’, es hat bei diesen Leuten  Verwandtschaft Großes zu bedeuten.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                <ref type="page">85</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0048">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Ich merk’, es hat bei diesen Leuten Verwandtschaft Großes zu bedeuten.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0262.html"/>
+                  <ref type="fol">262</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900069">
+                <label>Weh dir, daß du ein Enkel bist!</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                <ref type="page">85</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0096">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>weh dir, daß du ihr Enkel bist.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0144.html"/>
+                  <ref type="fol">144</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900070">
+                <label>Das ging so fort, nun sind wir da  Und wissen selbst nicht, wie’s geschah.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                <ref type="page">85</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0080">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Das ging so fort, nun sind wir da Und wissen selbst nicht, wie’s geschah.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0268.html"/>
+                  <ref type="fol">268</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900071">
+                <label>Jetzt so, mit ungeheurem Streben,  Drang aus dem Abgrund […] laut, zu neuem Leben,  Mir fröhliche Bewohner auf.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                <ref type="page">85</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0021">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Jetzt so, mit ungeheurem Streben, Drang aus dem Abgrund […] fordre laut, zu neuem Leben, Mir fröhliche Bewohner auf</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0048.html"/>
+                  <ref type="fol">48</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900072">
+                <label>Apollen hält ein froh Verweilen  Dort nun mit seliger Musen Chor.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                <ref type="page">85</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0023">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Apollen hält ein froh Verweilen Dort nun mit seliger Musen Chor</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0049.html"/>
+                  <ref type="fol">49</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900073">
+                <label>Die Lamien sind’s, lustfeine Dirnen,  Mit Lächelmund […] Satyrvolk behagen;  Ein Bocksfuß darf dort alles wagen.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                <ref type="page">85</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0022">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Wie sie dem Satyrvolk behagen; Ein Bocksfuß darf dort alles wagen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0048.html"/>
+                  <ref type="fol">48</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900075">
+                <label>So sei die Zeit in Fröhlichkeit vertan!  Und ganz erwünscht […] wir, auf jeden Fall,  Nur lustiger das wilde Carneval.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,085"/>
+                <ref type="page">85</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0058">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>So sei die Zeit in Fröhlichkeit vertan! Und ganz erwünscht […] wir, auf jeden Fall, Nur lustiger das wilde Carneval.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                  <ref type="fol">263</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900077">
+                <label>Indessen wogt, in grimmigem Schwalle,  Des Aufruhrs wachsendes Gewühl.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                <ref type="page">86</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0049">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Indessen wogt, in grimmigem Schwalle Des Aufruhrs wachsendes Gewühl.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                  <ref type="fol">263</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900078">
+                <label>Man läßt ihr Toben, wütend Hausen,  Schon ist die halbe […] draußen,  Doch keiner denkt, es ging’ ihn irgend an.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                <ref type="page">86</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0053">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Man läßt ihr Toben, wütend Hausen, Schon ist die halbe […] draußen, Doch keiner denkt, es ging’ ihn irgend an.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0263.html"/>
+                  <ref type="fol">263</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900079">
+                <label>Laß du den Generalstab sorgen  Und der Feldmarschall ist geborgen.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                <ref type="page">86</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0065">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Laß du den Generalstab sorgen Und der Feldmarschall ist geborgen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0265.html"/>
+                  <ref type="fol">265</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900080">
+                <label>Mit diesen hast du dich vereinigt,  Mich hat’s die […] gepeinigt.  Das Gaukeln schafft kein festes Glück.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                <ref type="page">86</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0031">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Mit diesen hast du dich vereinigt, Mich hat’s die ganze […] Zeit gepeinigt. Das Gaukeln schafft kein festes Glück.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0148.html"/>
+                  <ref type="fol">148</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900081">
+                <label>Die Sünd’ ist groß und schwer, womit ich mich beladen, […] Das leidige Zaubervolk bringt mich in harten Schaden.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                <ref type="page">86</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0083">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Die Sünd’ ist groß und schwer, womit ich mich beladen, […] Das leidige Zaubervolk bringt mich in harten Schaden.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0268.html"/>
+                  <ref type="fol">268</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900082">
+                <label>Mir schaudert vor dem garstigen Kunden  Und seiner Rabentraulichkeit.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                <ref type="page">86</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0032">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Mir schaudert vor dem garstigen Kunden Und seiner Rabentraulichkeit.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0149.html"/>
+                  <ref type="fol">149</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900083">
+                <label>Am Ende hängen wir doch ab  Von Kreaturen, die wir machten.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                <ref type="page">86</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0082">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Am Ende hängen wir doch ab Von Kreaturen, die wir machten.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0268.html"/>
+                  <ref type="fol">268</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900208">
+                <label>Selbst ist der Mann! Wer Thron und Kron begehrt,  Persönlich […] Großen,  Mit eigner Faust ins Totenreich gestoßen!</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                <ref type="page">86</ref>
+                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0016">
+                  <ref type="doc">Typoskript „Wenn ich mich nun Frage ...“</ref>
+                  <label>Sei das Gespenst, das gegen uns erstanden, Sich Kaiser […] Grossen, Mit eigner Faust ins Totenreich gestossen!</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0242r.html"/>
+                  <ref type="fol">242r</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900085">
+                <label>Das arme Reich  Kennt kaum sich selber mehr. Nicht […] Blumenstrauß am Hut,  Und stirbt noch eh es krank wird.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,086"/>
+                <ref type="page">86</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0046">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Das arme Reich Kennt kaum sich selber mehr. Nicht unsre […] Blumenstrauß am Hut, Und stirbt noch eh es krank wird.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0247_a.html"/>
+                  <ref type="fol">247_a</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900170">
+                <label>daß es sich gar nicht um eine neue Regierungsform handle, […] sondern »um eine neue Vision von der Geburt des Menschen,</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,088"/>
+                <ref type="page">88</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg107">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>es handelt sich hier gar nicht um Regierungsformen, […] sondern um eine neue Vision von der Geburt des Menschen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0069.html"/>
+                  <ref type="fol">69</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900171">
+                <label>vielleicht um die letzte großartige Konzeption der […] großartigsten Realisationen des Weltgeists überhaupt«.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,088"/>
+                <ref type="page">88</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg108">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>vielleicht um die letzte großartige Konzeption der […] großartigsten Realisationen des Weltgeists überhaupt,</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0069.html"/>
+                  <ref type="fol">69</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900006">
+                <label>„Vielleicht würde ein Literat, der sich der Sprache […] oder Wortgewalt — sprachliches Neuland wäre erobert.“</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,088"/>
+                <ref type="page">88</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0027">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Vielleicht würde ein Literat, der sich der Sprache […] Gewalttätigkeit — sprachliches Neuland ist erobert.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0106.html"/>
+                  <ref type="fol">106</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900093">
+                <label>»die heute alles beherrscht außer der Sprache«</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,093"/>
+                <ref type="page">93</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0019">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>die heute alles beherrscht außer der Sprache.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0001.html"/>
+                  <ref type="fol">1</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900007">
+                <label>„Am liebsten bezöge ich sie von einer Vision, die, […] ein Gedicht auf Freiheit, Liebe, Schönheit und Gott.“</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,094"/>
+                <ref type="page">94</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0028">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Am liebsten bezöge ich sie von einer Vision, die dank […] das Gedicht auf Freiheit, Liebe, Schönheit und Gott.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0117.html"/>
+                  <ref type="fol">117</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900201">
+                <label>Was kann ein Autor dafür, daß seine Verteidigung der […] Verdacht zugezogen hat, daß man ihn rechts liegen ließ.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,102"/>
+                <ref type="page">102</ref>
+                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0002">
+                  <ref type="doc">Typoskript „Wenn ich mich nun Frage ...“</ref>
+                  <label>Er hat ihn geradezu als seinen Boden reklamiert, vermutend, […] Verdacht zugezogen hat, dass sie mich rechts liegen liess.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0232r.html"/>
+                  <ref type="fol">232r</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900172">
+                <label>Ich bin Jude, und ich bin in Deutschland noch nie darnach […] honoriger Glaubensgenosse auf der Brust tragen muß.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,107"/>
+                <ref type="page">107</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg109">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Ich bin Jude, und ich bin in Deutschland noch nie darnach […] der weniger Glück hatte, auf der Brust tragen mußte.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0101.html"/>
+                  <ref type="fol">101</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900008">
+                <label>„sympathisch schon durch den Umstand, daß der Ort die […] Mit vorzüglicher Hochachtung Der Verlag der Fackel “</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,108"/>
+                <ref type="page">108</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0029">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>sympathisch schon durch den Umstand, daß der Ort doch […] Mit vorzüglicher Hochachtung der Verlag der ‚Fackel‘</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0133.html"/>
+                  <ref type="fol">133</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900179">
+                <label>»Es lebe die Freiheit! Das Büro der Zweiten Internationale!«</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,112"/>
+                <ref type="page">112</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg116">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Es lebe die Freiheit! Das Büro der Zweiten Internationale</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0203.html"/>
+                  <ref type="fol">203</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900090">
+                <label>Als, angesichts der höchsten Ahnen,  Der Nacht, des […] Doppelmütze,  Die beiden Berge frevelnd aufgesetzt.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,138"/>
+                <ref type="page">138</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0014">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Als angesichts der höchsten Ahnen, Der Nacht, des Chaos […] Doppelmütze, Die beiden Berge frevelnd aufgesetzt.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0120.html"/>
+                  <ref type="fol">120</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900200">
+                <label>„Da ich mich nun frage, wie ich das mir noch immer […] seine Verankerung in meinem Boden nicht verschmäht hat.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,140"/>
+                <ref type="page">140</ref>
+                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0001">
+                  <ref type="doc">Typoskript „Wenn ich mich nun Frage ...“</ref>
+                  <label>Da ich mich nun frage, wie ich das mir noch immer begreifliche, […] Verankerung in meinem Grunde nicht verschmäht hat.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0229r.html"/>
+                  <ref type="fol">229r</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900202">
+                <label>Und doch hat es kein Autor schwerer, die Sprache ariogermanischen […] wahnschaffne Tat, die solcher Wirklichkeit zuwuchs.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,144"/>
+                <ref type="page">144</ref>
+                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0003">
+                  <ref type="doc">Typoskript „Wenn ich mich nun Frage ...“</ref>
+                  <label>Und doch hat es kein Autor schwerer, die Sprache ariogermanischen […] wahnschaffnen Tat, die solcher Wirklichkeit zuwuchs.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0237r.html"/>
+                  <ref type="fol">237r</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900169">
+                <label>im deutschen Kunstwesen steht man einer Nichtvorhandenheit […] hat sich der Irrtum vielfach bald ins Reine gebracht,</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,146"/>
+                <ref type="page">146</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg106">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>um in medias res einer Nichtvorhandenheit zu gelangen, […] das Verhalten der Betroffenen richtiggestellt werden;</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0021.html"/>
+                  <ref type="fol">21</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900168">
+                <label>Gewiß, das deutsche Aufräumen offenbart seine totale […] hat, daß die Prominenz hochschwillt wie nie zuvor,</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,147"/>
+                <ref type="page">147</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg105">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Schließlich hat ja das deutsche Aufräumen in seiner […] vermehrt hat, daß die Prominenz hochschwillt wie noch nie</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0019.html"/>
+                  <ref type="fol">19</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900005">
+                <label>Der Journalismus, welcher den Raum der Lebenserscheinungen […] germanisches Glaubensbedürfnis in der Hitler-Regie fand.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,147"/>
+                <ref type="page">147</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0001">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Der Journalismus, welcher den Raum der Lebenserscheinungen […] der arische Glaube in der Hitlerregie gefunden hat.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0098.html"/>
+                  <ref type="fol">98</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900166">
+                <label>wo man inmitten der Panik die Geistesgegenwart hatte, […] nach Wien gekommen«, und überhaupt bloß zum Zahnarzt</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,148"/>
+                <ref type="page">148</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0103">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>die mitten in der Schilderung der Panik noch die Geistesgegenwart […] festzustellen, der Magier sei bloß zum Zahnarzt nach Wien geeilt</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0019.html"/>
+                  <ref type="fol">19</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900002">
+                <label>„ Anfang Mai bis September 1933 Mir fällt zu Hitler […] Inbrunst symbolgläubiger Vorzeit hinter sich lassen.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,153"/>
+                <ref type="page">153</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0003">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Anfang Mai 1933 Mir fällt zu Hitler nichts ein. Ich […] Inbrunst symbolgläubiger Vorzeit hinter sich lassen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0001.html"/>
+                  <ref type="fol">1</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900003">
+                <label>— — — Wie dem immer sei, vorläufig weckt das Naturereignis, […] dem Denken, das sich dort verirrte, keinen Ausweg.“</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,156"/>
+                <ref type="page">156</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0005">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Wie dem immer sei, vorläufig weckt das Naturereignis, […] dem Denken, das sich dort verirrte, keinen Ausweg.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0006.html"/>
+                  <ref type="fol">6</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900004">
+                <label>„Welche Lage wäre denn schwieriger als die, in der […] verbraucht war. Beim Weltuntergang will ich privatisieren.“</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,162"/>
+                <ref type="page">162</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0020">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Welche Lage wäre denn schwieriger als die, in der sich […] verbraucht war. Beim Weltuntergang will ich privatisieren.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0010.html"/>
+                  <ref type="fol">10</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900091">
+                <label>’s ist Fluch der Zeit, daß Tolle Blinde führen!</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,177"/>
+                <ref type="page">177</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0047">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>’s ist Fluch der Zeit, daß Tolle Blinde führen</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0248.html"/>
+                  <ref type="fol">248</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900176">
+                <label>Da im deutschen Rundfunk überdies betreffs Österreichs […] sich mit Gewalt auf die Dauer nicht regieren lasse,</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,180"/>
+                <ref type="page">180</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg113">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Wie oft hat Hitler Dollfuß gemahnt, daß »sich mit Gewalt in der Politik nichts ausrichten lasse«!</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0165.html"/>
+                  <ref type="fol">165</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900173">
+                <label>»Wenn’s Judenblut vom Messer spritzt, geht’s uns nochmal so gut«</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,183"/>
+                <ref type="page">183</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg110">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Wenn’s Judenblut vom Messer spritzt, Geht’s uns noch Mal so gut.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0152.html"/>
+                  <ref type="fol">152</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900182">
+                <label>»Wir wollen nicht —, wir wollen aber auch nicht —«</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,185"/>
+                <ref type="page">185</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg119">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>»Wir wollen nicht« den braunen Faszismus, »wir wollen aber auch nicht« den schwarzen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0228.html"/>
+                  <ref type="fol">228</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900181">
+                <label>»jüdischen Betverein: Alles, nur nicht Hitler!«</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,185"/>
+                <ref type="page">185</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg118">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>liberalen Betverein »Alles, nur nicht Hitler«</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0218.html"/>
+                  <ref type="fol">218</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900013">
+                <label>„Ich bin für so manches, was die Sozialdemokraten »wollen«, […] Parteiorgan auf zwei Bluthochzeiten tanzen möchten.“</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,185"/>
+                <ref type="page">185</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0043">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Ich bin für so manches, was die Sozialdemokraten wollen, […] Parteiorgan auf zwei Bluthochzeiten tanzen möchten.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0232.html"/>
+                  <ref type="fol">232</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900014">
+                <label>„Die natürliche Gegnerschaft der Regierenden eingeräumt, […] freilich noch ein anderes Mittel: die Wahrheit sagen.“</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,186"/>
+                <ref type="page">186</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0044">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Die natürliche Gegnerschaft der Regierenden eingeräumt, […] Es gäbe noch ein anderes Mittel: die Wahrheit sagen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0232.html"/>
+                  <ref type="fol">232</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900096">
+                <label>Die Partei muß ausdrücklich erklären, daß sie zu Verhandlungen nicht bereit ist</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,194"/>
+                <ref type="page">194</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0097">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Die Partei muß ausdrücklich erklären, daß sie zu Verhandlungen nicht bereit ist.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0235.html"/>
+                  <ref type="fol">235</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900183">
+                <label>(vom Schutzbund; du Schwert an meiner Linken)</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,267"/>
+                <ref type="page">267</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg114">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>daß die Kommunisten den Reichstag angezündet haben?</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0201.html"/>
+                  <ref type="fol">201</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900184">
+                <label>daß jenes »Gar nix besagt, was der Starhemberg sagt«</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,271"/>
+                <ref type="page">271</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg121">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>daß »gar nichts besagt, was der Starhemberg sagt«</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0231.html"/>
+                  <ref type="fol">231</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900175">
+                <label>»I hab nix tan«</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,292"/>
+                <ref type="page">292</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg112">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>»I hab nix tan«</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0163.html"/>
+                  <ref type="fol">163</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900174">
+                <label>»I waß von nix«</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,292"/>
+                <ref type="page">292</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg111">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>»I waß von nix«</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0163.html"/>
+                  <ref type="fol">163</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900009">
+                <label>Ein paar Tage war von dem Fall jenes Mädchens die Rede […] der rehabilitierten Rasse und der besudelten Natur.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,298"/>
+                <ref type="page">298</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0037">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>In der Satrapie jenes Streicher, dessen Hirn der Gedanke […] der rehabilitierten Rasse und der besudelten Natur.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0195.html"/>
+                  <ref type="fol">195</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900010">
+                <label>— — Wird sie mit dem Juden noch einmal gesehen, dann […] Juden, einschließlich des Tatbestandes, mitzuteilen.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,299"/>
+                <ref type="page">299</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0038">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Wird sie mit dem Juden noch einmal gesehen, dann wird […] Juden, einschließlich des Tatbestandes, mitzuteilen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0195_bc.html"/>
+                  <ref type="fol">195_bc</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900011">
+                <label>— — Wird noch ein einziges Mal ein Mädchen arischen […] und auf der Breiten Straße zur Schau gestellt wird.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,299"/>
+                <ref type="page">299</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0039">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Wird noch ein einziges Mal ein Mädchen arischen Blutes […] und auf der Breiten Straße zur Schau gestellt wird.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0195_d.html"/>
+                  <ref type="fol">195_d</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900012">
+                <label>Demgemäß der amtliche Bescheid an einen Verehelichten, […] Dinge möglich wären, bleibt eine rhetorische Frage.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,299"/>
+                <ref type="page">299</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0040">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>Einer, der geheiratet hat und infolgedessen niedergeschlagen […] Dinge möglich? Ihr Antlitz wenden Gangsters davon ab.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0195_fg.html"/>
+                  <ref type="fol">195_fg</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900206">
+                <label>„Beispiele gibt es, wie solcher Aufstieg, der Konsorten […] sein Teil begehrend, nach der ergriffnen Macht greift.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,314"/>
+                <ref type="page">314</ref>
+                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0007">
+                  <ref type="doc">Typoskript „Wenn ich mich nun Frage ...“</ref>
+                  <label>Beispiele gibt es, wie solcher Aufstieg, der Konsorten […] sein Teil begehrend, nach der ergriffnen Macht greift,</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0240r.html"/>
+                  <ref type="fol">240r</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900087">
+                <label>»Diese Taten wollen nicht so ergrübelt sein, sonst […] Herrscher im Frauengewand von Prätorianern ermordet wird.“</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,314"/>
+                <ref type="page">314</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0033">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>»Diese Taten wollen nicht so ergrübelt sein, sonst […] Herrscher im Frauengewand von Prätorianern ermordet wird.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0149.html"/>
+                  <ref type="fol">149</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900207">
+                <label>»Wir sind keine Partei, wir sind eine Weltanschauung.« […] Walhalla in die Hölle, wo sie noch asphaltiert ist.</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,315"/>
+                <ref type="page">315</ref>
+                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0015">
+                  <ref type="doc">Typoskript „Wenn ich mich nun Frage ...“</ref>
+                  <label>wir sind keine Partei, wir sind eine Weltanschauung. […] Walhalla in die Hölle reisst, wo sie asphaltiert ist.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0240r.html"/>
+                  <ref type="fol">240r</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900205">
+                <label>Denn »dies zu sein, ist nichts, allein: dies sicher sein!«</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,315"/>
+                <ref type="page">315</ref>
+                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0006">
+                  <ref type="doc">Typoskript „Wenn ich mich nun Frage ...“</ref>
+                  <label>„Denn so zu sein, ist nichts:doch sicher so zu sein!“</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0240r.html"/>
+                  <ref type="fol">240r</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900099">
+                <label>»Was haben wir zu fürchten, wer es weiß? Niemand zieht unsre Macht zur Rechenschaft.«</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,315"/>
+                <ref type="page">315</ref>
+                <ref type="otherDoc" subtype="earlier" target="#F890seg0093">
+                  <ref type="doc">‚Jerusalemer Konvolut‘</ref>
+                  <label>»Was haben wir zu fürchten, wer es weiß? Niemand zieht unsre Macht zur Rechenschaft.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-DfeH-0149.html"/>
+                  <ref type="fol">149</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900203">
+                <label>»Blut will zu Blut«. Die Handlung ist an den Punkt […] zur Hand, und muß getan sein, eh’ ein Blick es fand</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,315"/>
+                <ref type="page">315</ref>
+                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0004">
+                  <ref type="doc">Typoskript „Wenn ich mich nun Frage ...“</ref>
+                  <label>Blut will zu Blut. Die Handlung ist an dem Punkt, wo, […] zur Hand, und muss getan sein, eh'noch recht erkannt.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0240r.html"/>
+                  <ref type="fol">240r</ref>
+                </ref>
+              </item>
+              <item xml:id="DWf8900204">
+                <label>Doch ist’s gewiß, er kann den wild empörten Zustand […] Schlaf! Und drum wird Macbeth nicht mehr schlafen!“</label>
+                <ref type="url" target="https://fackel.oeaw.ac.at/f/890,315"/>
+                <ref type="page">315</ref>
+                <ref type="otherDoc" subtype="earlier" target="#Abs64seg0005">
+                  <ref type="doc">Typoskript „Wenn ich mich nun Frage ...“</ref>
+                  <label>Doch ist's gewiss, er kann den wild empörten Zustand […] den Schlaf! Und drum wir Macbeth nicht mehr schlafen.</label>
+                  <ref type="url" target="https://kraus1933.acdh.oeaw.ac.at/wit-TFragment2-0240r.html"/>
+                  <ref type="fol">240r</ref>
+                </ref>
+              </item>
+            </list>
+          </item>
+        </list>
+      </item>
+    </list>
+  </figDesc>
+</figure>

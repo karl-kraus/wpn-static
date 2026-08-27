@@ -7,7 +7,7 @@ const info = document.querySelector<HTMLElement>("#infocontent-pb");
 const setModeButton = document.querySelector<HTMLElement>("#setMode");
 const highlightedClass = "connection-color";
 const highlightedClassLine = "connection-color-line";
-const debounceDelayText = 0;
+const debounceDelayText = 60;
 const debounceDelayInfo = 0;
 
 // Global event handlers storage
@@ -114,13 +114,18 @@ function highlighting(event: Event) {
 
     const color_line = highlightedClassLine;
     
-    const target = event.target as HTMLElement;
+    // old: const target = event.target as HTMLElement;
+    const target = resolveEffectiveTarget(event.target as HTMLElement);
 
     const anchorData = target.dataset.anchor;
 
-    const targetDataList = target.dataset.target;
+    // old: const targetDataList = target.dataset.target;
+    const targetDataList = [target.dataset.target, ...collectAncestorTarget(target)].filter(Boolean).join(" ");
 
-    const handDataList = target.dataset.hand;
+    // old: const handDataList = target.dataset.hand;
+    const handDataList = [target.dataset.hand, ...collectAncestorHand(target)].filter(Boolean).join(" ");
+
+    const ancestorAnchorDataList = collectAncestorAnchor(target).filter(Boolean).join(" ");
 
     document.querySelectorAll<HTMLElement>(`.${color}`).forEach((el) => {
 
@@ -134,8 +139,26 @@ function highlighting(event: Event) {
 
     });
 
+    const targetHasOwnIdentity = hasOwnIdentity(target);
+
+    // Manche Container-Templates (z.B. tei:metamark[@function='printInstruction'][@rendition]
+    // in typo-metamark.xsl) vererben - anders als typo-del.xsl/typo-add.xsl und die
+    // span[@n='last']/[@n='firstLast']-Templates in editions_typo.xsl - die id der umgebenden
+    // note nicht in den eigenen data-anchor. Ein solcher Container ohne eigene Identität soll
+    // trotzdem wie "note hovern" wirken, auch wenn sein eigener data-anchor die note gar nicht
+    // referenziert.
+    if (!targetHasOwnIdentity) {
+        const noteAncestor = target.closest<HTMLElement>(".note");
+        if (noteAncestor) {
+            noteAncestor.classList.add(color);
+            markChildrenAsHighlighted(noteAncestor, color);
+        }
+    }
+
     const anchorDataList = anchorData ? anchorData.split(" ") : [];
     anchorDataList.forEach((data) => {
+
+        if (targetHasOwnIdentity && isSuppressedNoteToken(data, target)) return;
 
         // highlight anchor
         const anchorElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${data}"]`);
@@ -243,6 +266,69 @@ function highlighting(event: Event) {
             }
 
             targetElements.forEach((el) => {
+
+                el.classList.add(color);
+
+                if (el.classList.contains("note") || el.classList.contains("quotes")) {
+
+                    markChildrenAsHighlighted(el, color);
+
+                }
+
+            });
+        }
+
+    });
+
+    const ancestorAnchorIds = ancestorAnchorDataList ? ancestorAnchorDataList.split(" ") : [];
+    // highlight ids inherited from ancestors (e.g. an enclosing del referenced by a margin note)
+    ancestorAnchorIds.forEach((ancestorAnchorId) => {
+
+        const ancestorAnchorElements = document.querySelectorAll<HTMLElement>(`[data-anchor~="${ancestorAnchorId}"]`);
+
+        // Der Ancestor, von dem der Token geklettert wurde, trägt ihn selbst als eigenes
+        // data-anchor und matcht die Query daher immer mit - "> 1" filtert diesen reinen
+        // Selbst-Treffer heraus, analog zum bestehenden Anchor-Pass für eigene Tokens.
+        if(ancestorAnchorElements.length > 1) {
+
+            target.classList.add(color);
+
+            if (target.classList.contains("note") || target.classList.contains("quotes")) {
+
+                markChildrenAsHighlighted(target, color);
+
+            }
+
+            ancestorAnchorElements.forEach((el) => {
+
+                el.classList.add(color);
+
+                if (el.classList.contains("note") || el.classList.contains("quotes")) {
+
+                    markChildrenAsHighlighted(el, color);
+
+                }
+
+            });
+        }
+
+        // Umkehrverbindung: ein Metamark oder eine Randmarkierung außerhalb des
+        // Containers (note/seg/quotes/...) zeigt per data-target auf ihn - das war
+        // bislang unsichtbar, da nur die EIGENEN (ungekletterten) Anchor-Tokens weiter
+        // oben gegen data-target geprüft werden, nicht die hier geklettert gefundenen.
+        const ancestorTargetElements = document.querySelectorAll<HTMLElement>(`[data-target~="${ancestorAnchorId}"]`);
+
+        if (ancestorTargetElements.length > 0) {
+
+            target.classList.add(color);
+
+            if (target.classList.contains("note") || target.classList.contains("quotes")) {
+
+                markChildrenAsHighlighted(target, color);
+
+            }
+
+            ancestorTargetElements.forEach((el) => {
 
                 el.classList.add(color);
 
@@ -384,7 +470,7 @@ function highlighting3rdcolumn (event: Event) {
 
                 el.classList.add(color);
 
-                if (el.classList.contains("note") || el.classList.contains("quotes")) {
+                if (el.classList.contains("note") || el.classList.contains("quotes") || el.classList.contains("subst")) {
 
                     markChildrenAsHighlighted(el, color);
 
@@ -421,4 +507,183 @@ function markChildrenAsHighlighted(element: HTMLElement, color: string) {
         }
 
     });
+}
+
+// helper functions
+function normalize(s) {
+    return (s || "").replace(/\|/g, "").replace(/\s+/g, " ").trim();
+}
+
+function getNoteElementForToken(token: string): HTMLElement | null {
+    return document.querySelector<HTMLElement>(`.note[data-anchor~="${token}"]`);
+}
+
+// Ein data-anchor-Token ist entweder die eigene id eines Elements (z.B. das del/add-Paar
+// bei subst, mit bewusst unterschiedlichem Text) oder die geerbte id der umgebenden note
+// (siehe $inheritIDfromNote in typo-del.xsl/typo-add.xsl bzw. die analoge Logik in
+// editions_typo.xsl für span[@n='last']/[@n='firstLast']). Nur im zweiten Fall soll das
+// Token verbinden, wenn die note (bereinigt) keinen weiteren Text als das Hover-Element
+// selbst enthält - sonst verbindet ein und dasselbe Note-Token unbeteiligte
+// Geschwister-Elemente (bzw. die ganze note) miteinander statt nur das eine Element.
+// Hover direkt auf die note bleibt davon unberührt (dort ist el === target, Text ist gleich).
+// Elemente, deren eigener Text beim "note-Text == Hover-Element-Text"-Abgleich in
+// isSuppressedNoteToken ignoriert werden soll (z.B. weil sie strukturell außerhalb des
+// großen Haupt-del/add der note liegen, wie eine Randziffer, aber trotzdem Kind der note
+// sind). Weitere Ausnahmen: hier einfach einen zusätzlichen CSS-Selektor ergänzen.
+const noteTextComparisonExclusions = [".metamark.left2"];
+
+function textForNoteComparison(el: HTMLElement): string {
+    const clone = el.cloneNode(true) as HTMLElement;
+    noteTextComparisonExclusions.forEach((selector) => {
+        clone.querySelectorAll<HTMLElement>(selector).forEach((node) => node.remove());
+    });
+    return clone.textContent || "";
+}
+
+function isSuppressedNoteToken(token: string, target: HTMLElement): boolean {
+    const noteEl = getNoteElementForToken(token);
+    if (!noteEl) return false;
+    // Nur unterdrücken, wenn das Token die eigene umschließende note ist (klassischer
+    // "geerbte Container-id"-Fall). Zeigt es auf eine andere note, ist es eine echte,
+    // gewollte Querverbindung (z.B. ein Metamark, der auf eine andere note verweist) -
+    // deren Sichtbarkeit hängt nicht davon ab, ob die Texte übereinstimmen.
+    if (noteEl !== target.closest<HTMLElement>(".note")) return false;
+    return normalize(textForNoteComparison(noteEl)) !== normalize(textForNoteComparison(target));
+}
+
+// note- und metamark-Templates mischen (siehe $inheritIDfromNote in typo-del.xsl/typo-add.xsl,
+// parent::tei:metamark[@xml:id] in editions_typo.xsl) die id des umgebenden Containers in
+// data-anchor jedes Kind-Elements. Reine Fließtext-Wrapper (z.B. span[@n='last']/[@n='firstLast'],
+// die nur der Zeilenumbruch-Logik dienen) haben dadurch GAR KEINE eigene id - ihre komplette
+// data-anchor-Kennung besteht nur aus geerbten Container-ids. Ein del/add mit echtem @xml:id hat
+// dagegen zusätzlich eine eigene, nicht geerbte id. Nur wenn das Hover-Element eine solche eigene
+// Identität hat, soll isSuppressedNoteToken greifen - reiner Fließtext soll die note wie gehabt
+// immer komplett aufleuchten lassen (das IST ja schlicht "die note hovern").
+function collectAncestorContainerIds(el: HTMLElement): Set<string> {
+    const ids = new Set<string>();
+    let node = el.parentElement;
+    while (node && node !== content) {
+        // Ausnahme: ein metamark-Vorfahre, dessen id nur deshalb mit der eigenen
+        // übereinstimmt, weil das Kind sein eigenes data-target trägt (das der Wrapper
+        // selbst nicht hat) - das Kind ist dann eine eigenständige, zielverweisende
+        // Korrekturmarke (z.B. ein Einfüge-/Verweiszeichen), keine bloße Fließtext-Hülle,
+        // die die Wrapper-id nur unverändert durchreicht.
+        const isOwnTargetMetamarkWrapper = node.classList.contains("metamark") && !!el.dataset.target && !node.dataset.target;
+        if ((node.classList.contains("note") || node.classList.contains("metamark")) && node.dataset.anchor && !isOwnTargetMetamarkWrapper) {
+            node.dataset.anchor.split(" ").filter(Boolean).forEach((t) => ids.add(t));
+        }
+        node = node.parentElement;
+    }
+    return ids;
+}
+
+function hasOwnIdentity(target: HTMLElement): boolean {
+    // Ein Container selbst (note/metamark) repräsentiert keine eigene, unterscheidbare
+    // Editionsentität wie ein del/add - seine eigene id ist nur die des Containers, den er
+    // selbst darstellt, kein Zeichen "eigener Identität". Ausnahme: ein metamark mit einer
+    // anderen Hand/Schicht (data-hand) als die umgebende note (z.B. eine spätere Bleistift-
+    // Randziffer in einer mit Tinte geschriebenen note) ist inhaltlich eine eigenständige,
+    // von der note unabhängige Entität und soll separat bleiben statt mit der note zu
+    // verschmelzen.
+    if (target.classList.contains("note")) return false;
+    if (target.classList.contains("metamark")) {
+        const noteAncestor = target.closest<HTMLElement>(".note");
+        const noteHand = noteAncestor?.dataset.hand;
+        const ownHand = target.dataset.hand;
+        if (noteAncestor && ownHand && noteHand !== ownHand) return true;
+        return false;
+    }
+    const inherited = collectAncestorContainerIds(target);
+    const ownTokens = (target.dataset.anchor || "").split(" ").filter(Boolean);
+    return ownTokens.some((tok) => !inherited.has(tok));
+}
+
+function collectAncestorHand(el) {
+    const collected = [];
+    if (el.classList.contains("metamark") && el.dataset.hand && el.closest(".note")) {
+        return collected; // Metamark mit eigenem Hand-Wert in einer Note: Ancestor-Hand nicht zusätzlich berücksichtigen
+    }
+    const ownHand = el.dataset.hand;
+    let node = el.parentElement;
+    while (node && node !== content) {
+        if (node.dataset.hand) {
+            // Eine note/ein metamark kann mehrere, an unterschiedlichen Stellen geltende Hände
+            // vereinen (z.B. Tinte im Fließtext, Bleistift nur bei einem einzelnen Metamark
+            // daneben). Hat das Hover-Element bereits eine eigene Hand, soll die Hand eines
+            // solchen Containers nur übernommen werden, wenn dessen Text sich nicht vom eigenen
+            // Text unterscheidet - sonst würde z.B. reiner Tintentext fälschlich auch als
+            // Bleistift erscheinen. Ohne eigene Hand bleibt das Klettern wie bisher unbedingt,
+            // damit identitätslose Elemente weiterhin die Hand ihres Containers erben.
+            const isBroadContainer = node.classList.contains("note") || node.classList.contains("metamark");
+            const suppressed = isBroadContainer && ownHand &&
+                normalize(textForNoteComparison(node)) !== normalize(textForNoteComparison(el));
+            if (!suppressed) collected.push(node.dataset.hand);
+        }
+        node = node.parentElement;
+    }
+    return collected;
+}
+
+function collectAncestorTarget(el) {
+    const collected = [];
+    const leafText = normalize(el.textContent);
+    let node = el.parentElement;
+    while (node && node !== content) {
+        if (normalize(node.textContent) !== leafText) break;
+        if (node.dataset.target) collected.push(node.dataset.target);
+        node = node.parentElement;
+    }
+    return collected;
+}
+
+// Wie collectAncestorTarget: ein Ancestor (z.B. das umschließende del eines
+// tei:restore/tei:del) kann eine eigene data-anchor-id tragen, auf die z.B. eine
+// Randapparat-Notiz zeigt, während das gehoverte Leaf selbst eine andere, eigene id
+// hat. Nur klettern, solange der Ancestor keinen zusätzlichen eigenen Text gegenüber
+// dem Leaf hat - sonst würde ein und dieselbe id unbeteiligte Geschwister verbinden.
+function collectAncestorAnchor(el) {
+    const collected = [];
+    const leafText = normalize(el.textContent);
+    let node = el.parentElement;
+    while (node && node !== content) {
+        if (normalize(node.textContent) !== leafText) break;
+        if (node.dataset.anchor) collected.push(node.dataset.anchor);
+        node = node.parentElement;
+    }
+    return collected;
+}
+
+const alwaysSkipClasses = ["quotes", "persons", "fackelrefs"]; // hier künftig weitere Klassen ergänzbar
+
+function hasNoOwnData(node: HTMLElement): boolean {
+    const anchor = node.dataset.anchor;
+    const hand = node.dataset.hand;
+    const hasAnchor = !!anchor && anchor.trim().length > 0;
+    const hasHand = !!hand && hand.trim().length > 0;
+    return !hasAnchor && !hasHand;
+}
+
+function isSkippableWrapper(node: HTMLElement): boolean {
+    // 1. Klassen, die unabhängig von eigenen Daten immer übersprungen werden
+    if (alwaysSkipClasses.some(cls => node.classList.contains(cls))) return true;
+
+    // 2. Struktur-Wrapper (Versgruppe/Verszeile)
+    if (node.classList.contains("d-block") && (node.classList.contains("lg") || node.classList.contains("l"))) return true;
+
+    // 3. Textlauf-Wrapper direkt in einer Verszeile
+    const parent = node.parentElement;
+    const isInlineText = node.classList.contains("inline-text");
+    const parentIsL = parent && parent.classList.contains("d-block") && parent.classList.contains("l");
+    if (isInlineText && parentIsL) return true;
+
+    // 4. Elemente ganz ohne eigene Anker-/Hand-Daten
+    return hasNoOwnData(node);
+}
+
+function resolveEffectiveTarget(el: HTMLElement): HTMLElement {
+    let node = el;
+    while (node && node !== content && isSkippableWrapper(node)) {
+        node = node.parentElement as HTMLElement;
+    }
+    return node;
 }

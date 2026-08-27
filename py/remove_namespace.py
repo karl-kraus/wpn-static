@@ -1,14 +1,39 @@
 import glob
 import os
 import tqdm
+import sys
+import argparse
+from pathlib import Path
 from acdh_tei_pyutils.tei import TeiReader
 from lxml import etree as ET
 
 
-SOURCE_DIR = 'data/editions'
-SOURCE_FILE = 'Gesamt.xml'
-source = os.path.join(SOURCE_DIR, SOURCE_FILE)
-source_glob = glob.glob(source)
+# define argument parser to get the name of the source file
+parser = argparse.ArgumentParser(description='Cleanup TEI files after splitting')
+parser.add_argument('-f', '--file', type=str, help='Name of the source file without extension')
+parser.add_argument('-p', '--path', type=str, help='Name of the directory where the source file is located')
+parser.add_argument('--debug', action='store_true', help='Debug mode to keep the output directory')
+parser.add_argument('-c', '--corresp', type=str, help='Value of the @corresp attribute to filter surfaces for adding graphic url')
+parser.add_argument('-i', '--facspath', type=str, help='IIIF image filepath to be used in the url attribute of the graphic element, e.g. "iiif/images/wpn/"')
+parser.add_argument('-x', '--facs', type=str, help='IIIF image filename prefix to be used in the url attribute of the graphic element, e.g. "ZPH-2007_1_1_6_"')
+args = parser.parse_args()
+
+if not args.file:
+    print("""Please provide the name of the source file with .xml extension.""")
+    sys.exit(1)
+
+if not args.path:
+    print("""Please provide the name of the directory where the source file is located.""")
+    sys.exit(1)
+
+if ".xml" not in args.file:
+    print("""Please provide the name of the source file with .xml extension.""")
+    sys.exit(1)
+
+SOURCE_DIR = Path(args.path)
+SOURCE_FILE = args.file
+source = SOURCE_DIR / SOURCE_FILE
+source_glob = glob.glob(str(source))
 
 NS = [
     ' xmlns="http://www.tei-c.org/ns/1.0"'
@@ -43,7 +68,12 @@ def handle_pb_with_lb_break(file):
 
 def add_graphic_url(file):
     doc = TeiReader(file)
-    surface = doc.any_xpath('//tei:facsimile[@corresp="#DWkonJer"]/tei:surface')
+    corresp_value = args.corresp if args.corresp else None
+    if corresp_value:
+        xpath_expr = f'//tei:facsimile[@corresp="{corresp_value}"]/tei:surface'
+    else:
+        xpath_expr = '//tei:facsimile/tei:surface'
+    surface = doc.any_xpath(xpath_expr)
     count = 0
     for i, s in enumerate(surface):
         id = s.get('{http://www.w3.org/XML/1998/namespace}id')
@@ -54,9 +84,11 @@ def add_graphic_url(file):
             count += 1
         idInteger = id.replace('idfacs', '').split('_')[0]
         if idInteger is not None:
-            s.attrib["n"] = str(i + 1)
+            # s.attrib["n"] = str(i + 1)
             new_id = int(idInteger) + count
-            url = f'iiif/images/wpn/{new_id:04d}'
+            facs_value = args.facs if args.facs else ""
+            facs_path = args.facspath if args.facspath[-1] == '/' else f"{args.facspath}/"
+            url = f'{facs_path}{facs_value}{new_id:04d}'
             graphic = s.find('tei:graphic', namespaces=NSMAP)
             if graphic is not None:
                 graphic.set('url', url)
@@ -72,7 +104,8 @@ def add_graphic_url(file):
 
 if __name__ == '__main__':
     for file in tqdm.tqdm(source_glob, total=len(source_glob)):
-        add_graphic_url(file)
+        if args.facspath:
+            add_graphic_url(file)
         file = handle_pb_with_lb_break(file)
         text = file_parser(file)
         text = replace_namespace(text)

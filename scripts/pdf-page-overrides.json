@@ -1,0 +1,10 @@
+{
+  "defaults": {
+    "overflowStrategy": "grow",
+    "maxShrinkPercent": 15
+  },
+  "witnesses": {
+    "DfeH": { "extraWidthWhenGrownCm": 2.5 }
+  },
+  "pages": {}
+}

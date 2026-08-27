@@ -48,6 +48,7 @@
   --bs-handwritten-font-family-fallback: 'serif';
   --bs-font-family-fallback: 'serif';
   --nav-offset: $header-height;
+  --legende-font-size: 1rem !important;
 }
 
 /*** fonts ***/
@@ -91,6 +92,39 @@
   font-family: 'Crimson Text';
   font-weight: '400';
   src: url(../fonts/CrimsonText-Regular.woff2) format('woff2');
+}
+
+body {
+  scrollbar-width: thin !important;
+}
+
+.wpn-red-svg {
+  fill: $wpn-red;
+}
+
+.wpn-red {
+  color: $wpn-red;
+}
+
+.wpn-black-grey {
+  color: $wpn-black-grey;
+}
+
+.ais-RefinementList-item--selected {
+  color: $wpn-red;
+  accent-color: $wpn-red;
+}
+
+.search-facets-fs {
+  font-size: 0.8rem;
+}
+
+.facsimile-source{
+  font-size: 0.8rem;
+  font-family: "Ubuntu";
+  font-weight: 300;
+  line-height: 1.2;
+  color: black;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -245,6 +279,129 @@ footer {
   overflow:hidden;
 }
 
+/*** card slider (e.g. topographical sub-navigation) ***/
+.wpn-card-slider {
+  padding: 0 2.75rem;
+}
+
+.wpn-card-slider-track {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  padding-bottom: 0.5rem;
+}
+
+.wpn-card-slider-item {
+  // fixed widths (not %) to avoid the flex-basis/overflow circular-sizing
+  // issue: percentages here would resolve against the scrolling track's
+  // content size instead of its visible width, blowing up card widths.
+  flex: 0 0 78vw;
+  max-width: 320px;
+  scroll-snap-align: start;
+
+  @include media-breakpoint-up(sm) {
+    flex-basis: 260px;
+  }
+
+  @include media-breakpoint-up(md) {
+    flex-basis: 235px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.wpn-card-slider-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  transform: translateY(-50%);
+  border: 1px solid $wpn-black-grey;
+  border-radius: 50%;
+  background-color: #fff;
+  color: $wpn-blacker-grey;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $wpn-black-grey;
+    color: #fff;
+  }
+}
+
+.wpn-card-slider-btn-left {
+  left: 0;
+}
+
+.wpn-card-slider-btn-right {
+  right: 0;
+}
+
+/*** visualisierungen.xml: text column + fixed-width card column ***/
+.wpn-vis-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+  }
+}
+
+.wpn-vis-text-col {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.wpn-vis-cards-col {
+  flex: 0 0 233px;
+  width: 233px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @include media-breakpoint-down(md) {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.wpn-card-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: -0.5rem;
+  z-index: 2;
+  padding: 0.15rem 0.6rem;
+  background-color: $wpn-red;
+  color: #fff;
+  font-family: 'Roboto';
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transform: rotate(8deg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
 .wpn-expand .intro-text {
   height: auto;
   mask-image:unset;
@@ -287,6 +444,13 @@ html[data-page="notes"] .container {
 .pagination-grid-5 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border: none;
+}
+
+.pagination-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
   border: none;
 }
@@ -663,6 +827,7 @@ span.warning {
 #textcontent-pb .typescriptPageNum,
 #textcontent-pb .typescriptFont,
 #textcontent-pb .typescriptFontRight,
+#textcontent-pb .typescriptFontRight3,
 #textcontent-pb .metamark.typescriptFont,
 #textcontent-pb .typescriptLongQuote,
 #textcontent-pb .typescriptLongQuoteIndent,
@@ -673,6 +838,7 @@ span.warning {
 #textcontent-pb .typescriptLongQuoteVerse,
 #textcontent-pb .typescriptLongQuoteTitle,
 #textcontent-pb .typescriptRunningText1,
+#textcontent-pb .typescriptRunningText2,
 #textcontent-pb .typescriptPageNum,
 #textcontent-pb .typescriptLongQuoteVerseLeading,
 #textcontent-pb .typescriptLongQuoteLeading,
@@ -685,6 +851,7 @@ span.warning {
   font-size: 0.833rem;
   line-height: 1.4rem;
   font-family: monospace;
+  letter-spacing: 0.1rem;
   text-align: left;
   text-align-last: left;
   color: #212529;
@@ -706,6 +873,7 @@ span.warning {
 #textcontent-pb .typescriptLongQuoteVerse,
 #textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteTitle,
 #textcontent-pb .witnessTypescriptInsert .typescriptRunningText1,
+#textcontent-pb .witnessTypescriptInsert .typescriptRunningText2,
 #textcontent-pb .witnessTypescriptInsert .typescriptPageNum,
 #textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteVerseLeading,
 #textcontent-pb .witnessTypescriptInsert .typescriptLongQuoteLeading,
@@ -717,6 +885,7 @@ span.warning {
   font-size: 0.833rem;
   line-height: 1rem;
   font-family: monospace;
+  letter-spacing: 0.1rem;
   text-align: left;
   text-align-last: left;
   color: #212529;
@@ -802,7 +971,7 @@ span.warning {
 }
 
 #textcontent-pb .typescriptLongQuoteIndent,
-#textcontent-pb .typescriptLongQuoteLeading
+#textcontent-pb .typescriptLongQuoteLeading,
 #textcontent-pb .typescriptRunningText1,
 #textcontent-pb .typescriptLongQuote,
 #textcontent-pb .typescriptLongQuoteStart {
@@ -968,15 +1137,37 @@ span.warning {
   gap:0;
   min-height:calc(100vh - $edition-view-header-height);
   
-  // .grid-box-1 {
-  //   transform-origin: top;
-  //   transform: scale(1.2);
-  // }
+  .grid-box-1 {
+    width: 100%;
+    max-height: calc(100vh - $edition-view-header-height);
+    height: calc(100vh - $edition-view-header-height);
+    overflow-y: scroll;
 
-  // .grid-box-2 {
-  //   transform-origin: top;
-  //   transform: scale(1.2);
-  // }
+    // Force OpenSeadragon to respect container dimensions
+    .openseadragon-container,
+    .openseadragon-canvas {
+      max-height: 100% !important;
+      height: 100% !important;
+    }
+
+    #facscontent {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .grid-box-2 {
+    width: 100%;
+    max-height: calc(100vh - $edition-view-header-height);
+    height: calc(100vh - $edition-view-header-height);
+    overflow-y: scroll;
+  }
+
+    #infocontent-wrapper {
+    max-height: calc(100vh - $edition-view-header-height - $typo-info-3rd-column-height);
+    height: calc(100vh - $edition-view-header-height - $typo-info-3rd-column-height);
+    overflow-y: scroll;
+  }
 }
 
 #edition-view .sub_grid_pb_two {
@@ -1008,6 +1199,12 @@ span.warning {
     overflow-y: scroll;
   }
 
+    #infocontent-wrapper {
+    max-height: calc(100vh - $edition-view-header-height - $typo-info-3rd-column-height);
+    height: calc(100vh - $edition-view-header-height - $typo-info-3rd-column-height);
+    overflow-y: scroll;
+  }
+
   // handled via wpn-typo-utils on osd initialization
   // .grid-box-1 #facscontent .openseadragon-container {
   //   transform: scale(1.5);
@@ -1016,12 +1213,12 @@ span.warning {
   // }
 
   #textcontent-pb .print-page {
-    transform: scale(2);
+    transform: scale(1.8);
     transform-origin: top;
   }
 
   #facscontent, #textcontent-pb {
-    padding: 2.5rem;
+    padding: 2rem;
   }
 }
 
@@ -1075,12 +1272,12 @@ span.warning {
   // }
 
   #textcontent-pb .print-page{
-    transform: scale(2);
+    transform: scale(1.8);
     transform-origin: top;
   }
 
-  #facscontent, #textcontent-pb {
-    padding: 2.5rem;
+  #facscontent, #textcontent-pb, #facscolumn {
+    padding: 0 2rem !important;
   }
 }
 
@@ -1105,6 +1302,48 @@ span.warning {
   }
 }
 
+.print-page.witnessPrint2 {
+  $height: 21cm;
+  width: 14.2cm;
+  height: $height;
+  margin: 0 auto;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .print-body.witnessPrint2 {
+    display: grid;
+    grid-template-columns: calc(100% * 0.198) calc(100% * 0.604) calc(100% * 0.198);
+    gap: 0;
+  }
+
+  .print-header.witnessPrint2,
+  .print-footer.witnessPrint2 {
+    height: auto;
+    position: relative;
+  }
+}
+
+.print-page.witnessNote1 {
+  $height: 18.1cm;
+  width: 10.3cm;
+  height: $height;
+  margin: 0 auto;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .print-body.witnessNote1 {
+    display: grid;
+    grid-template-columns: calc(100% * 0.198) calc(100% * 0.604) calc(100% * 0.198);
+    gap: 0;
+  }
+
+  .print-header.witnessNote1,
+  .print-footer.witnessNote1 {
+    height: auto;
+    position: relative;
+  }
+}
+
 .print-page.witnessTypescript {
   width: 19.4cm;
   height: 26cm;
@@ -1114,7 +1353,7 @@ span.warning {
 
   .print-body.witnessTypescript {
     display: grid;
-    grid-template-columns: calc(100% * 0.154) auto auto;
+    grid-template-columns: calc(100% * 0.154) calc(100% * 0.692) calc(100% * 0.154);
     gap: 0;
   }
 
@@ -1133,12 +1372,54 @@ span.warning {
 
   .print-body.witnessTypescript2 {
     display: grid;
-    grid-template-columns: calc(100% * 0.154) auto auto;
+    grid-template-columns: calc(100% * 0.12) calc(100% * 0.76) calc(100% * 0.12);
     gap: 0;
+
+    .body-main {
+      z-index: 1;
+    }
   }
 
   .print-header.witnessTypescript2,
   .print-footer.witnessTypescript2 {
+    position: relative;
+  }
+}
+
+.print-page.witnessTypescript3 {
+  width: 20.7cm;
+  height: 26cm;
+  margin: 0 auto;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .print-body.witnessTypescript3 {
+    display: grid;
+    grid-template-columns: calc(100% * 0.154) calc(100% * 0.692) calc(100% * 0.154);
+    gap: 0;
+  }
+
+  .print-header.witnessTypescript3,
+  .print-footer.witnessTypescript3 {
+    position: relative;
+  }
+}
+
+.print-page.witnessTypescript4 {
+  width: 22.3cm;
+  height: 28.8cm;
+  margin: 0 auto;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  .print-body.witnessTypescript4 {
+    display: grid;
+    grid-template-columns: calc(100% * 0.2) calc(100% * 0.6) calc(100% * 0.2);
+    gap: 0;
+  }
+
+  .print-header.witnessTypescript4,
+  .print-footer.witnessTypescript4 {
     position: relative;
   }
 }
@@ -1176,8 +1457,12 @@ span.warning {
   letter-spacing: 1.5pt;
 }
 
+#textcontent-pb span:is([class*='typescript']) .spacing {
+  letter-spacing: 3.5pt;
+}
+
 #textcontent-pb .mod.letterSpacing {
-  letter-spacing: 0pt;
+  letter-spacing: inherit;
 }
 
 #textcontent-pb .no-letterSpacing {
@@ -1275,7 +1560,7 @@ span.warning {
 }
 
 .topUpperLeft5 {
-    top: 7em;
+    top: 8em;
     left: 11em;
     text-indent: initial;
 }
@@ -1314,6 +1599,12 @@ span.warning {
 .topLowerLeft1 {
     top: 9em;
     left: 5em;
+    text-indent: initial;
+}
+
+.topLowerLeft2 {
+    top: 12em;
+    left: 16em;
     text-indent: initial;
 }
 
@@ -1392,6 +1683,12 @@ span.warning {
 .topUpperRight5 {
     top: 4em;
     left: 30em;
+    text-indent: initial;
+}
+
+.topUpperRight6 {
+    top: 4em;
+    left: 56em;
     text-indent: initial;
 }
 
@@ -1554,6 +1851,12 @@ span.warning {
     text-indent: initial;
 }
 
+.bottomRight6 {
+    left: 20em;
+    bottom: 4em;
+    text-indent: initial;
+}
+
 .bottomUpperRight1 {
     left: 11em;
     bottom: 8em;
@@ -1670,6 +1973,19 @@ span.warning {
     text-indent: initial;
 }
 
+.pageNumRight5 {
+    left: 65%;
+    top: 1.5rem;
+    text-indent: initial;
+}
+
+.pageNumRight4 {
+    left: 90%;
+    top: 1.5rem;
+    text-indent: initial;
+}
+
+
 .pageNumLeft {
     left: 11%;
     top: 3em;
@@ -1742,8 +2058,8 @@ span.warning {
 }
 
 .marginUpperLeft3 {
-  left: -5%;
-  top: 35%;
+  left: -12%;
+  top: 34%;
   text-indent: 0;
 }
 
@@ -1763,6 +2079,11 @@ span.warning {
   top: 30%;
 }
 
+.marginUpperRight2 {
+  left: 85%;
+  top: 38%;
+}
+
 .marginUppermostRight {
   right: 1.5%;
   top: 10%;
@@ -1774,7 +2095,7 @@ span.warning {
 }
 
 .marginMiddleLeft2 {
-  left: -3%;
+  left: -8%;
   top: 41%;
 }
 
@@ -1783,8 +2104,28 @@ span.warning {
   right: 1.5%;
 }
 
+.marginMiddleRight2 {
+  top: 45%;
+  right: 1.5%;
+}
+
+.centerBelow {
+  position: absolute;
+    left: 20%;
+    top: 60%;
+}
+
+.centerBelow2 {
+    left: 17.5%;
+    top: 74%;
+}
+
 #textcontent-pb .underline {
   text-decoration: underline;
+}
+
+#textcontent-pb .mod.underline.pencilOnTypescriptKK {
+  text-decoration-color: $pencil-grey;
 }
 
 #textcontent-pb .underline .d-inline-block {
@@ -1835,38 +2176,76 @@ span.warning {
 
 #textcontent-pb .seg.border,
 #textcontent-pb .seg.border>.quotes>.longQuote>span,
-#textcontent-pb .mod.border.inkOnProofKK {
-  background-image: linear-gradient(lightgrey, lightgrey);
-  background-repeat: no-repeat;
-  background-size: calc(100% - 1px) 1em;
-  background-position: 0.5px 60%;
+#textcontent-pb .seg.border .lg,
+#legende-pb .seg.border {
+  background: linear-gradient(#e5e5e5, #e5e5e5) !important;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   border: none !important;
 }
 
-#textcontent-pb .seg.border:not(:has(br)),
-#textcontent-pb .seg.border>.quotes>.longQuote>span:not(:has(br)) {
-  background-size: calc(100% - 0px) 1em;
-  border-radius: 6px;
-}
-
-.border-crossed-out,
-#textcontent-pb .restore>.seg.border {
-    background-image: repeating-linear-gradient(330deg, white, white 3px, lightgrey 3px, lightgrey 6px);
-    border: none;
-    background-repeat: no-repeat;
-    background-size: calc(100% - 1px) 1.05em;
-    background-position: 0.5px 60%;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
+#textcontent-pb .seg.border:has(br),
+#textcontent-pb .mod.border.inkOnProofKK {
+  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1.1em no-repeat !important;
   border: none !important;
 }
 
+#textcontent-pb .witnessTypescriptInsert .seg.border:has(br) {
+  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 100% no-repeat !important;
+  border: none !important;
+}
+
+#textcontent-pb .witnessTypescriptInsert .seg.border:has(br).connection-color {
+  background: linear-gradient($wpn-red, $wpn-red) 0.5px 110% / calc(100% - 1px) 100% no-repeat !important;
+  border: none !important;
+}
+
+#textcontent-pb .seg.border:has(br).connection-color,
+#textcontent-pb .mod.border.inkOnProofKK.connection-color,
+#textcontent-pb .seg.border .seg.border.connection-color,
+#textcontent-pb .seg.border.connection-color:not(:has(br)):not(:has(.l)) {
+  background: linear-gradient($wpn-red, $wpn-red) 0.5px 110% / calc(100% - 1px) 1.1em no-repeat !important;
+  border-radius: 0;
+}
+
+#textcontent-pb .seg.border .seg.border {
+    background: linear-gradient(rgba(177, 177, 177, 0.5), rgba(177, 177, 177, 0.5)) 0.5px 110% / calc(100% - 1px)  1.1em no-repeat !important;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    border: none !important;
+}
+
+#textcontent-pb .seg.border:not(:has(br)):not(:has(.l)),
+#textcontent-pb .seg.border>.quotes>.longQuote>span:not(:has(br)) {
+  background: linear-gradient(#e5e5e5, #e5e5e5) 0.5px 110% / calc(100% - 1px) 1.1em no-repeat !important;
+}
+
+.border-crossed-out:not(:is(.connection-color)),
+#textcontent-pb .restore>.seg.border,
+#legende-pb .restore .seg.border,
+#textcontent-pb .restore > .seg.border:has(.border-crossed-out) {
+  background: repeating-linear-gradient(330deg, transparent, transparent 3px, #e5e5e5 3px, #e5e5e5 6px) 0.5px 110% / calc(100% - 1px) 1.05em no-repeat !important;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  border: none !important;  
+}
+
 /* large segs crossed out */
-#textcontent-pb .seg.noPrint.crossedOut {
+#textcontent-pb .seg.marked.crossedOut {
   display: block;
-  background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgb(102, 102, 102), transparent calc(50% + 0.5px));
+  background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), $pencil-grey, transparent calc(50% + 0.5px));
+}
+
+#textcontent-pb .seg.marked.crossedOut.inkOnNotepadKK {
+  display: block;
+  background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), #000, transparent calc(50% + 0.5px));
+}
+
+#textcontent-pb .seg.marked.crossedOut.connection-color {
+  color: black !important;
+  display: block;
+  background-color: transparent !important;
+  background-image: linear-gradient(to bottom right, transparent calc(50% - 1px), $wpn-red, transparent calc(50% + 1px));
 }
 
 .underline-crossed-out {
@@ -1886,56 +2265,56 @@ span.warning {
 
 #legende-pb .inkOnProofKK {
   font-family: var(--bs-handwritten-font-family-italic), var(--bs-handwritten-font-family-italic-fallback);
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
   color: black;
 }
 
 #legende-pb .inkOnProof {
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
   color: black;
 }
 
 #legende-pb .pencilOnProofKK.inkOnProofKK {
-  text-shadow: 1px 2px lightgrey;
+  text-shadow: 1px 2px #c9c9c9;
   color: #000;
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
 }
 
 #legende-pb .typescriptRunningText2 {
   font-family: monospace;
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
   color: #212529;
 }
 
 #legende-pb .runningText2 {
   font-family: "Crimson Text" !important;
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
   color: black;
 }
 
 #legende-pb .pencilOnProof {
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
-  font-size: 0.667rem;
-  color: #666666;
+  font-size: var(--legende-font-size);
+  color: $pencil-grey;
 }
 
 #legende-pb .redOnProof {
   color: $wpn-red;
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
 }
 
 #legende-pb .blueInkOnProof {
   color: #3333A2;
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
 }
 
 #legende-pb .bluePencilOnProof {
-  color: #5050C2;
+  color: #5A5AE4;
   font-family: var(--bs-handwritten-font-family), var(--bs-handwritten-font-family-fallback);
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
 }
 
 #legende-pb .underline {
@@ -1947,38 +2326,25 @@ span.warning {
   text-decoration-style: wavy;
 }
 
-#legende-pb .seg.border {
-  background-image: linear-gradient(lightgrey, lightgrey);
-  background-repeat: no-repeat;
-  background-size: calc(100% - 1px) 1em;
-  background-position: 0.5px 60%;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  border: none !important;
+#legende-pb .del.eraserOnProofKK del {
+text-decoration: line-through $pencil-grey dashed;
 }
-
+  
 #legende-pb .restore:has(del) {
   text-decoration: underline dotted;
-}
-
-#legende-pb .restore .seg.border {
-  background-image: repeating-linear-gradient(330deg, white, white 3px, lightgrey 3px, lightgrey 6px);
-  border: none;
-  background-repeat: no-repeat;
-  background-size: calc(100% - 1px) 1.05em;
-  background-position: 0.5px 60%;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  border: none !important;
 }
 
 #legende-pb .unclear::after {
   content: '[?]';
 }
 
+#legende-pb .add.overwrite {
+  white-space: nowrap;
+}
+
 #legende-pb li span,
 #legende-pb li {
-  font-size: 0.667rem;
+  font-size: var(--legende-font-size);
 }
 
 #legende-pb ul li {
@@ -1989,21 +2355,15 @@ span.warning {
   position: relative !important;
 }
 
-#legende-pb .add.overwrite {
-  bottom: 1px;
-  left: -1px !important;
-}
 
 #legende-pb .subst:has(>.add.overwrite)>.del:not(.erased),
-#legende-pb .subst:has(>.add.overwrite)>del{
-  color: #dddddd;
+#legende-pb .subst:has(>.add.overwrite)>del {
+  /* color: #dddddd; */
   text-decoration: none !important;
 }
 
 #legende-pb .subst:has(>.add.overwrite)>.del.erased {
-  color: #dddddd;
-  text-decoration: line-through;
-  text-decoration-color: #dddddd;
+  text-decoration: line-through dashed;
 }
 
 #legende-pb .metamark.printSpanFrom.redOnProof.entity { 
@@ -2068,7 +2428,7 @@ span.warning {
   left: 0;
   width: 100%;
   height: 1px;
-  border-top: 1px solid lightgrey;
+  border-top: 1px solid $pencil-grey;
   top: 50%;
   transform: translateY(1px);
   pointer-events: none;
@@ -2077,7 +2437,11 @@ span.warning {
 
 
 // handwritten text
+
+#textcontent-pb .inkOnNotepadKK [class*="inkLongQuote"],
 #textcontent-pb .inkOnProofKK .inkLongQuote,
+#textcontent-pb .inkRunningText,
+#textcontent-pb .inkLongQuoteVerse,
 #textcontent-pb .inkOnProofKK .inkLongQuoteVerse,
 #textcontent-pb .subst.inkOnProofKK .add,
 #textcontent-pb .subst.pencilOnTypescriptKK2 .add,
@@ -2095,8 +2459,10 @@ span.warning {
 #textcontent-pb .add.pencilOnTypescriptKK1,
 #textcontent-pb .add.pencilOnTypescriptKK2,
 #textcontent-pb .note.inkOnProofKK,
+#textcontent-pb .note.inkOnNotepadKK,
 #textcontent-pb .metamark.inkOnProofKK,
 #textcontent-pb .fw.inkOnProofKK,
+#textcontent-pb .fw.inkOnNotepadKK,
 #textcontent-pb .fw.pencilOnTypescriptKK,
 #textcontent-pb div.del.inkOnProofKK,
 #textcontent-pb .del.above.inkOnProofKK,
@@ -2105,10 +2471,12 @@ span.warning {
 #textcontent-pb .note.pencilOnTypescriptKK,
 #textcontent-pb .note.pencilOnTypescriptKK1,
 #textcontent-pb .note.pencilOnTypescriptKK2,
+#textcontent-pb .metamark.inkOnNotepadKK,
 #textcontent-pb .metamark.pencilOnProofKK,
 #textcontent-pb .metamark.pencilOnTypescriptKK2,
 #textcontent-pb .metamark.pencilOnTypescriptKK1,
 #textcontent-pb .metamark.pencilOnTypescriptKK,
+#textcontent-pb .metamark.pencilOnNotepadKK,
 #textcontent-pb div.del.pencilOnProofKK,
 #textcontent-pb div.mod.pencilOnProofKK,
 #textcontent-pb .mod.pencilOnProofKK .pencilOnProofKK,
@@ -2118,12 +2486,15 @@ span.warning {
 #textcontent-pb .del.left.pencilOnProof,
 #textcontent-pb .arrow.inkOnProofKK,
 #textcontent-pb .mod.inkOnProofKK.quote-indent,
+#textcontent-pb .mod.pencilOnTypescriptKK.quote-indent,
 #textcontent-pb .mod.inkOnProofKK .mod-inline,
 #textcontent-pb .mod.marginLeft.inkOnProofKK,
 #textcontent-pb .mod.marginInnerRight.inkOnProofKK,
+#textcontent-pb .mod.pencilOnTypescriptKK>.mod-inline,
 #textcontent-pb .restore.inkOnProofKK .seg-inline,
 #textcontent-pb .mod.noIndent.inkOnProofKK,
 #textcontent-pb .seg .seg.entity.seg-inline .inkOnProofKK {
+  letter-spacing: 0;
   font-size: 0.667rem;
   line-height: 0.75rem;
   font-family: var(--bs-handwritten-font-family-italic), var(--bs-handwritten-font-family-italic-fallback);
@@ -2137,18 +2508,20 @@ span.warning {
 #textcontent-pb .add.inkOnProof,
 #textcontent-pb .note.inkOnProof,
 #textcontent-pb .metamark.inkOnProof,
+#textcontent-pb .fw.ballpointOnTypescriptArchive,
 #textcontent-pb .fw.inkOnProof,
 #textcontent-pb div.del.inkOnProof,
 #textcontent-pb .subst.inkOnTypescript .add,
 #textcontent-pb .restore.inkOnTypescript .add,
 #textcontent-pb .add.inkOnTypescript,
+#textcontent-pb .add.inkOnTypescript2,
 #textcontent-pb .add.pencilOnProof,
 #textcontent-pb .note.pencilOnProof,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb div.del.pencilOnProof,
 #textcontent-pb div.mod.pencilOnProof,
 #textcontent-pb .subst.pencilOnProof .add,
-#textcontent-pb .restore.pencilOnProof .add
+#textcontent-pb .restore.pencilOnProof .add,
 #textcontent-pb .subst.redOnProof .add,
 #textcontent-pb .restore.redOnProof .add,
 #textcontent-pb .add.redOnProof,
@@ -2158,6 +2531,7 @@ span.warning {
 #textcontent-pb .subst.pencilOnTypescript .add,
 #textcontent-pb .subst.pencilOnTypescript2 .add, 
 #textcontent-pb .subst.pencilOnProof .add,
+#textcontent-pb .subst.pencilOnTypescript1 .add,
 #textcontent-pb .restore.pencilOnTypescript .add,
 #textcontent-pb .restore.pencilOnProof .add,
 #textcontent-pb .add.pencilOnTypescript,
@@ -2166,6 +2540,9 @@ span.warning {
 #textcontent-pb .note.pencilOnTypescript,
 #textcontent-pb .note.pencilOnProof,
 #textcontent-pb .note.pencilOnProofLibrary,
+#textcontent-pb .note.pencilOnTypescriptLibrary,
+#textcontent-pb .note.redBallpointOnNotepadLibrary,
+#textcontent-pb .fw.redBallpointOnNotepadLibrary,
 #textcontent-pb .metamark.pencilOnTypescript,
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb div.del.pencilOnTypescript,
@@ -2173,6 +2550,8 @@ span.warning {
 #textcontent-pb div.mod.pencilOnTypescript,
 #textcontent-pb div.mod.pencilOnProof,
 #textcontent-pb .add .blueInkOnProof,
+#textcontent-pb .add.pencilOnTypescript2,
+#textcontent-pb .del.blueInkOnProof .blueInkOnProof,
 #textcontent-pb .bluePencilOnProof,
 #textcontent-pb .seg .seg.entity.seg-inline .pencilOnTypescript {
   font-size: 0.667rem;
@@ -2193,12 +2572,14 @@ handling del elments based on change type
 #textcontent-pb .subst.pencilOnProof>del,
 #textcontent-pb .subst.undefined .del del,
 #textcontent-pb .subst.pencilOnTypescript .del del,
+#textcontent-pb .subst.pencilOnTypescript2>del.del,
 #textcontent-pb .subst.pencilOnProof .del del,
 #textcontent-pb .subst.pencilOnTypescriptKK2 del,
 #textcontent-pb .subst.pencilOnTypescriptKK1 del,
-#textcontent-pb .subst.pencilOnTypescriptKK del,
+#textcontent-pb .subst.pencilOnTypescriptKK > del,
 #textcontent-pb .subst del.pencilOnTypescriptKK2,
-#textcontent-pb .pencilOnTypescriptKK2>del,
+/* Faust */ #textcontent-pb .pencilOnTypescriptKK2>del,
+/* Faust p 230 */ #textcontent-pb span.pencilOnTypescriptKK1>del:not([class*="escript"]),
 #textcontent-pb .underline.pencilOnProof,
 #textcontent-pb .underline.pencilOnTypescriptKK2,
 #textcontent-pb .restore.pencilOnTypescript .del,
@@ -2217,6 +2598,7 @@ handling del elments based on change type
 #textcontent-pb .restore.undefined .mod span,
 #textcontent-pb .restore.pencilOnTypescript .metamark del,
 #textcontent-pb .restore.pencilOnProof .metamark del,
+#textcontent-pb .restore.pencilOnNotepadKK .del.text-decoration-underline-dotted,
 #textcontent-pb .restore.undefined .metamark del,
 #textcontent-pb .metamark .restore.pencilOnTypescript del,
 #textcontent-pb .metamark .restore.pencilOnProof del,
@@ -2229,6 +2611,7 @@ handling del elments based on change type
 #textcontent-pb .mod.pencilOnProof,
 #textcontent-pb .mod.undefined,
 #textcontent-pb .subst.pencilOnProofKK .del del,
+#textcontent-pb .subst.pencilOnTypescriptKK del,
 #textcontent-pb .del.pencilOnProofKK del,
 #textcontent-pb .subst>del.pencilOnProofKK,
 #textcontent-pb .del.pencilOnTypescriptKK del,
@@ -2238,15 +2621,44 @@ handling del elments based on change type
 #textcontent-pb .del.pencilOnProof del,
 #textcontent-pb .add.inkOnProofKK del.pencilOnProofKK,
 #textcontent-pb .pencilOnProofKK>del,
+#textcontent-pb .pencilOnProof>del,
 #textcontent-pb .restore.pencilOnProofKK .del,
 #textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .restore.pencilOnProofKK .add del,
 #textcontent-pb .restore.pencilOnProofKK .mod span,
 #textcontent-pb .restore.pencilOnProofKK .metamark del,
+#textcontent-pb .restore.pencilOnTypescriptKK>.subst>.del.text-decoration-underline-dotted,
 #textcontent-pb .metamark .restore.pencilOnProofKK del,
 #textcontent-pb .metamark .del.pencilOnProofKK del,
-#textcontent-pb .mod.pencilOnProofKK {
-  text-decoration-color: #666666;
+#textcontent-pb .mod.pencilOnProofKK,
+#textcontent-pb .del.pencilOnNotepadKK del
+{
+  text-decoration-color: $pencil-grey;
+}
+
+/* Abs. 64 Faust & Paral. */
+#textcontent-pb .del.eraser2>del,
+#textcontent-pb .del.eraser>del,
+#textcontent-pb .del.eraserOnTypescript>del,
+#textcontent-pb .del.eraserOnTypescriptKK>del,
+#textcontent-pb .subst.eraserOnTypescriptKK>del,
+#textcontent-pb .subst.eraserOnTypescript>del,
+#textcontent-pb .del.eraserOnTypescriptKK2>del,
+#textcontent-pb .del.eraserOnTypescript,
+#textcontent-pb .del.eraserOnTypescript0,
+#textcontent-pb .del.eraserOnTypescript0>del,
+#textcontent-pb .del.eraserOnTypescript1,
+#textcontent-pb del.eraserOnTypescript0,
+#textcontent-pb .del.eraserOnTypescriptKK,
+#textcontent-pb del.restore.eraserOnTypescriptKK,
+#textcontent-pb .restore.eraserOnTypescriptKK>del.add, /* TFragment2-0236r */
+#textcontent-pb .restore.eraserOnTypescriptKK:not(:is(.pencilOnTypescriptKK))>span.position-relative>del.add, /* TFragment2-0236r, Paral p. 38 */
+#textcontent-pb del.eraserOnTypescriptKK,
+#textcontent-pb .restore.eraserOnTypescriptKK.pencilOnTypescriptKK>del.add.pencilOnTypescript, /* paral., p. 38 */
+#textcontent-pb .restore.eraserOnTypescriptKK .subst .add.above,
+#textcontent-pb .add.above .eraserOnTypescriptKK>del,
+#textcontent-pb .subst.pencilOnTypescriptKK .add.above:has(>.eraserOnTypescriptKK) {
+  text-decoration: line-through $pencil-grey dashed;
 }
 
 #textcontent-pb .subst.redOnProof .del del,
@@ -2263,9 +2675,11 @@ handling del elments based on change type
 }
 
 #textcontent-pb .subst.inkOnProofKK .del del,
+#textcontent-pb .subst.inkOnTypescriptKK>del,
 #textcontent-pb .inkOnProofKK.subst>del,
 #textcontent-pb .inkOnProof.subst>del,
 #textcontent-pb .del.inkOnProofKK del,
+#textcontent-pb del.inkOnProofKK,
 #textcontent-pb del.inkOnTypescriptKK,
 #textcontent-pb del.inkOnTypescriptKK2,
 #textcontent-pb .restore.inkOnProofKK .add,
@@ -2283,61 +2697,153 @@ handling del elments based on change type
 #textcontent-pb .restore.inkOnProof del,
 #textcontent-pb .restore.inkOnTypescript del,
 #textcontent-pb .subst.inkOnTypescript del,
-#textcontent-pb .subst.inkOnTypescriptKK2 del {
+#textcontent-pb .subst.inkOnTypescriptKK2 > del,
+#textcontent-pb .subst.pencilOnTypescriptKK>del.del>.del.inkOnTypescriptKK>del,
+/* Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK .add.above>.subst.inkOnTypescriptKK>del,
+/* Faust p 232 */ #textcontent-pb .restore.inkOnTypescriptKK>.subst.pencilOnTypescriptKK del.add {
   text-decoration-color: #000;
 }
 
+#textcontent-pb .del.blueInkOnProof del,
+#textcontent-pb .subst.blueInkOnProof del {
+  text-decoration-color: #3333A2;
+}
+
+
 /* overwritten erased del */
 #textcontent-pb .del.erased del {
-  text-decoration-color: #666666;
+  text-decoration: line-through dashed $pencil-grey;
+}
+
+/* overwritten in larger del */
+#textcontent-pb .del del>.subst>.add.overwrite {
+text-decoration: line-through;
 }
 
 
 /* erased del in overwritten note lighter line through, lighter grey */
 #textcontent-pb .note .del.erased del,
-#textcontent-pb .subst.eraser del {
-  text-decoration-color: #dddddd;
-  color: #dddddd;
+#textcontent-pb .subst.eraser del,
+#textcontent-pb .subst .erased.del {
+  text-decoration: line-through dashed $pencil-grey;
 }
+
+/* general eraser handling */
+#textcontent-pb .metamark .del.eraserOnProofKK del,
+#textcontent-pb del.restore.eraserOnProofKK,
+#textcontent-pb .restore.eraserOnProofKK .subst.pencilOnProofKK del.add,
+#textcontent-pb .del.eraserOnProofKK del,
+#textcontent-pb del.eraserOnProof, 
+#textcontent-pb del.eraserOnProofKK, 
+#textcontent-pb .restore.eraserOnProofKK .subst.pencilOnProofKK .del {
+  text-decoration: line-through dashed $pencil-grey;
+}
+
+/* Faust p 229 dotted underline in grey, also Konv Jer */
+#textcontent-pb .restore.eraserOnTypescriptKK .text-decoration-underline-dotted,
+#textcontent-pb .restore.eraserOnProofKK .subst.pencilOnProofKK .del.text-decoration-underline-dotted {
+  text-decoration: underline dotted $pencil-grey;
+}
+
+/* Faust p 230 dotted underline in grey */
+#textcontent-pb .restore.pencilOnTypescriptKK>.del.text-decoration-underline-dotted {
+  text-decoration: underline dotted $pencil-grey;
+}
+
 
 /* double line through for double change values */
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del,
 #textcontent-pb .subst.inkOnProof.pencilOnProof del,
 #textcontent-pb .inkOnProofKK.del.pencilOnProofKK del.entity,
+#textcontent-pb .inkOnProofKK.del.pencilOnProofKK.entity,
 #textcontent-pb .inkOnProofKK.pencilOnProofKK.del.entity del,
+#textcontent-pb .subst.inkOnProofKK > del.del > .del.pencilOnProof,
+#textcontent-pb .subst.inkOnProofKK > del.del > .del.pencilOnProofKK,
+#textcontent-pb .subst:not(:is(.pencilOnProofKK, .inkOnProofKK)) > .inkOnProofKK.pencilOnProofKK.del > del, /* p 183 */
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.del,
-/* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del,
-/* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del {
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del, 
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK .del.inkOnTypescriptKK del, 
+/* Konvolut_Faust p 229 */ #textcontent-pb del.del.pencilOnTypescriptKK2.inkOnTypescriptKK2, 
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del,
+/* Konvolut_Faust p 232 new #textcontent-pb .subst.pencilOnTypescriptKK>del>.del.inkOnTypescriptKK>del, */
+/* Konvolut_Faust p 229 */ #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.del,
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK),
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK2 > del:has(>.subst.pencilOnTypescriptKK2 > del),
+/* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del),
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK del.del .subst.pencilOnTypescriptKK .del,
+/* Konvolut_Faust p 232 new */ #textcontent-pb .subst.pencilOnTypescriptKK>del.del:has(>.del.inkOnTypescriptKK>del) {
   position: relative;          
   display: inline;
   text-indent: initial;
 }
 
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del .del del.pencilOnTypescriptKK,
+/* Konvolut Faust p 232 */ #textcontent-pb .restore.inkOnTypescriptKK .subst.pencilOnTypescriptKK .del span {
+  text-decoration: line-through $pencil-grey;
+}
+
+#textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.del {
+  text-decoration-color: $pencil-grey;
+}
+
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK) del,
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK2 > del:has(> .subst.pencilOnTypescriptKK2 > del),
+/* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del),
+/* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del) .subst del.add.overwrite,
+/* Konvolut_Faust p 232 new */ #textcontent-pb .subst.pencilOnTypescriptKK>del.del:has(>.del.inkOnTypescriptKK>del) {
+  text-decoration: line-through #FFFFFF00;
+}
+
 #textcontent-pb .subst.inkOnProofKK.pencilOnProofKK del::before,
 #textcontent-pb .subst.inkOnProof.pencilOnProof del::before,
+#textcontent-pb .inkOnProofKK.del.pencilOnProofKK.entity::before,
 #textcontent-pb .inkOnProofKK.del.pencilOnProofKK del.entity::before,
+#textcontent-pb .subst.inkOnProofKK > del.del > .del.pencilOnProof::before,
+#textcontent-pb .subst.inkOnProofKK > del.del > .del.pencilOnProofKK::before,
+#textcontent-pb .subst:not(:is(.pencilOnProofKK, .inkOnProofKK)) > .inkOnProofKK.pencilOnProofKK.del > del::before, /* p 183 */
 #textcontent-pb .inkOnProofKK.pencilOnProofKK.del.entity del::before {
   content: "";
   position: absolute;
   left: 0;
   width: 100%;
   height: 1px;
-  border-top: 1px solid lightgrey;
+  border-top: 1px solid $pencil-grey;
   top: 50%;
   transform: translateY(1px);
   pointer-events: none;
 }
 
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.del::before,
+/* Konvolut_Faust p 229 */ #textcontent-pb del.del.pencilOnTypescriptKK2.inkOnTypescriptKK2::before, 
 /* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del::before,
-/* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del::before {
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.pencilOnTypescriptKK2 .del.inkOnTypescriptKK2 del::before,
+/* Konvolut_Faust p 232 new  #textcontent-pb .subst.pencilOnTypescriptKK>del>.del.inkOnTypescriptKK>del::before, */
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.pencilOnTypescriptKK .del.inkOnTypescriptKK del::before, 
+/* Konvolut_Faust p 229 */ #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.del::before,
+/* Konvolut_Faust p 229 */ #textcontent-pb .del.inkOnTypescriptKK:has(del .del del.pencilOnTypescriptKK)::before,
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK2 > del:has(>.subst.pencilOnTypescriptKK2 > del)::before,
+/* Konvolut_Faust p 232 */ #textcontent-pb del.inkOnTypescriptKK:has(.del.pencilOnTypescriptKK1 > del)::before,
+/* Konvolut_Faust p 232 */ #textcontent-pb .subst.inkOnTypescriptKK del.del .subst.pencilOnTypescriptKK .del::before {
   content: "";
   position: absolute;
   left: 0;
   width: 100%;
   height: 1px;
   border-top: 1px solid black;
-  top: 53%;
+  top: 55%;
+  transform: translateY(1px);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Konvolut_Faust p 232 new */ #textcontent-pb .subst.pencilOnTypescriptKK>del.del:has(>.del.inkOnTypescriptKK>del)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid $pencil-grey;
+  top: 55%;
   transform: translateY(1px);
   pointer-events: none;
 }
@@ -2346,6 +2852,7 @@ handling del elments based on change type
 
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK:not(:is(.pencilOnProofKK))>del,
 #textcontent-pb del.restore.inkOnProofKK .inkOnProofKK.pencilOnProofKK,
+#textcontent-pb .del.inkOnProofKK.pencilOnProofKK del:is([class*='margin']).inkOnProofKK:not(:is(.pencilOnProofKK)),
 #textcontent-pb .restore.inkOnProofKK .add.inkOnProofKK.pencilOnProofKK>del,
 #textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del,
 #textcontent-pb .add.pencilOnProofKK.inkOnProofKK del.inkOnProofKK:not(:is(.pencilOnProofKK)) {
@@ -2356,6 +2863,7 @@ handling del elments based on change type
 
 #textcontent-pb .note.inkOnProofKK.pencilOnProofKK>.subst.inkOnProofKK:not(:is(.pencilOnProofKK))>del::after,
 #textcontent-pb del.restore.inkOnProofKK .inkOnProofKK.pencilOnProofKK::after,
+#textcontent-pb .del.inkOnProofKK.pencilOnProofKK del:is([class*='margin']).inkOnProofKK:not(:is(.pencilOnProofKK))::after,
 #textcontent-pb .restore.inkOnProofKK .add.inkOnProofKK.pencilOnProofKK>del::after,
 #textcontent-pb .add.inkOnProofKK.pencilOnProofKK .inkOnProofKK:not(:is(.pencilOnProofKK))>del::after,
 #textcontent-pb .add.pencilOnProofKK.inkOnProofKK del.inkOnProofKK:not(:is(.pencilOnProofKK))::after {
@@ -2383,17 +2891,20 @@ handling del elments based on change type
     position: absolute;
     width: 100%;
     height: 1px;
-    background: lightgrey;
+    background: $pencil-grey;
     bottom: -1px;
     pointer-events: none;
     z-index: 1;
     left: 1px;
 }
 
-/* Konvolut_Faust p 1 - removing line through from add in del */
+/* Konvolut Faust p 229 - removing line through from add in del */
 #textcontent-pb .del.pencilOnTypescriptKK2 .subst.inkOnTypescriptKK1 del.add.above,
 #textcontent-pb del.pencilOnTypescriptKK .subst.inkOnTypescriptKK del.add.above,
-#textcontent-pb .del.pencilOnTypescriptKK2  del.add.above.inkOnTypescriptKK1 {
+#textcontent-pb .del.pencilOnTypescriptKK2  del.add.above.inkOnTypescriptKK1,
+#textcontent-pb span.restore.eraser del  .position-relative .add.above.inkOnTypescriptKK1,
+#textcontent-pb .subst.inkOnTypescriptKK del:has(.restore.inkOnTypescriptKK),
+#textcontent-pb .restore.eraserOnTypescriptKK del.pencilOnTypescriptKK del.add.inkOnTypescriptKK1.above {
   text-decoration: none; 
 }
 
@@ -2446,7 +2957,7 @@ handling del elements in maring left or right
 #textcontent-pb .seg.border.pencilOnProofKK,
 #textcontent-pb .seg.border-dashed.pencilOnProofKK,
 #textcontent-pb .seg.border-dotted.pencilOnProofKK{
-  border-color: #666666;
+  border-color: $pencil-grey;
 }
 
 #textcontent-pb .seg.border.redOnProof,
@@ -2476,15 +2987,17 @@ handling del elements in maring left or right
 #textcontent-pb div.add.pencilOnTypescript,
 #textcontent-pb div.add.pencilOnProof,
 #textcontent-pb div.add.undefined,
+#textcontent-pb .add.pencilOnProof,
 #textcontent-pb .note.undefined,
 #textcontent-pb .add.undefined,
 #textcontent-pb .del.left.pencilOnProof,
 #textcontent-pb .subst.pencilOnTypescript .add,
 #textcontent-pb .subst.pencilOnProof .add,
 #textcontent-pb .subst.undefined .add,
-#textcontent-pb .subst.pencilOnTypescript .add,
+#textcontent-pb .subst.pencilOnTypescript1 .add,
 #textcontent-pb .subst.pencilOnTypescriptKK1 .add,
 #textcontent-pb .subst.pencilOnTypescriptKK .add,
+#textcontent-pb .subst.inkOnTypescriptKK .subst.pencilOnTypescriptKK .add,
 #textcontent-pb .subst.pencilOnProof .add,
 #textcontent-pb .subst.undefined .add,
 #textcontent-pb .restore .pencilOnTypescript.add,
@@ -2498,10 +3011,14 @@ handling del elements in maring left or right
 #textcontent-pb .metamark.pencilOnProof,
 #textcontent-pb .metamark.pencilOnProof2,
 #textcontent-pb .metamark.pencilOnTypescriptKK,
+#textcontent-pb .metamark.pencilOnTypescriptKK1,
+#textcontent-pb .metamark.pencilOnNotepadKK,
 #textcontent-pb .metamark.undefined,
+#textcontent-pb .mod.pencilOnTypescriptKK.quote-indent,
+#textcontent-pb .mod.pencilOnTypescriptKK>.mod-inline,
 #textcontent-pb .add.inkOnProof .add.pencilOnProof
 {
-  color: #666666;
+  color: $pencil-grey;
 }
 
 /*
@@ -2509,23 +3026,30 @@ pencil text color
 */
 #textcontent-pb div.del.pencilOnProofKK,
 #textcontent-pb .subst.pencilOnProofKK .add,
+#textcontent-pb .subst.pencilOnTypescript2 .add,
 #textcontent-pb .restore.pencilOnProofKK .add,
 #textcontent-pb .add.pencilOnProofKK,
+#textcontent-pb .add.pencilOnTypescriptKK,
+#textcontent-pb .add.pencilOnTypescript,
+#textcontent-pb .add.pencilOnTypescript1,
 #textcontent-pb .metamark.pencilOnProofKK,
 #textcontent-pb .fw.pencilOnProofKK,
 #textcontent-pb .fw.pencilOnTypescriptKK,
 #textcontent-pb .add.pencilOnTypescriptKK,
 #textcontent-pb .add.pencilOnTypescriptKK1,
+#textcontent-pb .add.pencilOnTypescript2,
 #textcontent-pb .add.pencilOnTypescriptKK2,
 #textcontent-pb .subst.pencilOnTypescriptKK2 .add,
+#textcontent-pb .subst.inkOnTypescriptKK2 del .subst.pencilOnTypescriptKK2 .add,
 #textcontent-pb .fw.pencilOnProof,
 #textcontent-pb .note.pencilOnProofKK,
 #textcontent-pb .note.pencilOnTypescriptKK,
 #textcontent-pb .note.pencilOnTypescriptKK1,
 #textcontent-pb .note.pencilOnTypescriptKK2,
 #textcontent-pb .note.pencilOnProofLibrary,
+#textcontent-pb .note.pencilOnTypescriptLibrary,
 #textcontent-pb .seg .seg.entity.seg-inline .pencilOnTypescript {
-  color: #666666;
+  color: $pencil-grey;
 }
 
 #textcontent-pb div.del.redOnProof,
@@ -2537,10 +3061,13 @@ pencil text color
 #textcontent-pb .subst.redOnProofKK .add,
 #textcontent-pb .restore.redOnProofKK .add,
 #textcontent-pb .add.redOnProofKK,
-#textcontent-pb .metamark.redOnProofKK  {
+#textcontent-pb .metamark.redOnProofKK,
+#textcontent-pb .note.redBallpointOnNotepadLibrary,
+#textcontent-pb .fw.redBallpointOnNotepadLibrary {
   color: $wpn-red;
 }
 
+/* black ink */
 #textcontent-pb div.del.inkOnProofKK,
 #textcontent-pb .subst.inkOnProofKK .add,
 #textcontent-pb .subst.inkOnProofUndefined .add,
@@ -2553,16 +3080,22 @@ pencil text color
 #textcontent-pb .add.inkOnProof,
 #textcontent-pb div.add.inkOnProof,
 #textcontent-pb .metamark.inkOnProof,
+#textcontent-pb .metamark.inkOnNotepadKK,
 #textcontent-pb .subst.inkOnTypescript .add,
+#textcontent-pb .subst.inkOnNotepad .add,
 #textcontent-pb .subst.inkOnTypescriptKK .add,
 #textcontent-pb .subst.inkOnTypescriptKK2 .add,
 #textcontent-pb .restore.inkOnTypescript .add,
 #textcontent-pb .add.inkOnTypescript,
+#textcontent-pb .fw.ballpointOnTypescriptArchive,
 #textcontent-pb .add.inkOnTypescriptKK,
+#textcontent-pb .add.inkOnTypescriptKK1,
 #textcontent-pb .add.inkOnTypescriptKK2,
+#textcontent-pb .add.inkOnTypescript2,
 #textcontent-pb .note.inkOnProofKK,
 #textcontent-pb .note.inkOnTypescriptKK,
-#textcontent-pb .note.inkOnTypescriptKK2 {
+#textcontent-pb .note.inkOnTypescriptKK2,
+#textcontent-pb .inkOnNotepadKK [class*="inkLongQuote"] {
   color: #000;
 }
 
@@ -2579,16 +3112,20 @@ pencil text color
   color: #303030;
 }
 
-#textcontent-pb .blueInkOnProof {
+#textcontent-pb div.del.blueInkOnProof,
+#textcontent-pb .add.blueInkOnProof .blueInkOnProof,
+#textcontent-pb .subst.blueInkOnProof>.add.overwrite
+{
   color: #3333A2;
 }
 
 #textcontent-pb .bluePencilOnProof {
-  color: #5050C2;
+  color: #5A5AE4;
 }
 
 #textcontent-pb .pencilOnProofKK.inkOnProofKK.add,
 #textcontent-pb .pencilOnProof.inkOnProof.add,
+#textcontent-pb .add.above.pencilOnTypescriptKK2.inkOnTypescriptKK2, /* para64, p 229 */
 #textcontent-pb div.del.pencilOnProofKK.inkOnProofKK span.pencilOnProofKK.inkOnProofKK,
 #textcontent-pb div.del.pencilOnProof.inkOnProof span.pencilOnProof.inkOnProof,
 #textcontent-pb .pencilOnProofKK.inkOnProofKK.metamark,
@@ -2598,12 +3135,13 @@ pencil text color
 #textcontent-pb .inkOnProofKK.pencilOnProofKK .inkLongQuoteVerse,
 #textcontent-pb .inkOnProofKK.pencilOnProofKK.mod .inkOnProofKK.pencilOnProofKK,
 #textcontent-pb .mod.inkOnProofKK.pencilOnProofKK,
+#textcontent-pb .mod.inkOnProofKK.pencilOnProofKK .mod-inline,
 #textcontent-pb .mod.marginLeft.pencilOnProofKK.inkOnProofKK,
 #textcontent-pb .metamark.inkOnProofKK.pencilOnProofKK,
 #textcontent-pb .metamark.inkOnTypescriptKK2.pencilOnTypescriptKK2,
 #textcontent-pb .mod.inkOnProofKK.pencilOnProofKK:is([class*='margin']),
 #textcontent-pb .del.above.inkOnProofKK.pencilOnProofKK:has(>.arimo) {
-  text-shadow: 2px 3px lightgrey;
+  text-shadow: 2px 3px #c9c9c9;
   color: #000;
 }
 
@@ -2627,22 +3165,32 @@ pencil text color
 }
 
 #textcontent-pb .metamark.linespace,
-#textcontent-pb .metamark.linespace2 {
+#textcontent-pb .metamark.linespace2,
+#textcontent-pb .metamark.linespace3 {
   position: relative;
 }
 
-#textcontent-pb .metamark.linespace::after  {
+#textcontent-pb .metamark.linespace::after,
+#textcontent-pb .metamark.linespace2::after,
+#textcontent-pb .metamark.linespace3::after {
   position: absolute;
-  content: '–––';
+  content: "–––";
+  transform: scaleY(1.6);
+}
+
+#textcontent-pb .metamark.linespace::after {
   top: -0.5rem;
   left: 13rem;
 }
 
-#textcontent-pb .metamark.linespace2::after  {
-  position: absolute;
-  content: "–––";
+#textcontent-pb .metamark.linespace2::after {
   top: 0.5rem;
   left: -20.5rem;
+}
+
+#textcontent-pb .metamark.linespace3::after {
+  top: -0.5rem;
+  left: -0.5rem;
 }
 
 #textcontent-pb .longQuoteVerseStart {
@@ -2687,31 +3235,33 @@ pencil text color
   text-indent: 0;
 }
 
-#textcontent-pb .ellipsis.extent-17 {
-  width: 7rem;
-}
-#textcontent-pb .ellipsis.extent-13 {
-  width: 6.5rem;
-}
-#textcontent-pb .ellipsis.extent-12 {
-  width: 6rem;
-}
-#textcontent-pb .ellipsis.extent-11 {
-  width: 5.5rem;
-}
-#textcontent-pb .ellipsis.extent-10 {
-  width: 5rem;
-}
-#textcontent-pb .ellipsis.extent-9 {
-  width: 4.5rem;
-}
 #textcontent-pb .ellipsis.extent-6 {
-  width: 3rem;
-}
-#textcontent-pb .ellipsis.extent-27 {
-  width: 13.5rem;
+  width: 4rem;
 }
 
+#textcontent-pb .ellipsis.extent-7 {
+  width: 4.5rem;
+}
+
+#textcontent-pb .ellipsis.extent-9 {
+  width: 6rem;
+}
+
+#textcontent-pb .ellipsis.extent-10 {
+  width: 7rem;
+}
+
+#textcontent-pb .ellipsis.extent-14 {
+  width: 8.5rem;
+}
+
+#textcontent-pb .ellipsis.extent-17 {
+  width: 9rem;
+}
+
+#textcontent-pb .ellipsis.extent-27 {
+  width: 16rem;
+}
 
 #textcontent-pb .add div {
   width: 100%;
@@ -2813,6 +3363,12 @@ pencil text color
   right: -6em;
 }
 
+.rightAbove2 {
+  position: absolute;
+  top: -8pt;
+  left: 6em;
+}
+
 .rightFurtherBelow {
   position: absolute;
   top: 16pt;
@@ -2833,6 +3389,11 @@ pencil text color
 .left {
   position: absolute;
   left: -6em;
+}
+
+.left2 {
+  position: absolute;
+  left: -3em;
 }
 
 .furtherLeft {
@@ -2862,7 +3423,8 @@ pencil text color
 
 /* single added line below (p 119, 259, etc) */
 
-#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(.below, .leftBelow) {
+#textcontent-pb span:is(.note, .marginInnerRight) .position-relative:has(.below, .leftBelow),
+#textcontent-pb span.l .position-relative:has(.below) {
   line-height: 1.5rem;
   vertical-align: top;
 }
@@ -2894,6 +3456,12 @@ pencil text color
 #textcontent-pb span:is(.note, .marginInnerRight) .position-relative>:is(.below, .leftBelow):not(:has(.below, .leftBelow)):has(br) {
   position: absolute;
   bottom: -1.125rem;
+}
+
+/* two line subst/add below in marginInnerRightBelow */
+#textcontent-pb span.marginInnerRightBelow .subst .add.below:has(br) {
+  position: absolute;
+  bottom: -1.5rem;
 }
 
 /* double added line below */
@@ -3005,14 +3573,41 @@ pencil text color
   vertical-align: bottom;
 }
 
-#textcontent-pb span.note span.position-relative .above.subst,
-#textcontent-pb span.note span.position-relative .above.add {
+
+#textcontent-pb span.note:not([class*='typew']) span.position-relative .above.subst,
+#textcontent-pb span.note:not([class*='typew']) span.position-relative .above.add {
   position: absolute;
   top: -4pt;
+} /* added restriction to remove this style from typewritten notes */
+
+#textcontent-pb .above.add:has(>.add.inline.typewriter) {
+  position: absolute;
+  top: -10pt;
 }
 
+/* highly specific fixes */ 
 
-/* uncomment and test when all new attr values are available in Gesamt.xml */
+#textcontent-pb span.note[data-anchor='note0098_2']:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .above, > .below),
+#textcontent-pb span.note[data-anchor='note0098_2']:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .below):has(br) .position-relative:has(> .above),
+#textcontent-pb span.note[data-anchor='note0085_1']:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .above, > .below),
+#textcontent-pb span.note[data-anchor='note0137_1']:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .above, > .below) {
+  line-height: 0.75rem;
+}
+
+#textcontent-pb span.note[data-anchor='note0098_2']:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .below):has(br) .position-relative:has(> .above) .above {
+  top: -10pt;
+}
+
+#textcontent-pb span.note[data-anchor='note0085_1']:has(.position-relative > .above):has(.position-relative > .below) .position-relative:has(> .above, > .below) > .below:has(.below) {
+  bottom: -0.75rem;
+}
+
+#textcontent-pb span.note[data-anchor='note0137_1'] .position-relative:has(> .leftBelow .below) {
+  line-height: 1.5rem;
+}
+
+/* end highly specific fixes */
+
 
 div:has(> .lineRight), div:has(> .doubleLineRight)  {
   text-align: left;
@@ -3037,6 +3632,13 @@ div.position-relative .marginOutermostRight,
 div.position-relative .marginOutermostRightOnly {
   position: absolute;
   left: 80%;
+  text-align: left;
+}
+
+div.position-relative .marginOutermostRightBelow {
+  position: absolute;
+  left: 80%;
+  top: 1rem;
   text-align: left;
 }
 
@@ -3067,7 +3669,7 @@ div.position-relative .marginInnerRightBelow,
 div.position-relative .marginInnerRightBelowOnly {
   position: absolute;
   left: 5%;
-  top: 1rem;
+  top: 0.75rem;
   text-align: left;
 }
 
@@ -3104,7 +3706,7 @@ div:has(> .lineLeft), div:has(> .doubleLineLeft) {
   margin-right: .5rem;
 }
 
-div.position-relative .arrow {
+div.position-relative .arrow:not(.mod) {
   position: absolute;
   text-align: right;
   right: 34%;
@@ -3197,13 +3799,6 @@ div.position-relative .marginLeftFurtherBelowOnly {
   text-indent: 0;
 }
 
-/*
-.longQuoteMarginStart .no-indent,
-.longQuoteMarginMiddle .no-indent,
-.longQuoteMarginEnd .no-indent {
-  text-indent: inherit !important;
-}
-*/
 
 .fw {
   position: absolute;
@@ -3228,10 +3823,27 @@ div.position-relative .marginLeftFurtherBelowOnly {
   text-decoration: underline;
 }
 
-/*for Konvolut_Faust, Paralipomenon  */
+/*for Konvolut_Faust & Paralipomenon  */
 #textcontent-pb .metamark.typescriptFontRight {
   display: block;
-  text-indent: 30rem;
+  text-indent: 27rem;
+  position: relative !important;
+  text-decoration: none;
+}
+
+#textcontent-pb .typescriptFontRight3 {
+  display: block;
+  text-indent: 33rem;
+  position: relative !important;
+  text-decoration: none;
+  line-height: 0;
+  bottom: 2pt;
+}
+
+/*for Paralipomenon  */
+#textcontent-pb .metamark.typescriptFontRight2 {
+  display: block;
+  text-indent: 8rem;
   position: relative !important;
   text-decoration: none;
 }
@@ -3240,6 +3852,10 @@ div.position-relative .marginLeftFurtherBelowOnly {
   text-decoration: underline;
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+#textcontent-pb .fw.inkOnNotepadKK {
+  text-decoration: underline;
 }
 
 #textcontent-pb .metamark.inkFont.left {
@@ -3273,12 +3889,23 @@ div.position-relative .marginLeftFurtherBelowOnly {
   position: relative;
 }
 
-/* .seg.seg-inline span */
-// .metamark.mm-inline span,
-// .mod-inline span {
-//   position: absolute;
-//   right: -3px;
-// }
+#textcontent-pb .bracket-offset-1 { left: -0.5em; }
+#textcontent-pb .bracket-offset-2 { margin-left: -0.25rem; }
+#textcontent-pb .bracket-offset-3 { margin-left: -0.5rem; }
+
+#textcontent-pb .print-page.witnessPrint .bracket-offset-1,
+#textcontent-pb .print-page.witnessPrint .bracket-offset-2,
+#textcontent-pb .print-page.witnessPrint .bracket-offset-3 {
+  top: 0.1em;
+}
+
+#textcontent-pb .print-page.witnessTypescript4 .bracket-offset-3 { 
+  top: -0.1em;
+  position: relative;
+}
+
+#textcontent-pb .print-page.witnessTypescript4 .bracket-offset-1 { top: 0.1rem; }
+
 
 .typescriptFont {
   font-family: "monospace";
@@ -3304,32 +3931,66 @@ wpn-time-line {
   border-color: rgb(255, 92, 92) !important;
 }
 
-#textcontent-pb .add.overwrite {
-  /* font-family: var(--bs-handwritten-font-family-italic); */
+#textcontent-pb .add.overwrite,
+#legende-pb .add.overwrite {
   text-shadow: none;
   cursor: url(../images/cursor-circle.svg) 15 15, auto;
 }
 
-#textcontent-pb .subst .add.overwrite {
+#textcontent-pb .subst .add.overwrite,
+#legende-pb .subst .add.overwrite {
+  /* font-size: inherit !important; */
+  line-height: inherit;
+  background-image: linear-gradient(to bottom, white 0%, white 100%);
+  border-right: 1px solid grey;
+  border-bottom: 1px solid black;
+  border-radius: 4px;
+}
+
+#textcontent-pb .runningText1 .d-block.longQuoteIndent .subst .add.overwrite {
+  letter-spacing: 0 !important;
+}
+
+
+#textcontent-pb span:is([class*='typescriptLong'], [class*='typescriptRunning'], [class*='typewriter']) .subst .add.overwrite {
   font-size: inherit !important;
+  letter-spacing: inherit;
+}
+
+#textcontent-pb .subst:is([class*='pencil']) del .overwrite,
+#textcontent-pb .del:is([class*='pencil']) .overwrite {
+  text-decoration: line-through;
+  text-decoration-color: $pencil-grey !important;
 }
 
 #textcontent-pb .add.overwrite:hover {
-  opacity: 0;
+  background-color: rgba(235, 104, 104, 0) !important;
+  color: rgba(255, 255, 255, 0) !important;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-radius: 4px;
+  background-image: none;
+  box-shadow: 0 0 2px rgba($wpn-red, 0.75);
+}
+
+#legende-pb .subst:has(>.add.overwrite)>.del {
+  display: none;
+  z-index: -1;
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del {
-  color: #dddddd !important;
+  z-index: -1;
+}
+
+/* for Jer p 97 */
+#textcontent-pb .pencilOnProofKK.inkOnProofKK .subst.inkOnProofKK:has(> .add.overwrite)>.del {
+  color: $pencil-grey;
 }
 
 #textcontent-pb .subst:has(>.add.overwrite)>.del.erased {
-  text-decoration: line-through;
-  text-decoration-color: #dddddd !important;
+  text-decoration: line-through dashed $pencil-grey;
 }
 
-#textcontent-pb .subst:has(>.add.overwrite)>.del .add {
-  color: #dddddd !important;
-}
 
 #textcontent-pb .subst:has(>.overwrite) {
   text-indent: 0;
@@ -3375,14 +4036,88 @@ body.modal-open, body.modal-open main {
 }
 
 .connection-color {
-  text-shadow: $wpn-red 0 0 4px !important;
+  /* text-shadow: $wpn-red 0 0 4px !important; */
+  background-color: $wpn-red !important;
+  color: white !important;
+  border-radius: 4px;
 }
 
-// .connection-color-inline {
-//   text-shadow: none !important;
-//   color: $wpn-fackel !important;
-//   text-decoration-color: $wpn-fackel !important;
-// }
+#textcontent-pb .connection-color .position-relative .add {
+  color: initial;
+}
+
+.connection-color::after {
+  color: $wpn-red !important;
+}
+
+#textcontent-pb [class*="margin"].connection-color .add.inline {
+  color: white !important;
+}
+
+.subst.connection-color .add.overwrite {
+  /* text-shadow: $wpn-red 0 0 4px !important; */
+  background-color: $wpn-red !important;
+  color: white !important;
+  background-image: none !important;
+  border-radius: 4px;
+}
+
+#textcontent-pb .border-crossed-out.connection-color {
+  background: $wpn-red linear-gradient($wpn-red, $wpn-red) 0.5px 110% / calc(100% - 1px) 1.05em no-repeat !important;
+}
+
+/* hightlight note and all sub elements except sub elements containing class noHightlight */
+.note.connection-color *:not(.noHighlight) {
+  /* text-shadow: $wpn-red 0 0 4px !important; */
+  background-color: $wpn-red !important;
+  color: white !important;
+  border-radius: 4px;
+}
+
+#textcontent-pb .seg.border.connection-color,
+#textcontent-pb .seg.border.connection-color .metamark {
+    background: $wpn-red !important;
+    color: white !important;
+    border-radius: 0px;
+}
+
+#textcontent-pb .seg.border.connection-color .lg .l {
+    color: white;
+}
+
+#textcontent-pb .seg.border.connection-color .d-block.lg,
+#textcontent-pb .seg.border .restore.connection-color .d-block.lg {
+    background: $wpn-red !important;
+}
+
+#textcontent-pb .seg.border.connection-color .lg .l,
+#textcontent-pb .seg.border .restore.connection-color .d-block.lg .l {
+    background: transparent !important;
+}
+
+/* #textcontent-pb .seg.border.connection-color span.d-block.lg:not(:has(~ span.d-block.lg)),
+#textcontent-pb .restore.connection-color .del del span.d-block.lg:not(:has(~ span.d-block.lg)) {
+    border-radius: 0 0 4px 4px;
+    background: $wpn-red !important;
+} 
+
+#textcontent-pb .seg.border.connection-color .d-block.lg:first-of-type,
+#textcontent-pb .seg.border.connection-color span.del del span.d-block.lg:first-of-type,
+#textcontent-pb .restore.connection-color .del del span.d-block.lg:first-of-type {
+    border-radius: 4px 4px 0 0;
+    border-radius: 0px;
+    background:$wpn-red !important;
+} */
+
+#textcontent-pb .restore.pencilOnNotepadKK.connection-color .del:has(.lg) {
+  text-decoration-color: white !important;
+}
+
+#textcontent-pb del.connection-color .d-block.lg .inline-text {
+  background: $wpn-red !important;
+  color: white !important;
+  border-radius: 0px;
+}
 
 .connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight) {
   width: 0.833rem;
@@ -3455,7 +4190,7 @@ body.modal-open, body.modal-open main {
 
 .metamark.pencilOnProof2 .connection-color-line.printSpanFrom,
 .metamark.pencilOnProof2 .connection-color-line.printSpanTo {
-  background: rgba(102, 102, 102, 0.3); /* = #666666 */
+  background: rgba(102, 102, 102, 0.3);
 }
 
 .metamark.pencilOnProof2 .connection-color-line.printSpanFrom:is(.lineLeft, .lineRight, .doubleLineLeft, .doubleLineRight),
@@ -3465,7 +4200,7 @@ body.modal-open, body.modal-open main {
 
 .metamark.pencilOnProof2 .connection-color-line.active.printSpanFrom,
 .metamark.pencilOnProof2 .connection-color-line.active.printSpanTo {
-  background: rgba(102, 102, 102, 1.0); /* = #666666 */
+  background: rgba(102, 102, 102, 1.0); 
 }
 
 
@@ -3475,6 +4210,7 @@ body.modal-open, body.modal-open main {
 }
 
 .metamark.printSpanTo.active.inline.pencilOnProof2.connection-color-line,
+.metamark.printSpanTo.active.inline.pencilOnTypescript2.connection-color-line,
 .metamark.printSpanFrom.active.inline.pencilOnProof2.connection-color-line {
   background: rgba(102, 102, 102, 0.7);
 }
@@ -3494,6 +4230,36 @@ body.modal-open, body.modal-open main {
   margin-left:1rem;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+#paginationLabel.dropdown-toggle::after {
+  margin-left: 0;
+}
+
+// #legende-pb and #infocontent-pb carry min-h-100/min-vh-100 so they fill the
+// column while visible; but Bootstrap's .visually-hidden switches them to
+// position:absolute, and since no ancestor in the toggle chain is itself
+// positioned, that absolute box escapes every nested overflow:scroll clip
+// (its containing block is the initial containing block) and inflates the
+// whole document's scrollable height while hidden. Neutralize the forced
+// min-height in that state so the hidden panel stays the intended 1px sr-only box.
+#legende-pb.visually-hidden,
+#infocontent-pb.visually-hidden {
+  min-height: 0 !important;
+}
+
+// Even with the above, #pagination-pb's own natural (unclipped) content height
+// still leaks into the document's scrollable area through the nested
+// #infocontent-wrapper/#infocontent overflow:scroll chain inside the CSS grid
+// (the wrapper visibly clips it, but the browser still grows page-level scroll
+// to match the panel's full content height). Give the panel its own bounded,
+// self-contained scroll region — same pattern as the working Bearbeitungsspuren
+// list — so opening the page-number dropdown never moves the surrounding page.
+#pagination-pb,
+#legende-pb,
+#infocontent-pb {
+  max-height: 100%;
+  overflow-y: auto;
 }
 
 .text-dropdown-toggle::after {
@@ -3584,107 +4350,184 @@ body.modal-open, body.modal-open main {
 
   #edition-view .sub_grid_pb_two, #edition-view .sub_grid_pb_vertical {
 
-    grid-template-columns: 65% 35%;
+    grid-template-columns: 75% 25%;
 
     #textcontent-pb .print-page {
-      transform: scale(1.4);
+      transform: scale(1.5);
+      transform-origin: top;
+    }
+    
+    #textcontent-pb .print-page.witnessNote1 {
+    transform: scale(1.9);
+    }
+
+     #textcontent-pb .print-page.witnessTypescript2 {
+      transform: scale(1.3);
       transform-origin: top;
     }
 
   }
 
-    #edition-view .sub_grid_pb_three {
-    display:grid;
-    grid-template-columns: 70% 30%;
-    grid-template-rows: auto auto;
-    grid-template-areas: 
-      "box2 box3"
-      "box1 box3";
-    gap:0;
-    min-height: 100%;
+  #edition-view .sub_grid_pb_three {
 
-    .grid-box-1 {
-      width: 100%;
-      grid-area: box1;
-      max-height: 100%;
-      height: 100%;
-      
+    grid-template-columns: 37.5% 37.5% 25%;
+
+    #textcontent-pb .print-page {
+      transform: scale(.9);
+      transform-origin: top;
+    }
+
+    #facscontent {
+      transform: scale(.9);
+      transform-origin: top;
+
       // Force OpenSeadragon to respect container dimensions
       .openseadragon-container,
       .openseadragon-canvas {
         max-height: 100% !important;
         height: 100% !important;
       }
+
+      
     }
 
-    .grid-box-2 {
-      width: 100%;
-      z-index: 1;
-      grid-area: box2;
-      max-height: 100%;
-      height: 100%;
+     #textcontent-pb .print-page.witnessNote1 {
+      transform: scale(1);
     }
 
-    .grid-box-3 {
-      grid-area: box3;
-      max-height: 100%;
-      height: 100%;
-      overflow-y: hidden;
+    #facscontent[wpn-type="witnessNote1"] {
+      transform: scale(1);
+      transform-origin: top;
     }
 
-    #facscontent {
-      margin-left: auto;
-      margin-right: auto;
+    #textcontent-pb .print-page.witnessTypescript2 {
+      transform: scale(.8);
+      transform-origin: top;
     }
 
-    // #allcolumnBtn, #textcolumnBtn, #facscolumnBtn, #allcolumnRowBtn {
-    //   display: none;
-    // }
+    #facscontent[wpn-type="witnessTypescript2"] {
+      transform: scale(.8);
+      transform-origin: top;
+    }
 
   }
 
-  #edition-view .sub_grid_pb_three.hide_btn {
-    grid-template-columns: calc(100% - 40px) 40px;
-    .openseadragon-container,
-    .openseadragon-canvas {
-      max-height: 100% !important;
-      height: 100% !important;
+  // #edition-view .sub_grid_pb_three.hide_btn {
+  //   grid-template-columns: calc(100% - 40px) 40px;
+  //   .openseadragon-container,
+  //   .openseadragon-canvas {
+  //     max-height: 100% !important;
+  //     height: 100% !important;
+  //   }
+
+  //   #infocontent-hide-btn {
+  //     max-height: calc(100vh - $edition-view-header-height) !important;
+  //     height: calc(100vh - $edition-view-header-height) !important;
+  //     border-bottom: 1px solid $wpn-light-grey;
+  //   }
+  // }
+
+}
+
+@media screen and (min-width: 2200px) and (max-width: 2559px) {
+
+  #edition-view .sub_grid_pb_three {
+
+    #textcontent-pb .print-page.witnessPrint,
+    #textcontent-pb .print-page.witnessPrint2,
+    #textcontent-pb .print-page.witnessNote1 {
+      transform: scale(1.2);
+      transform-origin: top;
     }
 
-    #infocontent-hide-btn {
-      max-height: calc(100vh - $edition-view-header-height) !important;
-      height: calc(100vh - $edition-view-header-height) !important;
-      border-bottom: 1px solid $wpn-light-grey;
+    #facscontent[wpn-type="witnessPrint"],
+    #facscontent[wpn-type="witnessPrint2"],
+    #facscontent[wpn-type="witnessNote1"] {
+      transform: scale(1.2);
+      transform-origin: top;
+
+      // Force OpenSeadragon to respect container dimensions
+      .openseadragon-container,
+      .openseadragon-canvas {
+        max-height: 100% !important;
+        height: 100% !important;
+      }
+
     }
+
+  }
+
+}
+
+@media screen and (min-width: 2560px) {
+
+  #edition-view .sub_grid_pb_two, #edition-view .sub_grid_pb_vertical {
+
+    #textcontent-pb .print-page {
+      transform: scale(1.9);
+      transform-origin: top;
+    }
+
+  }
+
+  #edition-view .sub_grid_pb_three {
+
+    #textcontent-pb .print-page {
+      transform: scale(1.4);
+      transform-origin: top;
+    }
+
+    #facscontent {
+      transform: scale(1.4);
+      transform-origin: top;
+
+      // Force OpenSeadragon to respect container dimensions
+      .openseadragon-container,
+      .openseadragon-canvas {
+        max-height: 100% !important;
+        height: 100% !important;
+      }
+
+    }
+
   }
 
 }
 
 @media screen and (min-width: 3840px) {
 
-  #textcontent-pb .print-page {
-    transform: scale(1.9);
-    transform-origin: top;
+  #edition-view .sub_grid_pb_two, #edition-view .sub_grid_pb_vertical {
+    #textcontent-pb .print-page {
+      transform: scale(2.3);
+      transform-origin: top;
+    }
   }
   
-  #facscontent {
-    transform: scale(1.9);
-    transform-origin: top;
+  #edition-view .sub_grid_pb_three {
+    #textcontent-pb .print-page {
+      transform: scale(1.9);
+      transform-origin: top;
+    }
+    
+    #facscontent {
+      transform: scale(1.9);
+      transform-origin: top;
 
-    // Force OpenSeadragon to respect container dimensions
-    .openseadragon-container,
-    .openseadragon-canvas {
+      // Force OpenSeadragon to respect container dimensions
+      .openseadragon-container,
+      .openseadragon-canvas {
+        max-height: 100% !important;
+        height: 100% !important;
+      }
+
+      
+    }
+
+    #sub_grid_pb {
+      min-height: 100% !important;
       max-height: 100% !important;
       height: 100% !important;
     }
-
-    
-  }
-
-  #sub_grid_pb {
-    min-height: 100% !important;
-    max-height: 100% !important;
-    height: 100% !important;
   }
 
 }

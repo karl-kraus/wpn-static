@@ -11,7 +11,12 @@
 
     <xsl:template match="tei:pb">
         <xsl:choose>
-            <xsl:when test="not(contains(@n, '_')) and @n != '0196' and @n != '0168' and following-sibling::tei:lb[1][@rendition='no']">
+            <xsl:when test="not(contains(@n, '_')) 
+                            and @n != '0196'
+                            and @n != '0168'
+                            and not(contains(preceding-sibling::tei:pb[1]/@n, 'v'))
+                            and following-sibling::tei:lb[1][@rendition='no']">
+
                 <span xmlns="http://www.tei-c.org/ns/1.0" n="lb-dash">-</span>
                 <xsl:copy>
                     <xsl:apply-templates select="@*|node()"/>

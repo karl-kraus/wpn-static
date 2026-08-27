@@ -100,17 +100,18 @@
         </div>
     </xsl:template>
     <xsl:template match="tei:seg" mode="kwic">
+    <xsl:variable name="seg_id" select="@xml:id"/>
     <div>
          <details class="pb-1 mt-1 border-bottom border-light-grey">
             <summary class="d-flex align-items-baseline">Zum Text</summary>
-            <div id="{'kwics_'||@xml:id}" class="ff-crimson-text">
+            <div id="{'kwics_'||$seg_id}" class="ff-crimson-text">
                 <xsl:for-each select="descendant::tei:ref[@type='comment']">
                     <xsl:variable name="kwic_hit" select="collection('../../data/merged?select=*.html')//span[@id=current()/@xml:id]"/>
                     <xsl:variable name="prev_text" select="string($kwic_hit/string-join(preceding::text()))"/>
                     <xsl:variable name="following_text" select="string($kwic_hit/string-join(following::text()))"/>
                     <xsl:variable name="kwic_left" select="substring($prev_text, string-length($prev_text) - 78)"/>
                     <xsl:variable name="kwic_right" select="substring($following_text, 1, 78)"/>
-                    <div class="text-kwic-grey d-flex justify-content-between gap-4">
+                    <div class="text-kwic-grey d-flex justify-content-between gap-4 position-relative">
                         <div class="kwic-wrapper">
                             <xsl:if test="string-length($kwic_left) > 0">
                                 <span><xsl:copy-of select="'...'||$kwic_left"/></span>
@@ -121,7 +122,7 @@
                             </xsl:if>
                         </div>
                         <div>
-                            <a href="{$kwic_hit/ancestor::body/@data-teiid||'.html?cmts=on#'||current()/@xml:id}" class="text-decoration-none link-dark-grey stretched-link ff-ubuntu m-0 p-08">
+                            <a href="{$kwic_hit/ancestor::body/@data-teiid||'.html?cmts=on#'||current()/@xml:id||'_'||$seg_id}" class="text-decoration-none link-dark-grey stretched-link ff-ubuntu m-0 p-08">
                                 <xsl:value-of select="$kwic_hit/ancestor::body/@data-label"/>
                             </a>
                         </div>
@@ -247,7 +248,7 @@
     </xsl:template>
      <xsl:template match="tei:ref[@type='event']" mode="detail_view_textpage_seg">
         <xsl:variable name="ref_id" select="replace(@target,'#','')"/>
-        <a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="ereignisse.html{@target}" target="_blank">
+        <a class="d-block text-decoration-none text-dark-grey text-blacker-grey-hover" href="timeline.html{@target}" target="_blank">
             <xsl:apply-templates select="doc('../../data/indices/Events.xml')//tei:event[@xml:id = $ref_id]/tei:label" mode="comment"/>
             <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
                 <defs>

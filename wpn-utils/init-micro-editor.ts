@@ -70,7 +70,7 @@ const le = new LoadEditor({
       {
         opt: "fkl",
         color: "annot_fackel",
-        title: "Fackel Nr. F890",
+        title: "Fackel Nr. 890–905",
         html_class: "fackel",
         css_class: "fkl",
         chg_citation: "citation-url",

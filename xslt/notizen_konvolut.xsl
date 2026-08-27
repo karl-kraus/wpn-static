@@ -26,7 +26,7 @@
             </head>
             <body class="d-flex flex-column h-100">
             <xsl:call-template name="nav_bar"/>
-              <div id="mirador" data-manifest="{$manifest_id}" class="mt-18 h-100 mw-100 position-relative"/>
+              <div id="mirador" data-manifest="{$manifest_id}" class="mt-15 h-100 mw-100 position-relative"/>
               <xsl:call-template name="html_footer"/>
               <script type="text/javascript" src="js/vendor/mirador/mirador.min.js"></script>
               <xsl:call-template name="scripts"/>

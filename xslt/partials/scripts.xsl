@@ -10,13 +10,15 @@
             <xsl:map-entry key="'ereignisse.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'edition.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'annotierte_lesefassung.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
-            <xsl:map-entry key="'topographical.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
+            <xsl:map-entry key="'topographical.xml'" select="('wpn-header','wpn-toggle-text-button','wpn-scroll-button')"/>
+            <xsl:map-entry key="'visualisierungen.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'impressum.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'nutzungsbedingungen.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'register.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'kommentar.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
+            <xsl:map-entry key="'downloads.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'notizen.xml'" select="('wpn-header','init-mirador')"/>
-            <xsl:for-each select="collection('../../data/editions?select=absatz*.xml|motti*.xml')">
+            <xsl:for-each select="collection('../../data/editions?select=absatz*.xml|motto*.xml')">
                 <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','init-micro-editor','wpn-text-view','wpn-entity','wpn-text-zoom-button','wpn-pagination','init-mark','wpn-detail-view','wpn-scans')"/>
             </xsl:for-each>
             <xsl:map-entry key="'biblindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry','wpn-reg-tabs','wpn-scans')"/>
@@ -24,11 +26,26 @@
             <xsl:map-entry key="'commentindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'eventindex_updated.xml'" select="('wpn-header','wpn-detail-view','wpn-reg-entry','wpn-timeline','timeline-helpers')"/>
             <xsl:map-entry key="'suche.xml'" select="('wpn-header','wpn-detail-view','init-typesense')"/>
+            <xsl:for-each select="collection('../../vis?select=*.xml')">
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header')"/>
+            </xsl:for-each>
             <xsl:for-each select="collection('../../data/editions?select=wit-*.xml')">
-                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','wpn-page-view','wpn-entity', 'wpn-hf-height', 'wpn-typo-connections', 'wpn-typo-utils')"/>
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','wpn-page-view','wpn-entity', 'wpn-hf-height', 'wpn-typo-connections', 'wpn-typo-utils','init-typo-mark','wpn-first-visit-overlay')"/>
             </xsl:for-each>
             <xsl:for-each select="collection('../../data/editions2?select=wit-*.xml')">
-                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','wpn-page-view','wpn-entity', 'wpn-hf-height', 'wpn-typo-connections', 'wpn-typo-utils')"/>
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','wpn-page-view','wpn-entity', 'wpn-hf-height', 'wpn-typo-connections', 'wpn-typo-utils','init-typo-mark','wpn-first-visit-overlay')"/>
+            </xsl:for-each>
+            <xsl:for-each select="collection('../../data/editions3?select=wit-*.xml')">
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','wpn-page-view','wpn-entity', 'wpn-hf-height', 'wpn-typo-connections', 'wpn-typo-utils','init-typo-mark','wpn-first-visit-overlay')"/>
+            </xsl:for-each>
+            <xsl:for-each select="collection('../../data/editions4?select=wit-*.xml')">
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','wpn-page-view','wpn-entity', 'wpn-hf-height', 'wpn-typo-connections', 'wpn-typo-utils','init-typo-mark','wpn-first-visit-overlay')"/>
+            </xsl:for-each>
+            <xsl:for-each select="collection('../../data/editions5?select=wit-*.xml')">
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','wpn-page-view','wpn-entity', 'wpn-hf-height', 'wpn-typo-connections', 'wpn-typo-utils','init-typo-mark','wpn-first-visit-overlay')"/>
+            </xsl:for-each>
+            <xsl:for-each select="collection('../../data/editions6?select=wit-*.xml')">
+                <xsl:map-entry key="tokenize(base-uri(current()),'/')[last()]" select="('wpn-header','wpn-page-view','wpn-entity', 'wpn-hf-height', 'wpn-typo-connections', 'wpn-typo-utils','init-typo-mark','wpn-first-visit-overlay')"/>
             </xsl:for-each>
         </xsl:map>
     </xsl:variable>

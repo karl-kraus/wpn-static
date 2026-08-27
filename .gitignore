@@ -13,6 +13,7 @@ html/js/wpn_utils/*.js
 e2e/test-data
 parents.txt
 edition_typo_view.spec.ts-snapshots_v*
+devcontainer-lock.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

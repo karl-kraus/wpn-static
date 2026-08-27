@@ -2,6 +2,9 @@ import glob
 import os
 import tqdm
 import shutil
+import sys
+import argparse
+from pathlib import Path
 from lxml import etree as ET
 from acdh_tei_pyutils.tei import TeiReader
 
@@ -16,16 +19,34 @@ NSMAP = {
 
 # Remove the original file
 # After the split it is not required anymore
-SOURCE_FILE = 'Gesamt_modified.xml'
-SOURE_PATH = os.path.join('data', 'editions', SOURCE_FILE)
+# define argument parser to get the name of the source file
+parser = argparse.ArgumentParser(description='Cleanup TEI files after splitting')
+parser.add_argument('-f', '--file', type=str, help='Name of the source file without extension')
+parser.add_argument('-p', '--path', type=str, help='Name of the directory where the source file is located')
+parser.add_argument('--debug', action='store_true', help='Debug mode to keep the output directory')
+args = parser.parse_args()
+
+if not args.file:
+    print("""Please provide the name of the source file with .xml extension.""")
+    sys.exit(1)
+
+if not args.path:
+    print("""Please provide the name of the directory where the source file is located.""")
+    sys.exit(1)
+
+if ".xml" not in args.file:
+    print("""Please provide the name of the source file with .xml extension.""")
+    sys.exit(1)
+
+SOURE_PATH = Path(args.path) / args.file.replace('.xml', '_modified.xml')
 os.remove(SOURE_PATH)
 
 INPUT_DIR = 'output'
-INPUT_PROJECT_DIR = 'Gesamt_modified'
-OUTPUT_DIR = os.path.join('data', 'editions', 'tmp')
+INPUT_PROJECT_DIR = f'{args.file.split(".")[0]}_modified'
+OUTPUT_DIR = Path(args.path, "tmp")
 
-files = os.path.join(INPUT_DIR, INPUT_PROJECT_DIR, '*.xml')
-files_glob = glob.glob(files)
+files = Path(INPUT_DIR, INPUT_PROJECT_DIR)
+files_glob = glob.glob(str(f"{files}/*.xml"))
 
 
 def file_parser(file) -> str:
@@ -296,7 +317,6 @@ def wrap_last_sentence(file) -> None:
 
 
 if __name__ == '__main__':
-    debug = False
     for file in tqdm.tqdm(files_glob, total=len(files_glob)):
         text = file_parser(file)
         text = replace_namespace(text)
@@ -308,5 +328,5 @@ if __name__ == '__main__':
         # verify_first_lb(output_path)
         # verify_last_lb(output_path)
         wrap_last_sentence(output_path)
-    if not debug:
+    if not args.debug:
         shutil.rmtree(INPUT_DIR)

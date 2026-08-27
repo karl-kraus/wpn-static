@@ -5,7 +5,8 @@
 			"ghcr.io/devcontainers/features/python:1": {},
 			"ghcr.io/devcontainers-contrib/features/poetry:2": {},
 			"ghcr.io/devcontainers/features/github-cli:1": {},
-			"ghcr.io/devcontainers-contrib/features/ant-sdkman:2": {}
+			"ghcr.io/devcontainers-contrib/features/ant-sdkman:2": {},
+			"ghcr.io/jsburckhardt/devcontainer-features/uv:1": {}
 		},
 		"customizations": {
 			"vscode": {
