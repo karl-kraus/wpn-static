@@ -127,7 +127,7 @@
                             <section class="my-5_5">
                                 <div class="row g-3">
                                     <div class="col-12 col-md-6">
-                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" href="" download="">
+                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" >
                                             <span><span class="text-primary">XML (coming soon)</span> Df(eH) supplemented – ‚Jerusalemer Konvolut‘/Lesefassung</span>
                                             <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                                                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
@@ -136,7 +136,7 @@
                                         </a>
                                     </div>
                                     <div class="col-12 col-md-6">
-                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" href="" download="">
+                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" >
                                             <span><span class="text-primary">XML (coming soon)</span> T<sup style="font-size: 0.8rem;">Fragment 2</sup> – Typoskript „Wenn ich mich nun frage“</span>
                                             <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                                                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
@@ -145,7 +145,7 @@
                                         </a>
                                     </div>
                                     <div class="col-12 col-md-6">
-                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" href="" download="">
+                                        <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" >
                                             <span><span class="text-primary">XML (coming soon)</span> H<sup style="font-size: 0.8rem;">Motto</sup> – Handschrift des Mottos</span>
                                             <svg class="wpn-red-svg flex-shrink-0 ms-2" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
                                                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>

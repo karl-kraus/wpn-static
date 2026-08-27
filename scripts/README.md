@@ -54,9 +54,31 @@ Am Ende gibt das Skript eine Zusammenfassung aus:
 
 Jede erzeugte PDF enthält automatisch:
 
-- **Deckblatt** (Seite 1, schlichtes A4-Layout ohne Faksimile-Optik): Zitationsangabe aus Zeugen-Titel (aus der Info-Spalte der Website, ohne die seitenspezifische ", fol. [...]"-Angabe), gefolgt von "Topographische Transkription. In: Karl Kraus: Dritte Walpurgisnacht. Digitale Edition. Hg. v. Bernhard Oberreither." und der (klickbaren) `PDF_BASE_URL`. Darunter, in eigener Zeile, `[Stand YYYY-MM-DD]` mit dem Datum des Skript-Laufs (ISO-Format, gleicher Zeitpunkt wie das Datum in der Fußzeile).
+- **Deckblatt** (Seite 1, schlichtes A4-Layout ohne Faksimile-Optik): Inhalt kommt pro Textzeuge (und für `generate-lesefassung-pdf.mjs` auch für die Lesefassung) aus `scripts/pdf-cover-info.json`, nicht mehr von der Website gescrapt. Jeder Eintrag hat `text` (beliebiger Fließtext für die Zitationsangabe; ein `\n` darin wird als Zeilenumbruch gerendert), `url` (nur der letzte Pfad-Teil — wird an `PDF_BASE_URL` angehängt — als klickbarer Link, an den das Datum des Skript-Laufs `[YYYY-MM-DD]` angehängt wird) und optional `facsurl` (volle externe URL, z.B. Permalink einer Bibliothek; wird danach in eigener Zeile als "Faksimiles unter: ..." angegeben). Fehlt ein Eintrag für einen Zeugen, wird für dessen PDF kein Deckblatt erzeugt (Warnung im Log); fehlt der `"Lesefassung"`-Eintrag, fällt `generate-lesefassung-pdf.mjs` auf einen generischen Text zurück.
 - **Legende** (Seite 2, gleiche A4-Größe wie das Deckblatt): das "Legende"-Panel aus der Info-Spalte (`#legende-pb`, normalerweise per Klick auf das Legende-Icon eingeblendet), 1:1 wie auf der Website erfasst — inklusive der gesamten Hand-/Tinten-Farbkodierung, Durchstreichungen, Unterstreichungen etc. — und proportional (ohne Verzerrung) auf die A4-Seite skaliert und zentriert. Inhalt ist für alle Zeugen identisch (Quelle: `data/meta/topographical.xml`), wird daher nur einmal erzeugt und in jede PDF übernommen.
 - **Fußzeile** auf jeder Transkriptionsseite: die Quell-URL dieser Seite (ohne Ansichts-Parameter wie `?view=...`, als klickbarer Link) gefolgt vom Datum des Skript-Laufs in eckigen Klammern, z.B. `https://.../wit-HMotto-0001r.html [21.08.2026]`. Das Datum ist für den ganzen Lauf gleich, nicht pro Seite.
+
+## Deckblatt-Inhalte pflegen: `pdf-cover-info.json`
+
+```json
+{
+  "DfeH": {
+    "text": "Erste Zeile der Zitationsangabe.\nZweite Zeile.\nDritte Zeile.",
+    "url": "wit-DfeH-0001r.html",
+    "facsurl": "https://beispiel-bibliothek.at/permalink/xyz"
+  },
+  "Lesefassung": {
+    "text": "Zitationsangabe der Lesefassung...",
+    "url": "annotierte_lesefassung.html"
+  }
+}
+```
+
+- Ein Eintrag pro Zeuge, Schlüssel = Zeugen-Name wie in `WITNESSES` im Skript (`DfeH`, `TFragment2`, `HMotto`, `DfMotto`, `TParalipomenon`, `DffH`), plus ein eigener Eintrag `"Lesefassung"` für `generate-lesefassung-pdf.mjs`.
+- `text`: Fließtext der Zitationsangabe. Darf HTML enthalten (z.B. `<sup>...</sup>`); ein `\n` wird als Zeilenumbruch (`<br/>`) gerendert.
+- `url`: **nur der letzte Teil des Pfads** (kein `PDF_BASE_URL`-Präfix) — das Skript setzt `PDF_BASE_URL` selbst davor. Erscheint als klickbarer Link direkt nach dem Text, gefolgt vom Datum des Skript-Laufs in eckigen Klammern (gleiches Datum wie in der Fußzeile).
+- `facsurl` (optional): volle, eigenständige URL (nicht mit `PDF_BASE_URL` kombiniert) zu einem externen Faksimile-Nachweis, z.B. bei einer Bibliothek. Erscheint, falls gesetzt, in eigener Zeile direkt nach der `url`-Zeile als "Faksimiles unter: [facsurl]".
+- Fehlt der Eintrag für einen Zeugen, wird für dessen PDF kein Deckblatt erzeugt (Warnung im Log, restliche PDF-Erstellung läuft unverändert weiter). Fehlt `"Lesefassung"`, verwendet `generate-lesefassung-pdf.mjs` stattdessen einen generischen Zitationstext.
 
 ## Sonderfälle konfigurieren: `pdf-page-overrides.json`
 

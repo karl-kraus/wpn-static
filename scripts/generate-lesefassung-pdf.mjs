@@ -19,12 +19,13 @@ import { PDFDocument } from "pdf-lib";
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { CM_TO_PX, RUN_DATE, RUN_DATE_ISO, escapeHtml, generateCoverPage, mergePdfs } from "./pdf-shared.mjs";
+import { CM_TO_PX, RUN_DATE, buildCoverCitationHtml, escapeHtml, generateCoverPage, loadCoverInfo, mergePdfs } from "./pdf-shared.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const OUT_DIR = path.join(ROOT, "pdf-output");
 const OUT_PATH = path.join(OUT_DIR, process.env.PDF_LESEFASSUNG_OUT ?? "Lesefassung.pdf");
+const COVER_INFO_PATH = path.join(__dirname, "pdf-cover-info.json");
 
 const BASE_URL = (process.env.PDF_BASE_URL ?? "https://karl-kraus.github.io/wpn-static-dev").replace(/\/$/, "");
 
@@ -82,10 +83,13 @@ async function main() {
 				if ((i + 1) % 20 === 0) console.log(`  rendered ${i + 1}/${windows.length}`);
 			}
 
-			const citation =
-				`Karl Kraus: Dritte Walpurgisnacht. Annotierte Lesefassung. Digitale Edition. ` +
-				`Hg. v. Bernhard Oberreither. <a href="${escapeHtml(BASE_URL)}">${escapeHtml(BASE_URL)}</a>` +
-				`<br/>[Stand ${RUN_DATE_ISO}]`;
+			const coverInfo = await loadCoverInfo(COVER_INFO_PATH);
+			const info = coverInfo.Lesefassung;
+			if (!info) console.warn(`[warn] no "Lesefassung" entry in ${COVER_INFO_PATH} — using a generic fallback cover text`);
+			const citation = info
+				? buildCoverCitationHtml(info, BASE_URL)
+				: `Karl Kraus: Dritte Walpurgisnacht. Annotierte Lesefassung. Digitale Edition. ` +
+					`Hg. v. Bernhard Oberreither. <a href="${escapeHtml(BASE_URL)}">${escapeHtml(BASE_URL)}</a>`;
 			const coverBytes = await generateCoverPage(browser, citation);
 
 			const merged = await mergePdfs([coverBytes, ...pageBytesList]);

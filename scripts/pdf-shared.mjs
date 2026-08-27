@@ -4,6 +4,7 @@
 // different DOM shapes (facsimile print pages vs. the flowed reading edition).
 
 import { PDFDocument } from "pdf-lib";
+import { readFile } from "node:fs/promises";
 
 export const CM_TO_PX = 96 / 2.54;
 
@@ -77,6 +78,39 @@ export async function generateCoverPage(browser, citationHtml) {
 	} finally {
 		await context.close();
 	}
+}
+
+// Per-cover-page content, shared by generate-pdfs.mjs (keyed by witness name)
+// and generate-lesefassung-pdf.mjs (key "Lesefassung"). See
+// scripts/pdf-cover-info.json for the actual data; each entry is
+// `{ text, url, facsurl? }`.
+export async function loadCoverInfo(coverInfoPath) {
+	try {
+		const raw = await readFile(coverInfoPath, "utf-8");
+		return JSON.parse(raw);
+	} catch (err) {
+		if (err.code === "ENOENT") return {};
+		throw err;
+	}
+}
+
+// Builds the cover page's citation HTML from one pdf-cover-info.json entry:
+// `text` is trusted HTML (may contain e.g. <sup>) with a literal "\n"
+// rendered as a line break; `url` is only the tail of the page's URL (joined
+// onto `baseUrl`) and is shown as a clickable link with this run's date stamp
+// appended directly onto it; the optional `facsurl` (a full external URL,
+// e.g. a library's own permalink for the facsimile) is listed on its own
+// line right after.
+export function buildCoverCitationHtml(info, baseUrl) {
+	const textHtml = info.text.split("\n").join("<br/>");
+	const fullUrl = `${baseUrl}/${info.url}`;
+	let html =
+		`${textHtml}<br/>` +
+		`<a href="${escapeHtml(fullUrl)}">${escapeHtml(fullUrl)}</a> [${RUN_DATE_ISO}]`;
+	if (info.facsurl) {
+		html += `<br/>Faksimiles unter: <a href="${escapeHtml(info.facsurl)}">${escapeHtml(info.facsurl)}</a>`;
+	}
+	return html;
 }
 
 export async function mergePdfs(pdfBytesList) {

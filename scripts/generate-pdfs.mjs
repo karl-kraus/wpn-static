@@ -14,12 +14,20 @@ import { PDFDocument } from "pdf-lib";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { CM_TO_PX, RUN_DATE, RUN_DATE_ISO, escapeHtml, generateCoverPage as generateCitationCoverPage, mergePdfs } from "./pdf-shared.mjs";
+import {
+	CM_TO_PX,
+	RUN_DATE,
+	buildCoverCitationHtml,
+	generateCoverPage as generateCitationCoverPage,
+	loadCoverInfo,
+	mergePdfs,
+} from "./pdf-shared.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const OUT_DIR = path.join(ROOT, "pdf-output");
 const OVERRIDES_PATH = path.join(__dirname, "pdf-page-overrides.json");
+const COVER_INFO_PATH = path.join(__dirname, "pdf-cover-info.json");
 
 const BASE_URL = (process.env.PDF_BASE_URL ?? "https://karl-kraus.github.io/wpn-static-dev").replace(/\/$/, "");
 
@@ -104,6 +112,7 @@ html, body, main, .container-fluid, #sub_grid_pb, #textcolumn-pb, #textcontent-p
 async function main() {
 	await mkdir(OUT_DIR, { recursive: true });
 	const overrides = await loadOverrides();
+	const coverInfo = await loadCoverInfo(COVER_INFO_PATH);
 	const only = process.env.PDF_GEN_WITNESS;
 	const selected = only ? WITNESSES.filter((w) => w.name === only) : WITNESSES;
 	if (only && selected.length === 0) {
@@ -146,7 +155,7 @@ async function main() {
 				console.error(`[failed] ${witness.name}: ${result.reason?.message ?? result.reason}`);
 				continue;
 			}
-			const { name, pdfBytesList, title } = result.value;
+			const { name, pdfBytesList } = result.value;
 			if (pdfBytesList.length === 0) {
 				failures.push({ witness: name, error: new Error("start page unreachable — 0 pages collected") });
 				console.error(`[failed] ${name}: start page unreachable, 0 pages collected`);
@@ -154,16 +163,17 @@ async function main() {
 			}
 			let allPdfBytes = pdfBytesList;
 			let coverAdded = false;
-			if (title) {
+			const info = coverInfo[name];
+			if (info) {
 				try {
-					const coverBytes = await generateCoverPage(browser, title, BASE_URL);
+					const coverBytes = await generateCoverPage(browser, info);
 					allPdfBytes = [coverBytes, ...allPdfBytes];
 					coverAdded = true;
 				} catch (err) {
 					console.warn(`[warn] ${name}: cover page generation failed: ${err.message}`);
 				}
 			} else {
-				console.warn(`[warn] ${name}: could not extract title, skipping cover page`);
+				console.warn(`[warn] ${name}: no entry in pdf-cover-info.json, skipping cover page`);
 			}
 			if (legendBytes) {
 				// Right after the cover page, i.e. index 1 if a cover page was
@@ -218,7 +228,6 @@ function pageIdFromUrl(url) {
 
 async function collectWitness(browser, witness, overrides, overflowLog) {
 	const pdfBytesList = [];
-	let title = null;
 	let currentUrl = witness.startUrl;
 	let iterations = 0;
 	while (currentUrl) {
@@ -236,14 +245,13 @@ async function collectWitness(browser, witness, overrides, overflowLog) {
 			console.error(`[stopped] ${witness.name} at ${currentUrl}: ${err.message}`);
 			break;
 		}
-		const { pdfBytes, overflow, nextUrl, title: pageTitle } = result;
+		const { pdfBytes, overflow, nextUrl } = result;
 		if (pdfBytes) pdfBytesList.push(pdfBytes); // null for skipped "nonWitness" pages
-		if (!title && pageTitle) title = pageTitle;
 		if (overflow) overflowLog.push({ witness: witness.name, id: pageIdFromUrl(currentUrl), ...overflow });
 		currentUrl = nextUrl;
 	}
 	console.log(`[collected] ${witness.name}: ${pdfBytesList.length} pages`);
-	return { name: witness.name, pdfBytesList, title };
+	return { name: witness.name, pdfBytesList };
 }
 
 // Retries the whole capture (navigation + rendering) up to 3 times — the live
@@ -294,16 +302,6 @@ async function capturePageOnce(context, witnessName, url, overrides) {
 		const nextUrl = await page.$eval("#nextPageLink", (el) => el.href).catch(() => null);
 		return { pdfBytes: null, overflow: null, nextUrl };
 	}
-
-	// Witness title for the cover page: the info column's h4 ("<Title>, fol.
-	// [N]"), with the page-specific ", fol. [N]" suffix stripped — identical
-	// across a witness's pages bar that suffix, so any one page's copy will do.
-	// innerHTML (not textContent) to keep the title's <sup> formatting (e.g.
-	// "T<sup>Fragment 2</sup>") for the cover page.
-	const rawTitle = await page
-		.$eval("#infocontent-pb h4", (el) => el.innerHTML.trim())
-		.catch(() => null);
-	const title = rawTitle ? rawTitle.replace(/,\s*fol\.\s*\[[^\]]*\]\s*$/, "").trim() : null;
 
 	await page.evaluate(() => document.fonts.ready);
 
@@ -506,20 +504,16 @@ async function capturePageOnce(context, witnessName, url, overrides) {
 	// (xslt/partials/typo-info-3rd-column.xsl) — #nextPageLink is then absent.
 	const nextUrl = await page.$eval("#nextPageLink", (el) => el.href).catch(() => null);
 
-	return { pdfBytes: pdfBuffer, overflow: overflowReport, nextUrl, title };
+	return { pdfBytes: pdfBuffer, overflow: overflowReport, nextUrl };
 }
 
 // One plain, non-facsimile-styled A4 title page per witness PDF, prepended
-// before merging — the citation text a reader would need to reference this
-// specific transcription (title without the page-specific ", fol. [N]").
-// `title` is trusted HTML (extracted from the site's own rendered <h4>, kept
-// to preserve its <sup> formatting), not escaped like the plain-text baseUrl.
-async function generateCoverPage(browser, title, baseUrl) {
-	const citation =
-		`${title}. Topographische Transkription. In: Karl Kraus: Dritte Walpurgisnacht. ` +
-		`Digitale Edition. Hg. v. Bernhard Oberreither. <a href="${escapeHtml(baseUrl)}">${escapeHtml(baseUrl)}</a>` +
-		`<br/>[Stand ${RUN_DATE_ISO}]`;
-	return generateCitationCoverPage(browser, citation);
+// before merging. Content comes from scripts/pdf-cover-info.json (per-witness
+// `{ text, url, facsurl? }`), not scraped from the page, so each witness's
+// cover text can be edited independently of the site. `info.url` is only the
+// tail of the page's URL — joined onto BASE_URL here.
+async function generateCoverPage(browser, info) {
+	return generateCitationCoverPage(browser, buildCoverCitationHtml(info, BASE_URL));
 }
 
 // Captures the actual "Legende" panel from the info column (#legende-pb,
