@@ -28,6 +28,7 @@
                         </div>
                         <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view_reg"/>
                         <!--<xsl:apply-templates select="@corresp" mode="detail_view"/>-->
+                        <xsl:apply-templates select="tei:idno[@type = 'sk']" mode="detail_view_reg"/>
                         <ul data-testid="scans_register_{@xml:id}" class="list-unstyled mb-0">
                             <xsl:call-template name="scans">
                                 <xsl:with-param name="node_id" select="@xml:id"/>
@@ -70,6 +71,7 @@
                 </xsl:apply-templates>
             </div>
             <xsl:apply-templates select="tei:ref[@type = 'gen']" mode="detail_view" />
+            <xsl:apply-templates select="tei:idno[@type = 'sk']" mode="detail_view" />
             <xsl:apply-templates select="@corresp" mode="detail_view_textpage" />
             <div class="py-1 border-bottom border-light-grey">
                 <span>Register</span>
@@ -749,7 +751,7 @@
         </li>
     </xsl:template>
     <xsl:template match="tei:ref[@type = 'gen']" mode="detail_view_reg">
-    <xsl:variable name="linktext">
+        <xsl:variable name="linktext">
             <xsl:apply-templates select="ancestor::tei:bibl" mode="short"/>
         </xsl:variable>
         <xsl:variable name="linklabel">
@@ -775,6 +777,21 @@
             </a>
         </div>
     </xsl:template>
+    <xsl:template match="tei:idno[@type='sk']" mode="detail_view_reg">
+        <div class="py-1 border-bottom border-light-grey">
+            <a data-testid="sk_link_register_{ancestor::tei:bibl/@xml:id}" class="text-decoration-none text-dark-grey" href="{.}" target="_blank">
+                <span data-testid="sk_link_label_register_{ancestor::tei:bibl/@xml:id}">Link</span>
+                <span data-testid="sk_link_text_register_{ancestor::tei:bibl/@xml:id}" class="ps-2">
+                    SemanticKraus
+                    <svg class="ms-2 align-baseline" width="5" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.281 9.061">
+                        <path style="fill:none;stroke:#666;stroke-linejoin:round;stroke-miterlimit:10;stroke-width:1.5px;" class="b" d="M.354.353l4,4-4,4" transform="translate(0.177 0.177)"></path>
+                    </svg>
+                </span>
+            </a>
+        </div>
+    </xsl:template>
+
+
     <xsl:template match="tei:lg" mode="excerpt">
         <span class="d-block lg {replace(@rendition,'#','')}"><xsl:apply-templates/></span>
     </xsl:template>
