@@ -443,6 +443,7 @@ function initializeViewer(view_type: string) {
         if (dimensions) {
             if (dimensions.height !== null) {
                 facscontent.style.height = `${dimensions.height}cm`;
+                facscontent.style.setProperty("--facs-base-height", `${dimensions.height}cm`);
             }
             if (dimensions.width !== null) {
                 facscontent.style.width = `${dimensions.width}cm`;

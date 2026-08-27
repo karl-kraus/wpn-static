@@ -4445,6 +4445,8 @@ body.modal-open, body.modal-open main {
     #facscontent[wpn-type="witnessNote1"] {
       transform: scale(1.2);
       transform-origin: top;
+      // transform doesn't grow the layout box, so reserve the visual overhang below it
+      margin-bottom: calc(var(--facs-base-height) * 0.2) !important;
 
       // Force OpenSeadragon to respect container dimensions
       .openseadragon-container,
@@ -4480,6 +4482,8 @@ body.modal-open, body.modal-open main {
     #facscontent {
       transform: scale(1.4);
       transform-origin: top;
+      // transform doesn't grow the layout box, so reserve the visual overhang below it
+      margin-bottom: calc(var(--facs-base-height) * 0.4) !important;
 
       // Force OpenSeadragon to respect container dimensions
       .openseadragon-container,
@@ -4512,6 +4516,8 @@ body.modal-open, body.modal-open main {
     #facscontent {
       transform: scale(1.9);
       transform-origin: top;
+      // transform doesn't grow the layout box, so reserve the visual overhang below it
+      margin-bottom: calc(var(--facs-base-height) * 0.9) !important;
 
       // Force OpenSeadragon to respect container dimensions
       .openseadragon-container,
