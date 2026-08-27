@@ -105,6 +105,14 @@ async function main() {
 	}
 }
 
+// #textcontent occasionally isn't in the DOM yet right after
+// domcontentloaded (e.g. a slow connection still fetching/hydrating it), not
+// because the page genuinely lacks one — worth a few delayed re-checks before
+// giving up. No Absatz may silently go missing from the reading edition, so
+// exhausting these retries aborts the whole build rather than skipping it.
+const MAX_TEXTCONTENT_ATTEMPTS = 5;
+const TEXTCONTENT_RETRY_DELAY_MS = 2000;
+
 // --- Phase 1: collect each source page's #textcontent fragment + its hidden
 // pagebreak short-info entries, one browser context per page (mirrors
 // generate-pdfs.mjs's per-page context lifecycle). ---
@@ -118,39 +126,50 @@ async function collectSourcePages(browser) {
 			await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60_000 });
 			await page.evaluate(() => document.fonts.ready);
 
-			const data = await page.evaluate(() => {
-				const textcontent = document.querySelector("#textcontent");
-				if (!textcontent) return null;
-				// Un-hide the short-info entries we'll reuse in the sidebar — they're
-				// normally revealed on hover, not by ?pbs=on. Some also carry a
-				// dynamically-set inline margin-top (the site's own on-page
-				// alignment against their marker's scroll position), which is
-				// meaningless once reused in our own absolutely-positioned sidebar
-				// and would otherwise push them far outside the visible area — the
-				// whole style attribute is dropped, not just display. On
-				// absatz_*.html these also link out to the corresponding
-				// topographical-transcription witness page ("Beginn Seite 1 |
-				// Topographische Umschrift"), which the sidebar must not carry —
-				// that link is stripped here, along with the "| " separator it
-				// leaves dangling.
-				const pbInfos = [...document.querySelectorAll("#infocolumn > div.pagebreaks.pb_signet_background")].map(
-					(el) => {
-						const clone = el.cloneNode(true);
-						clone.removeAttribute("style");
-						clone.querySelector("a")?.remove();
-						const span = clone.querySelector("span") ?? clone;
-						span.innerHTML = span.innerHTML.replace(/\s*\|\s*$/, "");
-						const pageNumber = span.textContent.match(/Beginn Seite\s*\[?(\d+[a-zA-Z]?)\]?/)?.[1] ?? null;
-						return { id: el.dataset.xmlid, html: clone.outerHTML, pageNumber };
-					},
-				);
-				const firstMarker = textcontent.querySelector("span.pagebreaks.entity[id]");
-				const pbsActive = !firstMarker || getComputedStyle(firstMarker).display !== "none";
-				return { html: textcontent.innerHTML, pbInfos, pbsActive };
-			});
+			let data = null;
+			for (let attempt = 1; attempt <= MAX_TEXTCONTENT_ATTEMPTS; attempt++) {
+				data = await page.evaluate(() => {
+					const textcontent = document.querySelector("#textcontent");
+					if (!textcontent) return null;
+					// Un-hide the short-info entries we'll reuse in the sidebar — they're
+					// normally revealed on hover, not by ?pbs=on. Some also carry a
+					// dynamically-set inline margin-top (the site's own on-page
+					// alignment against their marker's scroll position), which is
+					// meaningless once reused in our own absolutely-positioned sidebar
+					// and would otherwise push them far outside the visible area — the
+					// whole style attribute is dropped, not just display. On
+					// absatz_*.html these also link out to the corresponding
+					// topographical-transcription witness page ("Beginn Seite 1 |
+					// Topographische Umschrift"), which the sidebar must not carry —
+					// that link is stripped here, along with the "| " separator it
+					// leaves dangling.
+					const pbInfos = [...document.querySelectorAll("#infocolumn > div.pagebreaks.pb_signet_background")].map(
+						(el) => {
+							const clone = el.cloneNode(true);
+							clone.removeAttribute("style");
+							clone.querySelector("a")?.remove();
+							const span = clone.querySelector("span") ?? clone;
+							span.innerHTML = span.innerHTML.replace(/\s*\|\s*$/, "");
+							const pageNumber = span.textContent.match(/Beginn Seite\s*\[?(\d+[a-zA-Z]?)\]?/)?.[1] ?? null;
+							return { id: el.dataset.xmlid, html: clone.outerHTML, pageNumber };
+						},
+					);
+					const firstMarker = textcontent.querySelector("span.pagebreaks.entity[id]");
+					const pbsActive = !firstMarker || getComputedStyle(firstMarker).display !== "none";
+					return { html: textcontent.innerHTML, pbInfos, pbsActive };
+				});
+				if (data) break;
+				if (attempt < MAX_TEXTCONTENT_ATTEMPTS) {
+					console.warn(
+						`[warn] ${file}: no #textcontent found (attempt ${attempt}/${MAX_TEXTCONTENT_ATTEMPTS}) — retrying in ${TEXTCONTENT_RETRY_DELAY_MS}ms`,
+					);
+					await page.waitForTimeout(TEXTCONTENT_RETRY_DELAY_MS);
+				}
+			}
 			if (!data) {
-				console.warn(`[warn] ${file}: no #textcontent found — skipping`);
-				continue;
+				throw new Error(
+					`${file}: no #textcontent found after ${MAX_TEXTCONTENT_ATTEMPTS} attempts — aborting (no Absatz may be silently skipped)`,
+				);
 			}
 			if (!data.pbsActive) {
 				throw new Error(
