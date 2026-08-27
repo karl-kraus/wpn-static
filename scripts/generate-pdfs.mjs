@@ -29,7 +29,7 @@ const OUT_DIR = path.join(ROOT, "pdf-output");
 const OVERRIDES_PATH = path.join(__dirname, "pdf-page-overrides.json");
 const COVER_INFO_PATH = path.join(__dirname, "pdf-cover-info.json");
 
-const BASE_URL = (process.env.PDF_BASE_URL ?? "https://karl-kraus.github.io/wpn-static-dev").replace(/\/$/, "");
+const BASE_URL = (process.env.PDF_BASE_URL ?? "https://kraus1933.acdh.oeaw.ac.at").replace(/\/$/, "");
 
 // Sanity cap for automatic page growth, per edge. Real margin-note overflow
 // observed so far is a few cm; anything far beyond this is treated as a

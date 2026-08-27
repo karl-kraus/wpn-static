@@ -27,7 +27,7 @@ const OUT_DIR = path.join(ROOT, "pdf-output");
 const OUT_PATH = path.join(OUT_DIR, process.env.PDF_LESEFASSUNG_OUT ?? "Lesefassung.pdf");
 const COVER_INFO_PATH = path.join(__dirname, "pdf-cover-info.json");
 
-const BASE_URL = (process.env.PDF_BASE_URL ?? "https://karl-kraus.github.io/wpn-static-dev").replace(/\/$/, "");
+const BASE_URL = (process.env.PDF_BASE_URL ?? "https://kraus1933.acdh.oeaw.ac.at").replace(/\/$/, "");
 
 // motto.html, then absatz_1.html .. absatz_64.html, per the site's own
 // wpn-pagination dropdown on motto.html.
