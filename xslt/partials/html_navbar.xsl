@@ -149,7 +149,7 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'wit-DfeH-0001.html'"/>
+                                                        <xsl:with-param name="href" select="'wit-DfeH-0001r.html'"/>
                                                         <xsl:with-param name="label" select="'Druckfahnen – ‚Jerusalemer Konvolut‘'"/>
                                                         <xsl:with-param name="level" select="'level2 ps-2 fs-9'"/>
                                                     </xsl:call-template>

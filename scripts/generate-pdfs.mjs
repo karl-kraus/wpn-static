@@ -50,7 +50,7 @@ const A4_HEIGHT_PX = (297 / 25.4) * 96;
 const LEGEND_PAGE_MARGIN_PX = (1.5 / 2.54) * 96; // 1.5cm, matching the cover page's logo padding
 
 const WITNESSES = [
-	{ name: "DfeH", startUrl: `${BASE_URL}/wit-DfeH-0001.html` },
+	{ name: "DfeH", startUrl: `${BASE_URL}/wit-DfeH-0001r.html` },
 	{ name: "TFragment2", startUrl: `${BASE_URL}/wit-TFragment2-0229r.html` },
 	{ name: "HMotto", startUrl: `${BASE_URL}/wit-HMotto-0001r.html` },
 	{ name: "DfMotto", startUrl: `${BASE_URL}/wit-DfMotto-0001r.html` },
