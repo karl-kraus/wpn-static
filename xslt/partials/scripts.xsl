@@ -10,7 +10,7 @@
             <xsl:map-entry key="'ereignisse.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'edition.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'annotierte_lesefassung.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
-            <xsl:map-entry key="'topographical.xml'" select="('wpn-header','wpn-toggle-text-button','wpn-scroll-button')"/>
+            <xsl:map-entry key="'topographisch.xml'" select="('wpn-header','wpn-toggle-text-button','wpn-scroll-button')"/>
             <xsl:map-entry key="'visualisierungen.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'impressum.xml'" select="('wpn-header','wpn-toggle-text-button')"/>
             <xsl:map-entry key="'nutzungsbedingungen.xml'" select="('wpn-header','wpn-toggle-text-button')"/>

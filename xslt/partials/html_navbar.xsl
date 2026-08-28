@@ -142,7 +142,7 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <xsl:call-template name="nav-link">
-                                                        <xsl:with-param name="href" select="'topographical.html'"/>
+                                                        <xsl:with-param name="href" select="'topographisch.html'"/>
                                                         <xsl:with-param name="label" select="'Die Textträger'"/>
                                                         <xsl:with-param name="level" select="'level1'"/>
                                                     </xsl:call-template>
@@ -335,7 +335,7 @@
                                     <xsl:when test="$document = 'downloads'">Downloads</xsl:when>
                                     <xsl:when test="$document = 'notizen'">Notizen</xsl:when>
                                     <xsl:when test="$document = 'annotierte_lesefassung'">Annotierte Lesefassung</xsl:when>
-                                    <xsl:when test="$document = 'topographical'">Topographische Umschriften</xsl:when>
+                                    <xsl:when test="$document = 'topographisch'">Topographische Umschriften</xsl:when>
                                     <xsl:when test="$document = 'visualisierungen'">Visualisierungen</xsl:when>
                                     <xsl:when test="$document = 'register'">Register</xsl:when>
                                     <xsl:when test="$document = 'kommentar'">Stellenkommentar</xsl:when>
@@ -354,7 +354,7 @@
                             <li class="breadcrumb-item active" aria-current="page">Text</li>
                         </xsl:if>
                         <xsl:if test="contains($document, 'wit-')">
-                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="topographical.html">Topographische Umschriften</a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a class="link-dark-grey text-primary-hover" href="topographisch.html">Topographische Umschriften</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 <xsl:choose>
                                     <xsl:when test="starts-with($document, 'wit-DfeH')">Druckfahnen – ‚Jerusalemer Konvolut‘</xsl:when>

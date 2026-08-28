@@ -122,7 +122,7 @@ for x in tqdm(sorted(files, key=lambda x: os.path.basename(x)), total=len(files)
     # regex to remove non-digit characters
     page_no = int("".join(filter(str.isdigit, rec_id.split("-")[-1])))
     page_str = str("".join(filter(str.isalpha, rec_id.split("-")[-1])))
-    r_title = f"Seite {page_no}{page_str}, {witness_title}"
+    r_title = f"Blatt {page_no}{page_str}, {witness_title}"
     print(r_title)
     record["title"] = f"{r_title}"
     cfts_record["title"] = record["title"]

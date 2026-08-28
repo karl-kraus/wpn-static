@@ -91,7 +91,7 @@
                     </div>
                 </main>
 
-				<!--
+				
                 <div class="modal fade" id="first-visit-info-overlay" tabindex="-1" aria-labelledby="firstVisitOverlayLabel" aria-hidden="true">
 				    <div class="modal-dialog modal-lg modal-dialog-centered">
 				        <div class="modal-content">
@@ -101,7 +101,7 @@
 				            </div>
 				            <div class="modal-body">
 				                <p>Die Darstellung ist derzeit für die Browser Chrome und Edge optimiert.</p>
-				                <h3>Infospalte rechts (bei kleinen Bildschirmen standardmäßig ausgeblendet)</h3>
+				                <h3>Infospalte rechts (bei kleinen Bildschirmen standardmäßig minimiert)</h3>
 				                <p>
 				                    <img src="images/icon-legende-bg.svg" alt="Legende"></img> öffnet die Legende.<br/>
 				                    <img src="images/icon-highlight-bg.svg" alt="Highlighting"></img> aktiviert das Highlighting, das per Mouse-Over Relationen innerhalb der Transkription ausleuchtet (etwa zwischen Korrekturzeichen im Drucktext und Ergänzung am Rand) sowie die zwischen Transkription und Infospalte (zur Identifikation der Bearbeitungsschichten).<br/>
@@ -109,13 +109,13 @@
 				                    <h3>„Bearbeitungsspuren“</h3>
 				                <p>
 				                    Der Eintrag listet die verschiedenen Schreibwerkzeuge und, wo vorhanden, Angaben zu Hand und Zeitpunkt.<br/>
-				                    Darin die Auflistung "Überschreibende Korrekturen" zeigt bei Mouse-Over (und aktiviertem Highlighting) über den jeweiligen Eintrag zur erleichterten Auffindung die Stellen in der Transkription an.<br/>
-				                    Die Auflistung "Markierung für die Fackel Nr. 890-905" listet die 1934 am Textträger für die Übernahme in die Fackel Nr. 890-905 erstellten Markierungen.
+				                    Darin die Auflistung „Überschreibende Korrekturen“ zeigt bei Mouse-Over über dem jeweiligen Eintrag (und aktiviertem Highlighting) zur leichteren Auffindung die Stellen in der Transkription an.<br/>
+				                    Die Auflistung „Markierung für die Fackel Nr. 890-905“ listet die Markierungen, die 1934 für die Übernahme in die Fackel Nr. 890-905 angebracht wurden.
 				                </p>
 				                
 				                <p>
-				                    Hinweise und Feedback gerne an <ref
-				                        target="mailto:bernhard.oberreither@oeaw.ac.at">bernhard.oberreither@oeaw.ac.at</ref>
+				                    Hinweise und Feedback gerne <ref
+				                        target="mailto:bernhard.oberreither@oeaw.ac.at">per Mail</ref>.
 				                </p>
 				            </div>
 				            <div class="modal-footer">
@@ -123,7 +123,7 @@
 				            </div>
 				        </div>
 				    </div>
-				</div>-->
+				</div>
 				
                 <xsl:call-template name="html_footer">
                     <xsl:with-param name="include_scroll_script" select="false()"/>

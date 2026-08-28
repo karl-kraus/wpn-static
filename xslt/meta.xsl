@@ -40,7 +40,7 @@
                                 <a role="button" class="btn btn-outline-black-grey" href="motto.html">Zum Text der Lesefassung</a>
                             </section>
                         </xsl:if>
-                        <xsl:if test="tokenize(base-uri(),'/')[last()] = 'topographical.xml'">
+                        <xsl:if test="tokenize(base-uri(),'/')[last()] = 'topographisch.xml'">
                             <section class="my-5_5 position-relative wpn-card-slider">
                                 <wpn-scroll-button scroll-direction="left" role="button" class="wpn-card-slider-btn wpn-card-slider-btn-left" aria-label="Zurück">&#8249;</wpn-scroll-button>
                                 <div id="scroll-container" class="py-2 wpn-card-slider-track">

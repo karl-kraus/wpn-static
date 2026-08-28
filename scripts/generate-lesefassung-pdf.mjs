@@ -7,7 +7,7 @@
 // line positions in the browser — so paragraphs (Absätze) are not forced onto
 // their own page, they simply continue wherever the previous one ran out of
 // room. A narrow right-hand column repeats the site's own (currently hidden)
-// "Beginn Seite [N] (<Absatz>)" pagebreak labels, aligned to the exact height
+// "Beginn Blatt [N] (<Absatz>)" pagebreak labels, aligned to the exact height
 // of the pagebreak marker they belong to.
 //
 // Usage:  node scripts/generate-lesefassung-pdf.mjs
@@ -139,7 +139,7 @@ async function collectSourcePages(browser) {
 					// and would otherwise push them far outside the visible area — the
 					// whole style attribute is dropped, not just display. On
 					// absatz_*.html these also link out to the corresponding
-					// topographical-transcription witness page ("Beginn Seite 1 |
+					// topographical-transcription witness page ("Beginn Blatt 1 |
 					// Topographische Umschrift"), which the sidebar must not carry —
 					// that link is stripped here, along with the "| " separator it
 					// leaves dangling.
@@ -150,7 +150,7 @@ async function collectSourcePages(browser) {
 							clone.querySelector("a")?.remove();
 							const span = clone.querySelector("span") ?? clone;
 							span.innerHTML = span.innerHTML.replace(/\s*\|\s*$/, "");
-							const pageNumber = span.textContent.match(/Beginn Seite\s*\[?(\d+[a-zA-Z]?)\]?/)?.[1] ?? null;
+							const pageNumber = span.textContent.match(/Beginn Blatt\s*\[?(\d+[a-zA-Z]?)\]?/)?.[1] ?? null;
 							return { id: el.dataset.xmlid, html: clone.outerHTML, pageNumber };
 						},
 					);
