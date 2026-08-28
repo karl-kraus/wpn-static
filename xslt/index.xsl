@@ -121,6 +121,16 @@
                                     <img src="images/card_notizen.png" class="d-block" alt=""/>
                                 </div>
                             </div>
+
+                            <div class="justify-content-stretch col-4 p-md-2_5 col-md-4">
+                                <div class="card rounded-0">
+                                    <div class="card-body border-bottom signet pt-1_5 ps-3 pb-3">
+                                        <h3 class="card-title mt-1"><a href="downloads.html" class="stretched-link text-decoration-none text-blacker-grey">Downloads</a></h3>
+                                        <p class="card-subtitle text-black-grey">Projektdaten als XML und PDF</p>
+                                    </div>
+                                    <img src="images/card_downloads.png" class="d-block" alt=""/>
+                                </div>
+                            </div>
                             
                         </div>
                     </section>
@@ -202,7 +212,7 @@
     <xsl:template match="tei:ref">
         <xsl:choose>
             <xsl:when test="starts-with(data(@target), 'http') or starts-with(data(@target), 'mailto')">
-                <a>
+                <a  class="text-primary text-decoration-none ff-ubuntu">
                     <xsl:attribute name="href"><xsl:value-of select="@target"/></xsl:attribute>
                     <xsl:value-of select="."/>
                 </a>

@@ -157,7 +157,7 @@
                                             <xsl:value-of select="concat(string-join(($id/tei:institution, $id/tei:collection, $id/tei:idno[@type='signature']), ', '), '.')"/>
                                             <xsl:if test="$id/tei:idno[@type='URN']">
                                                 <xsl:text> </xsl:text>
-                                                <a href="{$id/tei:idno[@type='URN']}" target="_blank">(Link)</a>
+                                                <a class="text-primary text-decoration-none ff-ubuntu" href="{$id/tei:idno[@type='URN']}" target="_blank">(Link)</a>
                                             </xsl:if>
                                         </p>
                                         
