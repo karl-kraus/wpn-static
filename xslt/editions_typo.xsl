@@ -111,7 +111,9 @@
 				                    Der Eintrag listet die verschiedenen Schreibwerkzeuge und, wo vorhanden, Angaben zu Hand und Zeitpunkt.<br/>
 				                    Darin die Auflistung „Überschreibende Korrekturen“ zeigt bei Mouse-Over über dem jeweiligen Eintrag (und aktiviertem Highlighting) zur leichteren Auffindung die Stellen in der Transkription an.<br/>
 				                    Die Auflistung „Markierung für die Fackel Nr. 890–905“ listet die Markierungen, die 1934 für die Übernahme in die Fackel Nr. 890–905 angebracht wurden.
-				                </p>
+				                <br/></p>
+                                <p>Feedback und Anmerkungen werden gerne <a  class="text-primary text-decoration-none ff-ubuntu" href="mailto:bernhard.oberreither@oeaw.ac.at">per E-Mail</a> 
+                                entgegengenommen.</p>
 				                
 				                
 				            </div>
