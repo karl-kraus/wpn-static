@@ -166,6 +166,10 @@
                                             </svg>
                                         </a>
                                     </div>
+                                    </div>
+                            </section>
+                            <section class="my-5_5">
+                                <div class="row g-3">
                                     <div class="col-12 col-md-6">
                                         <a role="button" class="btn btn-outline-black-grey d-flex text-start justify-content-between align-items-center w-100" href="https://github.com/karl-kraus/wpn-static/releases/download/v0.9-beta/DfeH.pdf" download="DfeH.pdf">
                                             <span><span class="text-primary">PDF</span> Df(eH) – ‚Jerusalemer Konvolut‘</span>
